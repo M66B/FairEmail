@@ -41,15 +41,19 @@ import org.jsoup.nodes.Element;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.cert.CertificateException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -60,6 +64,10 @@ import java.util.concurrent.ExecutorService;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLProtocolException;
 
 public class ContactInfo {
     private String email;
@@ -77,7 +85,8 @@ public class ContactInfo {
             Helper.getBackgroundExecutor(1, "contact");
 
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
-    private static final int FAVICON_TIMEOUT = 15 * 1000; // milliseconds
+    private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
 
@@ -295,9 +304,31 @@ public class ContactInfo {
                         else
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
-                        info.bitmap = getFavicon(new URL("https://" + domain));
-                        if (info.bitmap == null)
-                            info.bitmap = getFavicon(new URL("https://www." + domain));
+                        URL base = new URL("https://" + domain);
+                        try {
+                            info.bitmap = getFavicon(new URL(base, "favicon.ico"));
+                        } catch (IOException ex) {
+                            if (isTransient(ex))
+                                throw ex;
+                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                        }
+                        try {
+                            info.bitmap = parseFavicon(base);
+                        } catch (IOException ex) {
+                            if (isTransient(ex))
+                                throw ex;
+                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                        }
+
+                        URL www = new URL("https://www." + domain);
+                        try {
+                            info.bitmap = getFavicon(new URL(www, "favicon.ico"));
+                        } catch (IOException ex) {
+                            if (isTransient(ex))
+                                throw ex;
+                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                        }
+                        info.bitmap = parseFavicon(www);
 
                         // Add to cache
                         if (info.bitmap != null)
@@ -306,14 +337,16 @@ public class ContactInfo {
                             }
                     }
                 } catch (Throwable ex) {
-                    Log.w(ex);
-                } finally {
-                    if (info.bitmap == null)
+                    if (isRecoverable(ex))
+                        Log.w(ex);
+                    else {
+                        Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
                         try {
                             file.createNewFile();
-                        } catch (IOException ex) {
-                            Log.e(ex);
+                        } catch (IOException ex1) {
+                            Log.e(ex1);
                         }
+                    }
                 }
             }
         }
@@ -353,63 +386,49 @@ public class ContactInfo {
         return info;
     }
 
-    private static Bitmap getFavicon(URL base) {
+    private static Bitmap parseFavicon(URL base) throws IOException {
+        Log.i("GET favicon " + base);
+        HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(FAVICON_READ_TIMEOUT);
+        connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
+        connection.setInstanceFollowRedirects(true);
+        connection.connect();
+
+        String response;
         try {
-            try {
-                Bitmap bitmap = _getFavicon(new URL(base, "favicon.ico"));
-                if (bitmap != null)
-                    return bitmap;
-            } catch (IOException ex) {
-                Log.w(ex);
-                if (ex instanceof SocketTimeoutException)
-                    return null;
-            }
-
-            Log.i("GET " + base);
-            HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setReadTimeout(FAVICON_TIMEOUT);
-            connection.setConnectTimeout(FAVICON_TIMEOUT);
-            connection.setInstanceFollowRedirects(true);
-            connection.connect();
-
-            String response;
-            try {
-                response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
-            } finally {
-                connection.disconnect();
-            }
-
-            Document doc = JsoupEx.parse(response);
-
-            Element link = doc.head().select("link[href~=.*\\.(ico|png)]").first();
-            String favicon = (link == null ? null : link.attr("href"));
-
-            if (TextUtils.isEmpty(favicon)) {
-                Element meta = doc.head().select("meta[itemprop=image]").first();
-                favicon = (meta == null ? null : meta.attr("content"));
-            }
-
-            if (!TextUtils.isEmpty(favicon)) {
-                URL url = new URL(base, favicon);
-                if ("https".equals(url.getProtocol()))
-                    return _getFavicon(url);
-            }
-
-            return null;
-        } catch (Throwable ex) {
-            Log.w(ex);
-            return null;
+            // TODO limit read
+            response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+        } finally {
+            connection.disconnect();
         }
+
+        Document doc = JsoupEx.parse(response);
+
+        Element link = doc.head().select("link[href~=.*\\.(ico|png)]").first();
+        String favicon = (link == null ? null : link.attr("href"));
+
+        if (TextUtils.isEmpty(favicon)) {
+            Element meta = doc.head().select("meta[itemprop=image]").first();
+            favicon = (meta == null ? null : meta.attr("content"));
+        }
+
+        if (!TextUtils.isEmpty(favicon)) {
+            URL url = new URL(base, favicon);
+            if ("https".equals(url.getProtocol()))
+                return getFavicon(url);
+        }
+
+        return null;
     }
 
-    private static Bitmap _getFavicon(URL url) throws IOException {
+    private static Bitmap getFavicon(URL url) throws IOException {
         Log.i("GET favicon " + url);
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setReadTimeout(FAVICON_TIMEOUT);
-        connection.setConnectTimeout(FAVICON_TIMEOUT);
+        connection.setReadTimeout(FAVICON_READ_TIMEOUT);
+        connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
         connection.setInstanceFollowRedirects(true);
         connection.connect();
 
@@ -418,6 +437,25 @@ public class ContactInfo {
         } finally {
             connection.disconnect();
         }
+    }
+
+    private static boolean isTransient(Throwable ex) {
+        return (ex instanceof UnknownHostException ||
+                ex instanceof SocketTimeoutException);
+    }
+
+    private static boolean isRecoverable(Throwable ex) {
+        return !(ex instanceof SocketTimeoutException ||
+                ex instanceof ConnectException ||
+                ex instanceof FileNotFoundException ||
+                ex instanceof SSLPeerUnverifiedException ||
+                (ex instanceof SSLException &&
+                        "Unable to parse TLS packet header".equals(ex.getMessage())) ||
+                (ex instanceof SSLHandshakeException &&
+                        "connection closed".equals(ex.getMessage())) ||
+                (ex instanceof SSLHandshakeException &&
+                        (ex.getCause() instanceof CertificateException ||
+                                ex.getCause() instanceof SSLProtocolException)));
     }
 
     static void init(final Context context) {
