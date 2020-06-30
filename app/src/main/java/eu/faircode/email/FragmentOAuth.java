@@ -384,6 +384,9 @@ public class FragmentOAuth extends FragmentBase {
                 String personal = args.getString("personal");
                 String address = args.getString("address");
 
+                EmailProvider provider = EmailProvider.getProvider(context, id);
+                String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
+
                 if (jwt != null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens
                     String[] segments = jwt.split("\\.");
@@ -394,8 +397,20 @@ public class FragmentOAuth extends FragmentBase {
                             JSONObject jpayload = new JSONObject(payload);
                             if (jpayload.has("email")) {
                                 String email = jpayload.getString("email");
-                                if (!TextUtils.isEmpty(email))
-                                    address = email;
+                                if (!TextUtils.isEmpty(email) && !email.equals(address)) {
+                                    try (EmailService iservice = new EmailService(
+                                            context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                                        iservice.connect(
+                                                provider.imap.host, provider.imap.port,
+                                                EmailService.AUTH_TYPE_OAUTH, provider.id,
+                                                email, state,
+                                                null, null);
+                                        address = email;
+                                        Log.i("jwt email=" + email);
+                                    } catch (Throwable ex) {
+                                        Log.w(ex);
+                                    }
+                                }
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
@@ -418,12 +433,9 @@ public class FragmentOAuth extends FragmentBase {
                 for (Pair<String, String> identity : identities)
                     Log.i("OAuth identity=" + identity.first + "/" + identity.second);
 
-                EmailProvider provider = EmailProvider.getProvider(context, id);
-
                 List<EntityFolder> folders;
 
                 Log.i("OAuth checking IMAP provider=" + provider.id);
-                String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                 try (EmailService iservice = new EmailService(
                         context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
