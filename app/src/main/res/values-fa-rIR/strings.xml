@@ -283,6 +283,10 @@
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
+    <string name="title_advanced_text_color">استفاده از رنگ‌های متن</string>
+    <string name="title_advanced_text_size">استفاده از اندازه متن</string>
+    <string name="title_advanced_text_font">استفاده از قلم‌ها</string>
+    <string name="title_advanced_text_align">استفاده از چیدمان متن</string>
     <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
@@ -417,6 +421,7 @@
     <string name="title_primary">اصلی</string>
     <string name="title_primary_account">اصلی (حساب پیش فرض)</string>
     <string name="title_primary_identity">اصلی (هویت پیش فرض)</string>
+    <string name="title_self_identity">حذف نشانی ایمیل هنگام پاسخ</string>
     <string name="title_leave_on_server">رها کردن پیام‌ها روی سرور</string>
     <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
     <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
@@ -433,6 +438,7 @@
     <string name="title_no_password">گذرواژه موجود نیست</string>
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_no_primary_drafts">عدم وجود حساب اصلی یا پوشه پیش‌نویس‌ها</string>
+    <string name="title_no_standard">فراهم‌کننده از پروتکل اختصاصی استفاده می‌کند برای همین استفاده از کارخواه‌های شخص سوم ممکن نیست</string>
     <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
     <string name="title_no_sync">خطای همگام سازی از %1$s</string>
@@ -442,6 +448,7 @@
     <string name="title_edit_html">ویرایش به‌صورت HTML</string>
     <string name="title_sign_key">کلید امضا: %1$s</string>
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
+    <string name="title_storage_quota">استفاده از حافظه سرور: %1$s/%2$s</string>
     <string name="title_oauth_support">OAuth پشتیبانی نمی‌شود</string>
     <string name="title_review">بازبینی</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
@@ -510,6 +517,7 @@
     <string name="title_filters_active">یک یا چند فیلتر فعالند</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
     <string name="title_subject_forward">هدایت: %1$s</string>
+    <string name="title_buttons">دکمه‌‌ها</string>
     <string name="title_seen">علامت زدن به عنوان خوانده شده</string>
     <string name="title_unseen">علامت زدن به عنوان خوانده نشده</string>
     <string name="title_hide">پنهان کردن</string>
@@ -534,6 +542,7 @@
     <string name="title_raw_save">ذخیره پیام خام</string>
     <string name="title_raw_send">ارسال به‌عنوان پیوست</string>
     <string name="title_manage_keywords">مدیریت کلیدواژه‌ها</string>
+    <string name="title_manage_labels">مدیریت برچسب‌های Gmail</string>
     <string name="title_add_keyword">افزودن کلیدواژه</string>
     <string name="title_show_inline">نمایش پیوست های درون خطی</string>
     <string name="title_download_all">دانلود همه</string>
@@ -547,6 +556,9 @@
     <string name="title_more">بیشتر</string>
     <string name="title_spam">هرزنامه</string>
     <string name="title_move">انتقال</string>
+    <string name="title_copy_btn">روگرفت</string>
+    <string name="title_unsubscribe">لغو اشتراک</string>
+    <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>
     <string name="title_move_to">انتقال به &#8230;</string>
     <string name="title_move_to_folder">انتقال به &#8230;</string>
@@ -889,6 +901,7 @@
     <string name="title_legend_avatar">اواتار</string>
     <string name="title_legend_show_quotes">نمایش نقل قول‌ها</string>
     <string name="title_legend_show_junk">برخورد به‌عنوان هرزنامه</string>
+    <string name="title_legend_create_rule">ساخت قانون</string>
     <string name="title_legend_show_unsubscribe">لغو اشتراک از لیست</string>
     <string name="title_legend_show_images">نمایش تصاویر</string>
     <string name="title_legend_show_full">مشاهده پیام اصلی</string>

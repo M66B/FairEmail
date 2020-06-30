@@ -279,6 +279,7 @@
     <string name="title_advanced_color_stripe">Afficher la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_gravatars">Afficher les Gravatars</string>
+    <string name="title_advanced_favicons">Afficher l\'icône des sites web</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées automatiquement</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>

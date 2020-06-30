@@ -267,6 +267,7 @@
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
+    <string name="title_advanced_favicons">显示网站图标。</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
@@ -501,6 +502,7 @@
     <string name="title_primary">主要的</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>
+    <string name="title_self_identity">回复时删除电子邮件地址</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_leave_deleted">将删除的消息保留在服务器上</string>
     <string name="title_leave_on_device">把消息留在设备上</string>

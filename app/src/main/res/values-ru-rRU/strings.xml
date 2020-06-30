@@ -301,6 +301,7 @@
     <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_gravatars">Показывать Граватары</string>
+    <string name="title_advanced_favicons">Показывать значки сайтов</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
     <string name="title_advanced_circular">Использовать круглые значки</string>

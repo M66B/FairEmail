@@ -278,6 +278,7 @@
     <string name="title_advanced_color_stripe">Visa färgrand</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_gravatars">Visa Gravatars</string>
+    <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
@@ -512,6 +513,7 @@
     <string name="title_primary">Primär</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
+    <string name="title_self_identity">Ta bort e-postadresser vid svar</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>

@@ -277,6 +277,7 @@
     <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_gravatars">Näytä Gravatarit</string>
+    <string name="title_advanced_favicons">Näytä sivustokuvakkeet</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
@@ -301,7 +302,13 @@
     <string name="title_advanced_preview_lines">Esikatselurivien lukumäärä</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
+    <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
+    <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
+    <string name="title_advanced_text_color">Käytä tekstin värejä</string>
+    <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
+    <string name="title_advanced_text_font">Käytä kirjasimia</string>
+    <string name="title_advanced_text_align">Käytä tekstin tasausta</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
@@ -505,6 +512,7 @@
     <string name="title_primary">Ensisijainen</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
+    <string name="title_self_identity">Poista sähköpostiosoite vastatessa</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
     <string name="title_leave_deleted">Jätä poistetut viestit palvelimelle</string>
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
@@ -758,6 +766,9 @@
     <string name="title_style_size_small">Pieni</string>
     <string name="title_style_size_medium">Keskikokoinen</string>
     <string name="title_style_size_large">Suuri</string>
+    <string name="title_style_font">Kirjasin</string>
+    <string name="title_style_font_default">Oletus</string>
+    <string name="title_style_color">Väri &#8230;</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_add_image">Lisää kuva</string>
@@ -1023,6 +1034,7 @@
     <string name="title_legend_bold">Lihavoi teksti</string>
     <string name="title_legend_italic">Kursivoi teksti</string>
     <string name="title_legend_underline">Alleviivaa teksti</string>
+    <string name="title_legend_text_style">Aseta tekstin tyyli</string>
     <string name="title_legend_metered">Yhteys on käytön mukaan laskutettava</string>
     <string name="title_legend_unmetered">Yhteys ei ole käytön mukaan laskutettava</string>
     <string name="title_legend_roaming">Verkkovierailu</string>
@@ -1301,5 +1313,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Kursivoitu</item>
+        <item>Serif</item>
+        <item>Sans Serif</item>
+        <item>Tasavälinen</item>
     </string-array>
 </resources>

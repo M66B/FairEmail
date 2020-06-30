@@ -300,6 +300,7 @@
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
+    <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
@@ -534,6 +535,7 @@
     <string name="title_primary">Podstawowy</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
+    <string name="title_self_identity">Usuń adres e-mail podczas odpowiedzi</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
