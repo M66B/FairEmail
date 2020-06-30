@@ -36,12 +36,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,7 +54,9 @@ import androidx.lifecycle.Lifecycle;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
@@ -85,6 +89,10 @@ public class FragmentPop extends FragmentBase {
     private CheckBox cbLeaveDevice;
     private EditText etMax;
     private EditText etInterval;
+
+    private ArrayAdapter<EntityFolder> adapterSwipe;
+    private Spinner spLeft;
+    private Spinner spRight;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -140,6 +148,9 @@ public class FragmentPop extends FragmentBase {
         cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etMax = view.findViewById(R.id.etMax);
         etInterval = view.findViewById(R.id.etInterval);
+
+        spLeft = view.findViewById(R.id.spLeft);
+        spRight = view.findViewById(R.id.spRight);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -206,6 +217,12 @@ public class FragmentPop extends FragmentBase {
 
         etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
 
+        adapterSwipe = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, getSwipeActions());
+        adapterSwipe.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+
+        spLeft.setAdapter(adapterSwipe);
+        spRight.setAdapter(adapterSwipe);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -248,6 +265,9 @@ public class FragmentPop extends FragmentBase {
         args.putString("max", etMax.getText().toString());
         args.putString("interval", etInterval.getText().toString());
 
+        args.putLong("left", ((EntityFolder) spLeft.getSelectedItem()).id);
+        args.putLong("right", ((EntityFolder) spRight.getSelectedItem()).id);
+
         new SimpleTask<Boolean>() {
             @Override
             protected void onPreExecute(Bundle args) {
@@ -288,6 +308,9 @@ public class FragmentPop extends FragmentBase {
                 boolean leave_device = args.getBoolean("leave_device");
                 String max = args.getString("max");
                 String interval = args.getString("interval");
+
+                long left = args.getLong("left");
+                long right = args.getLong("right");
 
                 boolean pro = ActivityBilling.isPro(context);
 
@@ -380,6 +403,9 @@ public class FragmentPop extends FragmentBase {
                     account.leave_on_device = leave_device;
                     account.max_messages = (TextUtils.isEmpty(max) ? null : Integer.parseInt(max));
                     account.poll_interval = Math.max(1, Integer.parseInt(interval));
+
+                    account.swipe_left = left;
+                    account.swipe_right = right;
 
                     if (!update)
                         account.created = now;
@@ -564,6 +590,21 @@ public class FragmentPop extends FragmentBase {
                                 ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
+                    List<EntityFolder> folders = getSwipeActions();
+                    for (int pos = 0; pos < folders.size(); pos++) {
+                        EntityFolder folder = folders.get(pos);
+
+                        if (account == null || account.swipe_left == null
+                                ? FragmentAccount.SWIPE_ACTION_DELETE.equals(folder.id)
+                                : account.swipe_left.equals(folder.id))
+                            spLeft.setSelection(pos);
+
+                        if (account == null || account.swipe_right == null
+                                ? FragmentAccount.SWIPE_ACTION_SEEN.equals(folder.id)
+                                : account.swipe_right.equals(folder.id))
+                            spRight.setSelection(pos);
+                    }
+
                     new SimpleTask<EntityAccount>() {
                         @Override
                         protected EntityAccount onExecute(Context context, Bundle args) {
@@ -692,5 +733,36 @@ public class FragmentPop extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:delete");
+    }
+
+    private List<EntityFolder> getSwipeActions() {
+        List<EntityFolder> folders = new ArrayList<>();
+
+        EntityFolder seen = new EntityFolder();
+        seen.id = FragmentAccount.SWIPE_ACTION_SEEN;
+        seen.name = getString(R.string.title_seen);
+        folders.add(seen);
+
+        EntityFolder flag = new EntityFolder();
+        flag.id = FragmentAccount.SWIPE_ACTION_FLAG;
+        flag.name = getString(R.string.title_flag);
+        folders.add(flag);
+
+        EntityFolder snooze = new EntityFolder();
+        snooze.id = FragmentAccount.SWIPE_ACTION_SNOOZE;
+        snooze.name = getString(R.string.title_snooze_now);
+        folders.add(snooze);
+
+        EntityFolder hide = new EntityFolder();
+        hide.id = FragmentAccount.SWIPE_ACTION_HIDE;
+        hide.name = getString(R.string.title_hide);
+        folders.add(hide);
+
+        EntityFolder delete = new EntityFolder();
+        delete.id = FragmentAccount.SWIPE_ACTION_DELETE;
+        delete.name = getString(R.string.title_delete_permanently);
+        folders.add(delete);
+
+        return folders;
     }
 }
