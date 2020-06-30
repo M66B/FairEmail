@@ -387,6 +387,17 @@ public class FragmentOAuth extends FragmentBase {
                 EmailProvider provider = EmailProvider.getProvider(context, id);
                 String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
 
+                if (accessToken != null) {
+                    String[] segments = accessToken.split("\\.");
+                    if (segments.length > 1)
+                        try {
+                            String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
+                            EntityLog.log(context, "token payload=" + payload);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                }
+
                 if (jwt != null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens
                     String[] segments = jwt.split("\\.");
