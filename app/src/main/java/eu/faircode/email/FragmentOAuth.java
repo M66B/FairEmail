@@ -226,6 +226,8 @@ public class FragmentOAuth extends FragmentBase {
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
             }
 
+            etName.setEnabled(false);
+            etEmail.setEnabled(false);
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
@@ -303,6 +305,9 @@ public class FragmentOAuth extends FragmentBase {
 
     private void onHandleOAuth(@NonNull Intent data) {
         try {
+            etName.setEnabled(true);
+            etEmail.setEnabled(true);
+
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
             if (auth == null)
                 throw AuthorizationException.fromIntent(data);
@@ -573,6 +578,8 @@ public class FragmentOAuth extends FragmentBase {
     }
 
     private void onHandleCancel() {
+        etName.setEnabled(true);
+        etEmail.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
     }
@@ -596,6 +603,8 @@ public class FragmentOAuth extends FragmentBase {
                 ex instanceof AuthenticationFailedException)
             tvOfficeAuthHint.setVisibility(View.VISIBLE);
 
+        etName.setEnabled(true);
+        etEmail.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
 
