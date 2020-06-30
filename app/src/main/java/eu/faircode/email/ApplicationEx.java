@@ -280,6 +280,11 @@ public class ApplicationEx extends Application {
                 editor.remove("background_service");
         } else if (version < 1195)
             editor.remove("auto_optimize");
+        else if (version < 1229) {
+            boolean monospaced = prefs.getBoolean("monospaced", false);
+            if (monospaced && !BuildConfig.DEBUG)
+                editor.putBoolean("text_font", false);
+        }
 
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
