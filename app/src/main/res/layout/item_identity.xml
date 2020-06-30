@@ -66,6 +66,17 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/baseline_star_24" />
 
+            <ImageView
+                android:id="@+id/ivGroup"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_legend_primary"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivPrimary"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_people_24" />
+
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
@@ -79,7 +90,7 @@
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/ivSync"
-                app:layout_constraintStart_toEndOf="@id/ivPrimary"
+                app:layout_constraintStart_toEndOf="@id/ivGroup"
                 app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
             <ImageView

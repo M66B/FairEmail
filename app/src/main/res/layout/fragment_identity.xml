@@ -540,13 +540,23 @@
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
         <CheckBox
+            android:id="@+id/cbSelf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_self_identity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
+        <CheckBox
             android:id="@+id/cbSenderExtra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_sender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/cbSelf" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSenderExtra"
@@ -794,7 +804,7 @@
                 tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,btnCertificate,tvCertificate,btnOAuth,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
-                cbSynchronize,cbPrimary,
+                cbSynchronize,cbPrimary,cbSelf,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,cbUnicode" />
 

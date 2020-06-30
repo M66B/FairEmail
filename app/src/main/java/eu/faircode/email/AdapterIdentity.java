@@ -71,6 +71,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private ImageView ivSync;
         private ImageView ivOAuth;
         private ImageView ivPrimary;
+        private ImageView ivGroup;
         private TextView tvName;
         private TextView tvUser;
         private TextView tvHost;
@@ -90,6 +91,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivSync = itemView.findViewById(R.id.ivSync);
             ivOAuth = itemView.findViewById(R.id.ivOAuth);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
+            ivGroup = itemView.findViewById(R.id.ivGroup);
             tvName = itemView.findViewById(R.id.tvName);
             tvUser = itemView.findViewById(R.id.tvUser);
             tvHost = itemView.findViewById(R.id.tvHost);
@@ -119,6 +121,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             ivOAuth.setVisibility(identity.auth_type == EmailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
+            ivGroup.setVisibility(identity.self ? View.GONE : View.VISIBLE);
             tvName.setText(identity.getDisplayName());
             tvUser.setText(identity.email);
 

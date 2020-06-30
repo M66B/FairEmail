@@ -223,7 +223,9 @@ public class EntityMessage implements Serializable {
         if (identities != null)
             for (Address address : new ArrayList<>(addresses))
                 for (TupleIdentityEx identity : identities)
-                    if (identity.account == account && identity.similarAddress(address))
+                    if (identity.account == account &&
+                            identity.self &&
+                            identity.similarAddress(address))
                         addresses.remove(address);
 
         return addresses.toArray(new Address[0]);
