@@ -817,7 +817,8 @@ public class FragmentIdentity extends FragmentBase {
                         !Objects.equals(realm, identityRealm) ||
                         !Objects.equals(fingerprint, identity.fingerprint) ||
                         use_ip != identity.use_ip ||
-                        !Objects.equals(ehlo, identity.ehlo)));
+                        !Objects.equals(ehlo, identity.ehlo) ||
+                        BuildConfig.DEBUG));
                 Log.i("Identity check=" + check);
 
                 Long last_connected = null;
@@ -825,6 +826,7 @@ public class FragmentIdentity extends FragmentBase {
                     last_connected = identity.last_connected;
 
                 // Check SMTP server
+                Integer max_size = null;
                 if (check) {
                     // Create transport
                     String protocol = (starttls ? "smtp" : "smtps");
@@ -836,6 +838,7 @@ public class FragmentIdentity extends FragmentBase {
                                 auth, provider,
                                 user, password,
                                 certificate, fingerprint);
+                        max_size = iservice.getMaxSize();
                     }
                 }
 
@@ -888,6 +891,8 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sign_key_alias = null;
                     identity.error = null;
                     identity.last_connected = last_connected;
+                    if (max_size != null)
+                        identity.max_size = max_size;
 
                     if (identity.primary)
                         db.identity().resetPrimary(account);

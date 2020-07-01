@@ -1037,7 +1037,8 @@ public class FragmentAccount extends FragmentBase {
                         !account.password.equals(password) ||
                         !Objects.equals(account.certificate_alias, certificate) ||
                         !Objects.equals(realm, accountRealm) ||
-                        !Objects.equals(account.fingerprint, fingerprint)));
+                        !Objects.equals(account.fingerprint, fingerprint) ||
+                        BuildConfig.DEBUG));
                 Log.i("Account check=" + check);
 
                 Long last_connected = null;

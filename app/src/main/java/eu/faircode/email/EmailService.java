@@ -634,6 +634,17 @@ public class EmailService implements AutoCloseable {
         return (SMTPTransport) iservice;
     }
 
+    Integer getMaxSize() {
+        SMTPTransport transport = getTransport();
+
+        String size = transport.getExtensionParameter("SIZE");
+        if (!TextUtils.isEmpty(size) && TextUtils.isDigitsOnly(size))
+            return Integer.parseInt(size);
+
+        return null;
+
+    }
+
     boolean hasCapability(String capability) throws MessagingException {
         Store store = getStore();
         if (store instanceof IMAPStore)

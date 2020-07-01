@@ -61,7 +61,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 168,
+        version = 169,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1655,6 +1655,13 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `self` INTEGER NOT NULL DEFAULT 1");
+                    }
+                })
+                .addMigrations(new Migration(168, 169) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `identity` ADD COLUMN `max_size` INTEGER");
                     }
                 });
     }
