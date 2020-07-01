@@ -474,7 +474,7 @@ public class EntityRule {
         automation.putExtra(EXTRA_SENDER, sender);
         automation.putExtra(EXTRA_SUBJECT, message.subject);
 
-        Log.i("Sending " + automation);
+        EntityLog.log(context, "Sending " + automation);
         context.sendBroadcast(automation);
 
         return true;
