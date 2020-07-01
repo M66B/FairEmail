@@ -154,6 +154,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         Configuration config = getResources().getConfiguration();
         final boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+        final boolean portrait2 = prefs.getBoolean("portrait2", false);
         final boolean landscape = prefs.getBoolean("landscape", true);
         final boolean landscape3 = prefs.getBoolean("landscape3", true);
         Log.i("Orientation=" + config.orientation + " normal=" + normal +
@@ -161,7 +162,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         boolean portrait = (config.orientation == ORIENTATION_PORTRAIT || !normal || !landscape);
         view = LayoutInflater.from(this).inflate(portrait
-                ? R.layout.activity_view_portrait
+                ? (portrait2 ? R.layout.activity_view_portrait_split : R.layout.activity_view_portrait)
                 : R.layout.activity_view_landscape, null);
         setContentView(view);
 

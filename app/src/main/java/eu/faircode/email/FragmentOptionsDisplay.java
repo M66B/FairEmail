@@ -60,6 +60,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swCards;
     private SwitchCompat swDate;
     private SwitchCompat swNavBarColorize;
+    private SwitchCompat swPortrait2;
     private SwitchCompat swLandscape;
     private SwitchCompat swLandscape3;
 
@@ -120,7 +121,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAuthentication;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "date", "navbar_colorize", "landscape", "landscape3",
+            "theme", "startup", "cards", "date", "navbar_colorize", "portrait2", "landscape", "landscape3",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
@@ -149,6 +150,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCards = view.findViewById(R.id.swCards);
         swDate = view.findViewById(R.id.swDate);
         swNavBarColorize = view.findViewById(R.id.swNavBarColorize);
+        swPortrait2 = view.findViewById(R.id.swPortrait2);
         swLandscape = view.findViewById(R.id.swLandscape);
         swLandscape3 = view.findViewById(R.id.swLandscape3);
 
@@ -252,6 +254,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 prefs.edit().putBoolean("navbar_colorize", checked).apply();
                 setNavigationBarColor(
                         checked ? Helper.resolveColor(getContext(), R.attr.colorPrimaryDark) : Color.BLACK);
+            }
+        });
+
+        swPortrait2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("portrait2", checked).apply();
             }
         });
 
@@ -748,6 +757,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCards.setChecked(prefs.getBoolean("cards", true));
         swDate.setChecked(prefs.getBoolean("date", true));
         swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
+        swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
         swLandscape.setEnabled(normal);
         swLandscape3.setChecked(prefs.getBoolean("landscape3", false));

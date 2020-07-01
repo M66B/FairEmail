@@ -1,0 +1,47 @@
+<eu.faircode.email.DrawerLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eu.faircode.email.ActivityView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <View
+            android:id="@+id/content_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator" />
+
+        <FrameLayout
+            android:id="@+id/content_pane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/drawer_container"
+        android:layout_width="270dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="?attr/colorDrawerBackground"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/include_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.core.widget.NestedScrollView>
+</eu.faircode.email.DrawerLayoutEx>

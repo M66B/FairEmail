@@ -318,6 +318,7 @@
     <string name="title_advanced_caption_message_header">Message header</string>
     <string name="title_advanced_caption_message_body">Message body</string>
 
+    <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
     <string name="title_advanced_landscape">Use two columns in landscape mode</string>
     <string name="title_advanced_landscape3">Show navigation menu in landscape mode by default</string>
     <string name="title_advanced_startup">Show on start screen</string>
