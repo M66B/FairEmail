@@ -499,6 +499,9 @@ public class ContactInfo {
                         ("connection closed".equals(ex.getMessage())) ||
                         "Connection closed by peer".equals(ex.getMessage())) ||
                 (ex instanceof SSLHandshakeException &&
+                        ex.getMessage() != null &&
+                        ex.getMessage().contains("usually a protocol error")) ||
+                (ex instanceof SSLHandshakeException &&
                         (ex.getCause() instanceof SSLProtocolException ||
                                 ex.getCause() instanceof CertificateException ||
                                 ex.getCause() instanceof CertPathValidatorException)));
