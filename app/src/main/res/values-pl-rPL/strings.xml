@@ -287,6 +287,7 @@
     <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
     <string name="title_advanced_caption_message_body">Treść wiadomości</string>
+    <string name="title_advanced_portrait2">Użyj dwóch rzędów w trybie pionowym</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Domyślnie pokaż menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
@@ -300,7 +301,7 @@
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
-    <string name="title_advanced_favicons">Pokaż favikony</string>
+    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">Pokaż favikony</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>

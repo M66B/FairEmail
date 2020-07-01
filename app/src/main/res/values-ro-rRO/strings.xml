@@ -276,6 +276,7 @@
     <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_caption_message_header">Antet mesaj</string>
     <string name="title_advanced_caption_message_body">Corp mesaj</string>
+    <string name="title_advanced_portrait2">Utilizați două rânduri în modul portret</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
@@ -289,6 +290,7 @@
     <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_gravatars">Arată iconițe de pe Gravatar</string>
+    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">Arată iconițe siteuri</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
@@ -523,6 +525,7 @@
     <string name="title_primary">Primar</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
+    <string name="title_self_identity">Eliminați adresa de e-mail atunci când răspundeți</string>
     <string name="title_leave_on_server">Păstrează mesajele pe server</string>
     <string name="title_leave_deleted">Păstrează pe server mesajele șterse</string>
     <string name="title_leave_on_device">Păstrează mesajele pe dispozitiv</string>
@@ -777,6 +780,7 @@
     <string name="title_style_size_medium">Mediu</string>
     <string name="title_style_size_large">Mare</string>
     <string name="title_style_font">Font</string>
+    <string name="title_style_font_default">Implicit</string>
     <string name="title_style_color">Culoare &#8230;</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
@@ -1323,5 +1327,11 @@
         <item>10 Mo</item>
         <item>20 Mo</item>
         <item>50 Mo</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursiv</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Proporțional</item>
     </string-array>
 </resources>

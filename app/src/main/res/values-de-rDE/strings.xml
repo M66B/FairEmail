@@ -280,7 +280,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
-    <string name="title_advanced_favicons">Favicons anzeigen</string>
+    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">Favicons anzeigen</string>
     <string name="title_advanced_generated_icons">Anfangsbuchstabensymbole anzeigen</string>
     <string name="title_advanced_identicons">Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>

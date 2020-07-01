@@ -279,7 +279,7 @@
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatars</string>
-    <string name="title_advanced_favicons">Mostra icone preferenziali</string>
+    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">Mostra icone preferenziali</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
