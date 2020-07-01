@@ -738,6 +738,11 @@ public class FragmentPop extends FragmentBase {
     private List<EntityFolder> getSwipeActions() {
         List<EntityFolder> folders = new ArrayList<>();
 
+        EntityFolder ask = new EntityFolder();
+        ask.id = FragmentAccount.SWIPE_ACTION_ASK;
+        ask.name = getString(R.string.title_ask_what);
+        folders.add(ask);
+
         EntityFolder seen = new EntityFolder();
         seen.id = FragmentAccount.SWIPE_ACTION_SEEN;
         seen.name = getString(R.string.title_seen);
