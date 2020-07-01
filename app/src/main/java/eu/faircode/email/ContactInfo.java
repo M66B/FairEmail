@@ -55,6 +55,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -495,10 +496,12 @@ public class ContactInfo {
                 (ex instanceof SSLException &&
                         "Unable to parse TLS packet header".equals(ex.getMessage())) ||
                 (ex instanceof SSLHandshakeException &&
-                        "connection closed".equals(ex.getMessage())) ||
+                        ("connection closed".equals(ex.getMessage())) ||
+                        "Connection closed by peer".equals(ex.getMessage())) ||
                 (ex instanceof SSLHandshakeException &&
-                        (ex.getCause() instanceof CertificateException ||
-                                ex.getCause() instanceof SSLProtocolException)));
+                        (ex.getCause() instanceof SSLProtocolException ||
+                                ex.getCause() instanceof CertificateException ||
+                                ex.getCause() instanceof CertPathValidatorException)));
     }
 
     static void init(final Context context) {
