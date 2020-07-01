@@ -268,7 +268,7 @@
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
-    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">显示网站图标。</string>
+    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">显示网页图标</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
@@ -285,7 +285,7 @@
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
     <string name="title_advanced_keywords">在邮件头中显示关键字</string>
-    <string name="title_advanced_labels">在邮件头中显示Gmail标识</string>
+    <string name="title_advanced_labels">在邮件头中显示 Gmail 标签</string>
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_flags_background">显示有色背景而非有色星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
@@ -295,7 +295,7 @@
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
-    <string name="title_advanced_monospaced">默认对消息文本使用等宽字体</string>
+    <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
     <string name="title_advanced_text_size">使用文本大小</string>
     <string name="title_advanced_text_font">使用字体</string>
@@ -503,7 +503,7 @@
     <string name="title_primary">主要的</string>
     <string name="title_primary_account">主账户 (默认帐户)</string>
     <string name="title_primary_identity">主身份(默认身份)</string>
-    <string name="title_self_identity">回复时删除电子邮件地址</string>
+    <string name="title_self_identity">回复时去掉邮件地址</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_leave_deleted">将删除的消息保留在服务器上</string>
     <string name="title_leave_on_device">把消息留在设备上</string>
@@ -1304,9 +1304,9 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="fontNameNames">
-        <item>草书</item>
-        <item>衬线体</item>
-        <item>无衬线体</item>
+        <item>草写体</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
         <item>等宽字体</item>
     </string-array>
 </resources>

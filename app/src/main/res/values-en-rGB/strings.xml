@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_changelog">Changelog</string>
-    <plurals name="page_message">
-        <item quantity="one">Message</item>
-        <item quantity="other">Messages</item>
-    </plurals>
     <string name="tile_synchronize">Synchronise</string>
-    <string name="shortcut_setup">Settings</string>
-    <string name="menu_exit">Exit</string>
-    <string name="menu_answers">Templates</string>
-    <string name="menu_about">About</string>
-    <string name="title_edit_account">Edit account</string>
-    <string name="title_edit_identity">Edit identity</string>
-    <string name="title_edit_folder">Edit folder</string>
-    <string name="title_setup">Settings</string>
-    <string name="title_setup_help">Help</string>
-    <string name="title_setup_quick">Quick setup</string>
-    <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_account_hint">To change colour, swipe left/right target folder, etc</string>
     <string name="title_setup_identity_hint">To change name, colour, signature, etc</string>
     <string name="title_setup_doze">Setup battery optimisations</string>
