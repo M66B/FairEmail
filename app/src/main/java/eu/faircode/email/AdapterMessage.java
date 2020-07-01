@@ -1581,6 +1581,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindAddresses(TupleMessageEx message) {
             boolean show_addresses = properties.getValue("addresses", message.id);
+            boolean full = (show_addresses || name_email);
 
             int froms = (message.from == null ? 0 : message.from.length);
             int tos = (message.to == null ? 0 : message.to.length);
@@ -1588,10 +1589,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             String submitter = MessageHelper.formatAddresses(message.submitter);
             String from = MessageHelper.formatAddresses(message.senders);
-            String to = MessageHelper.formatAddresses(message.to);
+            String to = MessageHelper.formatAddresses(message.to, full, false);
             String replyto = MessageHelper.formatAddresses(message.reply);
-            String cc = MessageHelper.formatAddresses(message.cc);
-            String bcc = MessageHelper.formatAddresses(message.bcc);
+            String cc = MessageHelper.formatAddresses(message.cc, full, false);
+            String bcc = MessageHelper.formatAddresses(message.bcc, full, false);
 
             grpAddresses.setVisibility(View.VISIBLE);
 
