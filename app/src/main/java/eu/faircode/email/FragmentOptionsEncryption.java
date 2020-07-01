@@ -71,6 +71,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swAutoDecrypt;
 
     private Spinner spOpenPgp;
+    private TextView tvOpenPgpStatus;
     private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
 
@@ -106,6 +107,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
 
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
+        tvOpenPgpStatus = view.findViewById(R.id.tvOpenPgpStatus);
         swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
 
@@ -361,19 +363,19 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         if (pgpService != null && pgpService.isBound())
             pgpService.unbindFromService();
 
-        Log.i("PGP binding to " + pkg);
+        tvOpenPgpStatus.setText("PGP binding to " + pkg);
         pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
             @Override
             public void onBound(IOpenPgpService2 service) {
-                Log.i("PGP bound to " + pkg);
+                tvOpenPgpStatus.setText("PGP bound to " + pkg);
             }
 
             @Override
             public void onError(Exception ex) {
                 if ("bindService() returned false!".equals(ex.getMessage()))
-                    Log.i(ex.getMessage());
+                    tvOpenPgpStatus.setText(ex.getMessage());
                 else
-                    Log.e("PGP", ex);
+                    tvOpenPgpStatus.setText(ex.toString());
             }
         });
         pgpService.bindToService();
