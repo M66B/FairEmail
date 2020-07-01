@@ -49,17 +49,21 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.cert.CertificateException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -81,8 +85,11 @@ public class ContactInfo {
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
     private static final Map<String, Avatar> emailGravatar = new HashMap<>();
 
-    private static final ExecutorService executor =
+    private static final ExecutorService executorLookup =
             Helper.getBackgroundExecutor(1, "contact");
+
+    private static final ExecutorService executorFavicon =
+            Helper.getBackgroundExecutor(0, "favicon");
 
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
@@ -133,7 +140,7 @@ public class ContactInfo {
 
         final File dir = new File(context.getCacheDir(), "favicons");
 
-        executor.submit(new Runnable() {
+        executorFavicon.submit(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -305,51 +312,56 @@ public class ContactInfo {
                         else
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
-                        URL base = new URL("https://" + domain);
-                        URL www = new URL("https://www." + domain);
+                        final URL base = new URL("https://" + domain);
+                        final URL www = new URL("https://www." + domain);
 
-                        try {
-                            info.bitmap = parseFavicon(base);
-                        } catch (IOException ex) {
-                            if (ex instanceof SocketTimeoutException)
-                                throw ex;
-                            Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
-                        }
+                        List<Future<Bitmap>> futures = new ArrayList<>();
 
-                        if (info.bitmap == null)
+                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                            @Override
+                            public Bitmap call() throws Exception {
+                                return parseFavicon(base);
+                            }
+                        }));
+
+                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                            @Override
+                            public Bitmap call() throws Exception {
+                                return parseFavicon(www);
+                            }
+                        }));
+
+                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                            @Override
+                            public Bitmap call() throws Exception {
+                                return getFavicon(new URL(base, "favicon.ico"));
+                            }
+                        }));
+
+                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                            @Override
+                            public Bitmap call() throws Exception {
+                                return getFavicon(new URL(www, "favicon.ico"));
+                            }
+                        }));
+
+                        Throwable ex = null;
+                        for (Future<Bitmap> future : futures)
                             try {
-                                info.bitmap = parseFavicon(www);
-                            } catch (IOException ex) {
-                                if (ex instanceof SocketTimeoutException)
-                                    throw ex;
-                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                                info.bitmap = future.get();
+                            } catch (ExecutionException exex) {
+                                ex = exex.getCause();
+                            } catch (Throwable exex) {
+                                ex = exex;
                             }
 
                         if (info.bitmap == null)
-                            try {
-                                info.bitmap = getFavicon(new URL(base, "favicon.ico"));
-                            } catch (IOException ex) {
-                                if (ex instanceof SocketTimeoutException)
-                                    throw ex;
-                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
-                            }
-
-                        if (info.bitmap == null)
-                            try {
-                                info.bitmap = getFavicon(new URL(www, "favicon.ico"));
-                            } catch (IOException ex) {
-                                if (ex instanceof SocketTimeoutException)
-                                    throw ex;
-                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
-                            }
+                            throw ex;
 
                         // Add to cache
-                        if (info.bitmap == null)
-                            throw new FileNotFoundException("decode");
-                        else
-                            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                                info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
-                            }
+                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                            info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
+                        }
                     }
                 } catch (Throwable ex) {
                     if (isRecoverable(ex))
@@ -440,6 +452,7 @@ public class ContactInfo {
         return null;
     }
 
+    @NonNull
     private static Bitmap getFavicon(URL url) throws IOException {
         Log.i("GET favicon " + url);
 
@@ -451,7 +464,11 @@ public class ContactInfo {
         connection.connect();
 
         try {
-            return BitmapFactory.decodeStream(connection.getInputStream());
+            Bitmap bitmap = BitmapFactory.decodeStream(connection.getInputStream());
+            if (bitmap == null)
+                throw new FileNotFoundException("decodeStream");
+            else
+                return bitmap;
         } finally {
             connection.disconnect();
         }
@@ -481,7 +498,7 @@ public class ContactInfo {
                 @Override
                 public void onChange(boolean selfChange, Uri uri) {
                     Log.i("Contact changed uri=" + uri);
-                    executor.submit(new Runnable() {
+                    executorLookup.submit(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -494,7 +511,7 @@ public class ContactInfo {
                 }
             };
 
-            executor.submit(new Runnable() {
+            executorLookup.submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
