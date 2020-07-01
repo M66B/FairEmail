@@ -352,6 +352,8 @@ public class ContactInfo {
                         for (Future<Bitmap> future : futures)
                             try {
                                 info.bitmap = future.get();
+                                if (info.bitmap != null)
+                                    break;
                             } catch (ExecutionException exex) {
                                 ex = exex.getCause();
                             } catch (Throwable exex) {
