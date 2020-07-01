@@ -306,8 +306,10 @@ public class ContactInfo {
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
                         URL base = new URL("https://" + domain);
+                        URL www = new URL("https://www." + domain);
+
                         try {
-                            info.bitmap = getFavicon(new URL(base, "favicon.ico"));
+                            info.bitmap = parseFavicon(base);
                         } catch (IOException ex) {
                             if (ex instanceof SocketTimeoutException)
                                 throw ex;
@@ -316,14 +318,22 @@ public class ContactInfo {
 
                         if (info.bitmap == null)
                             try {
-                                info.bitmap = parseFavicon(base);
+                                info.bitmap = parseFavicon(www);
                             } catch (IOException ex) {
                                 if (ex instanceof SocketTimeoutException)
                                     throw ex;
                                 Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
                             }
 
-                        URL www = new URL("https://www." + domain);
+                        if (info.bitmap == null)
+                            try {
+                                info.bitmap = getFavicon(new URL(base, "favicon.ico"));
+                            } catch (IOException ex) {
+                                if (ex instanceof SocketTimeoutException)
+                                    throw ex;
+                                Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                            }
+
                         if (info.bitmap == null)
                             try {
                                 info.bitmap = getFavicon(new URL(www, "favicon.ico"));
@@ -332,8 +342,6 @@ public class ContactInfo {
                                     throw ex;
                                 Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
                             }
-                        if (info.bitmap == null)
-                            info.bitmap = parseFavicon(www);
 
                         // Add to cache
                         if (info.bitmap == null)
