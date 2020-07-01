@@ -27,6 +27,8 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
@@ -49,6 +51,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
@@ -364,7 +367,7 @@ public class ContactInfo {
                         }
                     }
                 } catch (Throwable ex) {
-                    if (isRecoverable(ex))
+                    if (isRecoverable(ex, context))
                         Log.w(ex);
                     else {
                         Log.e(ex);
@@ -474,7 +477,13 @@ public class ContactInfo {
         }
     }
 
-    private static boolean isRecoverable(Throwable ex) {
+    private static boolean isRecoverable(Throwable ex, Context context) {
+        if (ex instanceof SocketTimeoutException) {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo ni = (cm == null ? null : cm.getActiveNetworkInfo());
+            return (ni == null || !ni.isConnected());
+        }
+
         return !(ex instanceof ConnectException ||
                 (ex instanceof UnknownHostException &&
                         ex.getMessage() != null &&
