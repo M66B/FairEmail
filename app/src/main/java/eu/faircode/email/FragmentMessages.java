@@ -32,6 +32,7 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -97,6 +98,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -307,6 +309,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int MAX_MORE = 100; // messages
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
+    private static final float LUMINANCE_THRESHOLD = 0.7f;
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -4355,8 +4358,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean[] data) {
-                    if (actionbar_color && args.containsKey("color"))
-                        bottom_navigation.setBackgroundColor(args.getInt("color"));
+                    if (actionbar_color && args.containsKey("color")) {
+                        int color = args.getInt("color");
+                        bottom_navigation.setBackgroundColor(color);
+
+                        float lum = (float) ColorUtils.calculateLuminance(color);
+                        if (lum > LUMINANCE_THRESHOLD)
+                            bottom_navigation.setItemIconTintList(ColorStateList.valueOf(Color.BLACK));
+                        else if ((1.0f - lum) > LUMINANCE_THRESHOLD)
+                            bottom_navigation.setItemIconTintList(ColorStateList.valueOf(Color.WHITE));
+                    }
 
                     bottom_navigation.setTag(data[0]);
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[1]);
