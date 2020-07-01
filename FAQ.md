@@ -1840,6 +1840,8 @@ it is not possible to preview which messages would match a header rule condition
 
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
+The POP3 protocol does not support setting keywords and moving or copying messages.
+
 Using rules is a pro feature.
 
 <br />
