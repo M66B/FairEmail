@@ -4424,6 +4424,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent rule = new Intent(ActivityView.ACTION_EDIT_RULE);
             rule.putExtra("account", message.account);
             rule.putExtra("folder", message.folder);
+            rule.putExtra("protocol", message.accountProtocol);
             if (message.from != null && message.from.length > 0)
                 rule.putExtra("sender", ((InternetAddress) message.from[0]).getAddress());
             if (message.to != null && message.to.length > 0)

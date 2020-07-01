@@ -48,6 +48,7 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentRules extends FragmentBase {
     private long account;
     private long folder;
+    private int protocol;
 
     private boolean cards;
 
@@ -68,6 +69,7 @@ public class FragmentRules extends FragmentBase {
         Bundle args = getArguments();
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
+        protocol = args.getInt("protocol", -1);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
@@ -107,6 +109,7 @@ public class FragmentRules extends FragmentBase {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putLong("folder", folder);
+                args.putInt("protocol", protocol);
 
                 FragmentRule fragment = new FragmentRule();
                 fragment.setArguments(args);
@@ -139,7 +142,7 @@ public class FragmentRules extends FragmentBase {
                 if (rules == null)
                     rules = new ArrayList<>();
 
-                adapter.set(rules);
+                adapter.set(protocol, rules);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

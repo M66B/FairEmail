@@ -1840,8 +1840,6 @@ it is not possible to preview which messages would match a header rule condition
 
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
-Rules are available for IMAP accounts only because the POP3 protocol allows downloading and permanently deleting messages from the inbox only.
-
 Using rules is a pro feature.
 
 <br />

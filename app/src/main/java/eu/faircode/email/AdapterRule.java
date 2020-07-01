@@ -66,6 +66,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private int protocol = -1;
     private List<TupleRuleEx> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -192,7 +193,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     new Intent(ActivityView.ACTION_EDIT_RULE)
                             .putExtra("id", rule.id)
                             .putExtra("account", rule.account)
-                            .putExtra("folder", rule.folder));
+                            .putExtra("folder", rule.folder)
+                            .putExtra("protocol", protocol));
         }
 
         @Override
@@ -215,8 +217,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
             popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 3, R.string.title_reset);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 4, R.string.title_move_to_folder);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
+            if (protocol == EntityAccount.TYPE_IMAP) {
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 4, R.string.title_move_to_folder);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
+            }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -378,6 +382,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                     .putExtra("id", rule.id)
                                     .putExtra("account", rule.account)
                                     .putExtra("folder", rule.folder)
+                                    .putExtra("protocol", protocol)
                                     .putExtra("copy", true));
                 }
             });
@@ -405,8 +410,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         });
     }
 
-    public void set(@NonNull List<TupleRuleEx> rules) {
-        Log.i("Set rules=" + rules.size());
+    public void set(int protocol, @NonNull List<TupleRuleEx> rules) {
+        this.protocol = protocol;
+        Log.i("Set protocol=" + protocol + " rules=" + rules.size());
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, rules), false);
 

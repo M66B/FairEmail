@@ -158,6 +158,7 @@ public class FragmentRule extends FragmentBase {
     private long copy = -1;
     private long account = -1;
     private long folder = -1;
+    private int protocol = -1;
 
     private final static int MAX_CHECK = 10;
 
@@ -180,6 +181,7 @@ public class FragmentRule extends FragmentBase {
             id = args.getLong("id", -1);
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
+        protocol = args.getInt("protocol", EntityAccount.TYPE_IMAP);
     }
 
     @Override
@@ -383,9 +385,11 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
         actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance)));
-        actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
-        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
-        actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
+        if (protocol == EntityAccount.TYPE_IMAP) {
+            actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
+            actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
+            actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
+        }
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
         adapterAction.addAll(actions);

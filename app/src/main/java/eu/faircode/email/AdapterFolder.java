@@ -520,6 +520,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
+            if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
+
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder)
                         .setEnabled(folder.inferiors);
@@ -725,7 +728,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", folder.account)
-                                    .putExtra("folder", folder.id));
+                                    .putExtra("folder", folder.id)
+                                    .putExtra("protocol", folder.accountProtocol));
                 }
 
                 private void onActionEditProperties() {

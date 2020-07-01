@@ -1689,6 +1689,8 @@ class Core {
             return;
         }
 
+        List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
@@ -1843,8 +1845,7 @@ class Core {
                                 attachment.id = db.attachment().insertAttachment(attachment);
                             }
 
-                            // No rules
-
+                            runRules(context, imessage, account, folder, message, rules);
                             reportNewMessage(context, account, folder, message);
 
                             db.setTransactionSuccessful();
