@@ -5,10 +5,6 @@
         android:title="@string/title_buttons">
         <menu>
             <item
-                android:id="@+id/menu_button_inbox"
-                android:checkable="true"
-                android:title="@string/title_folder_inbox" />
-            <item
                 android:id="@+id/menu_button_junk"
                 android:checkable="true"
                 android:title="@string/title_spam" />
