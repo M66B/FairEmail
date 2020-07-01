@@ -347,7 +347,7 @@ public class ContactInfo {
                     if (isRecoverable(ex))
                         Log.w(ex);
                     else {
-                        Log.i("Favicon ex=" + ex.getClass().getName() + " " + ex.getMessage());
+                        Log.e(ex);
                         try {
                             file.createNewFile();
                         } catch (IOException ex1) {
