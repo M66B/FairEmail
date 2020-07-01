@@ -508,6 +508,7 @@ public class EmailService implements AutoCloseable {
                     }
                 } catch (MessagingException ex) {
                     Log.w(ex);
+                    // Check for 'User is authenticated but not connected'
                     if (require_id)
                         throw ex;
                 }
