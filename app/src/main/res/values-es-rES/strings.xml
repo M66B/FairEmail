@@ -280,6 +280,7 @@
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
+    <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
@@ -304,8 +305,9 @@
     <string name="title_advanced_preview_lines">Número de líneas de vista previa</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
+    <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
-    <string name="title_advanced_monospaced">Usar fuente monospaciada para el texto del mensaje por defecto</string>
+    <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
     <string name="title_advanced_text_color">Usar colores de texto</string>
     <string name="title_advanced_text_size">Usar tamaños de texto</string>
     <string name="title_advanced_text_font">Usar fuentes</string>
@@ -513,6 +515,7 @@
     <string name="title_primary">Primario</string>
     <string name="title_primary_account">Primaria (cuenta predeterminada)</string>
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
+    <string name="title_self_identity">Eliminar dirección de correo al responder</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
     <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
@@ -767,6 +770,7 @@
     <string name="title_style_size_medium">Mediano</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_font">Fuente</string>
+    <string name="title_style_font_default">Por defecto</string>
     <string name="title_style_color">Color &#8230;</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
@@ -1312,5 +1316,11 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursiva</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monoespaciado</item>
     </string-array>
 </resources>

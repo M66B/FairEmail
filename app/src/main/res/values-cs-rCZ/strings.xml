@@ -301,9 +301,10 @@
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
+    <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
-    <string name="title_advanced_circular">Použít kulaté ikony</string>
+    <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
     <string name="title_advanced_color_saturation">Saturace</string>
     <string name="title_advanced_color_value">Jas</string>
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
@@ -324,7 +325,8 @@
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
     <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
-    <string name="title_advanced_attachments_alt">Přesunout zobrazení příloh pod text zprávy</string>
+    <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
+    <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_text_color">Použít barvy textu</string>
@@ -366,7 +368,7 @@
     <string name="title_advanced_notifications_service">Servisní kanál</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
-    <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
+    <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
     <string name="title_advanced_notify_known">Zobrazit oznámení pouze pro kontakty</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
@@ -534,6 +536,7 @@
     <string name="title_primary">Hlavní</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
+    <string name="title_self_identity">Odebrat e-mailovou adresu při odpovědi</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>

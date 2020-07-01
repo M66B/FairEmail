@@ -279,6 +279,7 @@
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatars</string>
+    <string name="title_advanced_favicons">Mostra icone preferenziali</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
@@ -513,6 +514,7 @@
     <string name="title_primary">Principale</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
     <string name="title_primary_identity">Principale (identità predefinita)</string>
+    <string name="title_self_identity">Rimuovi l\'indirizzo di posta elettronica per la risposta</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
