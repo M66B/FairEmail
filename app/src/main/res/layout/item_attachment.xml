@@ -37,6 +37,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/file_bin" />
 
+        <ImageView
+            android:id="@+id/ivDisposition"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="@id/ivType"
+            app:layout_constraintTop_toTopOf="@+id/ivType"
+            app:srcCompat="@drawable/attachment_disposition" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
@@ -105,13 +114,11 @@
             android:id="@+id/tvError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
             android:text="Error"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivType"
+            app:layout_constraintStart_toStartOf="@id/tvName"
             app:layout_constraintTop_toBottomOf="@id/tvType" />
 
         <ProgressBar

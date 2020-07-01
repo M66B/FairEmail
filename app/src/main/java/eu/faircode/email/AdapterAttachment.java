@@ -49,6 +49,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.mail.Part;
+
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Fragment parentFragment;
 
@@ -65,6 +67,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private View view;
         private ImageButton ibDelete;
         private ImageView ivType;
+        private ImageView ivDisposition;
         private TextView tvName;
         private TextView tvSize;
         private ImageView ivStatus;
@@ -84,6 +87,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             ivStatus = itemView.findViewById(R.id.ivStatus);
             ibSave = itemView.findViewById(R.id.ibSave);
             tvType = itemView.findViewById(R.id.tvType);
+            ivDisposition = itemView.findViewById(R.id.ivDisposition);
             tvError = itemView.findViewById(R.id.tvError);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
@@ -114,6 +118,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             else
                 ivType.setImageResource(resid);
 
+            ivDisposition.setImageLevel(Part.INLINE.equals(attachment.disposition) ? 1 : 0);
+            ivDisposition.setVisibility(
+                    Part.ATTACHMENT.equals(attachment.disposition) ||
+                            Part.INLINE.equals(attachment.disposition)
+                            ? View.VISIBLE : View.INVISIBLE);
+
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
@@ -140,9 +150,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             StringBuilder sb = new StringBuilder();
             sb.append(attachment.type);
-            if (attachment.disposition != null)
-                sb.append(' ').append(attachment.disposition);
             if (debug || BuildConfig.DEBUG) {
+                if (attachment.disposition != null)
+                    sb.append(' ').append(attachment.disposition);
                 if (attachment.cid != null)
                     sb.append(' ').append(attachment.cid);
                 if (attachment.isEncryption())
