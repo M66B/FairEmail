@@ -54,7 +54,7 @@
             android:layout_marginEnd="6dp"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toStartOf="@+id/tvSize"
+            app:layout_constraintEnd_toStartOf="@+id/ivStatus"
             app:layout_constraintHorizontal_weight="4"
             app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,6 +88,7 @@
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
             android:ellipsize="start"
             android:singleLine="true"
             android:text="text/plain"
@@ -101,14 +102,12 @@
             android:id="@+id/tvSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:text="10 kB"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvType"
             app:layout_constraintEnd_toStartOf="@id/ivStatus"
             app:layout_constraintStart_toEndOf="@id/tvType"
-            app:layout_constraintTop_toTopOf="@id/tvName" />
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvError"
