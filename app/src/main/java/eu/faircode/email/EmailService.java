@@ -635,9 +635,13 @@ public class EmailService implements AutoCloseable {
     }
 
     Long getMaxSize() {
+        // https://tools.ietf.org/html/rfc1870
         String size = getTransport().getExtensionParameter("SIZE");
-        if (!TextUtils.isEmpty(size) && TextUtils.isDigitsOnly(size))
-            return Long.parseLong(size);
+        if (!TextUtils.isEmpty(size) && TextUtils.isDigitsOnly(size)) {
+            long s = Long.parseLong(size);
+            if (s != 0) // Not infinite
+                return s;
+        }
 
         return null;
 
