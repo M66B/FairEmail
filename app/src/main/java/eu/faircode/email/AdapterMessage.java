@@ -755,7 +755,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 
                             scale = scale * factor;
-                            String perc = Math.round(scale * 100) + " %";
+                            String perc = Math.round(scale * message_zoom) + " %";
                             if (toast != null)
                                 toast.cancel();
                             toast = ToastEx.makeText(context, perc, Toast.LENGTH_SHORT);

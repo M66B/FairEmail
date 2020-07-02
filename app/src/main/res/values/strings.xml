@@ -358,7 +358,7 @@
     <string name="title_advanced_addresses">Expand address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
-    <string name="title_advanced_message_text_zoom">Default message text zoom (%)</string>
+    <string name="title_advanced_message_text_zoom">Default message text zoom</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text by default</string>
     <string name="title_advanced_text_color">Use text colors</string>

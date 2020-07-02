@@ -624,11 +624,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    int timeout = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
-                    if (timeout == 0)
+                    int zoom = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
+                    if (zoom == 0)
                         prefs.edit().remove("message_zoom").apply();
                     else
-                        prefs.edit().putInt("message_zoom", timeout).apply();
+                        prefs.edit().putInt("message_zoom", zoom).apply();
                 } catch (NumberFormatException ex) {
                     Log.e(ex);
                 }

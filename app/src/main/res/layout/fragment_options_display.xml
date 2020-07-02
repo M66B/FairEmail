@@ -846,6 +846,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessageZoom" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMessageZoomPercentage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/etMessageZoom"
+            app:layout_constraintStart_toEndOf="@id/etMessageZoom"
+            app:layout_constraintTop_toTopOf="@id/etMessageZoom" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swContrast"
             android:layout_width="0dp"
