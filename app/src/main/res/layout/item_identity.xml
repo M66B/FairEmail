@@ -136,13 +136,10 @@
                 android:id="@+id/tvAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:text="account"
-                android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvHost"
                 app:layout_constraintTop_toTopOf="@id/tvHost" />
 
             <eu.faircode.email.FixedTextView
@@ -167,9 +164,19 @@
                 android:singleLine="true"
                 android:text="Last connected time"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvMaxSize"
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvSignKeyId" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvMaxSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="10 MB"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvLast" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvError"

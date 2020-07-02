@@ -79,6 +79,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private TextView tvAccount;
         private TextView tvSignKeyId;
         private TextView tvLast;
+        private TextView tvMaxSize;
         private TextView tvError;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "IdentityPopup");
@@ -99,6 +100,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvAccount = itemView.findViewById(R.id.tvAccount);
             tvSignKeyId = itemView.findViewById(R.id.tvSignKeyId);
             tvLast = itemView.findViewById(R.id.tvLast);
+            tvMaxSize = itemView.findViewById(R.id.tvMaxSize);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -158,7 +160,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvSignKeyId.setVisibility(sb.length() > 0 ? View.VISIBLE : View.GONE);
 
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    identity.last_connected == null ? "-" : DTF.format(identity.last_connected)));
+                    (identity.last_connected == null ? "-" : DTF.format(identity.last_connected))));
+
+            tvMaxSize.setText(identity.max_size == null ? null : Helper.humanReadableByteCount(identity.max_size, true));
+            tvMaxSize.setVisibility(identity.max_size == null ? View.GONE : View.VISIBLE);
 
             tvError.setText(identity.error);
             tvError.setVisibility(identity.error == null ? View.GONE : View.VISIBLE);
