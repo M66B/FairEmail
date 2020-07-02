@@ -49,6 +49,7 @@ import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
+import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -830,7 +831,16 @@ class Core {
             imessage.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(folder.type));
 
         // Add message
-        ifolder.appendMessages(new Message[]{imessage});
+        Long newuid = null;
+        if (istore.hasCapability("UIDPLUS")) {
+            // https://tools.ietf.org/html/rfc4315
+            AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
+            if (uids != null && uids.length > 0 && uids[0].uid > 0) {
+                newuid = uids[0].uid;
+                Log.i(folder.name + " appended uid=" + newuid);
+            }
+        } else
+            ifolder.appendMessages(new Message[]{imessage});
 
         // Delete previous (external) version
         if (message.uid != null) {
@@ -852,7 +862,8 @@ class Core {
 
         if (folder.id.equals(message.folder)) {
             // Some providers do not list the new message yet
-            Long newuid = findUid(ifolder, message.msgid, true);
+            if (newuid == null)
+                newuid = findUid(ifolder, message.msgid, true);
             if (newuid != null && (message.uid == null || newuid > message.uid))
                 try {
                     JSONArray fargs = new JSONArray();
