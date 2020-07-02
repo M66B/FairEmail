@@ -4292,7 +4292,12 @@ public class FragmentCompose extends FragmentBase {
                             Handler handler = new Handler(context.getMainLooper());
                             handler.post(new Runnable() {
                                 public void run() {
-                                    ToastEx.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                                    if (action == R.id.action_undo)
+                                        ToastEx.makeText(getContext(), R.string.title_undo, Toast.LENGTH_LONG).show();
+                                    else if (action == R.id.action_redo)
+                                        ToastEx.makeText(getContext(), R.string.title_redo, Toast.LENGTH_LONG).show();
+                                    else
+                                        ToastEx.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
