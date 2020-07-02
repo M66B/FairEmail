@@ -408,6 +408,7 @@ public class FragmentOAuth extends FragmentBase {
                     String[] segments = jwt.split("\\.");
                     if (segments.length > 1)
                         try {
+                            // https://jwt.ms/
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
                             EntityLog.log(context, "jwt payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
