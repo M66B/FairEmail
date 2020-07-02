@@ -1731,9 +1731,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
                 if (swipes.swipe_right == null)
-                    swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
+                    swipes.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
                 if (swipes.swipe_left == null)
-                    swipes.swipe_left = FragmentAccount.SWIPE_ACTION_DELETE;
+                    swipes.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
             }
 
             Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
@@ -1747,23 +1747,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int size = Helper.dp2pixels(getContext(), 24);
 
             int icon;
-            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
+            if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
                 icon = R.drawable.baseline_list_24;
-            else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 icon = (message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
-            else if (FragmentAccount.SWIPE_ACTION_FLAG.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 icon = (message.ui_flagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
-            else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
-            else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 :
                         (message.ui_snoozed == Long.MAX_VALUE
                                 ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
-            else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.baseline_folder_24;
-            else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action))
                 icon = R.drawable.baseline_report_problem_24;
-            else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
+            else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
                 icon = R.drawable.baseline_delete_forever_24;
@@ -1828,9 +1828,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
                 if (swipes.swipe_right == null)
-                    swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
+                    swipes.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
                 if (swipes.swipe_left == null)
-                    swipes.swipe_left = FragmentAccount.SWIPE_ACTION_DELETE;
+                    swipes.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
             }
 
             Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
@@ -1842,24 +1842,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action)) {
+            if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeAsk(message, viewHolder);
-            } else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+            } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id);
-            else if (FragmentAccount.SWIPE_ACTION_FLAG.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 onActionFlagSelection(!message.ui_flagged, null, message.id);
-            else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 onActionSnooze(message);
-            else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                 onActionHide(message);
-            else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action)) {
+            else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeMove(message);
-            } else if (FragmentAccount.SWIPE_ACTION_JUNK.equals(action)) {
+            } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeJunk(message);
-            } else if (FragmentAccount.SWIPE_ACTION_DELETE.equals(action) ||
+            } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType))) {
                 adapter.notifyItemChanged(pos);

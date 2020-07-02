@@ -165,15 +165,6 @@ public class FragmentAccount extends FragmentBase {
     private static final int REQUEST_SAVE = 2;
     private static final int REQUEST_DELETE = 3;
 
-    static final Long SWIPE_ACTION_ASK = -1L;
-    static final Long SWIPE_ACTION_SEEN = -2L;
-    static final Long SWIPE_ACTION_SNOOZE = -3L;
-    static final Long SWIPE_ACTION_HIDE = -4L;
-    static final Long SWIPE_ACTION_MOVE = -5L;
-    static final Long SWIPE_ACTION_FLAG = -6L;
-    static final Long SWIPE_ACTION_DELETE = -7L;
-    static final Long SWIPE_ACTION_JUNK = -8L;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1774,42 +1765,42 @@ public class FragmentAccount extends FragmentBase {
         folders.add(none);
 
         EntityFolder ask = new EntityFolder();
-        ask.id = SWIPE_ACTION_ASK;
+        ask.id = EntityMessage.SWIPE_ACTION_ASK;
         ask.name = context.getString(R.string.title_ask_what);
         folders.add(ask);
 
         EntityFolder seen = new EntityFolder();
-        seen.id = SWIPE_ACTION_SEEN;
+        seen.id = EntityMessage.SWIPE_ACTION_SEEN;
         seen.name = context.getString(R.string.title_seen);
         folders.add(seen);
 
         EntityFolder flag = new EntityFolder();
-        flag.id = SWIPE_ACTION_FLAG;
+        flag.id = EntityMessage.SWIPE_ACTION_FLAG;
         flag.name = context.getString(R.string.title_flag);
         folders.add(flag);
 
         EntityFolder snooze = new EntityFolder();
-        snooze.id = SWIPE_ACTION_SNOOZE;
+        snooze.id = EntityMessage.SWIPE_ACTION_SNOOZE;
         snooze.name = context.getString(R.string.title_snooze_now);
         folders.add(snooze);
 
         EntityFolder hide = new EntityFolder();
-        hide.id = SWIPE_ACTION_HIDE;
+        hide.id = EntityMessage.SWIPE_ACTION_HIDE;
         hide.name = context.getString(R.string.title_hide);
         folders.add(hide);
 
         EntityFolder move = new EntityFolder();
-        move.id = SWIPE_ACTION_MOVE;
+        move.id = EntityMessage.SWIPE_ACTION_MOVE;
         move.name = context.getString(R.string.title_move);
         folders.add(move);
 
         EntityFolder junk = new EntityFolder();
-        junk.id = SWIPE_ACTION_JUNK;
+        junk.id = EntityMessage.SWIPE_ACTION_JUNK;
         junk.name = context.getString(R.string.title_report_spam);
         folders.add(junk);
 
         EntityFolder delete = new EntityFolder();
-        delete.id = SWIPE_ACTION_DELETE;
+        delete.id = EntityMessage.SWIPE_ACTION_DELETE;
         delete.name = context.getString(R.string.title_delete_permanently);
         folders.add(delete);
 

@@ -91,6 +91,15 @@ public class EntityMessage implements Serializable {
     static final Integer PRIORITIY_NORMAL = 1;
     static final Integer PRIORITIY_HIGH = 2;
 
+    static final Long SWIPE_ACTION_ASK = -1L;
+    static final Long SWIPE_ACTION_SEEN = -2L;
+    static final Long SWIPE_ACTION_SNOOZE = -3L;
+    static final Long SWIPE_ACTION_HIDE = -4L;
+    static final Long SWIPE_ACTION_MOVE = -5L;
+    static final Long SWIPE_ACTION_FLAG = -6L;
+    static final Long SWIPE_ACTION_DELETE = -7L;
+    static final Long SWIPE_ACTION_JUNK = -8L;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull

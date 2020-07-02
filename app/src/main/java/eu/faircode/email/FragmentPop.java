@@ -595,12 +595,12 @@ public class FragmentPop extends FragmentBase {
                         EntityFolder folder = folders.get(pos);
 
                         if (account == null || account.swipe_left == null
-                                ? FragmentAccount.SWIPE_ACTION_DELETE.equals(folder.id)
+                                ? EntityMessage.SWIPE_ACTION_DELETE.equals(folder.id)
                                 : account.swipe_left.equals(folder.id))
                             spLeft.setSelection(pos);
 
                         if (account == null || account.swipe_right == null
-                                ? FragmentAccount.SWIPE_ACTION_SEEN.equals(folder.id)
+                                ? EntityMessage.SWIPE_ACTION_SEEN.equals(folder.id)
                                 : account.swipe_right.equals(folder.id))
                             spRight.setSelection(pos);
                     }
@@ -739,32 +739,32 @@ public class FragmentPop extends FragmentBase {
         List<EntityFolder> folders = new ArrayList<>();
 
         EntityFolder ask = new EntityFolder();
-        ask.id = FragmentAccount.SWIPE_ACTION_ASK;
+        ask.id = EntityMessage.SWIPE_ACTION_ASK;
         ask.name = getString(R.string.title_ask_what);
         folders.add(ask);
 
         EntityFolder seen = new EntityFolder();
-        seen.id = FragmentAccount.SWIPE_ACTION_SEEN;
+        seen.id = EntityMessage.SWIPE_ACTION_SEEN;
         seen.name = getString(R.string.title_seen);
         folders.add(seen);
 
         EntityFolder flag = new EntityFolder();
-        flag.id = FragmentAccount.SWIPE_ACTION_FLAG;
+        flag.id = EntityMessage.SWIPE_ACTION_FLAG;
         flag.name = getString(R.string.title_flag);
         folders.add(flag);
 
         EntityFolder snooze = new EntityFolder();
-        snooze.id = FragmentAccount.SWIPE_ACTION_SNOOZE;
+        snooze.id = EntityMessage.SWIPE_ACTION_SNOOZE;
         snooze.name = getString(R.string.title_snooze_now);
         folders.add(snooze);
 
         EntityFolder hide = new EntityFolder();
-        hide.id = FragmentAccount.SWIPE_ACTION_HIDE;
+        hide.id = EntityMessage.SWIPE_ACTION_HIDE;
         hide.name = getString(R.string.title_hide);
         folders.add(hide);
 
         EntityFolder delete = new EntityFolder();
-        delete.id = FragmentAccount.SWIPE_ACTION_DELETE;
+        delete.id = EntityMessage.SWIPE_ACTION_DELETE;
         delete.name = getString(R.string.title_delete_permanently);
         folders.add(delete);
 
