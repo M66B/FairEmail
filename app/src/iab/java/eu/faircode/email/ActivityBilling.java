@@ -506,19 +506,28 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         if (result == null)
             message = stage;
         else {
-            String debug = result.getDebugMessage();
-            message = getBillingResponseText(result) + (debug == null ? "" : " " + debug) + " " + stage;
+            message = getBillingResponseText(result);
 
-            // https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponse#service_disconnected
-            if (result.getResponseCode() == BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
-                retry(60);
+            String debug = result.getDebugMessage();
+            if (!TextUtils.isEmpty(debug))
+                message += " " + debug;
+
+            message += " " + stage;
         }
 
         EntityLog.log(this, message);
 
-        if (result.getResponseCode() != BillingClient.BillingResponseCode.USER_CANCELED)
-            for (IBillingListener listener : listeners)
-                listener.onError(message);
+        if (result != null) {
+            // https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponse#service_disconnected
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                retry(60);
+
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED)
+                return;
+        }
+
+        for (IBillingListener listener : listeners)
+            listener.onError(message);
     }
 
     private static String getBillingResponseText(BillingResult result) {
