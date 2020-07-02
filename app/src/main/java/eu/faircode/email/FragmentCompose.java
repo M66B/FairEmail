@@ -4093,6 +4093,7 @@ public class FragmentCompose extends FragmentBase {
                     else
                         b = HtmlHelper.sanitizeCompose(context, body, true);
 
+                    int revision = draft.revision; // Save for undo/redo
                     if (dirty ||
                             TextUtils.isEmpty(body) ||
                             !b.body().html().equals(doc.body().html()) ||
@@ -4125,10 +4126,8 @@ public class FragmentCompose extends FragmentBase {
                         body = d.html();
 
                         // Create new revision
-                        if (action != R.id.action_undo && action != R.id.action_redo) {
-                            draft.revisions++;
-                            draft.revision = draft.revisions;
-                        }
+                        draft.revisions++;
+                        draft.revision = draft.revisions;
 
                         Helper.writeText(draft.getFile(context, draft.revision), body);
                     } else
@@ -4136,11 +4135,15 @@ public class FragmentCompose extends FragmentBase {
 
                     if (action == R.id.action_undo || action == R.id.action_redo) {
                         if (action == R.id.action_undo) {
-                            if (draft.revision > 1)
-                                draft.revision--;
+                            if (!dirty && revision > 1)
+                                draft.revision = revision - 1;
+                            else
+                                draft.revision = revision;
                         } else {
-                            if (draft.revision < draft.revisions)
-                                draft.revision++;
+                            if (revision < draft.revisions)
+                                draft.revision = revision + 1;
+                            else
+                                draft.revision = revision;
                         }
 
                         // Restore revision
