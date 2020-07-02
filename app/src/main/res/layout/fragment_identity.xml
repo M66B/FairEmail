@@ -685,6 +685,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBccHint" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMaxSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_max_size"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etMaxSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="5"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMaxSize" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -693,7 +714,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
+            app:layout_constraintTop_toBottomOf="@id/etMaxSize" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -806,7 +827,8 @@
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,cbSelf,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
-                tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,cbUnicode" />
+                tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
+                cbUnicode,tvMaxSize,etMaxSize" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"

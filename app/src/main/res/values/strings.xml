@@ -562,6 +562,7 @@
     <string name="title_advanced_sender_regex">Regex to match username of incoming email addresses</string>
     <string name="title_identity_reply_to">Reply to address</string>
     <string name="title_identity_unicode">Allow Unicode in email addresses</string>
+    <string name="title_identity_max_size">Maximum message size (MB)</string>
     <string name="title_identity_receipt">Request delivery/read receipt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
     <string name="title_optional">Optional</string>
@@ -922,7 +923,7 @@
     <string name="title_text_reminder">Message is empty</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
     <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
-    <string name="title_size_reminder">Message too large: %1$s of %2$s</string>
+    <string name="title_size_reminder">Message too large: %1$s &gt; %2$s</string>
     <string name="title_attachments_missing">Not all attachments have been downloaded</string>
     <string name="title_dialog_hint">This dialog can be enabled again via the three-dots menu in the top action bar</string>
     <string name="title_draft_deleted">Draft discarded</string>
