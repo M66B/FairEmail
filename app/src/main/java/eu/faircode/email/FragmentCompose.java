@@ -2808,6 +2808,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("body", HtmlHelper.toHtml(etBody.getText(), getContext()));
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
+        args.putBoolean("notext", etBody.getText().toString().trim().isEmpty());
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putBundle("extras", extras);
 
@@ -3925,6 +3926,7 @@ public class FragmentCompose extends FragmentBase {
             String body = args.getString("body");
             boolean signature = args.getBoolean("signature");
             boolean empty = args.getBoolean("empty");
+            boolean notext = args.getBoolean("notext");
             Bundle extras = args.getBundle("extras");
 
             EntityMessage draft;
@@ -4251,7 +4253,8 @@ public class FragmentCompose extends FragmentBase {
 
                             Document d = JsoupEx.parse(body);
 
-                            if (empty && d.select("div[fairemail=reference]").isEmpty())
+                            if (notext &&
+                                    d.select("div[fairemail=reference]").isEmpty())
                                 args.putBoolean("remind_text", true);
 
                             int attached = 0;
