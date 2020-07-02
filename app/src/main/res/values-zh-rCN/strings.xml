@@ -294,6 +294,7 @@
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
+    <string name="title_advanced_message_text_zoom">默认消息文本缩放</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>

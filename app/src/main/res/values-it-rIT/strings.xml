@@ -306,6 +306,7 @@
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra le miniature dell\'immagine dopo il testo del messaggio</string>
+    <string name="title_advanced_message_text_zoom">Ingrandimento del testo del messaggio predefinito</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa caratteri monospaziati per il testo del messaggio standard</string>
     <string name="title_advanced_text_color">Usa colori testo</string>
