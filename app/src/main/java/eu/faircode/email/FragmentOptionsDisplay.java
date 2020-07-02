@@ -28,6 +28,8 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +40,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -105,6 +108,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spPreviewLines;
 
     private SwitchCompat swAddresses;
+    private EditText etMessageZoom;
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
@@ -130,7 +134,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
-            "contrast", "monospaced", "text_color", "text_size", "text_font", "text_align",
+            "message_zoom", "contrast", "monospaced", "text_color", "text_size", "text_font", "text_align",
             "inline_images", "collapse_quotes", "attachments_alt", "thumbnails",
             "parse_classes", "authentication"
     };
@@ -194,6 +198,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         swAddresses = view.findViewById(R.id.swAddresses);
+        etMessageZoom = view.findViewById(R.id.etMessageZoom);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swTextColor = view.findViewById(R.id.swTextColor);
@@ -610,6 +615,31 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        etMessageZoom.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    int timeout = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
+                    if (timeout == 0)
+                        prefs.edit().remove("message_zoom").apply();
+                    else
+                        prefs.edit().putInt("message_zoom", timeout).apply();
+                } catch (NumberFormatException ex) {
+                    Log.e(ex);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
         swContrast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -707,6 +737,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if ("message_zoom".equals(key))
+            return;
+
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             setOptions();
     }
@@ -832,7 +865,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic.setEnabled(swPreview.isChecked());
         spPreviewLines.setSelection(prefs.getInt("preview_lines", 2) - 1);
         spPreviewLines.setEnabled(swPreview.isChecked());
+
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
+
+        int message_zoom = prefs.getInt("message_zoom", 0);
+        etMessageZoom.setText(message_zoom == 0 ? null : Integer.toString(message_zoom));
+
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));

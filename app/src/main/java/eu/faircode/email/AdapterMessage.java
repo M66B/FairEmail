@@ -248,6 +248,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean preview_italic;
     private int preview_lines;
+    private int message_zoom;
     private boolean attachments_alt;
     private boolean thumbnails;
     private boolean contrast;
@@ -1796,7 +1797,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("images", message.id, true);
             }
 
-            float size = properties.getSize(message.id, show_full ? 0 : textSize);
+            float size = properties.getSize(message.id, show_full ? 0 : textSize * message_zoom / 100f);
             int height = properties.getHeight(message.id, 0);
             Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
@@ -4996,6 +4997,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.preview_lines = prefs.getInt("preview_lines", 2);
+        this.message_zoom = prefs.getInt("message_zoom", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
         this.contrast = prefs.getBoolean("contrast", false);

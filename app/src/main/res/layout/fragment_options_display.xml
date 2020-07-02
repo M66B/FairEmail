@@ -822,6 +822,30 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaptionBody"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMessageZoom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_message_text_zoom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAddresses" />
+
+        <eu.faircode.email.EditTextPlain
+            android:id="@+id/etMessageZoom"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="100"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessageZoom" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swContrast"
             android:layout_width="0dp"
@@ -830,7 +854,7 @@
             android:text="@string/title_advanced_contrast"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAddresses"
+            app:layout_constraintTop_toBottomOf="@id/etMessageZoom"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
