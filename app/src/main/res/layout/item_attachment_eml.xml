@@ -20,7 +20,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/file_bin" />
+            app:srcCompat="@drawable/baseline_attachment_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
