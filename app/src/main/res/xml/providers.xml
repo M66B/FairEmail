@@ -745,6 +745,7 @@
     </provider>
     <provider
         name="Alice.it"
+        appPassword="true"
         domain="alice\\.it"
         link="https://assistenzatecnica.tim.it/at/portals/assistenzatecnica.portal">
         <imap
