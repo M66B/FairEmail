@@ -27,8 +27,21 @@
             android:text="Invalid address"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorError"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRemindSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_size_reminder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorError"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindTo"
@@ -38,8 +51,9 @@
             android:text="@string/title_to_missing"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindSize" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindExtra"
@@ -96,17 +110,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindText" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvRemindSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_size_reminder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?attr/colorError"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSendReminders"
             android:layout_width="0dp"
@@ -116,7 +119,7 @@
             android:text="@string/title_advanced_send_reminders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindSize"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindAttachment"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

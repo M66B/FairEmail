@@ -5153,13 +5153,13 @@ public class FragmentCompose extends FragmentBase {
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
+            final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
             final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
-            final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
             final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
@@ -5177,15 +5177,17 @@ public class FragmentCompose extends FragmentBase {
 
             tvAddressError.setText(address_error);
             tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
+
+            tvRemindSize.setText(getString(R.string.title_size_reminder,
+                    Helper.humanReadableByteCount(size, true), Helper.humanReadableByteCount(max_size, true)));
+            tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
+
             tvRemindTo.setVisibility(send_reminders && remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
             tvRemindPgp.setVisibility(send_reminders && remind_pgp ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
-            tvRemindSize.setText(getString(R.string.title_size_reminder,
-                    Helper.humanReadableByteCount(size, true), Helper.humanReadableByteCount(max_size, true)));
-            tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
 
             tvTo.setText(null);
             tvVia.setText(null);
