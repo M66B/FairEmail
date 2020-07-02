@@ -634,12 +634,10 @@ public class EmailService implements AutoCloseable {
         return (SMTPTransport) iservice;
     }
 
-    Integer getMaxSize() {
-        SMTPTransport transport = getTransport();
-
-        String size = transport.getExtensionParameter("SIZE");
+    Long getMaxSize() {
+        String size = getTransport().getExtensionParameter("SIZE");
         if (!TextUtils.isEmpty(size) && TextUtils.isDigitsOnly(size))
-            return Integer.parseInt(size);
+            return Long.parseLong(size);
 
         return null;
 

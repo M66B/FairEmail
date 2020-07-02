@@ -116,7 +116,7 @@ public class EntityIdentity {
     public String state;
     public String error;
     public Long last_connected;
-    public Integer max_size;
+    public Long max_size;
 
     String getProtocol() {
         return (starttls ? "smtp" : "smtps");

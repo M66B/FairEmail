@@ -826,7 +826,7 @@ public class FragmentIdentity extends FragmentBase {
                     last_connected = identity.last_connected;
 
                 // Check SMTP server
-                Integer max_size = null;
+                Long max_size = null;
                 if (check) {
                     // Create transport
                     String protocol = (starttls ? "smtp" : "smtps");

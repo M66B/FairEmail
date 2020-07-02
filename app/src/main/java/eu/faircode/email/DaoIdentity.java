@@ -113,7 +113,7 @@ public interface DaoIdentity {
     int setIdentitySignKeyAlias(long id, String alias);
 
     @Query("UPDATE identity SET max_size = :max_size WHERE id = :id")
-    int setIdentityMaxSize(long id, Integer max_size);
+    int setIdentityMaxSize(long id, Long max_size);
 
     @Query("UPDATE identity SET error = :error WHERE id = :id")
     int setIdentityError(long id, String error);

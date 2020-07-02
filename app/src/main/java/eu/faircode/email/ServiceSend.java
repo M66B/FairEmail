@@ -555,7 +555,7 @@ public class ServiceSend extends ServiceBase {
                 throw new IOException("Test");
             db.identity().setIdentityState(ident.id, "connected");
 
-            Integer max_size = iservice.getMaxSize();
+            Long max_size = iservice.getMaxSize();
             if (max_size != null)
                 db.identity().setIdentityMaxSize(ident.id, max_size);
 
