@@ -163,6 +163,7 @@
             android:hint="1"
             android:inputType="number"
             android:text="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@+id/tvMultiply"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPoll" />

@@ -180,6 +180,7 @@
             android:hint="20"
             android:inputType="number"
             android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTimeoutHint" />
 
