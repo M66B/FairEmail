@@ -264,6 +264,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
     private static final int RECIPIENTS_WARNING = 10;
+    private static final int HEADERS_SIZE = 10 * 1024; // bytes
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -4273,6 +4274,20 @@ public class FragmentCompose extends FragmentBase {
                                         break;
                                     }
                             }
+
+                            // Check size
+                            if (identity != null && identity.max_size != null) {
+                                long size = HEADERS_SIZE + body.length();
+                                for (EntityAttachment attachment : attachments)
+                                    if (attachment.available)
+                                        size += attachment.size;
+                                if (size > identity.max_size) {
+                                    args.putBoolean("remind_size", true);
+                                    args.putLong("size", size);
+                                    args.putLong("max_size", identity.max_size);
+                                }
+                            }
+
                         } else {
                             Handler handler = new Handler(context.getMainLooper());
                             handler.post(new Runnable() {
@@ -4437,11 +4452,12 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
+                boolean remind_size = args.getBoolean("remind_size", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (send_dialog || address_error != null || recipients > RECIPIENTS_WARNING || (send_reminders &&
+                if (send_dialog || address_error != null || recipients > RECIPIENTS_WARNING || remind_size || (send_reminders &&
                         (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
 
@@ -5122,6 +5138,9 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
+            final boolean remind_size = args.getBoolean("remind_size", false);
+            final long size = args.getLong("size", -1);
+            final long max_size = args.getLong("max_size", -1);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean send_reminders = prefs.getBoolean("send_reminders", true);
@@ -5140,6 +5159,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
+            final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
             final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
@@ -5163,6 +5183,10 @@ public class FragmentCompose extends FragmentBase {
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
+            tvRemindSize.setText(getString(R.string.title_size_reminder,
+                    Helper.humanReadableByteCount(size, true), Helper.humanReadableByteCount(max_size, true)));
+            tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
+
             tvTo.setText(null);
             tvVia.setText(null);
             tvReceipt.setVisibility(View.GONE);
@@ -5445,7 +5469,7 @@ public class FragmentCompose extends FragmentBase {
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null);
 
-            if (address_error == null && !remind_to) {
+            if (address_error == null && !remind_to && !remind_size) {
                 if (send_delayed != 0)
                     builder.setNeutralButton(R.string.title_send_now, new DialogInterface.OnClickListener() {
                         @Override
