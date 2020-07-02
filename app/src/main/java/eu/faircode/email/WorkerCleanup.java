@@ -264,13 +264,13 @@ public class WorkerCleanup extends Worker {
                 long available = Helper.getAvailableStorageSpace();
                 if (size > 0 && size * 2.5 < available) {
                     Log.i("Running VACUUM" +
-                            " size=" + Helper.humanReadableByteCount(size, true) +
-                            "/" + Helper.humanReadableByteCount(available, true));
+                            " size=" + Helper.humanReadableByteCount(size) +
+                            "/" + Helper.humanReadableByteCount(available));
                     db.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
                 } else
                     Log.w("Insufficient space for VACUUM" +
-                            " size=" + Helper.humanReadableByteCount(size, true) +
-                            "/" + Helper.humanReadableByteCount(available, true));
+                            " size=" + Helper.humanReadableByteCount(size) +
+                            "/" + Helper.humanReadableByteCount(available));
 
             }
 

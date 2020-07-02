@@ -127,7 +127,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
-                tvSize.setText(Helper.humanReadableByteCount(attachment.size, true));
+                tvSize.setText(Helper.humanReadableByteCount(attachment.size));
             tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
 
             if (attachment.available) {

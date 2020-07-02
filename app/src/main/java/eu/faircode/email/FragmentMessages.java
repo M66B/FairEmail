@@ -6693,7 +6693,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (!TextUtils.isEmpty(attachment.name))
                             footer.appendText(" " + attachment.name);
                         if (attachment.size != null)
-                            footer.appendText(" " + Helper.humanReadableByteCount(attachment.size, true));
+                            footer.appendText(" " + Helper.humanReadableByteCount(attachment.size));
                         footer.appendElement("br");
                     }
 

@@ -5179,7 +5179,8 @@ public class FragmentCompose extends FragmentBase {
             tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
 
             tvRemindSize.setText(getString(R.string.title_size_reminder,
-                    Helper.humanReadableByteCount(size, true), Helper.humanReadableByteCount(max_size, true)));
+                    Helper.humanReadableByteCount(size),
+                    Helper.humanReadableByteCount(max_size)));
             tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
 
             tvRemindTo.setVisibility(send_reminders && remind_to ? View.VISIBLE : View.GONE);

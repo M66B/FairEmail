@@ -984,7 +984,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
-            tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
+            tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize));
             tvSize.setVisibility(
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
@@ -1372,7 +1372,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvExpand.setVisibility(View.GONE);
             else {
                 tvExpand.setText(context.getString(R.string.title_expand_warning,
-                        message.size == null ? "?" : Helper.humanReadableByteCount(message.size, true)));
+                        message.size == null ? "?" : Helper.humanReadableByteCount(message.size)));
                 tvExpand.setVisibility(View.VISIBLE);
             }
         }
@@ -1670,9 +1670,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSizeEx.setVisibility(!show_addresses || (message.size == null && message.total == null) ? View.GONE : View.VISIBLE);
             StringBuilder size = new StringBuilder();
             size
-                    .append(message.size == null ? "-" : Helper.humanReadableByteCount(message.size, true))
+                    .append(message.size == null ? "-" : Helper.humanReadableByteCount(message.size))
                     .append("/")
-                    .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
+                    .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total));
             tvSizeEx.setText(size.toString());
 
             tvLanguageTitle.setVisibility(

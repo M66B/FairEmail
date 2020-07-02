@@ -162,7 +162,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvLast.setText(context.getString(R.string.title_last_connected,
                     (identity.last_connected == null ? "-" : DTF.format(identity.last_connected))));
 
-            tvMaxSize.setText(identity.max_size == null ? null : Helper.humanReadableByteCount(identity.max_size, true));
+            tvMaxSize.setText(identity.max_size == null ? null : Helper.humanReadableByteCount(identity.max_size));
             tvMaxSize.setVisibility(identity.max_size == null ? View.GONE : View.VISIBLE);
 
             tvError.setText(identity.error);

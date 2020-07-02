@@ -68,7 +68,7 @@ public class AdapterAttachmentEML extends RecyclerView.Adapter<AdapterAttachment
             tvName.setText(apart.attachment.name);
 
             if (apart.attachment.size != null)
-                tvSize.setText(Helper.humanReadableByteCount(apart.attachment.size, true));
+                tvSize.setText(Helper.humanReadableByteCount(apart.attachment.size));
             tvSize.setVisibility(apart.attachment.size == null ? View.GONE : View.VISIBLE);
 
             StringBuilder sb = new StringBuilder();
