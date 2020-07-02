@@ -264,7 +264,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
     private static final int RECIPIENTS_WARNING = 10;
-    private static final int HEADERS_SIZE = 10 * 1024; // bytes
+    private static final int HEADERS_SIZE = 32 * 1024; // bytes
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
