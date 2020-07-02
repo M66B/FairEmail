@@ -360,6 +360,7 @@ public class FragmentGmail extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
+                Long max_size;
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
@@ -368,6 +369,7 @@ public class FragmentGmail extends FragmentBase {
                             EmailService.AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
+                    max_size = iservice.getMaxSize();
                 }
 
                 DB db = DB.getInstance(context);
@@ -436,6 +438,7 @@ public class FragmentGmail extends FragmentBase {
                     identity.password = password;
                     identity.synchronize = true;
                     identity.primary = true;
+                    identity.max_size = max_size;
 
                     identity.id = db.identity().insertIdentity(identity);
                     EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);

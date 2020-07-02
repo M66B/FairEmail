@@ -331,6 +331,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
+                Long max_size = null;
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
@@ -340,6 +341,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             EmailService.AUTH_TYPE_PASSWORD, null,
                             user, password,
                             null, smtp_fingerprint);
+                    max_size = iservice.getMaxSize();
                 } catch (EmailService.UntrustedException ex) {
                     if (check)
                         smtp_fingerprint = ex.getFingerprint();
@@ -422,6 +424,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.use_ip = provider.useip;
                     identity.synchronize = true;
                     identity.primary = true;
+                    identity.max_size = max_size;
 
                     identity.id = db.identity().insertIdentity(identity);
                     EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);

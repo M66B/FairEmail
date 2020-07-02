@@ -467,6 +467,7 @@ public class FragmentOAuth extends FragmentBase {
                 }
 
                 Log.i("OAuth checking SMTP provider=" + provider.id);
+                Long max_size;
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
@@ -475,6 +476,7 @@ public class FragmentOAuth extends FragmentBase {
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
                             primaryEmail, state,
                             null, null);
+                    max_size = iservice.getMaxSize();
                 }
 
                 Log.i("OAuth passed provider=" + provider.id);
@@ -550,6 +552,7 @@ public class FragmentOAuth extends FragmentBase {
                         ident.password = state;
                         ident.synchronize = true;
                         ident.primary = ident.user.equals(ident.email);
+                        ident.max_size = max_size;
 
                         ident.id = db.identity().insertIdentity(ident);
                         EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
