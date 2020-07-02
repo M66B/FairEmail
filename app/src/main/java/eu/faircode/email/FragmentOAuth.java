@@ -501,6 +501,11 @@ public class FragmentOAuth extends FragmentBase {
                     account.synchronize = true;
                     account.primary = (primary == null);
 
+                    if (provider.keepalive > 0)
+                        account.poll_interval = provider.keepalive;
+
+                    account.partial_fetch = provider.partial;
+
                     account.created = new Date().getTime();
                     account.last_connected = account.created;
 
