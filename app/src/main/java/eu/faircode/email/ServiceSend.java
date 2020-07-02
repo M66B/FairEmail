@@ -364,7 +364,8 @@ public class ServiceSend extends ServiceBase {
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FileNotFoundException ||
-                                ex instanceof AuthenticationFailedException ||
+                                (ex instanceof AuthenticationFailedException &&
+                                        !ConnectionHelper.isIoError(ex)) ||
                                 ex instanceof SendFailedException ||
                                 ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable");
