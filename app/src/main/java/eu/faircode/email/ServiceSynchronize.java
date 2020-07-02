@@ -940,6 +940,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                                 throw ex;
                             }
+                        } else {
+                            if (!BuildConfig.PLAY_STORE_RELEASE)
+                                Log.e(ex);
                         }
 
                         // Report account connection error
