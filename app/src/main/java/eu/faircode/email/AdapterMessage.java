@@ -3643,16 +3643,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
-            new SimpleTask<Void>() {
+            new SimpleTask<EntityMessage>() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) {
+                protected EntityMessage onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+
+                    EntityMessage message;
 
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        EntityMessage message = db.message().getMessage(id);
+                        message = db.message().getMessage(id);
                         if (message == null)
                             return null;
 
@@ -3693,7 +3695,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel("send:" + id, 1);
 
-                    return null;
+                    return message;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityMessage draft) {
+                    if (draft != null)
+                        context.startActivity(
+                                new Intent(context, ActivityCompose.class)
+                                        .putExtra("action", "edit")
+                                        .putExtra("id", draft.id));
                 }
 
                 @Override
