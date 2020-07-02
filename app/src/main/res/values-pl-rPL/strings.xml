@@ -301,7 +301,7 @@
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
-    <string name="title_advanced_favicons" comment="title_advanced_favicons&#10;https://en.wikipedia.org/wiki/Favicon">Pokaż favikony</string>
+    <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
@@ -327,6 +327,7 @@
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>
+    <string name="title_advanced_message_text_zoom">Domyślne powiększenie tekstu wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
@@ -501,6 +502,7 @@
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_unicode">Zezwalaj na Unicode w adresach e-mail</string>
+    <string name="title_identity_max_size">Maksymalny rozmiar wiadomości (MB)</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
     <string name="title_optional">Opcjonalnie</string>
@@ -832,6 +834,7 @@
     <string name="title_text_reminder">Wiadomość jest pusta</string>
     <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
     <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
+    <string name="title_size_reminder">Wiadomość (%1$s) większa niż limit serwera (%2$s)</string>
     <string name="title_attachments_missing">Nie wszystkie załączniki zostały pobrane</string>
     <string name="title_dialog_hint">To okno dialogowe można ponownie włączyć za pomocą menu z trzema kropkami na górnym pasku akcji</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
