@@ -213,7 +213,9 @@ public class EntityMessage implements Serializable {
         if (identities != null && senders != null)
             for (Address sender : senders)
                 for (TupleIdentityEx identity : identities)
-                    if (identity.account == account && identity.similarAddress(sender))
+                    if (identity.account == account &&
+                            identity.self &&
+                            identity.similarAddress(sender))
                         return true;
 
         return false;
