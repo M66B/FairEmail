@@ -388,6 +388,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
             ToastEx.makeText(this, getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            ToastEx.makeText(this, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -398,6 +401,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
             ToastEx.makeText(this, getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            ToastEx.makeText(this, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
         }
     }
 

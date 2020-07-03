@@ -138,6 +138,9 @@ public class FragmentBase extends Fragment {
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -148,6 +151,9 @@ public class FragmentBase extends Fragment {
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
             ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
         }
     }
 
