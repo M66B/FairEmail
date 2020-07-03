@@ -788,19 +788,6 @@ class Core {
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
 
-        // Check size
-        if (account.max_size != null && BuildConfig.DEBUG) {
-            long size = MessageHelper.HEADERS_SIZE;
-            if (message.content)
-                size += message.getFile(context).length();
-            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-            for (EntityAttachment attachment : attachments)
-                if (attachment.available)
-                    size += attachment.size;
-            if (size > account.max_size)
-                throw new IllegalArgumentException("Message too large");
-        }
-
         // External draft might have a uid only
         if (TextUtils.isEmpty(message.msgid)) {
             message.msgid = EntityMessage.generateMessageId();
@@ -813,21 +800,40 @@ class Core {
 
         // Get raw message
         MimeMessage imessage;
+        File file = message.getRawFile(context);
         if (folder.id.equals(message.folder)) {
             // Pre flight check
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
             imessage = MessageHelper.from(context, message, null, isession, false);
+
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                imessage.writeTo(os);
+            }
         } else {
             // Cross account move
-            File file = message.getRawFile(context);
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
 
             Log.i(folder.name + " reading " + file);
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessage(isession, is);
+            }
+        }
+
+        db.message().setMessageRaw(message.id, true);
+
+        // Check size
+        if (account.max_size != null) {
+            long size = file.length();
+            if (size > account.max_size) {
+                String msg = "Too large" +
+                        " size=" + Helper.humanReadableByteCount(size) +
+                        "/" + Helper.humanReadableByteCount(account.max_size) +
+                        " host=" + account.host;
+                Log.e(msg);
+                throw new IllegalArgumentException(msg);
             }
         }
 

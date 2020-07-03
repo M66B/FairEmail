@@ -173,6 +173,7 @@ import java.util.regex.Pattern;
 import javax.activation.DataHandler;
 import javax.mail.Address;
 import javax.mail.BodyPart;
+import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -4282,10 +4283,18 @@ public class FragmentCompose extends FragmentBase {
 
                             // Check size
                             if (identity != null && identity.max_size != null) {
-                                long size = MessageHelper.HEADERS_SIZE + body.length();
-                                for (EntityAttachment attachment : attachments)
-                                    if (attachment.available)
-                                        size += attachment.size;
+                                Properties props = MessageHelper.getSessionProperties();
+                                if (identity.unicode)
+                                    props.put("mail.mime.allowutf8", "true");
+                                Session isession = Session.getInstance(props, null);
+                                Message imessage = MessageHelper.from(context, draft, identity, isession, true);
+
+                                File file = draft.getRawFile(context);
+                                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                                    imessage.writeTo(os);
+                                }
+
+                                long size = file.length();
                                 if (size > identity.max_size) {
                                     args.putBoolean("remind_size", true);
                                     args.putLong("size", size);
