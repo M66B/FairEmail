@@ -556,9 +556,11 @@ public class ServiceSend extends ServiceBase {
                 throw new IOException("Test");
             db.identity().setIdentityState(ident.id, "connected");
 
-            Long max_size = iservice.getMaxSize();
-            if (max_size != null)
-                db.identity().setIdentityMaxSize(ident.id, max_size);
+            if (ident.max_size == null) {
+                Long max_size = iservice.getMaxSize();
+                if (max_size != null)
+                    db.identity().setIdentityMaxSize(ident.id, max_size);
+            }
 
             Address[] to = imessage.getAllRecipients();
             String via = "via " + ident.host + "/" + ident.user +

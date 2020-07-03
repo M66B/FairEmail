@@ -900,15 +900,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sign_key_alias = null;
                     identity.error = null;
                     identity.last_connected = last_connected;
-
-                    if (user_max_size == null)
-                        identity.max_size = server_max_size;
-                    else {
-                        if (server_max_size == null)
-                            identity.max_size = user_max_size;
-                        else
-                            identity.max_size = Math.min(user_max_size, server_max_size);
-                    }
+                    identity.max_size = (user_max_size == null ? server_max_size : user_max_size);
 
                     if (identity.primary)
                         db.identity().resetPrimary(account);
