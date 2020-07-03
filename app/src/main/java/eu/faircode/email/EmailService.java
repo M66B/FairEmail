@@ -634,9 +634,17 @@ public class EmailService implements AutoCloseable {
         return (SMTPTransport) iservice;
     }
 
-    Long getMaxSize() {
-        // https://tools.ietf.org/html/rfc1870
-        String size = getTransport().getExtensionParameter("SIZE");
+    Long getMaxSize() throws MessagingException {
+        String size;
+        if (iservice instanceof SMTPTransport) {
+            // https://tools.ietf.org/html/rfc1870
+            size = getTransport().getExtensionParameter("SIZE");
+        } else if (iservice instanceof IMAPStore) {
+            // https://tools.ietf.org/html/rfc7889
+            size = ((IMAPStore) iservice).getCapability("APPENDLIMIT");
+        } else
+            return null;
+
         if (!TextUtils.isEmpty(size) && TextUtils.isDigitsOnly(size)) {
             long s = Long.parseLong(size);
             if (s != 0) // Not infinite
@@ -644,7 +652,6 @@ public class EmailService implements AutoCloseable {
         }
 
         return null;
-
     }
 
     boolean hasCapability(String capability) throws MessagingException {

@@ -94,6 +94,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private TextView tvHost;
         private TextView tvLast;
         private TextView tvQuota;
+        private TextView tvMaxSize;
         private TextView tvIdentity;
         private TextView tvDrafts;
         private TextView tvWarning;
@@ -119,6 +120,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
             tvQuota = itemView.findViewById(R.id.tvQuota);
+            tvMaxSize = itemView.findViewById(R.id.tvMaxSize);
             tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvWarning = itemView.findViewById(R.id.tvWarning);
@@ -195,6 +197,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
                     (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
             tvQuota.setVisibility(account.quota_usage != null || account.quota_limit != null ? View.VISIBLE : View.GONE);
+
+            tvMaxSize.setText(account.max_size == null ? null : Helper.humanReadableByteCount(account.max_size));
+            tvMaxSize.setVisibility(account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts || !settings ? View.GONE : View.VISIBLE);

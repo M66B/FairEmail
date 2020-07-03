@@ -163,6 +163,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET partial_fetch = :partial_fetch WHERE id = :id")
     int setAccountPartialFetch(long id, boolean partial_fetch);
 
+    @Query("UPDATE account SET max_size = :max_size WHERE id = :id")
+    int setAccountMaxSize(long id, Long max_size);
+
     @Query("UPDATE account SET warning = :warning WHERE id = :id")
     int setAccountWarning(long id, String warning);
 

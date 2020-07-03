@@ -984,6 +984,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     db.account().setAccountWarning(account.id, null);
                     EntityLog.log(this, account.name + " connected");
 
+                    db.account().setAccountMaxSize(account.id, iservice.getMaxSize());
+
                     // Listen for folder events
                     iservice.getStore().addFolderListener(new FolderAdapter() {
                         @Override
