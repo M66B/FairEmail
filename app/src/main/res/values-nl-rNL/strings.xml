@@ -166,7 +166,6 @@
     <string name="title_setup_error">Fout</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_export_do">Gmail accounts gekoppeld aan Google accounts op je toestel kunnen niet worden geëxporteerd</string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
     <string name="title_setup_password">Wachtwoord</string>
     <string name="title_setup_password_chars">Wachtwoord bevat controle of witruimte tekens</string>

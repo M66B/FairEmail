@@ -189,7 +189,6 @@
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
-    <string name="title_setup_export_do">Gmail účty propojené s Google účty v zařízení nelze exportovat</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
@@ -328,6 +327,7 @@
     <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
+    <string name="title_advanced_message_text_zoom">Výchozí zvětšení textu zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_text_color">Použít barvy textu</string>
@@ -502,6 +502,7 @@
     <string name="title_advanced_sender_regex">Reg. výraz odpovídající uživ. jménu příchozích e-mailových adres</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_unicode">Povolit Unicode v e-mailových adresách</string>
+    <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>
     <string name="title_optional">Nepovinné</string>
@@ -833,6 +834,7 @@
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
+    <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>

@@ -163,7 +163,6 @@
     <string name="title_setup_error">Akatsa</string>
     <string name="title_setup_export">Esportatu ezarpenak</string>
     <string name="title_setup_import">Inportatu ezarpenak</string>
-    <string name="title_setup_export_do">Gailuko Google kontura lotutako Gmail kontuak ezin dira esportatu</string>
     <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
     <string name="title_setup_password">Pasahitza</string>
     <string name="title_setup_password_chars">Pasahitzak kontrol karaktereak edo espazio zuriak ditu</string>

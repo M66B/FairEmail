@@ -181,7 +181,6 @@
     <string name="title_setup_error">Napaka</string>
     <string name="title_setup_export">Izvozi nastavitve</string>
     <string name="title_setup_import">Uvozi nastavitve</string>
-    <string name="title_setup_export_do">Račune Gmail, ki so povezani z Googlovimi računi na napravi, ni mogoče izvoziti.</string>
     <string name="title_setup_import_do">Uvoženi računi bodo dodani, ne da bi prepisali obstoječe.</string>
     <string name="title_setup_password">Geslo</string>
     <string name="title_setup_password_chars">Geslo vsebuje krmilne znake ali presledke.</string>

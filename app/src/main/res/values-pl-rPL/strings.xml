@@ -188,7 +188,6 @@
     <string name="title_setup_error">Błąd</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
-    <string name="title_setup_export_do">Konta Gmail połączone z kontami Google na urządzeniu nie mogą być eksportowane</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>

@@ -167,7 +167,6 @@
     <string name="title_setup_error">Грешка</string>
     <string name="title_setup_export">Експортиране на настройките</string>
     <string name="title_setup_import">Импортиране на настройки</string>
-    <string name="title_setup_export_do">Профилите в Gmail, свързани с акаунти в Google, не могат да бъдат експортирани</string>
     <string name="title_setup_import_do">Импортираните профили ще се добавят, без да се презаписват съществуващите</string>
     <string name="title_setup_password">Парола</string>
     <string name="title_setup_password_chars">Паролата съдържа контролни символи или интервали</string>
@@ -306,6 +305,7 @@
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_thumbnails">Показване на миниатюри на изображения след текста на съобщението</string>
+    <string name="title_advanced_message_text_zoom">Мащаб на текста на съобщението по подразбиране</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
     <string name="title_advanced_text_color">Избери цвят на текста</string>
@@ -479,6 +479,7 @@
     <string name="title_advanced_sender_regex">Regex да отговаря на потребителското име на входящите имейл адреси</string>
     <string name="title_identity_reply_to">Отговори на адрес</string>
     <string name="title_identity_unicode">Разрешаване на Unicode в имейл адресите</string>
+    <string name="title_identity_max_size">Максимален размер на съобщението (MB)</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
     <string name="title_optional">По избор</string>
@@ -810,6 +811,7 @@
     <string name="title_text_reminder">Съобщението е празно</string>
     <string name="title_attachment_keywords">прикрепен,прикачен фаил,прикачени файлове,включен</string>
     <string name="title_attachment_reminder">Възнамерявате ли да добавите прикачен файл?</string>
+    <string name="title_size_reminder">Съобщение (%1$s) по-голямо от лимита на сървъра (%2$s)</string>
     <string name="title_attachments_missing">Не всички файлове са свалени</string>
     <string name="title_dialog_hint">Този диалог може да бъде активиран отново чрез менюто с три точки в горния панел за действие</string>
     <string name="title_draft_deleted">Черновата отказана</string>

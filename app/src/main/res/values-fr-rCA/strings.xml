@@ -167,7 +167,6 @@
     <string name="title_setup_error">Erreur</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
-    <string name="title_setup_export_do">Les comptes Gmail liés aux comptes Google sur l\'appareil ne peuvent pas être exportés</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
     <string name="title_setup_password">Mot de passe</string>
     <string name="title_setup_password_chars">Le mot de passe contient des caractères de contrôle ou des espaces</string>

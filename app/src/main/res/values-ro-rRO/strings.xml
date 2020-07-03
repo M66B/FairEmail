@@ -177,7 +177,6 @@
     <string name="title_setup_error">Eroare</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_export_do">Conturile de Gmail legate de conturile Google de pe dispozitiv nu pot fi exportate</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>

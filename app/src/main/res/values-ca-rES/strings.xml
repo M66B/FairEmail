@@ -163,7 +163,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_error">Error</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_export_do">Els comptes de Gmail enllaçats amb comptes de Google al dispositiu no es poden exportar</string>
     <string name="title_setup_import_do">Els comptes importats s’afegiran sense sobreescriure els ja existents</string>
     <string name="title_setup_password">Contrasenya</string>
     <string name="title_setup_password_chars">La contrasenya no pot contenir espais en blanc</string>

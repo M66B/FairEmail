@@ -150,7 +150,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_error">エラー</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
-    <string name="title_setup_export_do">デバイス上でGoogleアカウントにリンクされているGmailアカウントはエクスポート出来ません</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>

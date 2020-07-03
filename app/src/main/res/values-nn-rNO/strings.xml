@@ -158,7 +158,6 @@
     <string name="title_setup_error">Feil</string>
     <string name="title_setup_export">Eksporter innstillingene</string>
     <string name="title_setup_import">Importer innstillinger</string>
-    <string name="title_setup_export_do">Gmail-kontoer som er koblet til Google-kontoer på enheten, kan ikke eksporteres</string>
     <string name="title_setup_import_do">Importerte kontoer vil bli lagt til uten å overskrive eksisterende</string>
     <string name="title_setup_password">Passord</string>
     <string name="title_setup_password_chars">Passord inneholder kontroll eller mellomromstegn</string>

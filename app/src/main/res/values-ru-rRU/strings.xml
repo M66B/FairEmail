@@ -189,7 +189,6 @@
     <string name="title_setup_error">Ошибка</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
-    <string name="title_setup_export_do">Привязанные к устройству учётные записи Gmail не могут быть экспортированы</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль содержит управляющие символы или пробелы</string>

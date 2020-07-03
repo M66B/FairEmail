@@ -167,7 +167,6 @@
     <string name="title_setup_error">Fel</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
-    <string name="title_setup_export_do">Gmail-konton som är länkade till Google-konton på enheten kan inte exporteras</string>
     <string name="title_setup_import_do">Importerade konton kommer att läggas till utan att skriva över några befintliga</string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_chars">Lösenordet innehåller CTRL- eller blanksteg</string>
@@ -305,6 +304,7 @@
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
+    <string name="title_advanced_message_text_zoom">Förvald zoom på meddelandetext</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
     <string name="title_advanced_text_color">Använd textfärger</string>

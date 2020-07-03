@@ -168,7 +168,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
-    <string name="title_setup_export_do">Gmail-Konten, die mit geräteinternen Google-Konten verknüpft sind, können nicht exportiert werden</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
     <string name="title_setup_password">Passwort</string>
     <string name="title_setup_password_chars">Passwort enthält Steuer- oder Leerzeichen</string>
@@ -757,7 +756,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
-    <string name="title_send_now">Jetzt senden</string>
+    <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_send_encryption">Verschlüsselung</string>

@@ -166,7 +166,6 @@
     <string name="title_setup_error">Virhe</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
-    <string name="title_setup_export_do">Gmail-tilejä, jotka on linkitetty laitteen Google-tileihin, ei voi viedä</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
@@ -264,6 +263,7 @@
     <string name="title_advanced_caption_message">Viesti</string>
     <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
     <string name="title_advanced_caption_message_body">Viestin sisältö</string>
+    <string name="title_advanced_portrait2">Käytä kahta riviä pystytilassa</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_landscape3">Näytä navigointivalikko vaakatilassa oletusarvoisesti</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
@@ -303,6 +303,7 @@
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
+    <string name="title_advanced_message_text_zoom">Viestien tekstin oletuszoomaus</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
     <string name="title_advanced_text_color">Käytä tekstin värejä</string>
@@ -477,6 +478,7 @@
     <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjätunnuksen täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_unicode">Salli Unicode sähköpostiosoitteissa</string>
+    <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
     <string name="title_optional">Valinnainen</string>
@@ -808,6 +810,7 @@
     <string name="title_text_reminder">Viesti on tyhjä</string>
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oliko tarkoituksenasi lisätä liite?</string>
+    <string name="title_size_reminder">Viesti (%1$s) on suurempi kuin palvelimen raja (%2$s)</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
     <string name="title_dialog_hint">Tämä valintaikkuna voidaan ottaa uudelleen käyttöön yläreunan toimintopalkin kolmen pisteen valikosta</string>
     <string name="title_draft_deleted">Luonnos hylätty</string>

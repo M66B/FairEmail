@@ -168,7 +168,6 @@
     <string name="title_setup_error">Error</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
-    <string name="title_setup_export_do">Las cuentas de Gmail vinculadas a cuentas de Google en el dispositivo no se pueden exportar</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
@@ -307,6 +306,7 @@
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
+    <string name="title_advanced_message_text_zoom">Zoom del texto de mensaje por defecto</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
     <string name="title_advanced_text_color">Usar colores de texto</string>

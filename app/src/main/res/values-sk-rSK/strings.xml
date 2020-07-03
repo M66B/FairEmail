@@ -188,7 +188,6 @@
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Exportovať nastavenia</string>
     <string name="title_setup_import">Importovať nastavenia</string>
-    <string name="title_setup_export_do">Gmailové účty prepojené s Google účtami na tomto zariadení nemôžu byť exportované</string>
     <string name="title_setup_import_do">Importované účty budú pridané bez prepísania existujúcich účtov</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje ovládacie alebo prázdne znaky</string>

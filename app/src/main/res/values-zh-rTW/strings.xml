@@ -147,7 +147,6 @@
     <string name="title_setup_error">錯誤</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
-    <string name="title_setup_export_do">與此裝置 Google 帳號連結的 Gmail 無法被匯出</string>
     <string name="title_setup_import_do">匯入的帳號不會覆蓋任何現有帳號</string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含空白字元</string>

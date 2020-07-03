@@ -161,7 +161,6 @@
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_export">Exportar configurações</string>
     <string name="title_setup_import">Importar configurações</string>
-    <string name="title_setup_export_do">Contas Gmail conectadas a contas Google no dispositivo não podem ser exportadas</string>
     <string name="title_setup_import_do">As contas importadas serão adicionadas sem sobrescrever as existentes</string>
     <string name="title_setup_password">Senha</string>
     <string name="title_setup_password_chars">A senha contém caracteres de controle ou espaço em branco</string>

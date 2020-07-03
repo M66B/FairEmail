@@ -165,7 +165,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_error">Hiba</string>
     <string name="title_setup_export">Beállítások exportálása</string>
     <string name="title_setup_import">Beállítások importálása</string>
-    <string name="title_setup_export_do">Gmail fiókok amik linkelve vannak az eszközön lévő Google fiókokkal nem exportálhatók</string>
     <string name="title_setup_import_do">Az importált kapcsolatok hozzáadása során nem módosulnak a meglévőek</string>
     <string name="title_setup_password">Jelszó</string>
     <string name="title_setup_password_chars">A jelszó vezérlő vagy szóköz karaktert tartalmaz</string>

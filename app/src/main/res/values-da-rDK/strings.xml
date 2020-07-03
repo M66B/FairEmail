@@ -167,7 +167,6 @@
     <string name="title_setup_error">Fejl</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
-    <string name="title_setup_export_do">Gmail-konti tilknyttet konti på selve enheden kan ikke eksporteres</string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_chars">Adgangskode indeholder kontrol- eller mellemrumstegn</string>

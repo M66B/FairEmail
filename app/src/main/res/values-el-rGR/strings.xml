@@ -122,7 +122,6 @@
     <string name="title_setup_error">Σφάλμα</string>
     <string name="title_setup_export">Εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_import">Εισαγωγή ρυθμίσεων</string>
-    <string name="title_setup_export_do">Λογαριασμοί Gmail οι οποίοι είναι συνδεδεμένοι με λογαριασμούς Google στη συσκευή δεν μπορούν να εξαχθούν</string>
     <string name="title_setup_import_do">Οι εισαγωμενοι λογαριασμοί θα προστεθούν χωρίς να διαγραφεί κανένα υπάρχων</string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_chars">Ο κωδικός πρόσβασης περιέχει τον έλεγχο η οι χαρακτήρες στο κενό διάστημα</string>
