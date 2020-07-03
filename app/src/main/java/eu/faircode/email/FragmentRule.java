@@ -750,6 +750,9 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, TupleRuleEx rule) {
+                if (copy > 0 && rule != null)
+                    rule.applied = 0;
+
                 try {
                     if (savedInstanceState == null) {
                         JSONObject jcondition = (rule == null ? new JSONObject() : new JSONObject(rule.condition));

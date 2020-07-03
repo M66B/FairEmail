@@ -1058,6 +1058,9 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final EntityIdentity identity) {
+                if (copy > 0 && identity != null)
+                    identity.last_connected = null;
+
                 if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
