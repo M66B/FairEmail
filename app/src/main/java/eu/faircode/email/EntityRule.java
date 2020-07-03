@@ -98,6 +98,7 @@ public class EntityRule {
     static final int TYPE_KEYWORD = 11;
     static final int TYPE_HIDE = 12;
     static final int TYPE_IMPORTANCE = 13;
+    static final int TYPE_TTS = 14;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -323,6 +324,8 @@ public class EntityRule {
                 return onActionCopy(context, message, jaction);
             case TYPE_ANSWER:
                 return onActionAnswer(context, message, jaction);
+            case TYPE_TTS:
+                return onActionTts(context, message, jaction);
             case TYPE_AUTOMATION:
                 return onActionAutomation(context, message, jaction);
             default:
@@ -476,6 +479,24 @@ public class EntityRule {
 
         EntityLog.log(context, "Sending " + automation);
         context.sendBroadcast(automation);
+
+        return true;
+    }
+
+    private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(context.getString(R.string.title_rule_tts_prefix));
+
+        if (message.from != null && message.from.length > 0)
+            sb.append(' ').append(context.getString(R.string.title_from))
+                    .append(' ').append(MessageHelper.formatAddressesShort(message.from));
+
+        if (!TextUtils.isEmpty(message.subject))
+            sb.append(' ').append(context.getString(R.string.title_subject))
+                    .append(' ').append(message.subject);
+
+        EntityLog.log(context, "TTS queued language=" + message.language + " text=" + sb.toString());
+        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), message.language);
 
         return true;
     }

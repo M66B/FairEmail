@@ -91,6 +91,8 @@
         <intent>
             <action android:name="org.openintents.openpgp.IOpenPgpService2" />
         </intent>
+
+        <package android:name="com.google.android.tts" />
     </queries>
 
     <application

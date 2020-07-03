@@ -167,6 +167,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     case EntityRule.TYPE_ANSWER:
                         tvAction.setText(R.string.title_rule_answer);
                         break;
+                    case EntityRule.TYPE_TTS:
+                        tvAction.setText(R.string.title_rule_tts);
+                        break;
                     case EntityRule.TYPE_AUTOMATION:
                         tvAction.setText(R.string.title_rule_automation);
                         break;

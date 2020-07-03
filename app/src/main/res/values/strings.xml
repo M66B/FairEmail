@@ -1055,6 +1055,7 @@
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
     <string name="title_rule_answer">Reply</string>
+    <string name="title_rule_tts">Text to speech</string>
     <string name="title_rule_automation">Automation</string>
 
     <string name="title_rule_caption">Edit rule</string>
@@ -1094,6 +1095,9 @@
     <string name="title_rule_no_headers">Header conditions cannot be checked</string>
     <string name="title_rule_matched">Matching messages</string>
     <string name="title_rule_no_matches">No matching messages</string>
+
+    <string name="title_rule_tts_setup">Check setup</string>
+    <string name="title_rule_tts_prefix">New message</string>
 
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>
