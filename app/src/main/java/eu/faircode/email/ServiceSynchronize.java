@@ -621,6 +621,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         liveAccountNetworkState.postDestroy();
 
+        TTSHelper.shutdown();
+
         try {
             stopForeground(true);
         } catch (Throwable ex) {
