@@ -1537,7 +1537,7 @@ public class IMAPStore extends Store
             Map<String, String> caps = p.getCapabilities();
             if (caps != null)
                 for (String cap : caps.values()) {
-                    int eq = cap.indexOf('=');
+                    int eq = (cap == null ? -1 : cap.indexOf('='));
                     if (eq > 0) {
                         String key = cap.substring(0, eq);
                         String value = cap.substring(eq + 1);
