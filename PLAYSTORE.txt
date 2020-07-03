@@ -17,7 +17,7 @@ FairEmail might be for you if you value your privacy.
 * Offline storage and operations
 * Battery friendly
 * Low data usage
-* Small (< 15 MB)
+* Small (~ 15 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 
@@ -78,7 +78,7 @@ All pro features are convenience or advanced features.
 * Keyword management
 * S/MIME sign/encrypt
 * Biometric/PIN authentication
-* Unified inbox widget
+* Message list widget
 * Export settings
 
 <b>Support</b>
