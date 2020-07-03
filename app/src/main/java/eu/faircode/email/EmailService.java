@@ -635,6 +635,8 @@ public class EmailService implements AutoCloseable {
     }
 
     Long getMaxSize() throws MessagingException {
+        // https://support.google.com/mail/answer/6584#limit
+
         String size;
         if (iservice instanceof SMTPTransport) {
             // https://tools.ietf.org/html/rfc1870

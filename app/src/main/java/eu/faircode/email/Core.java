@@ -331,7 +331,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.ADD:
-                                    onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onAdd(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.MOVE:
@@ -773,7 +773,7 @@ class Core {
         }
     }
 
-    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
+    private static void onAdd(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
         // Add message
         DB db = DB.getInstance(context);
 
@@ -787,6 +787,19 @@ class Core {
 
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
+
+        // Check size
+        if (account.max_size != null && BuildConfig.DEBUG) {
+            long size = MessageHelper.HEADERS_SIZE;
+            if (message.content)
+                size += message.getFile(context).length();
+            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+            for (EntityAttachment attachment : attachments)
+                if (attachment.available)
+                    size += attachment.size;
+            if (size > account.max_size)
+                throw new IllegalArgumentException("Message too large");
+        }
 
         // External draft might have a uid only
         if (TextUtils.isEmpty(message.msgid)) {
