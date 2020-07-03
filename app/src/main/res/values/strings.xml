@@ -1098,6 +1098,8 @@
 
     <string name="title_rule_tts_setup">Check setup</string>
     <string name="title_rule_tts_prefix">New message</string>
+    <string name="title_rule_tts_from">From</string>
+    <string name="title_rule_tts_subject">Subject</string>
 
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>

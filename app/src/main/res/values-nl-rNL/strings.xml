@@ -930,6 +930,7 @@
     <string name="title_rule_move">Verplaatsen</string>
     <string name="title_rule_copy">Kopiëren (label)</string>
     <string name="title_rule_answer">Beantwoorden</string>
+    <string name="title_rule_tts">Tekst-naar-spraak</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
@@ -965,6 +966,10 @@
     <string name="title_rule_no_headers">Header condities kunnen niet worden gecontroleerd</string>
     <string name="title_rule_matched">Overeenkomende berichten</string>
     <string name="title_rule_no_matches">Geen overeenkomende berichten</string>
+    <string name="title_rule_tts_setup">Instellingen controleren</string>
+    <string name="title_rule_tts_prefix">Nieuw bericht</string>
+    <string name="title_rule_tts_from">Van</string>
+    <string name="title_rule_tts_subject">Onderwerp</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>

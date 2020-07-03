@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -43,6 +45,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -484,19 +487,24 @@ public class EntityRule {
     }
 
     private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
+        Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
+
+        Configuration configuration = new Configuration(context.getResources().getConfiguration());
+        configuration.setLocale(locale);
+        Resources res = context.createConfigurationContext(configuration).getResources();
+
         StringBuilder sb = new StringBuilder();
-        sb.append(context.getString(R.string.title_rule_tts_prefix));
+        sb.append(context.getString(R.string.title_rule_tts_prefix)).append(". ");
 
         if (message.from != null && message.from.length > 0)
-            sb.append(' ').append(context.getString(R.string.title_from))
-                    .append(' ').append(MessageHelper.formatAddressesShort(message.from));
+            sb.append(res.getString(R.string.title_rule_tts_from))
+                    .append(' ').append(MessageHelper.formatAddressesShort(message.from)).append(". ");
 
         if (!TextUtils.isEmpty(message.subject))
-            sb.append(' ').append(context.getString(R.string.title_subject))
-                    .append(' ').append(message.subject);
+            sb.append(res.getString(R.string.title_rule_tts_subject))
+                    .append(' ').append(message.subject).append(". ");
 
-        EntityLog.log(context, "TTS queued language=" + message.language + " text=" + sb.toString());
-        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), message.language);
+        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), locale);
 
         return true;
     }
