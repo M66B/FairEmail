@@ -1408,9 +1408,6 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final EntityAccount account) {
-                if (copy > 0 && account != null)
-                    account.last_connected = null;
-
                 // Get providers
                 List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
                 providers.add(0, new EmailProvider(getString(R.string.title_select)));
