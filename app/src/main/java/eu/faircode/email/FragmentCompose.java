@@ -4137,7 +4137,7 @@ public class FragmentCompose extends FragmentBase {
 
                     if (action == R.id.action_undo || action == R.id.action_redo) {
                         if (action == R.id.action_undo) {
-                            if (!dirty && revision > 1)
+                            if (revision > 1)
                                 draft.revision = revision - 1;
                             else
                                 draft.revision = revision;
