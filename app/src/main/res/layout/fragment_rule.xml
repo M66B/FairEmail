@@ -690,7 +690,7 @@
                     app:layout_constraintTop_toBottomOf="@id/cbCc" />
 
                 <Button
-                    android:id="@+id/btnTts"
+                    android:id="@+id/btnTtsSetup"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -698,6 +698,16 @@
                     android:text="@string/title_rule_tts_setup"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAnswerRemark" />
+
+                <Button
+                    android:id="@+id/btnTtsData"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_tts_data"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnTtsSetup" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAutomation"
@@ -707,7 +717,7 @@
                     android:text="@string/title_rule_automation_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnTts" />
+                    app:layout_constraintTop_toBottomOf="@+id/btnTtsData" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpReady"
@@ -769,7 +779,7 @@
                     android:id="@+id/grpTts"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnTts" />
+                    app:constraint_referenced_ids="btnTtsSetup,btnTtsData" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAutomation"

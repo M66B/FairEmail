@@ -134,7 +134,8 @@ public class FragmentRule extends FragmentBase {
     private Spinner spAnswer;
     private CheckBox cbCc;
 
-    private Button btnTts;
+    private Button btnTtsSetup;
+    private Button btnTtsData;
 
     private TextView tvAutomation;
 
@@ -172,7 +173,8 @@ public class FragmentRule extends FragmentBase {
     private final static int REQUEST_DELETE = 4;
     private final static int REQUEST_SCHEDULE_START = 5;
     private final static int REQUEST_SCHEDULE_END = 6;
-    private final static int REQUEST_TTS = 7;
+    private final static int REQUEST_TTS_CHECK = 7;
+    private final static int REQUEST_TTS_DATA = 8;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -252,7 +254,8 @@ public class FragmentRule extends FragmentBase {
         spAnswer = view.findViewById(R.id.spAnswer);
         cbCc = view.findViewById(R.id.cbCc);
 
-        btnTts = view.findViewById(R.id.btnTts);
+        btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
+        btnTtsData = view.findViewById(R.id.btnTtsData);
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -462,12 +465,21 @@ public class FragmentRule extends FragmentBase {
         spIdent.setOnItemSelectedListener(onItemSelectedListener);
         spAnswer.setOnItemSelectedListener(onItemSelectedListener);
 
-        btnTts.setOnClickListener(new View.OnClickListener() {
+        btnTtsSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent tts = new Intent();
-                tts.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-                startActivityForResult(tts, REQUEST_TTS);
+                Intent intent = new Intent();
+                intent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+                startActivityForResult(intent, REQUEST_TTS_CHECK);
+            }
+        });
+
+        btnTtsData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivityForResult(intent, REQUEST_TTS_DATA);
             }
         });
 
@@ -652,14 +664,16 @@ public class FragmentRule extends FragmentBase {
                     if (resultCode == RESULT_OK)
                         onScheduleEnd(data.getBundleExtra("args"));
                     break;
-                case REQUEST_TTS:
+                case REQUEST_TTS_CHECK:
                     if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS)
-                        ToastEx.makeText(getContext(), android.R.string.ok, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(getContext(), R.string.title_rule_tts_ok, Toast.LENGTH_LONG).show();
                     else {
                         Intent tts = new Intent();
                         tts.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
                         startActivity(tts);
                     }
+                    break;
+                case REQUEST_TTS_DATA:
                     break;
             }
         } catch (Throwable ex) {
