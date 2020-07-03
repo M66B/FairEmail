@@ -494,7 +494,7 @@ public class EntityRule {
         Resources res = context.createConfigurationContext(configuration).getResources();
 
         StringBuilder sb = new StringBuilder();
-        sb.append(context.getString(R.string.title_rule_tts_prefix)).append(". ");
+        sb.append(res.getString(R.string.title_rule_tts_prefix)).append(". ");
 
         if (message.from != null && message.from.length > 0)
             sb.append(res.getString(R.string.title_rule_tts_from))
