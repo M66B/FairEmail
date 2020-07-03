@@ -4303,21 +4303,20 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                         } else {
+                            int mid;
+                            if (action == R.id.action_undo)
+                                mid = R.string.title_undo;
+                            else if (action == R.id.action_redo)
+                                mid = R.string.title_redo;
+                            else
+                                mid = R.string.title_draft_saved;
+                            final String msg = getString(mid) +
+                                    (BuildConfig.DEBUG ? ":" + draft.revision : "");
+
                             Handler handler = new Handler(context.getMainLooper());
                             handler.post(new Runnable() {
                                 public void run() {
-                                    int id;
-                                    if (action == R.id.action_undo)
-                                        id = R.string.title_undo;
-                                    else if (action == R.id.action_redo)
-                                        id = R.string.title_redo;
-                                    else
-                                        id = R.string.title_draft_saved;
-
-                                    ToastEx.makeText(context,
-                                            getString(id) +
-                                                    (BuildConfig.DEBUG ? ":" + draft.revision : ""),
-                                            Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(context, msg, Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
