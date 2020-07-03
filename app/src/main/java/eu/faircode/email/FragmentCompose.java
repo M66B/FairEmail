@@ -4314,7 +4314,7 @@ public class FragmentCompose extends FragmentBase {
                                     else
                                         id = R.string.title_draft_saved;
 
-                                    ToastEx.makeText(getContext(),
+                                    ToastEx.makeText(context,
                                             getString(id) +
                                                     (BuildConfig.DEBUG ? ":" + draft.revision : ""),
                                             Toast.LENGTH_LONG).show();
