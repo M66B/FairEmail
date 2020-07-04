@@ -204,20 +204,25 @@ public class ServiceSend extends ServiceBase {
         return builder;
     }
 
-    NotificationCompat.Builder getNotificationError(String recipient, Throwable ex) {
-        return new NotificationCompat.Builder(this, "error")
+    NotificationCompat.Builder getNotificationError(String recipient, Throwable ex, int tries_left) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, tries_left == 0 ? "error" : "warning")
                 .setSmallIcon(R.drawable.baseline_warning_white_24)
                 .setContentTitle(getString(R.string.title_notification_sending_failed, recipient))
-                .setContentText(Log.formatThrowable(ex, false))
                 .setContentIntent(getPendingIntent(this))
-                .setAutoCancel(false)
+                .setAutoCancel(tries_left != 0)
                 .setShowWhen(true)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setOnlyAlertOnce(true)
+                .setOnlyAlertOnce(false)
                 .setCategory(NotificationCompat.CATEGORY_ERROR)
-                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(Log.formatThrowable(ex, "\n", false)));
+                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
+        if (tries_left == 0) {
+            builder.setContentText(Log.formatThrowable(ex, false))
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(Log.formatThrowable(ex, "\n", false)));
+        } else
+            builder.setContentText(getString(R.string.title_notification_sending_left, tries_left));
+        return builder;
     }
 
     private static PendingIntent getPendingIntent(Context context) {
@@ -357,8 +362,17 @@ public class ServiceSend extends ServiceBase {
                         EntityLog.log(this, outbox.name + " " + Log.formatThrowable(ex, false));
 
                         db.operation().setOperationError(op.id, Log.formatThrowable(ex));
-                        if (message != null)
+                        if (message != null) {
                             db.message().setMessageError(message.id, Log.formatThrowable(ex));
+
+                            try {
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify("send:" + message.id, 1, getNotificationError(
+                                        MessageHelper.formatAddressesShort(message.to), ex, RETRY_MAX - op.tries).build());
+                            } catch (Throwable ex1) {
+                                Log.w(ex1);
+                            }
+                        }
 
                         if (op.tries >= RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
@@ -371,18 +385,6 @@ public class ServiceSend extends ServiceBase {
                             Log.w("Unrecoverable");
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
-
-                            if (message != null) {
-                                try {
-                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("send:" + message.id, 1, getNotificationError(
-                                            MessageHelper.formatAddressesShort(message.to), ex).build());
-                                } catch (Throwable ex1) {
-                                    Log.w(ex1);
-                                }
-                            }
-
-                            continue;
                         } else
                             throw ex;
                     } finally {
