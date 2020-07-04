@@ -516,8 +516,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvSubject.setEllipsize(TextUtils.TruncateAt.START);
                     else if ("end".equals(subject_ellipsize))
                         tvSubject.setEllipsize(TextUtils.TruncateAt.END);
-                    else
+                    else if ("middle".equals(subject_ellipsize))
                         tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+                    else
+                        tvSubject.setEllipsize(null);
                 }
             }
 
@@ -5001,7 +5003,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             font_size_subject = Helper.getTextSize(context, fz_subject);
 
         this.subject_italic = prefs.getBoolean("subject_italic", true);
-        this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
+        this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.labels_header = prefs.getBoolean("labels_header", true);
         this.flags = prefs.getBoolean("flags", true);

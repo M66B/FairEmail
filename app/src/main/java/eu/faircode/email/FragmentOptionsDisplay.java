@@ -848,7 +848,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
 
-        String subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
+        String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
         for (int pos = 0; pos < startupValues.length; pos++)
             if (ellipsizeValues[pos].equals(subject_ellipsize)) {
