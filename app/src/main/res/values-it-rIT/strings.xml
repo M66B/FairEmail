@@ -885,7 +885,7 @@
     <string name="title_sort_on_starred">Stellati</string>
     <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>
-    <string name="title_sort_on_subject">Soggetto</string>
+    <string name="title_sort_on_subject">Oggetto</string>
     <string name="title_sort_on_size">Dimensioni</string>
     <string name="title_sort_on_attachments">Allegati</string>
     <string name="title_sort_on_hidden">Nascosto</string>
@@ -930,6 +930,7 @@
     <string name="title_rule_move">Muovi</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
     <string name="title_rule_answer">Rispondi</string>
+    <string name="title_rule_tts">Sintesi vocale</string>
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">Regola applicabile a</string>
@@ -965,6 +966,12 @@
     <string name="title_rule_no_headers">Le condizioni dell\'intestazione non possono essere controllate</string>
     <string name="title_rule_matched">Messaggi corrispondenti</string>
     <string name="title_rule_no_matches">Nessun messaggio corrispondente</string>
+    <string name="title_rule_tts_ok">Configurazione riuscita</string>
+    <string name="title_rule_tts_setup">Verifica la configurazione</string>
+    <string name="title_rule_tts_data">Installa i dati vocali</string>
+    <string name="title_rule_tts_prefix">Nuovo messaggio</string>
+    <string name="title_rule_tts_from">Da</string>
+    <string name="title_rule_tts_subject">Oggetto</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>

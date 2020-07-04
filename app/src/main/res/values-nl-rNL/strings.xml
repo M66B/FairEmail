@@ -966,7 +966,9 @@
     <string name="title_rule_no_headers">Header condities kunnen niet worden gecontroleerd</string>
     <string name="title_rule_matched">Overeenkomende berichten</string>
     <string name="title_rule_no_matches">Geen overeenkomende berichten</string>
+    <string name="title_rule_tts_ok">Setup oke</string>
     <string name="title_rule_tts_setup">Instellingen controleren</string>
+    <string name="title_rule_tts_data">Spraakgegevens installeren</string>
     <string name="title_rule_tts_prefix">Nieuw bericht</string>
     <string name="title_rule_tts_from">Van</string>
     <string name="title_rule_tts_subject">Onderwerp</string>

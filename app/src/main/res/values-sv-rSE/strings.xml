@@ -930,6 +930,7 @@
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
     <string name="title_rule_answer">Svara</string>
+    <string name="title_rule_tts">Text till tal</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
@@ -965,6 +966,12 @@
     <string name="title_rule_no_headers">Sidhuvudvillkor kan inte kontrolleras</string>
     <string name="title_rule_matched">Matchande meddelanden</string>
     <string name="title_rule_no_matches">Inga matchande meddelanden</string>
+    <string name="title_rule_tts_ok">Installation okej</string>
+    <string name="title_rule_tts_setup">Kontrollera konfigurationen</string>
+    <string name="title_rule_tts_data">Installera röstdata</string>
+    <string name="title_rule_tts_prefix">Nytt meddelande</string>
+    <string name="title_rule_tts_from">Från</string>
+    <string name="title_rule_tts_subject">Ämne</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>

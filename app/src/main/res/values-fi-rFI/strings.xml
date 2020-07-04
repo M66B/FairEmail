@@ -929,6 +929,7 @@
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
     <string name="title_rule_answer">Vastaa</string>
+    <string name="title_rule_tts">Teksti puheeksi</string>
     <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
     <string name="title_rule_title">Säännön käyttökohde on</string>
@@ -964,6 +965,10 @@
     <string name="title_rule_no_headers">Tunnistetietojen ehtoja ei voida tarkistaa</string>
     <string name="title_rule_matched">Täsmäävät viestit</string>
     <string name="title_rule_no_matches">Ei täsmääviä viestejä</string>
+    <string name="title_rule_tts_setup">Tarkista asetukset</string>
+    <string name="title_rule_tts_prefix">Uusi viesti</string>
+    <string name="title_rule_tts_from">Lähettäjä</string>
+    <string name="title_rule_tts_subject">Aihe</string>
     <string name="title_legend_section_synchronize">Synkronointi</string>
     <string name="title_legend_section_folders">Kansiot</string>
     <string name="title_legend_section_messages">Viestit</string>

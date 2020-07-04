@@ -919,6 +919,7 @@
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
     <string name="title_rule_answer">回复</string>
+    <string name="title_rule_tts">文字转语音</string>
     <string name="title_rule_automation">自动化</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
@@ -954,6 +955,12 @@
     <string name="title_rule_no_headers">无法检查 邮件标头状况</string>
     <string name="title_rule_matched">匹配的消息</string>
     <string name="title_rule_no_matches">没有匹配项目</string>
+    <string name="title_rule_tts_ok">设置无误</string>
+    <string name="title_rule_tts_setup">检查设置</string>
+    <string name="title_rule_tts_data">安装语音数据</string>
+    <string name="title_rule_tts_prefix">新消息</string>
+    <string name="title_rule_tts_from">发件人</string>
+    <string name="title_rule_tts_subject">主题</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>

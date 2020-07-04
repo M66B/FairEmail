@@ -952,6 +952,7 @@
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_copy">Kopiuj (etykieta)</string>
     <string name="title_rule_answer">Odpowiedz</string>
+    <string name="title_rule_tts">Przetwarzanie tekstu na mowę</string>
     <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
@@ -987,6 +988,12 @@
     <string name="title_rule_no_headers">Nie można sprawdzić stanów nagłówka</string>
     <string name="title_rule_matched">Pasujące wiadomości</string>
     <string name="title_rule_no_matches">Brak pasujących wiadomości</string>
+    <string name="title_rule_tts_ok">Ustawienia poprawne</string>
+    <string name="title_rule_tts_setup">Sprawdź ustawienia</string>
+    <string name="title_rule_tts_data">Zainstaluj dane głosowe</string>
+    <string name="title_rule_tts_prefix">Nowa wiadomość</string>
+    <string name="title_rule_tts_from">Od</string>
+    <string name="title_rule_tts_subject">Temat</string>
     <string name="title_legend_section_synchronize">Synchronizuj</string>
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>

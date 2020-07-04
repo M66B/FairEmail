@@ -135,6 +135,8 @@
     <string name="title_setup_select_account">انتخاب حساب</string>
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
     <string name="title_setup_no_settings">برای دامنه \'%1$s\' هیچ تنظیماتی یافت نشد</string>
+    <string name="title_setup_no_settings_hint">لطفا در گام ۱ و ۲ با استفاده از تنطیمات ارائه شده توسط فراهم‌کننده ایمیلتان، یک حساب و هویت راه اندازی کنید</string>
+    <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
     <string name="title_setup_no_system_folders">صندوق دریافت یا پوشه پیش‌نویس‌ها یافت نشد</string>
     <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
     <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
@@ -985,6 +987,7 @@
     <string name="title_pro_list">لیست ویژگی‌های نسخه حرفه‌ای</string>
     <string name="title_pro_purchase">خرید</string>
     <string name="title_pro_once">تنها یک بار</string>
+    <string name="title_pro_hide">پیام‌های کوچک را برای %1$d هفته پنهان کن</string>
     <string name="title_pro_hint">خرید نسخه حرفه‌ای به شما اجازه استفاده از تمامی ویژگی‌های حرفه‌ای فعلی و آینده را خواهد داد. همچنین موجب حفظ و پشتیبانی آن می‌شود</string>
     <string name="title_pro_price">لطفاً ببینید <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">این پرسش و پاسخ</a> درباره ارزش و قیمت نسخه حرفه‌ای</string>
     <string name="title_pro_pending">خرید در انتظار</string>
@@ -1155,5 +1158,11 @@
         <item>۱۰ MB</item>
         <item>۲۰ MB</item>
         <item>۵۰ MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursive</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
     </string-array>
 </resources>

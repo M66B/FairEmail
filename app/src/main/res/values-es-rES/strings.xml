@@ -932,6 +932,7 @@
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder</string>
+    <string name="title_rule_tts">Texto a voz</string>
     <string name="title_rule_automation">Automatización</string>
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
@@ -967,6 +968,10 @@
     <string name="title_rule_no_headers">Las condiciones de cabecera no se pueden comprobar</string>
     <string name="title_rule_matched">Mensajes coincidentes</string>
     <string name="title_rule_no_matches">No hay mensajes coincidentes</string>
+    <string name="title_rule_tts_setup">Comprobar configuración</string>
+    <string name="title_rule_tts_prefix">Nuevo mensaje</string>
+    <string name="title_rule_tts_from">De</string>
+    <string name="title_rule_tts_subject">Asunto</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>

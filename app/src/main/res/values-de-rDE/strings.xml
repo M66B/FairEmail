@@ -929,6 +929,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten</string>
+    <string name="title_rule_tts">Sprachausgabe</string>
     <string name="title_rule_automation">Automatisierung</string>
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
@@ -964,6 +965,12 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_no_headers">Nachrichtenkopf-Bedingungen können nicht überprüft werden</string>
     <string name="title_rule_matched">Passende Nachrichten</string>
     <string name="title_rule_no_matches">Keine passenden Nachrichten</string>
+    <string name="title_rule_tts_ok">Erfolgreich eingerichtet</string>
+    <string name="title_rule_tts_setup">Konfiguration prüfen</string>
+    <string name="title_rule_tts_data">Sprachdaten installieren</string>
+    <string name="title_rule_tts_prefix">Neue Nachricht</string>
+    <string name="title_rule_tts_from">Von</string>
+    <string name="title_rule_tts_subject">Betreff</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>

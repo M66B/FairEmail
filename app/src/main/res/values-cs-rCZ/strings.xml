@@ -953,6 +953,7 @@
     <string name="title_rule_move">Přesunout</string>
     <string name="title_rule_copy">Kopírovat (štítek)</string>
     <string name="title_rule_answer">Odpovědět</string>
+    <string name="title_rule_tts">Převod textu na řeč</string>
     <string name="title_rule_automation">Automatizace</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
@@ -988,6 +989,12 @@
     <string name="title_rule_no_headers">Podmínky hlavičky nelze zkontrolovat</string>
     <string name="title_rule_matched">Odpovídající zprávy</string>
     <string name="title_rule_no_matches">Žádné odpovídající zprávy</string>
+    <string name="title_rule_tts_ok">Nastavení v pořádku</string>
+    <string name="title_rule_tts_setup">Ověřit nastavení</string>
+    <string name="title_rule_tts_data">Nainstalovat hlasová data</string>
+    <string name="title_rule_tts_prefix">Nová zpráva</string>
+    <string name="title_rule_tts_from">Od</string>
+    <string name="title_rule_tts_subject">Předmět</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>

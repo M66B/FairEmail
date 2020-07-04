@@ -931,6 +931,7 @@
     <string name="title_rule_move">Déplacer</string>
     <string name="title_rule_copy">Copier (étiquette)</string>
     <string name="title_rule_answer">Répondre</string>
+    <string name="title_rule_tts">Synthèse vocale</string>
     <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s\'applique à</string>
@@ -966,6 +967,12 @@
     <string name="title_rule_no_headers">Les conditions sur l\'en-tête ne peuvent pas être vérifiées</string>
     <string name="title_rule_matched">Messages correspondants</string>
     <string name="title_rule_no_matches">Aucun message correspondant</string>
+    <string name="title_rule_tts_ok">Configuration réussie</string>
+    <string name="title_rule_tts_setup">Vérifier la configuration</string>
+    <string name="title_rule_tts_data">Installer les données vocales</string>
+    <string name="title_rule_tts_prefix">Nouveau message</string>
+    <string name="title_rule_tts_from">De</string>
+    <string name="title_rule_tts_subject">Objet</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>

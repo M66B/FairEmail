@@ -953,6 +953,7 @@
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
     <string name="title_rule_answer">Ответить</string>
+    <string name="title_rule_tts">Синтез речи</string>
     <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
@@ -988,6 +989,12 @@
     <string name="title_rule_no_headers">Условия заголовка не могут быть проверены</string>
     <string name="title_rule_matched">Подходящие сообщения</string>
     <string name="title_rule_no_matches">Нет подходящих сообщений</string>
+    <string name="title_rule_tts_ok">Установка в порядке</string>
+    <string name="title_rule_tts_setup">Проверить настройки</string>
+    <string name="title_rule_tts_data">Установить голосовые данные</string>
+    <string name="title_rule_tts_prefix">Новое сообщение</string>
+    <string name="title_rule_tts_from">От</string>
+    <string name="title_rule_tts_subject">Тема</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>

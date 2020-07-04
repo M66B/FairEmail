@@ -315,6 +315,7 @@
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
+    <string name="title_advanced_message_text_zoom">Mărime implicită text</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_text_color">Folosește culori text</string>
@@ -489,6 +490,7 @@
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_unicode">Permite caractere Unicode în adresele de e-mail</string>
+    <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
     <string name="title_optional">Opțional</string>
@@ -820,6 +822,7 @@
     <string name="title_text_reminder">Mesajul este gol</string>
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>
     <string name="title_attachment_reminder">Ați intenționat să adăugați un atașament?</string>
+    <string name="title_size_reminder">Mesajul (%1$s) mai mare decât limita serverului (%2$s)</string>
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
     <string name="title_dialog_hint">Această fereastră de dialog poate fi activată din nou în meniul cu trei puncte din bara de acțiuni de sus</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
@@ -938,6 +941,7 @@
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>
     <string name="title_rule_answer">Răspunde</string>
+    <string name="title_rule_tts">Text în vorbire</string>
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
@@ -973,6 +977,10 @@
     <string name="title_rule_no_headers">Nu se pot verifica condiții din antet</string>
     <string name="title_rule_matched">Mesaje ce se potrivesc</string>
     <string name="title_rule_no_matches">Nici un mesaj potrivit</string>
+    <string name="title_rule_tts_setup">Verificare configurare</string>
+    <string name="title_rule_tts_prefix">Mesaj nou</string>
+    <string name="title_rule_tts_from">De la</string>
+    <string name="title_rule_tts_subject">Subiect</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>
