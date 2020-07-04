@@ -70,6 +70,7 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvIdentityDone;
     private Button btnIdentity;
+    private TextView tvIdentityWhat;
     private TextView tvNoIdentities;
 
     private TextView tvPermissionsDone;
@@ -116,6 +117,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
         btnIdentity = view.findViewById(R.id.btnIdentity);
+        tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
         tvNoIdentities = view.findViewById(R.id.tvNoIdentities);
 
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
@@ -228,6 +230,14 @@ public class FragmentSetup extends FragmentBase {
             public void onClick(View view) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_VIEW_IDENTITIES));
+            }
+        });
+
+        tvIdentityWhat.setPaintFlags(tvIdentityWhat.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvIdentityWhat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 9);
             }
         });
 

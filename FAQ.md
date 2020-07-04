@@ -575,7 +575,7 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <a name="faq9"></a>
 **(9) What are identities / how do I add an alias?**
 
-Identities represent email addresses you are sending *from*.
+Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
 Some providers allow you to have multiple aliases.
 You can configure these by setting the email address field of an additional identity to the alias address
