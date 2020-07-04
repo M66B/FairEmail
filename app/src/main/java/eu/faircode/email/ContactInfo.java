@@ -449,11 +449,8 @@ public class ContactInfo {
             favicon = (meta == null ? null : meta.attr("content"));
         }
 
-        if (!TextUtils.isEmpty(favicon)) {
-            URL url = new URL(base, favicon);
-            if ("https".equals(url.getProtocol()))
-                return getFavicon(url);
-        }
+        if (!TextUtils.isEmpty(favicon))
+            return getFavicon(new URL(base, favicon));
 
         return null;
     }
@@ -462,7 +459,10 @@ public class ContactInfo {
     private static Bitmap getFavicon(URL url) throws IOException {
         Log.i("GET favicon " + url);
 
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        if (!"https".equals(url.getProtocol()))
+            throw new FileNotFoundException("http");
+
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FAVICON_READ_TIMEOUT);
         connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
