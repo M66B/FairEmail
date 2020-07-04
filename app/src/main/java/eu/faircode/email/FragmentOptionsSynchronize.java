@@ -391,7 +391,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 break;
             }
 
-        swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
+        swOptimize.setChecked(prefs.getBoolean("auto_optimize", true));
         grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
 
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);

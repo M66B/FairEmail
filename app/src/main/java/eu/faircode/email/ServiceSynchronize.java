@@ -1652,7 +1652,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void optimizeAccount(Context context, EntityAccount account, String reason) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+        boolean auto_optimize = prefs.getBoolean("auto_optimize", true);
         if (!auto_optimize)
             return;
 
