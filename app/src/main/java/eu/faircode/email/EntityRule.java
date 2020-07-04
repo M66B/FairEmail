@@ -39,6 +39,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -107,6 +109,7 @@ public class EntityRule {
     static final String EXTRA_RULE = "rule";
     static final String EXTRA_SENDER = "sender";
     static final String EXTRA_SUBJECT = "subject";
+    static final String EXTRA_RECEIVED = "received";
 
     private static final long SEND_DELAY = 5000L; // milliseconds
 
@@ -475,12 +478,18 @@ public class EntityRule {
         String sender = (message.from == null || message.from.length == 0
                 ? null : ((InternetAddress) message.from[0]).getAddress());
 
+        // ISO 8601
+        DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        DTF.setTimeZone(java.util.TimeZone.getTimeZone("Zulu"));
+
         Intent automation = new Intent(ACTION_AUTOMATION);
         automation.putExtra(EXTRA_RULE, name);
         automation.putExtra(EXTRA_SENDER, sender);
         automation.putExtra(EXTRA_SUBJECT, message.subject);
+        automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
 
-        EntityLog.log(context, "Sending " + automation);
+        List<String> extras = Log.getExtras(automation.getExtras());
+        EntityLog.log(context, "Sending " + automation + " " + TextUtils.join(" ", extras));
         context.sendBroadcast(automation);
 
         return true;
