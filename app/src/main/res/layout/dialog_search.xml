@@ -11,11 +11,10 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaption"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_search"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@id/ibUnseen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +29,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_search_flag_invite"
             app:layout_constraintEnd_toStartOf="@+id/ibUnseen"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption"
             app:srcCompat="@drawable/baseline_event_24" />
 
         <ImageButton
@@ -44,7 +43,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_search_flag_unseen"
             app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption"
             app:srcCompat="@drawable/baseline_mail_24" />
 
         <ImageButton
@@ -58,7 +57,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_search_flag_flagged"
             app:layout_constraintEnd_toStartOf="@+id/ibInfo"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption"
             app:srcCompat="@drawable/baseline_star_24" />
 
         <ImageButton
@@ -71,7 +70,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption"
             app:srcCompat="@drawable/baseline_info_24" />
 
         <AutoCompleteTextView
