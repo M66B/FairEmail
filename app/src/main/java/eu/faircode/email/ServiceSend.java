@@ -564,7 +564,7 @@ public class ServiceSend extends ServiceBase {
 
             Address[] to = imessage.getAllRecipients();
             String via = "via " + ident.host + "/" + ident.user +
-                    " to " + TextUtils.join(", ", to);
+                    " to " + (to == null ? null : TextUtils.join(", ", to));
 
             // Send message
             EntityLog.log(this, "Sending " + via);
