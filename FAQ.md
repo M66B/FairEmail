@@ -1826,6 +1826,7 @@ You can select one of these actions to apply to matching messages:
 * Move
 * Copy (Gmail: label)
 * Answer (with template)
+* Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
