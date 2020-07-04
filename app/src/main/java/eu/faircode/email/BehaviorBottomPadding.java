@@ -44,7 +44,7 @@ public class BehaviorBottomPadding extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
-        setPadding(child, dependency.getHeight());
+        setPadding(child, dependency.isAttachedToWindow() ? dependency.getHeight() : 0);
         return true;
     }
 
