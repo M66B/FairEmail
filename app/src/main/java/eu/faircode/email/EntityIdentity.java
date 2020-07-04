@@ -90,7 +90,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean primary;
     @NonNull
-    public Boolean self = true;
+    public Boolean self = true; // obsolete
     @NonNull
     public Boolean sender_extra = false;
     public String sender_extra_regex;
