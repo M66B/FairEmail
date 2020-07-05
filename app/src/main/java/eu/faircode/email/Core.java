@@ -714,13 +714,17 @@ class Core {
         DB db = DB.getInstance(context);
 
         if (!set && label.equals(folder.name)) {
-            if (TextUtils.isEmpty(message.msgid))
-                throw new IllegalArgumentException("label/msgid");
+            if (TextUtils.isEmpty(message.msgid)) {
+                Log.w("label/msgid");
+                return;
+            }
 
             // Prevent deleting message
             EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-            if (archive == null)
-                throw new IllegalArgumentException("label/archive");
+            if (archive == null) {
+                Log.w("label/archive");
+                return;
+            }
 
             Message[] imessages;
             Folder iarchive = istore.getFolder(archive.name);
@@ -740,8 +744,10 @@ class Core {
                 } catch (MessagingException ex) {
                     Log.w(ex);
                 }
-            else
-                throw new IllegalArgumentException("label/delete folder=" + folder.name);
+            else {
+                Log.w("label/delete folder=" + folder.name);
+                return;
+            }
         } else {
             try {
                 Message imessage = ifolder.getMessageByUID(message.uid);
