@@ -3170,12 +3170,16 @@ class Core {
                     remove.remove(id);
                     Log.i("Notify existing=" + id);
                 } else {
-                    add.add(id);
                     boolean existing = remove.contains(-id);
                     if (existing) {
-                        update.add(id);
+                        if (message.content && notify_preview) {
+                            Log.i("Notify preview=" + id);
+                            add.add(id);
+                            update.add(id);
+                        }
                         remove.remove(-id);
-                    }
+                    } else
+                        add.add(id);
                     Log.i("Notify adding=" + id + " existing=" + existing);
                 }
             }
