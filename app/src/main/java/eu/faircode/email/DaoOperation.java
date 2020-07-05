@@ -150,6 +150,8 @@ public interface DaoOperation {
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
 
-    @Query("DELETE FROM operation WHERE folder = :folder")
-    int deleteOperations(long folder);
+    @Query("DELETE FROM operation" +
+            " WHERE folder = :folder" +
+            " AND state <> 'executing'")
+    int deletePendingOperations(long folder);
 }

@@ -414,7 +414,7 @@ public class ServiceSend extends ServiceBase {
             db.folder().setFolderError(outbox.id, null);
 
             // Delete pending operations
-            db.operation().deleteOperations(outbox.id);
+            db.operation().deletePendingOperations(outbox.id);
 
             // Requeue operations
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
