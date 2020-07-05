@@ -3102,6 +3102,8 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
+        boolean notify_preview = prefs.getBoolean("notify_preview", true);
+        boolean notify_preview_only = prefs.getBoolean("notify_preview_only", false);
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
@@ -3129,6 +3131,9 @@ class Core {
                         continue;
                 }
             }
+
+            if (notify_preview && notify_preview_only && !message.content)
+                continue;
 
             long group = (pro && message.accountNotify ? message.account : 0);
             if (!message.folderUnified)
