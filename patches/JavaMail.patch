@@ -1,0 +1,45 @@
+diff --git a/app/src/main/java/com/sun/mail/imap/IMAPStore.java b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+index 866f17737..febd8b5d6 100644
+--- a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
++++ b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+@@ -1014,6 +1014,9 @@ public class IMAPStore extends Store
+                             p.disconnect();
+                         } catch (Exception ex2) { }
+                     p = null;
++					MessagingException failure = new MessagingException("connection failure", ex1);
++					eu.faircode.email.Log.w(failure);
++					throw failure;
+                 }
+                  
+                 if (p == null)
+@@ -1529,6 +1532,30 @@ public class IMAPStore extends Store
+         }
+     }
+ 
++    public synchronized String getCapability(String capability)
++            throws MessagingException {
++        IMAPProtocol p = null;
++        try {
++            p = getStoreProtocol();
++            Map<String, String> caps = p.getCapabilities();
++            if (caps != null)
++                for (String cap : caps.values()) {
++                    int eq = (cap == null ? -1 : cap.indexOf('='));
++                    if (eq > 0) {
++                        String key = cap.substring(0, eq);
++                        String value = cap.substring(eq + 1);
++                        if (capability.equals(key))
++                            return value;
++                    }
++                }
++            return null;
++        } catch (ProtocolException pex) {
++            throw new MessagingException(pex.getMessage(), pex);
++        } finally {
++            releaseStoreProtocol(p);
++        }
++    }
++
+     /**
+      * Set the user name to be used with the PROXYAUTH command.
+      * The PROXYAUTH user name can also be set using the
