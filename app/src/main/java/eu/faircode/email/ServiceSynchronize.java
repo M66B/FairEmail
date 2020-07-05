@@ -930,7 +930,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException) {
-                            if (!ConnectionHelper.isIoError(ex)) {
+                            if (ConnectionHelper.isIoError(ex)) {
+                                if (!BuildConfig.PLAY_STORE_RELEASE)
+                                    Log.e(ex);
+                            } else {
                                 Log.e(ex);
                                 try {
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -942,9 +945,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                                 throw ex;
                             }
-                        } else {
-                            if (!BuildConfig.PLAY_STORE_RELEASE)
-                                Log.e(ex);
                         }
 
                         // Report account connection error
