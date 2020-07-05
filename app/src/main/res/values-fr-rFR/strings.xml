@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Inactif</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
+    <string name="title_notification_sending_left">Tentatives restantes : %1$d</string>
     <string name="title_notification_sending_failed">L\'envoi à %1$s a échoué</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -150,6 +151,7 @@
     <string name="title_setup_identity">Configurer les identités</string>
     <string name="title_setup_identity_remark">Pour envoyer des e-mails</string>
     <string name="title_setup_identity_hint">Pour modifier le nom, la couleur, la signature, etc</string>
+    <string name="title_setup_identity_what">Qu\'est-ce qu\'une identité ?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
     <string name="title_setup_doze">Configurer les optimisations de la batterie</string>

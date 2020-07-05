@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\"%1$s\" misslyckades</string>
     <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
+    <string name="title_notification_sending_left">Försök kvar: %1$d</string>
     <string name="title_notification_sending_failed">Det gick inte att skicka till %1$s</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -150,6 +151,7 @@
     <string name="title_setup_identity">Ställ in identiteter</string>
     <string name="title_setup_identity_remark">Skicka e-post</string>
     <string name="title_setup_identity_hint">För att ändra namn, färg, signatur o.s.v.</string>
+    <string name="title_setup_identity_what">Vad är en identitet?</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_doze">Ställ in batterioptimering</string>

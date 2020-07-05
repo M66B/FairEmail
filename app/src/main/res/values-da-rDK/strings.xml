@@ -77,6 +77,7 @@
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
+    <string name="title_notification_sending_left">Forsøg resterer: %1$d</string>
     <string name="title_notification_sending_failed">Afsendelse til %1$s mislykkedes</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -150,6 +151,7 @@
     <string name="title_setup_identity">Opsæt identiteter</string>
     <string name="title_setup_identity_remark">Til at sende e-mail</string>
     <string name="title_setup_identity_hint">Skift af navn, farve, signature mv.</string>
+    <string name="title_setup_identity_what">Hvad er en identitet?</string>
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Opsæt batterioptimering</string>
@@ -305,6 +307,7 @@
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
+    <string name="title_advanced_message_text_zoom">Standard tekstzoom for besked</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_text_color">Benyt tekstfarver</string>
@@ -479,6 +482,7 @@
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_unicode">Tillad Unicode i e-mailadresser</string>
+    <string name="title_identity_max_size">Maks. beskedstørrelse (MBb)</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
     <string name="title_optional">Valgfrit</string>
@@ -810,6 +814,7 @@
     <string name="title_text_reminder">Besked er tom</string>
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
+    <string name="title_size_reminder">Besked (%1$s) større end servergrænsen (%2$s)</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
     <string name="title_dialog_hint">Denne dialog kan slås til igen via trepriksmenuen i den øverste handlingsbjælke</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
@@ -928,6 +933,7 @@
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar</string>
+    <string name="title_rule_tts">Tekst til tale</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
@@ -963,6 +969,12 @@
     <string name="title_rule_no_headers">Overskriftsbetingelser kan ikke tjekkes</string>
     <string name="title_rule_matched">Matchende beskeder</string>
     <string name="title_rule_no_matches">Ingen matchende beskeder</string>
+    <string name="title_rule_tts_ok">Opsætning OK</string>
+    <string name="title_rule_tts_setup">Tjek opsætning</string>
+    <string name="title_rule_tts_data">Installér stemmedata</string>
+    <string name="title_rule_tts_prefix">Ny besked</string>
+    <string name="title_rule_tts_from">Fra</string>
+    <string name="title_rule_tts_subject">Emne</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Beskeder</string>

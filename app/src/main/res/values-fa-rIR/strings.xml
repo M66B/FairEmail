@@ -149,6 +149,7 @@
     <string name="title_setup_identity">راه اندازی هویت‌ها</string>
     <string name="title_setup_identity_remark">برای ارسال ایمیل</string>
     <string name="title_setup_identity_hint">برای تغییر نام، رنگ، امضاء، وغیره</string>
+    <string name="title_setup_identity_what">هویت چیست؟</string>
     <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
     <string name="title_setup_doze">راه‌اندازی بهینه‌سازی‌ باتری</string>
@@ -755,6 +756,7 @@
     <string name="title_sort_on_attachments">پیوست‎ها</string>
     <string name="title_sort_on_hidden">پنهان</string>
     <string name="title_sort_ascending">ابتدا قدیمی‌ترین</string>
+    <string name="title_filter">پالودن</string>
     <string name="title_filter_seen">خوانده شده</string>
     <string name="title_filter_unflagged">بدون ستاره شده</string>
     <string name="title_filter_unknown">فرستندگان ناشناس</string>
@@ -794,6 +796,7 @@
     <string name="title_rule_move">انتقال</string>
     <string name="title_rule_copy">کپی (برچسب)</string>
     <string name="title_rule_answer">پاسخ</string>
+    <string name="title_rule_tts">متن به گفتار</string>
     <string name="title_rule_automation">خودکارسازی</string>
     <string name="title_rule_caption">ویرایش قانون</string>
     <string name="title_rule_title">قانون اعمال می‌شود بر</string>
@@ -823,6 +826,11 @@
     <string name="title_rule_check">بررسی</string>
     <string name="title_rule_matched">پیام‌های مطابق</string>
     <string name="title_rule_no_matches">هیچ پیام مطابقی وجود ندارد</string>
+    <string name="title_rule_tts_setup">بررسی راه‌اندازی</string>
+    <string name="title_rule_tts_data">نصب داده‌های صدا</string>
+    <string name="title_rule_tts_prefix">پیام جدید</string>
+    <string name="title_rule_tts_from">از</string>
+    <string name="title_rule_tts_subject">موضوع</string>
     <string name="title_legend_section_synchronize">همگام سازی</string>
     <string name="title_legend_section_folders">پوشه‌ها</string>
     <string name="title_legend_section_messages">پیام‌ها</string>

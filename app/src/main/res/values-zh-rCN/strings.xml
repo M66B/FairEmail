@@ -65,6 +65,7 @@
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
+    <string name="title_notification_sending_left">剩余尝试次数：%1$d</string>
     <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -138,6 +139,7 @@
     <string name="title_setup_identity">设置身份</string>
     <string name="title_setup_identity_remark">用于发送电子邮件</string>
     <string name="title_setup_identity_hint">更改姓名、颜色、签名等</string>
+    <string name="title_setup_identity_what">什么是身份？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">设置电池优化</string>
