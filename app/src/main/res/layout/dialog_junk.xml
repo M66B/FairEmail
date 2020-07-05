@@ -20,6 +20,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvJunkHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_junk_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
+
+        <ImageButton
+            android:id="@+id/ibInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvJunkHint"
+            app:srcCompat="@drawable/baseline_info_24" />
+
         <CheckBox
             android:id="@+id/cbBlockSender"
             android:layout_width="wrap_content"
@@ -28,7 +50,7 @@
             android:text="@string/title_block_sender"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+            app:layout_constraintTop_toBottomOf="@id/tvJunkHint" />
 
         <CheckBox
             android:id="@+id/cbBlockDomain"
@@ -47,7 +69,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_block_sender_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbBlockDomain" />
 

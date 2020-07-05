@@ -6049,11 +6049,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
+            final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
             final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
             final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
             final Button btnEditRules = view.findViewById(R.id.btnEditRules);
 
             tvMessage.setText(getString(R.string.title_ask_spam_who, from));
+
+            ibInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Helper.viewFAQ(getContext(), 92);
+                }
+            });
+
             cbBlockSender.setEnabled(ActivityBilling.isPro(getContext()));
             cbBlockDomain.setEnabled(false);
 
@@ -6087,12 +6096,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.viewFAQ(getContext(), 92);
-                        }
-                    })
                     .create();
         }
     }
