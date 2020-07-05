@@ -42,7 +42,7 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvManalHint"
+            android:id="@+id/tvManualHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -64,7 +64,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvManalHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
 
         <Spinner
             android:id="@+id/spPollInterval"
@@ -101,6 +101,19 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvOptimizeHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_optimize_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swOptimize" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -111,7 +124,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swOptimize" />
+            app:layout_constraintTop_toBottomOf="@id/tvOptimizeHint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExempted"
