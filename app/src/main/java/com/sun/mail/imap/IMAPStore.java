@@ -1014,6 +1014,9 @@ public class IMAPStore extends Store
                             p.disconnect();
                         } catch (Exception ex2) { }
                     p = null;
+					MessagingException failure = new MessagingException("connection failure", ex1);
+					eu.faircode.email.Log.w(failure);
+					throw failure;
                 }
                  
                 if (p == null)
