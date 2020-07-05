@@ -66,6 +66,7 @@
         <item quantity="other">Traiter %1$d messages comme indésirables?</item>
     </plurals>
     <string name="title_ask_spam_who">Traiter le message de %1$s comme indésirable?</string>
+    <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage du spam. Une application de messagerie n\'a pas toutes les données pour le faire de manière fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
@@ -355,6 +356,7 @@
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
     <string name="title_advanced_notify_preview">Afficher l’aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
+    <string name="title_advanced_notify_preview_only">Afficher les notifications avec un texte de prévisualisation uniquement</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_junk">Indésirables</string>
@@ -414,7 +416,7 @@
     <string name="title_advanced_more">Plus d’options</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
-    <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la batterie en fonction des capacités et du comportement des serveurs de messagerie</string>
+    <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la pile en fonction des capacités et du comportement des serveurs de courriel</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, invalide ou future comme étant des messages sans date</string>
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne prennent pas ceci en charge correctement, ce qui peut entraîner la synchronisation de tous les messages, voire d’aucun</string>
@@ -461,6 +463,7 @@
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification permanente</string>
     <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
+    <string name="title_advanced_notify_preview_only_hint">Ceci retarde l\'affichage des notifications jusqu\'à ce que le texte du message ait été téléchargé</string>
     <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté qu’après le téléchargement du texte du message</string>
     <string name="title_advanced_move_hint">Le dossier cible peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d’Android ne prend pas en charge le regroupement de notifications</string>

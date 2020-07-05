@@ -99,6 +99,7 @@
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
+    <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -435,6 +436,7 @@
     <string name="title_advanced_more">Více možností</string>
     <string name="title_advanced_manual_hint">Je-li příjem zpráv zakázán, stále je možno zprávy přijímat ručně tažením dolů v seznamu zpráv</string>
     <string name="title_advanced_poll_hint">Pravidelná kontrola nových zpráv pokaždé porovnává místní a vzdálené zprávy, což je zdlouhavá operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv. Neustálý příjem tomuto předchází průběžným sledováním změn.</string>
+    <string name="title_advanced_optimize_hint">Může změnit synchronizační interval pro úsporu spotřeby baterie, v závislosti na možnostech a chování e-mailových serverů</string>
     <string name="title_advanced_schedule_hint">Pro změnu času se jej dotkněte</string>
     <string name="title_advanced_no_date_hint">Někteří poskytovatelé ukládají zprávy s neznámým, neplatným nebo budoucím datem jako zprávy bez data</string>
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>

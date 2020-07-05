@@ -55,6 +55,7 @@
         <item quantity="other">将这%1$d则邮件标为垃圾邮件？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
+    <string name="title_junk_hint">您的电子邮件提供商负责过滤垃圾邮件。电子邮件应用程序没有可靠地执行此操作所需的所有数据。</string>
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_domain">屏蔽发件人域名</string>
@@ -343,6 +344,7 @@
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
+    <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_junk">垃圾邮件</string>
@@ -402,6 +404,7 @@
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_manual_hint">如果禁用了接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
     <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项耗费的操作，可能会导致额外的电池用量，尤其是在有消息非常多时。 始终接收将通过持续跟踪变化来防止这种情况</string>
+    <string name="title_advanced_optimize_hint">取决于电子邮件服务器的功能和行为，这可能会改变同步频率，以节省电池的使用</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -448,6 +451,7 @@
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
+    <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示，直到下载了消息文本为止</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>

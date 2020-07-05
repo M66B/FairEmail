@@ -66,6 +66,7 @@
         <item quantity="other">Behandel %1$d berichten als spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Behandel bericht van %1$s als spam?</string>
+    <string name="title_junk_hint">Uw e-mailprovider is verantwoordelijk voor het filteren van spam. Een e-mail-app beschikt niet over alle gegevens die nodig zijn om dit betrouwbaar te doen.</string>
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
     <string name="title_block_domain">Afzender domein blokkeren</string>
@@ -354,6 +355,7 @@
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
+    <string name="title_advanced_notify_preview_only">Alleen meldingen met een voorbeeldtekst weergeven</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -460,6 +462,7 @@
     <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
     <string name="title_advanced_notify_manage_service_hint">Om de permanente melding uit te schakelen</string>
     <string name="title_advanced_notify_preview_all_hint">Voor wearables die de volledige tekst kunnen weergeven (tot 5.000 tekens)</string>
+    <string name="title_advanced_notify_preview_only_hint">Dit vertraagt het tonen van meldingen totdat de berichttekst is gedownload</string>
     <string name="title_advanced_wearable_hint">Meldingen worden alleen verzonden naar een wearable nadat de berichttekst is gedownload</string>
     <string name="title_advanced_move_hint">De doelmap kan worden geconfigureerd in de accountinstellingen</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>

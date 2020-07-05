@@ -88,6 +88,7 @@
         <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Traktuj wiadomość od %1$s jako spam?</string>
+    <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wszystkich danych, aby wykonać to skutecznie.</string>
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_domain">Blokuj domenę nadawcy</string>
@@ -435,6 +436,7 @@
     <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_manual_hint">Gdy synchronizacja jest wyłączona, nadal można odbierać wiadomości ręcznie, przeciągając listę wiadomości</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
+    <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_no_date_hint">Niektórzy dostawcy przechowują wiadomości z nieznaną, niepoprawną lub przyszłą datą jako wiadomości bez daty</string>
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może powodować brak synchronizacji lub synchronizację wszystkich wiadomości</string>
@@ -481,6 +483,7 @@
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć stałe powiadomienie</string>
     <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>
+    <string name="title_advanced_notify_preview_only_hint">Opóźnia to wyświetlanie powiadomień do momentu pobrania tekstu wiadomości</string>
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>

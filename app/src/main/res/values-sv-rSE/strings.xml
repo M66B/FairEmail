@@ -413,6 +413,7 @@
     <string name="title_advanced_more">Fler alternativ</string>
     <string name="title_advanced_manual_hint">Om mottagande av meddelanden är inaktiverat är det fortfarande möjligt att manuellt ta emot meddelanden genom att dra ner meddelandelistan</string>
     <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
+    <string name="title_advanced_optimize_hint">Detta kan ändra synkroniseringsfrekvensen för att spara på batteriet, beroende på e-postservrarnas funktioner och beteende</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_no_date_hint">Vissa leverantörer lagrar meddelanden med ett okänt, ogiltigt eller framtida datum som meddelanden utan datum</string>
     <string name="title_advanced_unseen_hint">Vissa leverantörer stödjer inte detta korrekt, vilket kan orsaka synkronisering av inga eller alla meddelanden</string>

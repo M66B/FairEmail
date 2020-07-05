@@ -414,6 +414,7 @@
     <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi tirando giù l\'elenco dei messaggi</string>
     <string name="title_advanced_poll_hint">Controllare periodicamente la presenza di nuovi messaggi confronterà ogni volta i messaggi locali e remoti, che è un\'operazione costosa che può comportare un uso extra della batteria, soprattutto se ci sono molti messaggi. Ricevere sempre questo impedirà continuamente dopo le modifiche.</string>
+    <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare l\'utilizzo della batteria a seconda delle funzionalità e del comportamento dei server di posta elettronica</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_no_date_hint">Alcuni provider memorizzano messaggi con una data sconosciuta, non valida o futura come messaggi senza data</string>
     <string name="title_advanced_unseen_hint">Alcuni provider non supportano correttamente questa funzione, il che potrebbe causare la sincronizzazione di nessuno o di tutti i messaggi</string>
