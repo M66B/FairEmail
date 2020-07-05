@@ -4323,7 +4323,7 @@ public class FragmentCompose extends FragmentBase {
                                 mid = R.string.title_redo;
                             else
                                 mid = R.string.title_draft_saved;
-                            final String msg = getString(mid) +
+                            final String msg = context.getString(mid) +
                                     (BuildConfig.DEBUG ? ":" + draft.revision : "");
 
                             Handler handler = new Handler(context.getMainLooper());
