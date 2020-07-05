@@ -66,7 +66,7 @@
         <item quantity="other">Traiter %1$d messages comme indésirables?</item>
     </plurals>
     <string name="title_ask_spam_who">Traiter le message de %1$s comme indésirable?</string>
-    <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage du spam. Une application de messagerie n\'a pas toutes les données pour le faire de manière fiable.</string>
+    <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage du pourriel. Une application de messagerie n\'a pas toutes les données pour le faire de manière fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>

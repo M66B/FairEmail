@@ -66,7 +66,7 @@
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
-    <string name="title_junk_hint">Ihr E-Mail-Anbieter ist für das Filtern von Spam zuständig. Eine E-Mail-Anwendung verfügt nicht über alle benötigten Informationen, um dies zuverlässig zu gewährleisten.</string>
+    <string name="title_junk_hint">Ihr E-Mail-Anbieter ist für das Filtern von Spam zuständig. Eine E-Mail-Anwendung verfügt nicht über alle benötigten Informationen, um das zuverlässig zu gewährleisten.</string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_domain">Absenderdomain sperren</string>
@@ -417,7 +417,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_more">Weitere Optionen</string>
     <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste herunterziehen</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
-    <string name="title_advanced_optimize_hint">Dies kann die Synchronisierungshäufigkeit ändern, um den Batterieverbrauch zu senken, abhängig von den Fähigkeiten und dem Verhalten der E-Mail-Server.</string>
+    <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
@@ -464,7 +464,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_manage_default_hint">Um den Standard-Ton einzustellen etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Um die permanente Benachrichtigung zu deaktivieren</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>
-    <string name="title_advanced_notify_preview_only_hint">Dies verzögert die Anzeige der Benachrichtigungen solange, bis der Nachrichtentext heruntergeladen wurde.</string>
+    <string name="title_advanced_notify_preview_only_hint">Dadurch wird die Anzeige der Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde.</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden nur nach dem Download des Nachrichtentextes an einen tragbaren Empfänger gesendet</string>
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>

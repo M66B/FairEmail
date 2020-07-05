@@ -66,6 +66,7 @@
         <item quantity="other">Trattare %1$d messaggi come spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Tratta il messaggio da %1$s come spam?</string>
+    <string name="title_junk_hint">Il tuo fornitore di posta elettronica è responsabile del filtraggio dello spam. Un\'applicazione di posta elettronica non dispone di tutti i dati necessari per farlo in modo affidabile.</string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocco mittente</string>
     <string name="title_block_domain">Blocca dominio mittente</string>
@@ -355,6 +356,7 @@
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
+    <string name="title_advanced_notify_preview_only">Mostra solo le notifiche con un testo di anteprima</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -461,6 +463,7 @@
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, ecc</string>
     <string name="title_advanced_notify_manage_service_hint">Per disattivare la notifica permanente</string>
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
+    <string name="title_advanced_notify_preview_only_hint">Questo ritardo la visualizzazione delle notifiche fino allo scaricamento del testo del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate solo a un indossabile dopo che il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>

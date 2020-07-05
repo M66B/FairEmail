@@ -66,6 +66,7 @@
         <item quantity="other">Behandla %1$d meddelanden som skräppost?</item>
     </plurals>
     <string name="title_ask_spam_who">Behandla meddelande från %1$s som skräppost?</string>
+    <string name="title_junk_hint">Din e-postleverantör ansvarar för att filtrera skräppost. En e-postapp har inte all data som behövs för att göra detta på ett tillförlitligt sätt.</string>
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
     <string name="title_block_domain">Blockera avsändardomän</string>
@@ -354,6 +355,7 @@
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
+    <string name="title_advanced_notify_preview_only">Visa endast aviseringar med förhandsvisningar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
     <string name="title_advanced_notify_action_junk">Skräppost</string>
@@ -460,6 +462,7 @@
     <string name="title_advanced_notify_manage_default_hint">För att ställa in standardljudet, etc</string>
     <string name="title_advanced_notify_manage_service_hint">För att inaktivera permanent avisering</string>
     <string name="title_advanced_notify_preview_all_hint">För handburna enheter som kan visa fulltext (upp till 5000 tecken)</string>
+    <string name="title_advanced_notify_preview_only_hint">Denna försening visar aviseringar tills meddelandet har laddats ner</string>
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
     <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>

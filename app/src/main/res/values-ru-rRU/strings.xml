@@ -88,6 +88,7 @@
         <item quantity="other">Считать %1$d сообщений спамом?</item>
     </plurals>
     <string name="title_ask_spam_who">Считать сообщение от %1$s спамом?</string>
+    <string name="title_junk_hint">За фильтрацию спама отвечает ваш почтовый провайдер. Приложение электронной почты не имеет достаточно данных, чтобы надёжно исполнять данную функцию.</string>
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
     <string name="title_block_domain">Заблокировать домен отправителя</string>
@@ -377,6 +378,7 @@
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
+    <string name="title_advanced_notify_preview_only">Показывать уведомления только с предпросмотром текста</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
@@ -483,6 +485,7 @@
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
     <string name="title_advanced_notify_manage_service_hint">Для отключения постоянного уведомления</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>
+    <string name="title_advanced_notify_preview_only_hint">Это задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>

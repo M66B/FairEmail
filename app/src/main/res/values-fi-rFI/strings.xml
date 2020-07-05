@@ -66,6 +66,7 @@
         <item quantity="other">Käsittele %1$d viestiä roskapostina?</item>
     </plurals>
     <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
+    <string name="title_junk_hint">Palveluntarjoaja vastaa roskapostin suodatuksesta. Sähköpostisovelluksella ei ole kaikkea tarvittavaa dataa luotettavaan suodatukseen.</string>
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
     <string name="title_block_domain">Estä lähettäjän verkkotunnus</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_idle">Toimeton</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
+    <string name="title_notification_sending_left">Yrityksiä jäljellä: %1$d</string>
     <string name="title_notification_sending_failed">Lähettäminen vastaanottajalle %1$s epäonnistui</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -149,6 +151,7 @@
     <string name="title_setup_identity">Aseta identiteetit</string>
     <string name="title_setup_identity_remark">Sähköpostien lähettämiseen</string>
     <string name="title_setup_identity_hint">Lähettäjän nimen, värin, allekirjoituksen, jne. asettamiseen</string>
+    <string name="title_setup_identity_what">Mikä on identiteetti?</string>
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
@@ -351,6 +354,7 @@
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_preview_all">Esikatsele teksti kokonaisuudessaan</string>
+    <string name="title_advanced_notify_preview_only">Näytä ilmoitukset vain esikatselutekstin kanssa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
     <string name="title_advanced_notify_action_trash">Roskakori</string>
     <string name="title_advanced_notify_action_junk">Roskaposti</string>
@@ -410,6 +414,7 @@
     <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_manual_hint">Jos viestien vastaanotto on pois käytöstä, voi viestejä silti vastaanottaa manuaalisesti vetämällä alaspäin viestilistassa</string>
     <string name="title_advanced_poll_hint">Ajoittainen uusien viestien tarkistus vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun viestejä on paljon. Jatkuva vastaanotto välttää tämän seuraamalla jatkuvasti muutoksia.</string>
+    <string name="title_advanced_optimize_hint">Tämä saattaa muuttaa synkronoinnin aikaväliä akun säästämiseksi riippuen sähköpostipalvelinten ominaisuuksista ja käyttäytymisestä</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_no_date_hint">Jotkin palveluntarjoajat tallentavat viestien virheelliset tai tulevaisuudessa olevat päivämäärät puuttuvina</string>
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
@@ -456,6 +461,7 @@
     <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
     <string name="title_advanced_notify_manage_service_hint">Pysyvän ilmoituksen käytöstä poistamiseksi</string>
     <string name="title_advanced_notify_preview_all_hint">Puettaville laitteille, jotka voivat näyttää koko tekstin (5 000 merkkiin asti)</string>
+    <string name="title_advanced_notify_preview_only_hint">Tämä viivästää ilmoitusten näyttämistä kunnes viestin teksti on ladattu</string>
     <string name="title_advanced_wearable_hint">Ilmoitukset lähetetään puettavaan laitteeseen vasta, kun viestin teksti on ladattu</string>
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
@@ -965,7 +971,9 @@
     <string name="title_rule_no_headers">Tunnistetietojen ehtoja ei voida tarkistaa</string>
     <string name="title_rule_matched">Täsmäävät viestit</string>
     <string name="title_rule_no_matches">Ei täsmääviä viestejä</string>
+    <string name="title_rule_tts_ok">Asetukset kunnossa</string>
     <string name="title_rule_tts_setup">Tarkista asetukset</string>
+    <string name="title_rule_tts_data">Asenna äänitiedot</string>
     <string name="title_rule_tts_prefix">Uusi viesti</string>
     <string name="title_rule_tts_from">Lähettäjä</string>
     <string name="title_rule_tts_subject">Aihe</string>

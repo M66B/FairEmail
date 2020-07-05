@@ -377,6 +377,7 @@
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_preview_all">Náhled na celý text</string>
+    <string name="title_advanced_notify_preview_only">Zobrazit pouze oznámení s náhledem textu</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
     <string name="title_advanced_notify_action_junk">Nevyžádané</string>
@@ -483,6 +484,7 @@
     <string name="title_advanced_notify_manage_default_hint">Pro nastavení výchozího zvuku, apod</string>
     <string name="title_advanced_notify_manage_service_hint">Pro vypnutí permanentního oznámení</string>
     <string name="title_advanced_notify_preview_all_hint">Pro nositelná zařízení umějící zobrazit celý text (až 5,000 znaků)</string>
+    <string name="title_advanced_notify_preview_only_hint">Pozdrží zobrazení oznámení, dokud není stažen text zprávy</string>
     <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
