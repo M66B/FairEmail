@@ -1127,7 +1127,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 all.addAll(Arrays.asList(senders));
             if (show_recipients && recipients != null)
                 all.addAll(Arrays.asList(recipients));
-            ContactInfo[] info = ContactInfo.getCached(context, message.account, all.toArray(new Address[0]));
+            ContactInfo[] info = ContactInfo.getCached(context, message.account, message.folderType, all.toArray(new Address[0]));
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1135,6 +1135,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putLong("account", message.account);
+                aargs.putString("folderType", message.folderType);
                 aargs.putSerializable("senders", senders);
                 aargs.putSerializable("recipients", show_recipients ? recipients : null);
 
@@ -1142,6 +1143,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected ContactInfo[] onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
+                        String folderType = args.getString("folderType");
                         Address[] senders = (Address[]) args.getSerializable("senders");
                         Address[] recipients = (Address[]) args.getSerializable("recipients");
 
@@ -1154,7 +1156,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         System.arraycopy(senders, 0, all, 0, senders.length);
                         System.arraycopy(recipients, 0, all, senders.length, recipients.length);
 
-                        return ContactInfo.get(context, account, all);
+                        return ContactInfo.get(context, account, folderType, all);
                     }
 
                     @Override

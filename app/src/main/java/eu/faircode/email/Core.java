@@ -3282,7 +3282,7 @@ class Core {
         Map<Long, Address[]> messageFrom = new HashMap<>();
         Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
         for (TupleMessageEx message : messages) {
-            ContactInfo[] info = ContactInfo.get(context, message.account, message.from);
+            ContactInfo[] info = ContactInfo.get(context, message.account, message.folderType, message.from);
 
             Address[] modified = (message.from == null
                     ? new InternetAddress[0]

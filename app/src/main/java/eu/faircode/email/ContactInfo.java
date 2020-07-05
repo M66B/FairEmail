@@ -160,21 +160,21 @@ public class ContactInfo {
     }
 
     @NonNull
-    static ContactInfo[] get(Context context, long account, Address[] addresses) {
-        return get(context, account, addresses, false);
+    static ContactInfo[] get(Context context, long account, String folderType, Address[] addresses) {
+        return get(context, account, folderType, addresses, false);
     }
 
-    static ContactInfo[] getCached(Context context, long account, Address[] addresses) {
-        return get(context, account, addresses, true);
+    static ContactInfo[] getCached(Context context, long account, String folderType, Address[] addresses) {
+        return get(context, account, folderType, addresses, true);
     }
 
-    private static ContactInfo[] get(Context context, long account, Address[] addresses, boolean cacheOnly) {
+    private static ContactInfo[] get(Context context, long account, String folderType, Address[] addresses, boolean cacheOnly) {
         if (addresses == null || addresses.length == 0)
             return new ContactInfo[]{new ContactInfo()};
 
         ContactInfo[] result = new ContactInfo[addresses.length];
         for (int i = 0; i < addresses.length; i++) {
-            result[i] = _get(context, account, (InternetAddress) addresses[i], cacheOnly);
+            result[i] = _get(context, account, folderType, (InternetAddress) addresses[i], cacheOnly);
             if (result[i] == null)
                 return null;
         }
@@ -182,7 +182,7 @@ public class ContactInfo {
         return result;
     }
 
-    private static ContactInfo _get(Context context, long account, InternetAddress address, boolean cacheOnly) {
+    private static ContactInfo _get(Context context, long account, String folderType, InternetAddress address, boolean cacheOnly) {
         String key = MessageHelper.formatAddresses(new Address[]{address});
         synchronized (emailContactInfo) {
             ContactInfo info = emailContactInfo.get(key);
@@ -295,7 +295,8 @@ public class ContactInfo {
         }
 
         // Favicon
-        if (info.bitmap == null && favicons) {
+        if (info.bitmap == null && favicons &&
+                !EntityFolder.JUNK.equals(folderType)) {
             int at = (info.email == null ? -1 : info.email.indexOf('@'));
             String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
 
