@@ -1193,8 +1193,8 @@ public class FragmentCompose extends FragmentBase {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
 
-        menu.findItem(R.id.menu_encrypt).setActionView(R.layout.action_button);
-        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
+        menu.findItem(R.id.menu_encrypt).setActionView(R.layout.action_button_text);
+        ImageButton ib = menu.findItem(R.id.menu_encrypt).getActionView().findViewById(R.id.button);
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1219,17 +1219,22 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
-        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
+        View v = menu.findItem(R.id.menu_encrypt).getActionView();
+        ImageButton ib = v.findViewById(R.id.button);
+        TextView tv = v.findViewById(R.id.text);
         ib.setEnabled(state == State.LOADED);
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
             ib.setImageResource(R.drawable.baseline_gesture_24);
             ib.setImageTintList(null);
+            tv.setText(EntityMessage.PGP_SIGNONLY.equals(encrypt) ? "P" : "S");
         } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) || EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
             ib.setImageResource(R.drawable.baseline_lock_24);
             ib.setImageTintList(ColorStateList.valueOf(colorEncrypt));
+            tv.setText(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ? "P" : "S");
         } else {
             ib.setImageResource(R.drawable.baseline_lock_open_24);
             ib.setImageTintList(null);
+            tv.setText(null);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
