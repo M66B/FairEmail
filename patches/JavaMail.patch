@@ -1,18 +1,17 @@
 diff --git a/app/src/main/java/com/sun/mail/imap/IMAPStore.java b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-index 866f17737..febd8b5d6 100644
+index 866f17737..929e82d33 100644
 --- a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
 +++ b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-@@ -1014,6 +1014,9 @@ public class IMAPStore extends Store
+@@ -1014,6 +1014,8 @@ public class IMAPStore extends Store
                              p.disconnect();
                          } catch (Exception ex2) { }
                      p = null;
-+					MessagingException failure = new MessagingException("connection failure", ex1);
-+					eu.faircode.email.Log.w(failure);
-+					throw failure;
++					eu.faircode.email.Log.e(new MessagingException("IMAP connection failure", ex1));
++					throw new MessagingException("connection failure", ex1);
                  }
                   
                  if (p == null)
-@@ -1529,6 +1532,30 @@ public class IMAPStore extends Store
+@@ -1529,6 +1531,30 @@ public class IMAPStore extends Store
          }
      }
  
