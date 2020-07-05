@@ -947,32 +947,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         }
 
-                        // Report account connection error
-                        if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
-                            EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
-
-                            long now = new Date().getTime();
-                            int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-                            long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                            long maxDelayed = (pollInterval > 0 && !account.poll_exempted
-                                    ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
-                            if (delayed > maxDelayed && state.getBackoff() > BACKOFF_ERROR_AFTER) {
-                                Log.i("Reporting sync error after=" + delayed);
-                                Throwable warning = new Throwable(
-                                        getString(R.string.title_no_sync,
-                                                Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
-                                                        .format(account.last_connected)), ex);
-                                try {
-                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("receive:" + account.id, 1,
-                                            Core.getNotificationError(this, "warning", account.name, warning)
-                                                    .build());
-                                } catch (Throwable ex1) {
-                                    Log.w(ex1);
-                                }
-                            }
-                        }
-
                         throw ex;
                     }
 
@@ -1520,6 +1494,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             ServiceSynchronize.this,
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
+
+                    // Report account connection error
+                    if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
+                        EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
+
+                        long now = new Date().getTime();
+                        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+                        long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
+                        long maxDelayed = (pollInterval > 0 && !account.poll_exempted
+                                ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
+                        if (delayed > maxDelayed && state.getBackoff() > BACKOFF_ERROR_AFTER) {
+                            Log.i("Reporting sync error after=" + delayed);
+                            Throwable warning = new Throwable(
+                                    getString(R.string.title_no_sync,
+                                            Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
+                                                    .format(account.last_connected)), ex);
+                            try {
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify("receive:" + account.id, 1,
+                                        Core.getNotificationError(this, "warning", account.name, warning)
+                                                .build());
+                            } catch (Throwable ex1) {
+                                Log.w(ex1);
+                            }
+                        }
+                    }
                 } finally {
                     // Update state
                     EntityLog.log(this, account.name + " closing");
