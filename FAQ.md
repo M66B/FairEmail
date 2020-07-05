@@ -3019,8 +3019,14 @@ Unfortunately, there exists no intent to delete existing calendar events.
 **(151) Can you add backup/restore messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages.
-The email server is responsible for backups.
+Note that breaking or losing your device, means losing your messages!
+
+Instead, the email provider/server is responsible for backups.
+
 If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
+
+If you want to import an mbox file to an existing email account,
+you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
 <br />
 
