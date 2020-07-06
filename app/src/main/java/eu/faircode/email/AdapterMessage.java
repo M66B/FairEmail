@@ -1491,7 +1491,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     DB db = DB.getInstance(context);
                     EntityAccount account = db.account().getAccount(aid);
-                    args.putBoolean("labels", account != null && account.isGmail());
+                    args.putBoolean("gmail", account != null && account.isGmail());
 
                     return db.folder().getSystemFolders(aid);
                 }
@@ -1507,7 +1507,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!show_expanded)
                         return;
 
-                    boolean labels = args.getBoolean("labels");
+                    boolean gmail = args.getBoolean("gmail");
 
                     boolean hasArchive = false;
                     boolean hasTrash = false;
@@ -1534,6 +1534,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && (hasJunk && !inJunk));
                     boolean inbox = (move && (inArchive || inTrash || inJunk));
+                    boolean labels = (gmail && move && !inTrash && !inJunk && !outbox);
 
                     final boolean delete = (inTrash || !hasTrash || inJunk || outbox ||
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
@@ -1559,7 +1560,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
-                    ibLabels.setVisibility(tools && labels_header && labels && !inTrash && !inJunk && !outbox ? View.VISIBLE : View.GONE);
+                    ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
