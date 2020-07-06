@@ -2032,7 +2032,7 @@ public class MessageHelper {
                     contentType = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
                     if (part instanceof MimeMessage)
-                        Log.e("MimeMessage content type=" + ex.getMessage());
+                        Log.w("MimeMessage content type=" + ex.getMessage());
                     else
                         Log.w(ex);
                     contentType = new ContentType(Helper.guessMimeType(filename));
