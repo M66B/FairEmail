@@ -439,7 +439,7 @@ public class ContactInfo {
 
         Document doc = JsoupEx.parse(response);
 
-        Element link = doc.head().select("link[href~=.*\\.(ico|png)]").first();
+        Element link = doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]").first();
         String favicon = (link == null ? null : link.attr("href"));
 
         if (TextUtils.isEmpty(favicon)) {
