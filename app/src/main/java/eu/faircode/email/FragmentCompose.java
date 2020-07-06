@@ -4831,6 +4831,9 @@ public class FragmentCompose extends FragmentBase {
                             draft.ui_encrypt == null || EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))
                         return null;
 
+                    if (draft.identity != null && draft.identity.equals(iid))
+                        return draft.ui_encrypt;
+
                     EntityIdentity identity = db.identity().getIdentity(iid);
                     if (identity == null)
                         return null;
