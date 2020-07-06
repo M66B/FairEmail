@@ -262,7 +262,8 @@ public class ServiceUI extends IntentService {
 
             if (block_sender) {
                 EntityRule rule = EntityRule.blockSender(this, message, junk, false, whitelist);
-                rule.id = db.rule().insertRule(rule);
+                if (rule != null)
+                    rule.id = db.rule().insertRule(rule);
             }
 
             db.setTransactionSuccessful();

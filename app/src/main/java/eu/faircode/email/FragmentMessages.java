@@ -6330,10 +6330,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
-                    if ((block_sender || block_domain) &&
-                            (message.from != null && message.from.length > 0)) {
+                    if (block_sender || block_domain) {
                         EntityRule rule = EntityRule.blockSender(context, message, junk, block_domain, whitelist);
-                        rule.id = db.rule().insertRule(rule);
+                        if (rule != null)
+                            rule.id = db.rule().insertRule(rule);
                     }
 
 

@@ -609,8 +609,14 @@ public class EntityRule {
     }
 
     static EntityRule blockSender(Context context, EntityMessage message, EntityFolder junk, boolean block_domain, List<String> whitelist) throws JSONException {
+        if (message.from == null || message.from.length == 0)
+            return null;
+
         String sender = ((InternetAddress) message.from[0]).getAddress();
         String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
+
+        if (TextUtils.isEmpty(sender))
+            return null;
 
         if (block_domain) {
             int at = sender.indexOf('@');
