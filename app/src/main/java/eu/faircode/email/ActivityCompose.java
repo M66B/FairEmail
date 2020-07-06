@@ -44,7 +44,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        handle(getIntent());
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+            handle(getIntent());
     }
 
     @Override
