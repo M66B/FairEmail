@@ -371,16 +371,13 @@ public class ContactInfo {
                         }
                     }
                 } catch (Throwable ex) {
-                    if (isRecoverable(ex, context))
-                        Log.w(ex);
-                    else {
-                        Log.e(ex);
+                    Log.w(ex);
+                    if (!isRecoverable(ex, context))
                         try {
                             file.createNewFile();
                         } catch (IOException ex1) {
                             Log.e(ex1);
                         }
-                    }
                 }
             }
         }
