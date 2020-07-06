@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.security.KeyChain;
@@ -212,6 +213,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
         final Intent importKey = KeyChain.createInstallIntent();
         btnImportKey.setEnabled(importKey.resolveActivity(pm) != null); // system whitelisted
+        btnImportKey.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.R ? View.VISIBLE : View.GONE);
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

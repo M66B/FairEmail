@@ -54,6 +54,7 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainException;
 import android.text.SpannableString;
@@ -5104,7 +5105,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onNothingSelected() {
                             Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
-                            final Intent intent = KeyChain.createInstallIntent();
+                            final Intent intent = (Build.VERSION.SDK_INT < Build.VERSION_CODES.R
+                                    ? KeyChain.createInstallIntent()
+                                    : new Intent(Settings.ACTION_SECURITY_SETTINGS));
                             PackageManager pm = getContext().getPackageManager();
                             if (intent.resolveActivity(pm) != null) // system whitelisted
                                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
