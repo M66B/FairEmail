@@ -1128,7 +1128,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (show_recipients && recipients != null)
                 all.addAll(Arrays.asList(recipients));
             ContactInfo[] info = ContactInfo.getCached(context, message.account, message.folderType, all.toArray(new Address[0]));
-            if (info == null) {
+            if (info == null && avatars) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
 
