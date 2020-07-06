@@ -105,7 +105,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
     static final int DEFAULT_POLL_INTERVAL = 0; // minutes
-    private static final int STILL_THERE_POLL_INTERVAL = 15; // minutes
+    private static final int OPTIMIZE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 32; // seconds (totally ~1 minutes)
     private static final int CONNECT_BACKOFF_AlARM_START = 15; // minutes
@@ -952,7 +952,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     final boolean capIdle = iservice.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
-                    if (!capIdle)
+                    if (!capIdle || account.poll_interval < OPTIMIZE_POLL_INTERVAL)
                         optimizeAccount(ServiceSynchronize.this, account, "IDLE");
 
                     db.account().setAccountState(account.id, "connected");
@@ -1659,8 +1659,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         DB db = DB.getInstance(context);
 
         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+        EntityLog.log(context, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
         if (pollInterval == 0) {
-            prefs.edit().putInt("poll_interval", STILL_THERE_POLL_INTERVAL).apply();
+            prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
             try {
                 db.beginTransaction();
                 for (EntityAccount a : db.account().getAccounts())
