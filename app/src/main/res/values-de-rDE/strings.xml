@@ -395,6 +395,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_ca">Installierte CA-Zertifikate</string>
+    <string name="title_advanced_manage_keys_hint">        Hiermit öffnen Sie die Android-Sicherheitseinstellungen.
+        Schlüssel und Zertifikate sind in der Regel unter »Sicherheit &amp; Standort« ➜ »Verschlüsselung und Anmeldedaten« zu finden.
+    </string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen</string>

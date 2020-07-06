@@ -382,6 +382,8 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_ca">已安装的 CA 证书</string>
+    <string name="title_advanced_manage_keys_hint">        这将带您前往Android安全设置
+        一般可以在“高级—加密和凭证”选项下找到密钥和证书</string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_conversation_actions">建议操作</string>

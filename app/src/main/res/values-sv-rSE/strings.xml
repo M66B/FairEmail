@@ -393,6 +393,9 @@
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
     <string name="title_advanced_ca">Installerade CA-certifikat</string>
+    <string name="title_advanced_manage_keys_hint">        Detta kommer att navigera till Androids säkerhetsinställningar.
+        Nycklar och certifikat kan i allmänhet hittas under Avancerat - Kryptering och inloggningsuppgifter.
+    </string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
     <string name="title_advanced_conversation_actions">Föreslå åtgärder</string>
@@ -870,7 +873,7 @@
     <string name="title_search_with_unseen">Olästa</string>
     <string name="title_search_with_flagged">Stjärnmärkta</string>
     <string name="title_search_with_hidden">Dold (endast på enheten)</string>
-    <string name="title_search_with_encrypted">Krypterad (på enheten endast)</string>
+    <string name="title_search_with_encrypted">Krypterad (enbart på enheten)</string>
     <string name="title_search_with_attachments">Med bilagor (endast på enheten)</string>
     <string name="title_search_with_size">Meddelandets storlek större än</string>
     <string name="title_search_with_before">Före</string>

@@ -416,6 +416,9 @@
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
     <string name="title_advanced_ca">Установленные сертификаты ЦС</string>
+    <string name="title_advanced_manage_keys_hint">        Будут открыты настройки безопасности Android.
+        Ключи и сертификаты обычно находятся в разделе «Дополнительно» - «Шифрование и учётные данные».
+    </string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_conversation_actions">Предлагать действия</string>

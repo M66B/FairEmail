@@ -66,6 +66,7 @@
         <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">¿Tratar el mensaje de %1$s como spam?</string>
+    <string name="title_junk_hint">Su proveedor de correo es responsable del filtrado de spam. Una aplicación de correo electrónico no tiene todos los datos necesarios para hacer esto de forma confiable.</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_domain">Bloquear dominio del remitente</string>
@@ -77,6 +78,7 @@
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
+    <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_failed">El envío a %1$s falló</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -151,6 +153,7 @@
     <string name="title_setup_identity">Configurar identidades</string>
     <string name="title_setup_identity_remark">Para enviar correo electrónico</string>
     <string name="title_setup_identity_hint">Para cambiar nombre, color, firma, etc</string>
+    <string name="title_setup_identity_what">¿Qué es una identidad?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
     <string name="title_setup_doze">Configurar optimizaciones de batería</string>
@@ -354,6 +357,7 @@
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_preview_all">Previsualizar todo el texto</string>
+    <string name="title_advanced_notify_preview_only">Mostrar notificaciones sólo con un texto de vista previa</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -391,6 +395,9 @@
     <string name="title_advanced_import_key">Importar clave privada</string>
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
+    <string name="title_advanced_manage_keys_hint">        Esto abrirá la configuración de seguridad de Android.
+        Las claves y certificados pueden encontrarse usualmente bajo \"Avanzado - Cifrado y credenciales\".
+    </string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_conversation_actions">Sugerir acciones</string>
@@ -413,6 +420,7 @@
     <string name="title_advanced_more">Más opciones</string>
     <string name="title_advanced_manual_hint">Si la recepción de mensajes está desactivada, todavía es posible recibir mensajes manualmente tirando hacia abajo en la lista de mensajes</string>
     <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
+    <string name="title_advanced_optimize_hint">Esto podría cambiar la frecuencia de sincronización para ahorrar batería dependiendo de las capacidades y el comportamiento de los servidores de correo electrónico</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_no_date_hint">Algunos proveedores almacenan mensajes con una fecha desconocida, inválida o futura como mensajes sin fecha</string>
     <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que puede causar la sincronización de ninguno o todos los mensajes</string>
@@ -459,6 +467,7 @@
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para deshabilitar la notificación permanente</string>
     <string name="title_advanced_notify_preview_all_hint">Para los wearables que pueden mostrar el texto completo (hasta 5.000 caracteres)</string>
+    <string name="title_advanced_notify_preview_only_hint">Esto retrasa la visualización de notificaciones hasta que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
@@ -968,7 +977,9 @@
     <string name="title_rule_no_headers">Las condiciones de cabecera no se pueden comprobar</string>
     <string name="title_rule_matched">Mensajes coincidentes</string>
     <string name="title_rule_no_matches">No hay mensajes coincidentes</string>
+    <string name="title_rule_tts_ok">Configuración Ok</string>
     <string name="title_rule_tts_setup">Comprobar configuración</string>
+    <string name="title_rule_tts_data">Instalar datos de voz</string>
     <string name="title_rule_tts_prefix">Nuevo mensaje</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Asunto</string>

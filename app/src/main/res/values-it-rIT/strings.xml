@@ -394,6 +394,9 @@
     <string name="title_advanced_import_key">Importa chiave privata</string>
     <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_ca">Certificati CA installati</string>
+    <string name="title_advanced_manage_keys_hint">        Questo passerà alle impostazioni di sicurezza Android.
+        Le chiavi e i certificati possono essere trovati generalmente sotto Avanzate – Crittografia e credenziali.
+    </string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
     <string name="title_advanced_shortcuts">Mostra i contatti più usati nel menu di condivisione di Android</string>
     <string name="title_advanced_conversation_actions">Suggerisci azioni</string>

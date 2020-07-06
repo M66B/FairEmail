@@ -147,7 +147,7 @@
     <string name="title_setup_grant_again">Verleen de vereiste machtigingen</string>
     <string name="title_setup_account">Accounts instellen</string>
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
-    <string name="title_setup_account_hint">Om kleur, veeg naar links/rechts doelmap, etc te wijzigen</string>
+    <string name="title_setup_account_hint">Om kleur, veeg naar links/rechts doelmap, enz te wijzigen</string>
     <string name="title_setup_identity">Identiteiten instellen</string>
     <string name="title_setup_identity_remark">Om e-mail te verzenden</string>
     <string name="title_setup_identity_hint">Om naam, kleur, handtekening, enz te wijzigen</string>
@@ -393,6 +393,9 @@
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
     <string name="title_advanced_ca">Geïnstalleerde CA-certificaten</string>
+    <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.
+        Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
+    </string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_conversation_actions">Stel acties voor</string>

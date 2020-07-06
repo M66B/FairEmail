@@ -394,6 +394,9 @@
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
     <string name="title_advanced_ca">Certificats AC installés</string>
+    <string name="title_advanced_manage_keys_hint">        Ceci va vous amener sur les paramètres de sécurité Android.
+        Les clés et les certificats peuvent généralement être trouvés sous Avancé – Chiffrement et identifiants.
+    </string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
     <string name="title_advanced_conversation_actions">Suggérer des actions</string>

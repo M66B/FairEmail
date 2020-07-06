@@ -415,6 +415,9 @@
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
     <string name="title_advanced_ca">Zainstalowane certyfikaty CA</string>
+    <string name="title_advanced_manage_keys_hint">        To przeniesie Cię do ustawień zabezpieczeń Androida.
+        Klucze i certyfikaty można znaleźć w Zaawansowane - Szyfrowanie i uwierzytelnianie.
+    </string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_conversation_actions">Sugeruj czynności</string>
