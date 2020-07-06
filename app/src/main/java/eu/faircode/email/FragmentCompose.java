@@ -4366,7 +4366,7 @@ public class FragmentCompose extends FragmentBase {
 
                         EntityFolder outbox = db.folder().getOutbox();
                         if (outbox == null) {
-                            Log.e("Outbox missing");
+                            Log.w("Outbox missing");
                             outbox = EntityFolder.getOutbox();
                             outbox.id = db.folder().insertFolder(outbox);
                         }
