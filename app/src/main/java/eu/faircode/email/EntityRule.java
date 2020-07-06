@@ -638,8 +638,6 @@ public class EntityRule {
         jaction.put("type", TYPE_MOVE);
         jaction.put("target", junk.id);
 
-        DB db = DB.getInstance(context);
-
         EntityRule rule = new EntityRule();
         rule.folder = message.folder;
         rule.name = context.getString(R.string.title_block, name);
