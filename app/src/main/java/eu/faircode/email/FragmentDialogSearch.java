@@ -59,6 +59,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
+        final ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
         final ImageButton ibEvent = dview.findViewById(R.id.ibInvite);
         final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
         final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
@@ -314,6 +315,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                 BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
                 switch (v.getId()) {
+                    case R.id.ibAttachment:
+                        criteria.with_attachments = true;
+                        break;
                     case R.id.ibInvite:
                         criteria.with_attachments = true;
                         criteria.with_types = new String[]{"text/calendar"};
@@ -332,6 +336,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         };
 
+        ibAttachment.setOnClickListener(onClick);
         ibEvent.setOnClickListener(onClick);
         ibUnseen.setOnClickListener(onClick);
         ibFlagged.setOnClickListener(onClick);
