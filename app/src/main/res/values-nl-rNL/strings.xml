@@ -415,7 +415,7 @@
     <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
     <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>
-    <string name="title_advanced_optimize_hint">Dit kan de synchronisatie-frequentie wijzigen om te besparen op batterijgebruik, afhankelijk van de mogelijkheden en het gedrag van de e-mailservers</string>
+    <string name="title_advanced_optimize_hint">Dit kan de synchronisatie-frequentie wijzigen om op batterijgebruik te besparen, afhankelijk van de mogelijkheden en het gedrag van de e-mailservers</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_no_date_hint">Sommige providers slaan berichten met een onbekende, ongeldige of toekomstige datum op als berichten zonder datum</string>
     <string name="title_advanced_unseen_hint">Sommige providers ondersteunen dit niet goed, wat kan veroorzaken dat geen of alle berichten worden gesynchroniseerd</string>

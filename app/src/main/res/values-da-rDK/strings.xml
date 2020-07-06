@@ -66,6 +66,7 @@
         <item quantity="other">Håndter %1$d beskeder som spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Håndtér besked fra %1$s som spam?</string>
+    <string name="title_junk_hint">Din e-mailudbyder er ansvarlig for spamfiltreringen. En e-mail app har ikke alle de nødvendige data for at kunne gøre dette pålideligt.</string>
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_domain">Blokér afsenderdomænet</string>
@@ -355,6 +356,7 @@
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
+    <string name="title_advanced_notify_preview_only">Vis kun notifikationer med en forhåndsvisningstekst</string>
     <string name="title_advanced_notify_actions">Notifikationshandlinger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -414,6 +416,7 @@
     <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_manual_hint">Er beskedmodtagelse er deaktiveret, er det stadig muligt at modtage beskeder ved at trække beskedlisten ned</string>
     <string name="title_advanced_poll_hint">Periodisk tjek for nye beskeder sammenligner lokal- og fjernbeskeder hver gang, hvilket er en kostbar handling, der kan resultere i ekstra batteriforbrug, især hvis der er mange beskeder. Modtag altid vilforhindre dette ved løbende at følge ændringer.</string>
+    <string name="title_advanced_optimize_hint">Dette kan ændre synkfrekvensen for at spare strøm afhængigt af e-mailserverens funktioner og adfærd</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
     <string name="title_advanced_no_date_hint">Visse udbydere gemmer beskeder med en ukendt, ugyldig eller fremtidig dato som beskeder uden en dato</string>
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette ordentligt, hvilket kan forårsage synkronisering af ingen eller alle beskeder</string>
@@ -460,6 +463,7 @@
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
     <string name="title_advanced_notify_manage_service_hint">For at deaktivere den permanente notifikation</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables, som kan vise den fulde tekst (op til 5.000 tegn)</string>
+    <string name="title_advanced_notify_preview_only_hint">Dette forsinker visning af notifikationer indtil beskedteksten er downloadet</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
