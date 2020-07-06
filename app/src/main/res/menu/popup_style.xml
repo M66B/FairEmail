@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/group_style_size">
+    <group
+        android:id="@+id/group_style_size"
+        android:orderInCategory="1">
         <item
             android:id="@+id/menu_style_size_small"
             android:title="@string/title_style_size_small" />
@@ -14,15 +16,21 @@
             android:title="@string/title_style_size_large" />
     </group>
 
-    <group android:id="@+id/group_style_color">
+    <group
+        android:id="@+id/group_style_color"
+        android:orderInCategory="2">
         <item
             android:id="@+id/menu_style_color"
             android:title="@string/title_style_color" />
     </group>
 
-    <group android:id="@+id/group_style_font" />
+    <group
+        android:id="@+id/group_style_font"
+        android:orderInCategory="3" />
 
-    <group android:id="@+id/group_style_clear">
+    <group
+        android:id="@+id/group_style_clear"
+        android:orderInCategory="4">
         <item
             android:id="@+id/menu_style_clear"
             android:title="@string/title_style_clear" />

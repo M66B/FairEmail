@@ -96,8 +96,8 @@ public class StyleHelper {
 
                     String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
                     for (int i = 0; i < fontNames.length; i++)
-                        popupMenu.getMenu().add(R.id.group_style_font, i, Menu.NONE, fontNames[i]);
-                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, Menu.NONE, R.string.title_style_font_default);
+                        popupMenu.getMenu().add(R.id.group_style_font, i, 3, fontNames[i]);
+                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, 3, R.string.title_style_font_default);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
