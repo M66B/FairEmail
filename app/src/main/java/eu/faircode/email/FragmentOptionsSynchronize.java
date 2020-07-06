@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -63,6 +64,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swEnabled;
     private Spinner spPollInterval;
     private SwitchCompat swOptimize;
+    private ImageButton ibOptimizeInfo;
     private RecyclerView rvExempted;
     private SwitchCompat swSchedule;
     private TextView tvSchedulePro;
@@ -105,6 +107,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swEnabled = view.findViewById(R.id.swEnabled);
         spPollInterval = view.findViewById(R.id.spPollInterval);
         swOptimize = view.findViewById(R.id.swOptimize);
+        ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
         swSchedule = view.findViewById(R.id.swSchedule);
         rvExempted = view.findViewById(R.id.rvExempted);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
@@ -176,6 +179,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_optimize", checked).apply();
                 ServiceSynchronize.reload(getContext(), null, false, "optimize");
+            }
+        });
+
+        ibOptimizeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 39);
             }
         });
 

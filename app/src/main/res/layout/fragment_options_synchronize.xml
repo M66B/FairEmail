@@ -104,14 +104,24 @@
             android:id="@+id/tvOptimizeHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginTop="12dp"
+            android:minHeight="45dp"
             android:text="@string/title_advanced_optimize_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibOptimizeInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swOptimize" />
+
+        <ImageButton
+            android:id="@+id/ibOptimizeInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvOptimizeHint"
+            app:srcCompat="@drawable/baseline_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
