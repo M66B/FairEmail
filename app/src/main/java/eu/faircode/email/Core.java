@@ -3073,11 +3073,11 @@ class Core {
                     for (String key : sid.keySet())
                         sb.append(" ").append(key).append("=").append(sid.get(key));
                     if (!account.partial_fetch)
-                        Log.e("Empty message" + sb.toString());
+                        Log.w("Empty message" + sb.toString());
                 }
             } else {
                 if (!account.partial_fetch)
-                    Log.e("Empty message " + account.host);
+                    Log.w("Empty message " + account.host);
             }
         } catch (Throwable ex) {
             Log.w(ex);
