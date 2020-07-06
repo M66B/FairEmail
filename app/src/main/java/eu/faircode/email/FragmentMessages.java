@@ -954,7 +954,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     protected void onExecuted(Bundle args, EntityFolder drafts) {
                         if (drafts == null)
-                            Snackbar.make(view, R.string.title_no_primary_drafts, Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(view, R.string.title_no_primary_drafts, Snackbar.LENGTH_LONG)
+                                    .setGestureInsetBottomIgnored(true).show();
                         else {
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                             lbm.sendBroadcast(
@@ -1423,7 +1424,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalStateException) {
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -1434,7 +1436,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     });
                     snackbar.show();
                 } else if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -2082,7 +2085,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
-                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
                     else
                         Log.unexpectedError(getParentFragmentManager(), ex);
                 }
@@ -2247,7 +2251,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
                 if (answers == null || answers.size() == 0) {
-                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_answers, Snackbar.LENGTH_LONG);
+                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_answers, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -3321,7 +3326,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 prefs.getBoolean("crash_reports_asked", false))
             return false;
 
-        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE);
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE)
+                .setGestureInsetBottomIgnored(true);
         snackbar.setAction(R.string.title_info, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -3366,7 +3372,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return false;
         }
 
-        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_review, Snackbar.LENGTH_INDEFINITE);
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_review, Snackbar.LENGTH_INDEFINITE)
+                .setGestureInsetBottomIgnored(true);
         snackbar.setAction(R.string.title_info, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -3393,7 +3400,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (prefs.getBoolean("third_party_notified", false))
             return false;
 
-        final Snackbar snackbar = Snackbar.make(view, R.string.title_third_party, Snackbar.LENGTH_INDEFINITE);
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_third_party, Snackbar.LENGTH_INDEFINITE)
+                .setGestureInsetBottomIgnored(true);
         snackbar.setAction(R.string.title_info, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -4047,7 +4055,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 if (ex instanceof IllegalStateException) {
                     // No internet connection
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -4633,7 +4642,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -4700,7 +4710,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 final Snackbar snackbar = Snackbar.make(
                         content,
                         getString(R.string.title_move_undo, getDisplay(result), result.size()),
-                        Snackbar.LENGTH_INDEFINITE);
+                        Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -5047,7 +5058,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Helper.openAdvanced(create);
         PackageManager pm = getContext().getPackageManager();
         if (create.resolveActivity(pm) == null) // system whitelisted
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG)
+                    .setGestureInsetBottomIgnored(true).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_RAW);
     }
@@ -5104,7 +5116,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         @Override
                         public void onNothingSelected() {
-                            Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
+                            Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG)
+                                    .setGestureInsetBottomIgnored(true);
                             final Intent intent = (Build.VERSION.SDK_INT < Build.VERSION_CODES.R
                                     ? KeyChain.createInstallIntent()
                                     : new Intent(Settings.ACTION_SECURITY_SETTINGS));
@@ -5133,7 +5146,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 data.putExtra(BuildConfig.APPLICATION_ID, id);
                 onPgp(data, auto);
             } else {
-                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -5318,13 +5332,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_raw_saved, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, R.string.title_raw_saved, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else if (!(ex instanceof MessageRemovedException))
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -5610,7 +5626,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, PendingIntent pi) {
                 if (args.containsKey("sigresult")) {
                     String text = args.getString("sigresult");
-                    Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, text, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 }
 
                 if (pi != null)
@@ -5630,7 +5647,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -5974,7 +5992,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             message = getString(R.string.title_signature_invalid);
                         else
                             message = getString(R.string.title_signature_invalid_reason, reason);
-                        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
                     } else
                         try {
                             String sender = args.getString("sender");
@@ -5997,7 +6016,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 }
 
                             if (known && !record.isExpired(time) && match && valid)
-                                Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG)
+                                        .setGestureInsetBottomIgnored(true).show();
                             else {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
@@ -6102,7 +6122,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 builder.show();
                             }
                         } catch (Throwable ex) {
-                            Snackbar.make(view, Log.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(view, Log.formatThrowable(ex), Snackbar.LENGTH_LONG)
+                                    .setGestureInsetBottomIgnored(true).show();
                         }
                 }
             }
@@ -6111,7 +6132,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException ||
                         ex instanceof CMSException || ex instanceof KeyChainException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }

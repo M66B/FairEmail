@@ -173,7 +173,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 if (view == null)
                     return;
 
-                Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE);
+                Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
                 snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

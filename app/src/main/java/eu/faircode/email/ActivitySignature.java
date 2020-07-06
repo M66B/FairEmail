@@ -301,7 +301,8 @@ public class ActivitySignature extends ActivityBase {
                 etText.setSelection(start + 2);
             }
         } catch (SecurityException ex) {
-            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE);
+            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
+                    .setGestureInsetBottomIgnored(true);
             sb.setAction(R.string.title_info, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -332,8 +332,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                             Snackbar.make(
                                     parentFragment.getView(),
-                                    context.getString(R.string.title_rule_applied, applied),
-                                    Snackbar.LENGTH_LONG).show();
+                                    context.getString(R.string.title_rule_applied, applied), Snackbar.LENGTH_LONG)
+                                    .setGestureInsetBottomIgnored(true).show();
                         }
 
                         @Override

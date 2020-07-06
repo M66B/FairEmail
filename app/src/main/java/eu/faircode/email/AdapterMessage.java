@@ -2233,7 +2233,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof OutOfMemoryError)
-                        Snackbar.make(parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
                     else
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
@@ -3300,7 +3301,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
                     pick.resolveActivity(context.getPackageManager()) == null)
-                Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true).show();
             else {
                 properties.setValue("name", name);
                 properties.setValue("email", email);
@@ -3321,8 +3323,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PackageManager pm = context.getPackageManager();
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
                     insert.resolveActivity(pm) == null)
-                Snackbar.make(parentFragment.getView(),
-                        R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentFragment.getView(), R.string.title_no_contacts, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true).show();
             else
                 try {
                     context.startActivity(insert);
@@ -3343,8 +3345,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             PackageManager pm = context.getPackageManager();
             if (edit.resolveActivity(pm) == null) // system whitelisted
-                Snackbar.make(parentFragment.getView(),
-                        R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentFragment.getView(), R.string.title_no_contacts, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true).show();
             else
                 try {
                     context.startActivity(edit);
@@ -4535,9 +4537,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
                             intent.resolveActivity(pm) == null) // system whitelisted
                         Snackbar.make(parentFragment.getView(),
-                                context.getString(R.string.title_no_viewer, intent),
-                                Snackbar.LENGTH_LONG).
-                                show();
+                                context.getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
                     else
                         context.startActivity(Helper.getChooser(context, intent));
                 }

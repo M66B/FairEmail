@@ -288,7 +288,8 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -333,7 +334,8 @@ public class FragmentAnswer extends FragmentBase {
             etText.setText(ssb);
             etText.setSelection(start + 2);
         } catch (SecurityException ex) {
-            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE);
+            Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE)
+                    .setGestureInsetBottomIgnored(true);
             sb.setAction(R.string.title_info, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

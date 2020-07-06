@@ -280,7 +280,8 @@ public class FragmentRule extends FragmentBase {
                 PackageManager pm = getContext().getPackageManager();
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
                         pick.resolveActivity(pm) == null)
-                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_SENDER);
             }
@@ -302,7 +303,8 @@ public class FragmentRule extends FragmentBase {
                 PackageManager pm = getContext().getPackageManager();
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
                         pick.resolveActivity(pm) == null)
-                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_RECIPIENT);
             }
@@ -946,7 +948,8 @@ public class FragmentRule extends FragmentBase {
 
             JSONObject jheader = jcondition.optJSONObject("header");
             if (jheader != null) {
-                Snackbar.make(view, R.string.title_rule_no_headers, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, R.string.title_rule_no_headers, Snackbar.LENGTH_LONG)
+                        .setGestureInsetBottomIgnored(true).show();
                 return;
             }
 
@@ -1060,7 +1063,8 @@ public class FragmentRule extends FragmentBase {
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
-                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                                .setGestureInsetBottomIgnored(true).show();
                     else
                         Log.unexpectedError(getParentFragmentManager(), ex);
                 }

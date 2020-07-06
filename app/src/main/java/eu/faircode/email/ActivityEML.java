@@ -267,7 +267,8 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
+                            .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex);
             }
@@ -453,7 +454,8 @@ public class ActivityEML extends ActivityBase {
                                     @Override
                                     protected void onException(Bundle args, @NonNull Throwable ex) {
                                         if (ex instanceof IllegalArgumentException)
-                                            Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
+                                                    .setGestureInsetBottomIgnored(true).show();
                                         else
                                             Log.unexpectedError(getSupportFragmentManager(), ex);
                                     }
