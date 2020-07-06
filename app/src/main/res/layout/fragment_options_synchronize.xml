@@ -66,28 +66,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
 
-        <Spinner
-            android:id="@+id/spPollInterval"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:entries="@array/pollIntervalNames"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWhen" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvPollHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_poll_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swOptimize"
             android:layout_width="0dp"
@@ -97,7 +75,7 @@
             android:text="@string/title_advanced_optimize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPollHint"
+            app:layout_constraintTop_toBottomOf="@id/tvWhen"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -123,6 +101,28 @@
             app:layout_constraintTop_toTopOf="@id/tvOptimizeHint"
             app:srcCompat="@drawable/baseline_info_24" />
 
+        <Spinner
+            android:id="@+id/spPollInterval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/pollIntervalNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOptimizeHint" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPollHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_poll_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spPollInterval" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvExempted"
             android:layout_width="0dp"
@@ -134,7 +134,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvOptimizeHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPollHint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvExempted"
