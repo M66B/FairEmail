@@ -405,6 +405,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                                     true,
                                                     state.ifolder.getPermanentFlags(),
                                                     browsable.keywords);
+                                            if (terms == null)
+                                                return new Message[0];
 
                                             SearchSequence ss = new SearchSequence(protocol);
                                             Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
@@ -439,6 +441,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             false,
                                             state.ifolder.getPermanentFlags(),
                                             browsable.keywords);
+                                    if (terms == null)
+                                        return new Message[0];
                                     return state.ifolder.search(terms);
                                 }
                             } catch (MessagingException ex) {
