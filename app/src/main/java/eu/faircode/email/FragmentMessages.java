@@ -4891,6 +4891,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case KeyEvent.KEYCODE_R:
                     return (up && onReply(context));
+                case KeyEvent.KEYCODE_PAGE_UP:
+                case KeyEvent.KEYCODE_DPAD_UP:
+                    if (up)
+                        rvMessage.scrollBy(0, -context.getResources().getDisplayMetrics().heightPixels / 2);
+                    return up;
+                case KeyEvent.KEYCODE_PAGE_DOWN:
+                case KeyEvent.KEYCODE_DPAD_DOWN:
+                    if (up)
+                        rvMessage.scrollBy(0, context.getResources().getDisplayMetrics().heightPixels / 2);
+                    return up;
             }
 
             if (!up)
