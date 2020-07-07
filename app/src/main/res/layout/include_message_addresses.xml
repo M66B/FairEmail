@@ -13,36 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <eu.faircode.email.ViewImageHint
-        android:id="@+id/ivPlain"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_plain_only"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_notes_24" />
-
-    <eu.faircode.email.ViewImageHint
-        android:id="@+id/ivReceipt"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_receipt"
-        app:layout_constraintStart_toEndOf="@id/ivPlain"
-        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_playlist_add_check_24" />
-
-    <eu.faircode.email.ViewImageHint
-        android:id="@+id/ivBrowsed"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_browsed"
-        app:layout_constraintStart_toEndOf="@id/ivReceipt"
-        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_playlist_add_24" />
-
     <ImageButton
         android:id="@+id/ibExpanderAddress"
         android:layout_width="0dp"
@@ -54,6 +24,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress"
         app:srcCompat="@drawable/expander" />
+
+    <eu.faircode.email.ViewImageHint
+        android:id="@+id/ivPlain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_plain_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/baseline_notes_24" />
+
+    <eu.faircode.email.ViewImageHint
+        android:id="@+id/ivReceipt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_receipt"
+        app:layout_constraintStart_toEndOf="@id/ivPlain"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/baseline_playlist_add_check_24" />
+
+    <eu.faircode.email.ViewImageHint
+        android:id="@+id/ivBrowsed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_browsed"
+        app:layout_constraintStart_toEndOf="@id/ivReceipt"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/baseline_playlist_add_24" />
 
     <ImageButton
         android:id="@+id/ibSearchContact"
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
+        app:constraint_referenced_ids="ivPlain,ivReceipt,ivBrowsed,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubmitterTitle"
