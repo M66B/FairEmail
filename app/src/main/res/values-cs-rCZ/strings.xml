@@ -88,6 +88,7 @@
         <item quantity="other">Považovat %1$d zpráv za nevyžádaných?</item>
     </plurals>
     <string name="title_ask_spam_who">Považovat zprávy od %1$s za nevyžádané?</string>
+    <string name="title_junk_hint">Za filtrování nevyžádané pošty je zodpovědný poskytovatel e-mailu. E-mailové aplikace nemají k dispozici všechna data, aby to mohly provádět spolehlivě.</string>
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
     <string name="title_block_domain">Blokovat doménu odesílatele</string>
@@ -415,6 +416,9 @@
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
     <string name="title_advanced_ca">Instalované certifikáty CA</string>
+    <string name="title_advanced_manage_keys_hint">        Otevře nastavení zabezpečení Androidu.
+        Klíče a certifikáty lze obecně najít pod Pokročilé - Šifrování a pověření.
+    </string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce</string>

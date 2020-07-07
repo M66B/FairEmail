@@ -223,9 +223,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_always">Nachrichten für diese Konten immer empfangen</string>
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_advanced">Erweitert</string>
-    <string name="title_advanced_no_date">Nachrichten ohne Datum</string>
+    <string name="title_advanced_no_date">Nachrichten ohne Datum empfangen</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
-    <string name="title_advanced_flagged">Alle markierten Nachrichten</string>
+    <string name="title_advanced_flagged">Alle markierten Nachrichten empfangen</string>
     <string name="title_advanced_delete_unseen">Alte ungelesene Nachrichten löschen</string>
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_gmail_thread">Die Nachrichten in Gmail-Konten im Stil von Gmail gruppieren</string>
@@ -235,7 +235,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
-    <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>
+    <string name="title_advanced_keyboard">Tastatur standardmäßig anzeigen</string>
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
@@ -248,8 +248,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
     <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
-    <string name="title_advanced_plain_only">Standardmäßig als Reintext senden</string>
-    <string name="title_advanced_flow">Format fließend für Reintext</string>
+    <string name="title_advanced_plain_only">Standardmäßig nur als unformatierten Text senden</string>
+    <string name="title_advanced_flow">Format fließend für unformatierten Text</string>
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
@@ -284,8 +284,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
-    <string name="title_advanced_generated_icons">Anfangsbuchstabensymbole anzeigen</string>
-    <string name="title_advanced_identicons">Kontaktbilder anzeigen</string>
+    <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
+    <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
     <string name="title_advanced_color_saturation">Sättigung</string>
     <string name="title_advanced_color_value">Helligkeit</string>
@@ -374,10 +374,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
-    <string name="title_advanced_confirm_links">Öffnende Verknüpfungen bestätigen</string>
-    <string name="title_advanced_browse_links">Links an Android übertragen</string>
+    <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
+    <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
-    <string name="title_advanced_confirm_html">Standardmäßig reformatierte Nachrichten anzeigen</string>
+    <string name="title_advanced_confirm_html">Standardmäßig neu formatierte Nachrichten anzeigen</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_hide_timezone">Nachrichten ohne Zeitzoneninformationen senden</string>
     <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
@@ -418,7 +418,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_last_cleanup">Letzte Bereinigung: %1$s</string>
     <string name="title_advanced_app">Android-App-Einstellungen</string>
     <string name="title_advanced_more">Weitere Optionen</string>
-    <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste herunterziehen</string>
+    <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste nach unten ziehen</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
@@ -439,7 +439,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
     <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgeholt. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roaming zu deaktivieren.</string>
-    <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
+    <string name="title_advanced_browse_hint">Durch Herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>

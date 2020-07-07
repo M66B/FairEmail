@@ -273,6 +273,7 @@
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
+    <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>
@@ -295,6 +296,7 @@
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
+    <string name="title_advanced_message_text_zoom">بزرگ‌نمایی پیش‌فرض متن پیام</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_text_color">استفاده از رنگ‌های متن</string>
     <string name="title_advanced_text_size">استفاده از اندازه متن</string>
@@ -338,6 +340,7 @@
     <string name="title_advanced_notify_action_seen">خواندن</string>
     <string name="title_advanced_notify_action_snooze">تعویق</string>
     <string name="title_advanced_notify_clear">اعلان‌های پیام جدید را هنگام مشاهده فهرست پیام حذف کن</string>
+    <string name="title_advanced_wearable_preview">تنها اعلان با پیش‌نمایش پیام را به پوشیدنی‌ها بفرست</string>
     <string name="title_advanced_light">استفاده از چراغ اعلان‌ها</string>
     <string name="title_advanced_sound">انتخاب صدای اعلان‌ها</string>
     <string name="title_advanced_confirm_links">تایید بازکردن پیوندها</string>
