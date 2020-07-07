@@ -401,6 +401,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     if (protocol.supportsUtf8())
                                         try {
+                                            EntityLog.log(context, "Search unicode criteria=" + criteria);
                                             SearchTerm terms = criteria.getTerms(
                                                     true,
                                                     state.ifolder.getPermanentFlags(),
@@ -413,6 +414,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             args.writeAtom("ALL");
 
                                             Response[] responses = protocol.command("SEARCH", args);
+                                            for (Response response : responses)
+                                                EntityLog.log(context, "Search unicode response=" + response);
                                             if (responses.length == 0)
                                                 throw new ProtocolException("No response");
                                             if (!responses[responses.length - 1].isOK())
@@ -425,6 +428,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                                     while ((msgnum = response.readNumber()) != -1)
                                                         msgnums.add(msgnum);
                                                 }
+
+                                            EntityLog.log(context, "Search unicode messages=" + msgnums.size());
                                             Message[] imessages = new Message[msgnums.size()];
                                             for (int i = 0; i < msgnums.size(); i++)
                                                 imessages[i] = state.ifolder.getMessage(msgnums.get(i));
@@ -437,13 +442,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             // Fallback to ASCII search
                                         }
 
+                                    EntityLog.log(context, "Search ASCII criteria=" + criteria);
                                     SearchTerm terms = criteria.getTerms(
                                             false,
                                             state.ifolder.getPermanentFlags(),
                                             browsable.keywords);
                                     if (terms == null)
                                         return new Message[0];
-                                    return state.ifolder.search(terms);
+                                    Message[] messages = state.ifolder.search(terms);
+                                    EntityLog.log(context, "Search ASCII messages=" + (messages == null ? null : messages.length));
+                                    return messages;
                                 }
                             } catch (MessagingException ex) {
                                 ProtocolException pex = new ProtocolException(
