@@ -203,6 +203,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, account, folder, criteria);
+                EntityLog.log(context, "Boundary FTS " +
+                        " account=" + account +
+                        " folder=" + folder +
+                        " criteria=" + criteria +
+                        " ids=" + state.ids.size());
+                EntityLog.log(context, "FTS results=" + state.ids.size());
             }
 
             try {
@@ -246,7 +252,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             criteria.after,
                             criteria.before,
                             SEARCH_LIMIT, state.offset);
-                    Log.i("Boundary device folder=" + folder +
+                    EntityLog.log(context, "Boundary device" +
+                            " account=" + account +
+                            " folder=" + folder +
                             " criteria=" + criteria +
                             " offset=" + state.offset +
                             " size=" + state.matches.size());
@@ -319,14 +327,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
-                Log.i("Boundary server connecting account=" + account.name);
+                EntityLog.log(context, "Boundary server connecting account=" + account.name);
                 state.iservice = new EmailService(
                         context, account.getProtocol(), account.realm, account.insecure, EmailService.PURPOSE_SEARCH, debug);
                 state.iservice.setPartialFetch(account.partial_fetch);
                 state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 state.iservice.connect(account);
 
-                Log.i("Boundary server opening folder=" + browsable.name);
+                EntityLog.log(context, "Boundary server opening folder=" + browsable.name);
                 state.ifolder = (IMAPFolder) state.iservice.getStore().getFolder(browsable.name);
                 try {
                     state.ifolder.open(Folder.READ_WRITE);
@@ -344,7 +352,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (criteria == null) {
                     boolean filter_seen = prefs.getBoolean("filter_seen", false);
                     boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                    Log.i("Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
+                    EntityLog.log(context, "Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
                     List<SearchTerm> and = new ArrayList<>();
 
@@ -360,6 +368,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         state.imessages = state.ifolder.getMessages();
                     else
                         state.imessages = state.ifolder.search(new AndTerm(and.toArray(new SearchTerm[0])));
+                    EntityLog.log(context, "Boundary filter messages=" + state.imessages.length);
                 } else {
                     Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                         @Override
@@ -397,17 +406,22 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     return imessages;
                                 } else {
-                                    Log.i("Boundary server search=" + criteria);
+                                    EntityLog.log(context, "Boundary server" +
+                                            " account=" + account +
+                                            " folder=" + folder +
+                                            " search=" + criteria);
 
                                     if (protocol.supportsUtf8())
                                         try {
-                                            EntityLog.log(context, "Search unicode criteria=" + criteria);
+                                            EntityLog.log(context, "Search unicode");
                                             SearchTerm terms = criteria.getTerms(
                                                     true,
                                                     state.ifolder.getPermanentFlags(),
                                                     browsable.keywords);
-                                            if (terms == null)
+                                            if (terms == null) {
+                                                EntityLog.log(context, "Search unicode no terms");
                                                 return new Message[0];
+                                            }
 
                                             SearchSequence ss = new SearchSequence(protocol);
                                             Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
@@ -438,24 +452,29 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         } catch (Throwable ex) {
                                             ProtocolException pex = new ProtocolException(
                                                     "Search unicode " + account.host + " " + criteria, ex);
+                                            EntityLog.log(context, pex.toString());
                                             Log.e(pex);
                                             // Fallback to ASCII search
                                         }
 
-                                    EntityLog.log(context, "Search ASCII criteria=" + criteria);
+                                    EntityLog.log(context, "Search ASCII");
                                     SearchTerm terms = criteria.getTerms(
                                             false,
                                             state.ifolder.getPermanentFlags(),
                                             browsable.keywords);
-                                    if (terms == null)
+                                    if (terms == null) {
+                                        EntityLog.log(context, "Search ASCII no terms");
                                         return new Message[0];
+                                    }
                                     Message[] messages = state.ifolder.search(terms);
-                                    EntityLog.log(context, "Search ASCII messages=" + (messages == null ? null : messages.length));
+                                    EntityLog.log(context, "Search ASCII" +
+                                            " messages=" + (messages == null ? null : messages.length));
                                     return messages;
                                 }
                             } catch (MessagingException ex) {
                                 ProtocolException pex = new ProtocolException(
                                         "Search " + account.host + " " + criteria, ex);
+                                EntityLog.log(context, pex.toString());
                                 Log.e(pex);
                                 throw pex;
                             }
@@ -525,7 +544,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed && astate.isRecoverable(); j--)
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
-                        Log.i("Boundary server sync uid=" + uid);
+                        EntityLog.log(context, "Boundary server sync index=" + state.index + " j=" + j + " uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
@@ -538,16 +557,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         if (message != null && criteria != null /* browsed */)
                             db.message().setMessageFound(message.id);
                     } catch (MessageRemovedException ex) {
+                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {
+                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         throw ex;
                     } catch (IOException ex) {
+                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(browsable.name + " boundary server", ex);
                             db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
+                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         Log.e(browsable.name + " boundary server", ex);
                         db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                     } finally {
