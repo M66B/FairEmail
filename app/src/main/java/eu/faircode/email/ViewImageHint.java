@@ -11,50 +11,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
-public class ViewImageHint extends AppCompatImageView implements View.OnLongClickListener {
-    private OnLongClickListener listener;
-
+public class ViewImageHint extends AppCompatImageView implements View.OnClickListener {
     public ViewImageHint(@NonNull Context context) {
         super(context);
-        setOnLongClickListener(this);
+        setOnClickListener(this);
     }
 
     public ViewImageHint(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        setOnLongClickListener(this);
+        setOnClickListener(this);
     }
 
     public ViewImageHint(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setOnLongClickListener(this);
+        setOnClickListener(this);
     }
 
     @Override
-    public void setOnLongClickListener(OnLongClickListener listener) {
-        if (listener == this) {
-            super.setOnLongClickListener(listener);
-            return;
+    public void onClick(View v) {
+        String title = getContentDescription().toString();
+        if (!TextUtils.isEmpty(title)) {
+            int[] pos = new int[2];
+            getLocationOnScreen(pos);
+
+            Toast toast = ToastEx.makeText(getContext(), title, Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);
+            toast.show();
         }
-
-        this.listener = listener;
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        if (listener == null || !listener.onLongClick(v)) {
-            String title = getContentDescription().toString();
-            if (!TextUtils.isEmpty(title)) {
-                int[] pos = new int[2];
-                getLocationOnScreen(pos);
-
-                Toast toast = ToastEx.makeText(getContext(), title, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);
-                toast.show();
-
-                return true;
-            }
-        }
-
-        return false;
     }
 }
