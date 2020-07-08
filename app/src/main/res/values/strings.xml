@@ -457,7 +457,7 @@
     <string name="title_advanced_manage_keys">Manage private keys</string>
     <string name="title_advanced_ca">Installed CA certificates</string>
     <string name="title_advanced_manage_keys_hint">
-        This will navigate to the Android security settings.
+        This will open to the Android security settings.
         Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>

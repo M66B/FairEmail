@@ -1,7 +1,7 @@
 # FairEmail support
 
 If you have a question, please check the frequently asked questions below first.
-At the bottom you can find how to ask other questions, request features and report bugs.
+At the bottom, you can find out how to ask other questions, request features, and report bugs.
 
 ## Index
 
@@ -15,16 +15,16 @@ At the bottom you can find how to ask other questions, request features and repo
 
 ## Authorizing accounts
 
-In most cases the quick setup will be able to automatically identify the right configuration.
+In most cases, the quick setup will be able to automatically identify the correct configuration.
 
-If the quick setup fails, you'll need to manually setup an account (to receive email) and an identity (to send email).
+If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email).
 For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used
 and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-In some cases you'll need to enable external access to your account and/or to use a special (app) password,
-for instance when two factor authentication is enabled.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password,
+for instance when two-factor authentication is enabled.
 
 For authorizing:
 
