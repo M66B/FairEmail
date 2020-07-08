@@ -5447,7 +5447,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         try {
             // https://issuetracker.google.com/issues/135628748
             Handler handler = new Handler(Looper.getMainLooper());
-            Field mMainThreadExecutor = this.differ.getClass().getDeclaredField("mainThreadExecutor");
+            Field mMainThreadExecutor = this.differ.getClass().getDeclaredField("mMainThreadExecutor");
             mMainThreadExecutor.setAccessible(true);
             mMainThreadExecutor.set(this.differ, new Executor() {
                 @Override
