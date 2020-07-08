@@ -1196,7 +1196,7 @@ public class Log {
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
-                    jaccount.put("state", account.state);
+                    jaccount.put("state", account.state == null ? "null" : account.separator);
                     jaccount.put("warning", account.warning);
                     jaccount.put("error", account.error);
 
@@ -1222,8 +1222,8 @@ public class Log {
                         jfolder.put("total", folder.total);
                         jfolder.put("initialize", folder.initialize);
                         jfolder.put("subscribed", folder.subscribed);
-                        jfolder.put("state", folder.state);
-                        jfolder.put("sync_state", folder.sync_state);
+                        jfolder.put("state", folder.state == null ? "null" : folder.state);
+                        jfolder.put("sync_state", folder.sync_state == null ? "null" : folder.sync_state);
                         jfolder.put("read_only", folder.read_only);
                         jfolder.put("selectable", folder.selectable);
                         jfolder.put("inferiors", folder.inferiors);
