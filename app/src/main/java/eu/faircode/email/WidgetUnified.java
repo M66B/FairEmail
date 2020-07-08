@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.util.TypedValue;
 import android.widget.RemoteViews;
 
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 public class WidgetUnified extends AppWidgetProvider {
@@ -68,6 +69,10 @@ public class WidgetUnified extends AppWidgetProvider {
                 int px = getPaddingPx(padding, context);
                 views.setViewPadding(R.id.title, px, px, px, px);
             }
+
+            float lum = (float) ColorUtils.calculateLuminance(background);
+            if (lum > 0.7f)
+                views.setTextColor(R.id.title, Color.BLACK);
 
             if (name == null)
                 views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));

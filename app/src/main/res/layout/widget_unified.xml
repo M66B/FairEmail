@@ -21,9 +21,10 @@
         android:textStyle="bold" />
 
     <FrameLayout
+        android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorWidgetForeground" />
+        android:background="@color/colorWidgetRead" />
 
     <ListView
         android:id="@+id/lv"

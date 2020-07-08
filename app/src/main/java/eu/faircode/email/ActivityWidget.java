@@ -31,11 +31,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.Group;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 import com.flask.colorpicker.ColorPickerView;
@@ -230,6 +232,16 @@ public class ActivityWidget extends ActivityBase {
         } else {
             inOld.setBackgroundColor(background);
             inNew.setBackgroundColor(background);
+            float lum = (float) ColorUtils.calculateLuminance(background);
+            int color = (lum > 0.7 ? Color.BLACK : getResources().getColor(R.color.colorWidgetForeground));
+
+            ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(color);
+            ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(color);
+            ((TextView) inOld.findViewById(R.id.tvAccount)).setTextColor(color);
+
+            ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(color);
+            ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(color);
+            ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(color);
         }
     }
 }

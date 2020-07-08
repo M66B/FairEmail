@@ -23,6 +23,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -34,6 +35,7 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
@@ -51,6 +53,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private long account;
     private boolean unseen;
     private boolean flagged;
+    private boolean semi;
+    private int background;
     private int font;
     private int padding;
     private int colorWidgetForeground;
@@ -85,11 +89,19 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+        background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
         colorSeparator = ContextCompat.getColor(context, R.color.lightColorSeparator);
+
+        float lum = (float) ColorUtils.calculateLuminance(background);
+        if (lum > 0.7f) {
+            colorWidgetForeground = ColorUtils.blendARGB(colorWidgetForeground, Color.BLACK, 1.0f);
+            colorWidgetRead = ColorUtils.blendARGB(colorWidgetRead, Color.BLACK, 1.0f);
+        }
 
         pro = ActivityBilling.isPro(context);
 

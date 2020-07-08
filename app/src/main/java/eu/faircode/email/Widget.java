@@ -31,6 +31,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
@@ -116,6 +117,15 @@ public class Widget extends AppWidgetProvider {
                     if (!TextUtils.isEmpty(name)) {
                         views.setTextViewText(R.id.tvAccount, name);
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
+                    }
+
+                    if (!semi && background != Color.TRANSPARENT) {
+                        float lum = (float) ColorUtils.calculateLuminance(background);
+                        if (lum > 0.7f) {
+                            views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
+                            views.setTextColor(R.id.tvCount, Color.BLACK);
+                            views.setTextColor(R.id.tvAccount, Color.BLACK);
+                        }
                     }
 
                     appWidgetManager.updateAppWidget(appWidgetId, views);
