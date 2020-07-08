@@ -345,8 +345,8 @@
     <string name="title_advanced_replace_name">Prefer a contact name over a sent name</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>
     <string name="title_advanced_show_recipients">Show recipients in message header</string>
-    <string name="title_advanced_font_size_sender">Font size sender</string>
-    <string name="title_advanced_font_size_subject">Font size subject</string>
+    <string name="title_advanced_font_size_sender">Text size sender</string>
+    <string name="title_advanced_font_size_subject">Text size subject</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
@@ -1334,7 +1334,7 @@
     <string name="title_widget_folder_unified">Unified inbox folders</string>
     <string name="title_widget_unseen">Unread messages only</string>
     <string name="title_widget_flagged">Starred messages only</string>
-    <string name="title_widget_font_size">Font size</string>
+    <string name="title_widget_font_size">Text size</string>
     <string name="title_widget_padding">Padding size</string>
     <string name="title_widget_semi_transparent">Semi transparent background</string>
     <string name="title_widget_background">Background color</string>
