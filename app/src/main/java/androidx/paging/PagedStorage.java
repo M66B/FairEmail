@@ -542,7 +542,11 @@ final class PagedStorage<T> extends AbstractList<T> {
 
             // OK only if existing single page, and it's the last one
             if (!onlyEndPagePresent && !addingLastPage) {
-                throw new IllegalArgumentException("page introduces incorrect tiling");
+                eu.faircode.email.Log.e("Insert page" +
+                        " size=" + newPageSize + "/" + mPageSize +
+                        " last=" + addingLastPage + " only=" + onlyEndPagePresent);
+                return;
+                //throw new IllegalArgumentException("page introduces incorrect tiling");
             }
             if (onlyEndPagePresent) {
                 mPageSize = newPageSize;
