@@ -471,7 +471,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             " messages=" + (messages == null ? null : messages.length));
                                     return messages;
                                 }
-                            } catch (MessagingException ex) {
+                            } catch (Throwable ex) {
                                 ProtocolException pex = new ProtocolException(
                                         "Search " + account.host + " " + criteria, ex);
                                 EntityLog.log(context, pex.toString());
