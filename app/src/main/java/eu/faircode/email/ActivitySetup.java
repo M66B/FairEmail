@@ -746,8 +746,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 try {
                     db.beginTransaction();
 
-                    // Answers
                     Map<Long, Long> xAnswer = new HashMap<>();
+                    Map<Long, Long> xIdentity = new HashMap<>();
+                    Map<Long, Long> xFolder = new HashMap<>();
+                    List<EntityRule> rules = new ArrayList<>();
+
+                    // Answers
                     JSONArray janswers = jimport.getJSONArray("answers");
                     for (int a = 0; a < janswers.length(); a++) {
                         JSONObject janswer = (JSONObject) janswers.get(a);
@@ -822,7 +826,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     account.createNotificationChannel(context);
                         }
 
-                        Map<Long, Long> xIdentity = new HashMap<>();
                         JSONArray jidentities = (JSONArray) jaccount.get("identities");
                         for (int i = 0; i < jidentities.length(); i++) {
                             JSONObject jidentity = (JSONObject) jidentities.get(i);
@@ -836,9 +839,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                             Log.i("Imported identity=" + identity.email + " id=" + identity + id + " (" + id + ")");
                         }
-
-                        Map<Long, Long> xFolder = new HashMap<>();
-                        List<EntityRule> rules = new ArrayList<>();
 
                         JSONArray jfolders = (JSONArray) jaccount.get("folders");
                         for (int f = 0; f < jfolders.length(); f++) {
@@ -887,36 +887,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             Log.i("Imported folder=" + folder.name + " id=" + folder.id + " (" + id + ")");
                         }
 
-                        for (EntityRule rule : rules) {
-                            try {
-                                JSONObject jaction = new JSONObject(rule.action);
-
-                                int type = jaction.getInt("type");
-                                switch (type) {
-                                    case EntityRule.TYPE_MOVE:
-                                    case EntityRule.TYPE_COPY:
-                                        long target = jaction.getLong("target");
-                                        Log.i("XLAT target " + target + " > " + xFolder.get(target));
-                                        jaction.put("target", xFolder.get(target));
-                                        break;
-                                    case EntityRule.TYPE_ANSWER:
-                                        long identity = jaction.getLong("identity");
-                                        long answer = jaction.getLong("answer");
-                                        Log.i("XLAT identity " + identity + " > " + xIdentity.get(identity));
-                                        Log.i("XLAT answer " + answer + " > " + xAnswer.get(answer));
-                                        jaction.put("identity", xIdentity.get(identity));
-                                        jaction.put("answer", xAnswer.get(answer));
-                                        break;
-                                }
-
-                                rule.action = jaction.toString();
-                            } catch (JSONException ex) {
-                                Log.e(ex);
-                            }
-
-                            db.rule().insertRule(rule);
-                        }
-
                         // Contacts
                         if (jaccount.has("contacts")) {
                             JSONArray jcontacts = jaccount.getJSONArray("contacts");
@@ -932,6 +902,36 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                         // Update swipe left/right
                         db.account().updateAccount(account);
+                    }
+
+                    for (EntityRule rule : rules) {
+                        try {
+                            JSONObject jaction = new JSONObject(rule.action);
+
+                            int type = jaction.getInt("type");
+                            switch (type) {
+                                case EntityRule.TYPE_MOVE:
+                                case EntityRule.TYPE_COPY:
+                                    long target = jaction.getLong("target");
+                                    Log.i("XLAT target " + target + " > " + xFolder.get(target));
+                                    jaction.put("target", xFolder.get(target));
+                                    break;
+                                case EntityRule.TYPE_ANSWER:
+                                    long identity = jaction.getLong("identity");
+                                    long answer = jaction.getLong("answer");
+                                    Log.i("XLAT identity " + identity + " > " + xIdentity.get(identity));
+                                    Log.i("XLAT answer " + answer + " > " + xAnswer.get(answer));
+                                    jaction.put("identity", xIdentity.get(identity));
+                                    jaction.put("answer", xAnswer.get(answer));
+                                    break;
+                            }
+
+                            rule.action = jaction.toString();
+                        } catch (JSONException ex) {
+                            Log.e(ex);
+                        }
+
+                        db.rule().insertRule(rule);
                     }
 
                     if (jimport.has("certificates")) {
