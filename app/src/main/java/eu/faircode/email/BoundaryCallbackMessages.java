@@ -91,7 +91,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private State state;
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
-    private static final int SEARCH_LIMIT_SERVER = 100;
+    private static final int SEARCH_LIMIT_SERVER = 250;
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     interface IBoundaryCallbackMessages {
@@ -209,7 +209,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         " folder=" + folder +
                         " criteria=" + criteria +
                         " ids=" + state.ids.size());
-                EntityLog.log(context, "FTS results=" + state.ids.size());
             }
 
             try {
@@ -423,27 +422,24 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 }
                             } catch (Throwable ex) {
                                 ProtocolException pex = new ProtocolException(
-                                        "Search " + account.host + " " + criteria, ex);
-                                EntityLog.log(context, pex.toString());
-                                //Log.e(pex);
+                                        "Search " + account.host, ex);
+                                Log.e(pex);
                                 throw pex;
                             }
                         }
                     });
 
                     state.imessages = (Message[]) result;
-                    EntityLog.log(context, "Boundary found messages=" + state.imessages.length);
                 }
-                Log.i("Boundary server found messages=" + state.imessages.length);
+                EntityLog.log(context, "Boundary found messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
                 state.error = true;
-                EntityLog.log(context, ex.toString());
-                //if (ex instanceof FolderClosedException)
-                //    Log.w("Search", ex);
-                //else
-                //    Log.e("Search", ex);
+                if (ex instanceof FolderClosedException)
+                    Log.w("Search", ex);
+                else
+                    Log.e("Search", ex);
                 throw ex;
             }
 
@@ -451,7 +447,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         int found = 0;
         while (state.index >= 0 && found < pageSize && !state.destroyed) {
-            EntityLog.log(context, "Boundary server index=" + state.index);
+            Log.i("Boundary server index=" + state.index);
             int from = Math.max(0, state.index - (pageSize - found) + 1);
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             state.index -= (pageSize - found);
@@ -471,7 +467,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     add.add(m);
                 }
 
-            EntityLog.log(context, "Boundary fetching " + add.size() + "/" + isub.length);
+            Log.i("Boundary fetching " + add.size() + "/" + isub.length);
             if (add.size() > 0) {
                 FetchProfile fp = new FetchProfile();
                 fp.add(FetchProfile.Item.ENVELOPE);
@@ -496,7 +492,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed && astate.isRecoverable(); j--)
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
-                        EntityLog.log(context, "Boundary server sync index=" + state.index + " j=" + j + " uid=" + uid);
+                        Log.i("Boundary server sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
@@ -506,26 +502,19 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     rules, astate);
                             found++;
                         }
-                        if (message != null && criteria != null /* browsed */) {
-                            EntityLog.log(context, "Boundary server found uid=" + uid);
+                        if (message != null && criteria != null /* browsed */)
                             db.message().setMessageFound(message.id);
-                        } else
-                            EntityLog.log(context, "Boundary server browsed uid=" + uid);
                     } catch (MessageRemovedException ex) {
-                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {
-                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         throw ex;
                     } catch (IOException ex) {
-                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(browsable.name + " boundary server", ex);
                             db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
-                        EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         Log.e(browsable.name + " boundary server", ex);
                         db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                     } finally {
@@ -538,7 +527,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
         }
 
-        EntityLog.log(context, "Boundary server done");
+        Log.i("Boundary server done");
         return found;
     }
 
@@ -546,10 +535,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         EntityLog.log(context, "Search utf8=" + utf8);
 
         SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
-        if (terms == null) {
-            EntityLog.log(context, "Search no terms");
-            return new Message[0];
-        }
+        if (terms == null)
+            throw new ProtocolException("No search conditions");
 
         SearchSequence ss = new SearchSequence(protocol);
         Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
@@ -557,9 +544,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         Response[] responses = protocol.command("SEARCH", args); // no CHARSET !
         if (responses == null || responses.length == 0)
-            throw new ProtocolException("No response");
+            throw new ProtocolException("No response from server");
         for (Response response : responses)
-            EntityLog.log(context, "Search response=" + response);
+            Log.i("Search response=" + response);
         if (!responses[responses.length - 1].isOK())
             throw new ProtocolException(responses[responses.length - 1]);
 
