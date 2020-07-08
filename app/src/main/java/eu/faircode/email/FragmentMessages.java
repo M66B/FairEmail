@@ -210,6 +210,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
 import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
+import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
@@ -4860,6 +4861,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return false;
 
             boolean up = (event.getAction() == ACTION_UP);
+            boolean down = (event.getAction() == ACTION_DOWN);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean volumenav = prefs.getBoolean("volumenav", false);
@@ -4894,12 +4896,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case KeyEvent.KEYCODE_PAGE_UP:
                 case KeyEvent.KEYCODE_DPAD_UP:
                     if (viewType == AdapterMessage.ViewType.THREAD)
-                        return (up && onScroll(context, true));
+                        return (down && onScroll(context, true));
                     break;
                 case KeyEvent.KEYCODE_PAGE_DOWN:
                 case KeyEvent.KEYCODE_DPAD_DOWN:
                     if (viewType == AdapterMessage.ViewType.THREAD)
-                        return (up && onScroll(context, false));
+                        return (down && onScroll(context, false));
                     break;
             }
 
