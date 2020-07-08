@@ -55,7 +55,7 @@
         <item quantity="other">将这%1$d则邮件标为垃圾邮件？</item>
     </plurals>
     <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
-    <string name="title_junk_hint">您的电子邮件提供商负责过滤垃圾邮件。电子邮件应用程序没有可靠地执行此操作所需的所有数据。</string>
+    <string name="title_junk_hint">垃圾邮件是由电子邮件提供商负责过滤，而邮件客户端无法自行做到这一点</string>
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_domain">屏蔽发件人域名</string>
@@ -66,7 +66,7 @@
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
-    <string name="title_notification_sending_left">剩余尝试次数：%1$d</string>
+    <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
     <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -296,7 +296,7 @@
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
-    <string name="title_advanced_message_text_zoom">默认消息文本缩放</string>
+    <string name="title_advanced_message_text_zoom">默认缩放消息文本</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
@@ -382,8 +382,9 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_ca">已安装的 CA 证书</string>
-    <string name="title_advanced_manage_keys_hint">        这将带您前往Android安全设置
-        一般可以在“高级—加密和凭证”选项下找到密钥和证书</string>
+    <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面
+        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
+    </string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_conversation_actions">建议操作</string>
@@ -406,7 +407,7 @@
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_manual_hint">如果禁用了接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
     <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项耗费的操作，可能会导致额外的电池用量，尤其是在有消息非常多时。 始终接收将通过持续跟踪变化来防止这种情况</string>
-    <string name="title_advanced_optimize_hint">取决于电子邮件服务器的功能和行为，这可能会改变同步频率，以节省电池的使用</string>
+    <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_no_date_hint">某些供应商将未知、无效或未来日期的消息存储为不含日期的消息</string>
     <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
@@ -453,7 +454,7 @@
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
-    <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示，直到下载了消息文本为止</string>
+    <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示直到消息文本下载完成</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
@@ -808,7 +809,7 @@
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
-    <string name="title_size_reminder">消息(%1$s) 超出服务器限制 (%2$s)</string>
+    <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>

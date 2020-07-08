@@ -88,6 +88,7 @@
     <string name="title_notification_idle">Inactiv</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server %1$s</string>
+    <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -160,6 +161,7 @@
     <string name="title_setup_identity">Configurare identităţi</string>
     <string name="title_setup_identity_remark">Pentru a trimite e-mail</string>
     <string name="title_setup_identity_hint">Pentru a schimba numele, culoarea, semnătura, etc</string>
+    <string name="title_setup_identity_what">Ce este o identitate?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Configurare optimizare baterie</string>
@@ -363,6 +365,7 @@
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
+    <string name="title_advanced_notify_preview_only">Arată notificări doar cu un text de previzualizare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -400,6 +403,9 @@
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
     <string name="title_advanced_ca">Certificate CA instalate</string>
+    <string name="title_advanced_manage_keys_hint">        Se va naviga la setările de securitate Android.
+        Cheile și certificatele pot fi găsite în general sub Avansate - Criptare și credențiale.
+    </string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
     <string name="title_advanced_conversation_actions">Sugerează acţiuni</string>
@@ -422,6 +428,7 @@
     <string name="title_advanced_more">Mai multe opțiuni</string>
     <string name="title_advanced_manual_hint">Dacă primirea mesajelor este dezactivată, încă este posibilă primirea manuală a mesajelor glisând în jos lista de mesaje</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
+    <string name="title_advanced_optimize_hint">Acest lucru ar putea schimba frecvența de sincronizare pentru a economisi consumul bateriei în funcție de capacitățile și comportamentul serverelor de e-mail</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_no_date_hint">Unii furnizori stochează mesaje cu o dată necunoscută, invalidă sau viitoare ca mesaje fără dată</string>
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
@@ -468,6 +475,7 @@
     <string name="title_advanced_notify_manage_default_hint">Pentru a configura sunetul implicit etc</string>
     <string name="title_advanced_notify_manage_service_hint">Pentru a dezactiva notificarea permanentă</string>
     <string name="title_advanced_notify_preview_all_hint">Pentru accesoriile de purtat care pot arăta textul complet (până la 5000 caractere)</string>
+    <string name="title_advanced_notify_preview_only_hint">Aceasta întârzie notificările până când textul mesajului a fost descărcat</string>
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
     <string name="title_advanced_move_hint">Dosarul țintă poate fi configurat în setările contului</string>
     <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
@@ -977,7 +985,9 @@
     <string name="title_rule_no_headers">Nu se pot verifica condiții din antet</string>
     <string name="title_rule_matched">Mesaje ce se potrivesc</string>
     <string name="title_rule_no_matches">Nici un mesaj potrivit</string>
+    <string name="title_rule_tts_ok">Configurare în regulă</string>
     <string name="title_rule_tts_setup">Verificare configurare</string>
+    <string name="title_rule_tts_data">Instalare date vocale</string>
     <string name="title_rule_tts_prefix">Mesaj nou</string>
     <string name="title_rule_tts_from">De la</string>
     <string name="title_rule_tts_subject">Subiect</string>

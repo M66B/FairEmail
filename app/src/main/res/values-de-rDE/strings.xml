@@ -284,7 +284,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
-    <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
+    <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
     <string name="title_advanced_color_saturation">Sättigung</string>
@@ -439,7 +439,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
     <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgeholt. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roaming zu deaktivieren.</string>
-    <string name="title_advanced_browse_hint">Durch Herunterscrollen weitere E-Mails laden</string>
+    <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>

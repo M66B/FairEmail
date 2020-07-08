@@ -305,7 +305,7 @@
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
-    <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
+    <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
     <string name="title_advanced_color_saturation">Nasycenie</string>
     <string name="title_advanced_color_value">Jasność</string>
