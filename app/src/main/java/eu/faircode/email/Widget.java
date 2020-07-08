@@ -57,6 +57,7 @@ public class Widget extends AppWidgetProvider {
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
                     long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+                    int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
 
                     List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
@@ -99,7 +100,7 @@ public class Widget extends AppWidgetProvider {
                     views.setOnClickPendingIntent(R.id.widget, pi);
 
                     if (!semi)
-                        views.setInt(R.id.widget, "setBackgroundColor", Color.TRANSPARENT);
+                        views.setInt(R.id.widget, "setBackgroundColor", background);
 
                     if (layout == 1)
                         views.setImageViewResource(R.id.ivMessage, unseen == 0

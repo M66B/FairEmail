@@ -37,6 +37,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spAccount" />
 
+        <Button
+            android:id="@+id/btnColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:tag="disable"
+            android:text="@string/title_widget_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clLayout"
             android:layout_width="wrap_content"
@@ -45,7 +56,7 @@
             android:background="@color/lightBluePrimary"
             android:padding="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent">
+            app:layout_constraintTop_toBottomOf="@id/btnColor">
 
             <include
                 android:id="@+id/inOld"
@@ -108,6 +119,6 @@
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvAccount,spAccount,cbSemiTransparent,clLayout,btnSave" />
+            app:constraint_referenced_ids="tvAccount,spAccount,cbSemiTransparent,btnColor,clLayout,btnSave" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

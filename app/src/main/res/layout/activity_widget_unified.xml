@@ -68,6 +68,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cbFlagged" />
 
+    <Button
+        android:id="@+id/btnColor"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:tag="disable"
+        android:text="@string/title_widget_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
+
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvFontSize"
         android:layout_width="wrap_content"
@@ -76,7 +87,7 @@
         android:text="@string/title_widget_font_size"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
+        app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
     <Spinner
         android:id="@+id/spFontSize"
@@ -128,5 +139,9 @@
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvAccount,spAccount,tvFolder,spFolder,cbUnseen,cbFlagged,btnSave" />
+        app:constraint_referenced_ids="
+        tvAccount,spAccount,tvFolder,spFolder,
+        cbUnseen,cbFlagged,
+        cbSemiTransparent,btnColor,
+        tvFontSize,spFontSize,tvPadding,spPadding,btnSave" />
 </androidx.constraintlayout.widget.ConstraintLayout>

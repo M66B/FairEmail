@@ -44,6 +44,7 @@ public class WidgetUnified extends AppWidgetProvider {
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
             String type = prefs.getString("widget." + appWidgetId + ".type", null);
             boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+            int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
             int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
 
@@ -58,7 +59,7 @@ public class WidgetUnified extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
             if (!semi)
-                views.setInt(R.id.widget, "setBackgroundColor", Color.TRANSPARENT);
+                views.setInt(R.id.widget, "setBackgroundColor", background);
 
             if (font > 0)
                 views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
