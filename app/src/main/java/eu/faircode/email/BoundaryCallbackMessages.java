@@ -90,7 +90,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private State state;
 
-    private static final int SEARCH_LIMIT = 1000;
+    private static final int SEARCH_LIMIT_DEVICE = 1000;
     private static final int SEARCH_LIMIT_SERVER = 100;
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
@@ -252,14 +252,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             criteria.with_size,
                             criteria.after,
                             criteria.before,
-                            SEARCH_LIMIT, state.offset);
+                            SEARCH_LIMIT_DEVICE, state.offset);
                     EntityLog.log(context, "Boundary device" +
                             " account=" + account +
                             " folder=" + folder +
                             " criteria=" + criteria +
                             " offset=" + state.offset +
                             " size=" + state.matches.size());
-                    state.offset += Math.min(state.matches.size(), SEARCH_LIMIT);
+                    state.offset += Math.min(state.matches.size(), SEARCH_LIMIT_DEVICE);
                     state.index = 0;
                 }
 
