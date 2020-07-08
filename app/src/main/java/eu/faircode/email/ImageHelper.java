@@ -172,7 +172,7 @@ class ImageHelper {
     }
 
     static Bitmap makeCircular(Bitmap bitmap, Integer radius) {
-        if (bitmap == null)
+        if (bitmap == null || bitmap.isRecycled())
             return null;
 
         int w = bitmap.getWidth();
