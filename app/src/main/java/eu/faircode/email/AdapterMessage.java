@@ -2953,10 +2953,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         public boolean onKeyPressed(KeyEvent event) {
             TupleMessageEx message = getMessage();
+            if (message == null)
+                return false;
+
             switch (event.getKeyCode()) {
                 case KeyEvent.KEYCODE_ENTER:
                 case KeyEvent.KEYCODE_DPAD_CENTER:
                 case KeyEvent.KEYCODE_BUTTON_A:
+                    boolean expanded = properties.getValue("expanded", message.id);
+                    if (expanded)
+                        return false;
                     onClick(view);
                     return true;
                 case KeyEvent.KEYCODE_A:
@@ -2966,7 +2972,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionTrash(message, false);
                     return false;
                 case KeyEvent.KEYCODE_S:
-                    if (message == null || selectionTracker == null)
+                    if (selectionTracker == null)
                         return false;
                     if (selectionTracker.isSelected(message.id))
                         selectionTracker.deselect(message.id);
