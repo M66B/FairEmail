@@ -91,6 +91,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private State state;
 
     private static final int SEARCH_LIMIT = 1000;
+    private static final int SEARCH_LIMIT_SERVER = 100;
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     interface IBoundaryCallbackMessages {
@@ -413,63 +414,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     if (protocol.supportsUtf8())
                                         try {
-                                            EntityLog.log(context, "Search unicode");
-                                            SearchTerm terms = criteria.getTerms(
-                                                    true,
-                                                    state.ifolder.getPermanentFlags(),
-                                                    browsable.keywords);
-                                            if (terms == null) {
-                                                EntityLog.log(context, "Search unicode no terms");
-                                                return new Message[0];
-                                            }
-
-                                            SearchSequence ss = new SearchSequence(protocol);
-                                            Argument args = ss.generateSequence(terms, StandardCharsets.UTF_8.name());
-                                            args.writeAtom("ALL");
-
-                                            Response[] responses = protocol.command("SEARCH", args);
-                                            for (Response response : responses)
-                                                EntityLog.log(context, "Search unicode response=" + response);
-                                            if (responses.length == 0)
-                                                throw new ProtocolException("No response");
-                                            if (!responses[responses.length - 1].isOK())
-                                                throw new ProtocolException(responses[responses.length - 1]);
-
-                                            List<Integer> msgnums = new ArrayList<>();
-                                            for (Response response : responses)
-                                                if (((IMAPResponse) response).keyEquals("SEARCH")) {
-                                                    int msgnum;
-                                                    while ((msgnum = response.readNumber()) != -1)
-                                                        msgnums.add(msgnum);
-                                                }
-
-                                            EntityLog.log(context, "Search unicode messages=" + msgnums.size());
-                                            Message[] imessages = new Message[msgnums.size()];
-                                            for (int i = 0; i < msgnums.size(); i++)
-                                                imessages[i] = state.ifolder.getMessage(msgnums.get(i));
-
-                                            return imessages;
+                                            return search(true, browsable.keywords, protocol);
                                         } catch (Throwable ex) {
-                                            ProtocolException pex = new ProtocolException(
-                                                    "Search unicode " + account.host + " " + criteria, ex);
-                                            EntityLog.log(context, pex.toString());
-                                            //Log.e(pex);
-                                            // Fallback to ASCII search
+                                            EntityLog.log(context, ex.toString());
                                         }
 
-                                    EntityLog.log(context, "Search ASCII");
-                                    SearchTerm terms = criteria.getTerms(
-                                            false,
-                                            state.ifolder.getPermanentFlags(),
-                                            browsable.keywords);
-                                    if (terms == null) {
-                                        EntityLog.log(context, "Search ASCII no terms");
-                                        return new Message[0];
-                                    }
-                                    Message[] messages = state.ifolder.search(terms);
-                                    EntityLog.log(context, "Search ASCII" +
-                                            " messages=" + (messages == null ? null : messages.length));
-                                    return messages;
+                                    return search(false, browsable.keywords, protocol);
                                 }
                             } catch (Throwable ex) {
                                 ProtocolException pex = new ProtocolException(
@@ -590,6 +540,45 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         EntityLog.log(context, "Boundary server done");
         return found;
+    }
+
+    private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol) throws IOException, MessagingException, ProtocolException {
+        EntityLog.log(context, "Search utf8=" + utf8);
+
+        SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
+        if (terms == null) {
+            EntityLog.log(context, "Search no terms");
+            return new Message[0];
+        }
+
+        SearchSequence ss = new SearchSequence(protocol);
+        Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
+        args.writeAtom("ALL");
+
+        Response[] responses = protocol.command("SEARCH", args); // no CHARSET !
+        if (responses == null || responses.length == 0)
+            throw new ProtocolException("No response");
+        for (Response response : responses)
+            EntityLog.log(context, "Search response=" + response);
+        if (!responses[responses.length - 1].isOK())
+            throw new ProtocolException(responses[responses.length - 1]);
+
+        List<Integer> msgnums = new ArrayList<>();
+        for (int r = 0; r < Math.min(responses.length, SEARCH_LIMIT_SERVER); r++) {
+            IMAPResponse response = (IMAPResponse) responses[r];
+            if (response.keyEquals("SEARCH")) {
+                int msgnum;
+                while ((msgnum = response.readNumber()) != -1)
+                    msgnums.add(msgnum);
+            }
+        }
+
+        EntityLog.log(context, "Search messages=" + msgnums.size());
+        Message[] imessages = new Message[msgnums.size()];
+        for (int i = 0; i < msgnums.size(); i++)
+            imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+
+        return imessages;
     }
 
     void destroy() {
