@@ -453,7 +453,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             ProtocolException pex = new ProtocolException(
                                                     "Search unicode " + account.host + " " + criteria, ex);
                                             EntityLog.log(context, pex.toString());
-                                            Log.e(pex);
+                                            //Log.e(pex);
                                             // Fallback to ASCII search
                                         }
 
@@ -475,23 +475,25 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 ProtocolException pex = new ProtocolException(
                                         "Search " + account.host + " " + criteria, ex);
                                 EntityLog.log(context, pex.toString());
-                                Log.e(pex);
+                                //Log.e(pex);
                                 throw pex;
                             }
                         }
                     });
 
                     state.imessages = (Message[]) result;
+                    EntityLog.log(context, "Boundary found messages=" + state.imessages.length);
                 }
                 Log.i("Boundary server found messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
                 state.error = true;
-                if (ex instanceof FolderClosedException)
-                    Log.w("Search", ex);
-                else
-                    Log.e("Search", ex);
+                EntityLog.log(context, ex.toString());
+                //if (ex instanceof FolderClosedException)
+                //    Log.w("Search", ex);
+                //else
+                //    Log.e("Search", ex);
                 throw ex;
             }
 
@@ -499,7 +501,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         int found = 0;
         while (state.index >= 0 && found < pageSize && !state.destroyed) {
-            Log.i("Boundary server index=" + state.index);
+            EntityLog.log(context, "Boundary server index=" + state.index);
             int from = Math.max(0, state.index - (pageSize - found) + 1);
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             state.index -= (pageSize - found);
@@ -519,7 +521,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     add.add(m);
                 }
 
-            Log.i("Boundary fetching " + add.size() + "/" + isub.length);
+            EntityLog.log(context, "Boundary fetching " + add.size() + "/" + isub.length);
             if (add.size() > 0) {
                 FetchProfile fp = new FetchProfile();
                 fp.add(FetchProfile.Item.ENVELOPE);
@@ -554,8 +556,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     rules, astate);
                             found++;
                         }
-                        if (message != null && criteria != null /* browsed */)
+                        if (message != null && criteria != null /* browsed */) {
+                            EntityLog.log(context, "Boundary server found uid=" + uid);
                             db.message().setMessageFound(message.id);
+                        } else
+                            EntityLog.log(context, "Boundary server browsed uid=" + uid);
                     } catch (MessageRemovedException ex) {
                         EntityLog.log(context, browsable.name + " boundary server ex=" + ex);
                         Log.w(browsable.name + " boundary server", ex);
@@ -583,7 +588,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
         }
 
-        Log.i("Boundary server done");
+        EntityLog.log(context, "Boundary server done");
         return found;
     }
 
