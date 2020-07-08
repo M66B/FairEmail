@@ -30,6 +30,9 @@ public class ReceiverAutoStart extends BroadcastReceiver {
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             Log.i("Received " + intent);
 
+            if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction()))
+                ApplicationEx.upgrade(context);
+
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
             ServiceUI.boot(context);
