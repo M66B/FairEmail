@@ -4893,14 +4893,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return (up && onReply(context));
                 case KeyEvent.KEYCODE_PAGE_UP:
                 case KeyEvent.KEYCODE_DPAD_UP:
-                    if (up)
-                        rvMessage.scrollBy(0, -context.getResources().getDisplayMetrics().heightPixels / 2);
-                    return up;
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onScroll(context, true));
+                    break;
                 case KeyEvent.KEYCODE_PAGE_DOWN:
                 case KeyEvent.KEYCODE_DPAD_DOWN:
-                    if (up)
-                        rvMessage.scrollBy(0, context.getResources().getDisplayMetrics().heightPixels / 2);
-                    return up;
+                    if (viewType == AdapterMessage.ViewType.THREAD)
+                        return (up && onScroll(context, false));
+                    break;
             }
 
             if (!up)
@@ -5007,6 +5007,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!fabMore.isOrWillBeShown())
                 return false;
             fabMore.performClick();
+            return true;
+        }
+
+        private boolean onScroll(Context context, boolean up) {
+            rvMessage.scrollBy(0, (up ? -1 : 1) *
+                    context.getResources().getDisplayMetrics().heightPixels / 2);
             return true;
         }
     };
