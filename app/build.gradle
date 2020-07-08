@@ -223,6 +223,7 @@ configurations.all {
 
     // lifecycle-livedata: ComputableLiveData, MediatorLiveData, Transformations
     // lifecycle-livedata-core: LiveData, MutableLiveData, Observer
+    // paging-runtime: AsyncPagedListDiffer, LivePagedListBuilder, PagedListAdapter, PagedStorageDiffHelper
 }
 
 dependencies {
@@ -322,7 +323,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
     // https://developer.android.com/jetpack/androidx/releases/paging
-    implementation "androidx.paging:paging-runtime:$paging_version"
+    //implementation "androidx.paging:paging-runtime:$paging_version"
 
     // https://mvnrepository.com/artifact/androidx.preference/preference
     implementation "androidx.preference:preference:$preference_version"
