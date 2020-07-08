@@ -1186,6 +1186,7 @@
     <string name="title_widget_font_size">Tekengrootte</string>
     <string name="title_widget_padding">Opvul grootte</string>
     <string name="title_widget_semi_transparent">Semi transparante achtergrond</string>
+    <string name="title_widget_background">Achtergrondkleur</string>
     <string name="title_accessibility_collapsed">Ingevouwen</string>
     <string name="title_accessibility_expanded">Uitgevouwen</string>
     <string name="title_accessibility_seen">Gelezen</string>

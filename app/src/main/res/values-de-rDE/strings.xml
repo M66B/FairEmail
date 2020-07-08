@@ -1186,6 +1186,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
+    <string name="title_widget_background">Hintergrundfarbe</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>
     <string name="title_accessibility_expanded">Erweitert</string>
     <string name="title_accessibility_seen">Gelesen</string>

@@ -1188,6 +1188,7 @@
     <string name="title_widget_font_size">Skriftypetstørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
+    <string name="title_widget_background">Baggrundsfarve</string>
     <string name="title_accessibility_collapsed">Sammenfoldet</string>
     <string name="title_accessibility_expanded">Udfoldet</string>
     <string name="title_accessibility_seen">Læst</string>

@@ -1187,6 +1187,7 @@
     <string name="title_widget_font_size">Teckenstorlek</string>
     <string name="title_widget_padding">Utfyllnadsstorlek</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
+    <string name="title_widget_background">Bakgrundsfärg</string>
     <string name="title_accessibility_collapsed">Ihopfälld</string>
     <string name="title_accessibility_expanded">Expanderad</string>
     <string name="title_accessibility_seen">Läst</string>

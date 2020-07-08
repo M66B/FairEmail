@@ -1175,6 +1175,7 @@
     <string name="title_widget_font_size">字体大小</string>
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_background">背景颜色</string>
     <string name="title_accessibility_collapsed">折叠</string>
     <string name="title_accessibility_expanded">展开</string>
     <string name="title_accessibility_seen">阅读</string>
