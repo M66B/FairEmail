@@ -1514,7 +1514,7 @@ class Core {
             for (Folder ifolder : isubscribed) {
                 String fullName = ifolder.getFullName();
                 if (TextUtils.isEmpty(fullName)) {
-                    Log.e("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
+                    Log.w("Subscribed folder name empty namespace=" + defaultFolder.getFullName());
                     continue;
                 }
                 subscription.add(fullName);
