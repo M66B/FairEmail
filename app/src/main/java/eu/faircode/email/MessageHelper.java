@@ -1560,11 +1560,12 @@ public class MessageHelper {
     class MessageParts {
         private List<Part> plain = new ArrayList<>();
         private List<Part> html = new ArrayList<>();
+        private List<Part> extra = new ArrayList<>();
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
 
         Boolean isPlainOnly() {
-            if (plain.size() + html.size() == 0)
+            if (plain.size() + html.size() + extra.size() == 0)
                 return null;
             return (html.size() == 0);
         }
@@ -1573,6 +1574,7 @@ public class MessageHelper {
             List<Part> all = new ArrayList<>();
             all.addAll(plain);
             all.addAll(html);
+            all.addAll(extra);
 
             for (Part p : all)
                 if (p.getSize() > 0)
@@ -1587,6 +1589,7 @@ public class MessageHelper {
             List<Part> all = new ArrayList<>();
             all.addAll(plain);
             all.addAll(html);
+            all.addAll(extra);
             for (Part p : all) {
                 int s = p.getSize();
                 if (s >= 0)
@@ -1617,7 +1620,13 @@ public class MessageHelper {
 
             StringBuilder sb = new StringBuilder();
 
-            for (Part part : html.size() > 0 ? html : plain) {
+            List<Part> parts = new ArrayList<>();
+            if (html.size() > 0)
+                parts.addAll(html);
+            else
+                parts.addAll(plain);
+            parts.addAll(extra);
+            for (Part part : parts) {
                 if (part.getSize() > MAX_MESSAGE_SIZE) {
                     warnings.add(context.getString(R.string.title_insufficient_memory));
                     return null;
@@ -1697,7 +1706,8 @@ public class MessageHelper {
                                 }
                         }
                     }
-                }
+                } else if (part.isMimeType("message/delivery-status"))
+                    result = "<hr><div style=\"font-family: monospace; font-size: small;\">" + HtmlHelper.formatPre(result) + "</div>";
 
                 sb.append(result);
             }
@@ -2047,6 +2057,9 @@ public class MessageHelper {
                     else if (html)
                         parts.html.add(part);
                 } else {
+                    if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()))
+                        parts.extra.add(part);
+
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
                     apart.filename = filename;
