@@ -649,6 +649,18 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalArgumentException &&
+                "page introduces incorrect tiling".equals(ex.getMessage()))
+            /*
+                java.lang.IllegalArgumentException: page introduces incorrect tiling
+                  at androidx.paging.PagedStorage.insertPage(SourceFile:545)
+                  at androidx.paging.PagedStorage.tryInsertPageAndTrim(SourceFile:504)
+                  at androidx.paging.TiledPagedList$1.onPageResult(SourceFile:60)
+                  at androidx.paging.DataSource$LoadCallbackHelper$1.run(SourceFile:324)
+                  at android.os.Handler.handleCallback(Handler.java:789)
+            */
+            return false;
+
         if (ex instanceof IllegalMonitorStateException)
             /*
                 java.lang.IllegalMonitorStateException
