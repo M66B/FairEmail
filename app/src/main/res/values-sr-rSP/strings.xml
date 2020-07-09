@@ -233,8 +233,6 @@
     <string name="title_advanced_color_value">Осветљеност</string>
     <string name="title_advanced_color_threshold">Ниво окидања за боју слова</string>
     <string name="title_advanced_name_email">Прикажи имена и е-мејл адресе</string>
-    <string name="title_advanced_font_size_sender">Величина фонта пошиљаоца</string>
-    <string name="title_advanced_font_size_subject">Величина фонта за наслов</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
     <string name="title_advanced_subject_italic">Прикажи наслов курзивом</string>
     <string name="title_advanced_subject_elipsed">Ако је потребно скратити наслов, скрати га</string>
@@ -925,7 +923,6 @@
     <string name="title_widget_folder_unified">Обједињене фасцикле пријемног сандучета</string>
     <string name="title_widget_unseen">Само непрочитане поруке</string>
     <string name="title_widget_flagged">Само озвездане поруке</string>
-    <string name="title_widget_font_size">Величина фонта</string>
     <string name="title_accessibility_collapsed">Смањи</string>
     <string name="title_accessibility_expanded">Прошири</string>
     <string name="title_accessibility_seen">Прочитано</string>

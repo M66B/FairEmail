@@ -315,8 +315,6 @@
     <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
     <string name="title_advanced_show_recipients">Zobrazit příjemce v hlavičce zprávy</string>
-    <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
-    <string name="title_advanced_font_size_subject">Velikost písma předmětu</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">Zestručnit předmět v případě potřeby</string>
@@ -1207,7 +1205,6 @@
     <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
-    <string name="title_widget_font_size">Velikost písma</string>
     <string name="title_widget_padding">Velikost odsazení položek</string>
     <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
     <string name="title_accessibility_collapsed">Sbaleno</string>

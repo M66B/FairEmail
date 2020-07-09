@@ -248,8 +248,6 @@
     <string name="title_advanced_replace_name">偏好顯示聯絡人名字而不是寄件人名字</string>
     <string name="title_advanced_distinguish_contacts">當寄件人為本機聯絡人時將名字加註底線</string>
     <string name="title_advanced_show_recipients">在訊息標頭中顯示收件者</string>
-    <string name="title_advanced_font_size_sender">寄件者字體大小</string>
-    <string name="title_advanced_font_size_subject">主旨字體大小</string>
     <string name="title_advanced_subject_top">主旨顯示於寄件者之前</string>
     <string name="title_advanced_subject_italic">把主旨斜體</string>
     <string name="title_advanced_subject_elipsed">當必須縮短主旨時</string>
@@ -411,7 +409,6 @@
     <string name="title_widget_folder_unified">全域收件匣</string>
     <string name="title_widget_unseen">只有未讀訊息</string>
     <string name="title_widget_flagged">只有加星號訊息</string>
-    <string name="title_widget_font_size">字體大小</string>
     <string name="title_widget_padding">填充大小</string>
     <string name="title_accessibility_seen">已讀</string>
     <string name="title_accessibility_unseen">未讀</string>

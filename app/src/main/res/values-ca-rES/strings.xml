@@ -281,8 +281,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_replace_name">Preferiu el nom de contacte que el nom enviat</string>
     <string name="title_advanced_distinguish_contacts">Subratlla l’emissor quan el remitent es coneix com a contacte “a” local</string>
     <string name="title_advanced_show_recipients">Mostra els destinataris a l’encapçalament del missatge</string>
-    <string name="title_advanced_font_size_sender">Mida de la font del remitent</string>
-    <string name="title_advanced_font_size_subject">Mida de la font del assumpte</string>
     <string name="title_advanced_subject_top">Mostra l\'assumpte a sobre del remitent</string>
     <string name="title_advanced_subject_italic">Mostra els assumptes en cursiva</string>
     <string name="title_advanced_subject_elipsed">Si cal, escurça l\'assumpte</string>
@@ -1096,7 +1094,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_widget_folder_unified">Carpetes unificades de la safata d\'entrada</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>
     <string name="title_widget_flagged">Missatges senyalats només</string>
-    <string name="title_widget_font_size">Mida del text</string>
     <string name="title_accessibility_collapsed">Replegat</string>
     <string name="title_accessibility_expanded">Extés</string>
     <string name="title_accessibility_seen">Llegit</string>

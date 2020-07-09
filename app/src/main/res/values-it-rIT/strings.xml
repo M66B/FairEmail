@@ -293,8 +293,8 @@
     <string name="title_advanced_replace_name">Preferisci un nome di contatto a un nome inviato</string>
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando il mittente è conosciuto come contatto locale \'a\"</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
-    <string name="title_advanced_font_size_sender">Dimensione font mittente</string>
-    <string name="title_advanced_font_size_subject">Dimensione carattere oggetto</string>
+    <string name="title_advanced_font_size_sender">Dimensione caratteri mittente</string>
+    <string name="title_advanced_font_size_subject">Dimensione caratteri oggetto</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
@@ -1184,9 +1184,10 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
     <string name="title_widget_flagged">Solo messaggi preferiti</string>
-    <string name="title_widget_font_size">Dimensione del carattere</string>
+    <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>
     <string name="title_widget_semi_transparent">Sfondo semi trasparente</string>
+    <string name="title_widget_background">Colore di sfondo</string>
     <string name="title_accessibility_collapsed">Compresso</string>
     <string name="title_accessibility_expanded">Espanso</string>
     <string name="title_accessibility_seen">Letto</string>

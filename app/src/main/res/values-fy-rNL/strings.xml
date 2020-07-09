@@ -198,8 +198,6 @@
     <string name="title_advanced_color_saturation">Sêding</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
     <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
-    <string name="title_advanced_font_size_sender">Stjoerder foar lettertypegrutte</string>
-    <string name="title_advanced_font_size_subject">Underwerp foar lettertypegrutte</string>
     <string name="title_advanced_flags">Sjoch stjerren</string>
     <string name="title_advanced_preview">Sjoch berjochtfoarbyld</string>
     <string name="title_advanced_images_inline">Inline ôfbyldings automatysk sjen litte</string>

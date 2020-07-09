@@ -263,8 +263,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_show_recipients">メッセージヘッダーにキーワードを表示</string>
-    <string name="title_advanced_font_size_sender">送信者のフォントサイズ</string>
-    <string name="title_advanced_font_size_subject">件名のフォントサイズ</string>
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_subject_elipsed">必要に応じて件名を短くします</string>
@@ -1091,7 +1089,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
-    <string name="title_widget_font_size">フォントサイズ</string>
     <string name="title_widget_padding">余白のサイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>

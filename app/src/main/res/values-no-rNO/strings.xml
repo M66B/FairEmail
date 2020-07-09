@@ -265,8 +265,6 @@
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_replace_name">Foretrekker et kontaktnavn fremfor et sendt navn</string>
     <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>
-    <string name="title_advanced_font_size_sender">Skriftstørrelse for avsender</string>
-    <string name="title_advanced_font_size_subject">Skriftstørrelse emne</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>

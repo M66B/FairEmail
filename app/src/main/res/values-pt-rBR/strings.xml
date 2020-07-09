@@ -275,8 +275,6 @@
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
-    <string name="title_advanced_font_size_sender">Remetente do tamanho da fonte</string>
-    <string name="title_advanced_font_size_subject">Assunto do tamanho da fonte</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>
@@ -1053,7 +1051,6 @@
     <string name="title_widget_folder_unified">Pastas da caixa de entrada unificadas</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
-    <string name="title_widget_font_size">Tamanho da letra</string>
     <string name="title_accessibility_collapsed">Desabou</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Lido</string>

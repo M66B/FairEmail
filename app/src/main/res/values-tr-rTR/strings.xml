@@ -260,8 +260,6 @@
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_replace_name">Gönderilen ad yerine kişi adı tercih et</string>
     <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
-    <string name="title_advanced_font_size_sender">Gönderen yazı boyutu</string>
-    <string name="title_advanced_font_size_subject">Konu yazı boyutu</string>
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
@@ -1023,7 +1021,6 @@
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
-    <string name="title_widget_font_size">Yazı tipi boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_accessibility_collapsed">Daraltılan</string>
     <string name="title_accessibility_expanded">Genişletilen</string>

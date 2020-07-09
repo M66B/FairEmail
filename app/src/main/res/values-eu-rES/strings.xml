@@ -284,8 +284,6 @@
     <string name="title_advanced_replace_name">Nahiago kontaktu-izena bidaltzaile-izena baino</string>
     <string name="title_advanced_distinguish_contacts">Azpimarratu igorlea kontaktua jasotzaile lokalki ezaguna bada</string>
     <string name="title_advanced_show_recipients">Erakutsi hartzaileak mezuaren goiburuan</string>
-    <string name="title_advanced_font_size_sender">Igorlearen letra tamaina</string>
-    <string name="title_advanced_font_size_subject">Gaiaren letra tamaina</string>
     <string name="title_advanced_subject_top">Erakutsi mintzagaia igorlearen gainean</string>
     <string name="title_advanced_subject_italic">Erakutsi mintzagaia letra etzanean</string>
     <string name="title_advanced_subject_elipsed">Behar denean laburtu mintzagaia</string>
@@ -1134,7 +1132,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_widget_folder_unified">Bateratutako sarrera-ontziko karpetak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>
     <string name="title_widget_flagged">Izardun mezuak soilik</string>
-    <string name="title_widget_font_size">Letra-tamaina</string>
     <string name="title_widget_padding">Betegarriaren tamaina</string>
     <string name="title_widget_semi_transparent">Atzeko plano erdi gardena</string>
     <string name="title_accessibility_collapsed">Tolestuta</string>

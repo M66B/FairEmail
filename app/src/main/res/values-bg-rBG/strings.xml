@@ -290,8 +290,6 @@
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>
     <string name="title_advanced_show_recipients">Показване на получателите в заглавката на съобщението</string>
-    <string name="title_advanced_font_size_sender">Големина на шрифта на подателя</string>
-    <string name="title_advanced_font_size_subject">Големина на шрифта на темата</string>
     <string name="title_advanced_subject_top">Покажи темата над подателя</string>
     <string name="title_advanced_subject_italic">Покажи темата наклонена</string>
     <string name="title_advanced_subject_elipsed">При нужда, съкрати темата</string>
@@ -1168,7 +1166,6 @@
     <string name="title_widget_folder_unified">Обща папка входящи</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
-    <string name="title_widget_font_size">Размер на шрифта</string>
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
     <string name="title_accessibility_collapsed">Свиване</string>

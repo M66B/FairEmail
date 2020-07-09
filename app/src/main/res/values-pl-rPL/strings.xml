@@ -314,8 +314,8 @@
     <string name="title_advanced_replace_name">Preferuj nazwę kontaktu nad nazwą wysłaną</string>
     <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
     <string name="title_advanced_show_recipients">Pokaż odbiorców w nagłówku wiadomości</string>
-    <string name="title_advanced_font_size_sender">Rozmiar czcionki nadawcy</string>
-    <string name="title_advanced_font_size_subject">Rozmiar czcionki tematu</string>
+    <string name="title_advanced_font_size_sender">Rozmiar tekstu nadawcy</string>
+    <string name="title_advanced_font_size_subject">Rozmiar tekstu tematu</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
@@ -1205,7 +1205,7 @@
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
-    <string name="title_widget_font_size">Rozmiar czcionki</string>
+    <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
     <string name="title_widget_background">Kolor tła</string>

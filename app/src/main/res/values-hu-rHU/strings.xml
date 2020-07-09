@@ -6,6 +6,7 @@
     <string name="app_limitations">Többek között: formázással mindig eltávolítja az üzenetkből a nem biztonságos elemeket és javítja az olvashatóságot, valamint a hivatkozások megnyitása megerősítést fog igényelni.</string>
     <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
+    <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Értesítések</string>
     <string name="channel_update">Frissítések</string>
@@ -65,6 +66,7 @@
         <item quantity="other">Megjelöl %1$d üzenetet spam-ként?</item>
     </plurals>
     <string name="title_ask_spam_who">Megjelöli az üzenetet %1$s-től spam-ként?</string>
+    <string name="title_junk_hint">A levélszemét szűréséért az email szolgáltatója a felelős. Egy email kliens nem rendelkezik a szükséges adatokkal, hogy ezt megfelelően el tudja végezni.</string>
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
     <string name="title_block_domain">Feladó domain tiltása</string>
@@ -274,6 +276,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_color_stripe">Színszalag megjelenítése</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_gravatars">Gravatar képek megjelenítése</string>
+    <string name="title_advanced_favicons">Faviconok megjelenítése</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
     <string name="title_advanced_circular">Megjelenített ikonok lekerekítése</string>
@@ -284,8 +287,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_replace_name">Preferálja a névjegyi neveket a küldői nevek helyett</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>
     <string name="title_advanced_show_recipients">Címzettek mutatása az üzenet fejlécében</string>
-    <string name="title_advanced_font_size_sender">Küldő betűmérete</string>
-    <string name="title_advanced_font_size_subject">Tárgy betűmérete</string>
     <string name="title_advanced_subject_top">Tárgy megjelenítése a küldő fölött</string>
     <string name="title_advanced_subject_italic">Tárgy megjelnítése dőlt betűvel</string>
     <string name="title_advanced_subject_elipsed">Tárgy rövidítése szükség esetén</string>
@@ -605,6 +606,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_duplicate_in">Üzenet duplikálása a(z) %1$s mappában</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_buttons">Gombok</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
     <string name="title_hide">Elrejtés</string>
@@ -643,6 +645,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_more">Továbbiak</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Áthelyezés</string>
+    <string name="title_copy_btn">Másolás</string>
+    <string name="title_unsubscribe">Leiratkozás</string>
+    <string name="title_message_rule">Szabály létrehozása</string>
     <string name="title_no_junk">Nem levélszemét</string>
     <string name="title_move_to">Áthelyezés ide &#8230;</string>
     <string name="title_move_to_folder">Áthelyezés ide &#8230;</string>
@@ -733,10 +738,16 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_send_encryption">Titkosítás</string>
     <string name="title_send_priority">Prioritás</string>
     <string name="title_no_server">Nem található szerver itt: \'%1$s\'</string>
+    <string name="title_style">Stílus</string>
     <string name="title_style_bold">Félkövér</string>
     <string name="title_style_italic">Dőlt</string>
     <string name="title_style_underline">Aláhúzott</string>
     <string name="title_style_size">Méret</string>
+    <string name="title_style_size_small">Kicsi</string>
+    <string name="title_style_size_medium">Közepes</string>
+    <string name="title_style_size_large">Nagy</string>
+    <string name="title_style_font">Betűtípus</string>
+    <string name="title_style_font_default">Alapértelmezett</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
     <string name="title_add_image">Kép hozzáadása</string>
@@ -765,6 +776,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_invalid_key">Érvénytelen privát kulcs</string>
     <string name="title_unknown_key">A privát kulcs nem egyezik a titkosítási kulcsok egyikével sem</string>
     <string name="title_send_plain_text">Csak egyszerű szöveg</string>
+    <string name="title_send_receipt">Visszaigazolás kérése</string>
     <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
     <string name="title_from_missing">A feladó hiányzik</string>
     <string name="title_extra_missing">A felhasználónév hiányzik</string>
@@ -924,6 +936,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_no_headers">Fejléc kondíciók nem ellenőrizhetők</string>
     <string name="title_rule_matched">Egyező üzenetek</string>
     <string name="title_rule_no_matches">Nincs egyező üzenet</string>
+    <string name="title_rule_tts_prefix">Új üzenet</string>
+    <string name="title_rule_tts_from">Feladó</string>
+    <string name="title_rule_tts_subject">Tárgy</string>
     <string name="title_legend_section_synchronize">Szinkronizálás</string>
     <string name="title_legend_section_folders">Mappák</string>
     <string name="title_legend_section_messages">Üzenetek</string>
@@ -1120,9 +1135,10 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
-    <string name="title_widget_font_size">Betűméret</string>
+    <string name="title_widget_font_size">Szövegméret</string>
     <string name="title_widget_padding">Helykitöltés mérete</string>
     <string name="title_widget_semi_transparent">Félig átlátszó háttér</string>
+    <string name="title_widget_background">Háttérszín</string>
     <string name="title_accessibility_collapsed">Összecsukott</string>
     <string name="title_accessibility_expanded">Kinyitott</string>
     <string name="title_accessibility_seen">Olvasott</string>
@@ -1269,5 +1285,11 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursive</item>
+        <item>Talpas</item>
+        <item>Talpatlan</item>
+        <item>Monospace</item>
     </string-array>
 </resources>

@@ -241,8 +241,6 @@
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
-    <string name="title_advanced_font_size_sender">Tamanho da fonte do remetente</string>
-    <string name="title_advanced_font_size_subject">Tamanho da fonte do remetente</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>

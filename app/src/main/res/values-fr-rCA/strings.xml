@@ -293,8 +293,8 @@
     <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d’envoi</string>
     <string name="title_advanced_distinguish_contacts">Souligner l’expéditeur quand il est connu comme contact local</string>
     <string name="title_advanced_show_recipients">Afficher les destinataires dans l’en-tête du message</string>
-    <string name="title_advanced_font_size_sender">Taille de police de l’expéditeur</string>
-    <string name="title_advanced_font_size_subject">Taille de police de l’objet</string>
+    <string name="title_advanced_font_size_sender">Taille de police du champ « Expéditeur »</string>
+    <string name="title_advanced_font_size_subject">Taille de police du champ « Objet »</string>
     <string name="title_advanced_subject_top">Afficher l’objet au dessus de l’expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l’objet en italique</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l’objet si nécessaire</string>
@@ -1188,6 +1188,7 @@
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Taille de l\'espacement des messages</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
+    <string name="title_widget_background">Couleur d\'arrière-plan</string>
     <string name="title_accessibility_collapsed">Réduit</string>
     <string name="title_accessibility_expanded">Développé</string>
     <string name="title_accessibility_seen">Lu</string>

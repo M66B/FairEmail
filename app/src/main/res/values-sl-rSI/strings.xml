@@ -292,8 +292,6 @@
     <string name="title_advanced_name_email">Prikaži imena in e-poštne naslove</string>
     <string name="title_advanced_replace_name">Prednost ima ime stika pred poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podčrtaj pošiljatelja, ko je ta poznan kot krajevni stik \'Za\'</string>
-    <string name="title_advanced_font_size_sender">Velikost pisave pošiljatelja</string>
-    <string name="title_advanced_font_size_subject">Velikost pisave zadeve</string>
     <string name="title_advanced_subject_top">Prikaži zadevo nad pošiljateljem</string>
     <string name="title_advanced_subject_italic">Prikaže zadevo v ležeči pisavi</string>
     <string name="title_advanced_subject_elipsed">Skrajšaj zadevo, ko je to potrebno</string>

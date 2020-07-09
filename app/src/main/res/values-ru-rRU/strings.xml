@@ -315,8 +315,8 @@
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
     <string name="title_advanced_show_recipients">Показывать получателей в заголовке сообщения</string>
-    <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
-    <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
+    <string name="title_advanced_font_size_sender">Размера текста поля \"Отправитель\"</string>
+    <string name="title_advanced_font_size_subject">Размера текста поля \"Тема\"</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему сообщения курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему сообщения</string>
@@ -1207,7 +1207,7 @@
     <string name="title_widget_folder_unified">Папки единого почтового ящика</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
-    <string name="title_widget_font_size">Размер шрифта</string>
+    <string name="title_widget_font_size">Размер текста</string>
     <string name="title_widget_padding">Размер отступа</string>
     <string name="title_widget_semi_transparent">Полупрозрачный фон</string>
     <string name="title_widget_background">Цвет фона</string>

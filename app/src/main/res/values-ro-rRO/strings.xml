@@ -303,8 +303,6 @@
     <string name="title_advanced_replace_name">Preferă nume contact în loc de nume trimis</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
-    <string name="title_advanced_font_size_sender">Mărime font expeditor</string>
-    <string name="title_advanced_font_size_subject">Mărime font subiect</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
@@ -1195,7 +1193,6 @@
     <string name="title_widget_folder_unified">Dosare unificate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
-    <string name="title_widget_font_size">Mărime font</string>
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_semi_transparent">Fundal semi transparent</string>
     <string name="title_widget_background">Culoare fundal</string>

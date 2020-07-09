@@ -281,8 +281,8 @@
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
-    <string name="title_advanced_font_size_sender">发件人字体大小</string>
-    <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
+    <string name="title_advanced_font_size_sender">发件人文本大小</string>
+    <string name="title_advanced_font_size_subject">主题文本大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
@@ -1172,7 +1172,7 @@
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
-    <string name="title_widget_font_size">字体大小</string>
+    <string name="title_widget_font_size">文本大小</string>
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_widget_background">背景颜色</string>

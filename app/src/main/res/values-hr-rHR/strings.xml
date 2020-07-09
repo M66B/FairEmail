@@ -263,8 +263,6 @@
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
     <string name="title_advanced_replace_name">Preferiraj ime kontakta nad poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podvucite pošiljatelja kada je pošiljalac poznat kao lokalni \"za\" kontakt</string>
-    <string name="title_advanced_font_size_sender">Veličina fonta pošiljatelja</string>
-    <string name="title_advanced_font_size_subject">Veličina fonta predmeta</string>
     <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
     <string name="title_advanced_subject_italic">Prikaži predmet kurzivno</string>
     <string name="title_advanced_subject_elipsed">Ako potrebno skratiti naslov</string>

@@ -283,8 +283,6 @@
     <string name="title_advanced_name_email">نام‌ها و نشانی‌های ایمیل را نمایش بده</string>
     <string name="title_advanced_replace_name">نام مخاطب را بر نام فرستنده ترجیح بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
-    <string name="title_advanced_font_size_sender">اندازه قلم فرستنده</string>
-    <string name="title_advanced_font_size_subject">اندازه قلم موضوع</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
     <string name="title_advanced_subject_elipsed">هنگامی که نیاز باشد، موضوع را کوچک‌تر کن</string>
@@ -1050,7 +1048,6 @@
     <string name="title_widget_folder_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
-    <string name="title_widget_font_size">اندازه قلم</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_accessibility_collapsed">جمع شده</string>

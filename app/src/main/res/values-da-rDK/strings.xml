@@ -293,8 +293,6 @@
     <string name="title_advanced_replace_name">Foretræk Kontakt- fremfor Afsendernavn</string>
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
     <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
-    <string name="title_advanced_font_size_sender">Skriftstørrelse, Afsender</string>
-    <string name="title_advanced_font_size_subject">Skriftstørrelse, Emne</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
@@ -1185,7 +1183,6 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
-    <string name="title_widget_font_size">Skriftypetstørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_widget_background">Baggrundsfarve</string>
