@@ -36,7 +36,7 @@ For authorizing:
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
 Related questions:
 
