@@ -335,7 +335,7 @@ public class EntityRule {
             case TYPE_AUTOMATION:
                 return onActionAutomation(context, message, jaction);
             default:
-                throw new IllegalArgumentException("Unknown rule type=" + type);
+                throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
     }
 
@@ -375,7 +375,7 @@ public class EntityRule {
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(target);
         if (folder == null)
-            throw new IllegalArgumentException("Rule move to folder not found");
+            throw new IllegalArgumentException("Rule move to folder not found name=" + name);
 
         List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
@@ -398,7 +398,7 @@ public class EntityRule {
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(target);
         if (folder == null)
-            throw new IllegalArgumentException("Rule copy to folder not found");
+            throw new IllegalArgumentException("Rule copy to folder not found name=" + name);
 
         EntityOperation.queue(context, message, EntityOperation.COPY, target, false);
 
@@ -414,11 +414,11 @@ public class EntityRule {
 
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
-            throw new IllegalArgumentException("Rule identity not found");
+            throw new IllegalArgumentException("Rule identity not found name=" + name);
 
         EntityAnswer answer = db.answer().getAnswer(aid);
         if (answer == null)
-            throw new IllegalArgumentException("Rule answer not found");
+            throw new IllegalArgumentException("Rule answer not found name=" + name);
 
         Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
 
