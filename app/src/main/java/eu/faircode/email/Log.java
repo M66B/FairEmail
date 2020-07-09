@@ -1208,7 +1208,7 @@ public class Log {
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
-                    jaccount.put("state", account.state == null ? "null" : account.separator);
+                    jaccount.put("state", account.state == null ? "null" : account.state);
                     jaccount.put("warning", account.warning);
                     jaccount.put("error", account.error);
 
