@@ -194,9 +194,13 @@ Please note that by contributing you agree to the license below, including the c
 
 See [here](https://github.com/M66B/FairEmail/blob/master/ATTRIBUTION.md) for a list of used libraries and associated license information.
 
+Online translations are supported by:
+
+![Crowdin logo](/images/localization-at-white-rounded-bordered@1x.png)
+
 Error reporting is sponsored by:
 
-![Bugsnag Logo](/images/bugsnag_logo_navy.png)
+![Bugsnag logo](/images/bugsnag_logo_navy.png)
 
 [Bugsnag](https://www.bugsnag.com/) monitors application stability
 and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
