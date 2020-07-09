@@ -1706,8 +1706,29 @@ public class MessageHelper {
                                 }
                         }
                     }
-                } else if (part.isMimeType("message/delivery-status"))
-                    result = "<hr><div style=\"font-family: monospace; font-size: small;\">" + HtmlHelper.formatPre(result) + "</div>";
+                } else if (part.isMimeType("message/delivery-status")) {
+                    StringBuilder report = new StringBuilder();
+                    report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
+                    for (String line : result.split("\\r?\\n")) {
+                        if (line.length() > 0)
+                            if (Character.isWhitespace(line.charAt(0)))
+                                report.append(line).append("<br />");
+                            else {
+                                int colon = line.indexOf(':');
+                                if (colon < 0)
+                                    report.append(line);
+                                else
+                                    report
+                                            .append("<strong>")
+                                            .append(line.substring(0, colon))
+                                            .append("</strong>")
+                                            .append(line.substring(colon))
+                                            .append("<br />");
+                            }
+                    }
+                    report.append("</div>");
+                    result = report.toString();
+                }
 
                 sb.append(result);
             }
