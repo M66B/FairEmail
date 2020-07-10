@@ -282,7 +282,7 @@
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
-    <string name="title_advanced_font_size_subject">主题文本大小</string>
+    <string name="title_advanced_font_size_subject">邮件主题文本大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>

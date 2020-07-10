@@ -62,15 +62,15 @@
         <item quantity="other">Supprimer définitivement %1$d messages ?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Traiter %1$d message comme spam ?</item>
-        <item quantity="other">Traiter %1$d messages comme spam ?</item>
+        <item quantity="one">Traiter %1$d message comme indésirable ?</item>
+        <item quantity="other">Traiter %1$d messages comme indésirables ?</item>
     </plurals>
     <string name="title_ask_spam_who">Traiter le message de %1$s comme spam ?</string>
-    <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage du spam. Une application de messagerie n\'a pas toutes les données pour le faire de manière fiable.</string>
+    <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage des messages indésirables. Une application de messagerie ne dispose pas de toutes les données nécessaires pour le faire de façon fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_domain">Bloquer le domaine de l\'expéditeur</string>
-    <string name="title_block_sender_hint">        Le blocage d’un expéditeur créera une règle qui déplacera automatiquement les futurs messages vers le dossier « Spam ».
+    <string name="title_block_sender_hint">        Le blocage d’un expéditeur créera une règle qui déplacera automatiquement les futurs messages vers le dossier « Indésirables ».
         La création et l’utilisation des règles sont des fonctionnalités Pro.
     </string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
@@ -359,7 +359,7 @@
     <string name="title_advanced_notify_preview_only">Afficher les notifications avec un texte de prévisualisation uniquement</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
-    <string name="title_advanced_notify_action_junk">Spam</string>
+    <string name="title_advanced_notify_action_junk">Indésirable</string>
     <string name="title_advanced_notify_action_archive">Archiver</string>
     <string name="title_advanced_notify_action_move">Déplacer</string>
     <string name="title_advanced_notify_action_reply">Répondre</string>
@@ -574,7 +574,7 @@
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
     <string name="title_empty_trash">Vider la corbeille</string>
-    <string name="title_empty_spam">Vider le spam</string>
+    <string name="title_empty_spam">Vider les indésirables</string>
     <string name="title_edit_properties">Modifier les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_create_channel">Créer un canal de notification</string>
@@ -584,9 +584,9 @@
     <string name="title_edit_contact">Modifier un contact</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
-    <string name="title_empty_spam_ask">Supprimer définitivement tous les messages de spam ?</string>
+    <string name="title_empty_spam_ask">Supprimer définitivement tous les messages indésirables ?</string>
     <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille pour tous les comptes ?</string>
-    <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages de spam pour tous les comptes ?</string>
+    <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages indésirables pour tous les comptes ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d’erreur ?</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
@@ -681,11 +681,11 @@
     <string name="title_copy_btn">Copier</string>
     <string name="title_unsubscribe">Se désabonner</string>
     <string name="title_message_rule">Créer une règle</string>
-    <string name="title_no_junk">Non spam</string>
+    <string name="title_no_junk">Non indésirable</string>
     <string name="title_move_to">Déplacer vers&#8230;</string>
     <string name="title_move_to_folder">Déplacer vers&#8230;</string>
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
-    <string name="title_report_spam">Traiter comme spam</string>
+    <string name="title_report_spam">Traiter comme indésirable</string>
     <string name="title_delete_permanently">Supprimer définitivement</string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
@@ -1008,7 +1008,7 @@
     <string name="title_legend_sent">Envoyés</string>
     <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
-    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_junk">Indésirable</string>
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Abonné à</string>
     <string name="title_legend_rule">A des règles</string>
@@ -1062,7 +1062,7 @@
     <string name="title_legend_expander">Déplier</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Afficher les citations</string>
-    <string name="title_legend_show_junk">Traiter comme spam</string>
+    <string name="title_legend_show_junk">Traiter comme indésirable</string>
     <string name="title_legend_create_rule">Créer une règle</string>
     <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>

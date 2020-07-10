@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Recherche FairEmail</string>
-    <string name="app_changelog">Historique des modifications</string>
+    <string name="app_changelog">Journal des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie open source axée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué·e.</string>
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés afin d’en retirer les éléments non sûrs tout en améliorant leur lisibilité et l’ouverture des liens devra être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
     <string name="channel_service">Réception</string>
-    <string name="channel_send">Envoyer</string>
+    <string name="channel_send">Envoi</string>
     <string name="channel_notification">Notifications</string>
     <string name="channel_update">Mises à jour</string>
     <string name="channel_warning">Avertissements</string>
