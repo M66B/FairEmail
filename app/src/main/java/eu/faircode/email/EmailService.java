@@ -938,6 +938,8 @@ public class EmailService implements AutoCloseable {
 
         String getFingerPrintSelect() {
             try {
+                if (certificate == null)
+                    return null;
                 String keyId = getKeyId(certificate);
                 String fingerPrint = getFingerPrint(certificate);
                 return fingerPrint + (keyId == null ? "" : "/" + keyId);
