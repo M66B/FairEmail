@@ -32,7 +32,7 @@ For authorizing:
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
 * Office365, see [question 14](#user-content-faq156)
 * Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo!, see [question 88](#user-content-faq88)
+* Yahoo! and Sky, see [question 88](#user-content-faq88)
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 
@@ -210,7 +210,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo! account?](#user-content-faq88)
+* [(88) How can I use a Yahoo! or Sky account?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
@@ -2099,14 +2099,17 @@ You will likely need to save the associated identity again as well.
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo! account?**
+**(88) How can I use a Yahoo! or Sky account?**
 
-To authorize a Yahoo! account you will need to create a third-party app password.
-Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html) for the instructions.
+To authorize a Yahoo! or Sky account you will need to create an app password.
+For instructions, please see here:
+
+* [for Yahoo!](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
-Note that Yahoo! does not standard support push messages.
+Note that Yahoo! and Sky do not support standard push messages.
 The Yahoo! email app uses a proprietary, undocumented protocol for push messages.
 
 Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo! email server does not report IDLE as capability:

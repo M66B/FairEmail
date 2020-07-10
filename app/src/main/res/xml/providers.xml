@@ -110,7 +110,7 @@
         name="Sky.com"
         appPassword="true"
         domain="sky\\.com"
-        link="https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
             host="imap.tools.sky.com"
             port="993"
