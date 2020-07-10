@@ -476,7 +476,6 @@
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
-    <string name="title_identity_unicode">允许在邮件地址中使用 Unicode</string>
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>

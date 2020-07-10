@@ -487,7 +487,8 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_regex">Regex om gebruikersnaam deel van inkomende e-mailadressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
-    <string name="title_identity_unicode">Sta Unicode toe in e-mailadressen</string>
+    <string name="title_identity_unicode">Gebruik Unicode transport</string>
+    <string name="title_identity_unicode_remark">De meeste servers ondersteunen dit niet</string>
     <string name="title_identity_max_size">Maximale berichtgrootte (MB)</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>

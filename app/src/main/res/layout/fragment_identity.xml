@@ -686,6 +686,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvBccHint" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvUnicodeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_identity_unicode_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvMaxSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -693,7 +703,7 @@
             android:text="@string/title_identity_max_size"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUnicode" />
+            app:layout_constraintTop_toBottomOf="@id/tvUnicodeHint" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etMaxSize"
@@ -828,7 +838,7 @@
                 cbSynchronize,cbPrimary,cbSelf,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
-                cbUnicode,tvMaxSize,etMaxSize" />
+                cbUnicode,tvUnicodeHint,tvMaxSize,etMaxSize" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"

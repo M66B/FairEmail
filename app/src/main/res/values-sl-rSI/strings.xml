@@ -458,7 +458,6 @@
     <string name="title_advanced_sender">Omogoči urejanje pošiljateljevega naslova</string>
     <string name="title_advanced_sender_regex">Reg. izraz za ujemanje z uporabniškim imenom dohodnega e-poštnega naslova.</string>
     <string name="title_identity_reply_to">Naslov za odgovor</string>
-    <string name="title_identity_unicode">Dovoli Unicode v e-poštnih naslovih</string>
     <string name="title_identity_receipt">Privzeto zahtevaj potrdilo o dostavi/branju</string>
     <string name="title_identity_use_ip_hint">V primeru \'Neveljaven pozdrav\', \'Zahteva veljaven naslov\' ali podobne napake poizkusite spremeniti to nastavitev.</string>
     <string name="title_optional">Izbirno</string>

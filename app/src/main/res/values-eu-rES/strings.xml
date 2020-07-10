@@ -461,7 +461,6 @@
     <string name="title_advanced_sender">Baimendu bidaltzailearen helbidea editatzea</string>
     <string name="title_advanced_sender_regex">Regex sarrerako helbideen erabiltzaile izenarekin bat etortzeko</string>
     <string name="title_identity_reply_to">Erantzun-helbidea</string>
-    <string name="title_identity_unicode">Onartu Unicode helbide elektronikoetan</string>
     <string name="title_identity_receipt">Eskatu defektuz bidalketa/irakurri izanaren egiaztagiria</string>
     <string name="title_identity_use_ip_hint">\'Baliogabeko agurra\', \'baliozko helbidea behar da\' edo antzeko mezurik jasotzen baduzu, saiatu ezarpen hau aldatzen</string>
     <string name="title_optional">Aukerakoa</string>

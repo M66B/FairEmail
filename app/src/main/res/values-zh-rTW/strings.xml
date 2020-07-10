@@ -341,7 +341,6 @@
     <string name="title_identity_name">你的名字</string>
     <string name="title_identity_email">你的郵件地址</string>
     <string name="title_identity_reply_to">回覆到這裡</string>
-    <string name="title_identity_unicode">允許郵件地址使用萬國碼</string>
     <string name="title_identity_receipt">預設要求郵件回執</string>
     <string name="title_optional">可選的</string>
     <string name="title_recommended">建議的</string>

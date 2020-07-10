@@ -467,6 +467,7 @@ public class ServiceSend extends ServiceBase {
 
         // Create message
         Properties props = MessageHelper.getSessionProperties();
+        // https://javaee.github.io/javamail/docs/api/javax/mail/internet/package-summary.html
         if (ident.unicode)
             props.put("mail.mime.allowutf8", "true");
         Session isession = Session.getInstance(props, null);

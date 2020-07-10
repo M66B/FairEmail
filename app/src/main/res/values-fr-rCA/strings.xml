@@ -488,7 +488,6 @@
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_regex">Expression régulière pour faire correspondre le nom d’utilisateur des adresses courriel entrantes</string>
     <string name="title_identity_reply_to">Répondre à l’adresse</string>
-    <string name="title_identity_unicode">Autoriser l\'Unicode dans les adresses courriel</string>
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas d’erreur « invalid greeting », « requires valid adress » ou similaire, essayez de modifier ce paramètre</string>

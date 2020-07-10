@@ -446,7 +446,6 @@
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_advanced_sender_regex">Regex para corresponder ao nome de usuário de endereços de e-mail recebidos</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
-    <string name="title_identity_unicode">Permitir Unicode nos endereços de e-mail</string>
     <string name="title_identity_receipt">Solicitar confirmação de entrega/leitura por padrão</string>
     <string name="title_identity_use_ip_hint">Em caso de \'saudação inválida\', \'requer um endereço válido\' ou um erro similar, tente alterar esta configuração</string>
     <string name="title_optional">Opcional</string>

@@ -433,7 +433,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_sender">送信者アドレスの編集を許可</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
-    <string name="title_identity_unicode">メールアドレスでUnicodeを許可</string>
     <string name="title_identity_receipt">既定で送信/開封確認メッセージを要求</string>
     <string name="title_identity_use_ip_hint">\"無効な挨拶\" \"有効なアドレスが必要\"などのエラーが発生した場合は、この設定を変更してみてください</string>
     <string name="title_optional">オプション</string>

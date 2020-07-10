@@ -487,7 +487,6 @@
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
-    <string name="title_identity_unicode">Tillåt Unicode i e-postadresser</string>
     <string name="title_identity_max_size">Maximal meddelandestorlek (MB)</string>
     <string name="title_identity_receipt">Begär leverans/läs kvitto som standard</string>
     <string name="title_identity_use_ip_hint">Vid \"invalid greeting\", \"requires valid address\" eller ett liknande fel, försök ändra den här inställningen</string>

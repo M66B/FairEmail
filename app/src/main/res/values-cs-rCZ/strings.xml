@@ -508,7 +508,6 @@
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_advanced_sender_regex">Reg. výraz odpovídající uživ. jménu příchozích e-mailových adres</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
-    <string name="title_identity_unicode">Povolit Unicode v e-mailových adresách</string>
     <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>

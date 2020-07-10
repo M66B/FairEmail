@@ -488,7 +488,6 @@
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
-    <string name="title_identity_unicode">Consenti Unicode negli indirizzi email</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura in modo predefinito</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>

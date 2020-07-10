@@ -476,7 +476,6 @@
     <string name="title_advanced_sender">Разрешаване редактиране на адреса на подателя</string>
     <string name="title_advanced_sender_regex">Regex да отговаря на потребителското име на входящите имейл адреси</string>
     <string name="title_identity_reply_to">Отговори на адрес</string>
-    <string name="title_identity_unicode">Разрешаване на Unicode в имейл адресите</string>
     <string name="title_identity_max_size">Максимален размер на съобщението (MB)</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>

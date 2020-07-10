@@ -460,7 +460,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
     <string name="title_advanced_sender">Küldőként használt cím szerkesztésének engedélyezése</string>
     <string name="title_identity_reply_to">Válaszcím</string>
-    <string name="title_identity_unicode">Unicode engedélyezése email címekben</string>
     <string name="title_identity_receipt">Kézbesítési/olvasási visszajelzés alapértelmezett kérése</string>
     <string name="title_identity_use_ip_hint">\'invalid greeting\', \'requires valid address\' vagy hasonló hibák esetén próbálja módosítani ezt a beállítást</string>
     <string name="title_optional">Választható</string>

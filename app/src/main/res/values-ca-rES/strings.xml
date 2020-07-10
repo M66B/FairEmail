@@ -482,7 +482,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_sender">Permet editar l\'adreça del remitent</string>
     <string name="title_advanced_sender_regex">Regex per coincidir el nom d’usuari de les adreces de correu electrònic entrants</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
-    <string name="title_identity_unicode">Permet Unicode a les adreces de correu electrònic</string>
     <string name="title_identity_max_size">Mida màxima del missatge (MB)</string>
     <string name="title_identity_receipt">Sol·liciteu el lliurament/llegida del rebut per defecte</string>
     <string name="title_identity_use_ip_hint">En cas de \"salutació no vàlida\", \"requereix una adreça vàlida\" o un error similar, intenteu canviar aquesta configuració</string>

@@ -485,7 +485,6 @@
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjätunnuksen täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
-    <string name="title_identity_unicode">Salli Unicode sähköpostiosoitteissa</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>

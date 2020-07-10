@@ -412,7 +412,6 @@
     <string name="title_identity_email">آدرس ایمیل شما</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
-    <string name="title_identity_unicode">اجازه به Unicode در نشانی‌های ایمیل</string>
     <string name="title_identity_receipt">درخواست رسید دریافت/خواندن به‌طور پیش‌فرض</string>
     <string name="title_optional">اختیاری</string>
     <string name="title_recommended">پیشنهاد شده</string>

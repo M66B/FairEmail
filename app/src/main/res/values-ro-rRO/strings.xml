@@ -496,7 +496,6 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
-    <string name="title_identity_unicode">Permite caractere Unicode în adresele de e-mail</string>
     <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
