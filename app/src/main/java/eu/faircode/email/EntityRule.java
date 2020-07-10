@@ -394,7 +394,7 @@ public class EntityRule {
     }
 
     private boolean onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
-        long target = jargs.getLong("target");
+        long target = jargs.optLong("target", -1);
 
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(target);
