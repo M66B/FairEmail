@@ -285,6 +285,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean initialized = false;
     private boolean loading = false;
     private boolean swiping = false;
+    private boolean scrolling = false;
 
     private AdapterMessage adapter;
 
@@ -691,6 +692,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         };
         rvMessage.addItemDecoration(dateDecorator);
+
+        rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    scrolling = false;
+                    if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+                        fabCompose.show();
+                    updateExpanded();
+                }
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                if (dy != 0) {
+                    scrolling = true;
+                    if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+                        fabCompose.hide();
+                    updateExpanded();
+                }
+            }
+        });
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
@@ -4399,17 +4422,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void updateExpanded() {
         int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-
-        if (expanded == 1) {
-            long id = values.get("expanded").get(0);
-            int pos = adapter.getPositionForKey(id);
-            TupleMessageEx message = adapter.getItemAtPosition(pos);
-            if (message != null && !EntityFolder.OUTBOX.equals(message.folderType))
-                fabReply.show();
-            else
-                fabReply.hide();
-        } else
+        if (scrolling)
             fabReply.hide();
+        else {
+            if (expanded == 1) {
+                long id = values.get("expanded").get(0);
+                int pos = adapter.getPositionForKey(id);
+                TupleMessageEx message = adapter.getItemAtPosition(pos);
+                if (message != null && !EntityFolder.OUTBOX.equals(message.folderType))
+                    fabReply.show();
+                else
+                    fabReply.hide();
+            } else
+                fabReply.hide();
+        }
 
         ibDown.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
         ibUp.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
