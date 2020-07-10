@@ -305,7 +305,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private int load_server(State state) throws MessagingException, IOException {
+    private int load_server(final State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -413,12 +413,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     if (protocol.supportsUtf8())
                                         try {
-                                            return search(true, browsable.keywords, protocol);
+                                            return search(true, browsable.keywords, protocol, state);
                                         } catch (Throwable ex) {
                                             EntityLog.log(context, ex.toString());
                                         }
 
-                                    return search(false, browsable.keywords, protocol);
+                                    return search(false, browsable.keywords, protocol, state);
                                 }
                             } catch (Throwable ex) {
                                 ProtocolException pex = new ProtocolException(
@@ -531,7 +531,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol) throws IOException, MessagingException, ProtocolException {
+    private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol, State state) throws IOException, MessagingException, ProtocolException {
         EntityLog.log(context, "Search utf8=" + utf8);
 
         SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
