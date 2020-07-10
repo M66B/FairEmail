@@ -78,8 +78,8 @@ Related questions:
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internal linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of the message text doesn't (always) appear on a Samsung watch because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. However, message preview texts are known to appear correctly on a Pebble 2, a Fitbit Charge 3 and a Mi band 3. See also [this FAQ](#user-content-faq126).
+* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
+* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3 and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 
 ## Planned features
 
