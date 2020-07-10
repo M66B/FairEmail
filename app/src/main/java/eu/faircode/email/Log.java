@@ -104,6 +104,7 @@ import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeUtility;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
@@ -1142,6 +1143,9 @@ public class Log {
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             sb.append(String.format("Data saving: %b\r\n", saving));
         }
+
+        String charset = MimeUtility.getDefaultJavaCharset();
+        sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean reporting = prefs.getBoolean("crash_reports", false);
