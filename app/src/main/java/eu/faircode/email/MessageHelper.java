@@ -1706,7 +1706,8 @@ public class MessageHelper {
                                 }
                         }
                     }
-                } else if (part.isMimeType("message/delivery-status")) {
+                } else if (part.isMimeType("message/delivery-status") ||
+                        part.isMimeType("message/disposition-notification")) {
                     StringBuilder report = new StringBuilder();
                     report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
                     for (String line : result.split("\\r?\\n")) {
@@ -2078,7 +2079,8 @@ public class MessageHelper {
                     else if (html)
                         parts.html.add(part);
                 } else {
-                    if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()))
+                    if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
+                            "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()))
                         parts.extra.add(part);
 
                     AttachmentPart apart = new AttachmentPart();
