@@ -5624,12 +5624,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 List<String> users = sigResult.getConfirmedUserIds();
                                 String text;
                                 if (users.size() > 0)
-                                    text = getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
+                                    text = context.getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
                                                     ? R.string.title_signature_unconfirmed_from
                                                     : R.string.title_signature_valid_from,
                                             TextUtils.join(", ", users));
                                 else
-                                    text = getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
+                                    text = context.getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
                                             ? R.string.title_signature_unconfirmed
                                             : R.string.title_signature_valid);
                                 args.putString("sigresult", text);
@@ -5638,7 +5638,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             } else if (sresult == RESULT_KEY_MISSING)
                                 args.putString("sigresult", context.getString(R.string.title_signature_key_missing));
                             else {
-                                String text = getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
+                                String text = context.getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
                                 args.putString("sigresult", text);
                             }
 
@@ -6693,7 +6693,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message.from != null && message.from.length > 0) {
                     Element span = document.createElement("span");
                     Element strong = document.createElement("strong");
-                    strong.text(getString(R.string.title_from));
+                    strong.text(context.getString(R.string.title_from));
                     span.appendChild(strong);
                     span.appendText(" " + MessageHelper.formatAddresses(message.from));
                     span.appendElement("br");
@@ -6703,7 +6703,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message.to != null && message.to.length > 0) {
                     Element span = document.createElement("span");
                     Element strong = document.createElement("strong");
-                    strong.text(getString(R.string.title_to));
+                    strong.text(context.getString(R.string.title_to));
                     span.appendChild(strong);
                     span.appendText(" " + MessageHelper.formatAddresses(message.to));
                     span.appendElement("br");
@@ -6713,7 +6713,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message.cc != null && message.cc.length > 0) {
                     Element span = document.createElement("span");
                     Element strong = document.createElement("strong");
-                    strong.text(getString(R.string.title_cc));
+                    strong.text(context.getString(R.string.title_cc));
                     span.appendChild(strong);
                     span.appendText(" " + MessageHelper.formatAddresses(message.cc));
                     span.appendElement("br");
@@ -6725,7 +6725,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     Element span = document.createElement("span");
                     Element strong = document.createElement("strong");
-                    strong.text(getString(R.string.title_received));
+                    strong.text(context.getString(R.string.title_received));
                     span.appendChild(strong);
                     span.appendText(" " + DTF.format(message.received));
                     span.appendElement("br");
@@ -6757,7 +6757,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (attachment.isAttachment()) {
                         hasAttachments = true;
                         Element strong = document.createElement("strong");
-                        strong.text(getString(R.string.title_attachment));
+                        strong.text(context.getString(R.string.title_attachment));
                         footer.appendChild(strong);
                         if (!TextUtils.isEmpty(attachment.name))
                             footer.appendText(" " + attachment.name);

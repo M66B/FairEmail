@@ -2042,10 +2042,10 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null)
                     throw new MessageRemovedException("PGP");
                 if (draft.identity == null)
-                    throw new IllegalArgumentException(getString(R.string.title_from_missing));
+                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
                 EntityIdentity identity = db.identity().getIdentity(draft.identity);
                 if (identity == null)
-                    throw new IllegalArgumentException(getString(R.string.title_from_missing));
+                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                 // Create files
                 File input = new File(context.getCacheDir(), "pgp_input." + draft.id);
@@ -2349,7 +2349,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new MessageRemovedException("S/MIME");
                 EntityIdentity identity = db.identity().getIdentity(draft.identity);
                 if (identity == null)
-                    throw new IllegalArgumentException(getString(R.string.title_from_missing));
+                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                 // Get/clean attachments
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -3090,7 +3090,7 @@ public class FragmentCompose extends FragmentBase {
 
                 data.identities = db.identity().getComposableIdentities(null);
                 if (data.identities == null || data.identities.size() == 0)
-                    throw new IllegalStateException(getString(R.string.title_no_identities));
+                    throw new IllegalStateException(context.getString(R.string.title_no_identities));
 
                 data.draft = db.message().getMessage(id);
                 if (data.draft == null || data.draft.ui_hide) {
