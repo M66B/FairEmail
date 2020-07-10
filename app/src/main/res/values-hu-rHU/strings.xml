@@ -78,6 +78,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_idle">Tétlen</string>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
+    <string name="title_notification_sending_left">Hátralévő próbálkozások: %1$d</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
@@ -817,12 +818,14 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_signature_subject">Tárgy</string>
     <string name="title_signature_validity">Érvényesség</string>
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
+    <string name="title_signature_store">Áruház</string>
     <string name="title_search">Keresés</string>
     <string name="title_search_for_hint">Írjon be szöveget</string>
     <string name="title_search_hint">        A keresés alapból csak az eszközön lévő üzeneteket keres.
         Ahhoz hogy a szervert is keresse, koppintson a \'keresés újra\' gombra.
     </string>
     <string name="title_search_index_hint">Keresés a keresési indexen keresztül gyors, de csak teljes szavakat fog találni</string>
+    <string name="title_search_text_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetekben való szövegkeresés nem működik megfelelően</string>
     <string name="title_search_more">Több opció</string>
     <string name="title_search_use_index">Keresési index használata</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
