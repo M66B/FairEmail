@@ -371,16 +371,24 @@ public class Helper {
     }
 
     static boolean hasWebView(Context context) {
-        PackageManager pm = context.getPackageManager();
-        if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW))
-            try {
+        try {
+            PackageManager pm = context.getPackageManager();
+            if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW)) {
                 new WebView(context);
                 return true;
-            } catch (Throwable ex) {
+            } else
                 return false;
-            }
-        else
+        } catch (Throwable ex) {
+            /*
+                Caused by: java.lang.RuntimeException: Package manager has died
+                    at android.app.ApplicationPackageManager.hasSystemFeature(ApplicationPackageManager.java:414)
+                    at eu.faircode.email.Helper.hasWebView(SourceFile:375)
+                    at eu.faircode.email.ApplicationEx.onCreate(SourceFile:110)
+                    at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1014)
+                    at android.app.ActivityThread.handleBindApplication(ActivityThread.java:4751)
+             */
             return false;
+        }
     }
 
     static boolean canPrint(Context context) {
