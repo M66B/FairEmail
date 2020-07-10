@@ -96,7 +96,7 @@ Related questions:
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
-* ~~New message notification schedules per account~~ (implemented by added a time condition to rules, so messages can be snoozed in selected periods)
+* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
