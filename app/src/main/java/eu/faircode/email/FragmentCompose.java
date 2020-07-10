@@ -150,6 +150,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
@@ -1829,7 +1830,7 @@ public class FragmentCompose extends FragmentBase {
                             if (address != null)
                                 list.addAll(Arrays.asList(address));
 
-                            list.add(new InternetAddress(email, name));
+                            list.add(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
 
                             if (requestCode == REQUEST_CONTACT_TO)
                                 draft.to = list.toArray(new Address[0]);
@@ -2679,7 +2680,7 @@ public class FragmentCompose extends FragmentBase {
                             if (contact != null && contact.moveToNext()) {
                                 String name = contact.getString(0);
                                 String email = contact.getString(1);
-                                selected.add(new InternetAddress(email, name));
+                                selected.add(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
                             }
                         }
                     }
@@ -3584,7 +3585,7 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.account = drafts.account;
                     data.draft.folder = drafts.id;
                     data.draft.identity = selected.id;
-                    data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name)};
+                    data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name, StandardCharsets.UTF_8.name())};
 
                     data.draft.sender = MessageHelper.getSortKey(data.draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(data.draft.from);
@@ -3631,7 +3632,7 @@ public class FragmentCompose extends FragmentBase {
                             String email = organizer.getEmail();
                             String name = organizer.getCommonName();
                             if (!TextUtils.isEmpty(email)) {
-                                InternetAddress o = new InternetAddress(email, name);
+                                InternetAddress o = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
                                 Log.i("Setting organizer=" + o);
                                 data.draft.to = new Address[]{o};
                             }
@@ -4049,7 +4050,7 @@ public class FragmentCompose extends FragmentBase {
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
 
                     // Get data
-                    InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+                    InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())});
                     InternetAddress[] ato = (TextUtils.isEmpty(to) ? null : InternetAddress.parseHeader(to, false));
                     InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parseHeader(cc, false));
                     InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parseHeader(bcc, false));

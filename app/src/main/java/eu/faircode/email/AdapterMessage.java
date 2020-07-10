@@ -1654,7 +1654,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             InternetAddress via = null;
             if (message.identityEmail != null)
                 try {
-                    via = new InternetAddress(message.identityEmail, message.identityName);
+                    via = new InternetAddress(message.identityEmail, message.identityName, StandardCharsets.UTF_8.name());
                 } catch (UnsupportedEncodingException ignored) {
                 }
 

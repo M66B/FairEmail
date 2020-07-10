@@ -38,6 +38,7 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -312,7 +313,7 @@ public class ServiceUI extends IntentService {
             reply.inreplyto = ref.msgid;
             reply.thread = ref.thread;
             reply.to = ref.from;
-            reply.from = new Address[]{new InternetAddress(identity.email, identity.name)};
+            reply.from = new Address[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())};
             reply.subject = getString(R.string.title_subject_reply, subject);
             reply.received = new Date().getTime();
             reply.seen = true;

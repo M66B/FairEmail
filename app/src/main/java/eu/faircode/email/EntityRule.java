@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -420,7 +421,7 @@ public class EntityRule {
         if (answer == null)
             throw new IllegalArgumentException("Rule answer not found name=" + name);
 
-        Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+        Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())};
 
         // Prevent loop
         List<EntityMessage> messages = db.message().getMessagesByThread(

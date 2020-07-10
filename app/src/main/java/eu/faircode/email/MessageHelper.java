@@ -198,7 +198,7 @@ public class MessageHelper {
                 name = null;
                 Log.i("extra=" + email);
             }
-            imessage.setFrom(new InternetAddress(email, name));
+            imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
         }
 
         if (message.to != null && message.to.length > 0)
