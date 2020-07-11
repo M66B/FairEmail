@@ -4135,6 +4135,11 @@ public class FragmentCompose extends FragmentBase {
                     else
                         b = HtmlHelper.sanitizeCompose(context, body, true);
 
+                    if (draft.revision == null) {
+                        draft.revision = 1;
+                        draft.revisions = 1;
+                    }
+
                     int revision = draft.revision; // Save for undo/redo
                     if (dirty ||
                             TextUtils.isEmpty(body) ||
