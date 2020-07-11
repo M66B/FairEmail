@@ -1539,6 +1539,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
             }
 
+            if (value)
+                scrolling = false;
+
             updateExpanded();
             if (value)
                 handleExpand(message.id);
