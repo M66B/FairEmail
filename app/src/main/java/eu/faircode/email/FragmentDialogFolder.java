@@ -226,7 +226,8 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                tvNoFolder.setText(Log.formatThrowable(ex));
+                tvNoFolder.setVisibility(View.VISIBLE);
             }
         }.execute(this, args, "folder:select");
 
