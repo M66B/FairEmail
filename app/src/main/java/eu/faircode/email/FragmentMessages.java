@@ -695,22 +695,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    scrolling = false;
-                    if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
-                        fabCompose.show();
-                    updateExpanded();
-                }
-            }
-
-            @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 if (dy != 0) {
-                    scrolling = true;
-                    if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
-                        fabCompose.hide();
-                    updateExpanded();
+                    boolean down = (dy > 0);
+                    if (scrolling != down) {
+                        scrolling = down;
+                        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+                            if (dy > 0)
+                                fabCompose.hide();
+                            else
+                                fabCompose.show();
+                        updateExpanded();
+                    }
                 }
             }
         });
