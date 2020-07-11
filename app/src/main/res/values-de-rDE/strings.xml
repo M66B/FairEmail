@@ -311,7 +311,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_message_text_zoom">Standard-Textvergrößerung für Nachrichten</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
-    <string name="title_advanced_monospaced">Unproportionale Schriftart standardmäßig für den Nachrichtentext verwenden</string>
+    <string name="title_advanced_monospaced">Festbreitenschriftarten standardmäßig für den Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben verwenden</string>
     <string name="title_advanced_text_size">Textgrößen verwenden</string>
     <string name="title_advanced_text_font">Schriftarten verwenden</string>
@@ -490,7 +490,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_sender_regex">Regex stimmt mit Benutzername der eingehenden E-Mail-Adressen überein</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_unicode">Unicode-Transport verwenden</string>
-    <string name="title_identity_unicode_remark">Die meisten Server unterstützen das nicht</string>
+    <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
     <string name="title_identity_max_size">Maximale Nachrichtengröße (MB)</string>
     <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>

@@ -219,7 +219,7 @@
     <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_receive">Recevoir des messages pour tous les comptes</string>
     <string name="title_advanced_when">Quand</string>
-    <string name="title_advanced_always">Toujours recevoir des messages pour ces comptes</string>
+    <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_advanced">Avancé</string>
     <string name="title_advanced_no_date">Messages sans date</string>
