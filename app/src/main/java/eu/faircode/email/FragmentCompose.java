@@ -3418,12 +3418,14 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.plain_only = true;
 
                         // Encryption
-                        if (ref.ui_encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(ref.ui_encrypt)) {
-                            if (ActivityBilling.isPro(context))
-                                if (Helper.isOpenKeychainInstalled(context) ||
-                                        EntityMessage.SMIME_SIGNONLY.equals(ref.encrypt) ||
-                                        EntityMessage.SMIME_SIGNENCRYPT.equals(ref.encrypt))
-                                    data.draft.ui_encrypt = ref.ui_encrypt;
+                        if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
+                                EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                            if (Helper.isOpenKeychainInstalled(context) && selected.sign_key != null)
+                                data.draft.ui_encrypt = ref.ui_encrypt;
+                        } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
+                                EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                            if (ActivityBilling.isPro(context) && selected.sign_key_alias != null)
+                                data.draft.ui_encrypt = ref.ui_encrypt;
                         }
 
                         // Reply template
