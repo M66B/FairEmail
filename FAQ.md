@@ -32,7 +32,7 @@ For authorizing:
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
 * Office365, see [question 14](#user-content-faq156)
 * Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo! and Sky, see [question 88](#user-content-faq88)
+* Yahoo and Sky, see [question 88](#user-content-faq88)
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 
@@ -79,7 +79,7 @@ Related questions:
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3 and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
+* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 
 ## Planned features
 
@@ -170,9 +170,9 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
 * [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
 * [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How can I solve 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How can I solve 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How can I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
+* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
+* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
+* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
@@ -199,18 +199,18 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
 * [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' ?](#user-content-faq76)
+* [(76) What does 'Clear local messages' do?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How can I fix 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo! or Sky account?](#user-content-faq88)
+* [(88) How can I use a Yahoo or Sky account?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
@@ -933,8 +933,8 @@ When using copy/paste to enter a username or password, invisible characters migh
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to logging from certain networks / IP addresses only.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo! account password instead of an app password.
-Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo! account.
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password.
+Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
@@ -1460,7 +1460,7 @@ Note that you shouldn't set the number of days to synchronize messages for to mo
 <br />
 
 <a name="faq47"></a>
-**(47) How can I solve 'No primary account or no drafts folder' ?**
+**(47) How do I solve the error 'No primary account or no drafts folder' ?**
 
 You'll get the error message *No primary account or no drafts folder* when trying to compose a message
 while there is no account set to be the primary account or when there is no drafts folder selected for the primary account.
@@ -1476,7 +1476,7 @@ Please see [this FAQ](#user-content-faq141) for some more information.
 <br />
 
 <a name="faq48"></a>
-**~~(48) How can I solve 'No primary account or no archive folder' ?~~**
+**~~(48) How do I solve the error 'No primary account or no archive folder' ?~~**
 
 ~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
 FairEmail needs to know where to search,
@@ -1485,7 +1485,7 @@ so you'll need to select one account to be the primary account and/or you'll nee
 <br />
 
 <a name="faq49"></a>
-**(49) How can I fix 'An outdated app sent a file path instead of a file stream' ?**
+**(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?**
 
 You likely selected or sent an attachment or image with an outdated file manager
 or an outdated app which assumes all apps still have storage permissions.
@@ -1900,7 +1900,7 @@ which is why I develop apps for Android only.
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' ?**
+**(76) What does 'Clear local messages' do?**
 
 The folder menu *Clear local messages* removes messages from the device which are present on the server too.
 It does not delete messages from the server.
@@ -2013,7 +2013,7 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq80"></a>
-**~~(80) How can I fix 'Unable to load BODYSTRUCTURE' ?~~**
+**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
 
 ~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~
 ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
@@ -2099,20 +2099,20 @@ You will likely need to save the associated identity again as well.
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo! or Sky account?**
+**(88) How can I use a Yahoo or Sky account?**
 
-To authorize a Yahoo! or Sky account you will need to create an app password.
+To authorize a Yahoo or Sky account you will need to create an app password.
 For instructions, please see here:
 
-* [for Yahoo!](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
-Note that Yahoo! and Sky do not support standard push messages.
-The Yahoo! email app uses a proprietary, undocumented protocol for push messages.
+Note that Yahoo and Sky do not support standard push messages.
+The Yahoo email app uses a proprietary, undocumented protocol for push messages.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo! email server does not report IDLE as capability:
+Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
 ```
 Y1 CAPABILITY
@@ -2448,10 +2448,10 @@ OAuth for Yandex is supported via the quick setup wizard.
 
 OAuth for Office365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
-OAuth access for Yahoo! was requested, but Yahoo! never responded to the request.
+OAuth access for Yahoo was requested, but Yahoo never responded to the request.
 OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL.
-Verizon owns both AOL and Yahoo!, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media).
-So, it is reasonable to assume that OAuth is not supported by Yahoo! anymore too.
+Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media).
+So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
 <br />
 
