@@ -289,6 +289,10 @@ public class ApplicationEx extends Application {
                 editor.putString("subject_ellipsize", "middle");
             if (!prefs.contains("auto_optimize"))
                 editor.putBoolean("auto_optimize", false);
+        } else if (version < 1253) {
+            int threads = prefs.getInt("query_threads", 4);
+            if (threads == 4)
+                editor.remove("query_threads");
         }
 
         if (version < BuildConfig.VERSION_CODE)

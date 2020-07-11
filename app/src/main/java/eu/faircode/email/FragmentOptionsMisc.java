@@ -264,7 +264,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swQueries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putInt("query_threads", checked ? 2 : 4).commit(); // apply won't work here
+                if (checked)
+                    prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
+                else
+                    prefs.edit().remove("query_threads").commit(); // apply won't work here
                 restart();
             }
         });

@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -33,6 +34,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,10 +56,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private String name;
     private Future<?> future;
 
+    private static ExecutorService executor = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
-
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(Runtime.getRuntime().availableProcessors(), "task");
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
 
@@ -115,6 +115,13 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         } catch (Throwable ex) {
             Log.e(ex);
             onException(args, ex);
+        }
+
+        if (executor == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int threads = prefs.getInt("query_threads", Runtime.getRuntime().availableProcessors());
+            Log.i("Task threads=" + threads);
+            executor = Helper.getBackgroundExecutor(threads, "task");
         }
 
         future = executor.submit(new Runnable() {
