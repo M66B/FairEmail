@@ -606,7 +606,7 @@
     <provider
         name="AOL"
         domain="aol\\..*"
-        link="https://help.aol.com/articles/how-do-i-use-other-email-applications-to-send-and-receive-my-aol-mail">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
             host="imap.aol.com"
             port="993"
