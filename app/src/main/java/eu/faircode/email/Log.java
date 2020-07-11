@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.ActivityManager;
+import android.app.ApplicationExitInfo;
 import android.app.Dialog;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
@@ -1155,6 +1156,23 @@ public class Log {
         }
 
         sb.append("\r\n");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                // https://developer.android.com/reference/android/app/ApplicationExitInfo
+                List<ApplicationExitInfo> infos = am.getHistoricalProcessExitReasons(
+                        context.getPackageName(), 0, 20);
+                for (ApplicationExitInfo info : infos)
+                    sb.append(String.format("%s: %s %s/%s reason=%d status=%d importance=%d\r\n",
+                            new Date(info.getTimestamp()), info.getDescription(),
+                            Helper.humanReadableByteCount(info.getPss() * 1024L),
+                            Helper.humanReadableByteCount(info.getRss() * 1024L),
+                            info.getReason(), info.getStatus(), info.getReason()));
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+            sb.append("\r\n");
+        }
 
         sb.append(new Date(Helper.getInstallTime(context))).append("\r\n");
         sb.append(new Date()).append("\r\n");
