@@ -145,10 +145,18 @@ public class EmailService implements AutoCloseable {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.harden = prefs.getBoolean("ssl_harden", false);
 
+        boolean auth_plain = prefs.getBoolean("auth_plain", true);
+        boolean auth_login = prefs.getBoolean("auth_login", true);
         boolean auth_sasl = prefs.getBoolean("auth_sasl", true);
+        Log.i("Authenticate plain=" + auth_plain + " login=" + auth_login + " sasl=" + auth_sasl);
 
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
+
+        if (!auth_plain)
+            properties.put("mail." + protocol + ".auth.plain.disable", "true");
+        if (!auth_login)
+            properties.put("mail." + protocol + ".auth.login.disable", "true");
 
         properties.put("mail." + protocol + ".sasl.enable", "true");
         if (auth_sasl) {
