@@ -79,10 +79,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swQueries;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
-    private SwitchCompat swDebug;
-    private SwitchCompat swAuthPlain;
-    private SwitchCompat swAuthLogin;
-    private SwitchCompat swAuthSasl;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -90,6 +86,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnApp;
     private Button btnMore;
 
+    private SwitchCompat swDebug;
+    private SwitchCompat swAuthPlain;
+    private SwitchCompat swAuthLogin;
+    private SwitchCompat swAuthSasl;
     private TextView tvProcessors;
     private TextView tvMemoryClass;
     private TextView tvStorageSpace;
@@ -101,8 +101,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts", "english", "watchdog", "updates",
-            "experiments", "query_threads", "crash_reports",
-            "debug", "auth_plain", "auth_login", "auth_sasl", "cleanup_attachments"
+            "experiments", "query_threads", "crash_reports", "cleanup_attachments",
+            "debug", "auth_plain", "auth_login", "auth_sasl"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -138,10 +138,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swQueries = view.findViewById(R.id.swQueries);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
-        swDebug = view.findViewById(R.id.swDebug);
-        swAuthPlain = view.findViewById(R.id.swAuthPlain);
-        swAuthLogin = view.findViewById(R.id.swAuthLogin);
-        swAuthSasl = view.findViewById(R.id.swAuthSasl);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -149,6 +145,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
 
+        swDebug = view.findViewById(R.id.swDebug);
+        swAuthPlain = view.findViewById(R.id.swAuthPlain);
+        swAuthLogin = view.findViewById(R.id.swAuthLogin);
+        swAuthSasl = view.findViewById(R.id.swAuthSasl);
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
         tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
@@ -288,39 +288,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("debug", checked).apply();
-                Log.setDebug(checked);
-                grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            }
-        });
-
-        swAuthPlain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auth_plain", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_plain=" + checked);
-            }
-        });
-
-        swAuthLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auth_login", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_login=" + checked);
-            }
-        });
-
-        swAuthSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auth_sasl", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_sasl=" + checked);
-            }
-        });
-
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -361,6 +328,39 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_MORE));
+            }
+        });
+
+        swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("debug", checked).apply();
+                Log.setDebug(checked);
+                grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        swAuthPlain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auth_plain", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "auth_plain=" + checked);
+            }
+        });
+
+        swAuthLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auth_login", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "auth_login=" + checked);
+            }
+        });
+
+        swAuthSasl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auth_sasl", checked).apply();
+                ServiceSynchronize.reload(getContext(), -1L, false, "auth_sasl=" + checked);
             }
         });
 
@@ -574,11 +574,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
+        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
+
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
         swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
-        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
 
