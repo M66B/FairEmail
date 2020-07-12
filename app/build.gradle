@@ -79,6 +79,7 @@ android {
     }
 
     packagingOptions {
+        exclude 'LICENSES'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/README.md'
         exclude 'META-INF/CHANGES'
