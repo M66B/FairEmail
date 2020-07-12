@@ -66,7 +66,7 @@ public class EntityAttachment {
     static final Integer SMIME_CONTENT = 8;
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
-    private static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
+    static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
             "image/bmp",
             "image/gif",
             "image/jpeg",
@@ -75,7 +75,7 @@ public class EntityAttachment {
             "image/webp"
     ));
 
-    private static final List<String> IMAGE_TYPES8 = Collections.unmodifiableList(Arrays.asList(
+    static final List<String> IMAGE_TYPES8 = Collections.unmodifiableList(Arrays.asList(
             "image/heic",
             "image/heif"
     ));
