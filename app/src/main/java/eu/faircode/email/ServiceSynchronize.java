@@ -223,7 +223,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (index < 0) {
                             if (current.canRun()) {
                                 EntityLog.log(ServiceSynchronize.this, "### new " + current);
-                                start(current, current.accountState.isEnabled(current.enabled));
+                                start(current, current.accountState.isEnabled(current.enabled), false);
                             }
                         } else {
                             TupleAccountNetworkState prev = accountStates.get(index);
@@ -233,6 +233,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             boolean reload = false;
                             boolean sync = current.command.getBoolean("sync", false);
+                            boolean force = current.command.getBoolean("force", false);
                             switch (current.command.getString("name")) {
                                 case "reload":
                                     reload = true;
@@ -251,6 +252,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (prev.canRun() || current.canRun())
                                     EntityLog.log(ServiceSynchronize.this, "### changed " + current +
                                             " reload=" + reload +
+                                            " force=" + force +
                                             " stop=" + prev.canRun() +
                                             " start=" + current.canRun() +
                                             " sync=" + current.accountState.isEnabled(current.enabled) + "/" + sync +
@@ -265,7 +267,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (prev.canRun())
                                     stop(prev);
                                 if (current.canRun())
-                                    start(current, current.accountState.isEnabled(current.enabled) || sync);
+                                    start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                             }
                         }
 
@@ -313,15 +315,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 }
             }
 
-            private void start(final TupleAccountNetworkState accountNetworkState, boolean sync) {
-                EntityLog.log(ServiceSynchronize.this, "Service start=" + accountNetworkState);
+            private void start(final TupleAccountNetworkState accountNetworkState, boolean sync, boolean force) {
+                EntityLog.log(ServiceSynchronize.this,
+                        "Service start=" + accountNetworkState + " sync=" + sync + " force=" + force);
 
                 final Core.State astate = new Core.State(accountNetworkState.networkState);
                 astate.runnable(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            monitorAccount(accountNetworkState.accountState, astate, sync);
+                            monitorAccount(accountNetworkState.accountState, astate, sync, force);
                         } catch (Throwable ex) {
                             Log.e(accountNetworkState.accountState.name, ex);
                         }
@@ -724,11 +727,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onReload(Intent intent) {
-        if (intent.getBooleanExtra("force", false))
+        boolean force = intent.getBooleanExtra("force", false);
+        if (force)
             lastLost = 0;
+
         Bundle command = new Bundle();
         command.putString("name", "reload");
         command.putLong("account", intent.getLongExtra("account", -1));
+        command.putBoolean("force", force);
         liveAccountNetworkState.post(command);
     }
 
@@ -825,7 +831,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return builder;
     }
 
-    private void monitorAccount(final EntityAccount account, final Core.State state, final boolean sync) throws NoSuchProviderException {
+    private void monitorAccount(
+            final EntityAccount account, final Core.State state,
+            final boolean sync, final boolean force) throws NoSuchProviderException {
         final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wlAccount = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id);
@@ -1014,7 +1022,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Update folder list
                     if (account.protocol == EntityAccount.TYPE_IMAP)
-                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
+                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state, force);
 
                     // Open synchronizing folders
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);

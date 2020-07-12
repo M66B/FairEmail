@@ -1427,11 +1427,13 @@ class Core {
         }
     }
 
-    static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {
+    static void onSynchronizeFolders(
+            Context context, EntityAccount account, Store istore,
+            State state, boolean force) throws MessagingException {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean sync_folders = prefs.getBoolean("sync_folders", true);
+        boolean sync_folders = (prefs.getBoolean("sync_folders", true) || force);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
 
         // Get folder names
