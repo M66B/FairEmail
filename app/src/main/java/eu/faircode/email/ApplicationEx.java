@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.Printer;
 import android.webkit.CookieManager;
@@ -330,6 +331,7 @@ public class ApplicationEx extends Application {
                     NotificationManager.IMPORTANCE_HIGH);
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             notification.enableLights(true);
+            notification.setLightColor(Color.YELLOW);
             nm.createNotificationChannel(notification);
 
             // Update
