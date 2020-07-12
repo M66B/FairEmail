@@ -150,6 +150,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvErrorRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_quick_support"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+
         <Button
             android:id="@+id/btnSupport"
             android:layout_width="wrap_content"
@@ -160,7 +171,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorRemark" />
 
         <Button
             android:id="@+id/btnHelp"
@@ -172,7 +183,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorRemark" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvInstructions"
@@ -278,6 +289,6 @@
             android:id="@+id/grpError"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint" />
+            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint,tvErrorRemark" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
