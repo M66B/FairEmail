@@ -832,4 +832,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Scarlet.be"
+        appPassword="true"
+        link="https://www.scarlet.be/help/faq/769/59/Welke-standaardinstellingen-gebruikt-Scarlet-voor-e-mail">
+        <imap
+            host="imap.scarlet.be"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.scarlet.be"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
