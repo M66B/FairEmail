@@ -911,6 +911,10 @@ Note that apps cannot change notification settings, including the notification l
 Apps designed and targeting older Android versions might still be able to control the contents of notifications,
 but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
 
+Sometimes it is necessary to disable the setting *Show message preview in notifications*
+or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android.
+This might apply to notification sounds and vibrations too.
+
 Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
 
 <br />
