@@ -888,9 +888,21 @@ public class IMAPStore extends Store
 	    }
 
 	    if (m.equals("PLAIN"))
-		p.authplain(authzid, user, password);
+			try {
+				p.authplain(authzid, user, password);
+			} catch (ProtocolException ex) {
+				if (mechs.indexOf("LOGIN") > mechs.indexOf("PLAIN"))
+					continue;
+				else
+					throw ex;
+			}
 	    else if (m.equals("LOGIN"))
-		p.authlogin(user, password);
+			try {
+				p.authlogin(user, password);
+			} catch (ProtocolException ex) {
+				eu.faircode.email.Log.w(ex);
+				p.authloginold(user, password);
+			}
 	    else if (m.equals("NTLM"))
 		p.authntlm(authzid, user, password);
 	    else if (m.equals("XOAUTH2"))
