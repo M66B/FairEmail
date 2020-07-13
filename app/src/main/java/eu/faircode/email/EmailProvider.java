@@ -81,7 +81,7 @@ public class EmailProvider {
             "tutanota.de",
             "tutamail.com", // tutanota
             "tuta.io", // tutanota
-            "keemailme" // tutanota
+            "keemail.me" // tutanota
     ));
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(0, "provider");
