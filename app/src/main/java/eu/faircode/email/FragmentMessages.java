@@ -6394,7 +6394,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                     if (junk == null)
-                        return null;
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
 
                     EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id);
 
@@ -6403,7 +6403,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (rule != null)
                             rule.id = db.rule().insertRule(rule);
                     }
-
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -6417,7 +6416,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof IllegalArgumentException) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getContext(), ActivitySetup.class));
+                        }
+                    });
+                    snackbar.show();
+                } else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "message:junk");
     }
