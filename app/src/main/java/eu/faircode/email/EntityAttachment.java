@@ -204,7 +204,8 @@ public class EntityAttachment {
         if ("video/jpeg".equals(type))
             return "image/jpeg";
 
-        if ("application/x-pdf".equals(type))
+        if (!TextUtils.isEmpty(type) &&
+                (type.endsWith("/pdf") || type.endsWith("/x-pdf")))
             return "application/pdf";
 
         if ("application/vnd.ms-pps".equals(type))
