@@ -381,6 +381,10 @@ class Core {
                                     onSubscribeFolder(context, jargs, folder, (IMAPFolder) ifolder);
                                     break;
 
+                                case EntityOperation.RULE:
+                                    onRule(context, jargs, message);
+                                    break;
+
                                 default:
                                     throw new IllegalArgumentException("Unknown operation=" + op.name);
                             }
@@ -1709,6 +1713,21 @@ class Core {
         db.folder().setFolderSubscribed(folder.id, subscribe);
 
         Log.i(folder.name + " subscribed=" + subscribe);
+    }
+
+    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, IOException {
+        // Download message body
+        DB db = DB.getInstance(context);
+
+        long id = jargs.getLong(0);
+        EntityRule rule = db.rule().getRule(id);
+        if (rule == null)
+            throw new IllegalArgumentException("Rule not found id=" + id);
+
+        if (!message.content)
+            throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
+
+        rule.execute(context, message);
     }
 
     private static void onSynchronizeMessages(

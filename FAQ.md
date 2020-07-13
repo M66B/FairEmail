@@ -389,6 +389,7 @@ The low priority status bar notification shows the number of pending operations,
 * *subscribe*: subscribe to remote folder
 * *send*: send message
 * *exists*: check if message exists
+* *rule*: execute rule on body text
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
