@@ -520,7 +520,13 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
+    private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) throws IOException {
+        if (!message.content) {
+            EntityOperation.queue(context, message, EntityOperation.BODY);
+            EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
+            return true;
+        }
+
         Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
 
         Configuration configuration = new Configuration(context.getResources().getConfiguration());
@@ -537,6 +543,12 @@ public class EntityRule {
         if (!TextUtils.isEmpty(message.subject))
             sb.append(res.getString(R.string.title_rule_tts_subject))
                     .append(' ').append(message.subject).append(". ");
+
+        String body = Helper.readText(message.getFile(context));
+        String preview = HtmlHelper.getPreview(body);
+        if (!TextUtils.isEmpty(preview))
+            sb.append(res.getString(R.string.title_rule_tts_content))
+                    .append(' ').append(preview);
 
         TTSHelper.speak(context, "rule:" + message.id, sb.toString(), locale);
 
