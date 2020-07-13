@@ -2636,12 +2636,11 @@ class Core {
             if (download && message.size != null && !message.ui_hide) {
                 long maxSize;
                 if (state == null || state.networkState.isUnmetered())
-                    maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
+                    maxSize = MessageHelper.DEFAULT_DOWNLOAD_SIZE;
                 else {
-                    int downloadSize = prefs.getInt("download", 0);
-                    maxSize = (downloadSize == 0
-                            ? MessageHelper.SMALL_MESSAGE_SIZE
-                            : Math.min(downloadSize, MessageHelper.SMALL_MESSAGE_SIZE));
+                    maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+                    if (maxSize == 0)
+                        maxSize = MessageHelper.DEFAULT_DOWNLOAD_SIZE;
                 }
 
                 if (message.size < maxSize) {
@@ -2988,7 +2987,7 @@ class Core {
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
+        long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
         if (maxSize == 0)
             maxSize = Long.MAX_VALUE;
 

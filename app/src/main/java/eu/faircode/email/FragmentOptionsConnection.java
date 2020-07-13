@@ -31,7 +31,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -253,7 +252,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swMetered.setChecked(prefs.getBoolean("metered", true));
 
-        int download = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
+        int download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
         int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
         for (int pos = 0; pos < downloadValues.length; pos++)
             if (downloadValues[pos] == download) {

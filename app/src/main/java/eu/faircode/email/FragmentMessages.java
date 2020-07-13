@@ -4213,7 +4213,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             autoExpanded = false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            long download = prefs.getInt("download", MessageHelper.DEFAULT_ATTACHMENT_DOWNLOAD_SIZE);
+            long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
             if (download == 0)
                 download = Long.MAX_VALUE;
 
