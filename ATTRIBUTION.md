@@ -25,3 +25,4 @@ FairEmail uses:
 * [Java™ Architecture for XML Binding](https://github.com/eclipse-ee4j/jaxb-ri). Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved. [GNU General Public License Version 2](https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/LICENSE.md).
 * [File Icon Images](https://github.com/dmhendricks/file-icon-vectors). A collection of file type/extension SVG icons, available free for use in your applications. [MIT License](https://github.com/dmhendricks/file-icon-vectors/blob/master/LICENSE).
 * [Bootstrap Icons](https://github.com/twbs/icons). Copyright (c) 2019 The Bootstrap Authors. [MIT license](https://github.com/twbs/icons/blob/main/LICENSE.md).
+* [GPX file type icon](https://www.flaticon.com/free-icon/gpx-file-format-variant_29258) made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com).
