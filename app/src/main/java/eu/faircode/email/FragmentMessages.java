@@ -3710,7 +3710,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuFolders(long account) {
-        if (isDetached())
+        if (!isAdded())
             return;
 
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
