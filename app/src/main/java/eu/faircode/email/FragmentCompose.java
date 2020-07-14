@@ -2879,7 +2879,9 @@ public class FragmentCompose extends FragmentBase {
                 ftype = null;
             }
 
-        if (TextUtils.isEmpty(ftype) || "*/*".equals(ftype))
+        if (TextUtils.isEmpty(ftype) ||
+                "*/*".equals(ftype) ||
+                "application/octet-stream".equals(ftype))
             ftype = Helper.guessMimeType(fname);
 
         if (fsize != null && fsize <= 0)

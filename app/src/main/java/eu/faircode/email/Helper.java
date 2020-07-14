@@ -941,14 +941,48 @@ public class Helper {
         String type = null;
 
         String extension = Helper.getExtension(filename);
-        if (extension != null)
+        if (extension != null) {
+            extension = extension.toLowerCase(Locale.ROOT);
             type = MimeTypeMap.getSingleton()
                     .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+        }
 
         if (TextUtils.isEmpty(type))
-            type = "application/octet-stream";
+            if ("csv".equals(extension))
+                return "text/csv";
+            else if ("eml".equals(extension))
+                return "message/rfc822";
+            else if ("gpx".equals(extension))
+                return "application/gpx+xml";
+            else if ("log".equals(extension))
+                return "text/plain";
+            else if ("ovpn".equals(extension))
+                return "application/x-openvpn-profile";
+            else
+                return "application/octet-stream";
 
         return type;
+    }
+
+    static String guessExtension(String mimeType) {
+        String extension = null;
+
+        if (mimeType != null) {
+            mimeType = mimeType.toLowerCase(Locale.ROOT);
+            extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
+        }
+
+        if (TextUtils.isEmpty(extension))
+            if ("text/csv".equals(mimeType))
+                return "csv";
+            else if ("message/rfc822".equals(mimeType))
+                return "eml";
+            else if ("application/gpx+xml".equals(mimeType))
+                return "gpx";
+            else if ("application/x-openvpn-profile".equals(mimeType))
+                return "ovpn";
+
+        return extension;
     }
 
     static void writeText(File file, String content) throws IOException {

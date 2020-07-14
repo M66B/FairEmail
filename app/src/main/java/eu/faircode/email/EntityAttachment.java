@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -35,7 +34,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 import javax.mail.Part;
@@ -173,26 +171,7 @@ public class EntityAttachment {
         if (extension == null)
             return type;
 
-        String gtype = MimeTypeMap.getSingleton()
-                .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
-
-        if (gtype != null) {
-            if (TextUtils.isEmpty(type) || "*/*".equals(type))
-                type = gtype;
-
-            // Some servers erroneously remove dots from mime types
-            if (gtype.replace(".", "").equals(type))
-                type = gtype;
-        }
-
-        if ("csv".equals(extension))
-            return "text/csv";
-
-        if ("eml".equals(extension))
-            return "message/rfc822";
-
-        if ("gpx".equals(extension))
-            return "application/gpx+xml";
+        // Fix types
 
         if ("text/plain".equals(type) && "ics".equals(extension))
             return "text/calendar";
@@ -211,17 +190,20 @@ public class EntityAttachment {
         if ("application/vnd.ms-pps".equals(type))
             return "application/vnd.ms-powerpoint";
 
-        if (TextUtils.isEmpty(type) ||
-                type.startsWith("unknown/") || type.endsWith("/unknown") ||
-                "application/octet-stream".equals(type) || "application/zip".equals(type)) {
-            if ("log".equalsIgnoreCase(extension))
-                return "text/plain";
+        // Guess types
+        String gtype = Helper.guessMimeType(name);
+        if (gtype != null) {
+            if (TextUtils.isEmpty(type) ||
+                    "*/*".equals(type) ||
+                    type.startsWith("unknown/") ||
+                    type.endsWith("/unknown") ||
+                    "application/octet-stream".equals(type) ||
+                    "application/zip".equals(type))
+                return gtype;
 
-            if (gtype == null || gtype.equals(type))
-                return type;
-
-            Log.w("Guessing file=" + name + " type=" + gtype);
-            return gtype;
+            // Some servers erroneously remove dots from mime types
+            if (gtype.replace(".", "").equals(type))
+                return gtype;
         }
 
         return type;

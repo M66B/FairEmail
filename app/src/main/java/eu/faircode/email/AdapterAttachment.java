@@ -26,7 +26,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -110,7 +109,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             ibDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
 
             int resid = 0;
-            String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(attachment.getMimeType());
+            String extension = Helper.guessExtension(attachment.getMimeType());
             if (extension != null)
                 resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
             if (resid == 0)
