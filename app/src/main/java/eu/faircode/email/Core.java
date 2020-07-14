@@ -2249,7 +2249,7 @@ class Core {
                                 context,
                                 account, folder,
                                 istore, ifolder, (MimeMessage) isub[j],
-                                false, download,
+                                false, download && initialize == 0,
                                 rules, state);
                         ids[from + j] = (message == null || message.ui_hide ? null : message.id);
                     } catch (MessageRemovedException ex) {
