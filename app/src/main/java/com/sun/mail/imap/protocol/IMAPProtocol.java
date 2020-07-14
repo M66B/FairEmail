@@ -627,6 +627,59 @@ public class IMAPProtocol extends Protocol {
 	authenticated = true;
     }
 
+	public synchronized void authclassic(String u, String p)
+			throws ProtocolException {
+		List<Response> v = new ArrayList<>();
+		String tag = null;
+		Response r = null;
+		boolean done = false;
+
+		try {
+
+			if (noauthdebug && isTracing()) {
+				logger.fine("LOGIN command trace suppressed");
+				suspendTracing();
+			}
+
+			try {
+				Argument arg = new Argument();
+				arg.writeNString(u);
+				arg.writeNString(p);
+				tag = writeCommand("LOGIN", arg);
+			} catch (Exception ex) {
+				r = Response.byeResponse(ex);
+				done = true;
+			}
+
+			while (!done) {
+				try {
+					r = readResponse();
+					if (r.isTagged() && r.getTag().equals(tag))
+						done = true;
+					else if (r.isBYE()) // outta here
+						done = true;
+				} catch (Exception ioex) {
+					r = Response.byeResponse(ioex);
+					done = true;
+				}
+				v.add(r);
+			}
+
+		} finally {
+			resumeTracing();
+		}
+
+		Response[] responses = v.toArray(new Response[v.size()]);
+
+		handleCapabilityResponse(responses);
+		notifyResponseHandlers(responses);
+
+		if (noauthdebug && isTracing())
+			logger.fine("LOGIN command result: " + r);
+		handleLoginResult(r);
+		setCapabilities(r);
+		authenticated = true;
+	}
 
     /**
      * The AUTHENTICATE command with AUTH=PLAIN authentication scheme.

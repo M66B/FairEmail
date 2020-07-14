@@ -887,18 +887,27 @@ public class IMAPStore extends Store
 		continue;
 	    }
 
-	    if (m.equals("PLAIN"))
-		p.authplain(authzid, user, password);
-	    else if (m.equals("LOGIN"))
-		p.authlogin(user, password);
-	    else if (m.equals("NTLM"))
-		p.authntlm(authzid, user, password);
-	    else if (m.equals("XOAUTH2"))
-		p.authoauth2(user, password);
-	    else {
-		logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
-		continue;
-	    }
+	    try {
+			if (m.equals("PLAIN"))
+				p.authplain(authzid, user, password);
+			else if (m.equals("LOGIN"))
+				p.authlogin(user, password);
+			else if (m.equals("NTLM"))
+				p.authntlm(authzid, user, password);
+			else if (m.equals("XOAUTH2"))
+				p.authoauth2(user, password);
+			else {
+				logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
+				continue;
+			}
+		} catch (ProtocolException ex) {
+			if (m.equals("PLAIN") || m.equals("LOGIN")) {
+				eu.faircode.email.Log.w(ex);
+				eu.faircode.email.Log.i("Falling back to classic LOGIN");
+				p.authclassic(user, password);
+			} else
+				throw ex;
+		}
 	    return;
 	}
 
