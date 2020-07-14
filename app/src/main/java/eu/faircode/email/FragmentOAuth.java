@@ -446,9 +446,15 @@ public class FragmentOAuth extends FragmentBase {
                 if (TextUtils.isEmpty(primaryEmail) || identities.size() == 0)
                     throw new IllegalArgumentException("Primary email address not found");
 
+                if (!Helper.EMAIL_ADDRESS.matcher(primaryEmail).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, primaryEmail));
+
                 Log.i("OAuth email=" + primaryEmail);
                 for (Pair<String, String> identity : identities)
                     Log.i("OAuth identity=" + identity.first + "/" + identity.second);
+
+                int at = primaryEmail.indexOf('@');
+                String username = primaryEmail.substring(0, at);
 
                 List<EntityFolder> folders;
 
@@ -499,7 +505,7 @@ public class FragmentOAuth extends FragmentBase {
                     account.user = primaryEmail;
                     account.password = state;
 
-                    account.name = provider.name;
+                    account.name = provider.name + "/" + username;
 
                     account.synchronize = true;
                     account.primary = (primary == null);

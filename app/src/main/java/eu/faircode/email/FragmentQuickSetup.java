@@ -372,7 +372,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.password = password;
                     account.fingerprint = imap_fingerprint;
 
-                    account.name = provider.name;
+                    account.name = provider.name + "/" + username;
 
                     account.synchronize = true;
                     account.primary = (primary == null);

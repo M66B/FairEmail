@@ -341,6 +341,9 @@ public class FragmentGmail extends FragmentBase {
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
+                int at = user.indexOf('@');
+                String username = user.substring(0, at);
+
                 EmailProvider provider = EmailProvider.fromDomain(context, "gmail.com", EmailProvider.Discover.ALL);
 
                 List<EntityFolder> folders;
@@ -388,7 +391,7 @@ public class FragmentGmail extends FragmentBase {
                     account.user = user;
                     account.password = password;
 
-                    account.name = provider.name;
+                    account.name = provider.name + "/" + username;
 
                     account.synchronize = true;
                     account.primary = (primary == null);
