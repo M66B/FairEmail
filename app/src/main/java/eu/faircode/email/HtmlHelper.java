@@ -1577,11 +1577,18 @@ public class HtmlHelper {
         if (full)
             return text;
 
-        String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
-        if (preview.length() < text.length())
-            preview += "…";
+        return truncate(text, PREVIEW_SIZE);
+    }
 
-        return preview;
+    static String truncate(String text, int at) {
+        if (text.length() < at)
+            return text;
+
+        String preview = text.substring(0, at);
+        int space = preview.lastIndexOf(' ');
+        if (space > 0)
+            preview = preview.substring(0, space + 1);
+        return preview + "…";
     }
 
     static String getText(Context context, String html) {
