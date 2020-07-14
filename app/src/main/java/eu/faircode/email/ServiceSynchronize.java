@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -52,6 +53,11 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1687,6 +1693,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        private Boolean last4 = null;
+        private Boolean last6 = null;
+
         @Override
         public void onAvailable(@NonNull Network network) {
             try {
@@ -1702,6 +1711,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities capabilities) {
             updateState(network, capabilities);
+        }
+
+        @Override
+        public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties properties) {
+            try {
+                // Monitor IP v4/v6 availability
+                boolean has4 = false;
+                boolean has6 = false;
+                String name = properties.getInterfaceName();
+                NetworkInterface ni = NetworkInterface.getByName(name);
+                if (ni != null)
+                    for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                        InetAddress addr = iaddr.getAddress();
+                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
+                            if (addr instanceof Inet4Address)
+                                has4 = true;
+                            else if (addr instanceof Inet6Address)
+                                has6 = true;
+                    }
+
+                EntityLog.log(ServiceSynchronize.this,
+                        "IP intf=" + name + "/" + ni.getDisplayName() + " v4=" + last4 + "/" + has4 + " v6=" + last6 + "/" + has6);
+                if ((last4 != null && last4 && !has4) || (last6 != null && last6 && !has6))
+                    reload(ServiceSynchronize.this, -1L, false, "IP");
+
+                last4 = has4;
+                last6 = has6;
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
         }
 
         @Override
