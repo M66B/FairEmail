@@ -1701,7 +1701,31 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             try {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ni = cm.getNetworkInfo(network);
-                EntityLog.log(ServiceSynchronize.this, "Available network=" + network + " info=" + ni);
+                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+
+                // Transition from metered to unmetered?
+                boolean transition = false;
+                if (caps != null &&
+                        caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                        caps.hasCapability((NetworkCapabilities.NET_CAPABILITY_NOT_METERED))) {
+                    Network[] networks = cm.getAllNetworks();
+                    for (Network other : networks)
+                        if (!network.equals(other)) {
+                            NetworkCapabilities c = cm.getNetworkCapabilities(other);
+                            if (c != null &&
+                                    c.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                                    !c.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
+                                transition = true;
+                                break;
+                            }
+                        }
+                }
+
+                EntityLog.log(ServiceSynchronize.this,
+                        "Available network=" + network + " info=" + ni + " caps=" + caps + " transition=" + transition);
+
+                if (transition)
+                    reload(ServiceSynchronize.this, -1L, false, "unmetered");
             } catch (Throwable ex) {
                 Log.w(ex);
             }
