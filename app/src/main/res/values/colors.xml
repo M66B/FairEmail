@@ -2,6 +2,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- https://material.io/resources/color/ -->
 
+    <color name="colorDebug">#bc3f3f</color>
+
     <color name="colorReadLight">#b3000000</color>
     <color name="colorUnreadLight">#ff000000</color>
 
