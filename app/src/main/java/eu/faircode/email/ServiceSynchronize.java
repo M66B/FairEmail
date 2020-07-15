@@ -1693,78 +1693,107 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        private Boolean last4 = null;
-        private Boolean last6 = null;
+        private NetworkCapabilities lastActiveCaps = null;
+        private LinkProperties lastActiveProps = null;
 
         @Override
         public void onAvailable(@NonNull Network network) {
             try {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ni = cm.getNetworkInfo(network);
-                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-
-                // Transition from metered to unmetered?
-                boolean transition = false;
-                if (caps != null &&
-                        caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                        caps.hasCapability((NetworkCapabilities.NET_CAPABILITY_NOT_METERED))) {
-                    Network[] networks = cm.getAllNetworks();
-                    for (Network other : networks)
-                        if (!network.equals(other)) {
-                            NetworkCapabilities c = cm.getNetworkCapabilities(other);
-                            if (c != null &&
-                                    c.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                                    !c.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
-                                transition = true;
-                                break;
-                            }
-                        }
-                }
-
-                EntityLog.log(ServiceSynchronize.this,
-                        "Available network=" + network + " info=" + ni + " caps=" + caps + " transition=" + transition);
-
-                if (transition)
-                    reload(ServiceSynchronize.this, -1L, false, "unmetered");
+                NetworkInfo ani = cm.getActiveNetworkInfo();
+                EntityLog.log(ServiceSynchronize.this, "Available network=" + network + " info=" + ni + " active=" + ani);
             } catch (Throwable ex) {
                 Log.w(ex);
             }
+
             updateState(network, null);
         }
 
         @Override
-        public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities capabilities) {
-            updateState(network, capabilities);
+        public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities caps) {
+            updateState(network, caps);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                try {
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    Network active = cm.getActiveNetwork();
+                    if (active != null && active.equals(network)) {
+                        boolean reload = (lastActiveCaps != null &&
+                                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED) &&
+                                lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                                !lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
+
+                        if (reload || BuildConfig.DEBUG)
+                            EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
+                                    " caps=" + caps + " reload=" + reload);
+
+                        if (reload)
+                            reload(ServiceSynchronize.this, -1L, false, "unmetered");
+
+                        lastActiveCaps = caps;
+                    }
+
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
         }
 
         @Override
-        public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties properties) {
-            try {
-                // Monitor IP v4/v6 availability
-                boolean has4 = false;
-                boolean has6 = false;
-                String name = properties.getInterfaceName();
-                NetworkInterface ni = NetworkInterface.getByName(name);
-                if (ni != null)
-                    for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
-                        InetAddress addr = iaddr.getAddress();
-                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
-                            if (addr instanceof Inet4Address)
-                                has4 = true;
-                            else if (addr instanceof Inet6Address)
-                                has6 = true;
+        public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties props) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                try {
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    Network active = cm.getActiveNetwork();
+                    if (active != null && active.equals(network)) {
+                        boolean ahas4 = false;
+                        boolean ahas6 = false;
+                        boolean lhas4 = false;
+                        boolean lhas6 = false;
+                        if (lastActiveProps != null) {
+                            String aname = props.getInterfaceName();
+                            String lname = lastActiveProps.getInterfaceName();
+                            if (!TextUtils.isEmpty(aname) && !TextUtils.isEmpty(lname)) {
+                                NetworkInterface aintf = NetworkInterface.getByName(aname);
+                                NetworkInterface lintf = NetworkInterface.getByName(lname);
+                                if (aintf != null && lintf != null) {
+                                    for (InterfaceAddress iaddr : aintf.getInterfaceAddresses()) {
+                                        InetAddress addr = iaddr.getAddress();
+                                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
+                                            if (addr instanceof Inet4Address)
+                                                ahas4 = true;
+                                            else if (addr instanceof Inet6Address)
+                                                ahas6 = true;
+                                    }
+
+                                    for (InterfaceAddress iaddr : lintf.getInterfaceAddresses()) {
+                                        InetAddress addr = iaddr.getAddress();
+                                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
+                                            if (addr instanceof Inet4Address)
+                                                lhas4 = true;
+                                            else if (addr instanceof Inet6Address)
+                                                lhas6 = true;
+                                    }
+                                }
+                            }
+                        }
+
+                        boolean reload = ((ahas4 && !lhas4) || (ahas6 && !lhas6));
+
+                        if (reload || BuildConfig.DEBUG)
+                            EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
+                                    " props=" + props + " reload=" + reload);
+
+                        if (reload)
+                            reload(ServiceSynchronize.this, -1L, false, "connectivity");
+
+                        lastActiveProps = props;
                     }
 
-                EntityLog.log(ServiceSynchronize.this,
-                        "IP intf=" + name + "/" + ni.getDisplayName() + " v4=" + last4 + "/" + has4 + " v6=" + last6 + "/" + has6);
-                if ((last4 != null && last4 && !has4) || (last6 != null && last6 && !has6))
-                    reload(ServiceSynchronize.this, -1L, false, "IP");
-
-                last4 = has4;
-                last6 = has6;
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
         }
 
         @Override
@@ -1778,6 +1807,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             } catch (Throwable ex) {
                 Log.w(ex);
             }
+
             updateState(network, null);
         }
 
