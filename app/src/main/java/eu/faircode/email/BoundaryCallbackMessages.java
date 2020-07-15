@@ -499,7 +499,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     account, browsable,
                                     (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                     true, true,
-                                    rules, astate);
+                                    rules, astate, null);
                             found++;
                         }
                         if (message != null && criteria != null /* browsed */)
