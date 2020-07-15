@@ -202,7 +202,23 @@ class ImageHelper {
         else
             canvas.drawRoundRect(new RectF(dest), radius, radius, paint); // rounded
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, source, dest, paint);
+
+        try {
+            canvas.drawBitmap(bitmap, source, dest, paint);
+        } catch (RuntimeException ex) {
+            Log.e(ex);
+            /*
+                java.lang.RuntimeException: Canvas: trying to use a recycled bitmap android.graphics.Bitmap@d25d3f9
+                java.lang.RuntimeException: Canvas: trying to use a recycled bitmap android.graphics.Bitmap@d25d3f9
+                  at android.graphics.BaseCanvas.throwIfCannotDraw(BaseCanvas.java:66)
+                  at android.graphics.BaseCanvas.drawBitmap(BaseCanvas.java:131)
+                  at android.graphics.Canvas.drawBitmap(Canvas.java:1608)
+                  at eu.faircode.email.ImageHelper.makeCircular(SourceFile:205)
+                  at eu.faircode.email.ContactInfo._get(SourceFile:403)
+                  at eu.faircode.email.ContactInfo.get(SourceFile:177)
+                  at eu.faircode.email.ContactInfo.get(SourceFile:164)
+             */
+        }
 
         bitmap.recycle();
         return round;
