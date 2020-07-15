@@ -1020,10 +1020,15 @@ public class Log {
     }
 
     static void unexpectedError(FragmentManager manager, Throwable ex) {
+        unexpectedError(manager, ex, true);
+    }
+
+    static void unexpectedError(FragmentManager manager, Throwable ex, boolean report) {
         Log.e(ex);
 
         Bundle args = new Bundle();
         args.putSerializable("ex", ex);
+        args.putBoolean("report", report);
 
         FragmentDialogUnexpected fragment = new FragmentDialogUnexpected();
         fragment.setArguments(args);
@@ -1035,41 +1040,45 @@ public class Log {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Throwable ex = (Throwable) getArguments().getSerializable("ex");
+            boolean report = getArguments().getBoolean("report", true);
 
-            return new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_unexpected_error)
                     .setMessage(Log.formatThrowable(ex, false))
-                    .setPositiveButton(android.R.string.cancel, null)
-                    .setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Dialog will be dismissed
-                            final Context context = getContext();
+                    .setPositiveButton(android.R.string.cancel, null);
 
-                            new SimpleTask<Long>() {
-                                @Override
-                                protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                    return Log.getDebugInfo(context, R.string.title_unexpected_info_remark, ex, null).id;
-                                }
+            if (report)
+                builder.setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dialog will be dismissed
+                        final Context context = getContext();
 
-                                @Override
-                                protected void onExecuted(Bundle args, Long id) {
-                                    context.startActivity(new Intent(context, ActivityCompose.class)
-                                            .putExtra("action", "edit")
-                                            .putExtra("id", id));
-                                }
+                        new SimpleTask<Long>() {
+                            @Override
+                            protected Long onExecute(Context context, Bundle args) throws Throwable {
+                                return Log.getDebugInfo(context, R.string.title_unexpected_info_remark, ex, null).id;
+                            }
 
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    if (ex instanceof IllegalArgumentException)
-                                        ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
-                                    else
-                                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                                }
-                            }.execute(getContext(), getActivity(), new Bundle(), "error:unexpected");
-                        }
-                    })
-                    .create();
+                            @Override
+                            protected void onExecuted(Bundle args, Long id) {
+                                context.startActivity(new Intent(context, ActivityCompose.class)
+                                        .putExtra("action", "edit")
+                                        .putExtra("id", id));
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                if (ex instanceof IllegalArgumentException)
+                                    ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                else
+                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        }.execute(getContext(), getActivity(), new Bundle(), "error:unexpected");
+                    }
+                });
+
+            return builder.create();
         }
     }
 
