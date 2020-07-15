@@ -1049,7 +1049,7 @@ public class Log {
                             new SimpleTask<Long>() {
                                 @Override
                                 protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                    return Log.getDebugInfo(context, R.string.title_crash_info_remark, ex, null).id;
+                                    return Log.getDebugInfo(context, R.string.title_unexpected_info_remark, ex, null).id;
                                 }
 
                                 @Override
