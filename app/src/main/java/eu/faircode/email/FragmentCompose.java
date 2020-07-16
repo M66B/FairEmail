@@ -141,6 +141,7 @@ import org.jsoup.select.NodeFilter;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
+import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -3567,8 +3568,19 @@ public class FragmentCompose extends FragmentBase {
                                 d.body().appendChild(div);
                             }
 
-                            // Quote referenced message body
                             Element e = d.body();
+
+                            // Apply styles
+                            List<CSSStyleSheet> sheets = HtmlHelper.parseStyles(d.head().select("style"));
+                            for (Element element : e.select("*")) {
+                                String tag = element.tagName();
+                                String clazz = element.attr("class");
+                                String style = HtmlHelper.processStyles(tag, clazz, null, sheets);
+                                style = HtmlHelper.mergeStyles(style, element.attr("style"));
+                                element.attr("style", style);
+                            }
+
+                            // Quote referenced message body
                             boolean quote_reply = prefs.getBoolean("quote_reply", true);
                             boolean quote = (quote_reply &&
                                     ("reply".equals(action) || "reply_all".equals(action) || "list".equals(action)));

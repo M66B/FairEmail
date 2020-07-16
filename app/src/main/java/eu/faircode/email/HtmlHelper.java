@@ -485,11 +485,10 @@ public class HtmlHelper {
 
         // Sanitize styles
         for (Element element : document.select("*")) {
-            String style = null;
-            String clazz = element.attr("class");
-
             // Class style
-            style = processStyles(element.tagName(), clazz, style, sheets);
+            String tag = element.tagName();
+            String clazz = element.attr("class");
+            String style = processStyles(tag, clazz, null, sheets);
 
             // Element style
             style = mergeStyles(style, element.attr("style"));
@@ -1027,7 +1026,7 @@ public class HtmlHelper {
         return sheets;
     }
 
-    private static String processStyles(String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
+    static String processStyles(String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
         for (CSSStyleSheet sheet : sheets)
             if (isScreenMedia(sheet.getMedia())) {
                 style = processStyles(null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
@@ -1093,7 +1092,7 @@ public class HtmlHelper {
         return false;
     }
 
-    private static String mergeStyles(String base, String style) {
+    static String mergeStyles(String base, String style) {
         return mergeStyles(base, style, null);
     }
 
