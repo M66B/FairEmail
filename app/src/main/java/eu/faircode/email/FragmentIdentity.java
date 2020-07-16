@@ -991,7 +991,7 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex, false);
             }
         }.execute(this, args, "identity:oauth");
     }

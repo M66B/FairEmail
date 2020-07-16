@@ -1342,7 +1342,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex, false);
             }
         }.execute(this, args, "account:oauth");
     }
