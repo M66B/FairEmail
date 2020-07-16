@@ -121,6 +121,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final long FAST_ERROR_TIME = 5 * 60 * 1000L; // milliseconds
+    private static final int FAST_ERROR_COUNT = 3;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -885,6 +887,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.w(account.name + " backoff " + ex.toString());
                 }
 
+            int errors = 0;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
@@ -1508,6 +1511,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             am.cancel(pi);
                         }
 
+                        errors = 0;
                         first = false;
                     }
 
@@ -1519,11 +1523,23 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
+                    long now = new Date().getTime();
+
+                    // Check for fast account errors
+                    if (account.last_connected != null &&
+                            now - account.last_connected < FAST_ERROR_TIME) {
+                        errors++;
+                        EntityLog.log(ServiceSynchronize.this,
+                                account.name + " fast errors=" + errors +
+                                        " last connected: " + new Date(account.last_connected));
+                        if (errors >= FAST_ERROR_COUNT)
+                            state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
+                    }
+
                     // Report account connection error
                     if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
                         EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
 
-                        long now = new Date().getTime();
                         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
                         long maxDelayed = (pollInterval > 0 && !account.poll_exempted
