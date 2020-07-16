@@ -63,12 +63,25 @@ public class DnsHelper {
 
             String domain = email.substring(d + 1);
 
+            boolean found = true;
             try {
-                lookup(context, domain, "mx");
-            } catch (UnknownHostException ex) {
-                Log.i(ex);
-                throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
+                SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
+                Lookup lookup = new Lookup(domain, Type.MX);
+                lookup.setResolver(resolver);
+                lookup.run();
+                Log.i("Check name=" + domain + " @" + resolver.getAddress() + " result=" + lookup.getResult());
+
+                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                        lookup.getResult() == Lookup.TYPE_NOT_FOUND)
+                    found = false;
+                else if (lookup.getResult() != Lookup.SUCCESSFUL)
+                    throw new UnknownHostException("DNS error=" + lookup.getErrorString());
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
+
+            if (!found)
+                throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
         }
     }
 
@@ -99,9 +112,8 @@ public class DnsHelper {
         }
 
         try {
-            Lookup lookup = new Lookup(name, rtype);
-
             SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
+            Lookup lookup = new Lookup(name, rtype);
             lookup.setResolver(resolver);
             Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
             Record[] records = lookup.run();
@@ -110,7 +122,7 @@ public class DnsHelper {
                     lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                 throw new UnknownHostException(name);
             else if (lookup.getResult() != Lookup.SUCCESSFUL)
-                Log.w("DNS error=" + lookup.getErrorString());
+                Log.e("DNS error=" + lookup.getErrorString());
 
             List<DnsRecord> result = new ArrayList<>();
 
