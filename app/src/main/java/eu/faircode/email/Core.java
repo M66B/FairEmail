@@ -990,8 +990,10 @@ class Core {
         // Delete source
         if (!copy) {
             try {
-                for (Message imessage : map.keySet())
+                for (Message imessage : map.keySet()) {
+                    db.message().deleteMessage(map.get(imessage).id);
                     imessage.setFlag(Flags.Flag.DELETED, true);
+                }
             } catch (MessageRemovedException ignored) {
             }
             ifolder.expunge();
