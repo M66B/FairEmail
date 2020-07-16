@@ -228,7 +228,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
                             if (current.canRun()) {
-                                EntityLog.log(ServiceSynchronize.this, "### new " + current);
+                                EntityLog.log(ServiceSynchronize.this, "### new " + current +
+                                        " start=" + current.canRun() +
+                                        " sync=" + current.accountState.isEnabled(current.enabled) +
+                                        " enabled=" + current.accountState.synchronize +
+                                        " ondemand=" + current.accountState.ondemand +
+                                        " folders=" + current.accountState.folders +
+                                        " ops=" + current.accountState.operations +
+                                        " tbd=" + current.accountState.tbd +
+                                        " state=" + current.accountState.state +
+                                        " type=" + current.networkState.getType());
                                 start(current, current.accountState.isEnabled(current.enabled), false);
                             }
                         } else {
