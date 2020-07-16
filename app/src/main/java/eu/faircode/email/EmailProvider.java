@@ -159,6 +159,7 @@ public class EmailProvider {
                         provider.oauth.askAccount = xml.getAttributeBooleanValue(null, "askAccount", false);
                         provider.oauth.clientId = xml.getAttributeValue(null, "clientId");
                         provider.oauth.clientSecret = xml.getAttributeValue(null, "clientSecret");
+                        provider.oauth.pcke = xml.getAttributeBooleanValue(null, "pcke", false);
                         provider.oauth.scopes = xml.getAttributeValue(null, "scopes").split(",");
                         provider.oauth.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
                         provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
@@ -687,6 +688,7 @@ public class EmailProvider {
         boolean askAccount;
         String clientId;
         String clientSecret;
+        boolean pcke;
         String[] scopes;
         String authorizationEndpoint;
         String tokenEndpoint;

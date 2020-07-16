@@ -102,6 +102,7 @@
             clientId="dj0yJmk9MUFMR2dpdnllTHdZJmQ9WVdrOWRraFJNVGwwTkcwbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFl"
             clientSecret="054ceb7cc001a322126dd51b3399785604543f83"
             enabled="false"
+            pcke="true"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
             tokenEndpoint="https://api.login.yahoo.com/oauth2/get_token" />
