@@ -272,17 +272,18 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
     private static final int REQUEST_CONTACT_BCC = 3;
-    private static final int REQUEST_IMAGE = 4;
-    private static final int REQUEST_IMAGE_FILE = 5;
-    private static final int REQUEST_ATTACHMENT = 6;
-    private static final int REQUEST_TAKE_PHOTO = 7;
-    private static final int REQUEST_RECORD_AUDIO = 8;
-    private static final int REQUEST_OPENPGP = 9;
-    private static final int REQUEST_CONTACT_GROUP = 10;
-    private static final int REQUEST_ANSWER = 11;
-    private static final int REQUEST_LINK = 12;
-    private static final int REQUEST_DISCARD = 13;
-    private static final int REQUEST_SEND = 14;
+    private static final int REQUEST_SHARED = 4;
+    private static final int REQUEST_IMAGE = 5;
+    private static final int REQUEST_IMAGE_FILE = 6;
+    private static final int REQUEST_ATTACHMENT = 7;
+    private static final int REQUEST_TAKE_PHOTO = 8;
+    private static final int REQUEST_RECORD_AUDIO = 9;
+    private static final int REQUEST_OPENPGP = 10;
+    private static final int REQUEST_CONTACT_GROUP = 11;
+    private static final int REQUEST_ANSWER = 12;
+    private static final int REQUEST_LINK = 13;
+    private static final int REQUEST_DISCARD = 14;
+    private static final int REQUEST_SEND = 15;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1101,7 +1102,6 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("body", a.getString("body"));
                 args.putString("text", a.getString("text"));
                 args.putString("selected", a.getString("selected"));
-                args.putParcelableArrayList("attachments", a.getParcelableArrayList("attachments"));
                 draftLoader.execute(this, args, "compose:new");
             } else {
                 Bundle args = new Bundle();
@@ -1486,7 +1486,9 @@ public class FragmentCompose extends FragmentBase {
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
         if (image_dialog) {
             Bundle args = new Bundle();
-            args.putBoolean("photo", photo);
+            args.putInt("title", photo
+                    ? R.string.title_attachment_photo
+                    : R.string.title_add_image_select);
             FragmentDialogAddImage fragment = new FragmentDialogAddImage();
             fragment.setArguments(args);
             fragment.setTargetFragment(this, REQUEST_IMAGE);
@@ -1719,9 +1721,18 @@ public class FragmentCompose extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onPickContact(requestCode, data);
                     break;
-                case REQUEST_IMAGE:
+                case REQUEST_SHARED:
+                    Bundle args = getArguments();
+                    ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                    args.remove("attachments");
                     if (resultCode == RESULT_OK)
-                        onAddImage(data.getBundleExtra("args").getBoolean("photo"));
+                        onAddImageFile(uris);
+                    break;
+                case REQUEST_IMAGE:
+                    if (resultCode == RESULT_OK) {
+                        int title = data.getBundleExtra("args").getInt("title");
+                        onAddImage(title == R.string.title_attachment_photo);
+                    }
                     break;
                 case REQUEST_IMAGE_FILE:
                     if (resultCode == RESULT_OK && data != null)
@@ -3649,16 +3660,7 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }
 
-                    if ("new".equals(action)) {
-                        ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
-                        if (uris != null)
-                            for (Uri uri : uris)
-                                try {
-                                    addAttachment(context, data.draft.id, uri, false, 0, false);
-                                } catch (IOException ex) {
-                                    Log.e(ex);
-                                }
-                    } else if (ref != null &&
+                    if (ref != null &&
                             ("reply".equals(action) || "reply_all".equals(action) ||
                                     "forward".equals(action) || "editasnew".equals(action))) {
 
@@ -3903,6 +3905,23 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
             });
+
+            if (getArguments().containsKey("attachments")) {
+                boolean image_dialog = prefs.getBoolean("image_dialog", true);
+                if (image_dialog) {
+                    Bundle aargs = new Bundle();
+                    aargs.putInt("title", android.R.string.ok);
+                    FragmentDialogAddImage fragment = new FragmentDialogAddImage();
+                    fragment.setArguments(aargs);
+                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_SHARED);
+                    fragment.show(getParentFragmentManager(), "compose:shared");
+                } else {
+                    Bundle aargs = getArguments();
+                    ArrayList<Uri> uris = aargs.getParcelableArrayList("attachments");
+                    aargs.remove("attachments");
+                    onAddImageFile(uris);
+                }
+            }
         }
 
         @Override
@@ -5093,7 +5112,7 @@ public class FragmentCompose extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final boolean photo = getArguments().getBoolean("photo");
+            int title = getArguments().getInt("title");
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean add_inline = prefs.getBoolean("add_inline", true);
@@ -5173,8 +5192,7 @@ public class FragmentCompose extends FragmentBase {
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setPositiveButton(
-                            photo ? R.string.title_attachment_photo : R.string.title_add_image_select,
+                    .setPositiveButton(title,
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
