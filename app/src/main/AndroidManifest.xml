@@ -58,7 +58,7 @@
         </intent>
 
         <!-- Customtabs -->
-        <!-- https://issuetracker.google.com/issues/158914189 -->
+        <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
         <intent>
             <action android:name="android.support.customtabs.action.CustomTabsService" />
         </intent>
