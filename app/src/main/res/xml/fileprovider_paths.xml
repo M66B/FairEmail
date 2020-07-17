@@ -13,9 +13,6 @@
         name="calendar"
         path="calendar" />
     <cache-path
-        name="shared"
-        path="shared" />
-    <cache-path
         name="images"
         path="images" />
 </paths>

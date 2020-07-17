@@ -23,20 +23,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 
-import androidx.core.content.FileProvider;
-import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -95,23 +88,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
                     if (hasAccounts) {
-                        Intent intent = getIntent();
-                        String action = intent.getAction();
-                        Uri uri = intent.getData();
-                        boolean mailto = (uri != null && "mailto".equals(uri.getScheme()));
-                        if ((Intent.ACTION_VIEW.equals(action) && mailto) ||
-                                (Intent.ACTION_SENDTO.equals(action) && mailto) ||
-                                Intent.ACTION_SEND.equals(action) ||
-                                Intent.ACTION_SEND_MULTIPLE.equals(action)) {
-                            processStreams(intent);
-                            intent.setClass(ActivityMain.this, ActivityCompose.class);
-                            startActivity(intent);
-                            finish();
-                            return;
-                        }
-
-                        Log.logBundle(args);
-
                         Intent view = new Intent(ActivityMain.this, ActivityView.class);
                         view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -145,63 +121,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(getSupportFragmentManager(), ex);
-                }
-
-                // Copy content local to prevent security exceptions
-                private void processStreams(Intent intent) {
-                    intent.setClipData(null);
-
-                    if (intent.hasExtra(Intent.EXTRA_STREAM)) {
-                        if (Intent.ACTION_SEND_MULTIPLE.equals(intent.getAction())) {
-                            ArrayList<Uri> uris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-                            if (uris == null)
-                                intent.removeExtra(Intent.EXTRA_STREAM);
-                            else {
-                                ArrayList<Uri> processed = new ArrayList<>();
-                                for (Uri uri : uris)
-                                    processed.add(processUri(uri));
-                                intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, processed);
-                            }
-                        } else {
-                            Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                            if (uri == null)
-                                intent.removeExtra(Intent.EXTRA_STREAM);
-                            else
-                                intent.putExtra(Intent.EXTRA_STREAM, processUri(uri));
-                        }
-                    }
-                }
-
-                private Uri processUri(Uri uri) {
-                    try {
-                        String fname = null;
-                        try {
-                            DocumentFile dfile = DocumentFile.fromSingleUri(ActivityMain.this, uri);
-                            if (dfile != null)
-                                fname = dfile.getName();
-                        } catch (SecurityException ex) {
-                            Log.e(ex);
-                        }
-
-                        if (TextUtils.isEmpty(fname))
-                            fname = uri.getLastPathSegment();
-
-                        if (TextUtils.isEmpty(fname))
-                            return uri;
-
-                        File dir = new File(getCacheDir(), "shared");
-                        if (!dir.exists())
-                            dir.mkdir();
-                        File file = new File(dir, fname);
-
-                        Log.i("Copying shared file to " + file);
-                        Helper.copy(getContentResolver().openInputStream(uri), new FileOutputStream(file));
-
-                        return FileProvider.getUriForFile(ActivityMain.this, BuildConfig.APPLICATION_ID, file);
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                        return uri;
-                    }
                 }
             };
 

@@ -170,7 +170,7 @@ class Shortcuts {
         boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);
 
-        Intent intent = new Intent(context, ActivityMain.class);
+        Intent intent = new Intent(context, ActivityCompose.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.setAction(Intent.ACTION_SEND);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
