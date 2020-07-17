@@ -142,6 +142,7 @@
     </string>
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
+    <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
@@ -568,6 +569,7 @@
     <string name="title_no_password">Отсутствует пароль</string>
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_primary_drafts">Нет основной учётной записи или папки черновиков</string>
+    <string name="title_no_junk_folder">Для этой учётной записи не выбрана папка со спамом</string>
     <string name="title_no_identities">Отправка писем требует наличия хотя бы одного идентификатора и папки черновиков</string>
     <string name="title_no_standard">Этот провайдер использует проприетарный протокол электронной почты, что не позволяет использовать сторонние почтовые клиенты</string>
     <string name="title_no_idle">Данный провайдер не поддерживает push-сообщения. Это задержит получение новых сообщений и увеличит расход заряда батареи.</string>
@@ -1005,6 +1007,7 @@
     <string name="title_rule_tts_prefix">Новое сообщение</string>
     <string name="title_rule_tts_from">От</string>
     <string name="title_rule_tts_subject">Тема</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Текст</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>
@@ -1200,6 +1203,7 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>
+    <string name="title_unexpected_info_remark">Пожалуйста, опишите, что вы делали, когда получили ошибку:</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_account">Учётная запись</string>

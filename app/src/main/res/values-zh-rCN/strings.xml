@@ -108,6 +108,7 @@
     </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
+    <string name="title_setup_quick_support">有些邮件服务提供商很难添加帐户。对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
@@ -534,6 +535,7 @@
     <string name="title_no_password">缺少密码</string>
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
+    <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
     <string name="title_no_identities">发送电子邮件需要至少一个身份和一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
@@ -971,6 +973,7 @@
     <string name="title_rule_tts_prefix">新消息</string>
     <string name="title_rule_tts_from">发件人</string>
     <string name="title_rule_tts_subject">主题</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">文本</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -1165,6 +1168,7 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string name="title_unexpected_info_remark">请描述应用出错时你正在做什么:</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
     <string name="title_widget_account">账户</string>

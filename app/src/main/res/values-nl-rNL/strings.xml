@@ -119,6 +119,7 @@
     Niet-standaard protocollen, zoals Microsoft Exchange Web Services en Microsoft ActiveSync, worden niet ondersteund, zie ook de beschrijving van de app.</string>
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste providers</string>
+    <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
@@ -545,6 +546,7 @@
     <string name="title_no_password">Wachtwoord ontbreekt</string>
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
+    <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
     <string name="title_no_identities">Het verzenden van e-mails vereist ten minste één identiteit en een conceptmap</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
@@ -982,6 +984,7 @@
     <string name="title_rule_tts_prefix">Nieuw bericht</string>
     <string name="title_rule_tts_from">Van</string>
     <string name="title_rule_tts_subject">Onderwerp</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Tekst</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>
@@ -1176,6 +1179,7 @@
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
+    <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>
     <string name="title_widget_account">Account</string>

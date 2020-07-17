@@ -142,6 +142,7 @@
     </string>
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_quick_remark">Pro rychlé nastavení účtu a identity pro většinu poskytovatelů</string>
+    <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
@@ -568,6 +569,7 @@
     <string name="title_no_password">Chybí heslo</string>
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_primary_drafts">Žádný hlavní účet nebo žádná složka konceptů</string>
+    <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
     <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu a složku konceptů</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
@@ -1005,6 +1007,7 @@
     <string name="title_rule_tts_prefix">Nová zpráva</string>
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Předmět</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>
@@ -1200,6 +1203,7 @@
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>
+    <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>
     <string name="title_widget_account">Účet</string>

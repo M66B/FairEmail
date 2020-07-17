@@ -120,6 +120,7 @@
     </string>
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_quick_remark">Per impostare rapidamente un account e un\'identità per la maggior parte dei provider</string>
+    <string name="title_setup_quick_support">Alcuni fornitori rendono difficile aggiungere un account. Per favore non incolpare FairEmail per questo ma chiedi aiuto invece.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>

@@ -120,6 +120,7 @@
     </string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
+    <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
@@ -546,6 +547,7 @@
     <string name="title_no_password">Mot de passe manquant</string>
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_primary_drafts">Pas de compte principal ou de dossier « Brouillons »</string>
+    <string name="title_no_junk_folder">Il n\'y a aucun dossier spam sélectionné pour ce compte</string>
     <string name="title_no_identities">L’envoi d’e-mails nécessite au moins une identité et un dossier « Brouillons »</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
@@ -983,6 +985,7 @@
     <string name="title_rule_tts_prefix">Nouveau message</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Objet</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Texte</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>
@@ -1009,7 +1012,7 @@
     <string name="title_legend_sent">Envoyés</string>
     <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
-    <string name="title_legend_junk">Indésirable</string>
+    <string name="title_legend_junk">Indésirables</string>
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Abonné à</string>
     <string name="title_legend_rule">A des règles</string>
@@ -1178,6 +1181,7 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
+    <string name="title_unexpected_info_remark">Veuillez décrire ce que vous faisiez lorsque vous avez eu l\'erreur :</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>
     <string name="title_widget_account">Compte</string>

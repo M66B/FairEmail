@@ -3,6 +3,9 @@
     <string name="app_search">FairEmail axtarışı</string>
     <string name="app_changelog">Dəyişiklik jurnalı</string>
     <string name="app_welcome">FairEmail, gizlilik və təhlükəsizliyə fokuslanmış bir açıq mənbə e-poçt tətbiqidir. Buna görə də bəzi xüsusiyyətlər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
+    <string name="app_limitations">Məsələn, etibarsız elementləri çıxartmaq və oxunaqlılığı yaxşılaşdırmaq üçün mesajlar həmişə yenidən format ediləcək və açılan bağlantıların təhlükəsizlik məqsədilə təsdiqlənməsi lazım olacaq.</string>
+    <string name="app_crash">FairEmail, Android-in çökmə səbəbli xətalarına görə bu cihazda dəstəklənmir</string>
+    <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">Bildirişlər</string>
     <string name="channel_update">Yenilənmələr</string>

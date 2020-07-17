@@ -748,6 +748,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_size_large">Nagy</string>
     <string name="title_style_font">Betűtípus</string>
     <string name="title_style_font_default">Alapértelmezett</string>
+    <string name="title_style_color">Szín &#8230;</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
     <string name="title_add_image">Kép hozzáadása</string>
@@ -903,6 +904,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_move">Áthelyezés</string>
     <string name="title_rule_copy">Másolás (cím)</string>
     <string name="title_rule_answer">Válasz</string>
+    <string name="title_rule_tts">Szövegfelolvasás</string>
     <string name="title_rule_automation">Automatizálás</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
@@ -938,6 +940,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_no_headers">Fejléc kondíciók nem ellenőrizhetők</string>
     <string name="title_rule_matched">Egyező üzenetek</string>
     <string name="title_rule_no_matches">Nincs egyező üzenet</string>
+    <string name="title_rule_tts_data">Hangadatok telepítése</string>
     <string name="title_rule_tts_prefix">Új üzenet</string>
     <string name="title_rule_tts_from">Feladó</string>
     <string name="title_rule_tts_subject">Tárgy</string>

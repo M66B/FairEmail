@@ -120,6 +120,7 @@
     </string>
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_quick_remark">För att snabbt konfigurera ett konto och en identitet för de flesta leverantörer</string>
+    <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
@@ -545,6 +546,7 @@
     <string name="title_no_password">Lösenord saknas</string>
     <string name="title_no_inbox">Inkorgen hittades inte</string>
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
+    <string name="title_no_junk_folder">Det finns ingen skräppostmapp vald för detta konto</string>
     <string name="title_no_identities">Att skicka e-post kräver minst en identitet och en utkastmapp</string>
     <string name="title_no_standard">Denna leverantör använder ett egenutvecklat e-postprotokoll och därför är det inte möjligt att använda tredje parts e-postklienter</string>
     <string name="title_no_idle">Leverantören stödjer inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
@@ -982,6 +984,7 @@
     <string name="title_rule_tts_prefix">Nytt meddelande</string>
     <string name="title_rule_tts_from">Från</string>
     <string name="title_rule_tts_subject">Ämne</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>
@@ -1177,6 +1180,7 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string name="title_unexpected_info_remark">Vänligen beskriv vad du gjorde när du fick felet:</string>
     <string name="title_widget_title_count">Antal nya meddelanden</string>
     <string name="title_widget_title_list">Meddelandelista</string>
     <string name="title_widget_account">Konto</string>

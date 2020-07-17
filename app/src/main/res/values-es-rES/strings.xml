@@ -121,6 +121,7 @@
     </string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>
+    <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
@@ -547,6 +548,7 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
+    <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
     <string name="title_no_identities">El envío de correos electrónicos requiere al menos una identidad y una carpeta de borradores</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
@@ -984,6 +986,7 @@
     <string name="title_rule_tts_prefix">Nuevo mensaje</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Asunto</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Texto</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>
@@ -1179,6 +1182,7 @@
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
+    <string name="title_unexpected_info_remark">Por favor describa lo que estaba haciendo cuando obtuvo el error:</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>
     <string name="title_widget_account">Cuenta</string>

@@ -283,6 +283,8 @@
     <string name="title_advanced_name_email">نام‌ها و نشانی‌های ایمیل را نمایش بده</string>
     <string name="title_advanced_replace_name">نام مخاطب را بر نام فرستنده ترجیح بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
+    <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
+    <string name="title_advanced_font_size_subject">اندازه متن موضوع</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
     <string name="title_advanced_subject_elipsed">هنگامی که نیاز باشد، موضوع را کوچک‌تر کن</string>
@@ -412,6 +414,8 @@
     <string name="title_identity_email">آدرس ایمیل شما</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
+    <string name="title_identity_unicode_remark">بیشتر سرور‌ها از این پشتیبانی نمی‌کنند</string>
+    <string name="title_identity_max_size">بیشترین اندازه پیام (MB)</string>
     <string name="title_identity_receipt">درخواست رسید دریافت/خواندن به‌طور پیش‌فرض</string>
     <string name="title_optional">اختیاری</string>
     <string name="title_recommended">پیشنهاد شده</string>
@@ -540,6 +544,7 @@
     <string name="title_no_folders">بدون پوشه</string>
     <string name="title_no_messages">پیامی موجود نیست</string>
     <string name="title_filters_active">یک یا چند فیلتر فعالند</string>
+    <string name="title_duplicate_in">پیام را در %1$s تکثیر کن</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
     <string name="title_subject_forward">هدایت: %1$s</string>
     <string name="title_buttons">دکمه‌‌ها</string>
@@ -627,6 +632,8 @@
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
+    <string name="title_ask_show_image_hint">تصاویری که به عنوان تصاویر ردیاب شناخته شده‌اند نشان داده نخواهند شد</string>
+    <string name="title_ask_delete_local">پیام‌های محلی حذف شوند؟ پیام‌ها روی سرور راه دور باقی خواهند ماند.</string>
     <string name="title_ask_help">به بهبود FairEmail کمک کنید</string>
     <string name="title_ask_reporting">ارسال گزارش‌های خطا؟</string>
     <string name="title_ask_review">لطفا به FairEmail امتیاز بدهید</string>
@@ -635,6 +642,7 @@
         این به برقراری توازن بین مرورهای مطلوب و نامطلوب کمک خواهد کرد.
     </string>
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
+    <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
     <string name="title_compose">ایجاد پیام</string>
     <string name="title_submitter">ارسال توسط:</string>
@@ -926,6 +934,7 @@
     <string name="title_legend_bold">متن پررنگ شود</string>
     <string name="title_legend_italic">متن مورب شود</string>
     <string name="title_legend_underline">متن زیر خط دار</string>
+    <string name="title_legend_text_style">تنظیم سبک متن</string>
     <string name="title_legend_metered">به شبکه موبایل متصلید</string>
     <string name="title_legend_unmetered">به شبکه غیر موبایل متصلید</string>
     <string name="title_legend_roaming">رومینگ</string>
@@ -1047,8 +1056,10 @@
     <string name="title_widget_folder_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
+    <string name="title_widget_font_size">اندازه متن</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
+    <string name="title_widget_background">رنگ پس‌زمینه</string>
     <string name="title_accessibility_collapsed">جمع شده</string>
     <string name="title_accessibility_expanded">گسترش یافته</string>
     <string name="title_accessibility_seen">خوانده شده</string>

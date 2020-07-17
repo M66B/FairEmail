@@ -120,6 +120,7 @@
     </string>
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_quick_remark">For hurtigt at opsætte en konto og identitet for de fleste udbydere</string>
+    <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
@@ -546,6 +547,7 @@
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_primary_drafts">Ingen primærkonto eller kladdemappe</string>
+    <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
     <string name="title_no_identities">Afsendelse af e-mails kræver mindst én identitet og en kladdemappe</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
@@ -983,6 +985,7 @@
     <string name="title_rule_tts_prefix">Ny besked</string>
     <string name="title_rule_tts_from">Fra</string>
     <string name="title_rule_tts_subject">Emne</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Tekst</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Beskeder</string>
@@ -1178,6 +1181,7 @@
     <string name="title_debug_info">Fejlretningsinfo</string>
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>
+    <string name="title_unexpected_info_remark">Beskriv, hvad du foretog dig, da fejlen opstod:</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_account">Konto</string>

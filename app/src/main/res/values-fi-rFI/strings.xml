@@ -119,6 +119,7 @@
     </string>
     <string name="title_setup_quick">Pika-asennus</string>
     <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
+    <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
@@ -485,6 +486,8 @@
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjätunnuksen täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
+    <string name="title_identity_unicode">Käytä Unicode-tiedonsiirtoa</string>
+    <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
@@ -541,6 +544,7 @@
     <string name="title_no_password">Salasana puuttuu</string>
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_primary_drafts">Ei ensisijainen tili tai ei luonnokset-kansiota</string>
+    <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
     <string name="title_no_identities">Viestien lähettäminen vaatii vähintään yhden identiteetin ja luonnoskansion</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>

@@ -141,6 +141,7 @@
     </string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
     <string name="title_setup_quick_remark">Aby szybko skonfigurować konto i tożsamość dla większości dostawców</string>
+    <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
@@ -567,6 +568,7 @@
     <string name="title_no_password">Brak hasła</string>
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
+    <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
     <string name="title_no_identities">Wysyłanie wiadomości e-mail wymaga co najmniej jednej tożsamości i folderu kopii roboczych</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
@@ -1004,6 +1006,7 @@
     <string name="title_rule_tts_prefix">Nowa wiadomość</string>
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Temat</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Tekst</string>
     <string name="title_legend_section_synchronize">Synchronizuj</string>
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>
@@ -1198,6 +1201,7 @@
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
+    <string name="title_unexpected_info_remark">Opisz proszę, co robiłeś, w momencie awarii aplikacji:</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>
     <string name="title_widget_account">Konto</string>

@@ -121,6 +121,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     </string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
+    <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
@@ -224,7 +225,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_advanced">Erweitert</string>
     <string name="title_advanced_no_date">Nachrichten ohne Datum empfangen</string>
-    <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
+    <string name="title_advanced_unseen">Alle ungelesenen Nachrichten empfangen</string>
     <string name="title_advanced_flagged">Alle markierten Nachrichten empfangen</string>
     <string name="title_advanced_delete_unseen">Alte ungelesene Nachrichten löschen</string>
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
@@ -378,7 +379,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig neu formatierte Nachrichten anzeigen</string>
-    <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
+    <string name="title_advanced_tracking">Nachverfolgungsbilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_hide_timezone">Nachrichten ohne Zeitzoneninformationen senden</string>
     <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
@@ -547,6 +548,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_password">Passwort fehlt</string>
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
+    <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
     <string name="title_no_identities">Das Senden von E-Mails erfordert mindestens eine Identität und einen Entwürfe-Ordner</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
@@ -733,7 +735,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
-    <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
+    <string name="title_ask_show_image_hint">Erkannt Nachverfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -981,6 +983,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_tts_prefix">Neue Nachricht</string>
     <string name="title_rule_tts_from">Von</string>
     <string name="title_rule_tts_subject">Betreff</string>
+    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>
@@ -1101,7 +1104,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>
     <string name="title_link_https">Datenverkehr wird verschlüsselt</string>
-    <string name="title_sanitize_link">Tracking-Parameter entfernen</string>
+    <string name="title_sanitize_link">Nachverfolgungsparameter entfernen</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
     <string name="title_check_owner">Eigentümer prüfen</string>
     <string name="title_remark_owner">Informationen werden abgerufen von <a href="https://ipinfo.io/">ipinfo.io</a></string>
@@ -1155,8 +1158,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_once">Nur einmal</string>
     <string name="title_pro_info">Die Entwicklung von FairEmail hat buchstäblich tausende Stunden gedauert und trotzdem sind die meisten Funktionen kostenlos nutzbar.
-FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet keine Tracking- oder Analysefunktionen, um damit Geld zu verdienen.
-Um FairEmail langfristig mit Support verfügbar zu halten, sind einige Komfort- und erweiterte Funktionen nicht kostenlos.
+FairEmail nimmt Ihre Privatsphäre ernst, zeigt keine Werbung an und verwendet keine Nachverfolgungs- oder Analysefunktionen, um damit Geld zu verdienen.
+Um FairEmail auf lange Sicht zu erhalten und zu unterstützen, sind einige Komfort- und erweiterte Funktionen nicht kostenlos nutzbar.
 Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwindet beim Kauf der Pro-Funktionen.
     </string>
     <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
@@ -1176,6 +1179,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_debug_info">Fehlersuchinformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
+    <string name="title_unexpected_info_remark">Bitte beschreiben Sie, was Sie getan haben, als Sie den Fehler erhielten:</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
     <string name="title_widget_title_list">Nachrichtenliste</string>
     <string name="title_widget_account">Konto</string>
