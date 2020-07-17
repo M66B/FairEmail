@@ -3305,15 +3305,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onPickContact(String name, String email) {
             Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
-                    pick.resolveActivity(context.getPackageManager()) == null)
-                Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
-            else {
-                properties.setValue("name", name);
-                properties.setValue("email", email);
+            properties.setValue("name", name);
+            properties.setValue("email", email);
+            try {
                 parentFragment.startActivityForResult(
                         Helper.getChooser(context, pick), FragmentMessages.REQUEST_PICK_CONTACT);
+            } catch (ActivityNotFoundException ex) {
+                Log.w(ex);
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, pick), Toast.LENGTH_LONG).show();
+            } catch (Throwable ex) {
+                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
             }
         }
 
@@ -3325,19 +3326,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 insert.putExtra(ContactsContract.Intents.Insert.NAME, name);
             insert.setAction(Intent.ACTION_INSERT);
             insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
-
-            PackageManager pm = context.getPackageManager();
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R && // should be system whitelisted
-                    insert.resolveActivity(pm) == null)
-                Snackbar.make(parentFragment.getView(), R.string.title_no_contacts, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
-            else
-                try {
-                    context.startActivity(insert);
-                } catch (ActivityNotFoundException ex) {
-                    Log.w(ex);
-                    ToastEx.makeText(context, context.getString(R.string.title_no_viewer, insert), Toast.LENGTH_LONG).show();
-                }
+            context.startActivity(insert);
         }
 
         private void onEditContact(String name, String email, Uri lookupUri) {
@@ -3348,18 +3337,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
             edit.setAction(Intent.ACTION_EDIT);
             edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
-
-            PackageManager pm = context.getPackageManager();
-            if (edit.resolveActivity(pm) == null) // system whitelisted
-                Snackbar.make(parentFragment.getView(), R.string.title_no_contacts, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
-            else
-                try {
-                    context.startActivity(edit);
-                } catch (ActivityNotFoundException ex) {
-                    Log.w(ex);
-                    ToastEx.makeText(context, context.getString(R.string.title_no_viewer, edit), Toast.LENGTH_LONG).show();
-                }
+            context.startActivity(edit);
         }
 
         private void onToggleMessage(TupleMessageEx message) {
