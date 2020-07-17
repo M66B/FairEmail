@@ -1733,12 +1733,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.w(ex);
             }
 
-            updateState(network, null);
+            updateNetworkState(network, null);
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities caps) {
-            updateState(network, caps);
+            updateNetworkState(network, caps);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 try {
@@ -1839,30 +1839,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.w(ex);
             }
 
-            updateState(network, null);
-        }
-
-        private void updateState(Network network, NetworkCapabilities capabilities) {
-            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-            liveNetworkState.postValue(ns);
-
-            if (lastSuitable == null || lastSuitable != ns.isSuitable()) {
-                lastSuitable = ns.isSuitable();
-                EntityLog.log(ServiceSynchronize.this,
-                        "Updated network=" + network +
-                                " capabilities " + capabilities +
-                                " suitable=" + lastSuitable);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                boolean background_service = prefs.getBoolean("background_service", false);
-                if (!background_service)
-                    try {
-                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-            }
+            updateNetworkState(network, null);
         }
     };
 
@@ -1878,9 +1855,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     lastLost = 0;
             }
 
-            networkCallback.onCapabilitiesChanged(null, null);
+            updateNetworkState(null, null);
         }
     };
+
+    private void updateNetworkState(Network network, NetworkCapabilities capabilities) {
+        ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+        liveNetworkState.postValue(ns);
+
+        if (lastSuitable == null || lastSuitable != ns.isSuitable()) {
+            lastSuitable = ns.isSuitable();
+            EntityLog.log(ServiceSynchronize.this,
+                    "Updated network=" + network +
+                            " capabilities " + capabilities +
+                            " suitable=" + lastSuitable);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            boolean background_service = prefs.getBoolean("background_service", false);
+            if (!background_service)
+                try {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+        }
+    }
 
     private BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
         @Override
