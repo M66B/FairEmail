@@ -81,6 +81,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
+// IMAP standards: https://imapwiki.org/Specs
+
 public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
