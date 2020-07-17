@@ -4264,6 +4264,14 @@ public class FragmentCompose extends FragmentBase {
                                 args.putString("address_error", ex.getMessage());
                             }
 
+                            try {
+                                checkMx(ato, context);
+                                checkMx(acc, context);
+                                checkMx(abcc, context);
+                            } catch (UnknownHostException ex) {
+                                args.putString("mx_error", ex.getMessage());
+                            }
+
                             if (draft.to == null && draft.cc == null && draft.bcc == null &&
                                     (identity == null || (identity.cc == null && identity.bcc == null)))
                                 args.putBoolean("remind_to", true);
@@ -4529,6 +4537,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
                 String address_error = args.getString("address_error");
+                String mx_error = args.getString("mx_error");
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
                 boolean remind_pgp = args.getBoolean("remind_pgp", false);
@@ -4540,8 +4549,9 @@ public class FragmentCompose extends FragmentBase {
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (send_dialog || address_error != null || recipients > RECIPIENTS_WARNING || remind_size || (send_reminders &&
-                        (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
+                if (send_dialog || address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_size ||
+                        (send_reminders &&
+                                (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -4597,25 +4607,28 @@ public class FragmentCompose extends FragmentBase {
         }
 
         private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {
+            if (addresses == null)
+                return;
+
+            for (InternetAddress address : addresses)
+                try {
+                    address.validate();
+                } catch (AddressException ex) {
+                    throw new AddressException(context.getString(R.string.title_address_parse_error,
+                            MessageHelper.formatAddressesCompose(addresses), ex.getMessage()));
+                }
+        }
+
+        private void checkMx(InternetAddress[] addresses, Context context) throws UnknownHostException {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+            if (!lookup_mx)
+                return;
 
             if (addresses == null)
                 return;
 
-            for (InternetAddress address : addresses) {
-                Address[] _addresses = new Address[]{address};
-                try {
-                    address.validate();
-                    if (lookup_mx)
-                        DnsHelper.checkMx(context, _addresses);
-                } catch (AddressException ex) {
-                    throw new AddressException(context.getString(R.string.title_address_parse_error,
-                            MessageHelper.formatAddressesCompose(_addresses), ex.getMessage()));
-                } catch (UnknownHostException ex) {
-                    throw new AddressException(ex.getMessage());
-                }
-            }
+            DnsHelper.checkMx(context, addresses);
         }
     };
 
@@ -5219,6 +5232,7 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = getArguments();
             long id = args.getLong("id");
             String address_error = args.getString("address_error");
+            String mx_error = args.getString("mx_error");
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
@@ -5262,8 +5276,8 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
-            tvAddressError.setText(address_error);
-            tvAddressError.setVisibility(address_error == null ? View.GONE : View.VISIBLE);
+            tvAddressError.setText(address_error == null ? mx_error : address_error);
+            tvAddressError.setVisibility(address_error == null && mx_error == null ? View.GONE : View.VISIBLE);
 
             tvRemindSize.setText(getString(R.string.title_size_reminder,
                     Helper.humanReadableByteCount(size),
