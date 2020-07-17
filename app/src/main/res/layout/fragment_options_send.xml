@@ -274,6 +274,17 @@
             app:layout_constraintTop_toBottomOf="@id/swSignatureReply"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDiscardDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_discard_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSignatureForward"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaptionAdvanced"
             android:layout_width="0dp"
@@ -284,7 +295,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swSignatureForward" />
+            app:layout_constraintTop_toBottomOf="@+id/swDiscardDelete" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swPlainOnly"

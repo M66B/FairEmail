@@ -79,7 +79,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
-    private SwitchCompat swDiscardDelete;
     private Group grpConversationActions;
 
     private final static String[] RESET_OPTIONS = new String[]{
@@ -89,7 +88,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "discard_delete",
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance"
     };
 
     @Override
@@ -127,7 +126,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
-        swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         grpConversationActions = view.findViewById(R.id.grpConversationActions);
 
         setOptions();
@@ -344,13 +342,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swDiscardDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("discard_delete", checked).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -444,7 +435,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
-        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
 
         grpConversationActions.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q ? View.VISIBLE : View.GONE);
     }

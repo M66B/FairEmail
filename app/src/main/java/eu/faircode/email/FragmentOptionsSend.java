@@ -58,6 +58,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSignatureLocation;
     private SwitchCompat swSignatureReply;
     private SwitchCompat swSignatureForward;
+    private SwitchCompat swDiscardDelete;
 
     private SwitchCompat swPlainOnly;
     private SwitchCompat swFormatFlowed;
@@ -72,6 +73,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_reminders", "send_delayed",
             "autolist", "prefix_once", "extended_reply", "quote_reply", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
+            "discard_delete",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
     };
@@ -102,6 +104,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swSignatureReply = view.findViewById(R.id.swSignatureReply);
         swSignatureForward = view.findViewById(R.id.swSignatureForward);
+        swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
 
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swFormatFlowed = view.findViewById(R.id.swFormatFlowed);
@@ -236,6 +239,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swDiscardDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("discard_delete", checked).apply();
+            }
+        });
+
         swPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -362,6 +372,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
         swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
+        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
 
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
