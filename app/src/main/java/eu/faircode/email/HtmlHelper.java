@@ -905,25 +905,35 @@ public class HtmlHelper {
                                     parent = parent.parent();
                                 }
 
-                                boolean email = matcher.group().contains("@") && !matcher.group().contains(":");
-                                Log.d("Web url=" + matcher.group() +
-                                        " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
+                                String group = matcher.group();
+                                int start = matcher.start();
+                                int end = matcher.end();
+
+                                // Workaround for links between parenthesis
+                                if (group.endsWith(")") &&
+                                        start > 0 && text.charAt(start - 1) == '(') {
+                                    group = group.substring(0, group.length() - 1);
+                                    end--;
+                                }
+
+                                boolean email = group.contains("@") && !group.contains(":");
+                                Log.d("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
                                         " linked=" + linked + " email=" + email + " count=" + links);
 
                                 if (linked)
-                                    span.appendText(text.substring(pos, matcher.end()));
+                                    span.appendText(text.substring(pos, end));
                                 else {
-                                    span.appendText(text.substring(pos, matcher.start()));
+                                    span.appendText(text.substring(pos, start));
 
                                     Element a = document.createElement("a");
-                                    a.attr("href", (email ? "mailto:" : "") + matcher.group());
-                                    a.text(matcher.group());
+                                    a.attr("href", (email ? "mailto:" : "") + group);
+                                    a.text(group);
                                     span.appendChild(a);
 
                                     links++;
                                 }
 
-                                pos = matcher.end();
+                                pos = end;
                             } while (links < MAX_AUTO_LINK && matcher.find());
 
                             span.appendText(text.substring(pos));
