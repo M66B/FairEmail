@@ -64,7 +64,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivCC"
-            app:srcCompat="@drawable/baseline_insert_link_24" />
+            app:srcCompat="@drawable/baseline_insert_link_45_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvLink"

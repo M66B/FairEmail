@@ -22,6 +22,6 @@
 
     <item
         android:id="@+id/menu_link"
-        android:icon="@drawable/baseline_insert_link_24"
+        android:icon="@drawable/baseline_insert_link_45_24"
         android:title="@string/title_style_link" />
 </menu>
