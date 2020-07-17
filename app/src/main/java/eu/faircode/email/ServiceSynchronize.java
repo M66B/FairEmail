@@ -1718,6 +1718,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        private Network reloaded = null;
         private NetworkCapabilities lastActiveCaps = null;
         private LinkProperties lastActiveProps = null;
 
@@ -1744,7 +1745,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     Network active = cm.getActiveNetwork();
                     if (active != null && active.equals(network)) {
-                        boolean reload = (lastActiveCaps != null &&
+                        boolean reload = (!active.equals(reloaded) && lastActiveCaps != null &&
                                 caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
                                 caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED) &&
                                 lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
@@ -1754,8 +1755,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
                                     " caps=" + caps + " reload=" + reload);
 
-                        if (reload)
+                        if (reload) {
+                            reloaded = active;
                             reload(ServiceSynchronize.this, -1L, false, "unmetered");
+                        }
 
                         lastActiveCaps = caps;
                     }
@@ -1804,14 +1807,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         }
 
-                        boolean reload = ((ahas4 && !lhas4) || (ahas6 && !lhas6));
+                        boolean reload = (!active.equals(reloaded) &&
+                                (ahas4 && !lhas4) || (ahas6 && !lhas6));
 
                         if (reload || BuildConfig.DEBUG)
                             EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
                                     " props=" + props + " reload=" + reload);
 
-                        if (reload)
+                        if (reload) {
+                            reloaded = active;
                             reload(ServiceSynchronize.this, -1L, false, "connectivity");
+                        }
 
                         lastActiveProps = props;
                     }
