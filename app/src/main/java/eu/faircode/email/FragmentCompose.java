@@ -3012,6 +3012,7 @@ public class FragmentCompose extends FragmentBase {
                     exif.setAttribute(ExifInterface.TAG_GPS_AREA_INFORMATION, null);
 
                     exif.setAttribute(ExifInterface.TAG_XMP, null);
+                    exif.setAttribute(ExifInterface.TAG_ARTIST, null);
                     exif.setAttribute(ExifInterface.TAG_CAMERA_OWNER_NAME, null);
                     exif.setAttribute(ExifInterface.TAG_BODY_SERIAL_NUMBER, null);
                     exif.setAttribute(ExifInterface.TAG_LENS_SERIAL_NUMBER, null);
