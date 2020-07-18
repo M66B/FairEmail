@@ -1203,8 +1203,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clearExpanded(TupleMessageEx message) {
             if (compact) {
-                tvFrom.setSingleLine(true);
-                tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
+                if (tvFrom.getMaxLines() > 1)
+                    tvFrom.setSingleLine(true);
+                boolean full = "full".equals(subject_ellipsize);
+                if (full ? tvSubject.getMaxLines() == 1 : tvSubject.getMaxLines() > 1)
+                    tvSubject.setSingleLine(!full);
             }
 
             tvPreview.setVisibility(
