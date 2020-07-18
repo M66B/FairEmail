@@ -1236,9 +1236,11 @@ public class FragmentCompose extends FragmentBase {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
+        menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
@@ -1262,6 +1264,9 @@ public class FragmentCompose extends FragmentBase {
                 return true;
             case R.id.menu_zoom:
                 onMenuZoom();
+                return true;
+            case R.id.menu_save_drafts:
+                onMenuSaveDrafts();
                 return true;
             case R.id.menu_send_dialog:
                 onMenuSendDialog();
@@ -1367,6 +1372,12 @@ public class FragmentCompose extends FragmentBase {
             etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * message_zoom / 100f);
             tvReference.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }
+    }
+
+    private void onMenuSaveDrafts() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean save_drafts = prefs.getBoolean("save_drafts", true);
+        prefs.edit().putBoolean("save_drafts", !save_drafts).apply();
     }
 
     private void onMenuSendDialog() {
@@ -4261,8 +4272,11 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
-                        if ((dirty || encrypted) && !needsEncryption)
-                            EntityOperation.queue(context, draft, EntityOperation.ADD);
+                        if ((dirty || encrypted) && !needsEncryption) {
+                            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+                            if (save_drafts)
+                                EntityOperation.queue(context, draft, EntityOperation.ADD);
+                        }
 
                         if (action == R.id.action_check) {
                             // Check data

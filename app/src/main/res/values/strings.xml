@@ -911,6 +911,7 @@
     <string name="title_attachment_audio">Record audio</string>
     <string name="title_show_addresses">Show CC/BCC</string>
 
+    <string name="title_save_drafts">Save drafts on the server</string>
     <string name="title_send_dialog">Show send options</string>
     <string name="title_image_dialog">Show image options</string>
     <string name="title_media_toolbar">Media toolbar</string>
