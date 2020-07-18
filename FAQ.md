@@ -110,7 +110,7 @@ Related questions:
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Notification move action~~
+* ~~Move notification action~~
 * ~~S/MIME support~~
 * ~~Search for settings~~
 
@@ -151,7 +151,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
 * [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I differentiate external and embedded images?](#user-content-faq27)
+* [(27) How can I distinguish between embedded and external images instead?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
 * [(30) How can I use the provided quick settings?](#user-content-faq30)
@@ -159,7 +159,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(32) How can I check if reading email is really safe?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments and the original message?](#user-content-faq35)
+* [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)
 * [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
@@ -1093,7 +1093,7 @@ Registration is free.
 <br />
 
 <a name="faq27"></a>
-**(27) How can I differentiate external and embedded images?**
+**(27) How can I distinguish between embedded and external images instead?**
 
 External image:
 
@@ -1231,7 +1231,7 @@ Setting identity colors is a pro feature.
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments and the original message?**
+**(35) Why should I be careful with viewing images, attachments, and the original message?**
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message,
 but will also leak your IP address.
@@ -2110,7 +2110,7 @@ You will likely need to save the associated identity again as well.
 <a name="faq88"></a>
 **(88) How can I use a Yahoo, AOL or Sky account?**
 
-To authorize a Yahoo, AOL or Sky account you will need to create an app password.
+To authorize a Yahoo, AOL, or Sky account you will need to create an app password.
 For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
@@ -2119,7 +2119,7 @@ For instructions, please see here:
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
-Note that Yahoo, AOL and Sky do not support standard push messages.
+Note that Yahoo, AOL, and Sky do not support standard push messages.
 The Yahoo email app uses a proprietary, undocumented protocol for push messages.
 
 Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
