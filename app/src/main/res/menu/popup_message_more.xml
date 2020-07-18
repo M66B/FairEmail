@@ -25,6 +25,10 @@
                 android:checkable="true"
                 android:title="@string/title_copy_btn" />
             <item
+                android:id="@+id/menu_button_event"
+                android:checkable="true"
+                android:title="@string/title_event" />
+            <item
                 android:id="@+id/menu_button_print"
                 android:checkable="true"
                 android:title="@string/title_print" />
