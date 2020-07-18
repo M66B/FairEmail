@@ -114,7 +114,7 @@ public class MessageHelper {
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
-    private static final long MIN_REQUIRED_SPACE = 250 * 1024L ^ 3;
+    private static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
 
     // https://tools.ietf.org/html/rfc4021
 
