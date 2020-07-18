@@ -367,6 +367,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOnClose" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvUndoTimeout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_undo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spOnClose" />
+
+        <Spinner
+            android:id="@+id/spUndoTimeout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/undoNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUndoTimeout" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoRead"
             android:layout_width="0dp"
@@ -375,7 +397,7 @@
             android:text="@string/title_advanced_autoread"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spOnClose"
+            app:layout_constraintTop_toBottomOf="@id/spUndoTimeout"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

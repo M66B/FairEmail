@@ -73,6 +73,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
     private Spinner spOnClose;
+    private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
     private SwitchCompat swFlagSnoozed;
@@ -87,7 +88,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "pull", "autoscroll", "quick_filter", "quick_scroll",
             "doubletap", "swipenav", "volumenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose",
+            "autoclose", "onclose", "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance"
     };
 
@@ -121,6 +122,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapseMultiple = view.findViewById(R.id.swCollapseMultiple);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         spOnClose = view.findViewById(R.id.spOnClose);
+        spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
@@ -307,6 +309,20 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        spUndoTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.undoValues);
+                int value = values[position];
+                prefs.edit().putInt("undo_timeout", value).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("undo_timeout").apply();
+            }
+        });
+
         swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -429,6 +445,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
 
         spOnClose.setEnabled(!swAutoClose.isChecked());
+
+        int undo_timeout = prefs.getInt("undo_timeout", 5000);
+        int[] undoValues = getResources().getIntArray(R.array.undoValues);
+        for (int pos = 0; pos < undoValues.length; pos++)
+            if (undoValues[pos] == undo_timeout) {
+                spUndoTimeout.setSelection(pos);
+                break;
+            }
 
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));

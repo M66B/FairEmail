@@ -390,6 +390,7 @@
     <string name="title_advanced_collapse_multiple">Collapse messages in a conversation with multiple messages on \'back\'</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_onclose">On closing a conversation</string>
+    <string name="title_advanced_undo">Undo timeout</string>
     <string name="title_advanced_quick_filter">Show non-obtrusive quick filter icons</string>
     <string name="title_advanced_quick_scroll">Show non-obtrusive quick scroll up/down icons</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
@@ -1606,6 +1607,22 @@
         <item>10000000</item>
         <item>20000000</item>
         <item>50000000</item>
+    </integer-array>
+
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
+    </string-array>
+
+    <integer-array name="undoValues" translatable="false">
+        <item>0</item>
+        <item>2500</item>
+        <item>5000</item>
+        <item>7500</item>
+        <item>10000</item>
     </integer-array>
 
     <string-array name="fontNameNames">

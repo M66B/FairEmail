@@ -310,7 +310,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private static final int MAX_MORE = 100; // messages
-    private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
 
@@ -4681,6 +4680,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void moveUndo(ArrayList<MessageTarget> result) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final int undo_timeout = prefs.getInt("undo_timeout", 5000);
+
         Bundle args = new Bundle();
         args.putParcelableArrayList("result", result);
 
@@ -4692,7 +4694,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 DB db = DB.getInstance(context);
 
                 long now = new Date().getTime();
-                long busy = now + UNDO_TIMEOUT * 2;
+                long busy = now + undo_timeout * 2;
                 try {
                     db.beginTransaction();
 
@@ -4720,6 +4722,42 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Log.i("Eval undo messages=" + messages.size() + " targets=" + result.size());
                         handleThreadActions(messages, result, null);
                     }
+                }
+
+                final Context context = getContext().getApplicationContext();
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (MessageTarget target : result) {
+                                EntityMessage message = db.message().getMessage(target.id);
+                                if (message == null || !message.ui_hide)
+                                    continue;
+
+                                Log.i("Move id=" + target.id + " target=" + target.folder.name);
+                                db.message().setMessageUiBusy(target.id, null);
+                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        ServiceSynchronize.eval(context, "move");
+                    }
+                }, "messages:movetimeout");
+                thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+
+                if (undo_timeout == 0) {
+                    thread.start();
+                    return;
                 }
 
                 FragmentActivity factivity = getActivity();
@@ -4803,8 +4841,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 });
                 snackbar.show();
 
-                final Context context = getContext().getApplicationContext();
-
                 // Wait
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -4818,38 +4854,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (snackbar.isShown())
                             snackbar.dismiss();
 
-                        Thread thread = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    for (MessageTarget target : result) {
-                                        EntityMessage message = db.message().getMessage(target.id);
-                                        if (message == null || !message.ui_hide)
-                                            continue;
-
-                                        Log.i("Move id=" + target.id + " target=" + target.folder.name);
-                                        db.message().setMessageUiBusy(target.id, null);
-                                        db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                                        EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
-                                    }
-
-                                    db.setTransactionSuccessful();
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                ServiceSynchronize.eval(context, "move");
-                            }
-                        }, "messages:movetimeout");
-                        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
                         thread.start();
                     }
-                }, UNDO_TIMEOUT);
+                }, undo_timeout);
             }
 
             @Override
