@@ -83,6 +83,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spResize" />
 
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvPrivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/title_add_image_privacy_remark"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbPrivacy" />
+
     <CheckBox
         android:id="@+id/cbNotAgain"
         android:layout_width="wrap_content"
@@ -91,7 +102,7 @@
         android:text="@string/title_no_ask_again"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbPrivacy" />
+        app:layout_constraintTop_toBottomOf="@id/tvPrivacy" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvNotAgain"

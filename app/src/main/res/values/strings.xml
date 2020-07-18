@@ -903,7 +903,8 @@
     <string name="title_add_image_inline">Insert</string>
     <string name="title_add_image_attach">Attach</string>
     <string name="title_add_image_resize">Resize</string>
-    <string name="title_add_image_privacy">Remove geographic location</string>
+    <string name="title_add_image_privacy">Remove privacy sensitive data</string>
+    <string name="title_add_image_privacy_remark">Geographic location, serial numbers, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Select file</string>
     <string name="title_add_attachment">Add attachment</string>
