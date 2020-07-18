@@ -1209,7 +1209,7 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         // Delete message
         DB db = DB.getInstance(context);
 
@@ -1295,7 +1295,7 @@ class Core {
         }
     }
 
-    private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
+    private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         // Download headers
         DB db = DB.getInstance(context);
 
@@ -1747,7 +1747,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            POP3Folder ifolder, POP3Store istore, State state) throws MessagingException {
+            POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_known = prefs.getBoolean("notify_known", false);

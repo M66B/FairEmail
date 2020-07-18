@@ -115,6 +115,7 @@ public class MessageHelper {
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
+    private static final long MIN_REQUIRED_SPACE = 250 * 1024L ^ 3;
 
     // https://tools.ietf.org/html/rfc4021
 
@@ -755,7 +756,10 @@ public class MessageHelper {
         }
     }
 
-    MessageHelper(MimeMessage message, Context context) {
+    MessageHelper(MimeMessage message, Context context) throws IOException {
+        long cake = Helper.getAvailableStorageSpace();
+        if (cake < MIN_REQUIRED_SPACE)
+            throw new IOException(context.getString(R.string.app_cake));
         if (cacheDir == null)
             cacheDir = context.getCacheDir();
         this.imessage = message;
