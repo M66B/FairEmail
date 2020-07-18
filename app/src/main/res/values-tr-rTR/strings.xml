@@ -589,7 +589,6 @@
     <string name="title_no_camera">Uygun bir kamera uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
     <string name="title_no_stream">Eski bir uygulama bir dosya akışı yerine dosya yolu gönderdi</string>
-    <string name="title_no_contacts">Kişi seçici mevcut değil</string>
     <string name="title_no_internet">Uygun internet bağlantısı veya internet yok</string>
     <string name="title_no_connection">Bir veya daha fazla hesaba bağlanılıyor &#8230;</string>
     <string name="title_no_folder">Klasör yok</string>
@@ -662,7 +661,6 @@
     <string name="title_add_image_inline">Ekle</string>
     <string name="title_add_image_attach">Ekle</string>
     <string name="title_add_image_resize">Yeniden boyutlandır</string>
-    <string name="title_add_image_privacy">Coğrafi konumu kaldır</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_add_image_select">Dosya seçin</string>
     <string name="title_add_attachment">Ek ekle</string>

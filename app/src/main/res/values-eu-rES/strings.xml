@@ -669,7 +669,6 @@
     <string name="title_no_camera">Ez dago kamera aplikazio egokirik eskuragarri</string>
     <string name="title_no_saf">Biltegiratzea atzitzeko tresneria ez dago eskuragarri</string>
     <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
-    <string name="title_no_contacts">Kontaktuan hautatzailea ez dago eskuragarri</string>
     <string name="title_no_internet">Internet konexiorik ez edo konexio desegokia</string>
     <string name="title_no_connection">Konektatzen kontu batera edo batzuetara &#8230;</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>
@@ -744,7 +743,6 @@ Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
     <string name="title_add_image_inline">Txertatu</string>
     <string name="title_add_image_attach">Erantsi</string>
     <string name="title_add_image_resize">Aldatu tamaina</string>
-    <string name="title_add_image_privacy">Kendu kokaleku geografikoa</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_add_image_select">Aukeratu fitxategia</string>
     <string name="title_add_attachment">Gehitu eranskina</string>

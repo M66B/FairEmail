@@ -325,6 +325,7 @@
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
+    <string name="title_advanced_undo">撤销超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
@@ -697,7 +698,6 @@
     <string name="title_no_camera">没有合适的相机app可用</string>
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
-    <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_no_internet">没有或没有合适的网络连接</string>
     <string name="title_no_connection">正在连接到一个或多个账户 &#8230;</string>
     <string name="title_no_folder">文件夹不存在</string>
@@ -779,7 +779,8 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
-    <string name="title_add_image_privacy">移除图片地理位置信息</string>
+    <string name="title_add_image_privacy">删除隐私敏感数据</string>
+    <string name="title_add_image_privacy_remark">地理位置、序列号等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
@@ -787,6 +788,7 @@
     <string name="title_attachment_photo">拍照</string>
     <string name="title_attachment_audio">录音</string>
     <string name="title_show_addresses">显示抄送和密送</string>
+    <string name="title_save_drafts">将草稿保存在服务器上</string>
     <string name="title_send_dialog">显示发送选项</string>
     <string name="title_image_dialog">显示图像选项</string>
     <string name="title_media_toolbar">媒体工具栏</string>
@@ -973,7 +975,7 @@
     <string name="title_rule_tts_prefix">新消息</string>
     <string name="title_rule_tts_from">发件人</string>
     <string name="title_rule_tts_subject">主题</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">文本</string>
+    <string name="title_rule_tts_content">文本</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -1326,6 +1328,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>关闭</item>
+        <item>2.5 秒</item>
+        <item>5 秒</item>
+        <item>7.5 秒</item>
+        <item>10 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草写体</item>

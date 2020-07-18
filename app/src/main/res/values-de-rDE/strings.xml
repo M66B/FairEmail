@@ -338,6 +338,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_collapse_multiple">Nachrichten in einem Thema mit mehreren Nachrichten bei „Zurück“ zusammenfassen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
+    <string name="title_advanced_undo">Zeitüberschreitung beim Widerrufen</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
@@ -709,7 +710,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_camera">Keine passende Kamera-App verfügbar</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
-    <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
     <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
@@ -791,7 +791,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
-    <string name="title_add_image_privacy">Aufnahmeort entfernen</string>
+    <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
+    <string name="title_add_image_privacy_remark">Geografischer Standort, Lizenzschlüssel, usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
@@ -799,6 +800,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_attachment_photo">Foto aufnehmen</string>
     <string name="title_attachment_audio">Audio aufnehmen</string>
     <string name="title_show_addresses">Kopie/Blindkopie anzeigen</string>
+    <string name="title_save_drafts">Entwürfe auf dem Server speichern</string>
     <string name="title_send_dialog">Sendeoptionen anzeigen</string>
     <string name="title_image_dialog">Grafikoptionen anzeigen</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
@@ -983,7 +985,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_tts_prefix">Neue Nachricht</string>
     <string name="title_rule_tts_from">Von</string>
     <string name="title_rule_tts_subject">Betreff</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
+    <string name="title_rule_tts_content">Text</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>
@@ -1338,6 +1340,13 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Aus</item>
+        <item>2,5 Sek</item>
+        <item>5 Sek.</item>
+        <item>7, 5 Sek.</item>
+        <item>10 Sek.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

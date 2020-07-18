@@ -653,7 +653,6 @@
     <string name="title_no_camera">Nenhum aplicativo de câmera adequado disponível</string>
     <string name="title_no_saf">Storage access framework não disponivel</string>
     <string name="title_no_stream">Um aplicativo desatualizado enviou um caminho de arquivo em vez de um fluxo de arquivo</string>
-    <string name="title_no_contacts">Seletor de contato não está disponível</string>
     <string name="title_no_internet">Não ou nenhuma conexão de internet adequada</string>
     <string name="title_no_connection">Conectando-se a uma ou mais contas &#8230;</string>
     <string name="title_no_folder">A pasta não existe</string>
@@ -727,7 +726,6 @@
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_privacy">Remover localização geográfica</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecionar arquivo</string>
     <string name="title_add_attachment">Adicionar anexo</string>

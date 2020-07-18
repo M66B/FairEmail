@@ -337,6 +337,7 @@
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
+    <string name="title_advanced_undo">Fortryd timeout</string>
     <string name="title_advanced_quick_filter">Vis ikke-påtrængende hurtige filterikoner</string>
     <string name="title_advanced_quick_scroll">Vis ikke-påtrængende hurtige rul op/ned ikoner</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
@@ -709,7 +710,6 @@
     <string name="title_no_camera">Ingen passende kamera-app tilgængelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgængelig</string>
     <string name="title_no_stream">En forældet app har sendt en filsti i stedet for en fil-stream</string>
-    <string name="title_no_contacts">Kontaktvælger ikke tilgængelig</string>
     <string name="title_no_internet">Ingen (passende) dataforbindelse</string>
     <string name="title_no_connection">Opretter forbindelse til én eller flere konti &#8230;</string>
     <string name="title_no_folder">Mappe findes ikke</string>
@@ -791,7 +791,8 @@
     <string name="title_add_image_inline">Indsæt</string>
     <string name="title_add_image_attach">Vedhæft</string>
     <string name="title_add_image_resize">Skalér</string>
-    <string name="title_add_image_privacy">Fjern geografisk placering</string>
+    <string name="title_add_image_privacy">Fjern personsensitive data</string>
+    <string name="title_add_image_privacy_remark">Geografisk placering, serienumre mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
@@ -985,7 +986,7 @@
     <string name="title_rule_tts_prefix">Ny besked</string>
     <string name="title_rule_tts_from">Fra</string>
     <string name="title_rule_tts_subject">Emne</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Tekst</string>
+    <string name="title_rule_tts_content">Tekst</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Beskeder</string>
@@ -1340,6 +1341,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Fra</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

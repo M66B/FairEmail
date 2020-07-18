@@ -614,7 +614,6 @@
     <string name="title_no_camera">برنامه دوربین سازگاری در دسترس نیست</string>
     <string name="title_no_saf">چارچوب دسترسی ذخیره سازی موجود نیست</string>
     <string name="title_no_stream">یک برنامه منسوخ مسیر پرونده را به جای جریان پرونده ارسال کرده</string>
-    <string name="title_no_contacts">جمع کننده مخاطبین در دسترس نیست</string>
     <string name="title_no_internet">اینترنت یا اتصال سازگاری در دسترس نیست</string>
     <string name="title_no_connection">در حال اتصال به یک یا چند حساب &#8230;</string>
     <string name="title_no_folder">پوشه وجود ندارد</string>
@@ -687,7 +686,6 @@
     <string name="title_add_image_inline">درج</string>
     <string name="title_add_image_attach">پیوست</string>
     <string name="title_add_image_resize">تغییر اندازه</string>
-    <string name="title_add_image_privacy">حذف موقعیت جغرافیایی</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
     <string name="title_add_image_select">انتخاب پرونده</string>
     <string name="title_add_attachment">افزودن پیوست</string>

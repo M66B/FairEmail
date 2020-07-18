@@ -336,6 +336,7 @@
     <string name="title_advanced_collapse_multiple">Kollapsa meddelanden i en konversation med flera meddelanden på \'back\'</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
+    <string name="title_advanced_undo">Ångra timeout</string>
     <string name="title_advanced_quick_filter">Visa icke-påträngande snabbfilter-ikoner</string>
     <string name="title_advanced_quick_scroll">Visa icke-påträngande snabba scrolla upp/ner ikoner</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
@@ -708,7 +709,6 @@
     <string name="title_no_camera">Ingen lämplig kameraapp tillgänglig</string>
     <string name="title_no_saf">Ramverk för lagringstillträde är inte tillgängligt</string>
     <string name="title_no_stream">En föråldrad app skickade en sökväg istället för en filström</string>
-    <string name="title_no_contacts">Kontaktväljaren är inte tillgänglig</string>
     <string name="title_no_internet">Ingen eller ingen lämplig internetuppkoppling</string>
     <string name="title_no_connection">Ansluter till ett eller flera konton &#8230;</string>
     <string name="title_no_folder">Mappen finns inte</string>
@@ -790,7 +790,8 @@
     <string name="title_add_image_inline">Infoga</string>
     <string name="title_add_image_attach">Bifoga</string>
     <string name="title_add_image_resize">Ändra storlek</string>
-    <string name="title_add_image_privacy">Ta bort geografisk plats</string>
+    <string name="title_add_image_privacy">Ta bort sekretesskänslig data</string>
+    <string name="title_add_image_privacy_remark">Geografisk plats, serienummer, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
@@ -798,6 +799,7 @@
     <string name="title_attachment_photo">Ta foto</string>
     <string name="title_attachment_audio">Spela in ljud</string>
     <string name="title_show_addresses">Visa kopia/dold kopia</string>
+    <string name="title_save_drafts">Spara utkast på servern</string>
     <string name="title_send_dialog">Visa alternativ för skicka</string>
     <string name="title_image_dialog">Visa bildalternativ</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
@@ -984,7 +986,7 @@
     <string name="title_rule_tts_prefix">Nytt meddelande</string>
     <string name="title_rule_tts_from">Från</string>
     <string name="title_rule_tts_subject">Ämne</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
+    <string name="title_rule_tts_content">Text</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>
@@ -1339,6 +1341,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Av</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursivt</item>

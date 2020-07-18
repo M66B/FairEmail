@@ -693,7 +693,6 @@
     <string name="title_no_camera">Няма налично подходящо приложение за камера</string>
     <string name="title_no_saf">Достъпът до софтуерната рамка не е наличен</string>
     <string name="title_no_stream">Остарялото приложение изпрати пътя към файла вместо файла</string>
-    <string name="title_no_contacts">Изборът на контакт не е наличен</string>
     <string name="title_no_internet">Няма или не е намерена подходяща интернет връзка</string>
     <string name="title_no_connection">Свързване с един или повече профили &#8230;</string>
     <string name="title_no_folder">Папката не съществува</string>
@@ -775,7 +774,6 @@
     <string name="title_add_image_inline">Вмъкване</string>
     <string name="title_add_image_attach">Прикачване</string>
     <string name="title_add_image_resize">Размер</string>
-    <string name="title_add_image_privacy">Премахнете географското местоположение</string>
     <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_add_image_select">Избиране на файл</string>
     <string name="title_add_attachment">Прикачване на файл</string>

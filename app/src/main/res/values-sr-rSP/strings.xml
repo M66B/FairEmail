@@ -530,7 +530,6 @@
     <string name="title_no_viewer">Нема апликације за преглед %1$s</string>
     <string name="title_no_saf">Радни оквир приступа складишту није доступан</string>
     <string name="title_no_stream">Застарела апликација је послала путању до фајла уместо фајл</string>
-    <string name="title_no_contacts">Бирач контаката није доступан</string>
     <string name="title_no_internet">Нема везе или нема прикладне везе</string>
     <string name="title_no_connection">Повезивање на један или више налога&#8230;</string>
     <string name="title_no_folder">Фасцикла не постоји</string>

@@ -337,6 +337,7 @@
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
+    <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
@@ -709,7 +710,6 @@
     <string name="title_no_camera">Aucune application d’appareil photo disponible</string>
     <string name="title_no_saf">Programme d’accès au stockage non disponible</string>
     <string name="title_no_stream">Une application obsolète a envoyé un chemin d’accès au lieu d’un flux de fichier</string>
-    <string name="title_no_contacts">Application de sélection de contact non disponible</string>
     <string name="title_no_internet">Aucune connexion Internet ou connexion non appropriée</string>
     <string name="title_no_connection">Connexion à un ou plusieurs comptes&#8230;</string>
     <string name="title_no_folder">Le dossier n\'existe pas</string>
@@ -791,7 +791,6 @@
     <string name="title_add_image_inline">Inclure</string>
     <string name="title_add_image_attach">Joindre</string>
     <string name="title_add_image_resize">Redimensionner</string>
-    <string name="title_add_image_privacy">Supprimer les informations de géolocalisation</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Sélectionner un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
@@ -799,6 +798,7 @@
     <string name="title_attachment_photo">Prendre une photo</string>
     <string name="title_attachment_audio">Enregistrer un fichier audio</string>
     <string name="title_show_addresses">Afficher Cc/Cci</string>
+    <string name="title_save_drafts">Enregistrer les brouillons sur le serveur</string>
     <string name="title_send_dialog">Afficher les options d\'envoi</string>
     <string name="title_image_dialog">Afficher les options d’image</string>
     <string name="title_media_toolbar">Barre d\'outils média</string>
@@ -985,7 +985,7 @@
     <string name="title_rule_tts_prefix">Nouveau message</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Objet</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Texte</string>
+    <string name="title_rule_tts_content">Texte</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>
@@ -1340,6 +1340,13 @@
         <item>10 Mo</item>
         <item>20 Mo</item>
         <item>50 Mo</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Désactivé</item>
+        <item>2,5 secondes</item>
+        <item>5 secondes</item>
+        <item>7,5 secondes</item>
+        <item>10 secondes</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

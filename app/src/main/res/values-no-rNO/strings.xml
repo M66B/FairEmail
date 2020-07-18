@@ -610,7 +610,6 @@
     <string name="title_no_camera">Ingen passende kamera app tilgjengelig</string>
     <string name="title_no_saf">Storage access framework ikke tilgjengelig</string>
     <string name="title_no_stream">En utdatert app sendte en filbane i stedet for en filstrøm</string>
-    <string name="title_no_contacts">Kontaktvelgeren er ikke tilgjengelig</string>
     <string name="title_no_internet">Ingen eller ingen egnet internettforbindelse</string>
     <string name="title_no_connection">Koble til en eller flere kontoer &#8230;</string>
     <string name="title_no_folder">Mappe eksisterer ikke</string>

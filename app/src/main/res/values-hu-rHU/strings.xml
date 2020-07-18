@@ -673,7 +673,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_camera">Nem elérhető használható kamera alkalmazás</string>
     <string name="title_no_saf">Tárhely hozzáférés keretrendszer nem elérhető</string>
     <string name="title_no_stream">Egy elavult alkalmazás egy fájl elérési utat küldött egy file stream helyett</string>
-    <string name="title_no_contacts">A névjegyválasztó nem elérhető</string>
     <string name="title_no_internet">Nincs vagy nem használható az internet kapcsolat</string>
     <string name="title_no_connection">Csatlakozás egy vagy több fiókhoz &#8230;</string>
     <string name="title_no_folder">A mappa nem létezik</string>
@@ -755,7 +754,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
-    <string name="title_add_image_privacy">Földrajzi hely eltávolítása</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>

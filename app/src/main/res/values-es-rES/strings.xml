@@ -710,7 +710,6 @@
     <string name="title_no_camera">No hay una aplicación de cámara adecuada disponible</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
     <string name="title_no_stream">Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos</string>
-    <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No o ninguna conexión adecuada de Internet</string>
     <string name="title_no_connection">Conectando a una o más cuentas &#8230;</string>
     <string name="title_no_folder">La carpeta no existe</string>
@@ -792,7 +791,6 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_privacy">Eliminar ubicación geográfica</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
@@ -986,7 +984,7 @@
     <string name="title_rule_tts_prefix">Nuevo mensaje</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Asunto</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Texto</string>
+    <string name="title_rule_tts_content">Texto</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>

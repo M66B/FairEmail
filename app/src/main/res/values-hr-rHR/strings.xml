@@ -594,7 +594,6 @@
     <string name="title_no_camera">Nije dostupna odgovarajuća aplikacija za kameru</string>
     <string name="title_no_saf">Storage access framework nije dostupan</string>
     <string name="title_no_stream">Zastarjela aplikacija poslala je put datoteke umjesto sadržaja datoteke</string>
-    <string name="title_no_contacts">Birač kontakata nije dostupan</string>
     <string name="title_no_internet">Nema ili nema prikladne internetske veze</string>
     <string name="title_no_connection">Povezivanje s jednim ili više računa &#8230;</string>
     <string name="title_no_folder">Mapa ne postoji</string>

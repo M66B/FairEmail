@@ -717,7 +717,6 @@
     <string name="title_no_camera">Nu este disponibilă o aplicație de fotografiat</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
-    <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există o conexiune viabilă la Internet</string>
     <string name="title_no_connection">Conectare la unul sau mai multe conturi &#8230;</string>
     <string name="title_no_folder">Dosarul nu există</string>
@@ -799,7 +798,6 @@
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
-    <string name="title_add_image_privacy">Elimină locația geografică</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>

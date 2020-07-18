@@ -359,6 +359,7 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
+    <string name="title_advanced_undo">Отменить таймаут</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -731,7 +732,6 @@
     <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
-    <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_no_internet">Нет или нет подходящего интернет-соединения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям &#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
@@ -813,7 +813,8 @@
     <string name="title_add_image_inline">Вставить</string>
     <string name="title_add_image_attach">Прикрепить</string>
     <string name="title_add_image_resize">Изменить размер</string>
-    <string name="title_add_image_privacy">Удалять место съёмки</string>
+    <string name="title_add_image_privacy">Удалить конфиденциальные данные</string>
+    <string name="title_add_image_privacy_remark">Географическое местоположение, серийные номера и т.п.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикс.</string>
     <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>
@@ -821,6 +822,7 @@
     <string name="title_attachment_photo">Сделать фотографию</string>
     <string name="title_attachment_audio">Записать аудио</string>
     <string name="title_show_addresses">Показать копию/скрытую копию</string>
+    <string name="title_save_drafts">Сохранять черновики на сервере</string>
     <string name="title_send_dialog">Параметры отправки</string>
     <string name="title_image_dialog">Параметры изображения</string>
     <string name="title_media_toolbar">Панель медиа</string>
@@ -1007,7 +1009,7 @@
     <string name="title_rule_tts_prefix">Новое сообщение</string>
     <string name="title_rule_tts_from">От</string>
     <string name="title_rule_tts_subject">Тема</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Текст</string>
+    <string name="title_rule_tts_content">Текст</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>
@@ -1364,6 +1366,13 @@
         <item>10 МБ</item>
         <item>20 МБ</item>
         <item>50 МБ</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Выкл.</item>
+        <item>2.5 с</item>
+        <item>5 с</item>
+        <item>7.5 с</item>
+        <item>10 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

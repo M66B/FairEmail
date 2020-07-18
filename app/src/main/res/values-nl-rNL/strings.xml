@@ -336,6 +336,7 @@
     <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
+    <string name="title_advanced_undo">Herstel time-out</string>
     <string name="title_advanced_quick_filter">Toon niet-opdringerige snelle filterpictogrammen</string>
     <string name="title_advanced_quick_scroll">Toon niet-opdringerige snelle scroll omhoog/omlaag pictogrammen</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
@@ -708,7 +709,6 @@
     <string name="title_no_camera">Geen geschikte camera app beschikbaar</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
-    <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen of geen geschikte internet-verbinding</string>
     <string name="title_no_connection">Verbinding maken met één of meer accounts &#8230;</string>
     <string name="title_no_folder">Map bestaat niet</string>
@@ -790,7 +790,8 @@
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>
     <string name="title_add_image_resize">Grootte aanpassen</string>
-    <string name="title_add_image_privacy">Geografische locatie verwijderen</string>
+    <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
+    <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, enz</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
@@ -798,6 +799,7 @@
     <string name="title_attachment_photo">Foto nemen</string>
     <string name="title_attachment_audio">Geluid opnemen</string>
     <string name="title_show_addresses">Toon CC/BCC</string>
+    <string name="title_save_drafts">Bewaar concepten op de server</string>
     <string name="title_send_dialog">Toon verzendopties</string>
     <string name="title_image_dialog">Toon afbeeldingsopties</string>
     <string name="title_media_toolbar">Media werkbalk</string>
@@ -984,7 +986,7 @@
     <string name="title_rule_tts_prefix">Nieuw bericht</string>
     <string name="title_rule_tts_from">Van</string>
     <string name="title_rule_tts_subject">Onderwerp</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Tekst</string>
+    <string name="title_rule_tts_content">Tekst</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>
@@ -1338,6 +1340,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Uit</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Schrijfletter</item>

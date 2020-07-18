@@ -640,7 +640,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_no_camera">適切なカメラアプリが有りません</string>
     <string name="title_no_saf">ストレージアクセスフレームワークは利用出来ません</string>
     <string name="title_no_stream">古いアプリがファイルストリームでは無くファイルパスを送信しました</string>
-    <string name="title_no_contacts">連絡先ピッカーは利用出来ません</string>
     <string name="title_no_internet">適切なネット接続が有りません</string>
     <string name="title_no_connection">1つ以上のアカウント &#8230; への接続</string>
     <string name="title_no_folder">フォルダーが存在しません</string>
@@ -714,7 +713,6 @@ PlayストアでFairEmailを評価できれば幸いです。
     <string name="title_add_image_inline">挿入</string>
     <string name="title_add_image_attach">添付</string>
     <string name="title_add_image_resize">リサイズ</string>
-    <string name="title_add_image_privacy">位置情報を削除</string>
     <string name="title_add_resize_pixels">&lt; %1$d ピクセル</string>
     <string name="title_add_image_select">ファイル選択</string>
     <string name="title_add_attachment">添付ファイルを追加</string>

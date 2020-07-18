@@ -660,7 +660,6 @@
     <string name="title_no_camera">Primerni program za fotoaparat ni na voljo.</string>
     <string name="title_no_saf">Ogrodje za dostop do pomnilniške naprave ni na voljo.</string>
     <string name="title_no_stream">Zastareli program je poslal pot datoteke namesto pretoka datoteke.</string>
-    <string name="title_no_contacts">Izbirnik stikov ni na voljo.</string>
     <string name="title_no_internet">Ni primerne internetne povezave.</string>
     <string name="title_no_connection">Povezovanje na enega ali več računov &#8230;</string>
     <string name="title_no_folder">Mapa ne obstaja</string>

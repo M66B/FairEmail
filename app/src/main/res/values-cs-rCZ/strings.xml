@@ -731,7 +731,6 @@
     <string name="title_no_camera">Není k dispozici žádná vhodná aplikace fotoaparátu</string>
     <string name="title_no_saf">Rozhraní přístupu k úložišti není k dispozici</string>
     <string name="title_no_stream">Zastaralá aplikace poslala cestu k souboru namísto datového proudu</string>
-    <string name="title_no_contacts">Výběr kontaktů není k dispozici</string>
     <string name="title_no_internet">Žádné nebo nevyhovující internetové připojení</string>
     <string name="title_no_connection">Připojování k jednomu nebo více účtům &#8230;</string>
     <string name="title_no_folder">Složka neexistuje</string>
@@ -813,7 +812,6 @@
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
-    <string name="title_add_image_privacy">Odstranit geografickou polohu</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_add_image_select">Vybrat soubor</string>
     <string name="title_add_attachment">Přidat přílohu</string>
@@ -1007,7 +1005,7 @@
     <string name="title_rule_tts_prefix">Nová zpráva</string>
     <string name="title_rule_tts_from">Od</string>
     <string name="title_rule_tts_subject">Předmět</string>
-    <string name="title_rule_tts_content" comment="title_rule_tts_content&#10;Title before message text that that will be read.">Text</string>
+    <string name="title_rule_tts_content">Text</string>
     <string name="title_legend_section_synchronize">Synchronizace</string>
     <string name="title_legend_section_folders">Složky</string>
     <string name="title_legend_section_messages">Zprávy</string>

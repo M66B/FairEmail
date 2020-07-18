@@ -697,7 +697,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_no_camera">No hi ha disponible cap aplicació de càmera adequada</string>
     <string name="title_no_saf">Marc d\'accés d\'emmagatzematge no disponible</string>
     <string name="title_no_stream">Una aplicació obsoleta enviava una ruta del fitxer en lloc d’un flux de fitxers</string>
-    <string name="title_no_contacts">El selector de contacte no està disponible</string>
     <string name="title_no_internet">Cap connexió a Internet adequada</string>
     <string name="title_no_connection">Connectat a un o més comptes &#8230;</string>
     <string name="title_no_folder">La carpeta no existeix</string>
@@ -779,7 +778,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_add_image_inline">Insereix</string>
     <string name="title_add_image_attach">Adjunta</string>
     <string name="title_add_image_resize">Redimensiona</string>
-    <string name="title_add_image_privacy">Elimina la ubicació geogràfica</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxels</string>
     <string name="title_add_image_select">Selecciona un fitxer</string>
     <string name="title_add_attachment">Afegeix un adjunt</string>
