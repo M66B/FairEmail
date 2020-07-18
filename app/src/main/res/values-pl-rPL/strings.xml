@@ -812,6 +812,8 @@
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
+    <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
+    <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, itp.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>
@@ -819,6 +821,7 @@
     <string name="title_attachment_photo">Zrób zdjęcie</string>
     <string name="title_attachment_audio">Nagraj dźwięk</string>
     <string name="title_show_addresses">Pokaż DW/UDW</string>
+    <string name="title_save_drafts">Zapisz szkice na serwerze</string>
     <string name="title_send_dialog">Pokaż opcje wysyłania</string>
     <string name="title_image_dialog">Pokaż opcje obrazu</string>
     <string name="title_media_toolbar">Pasek mediów</string>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van koppelingen moet voor de veiligheid worden bevestigd.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
+    <string name="app_cake">Onvoldoende opslagruimte over</string>
     <string name="channel_service">Ontvangen</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">Meldingen</string>

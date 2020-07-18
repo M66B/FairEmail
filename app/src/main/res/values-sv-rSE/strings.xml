@@ -6,6 +6,7 @@
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
+    <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
     <string name="channel_service">Ta emot</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">Aviseringar</string>

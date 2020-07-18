@@ -6,6 +6,7 @@
     <string name="app_limitations">Par exemple, les messages seront toujours reformatés afin d’en retirer les éléments non sûrs tout en améliorant leur lisibilité et l’ouverture des liens devra être confirmée par sécurité.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
+    <string name="app_cake">Espace de stockage restant insuffisant</string>
     <string name="channel_service">Réception</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Notifications</string>
@@ -791,6 +792,8 @@
     <string name="title_add_image_inline">Insérer</string>
     <string name="title_add_image_attach">Joindre</string>
     <string name="title_add_image_resize">Redimensionner</string>
+    <string name="title_add_image_privacy">Supprimer les informations confidentielles sensibles</string>
+    <string name="title_add_image_privacy_remark">Informations de géolocalisation, numéros de série, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Sélectionner un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
+    <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="channel_service">Empfangen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Benachrichtigungen</string>
@@ -338,7 +339,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_collapse_multiple">Nachrichten in einem Thema mit mehreren Nachrichten bei „Zurück“ zusammenfassen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
-    <string name="title_advanced_undo">Zeitüberschreitung beim Widerrufen</string>
+    <string name="title_advanced_undo">Anzeigedauer von »Rückgängig«</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
@@ -731,10 +732,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_ask_delete_answer">Antwortvorlage dauerhaft löschen?</string>
     <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
-    <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
-    <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_image_hint">Erkannt Nachverfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
@@ -792,7 +793,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
-    <string name="title_add_image_privacy_remark">Geografischer Standort, Lizenzschlüssel, usw.</string>
+    <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
@@ -1343,10 +1344,10 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     </string-array>
     <string-array name="undoNames">
         <item>Aus</item>
-        <item>2,5 Sek</item>
-        <item>5 Sek.</item>
-        <item>7, 5 Sek.</item>
-        <item>10 Sek.</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7, 5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Например, сообщения всегда будут переформатированы, чтобы удалить небезопасные элементы и улучшить читабельность, а также открытие ссылок требует подтверждения в целях безопасности.</string>
     <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
+    <string name="app_cake">Недостаточно места</string>
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Уведомления</string>
@@ -359,7 +360,7 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
-    <string name="title_advanced_undo">Отменить таймаут</string>
+    <string name="title_advanced_undo">Время отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -1369,10 +1370,10 @@
     </string-array>
     <string-array name="undoNames">
         <item>Выкл.</item>
-        <item>2.5 с</item>
-        <item>5 с</item>
-        <item>7.5 с</item>
-        <item>10 с</item>
+        <item>2.5 сек. </item>
+        <item>5 сек. </item>
+        <item>7.5 сек. </item>
+        <item>10 сек. </item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků které nejsou bezpečné a zároveň pro zlepšení čitelnosti, a otevření odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu \"zpět\" pro ukončení</string>
+    <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="channel_service">Přijmout</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">Oznámení</string>
@@ -359,6 +360,7 @@
     <string name="title_advanced_collapse_multiple">Při pohybu \"zpět\" sbalit zprávy v konverzaci s vícero zprávami</string>
     <string name="title_advanced_autoclose">Zavírat konverzace automaticky</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
+    <string name="title_advanced_undo">Vrátit zpět časový limit</string>
     <string name="title_advanced_quick_filter">Zobrazit neobtěžující ikony pro rychlé filtrování</string>
     <string name="title_advanced_quick_scroll">Zobrazit neobtěžující ikony pro rychlý posun nahoru/dolů</string>
     <string name="title_advanced_autoread">Při přesunu označit zprávy jako přečtené automaticky</string>
@@ -812,6 +814,8 @@
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
+    <string name="title_add_image_privacy">Odebrat citlivé osobní údaje</string>
+    <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, apod.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_add_image_select">Vybrat soubor</string>
     <string name="title_add_attachment">Přidat přílohu</string>
@@ -819,6 +823,7 @@
     <string name="title_attachment_photo">Pořídit fotografii</string>
     <string name="title_attachment_audio">Nahrát zvuk</string>
     <string name="title_show_addresses">Zobrazit kopii/skrytou kopii</string>
+    <string name="title_save_drafts">Ukládat koncepty na serveru</string>
     <string name="title_send_dialog">Zobrazit možnosti odeslání</string>
     <string name="title_image_dialog">Zobrazit možnosti obrázku</string>
     <string name="title_media_toolbar">Panel médií</string>
@@ -1362,6 +1367,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Vyp.</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurzíva</item>
