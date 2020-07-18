@@ -1,8 +1,8 @@
-diff --git a/app/src/main/java/com/sun/mail/imap/IMAPStore.java b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-index 929e82d33..cc9b7cca9 100644
---- a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-+++ b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-@@ -887,18 +887,27 @@ public class IMAPStore extends Store
+diff --git b/app/src/main/java/com/sun/mail/imap/IMAPStore.java a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+index 929e82d33..93aa05e5f 100644
+--- b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
++++ a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+@@ -887,18 +887,26 @@ public class IMAPStore extends Store
  		continue;
  	    }
  
@@ -33,7 +33,6 @@ index 929e82d33..cc9b7cca9 100644
 +			}
 +		} catch (ProtocolException ex) {
 +			if (m.equals("PLAIN") || m.equals("LOGIN")) {
-+				eu.faircode.email.Log.w(ex);
 +				eu.faircode.email.Log.i("Falling back to classic LOGIN");
 +				p.authclassic(user, password);
 +			} else
@@ -42,10 +41,10 @@ index 929e82d33..cc9b7cca9 100644
  	    return;
  	}
  
-diff --git a/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java b/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
+diff --git b/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java a/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
 index a8a88b6c0..ff300bbfd 100644
---- a/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
-+++ b/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
+--- b/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
++++ a/app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
 @@ -627,6 +627,59 @@ public class IMAPProtocol extends Protocol {
  	authenticated = true;
      }

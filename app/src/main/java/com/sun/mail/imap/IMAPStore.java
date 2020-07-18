@@ -902,7 +902,6 @@ public class IMAPStore extends Store
 			}
 		} catch (ProtocolException ex) {
 			if (m.equals("PLAIN") || m.equals("LOGIN")) {
-				eu.faircode.email.Log.w(ex);
 				eu.faircode.email.Log.i("Falling back to classic LOGIN");
 				p.authclassic(user, password);
 			} else
