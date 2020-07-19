@@ -5,7 +5,8 @@
     <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
-    <string name="app_exit">Premi di nuovo \'indietro\' per uscire</string>
+    <string name="app_exit">Premi di nuovo «indietro» per uscire</string>
+    <string name="app_cake">Spazio di archiviazione insufficiente</string>
     <string name="channel_service">Ricevi</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">Notifiche</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
+    <string name="title_advanced_undo">Scadenza dell’annullamento</string>
     <string name="title_advanced_quick_filter">Mostra icone di filtri rapidi non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido non vistose</string>
     <string name="title_advanced_autoread">Segna automaticamente i messaggi come letti quando si spostano</string>
@@ -547,6 +549,7 @@
     <string name="title_no_password">Password mancante</string>
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
+    <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
     <string name="title_no_identities">L\'invio di email richiede almeno un\'identità e una cartella bozze</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
@@ -795,6 +798,7 @@
     <string name="title_attachment_photo">Scatta una foto</string>
     <string name="title_attachment_audio">Registra audio</string>
     <string name="title_show_addresses">Mostra CC/CCN</string>
+    <string name="title_save_drafts">Salva bozze sul server</string>
     <string name="title_send_dialog">Mostra opzioni invio</string>
     <string name="title_image_dialog">Mostra opzioni immagine</string>
     <string name="title_media_toolbar">Barra strumenti media</string>
@@ -981,6 +985,7 @@
     <string name="title_rule_tts_prefix">Nuovo messaggio</string>
     <string name="title_rule_tts_from">Da</string>
     <string name="title_rule_tts_subject">Oggetto</string>
+    <string name="title_rule_tts_content">Testo</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>
@@ -1176,6 +1181,7 @@
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
+    <string name="title_unexpected_info_remark">Descrivi cosa stavi facendo quando l\'errore è successo:</string>
     <string name="title_widget_title_count">Nuovo conteggio dei messaggi</string>
     <string name="title_widget_title_list">Elenco messaggi</string>
     <string name="title_widget_account">Account</string>
@@ -1334,6 +1340,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Disattivato</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Corsivo</item>

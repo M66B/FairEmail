@@ -1346,6 +1346,13 @@
         <item>20 Mo</item>
         <item>50 Mo</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
     <string-array name="fontNameNames">
         <item>Cursiv</item>
         <item>Serif</item>

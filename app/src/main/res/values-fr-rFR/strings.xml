@@ -793,7 +793,7 @@
     <string name="title_add_image_attach">Joindre</string>
     <string name="title_add_image_resize">Redimensionner</string>
     <string name="title_add_image_privacy">Supprimer les informations confidentielles sensibles</string>
-    <string name="title_add_image_privacy_remark">Informations de géolocalisation, numéros de série, etc</string>
+    <string name="title_add_image_privacy_remark">Informations de géolocalisation, numéros de série, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Sélectionner un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
@@ -1346,10 +1346,10 @@
     </string-array>
     <string-array name="undoNames">
         <item>Désactivé</item>
-        <item>2,5 secondes</item>
-        <item>5 secondes</item>
-        <item>7,5 secondes</item>
-        <item>10 secondes</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

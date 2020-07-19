@@ -6,6 +6,7 @@
     <string name="app_limitations">Por ejemplo, el formato de los mensajes siempre será alterado para quitar elementos no seguros y para mejorar la legibilidad, y abrir enlaces debe ser confirmado por seguridad.</string>
     <string name="app_crash">FairEmail no es compatible con este dispositivo porque existen errores en Android que provocan fallos</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
+    <string name="app_cake">Espacio de almacenamiento insuficiente</string>
     <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificaciones</string>
@@ -338,6 +339,7 @@
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
+    <string name="title_advanced_undo">Tiempo de espera para deshacer</string>
     <string name="title_advanced_quick_filter">Mostrar iconos de filtro rápido no intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar iconos rápidos de arriba/abajo no intrusivos</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
@@ -791,6 +793,8 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_privacy">Eliminar datos de privacidad sensibles</string>
+    <string name="title_add_image_privacy_remark">Ubicación geográfica, números de serie, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
@@ -798,6 +802,7 @@
     <string name="title_attachment_photo">Tomar foto</string>
     <string name="title_attachment_audio">Grabar audio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_save_drafts">Guardar borradores en el servidor</string>
     <string name="title_send_dialog">Mostrar opciones de envío</string>
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
@@ -1339,6 +1344,13 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Desactivado</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiva</item>

@@ -6,6 +6,7 @@
     <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
+    <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">Powiadomienia</string>
@@ -358,7 +359,7 @@
     <string name="title_advanced_collapse_multiple">Zwiń wiadomości w rozmowie z wieloma wiadomościami przy \'wstecz\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
-    <string name="title_advanced_undo">Cofnij limit czasu</string>
+    <string name="title_advanced_undo">Ustaw limit czasu dla \"Cofnij\"</string>
     <string name="title_advanced_quick_filter">Pokaż nienatarczywe ikony szybkiego filtrowania</string>
     <string name="title_advanced_quick_scroll">Pokaż nienatarczywe ikony szybkiego przewijania w górę/w dół</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
@@ -1367,9 +1368,9 @@
     </string-array>
     <string-array name="undoNames">
         <item>Wył.</item>
-        <item>2.5 s</item>
+        <item>2,5 s</item>
         <item>5 s</item>
-        <item>7.5 s</item>
+        <item>7,5 s</item>
         <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">

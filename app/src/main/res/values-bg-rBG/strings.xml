@@ -1312,6 +1312,13 @@
         <item>20 MB</item>
         <item>50 MB</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 с</item>
+        <item>5 с</item>
+        <item>7,5 с</item>
+        <item>10 с</item>
+    </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>
         <item>Serif</item>

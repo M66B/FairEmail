@@ -1139,4 +1139,11 @@ Dette vil bidra til å opprettholde en balanse mellom ugunstige og gunstige anme
         <item>Kun S/MIME signering</item>
         <item>S/MIME signer+krypter</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
 </resources>

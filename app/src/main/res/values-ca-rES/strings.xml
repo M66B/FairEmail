@@ -1268,4 +1268,11 @@ La creació i l\'ús de regles és una característica professional.    </string
         <item>Només signar S/MIME</item>
         <item>Signar i xifrar S/MIME</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
 </resources>

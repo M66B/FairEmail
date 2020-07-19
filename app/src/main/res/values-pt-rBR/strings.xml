@@ -145,6 +145,7 @@
     <string name="title_setup_identity">Configuração de identidades</string>
     <string name="title_setup_identity_remark">Para enviar e-mail</string>
     <string name="title_setup_identity_hint">Para mudar o nome, cor, assinatura, etc</string>
+    <string name="title_setup_identity_what">O que é uma identidade?</string>
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
@@ -875,6 +876,7 @@
     <string name="title_legend_section_folders">Pastas</string>
     <string name="title_legend_section_messages">Mensagens</string>
     <string name="title_legend_section_compose">Escrever</string>
+    <string name="title_legend_section_keyboard">Teclado</string>
     <string name="title_legend_oauth">Autorização OAuth</string>
     <string name="title_legend_primary_connected">Conta conectada</string>
     <string name="title_legend_primary_disconnected">Conta desconectada</string>
@@ -1168,5 +1170,12 @@
         <item>Assinaturas PGP + criptografias</item>
         <item>Assinante S/MIME</item>
         <item>Assinaturas S/MIME + criptografias</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
 </resources>

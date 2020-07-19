@@ -268,8 +268,35 @@
     <string name="title_fetching_again">Λήψη του μηνύματος ξανά από το διακομιστή</string>
     <string name="title_boundary_error">Σφάλμα κατά τη λήψη μηνυμάτων από το διακομιστή</string>
     <!-- Thunderbird -->
+    <string-array name="sendDelayedNames">
+        <item>No</item>
+        <item>15 δευτερόλεπτα</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 λεπτά</item>
+        <item>10 minutes</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 kB</item>
+        <item>512 kB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>∞</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>2 minutes</item>
+        <item>5 λεπτά</item>
+        <item>10 minutes</item>
+        <item>20 minutes</item>
+    </string-array>
     <string-array name="linesNames">
         <item>1</item>
         <item>2</item>
@@ -288,5 +315,23 @@
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 kB</item>
+        <item>512 kB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
     </string-array>
 </resources>

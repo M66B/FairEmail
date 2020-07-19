@@ -1109,4 +1109,11 @@
         <item>S/MIME samo za potpis</item>
         <item>S/MIME potpis + šifriranje</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
 </resources>
