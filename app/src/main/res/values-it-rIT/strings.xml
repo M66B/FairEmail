@@ -1104,6 +1104,7 @@
     <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
+    <string name="title_tracking_link">Questo sito web potrebbe tracciarti</string>
     <string name="title_link_http">Il traffico non verrà criptato</string>
     <string name="title_link_https">Il traffico verrà crittografato</string>
     <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>

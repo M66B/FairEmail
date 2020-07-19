@@ -1107,6 +1107,7 @@
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>
     <string name="title_different_link">Titlen og linkadressen er forskellige</string>
+    <string name="title_tracking_link">Dette websted sporer dig muligvis</string>
     <string name="title_link_http">Trafik bliver ikke krypteret</string>
     <string name="title_link_https">Trafik bliver krypteret</string>
     <string name="title_sanitize_link">Fjern sporingsparametre</string>
@@ -1125,6 +1126,7 @@
     <string name="title_add">Tilføj</string>
     <string name="title_browse">Åbn med</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Download</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
     <string name="title_enable">Aktivér</string>

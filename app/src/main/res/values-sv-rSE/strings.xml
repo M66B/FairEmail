@@ -1106,6 +1106,7 @@
     <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_different_link">Titeln och länkadressen är olika</string>
+    <string name="title_tracking_link">Denna webbplats kan spåra dig</string>
     <string name="title_link_http">Trafiken kommer inte att krypteras</string>
     <string name="title_link_https">Trafiken kommer att krypteras</string>
     <string name="title_sanitize_link">Ta bort spårningsparametrar</string>
@@ -1124,6 +1125,7 @@
     <string name="title_add">Lägg till</string>
     <string name="title_browse">Öppna med</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Ladda ned</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
