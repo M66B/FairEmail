@@ -253,7 +253,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.view(getContext(), Uri.parse("https://github.com/disconnectme/disconnect-tracking-protection"), true);
+                Helper.viewFAQ(getContext(), 159);
             }
         });
 

@@ -281,6 +281,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(156) How can I set up an Office365 account?](#user-content-faq156)
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
+* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 
 [I have another question.](#user-content-support)
 
@@ -3131,6 +3132,18 @@ The following apps are open source cameras and audio recorders:
 To record voice notes, etc, the audio recorder needs to support
 [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION).
 Oddly, most audio recorders seem not to support this standard Android action.
+
+<br />
+
+<a name="faq159"></a>
+**(159) What are Disconnect's tracker protection lists?**
+
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+
+After downloading the lists in the privacy settings, the lists can optionally be used:
+
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
 <br />
 
