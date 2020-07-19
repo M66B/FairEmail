@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -66,6 +67,23 @@ public class FixedEditText extends AppCompatEditText {
             super.setSelection(start, stop);
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        try {
+            super.onDraw(canvas);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=39; index=-3
+                  at android.text.DynamicLayout.getBlockIndex(DynamicLayout.java:648)
+                  at android.widget.Editor.drawHardwareAccelerated(Editor.java:1703)
+                  at android.widget.Editor.onDraw(Editor.java:1672)
+                  at android.widget.TextView.onDraw(TextView.java:6914)
+                  at android.view.View.draw(View.java:19200)
+            */
         }
     }
 
