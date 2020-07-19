@@ -42,6 +42,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,7 +68,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swSecure;
     private SwitchCompat swSafeBrowsing;
-    private Button btnSafeBrowsing;
+    private ImageButton ibSafeBrowsing;
 
     private Group grpSafeBrowsing;
 
@@ -101,7 +102,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swSecure = view.findViewById(R.id.swSecure);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
-        btnSafeBrowsing = view.findViewById(R.id.btnSafeBrowsing);
+        ibSafeBrowsing = view.findViewById(R.id.ibSafeBrowsing);
 
         grpSafeBrowsing = view.findViewById(R.id.grpSafeBrowsing);
 
@@ -227,7 +228,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        btnSafeBrowsing.setOnClickListener(new View.OnClickListener() {
+        ibSafeBrowsing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.view(getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
