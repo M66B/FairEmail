@@ -54,7 +54,8 @@ public class DisconnectBlacklist {
             @Override
             public void run() {
                 try {
-                    init(file);
+                    if (file.exists())
+                        init(file);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
