@@ -1412,6 +1412,9 @@ public class HtmlHelper {
     }
 
     static void removeTrackingPixels(Context context, Document document) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean disconnect_images = prefs.getBoolean("disconnect_images", false);
+
         Drawable d = ContextCompat.getDrawable(context, R.drawable.baseline_my_location_24);
         d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
 
@@ -1427,33 +1430,20 @@ public class HtmlHelper {
         sb.append("data:image/png;base64,");
         sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
 
-        // Build list of allowed hosts
-        List<String> hosts = new ArrayList<>();
-        //for (Element img : document.select("img")) {
-        //    String src = img.attr("src");
-        //    if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
-        //        Uri uri = Uri.parse(img.attr("src"));
-        //        String host = uri.getHost();
-        //        if (host != null && !hosts.contains(host))
-        //            hosts.add(host);
-        //    }
-        //}
-
         // Images
         for (Element img : document.select("img")) {
             img.removeAttr("x-tracking");
             String src = img.attr("src");
-            if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
-                Uri uri = Uri.parse(src);
-                String host = uri.getHost();
-                if (host != null && !hosts.contains(host)) {
-                    img.attr("src", sb.toString());
-                    img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
-                    img.attr("height", "24");
-                    img.attr("width", "24");
-                    img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
-                    img.attr("x-tracking", src);
-                }
+            if (TextUtils.isEmpty(src))
+                continue;
+            if (isTrackingPixel(img) ||
+                    (disconnect_images && DisconnectBlacklist.isTracking(Uri.parse(src).getHost()))) {
+                img.attr("src", sb.toString());
+                img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
+                img.attr("height", "24");
+                img.attr("width", "24");
+                img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
+                img.attr("x-tracking", src);
             }
         }
     }

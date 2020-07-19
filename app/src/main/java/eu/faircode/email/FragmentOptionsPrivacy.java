@@ -75,6 +75,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private ImageButton ibDisconnectBlacklist;
     private Button btnDisconnectBlacklist;
     private TextView tvDisconnectBlacklistTime;
+    private SwitchCompat swDisconnectLinks;
+    private SwitchCompat swDisconnectImages;
 
     private Group grpSafeBrowsing;
 
@@ -82,7 +84,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "confirm_links", "browse_links", "confirm_images", "confirm_html",
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
-            "display_hidden", "secure", "safe_browsing"
+            "display_hidden", "secure", "safe_browsing",
+            "disconnect_links", "disconnect_images"
     };
 
     @Override
@@ -111,6 +114,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         ibDisconnectBlacklist = view.findViewById(R.id.ibDisconnectBlacklist);
         btnDisconnectBlacklist = view.findViewById(R.id.btnDisconnectBlacklist);
         tvDisconnectBlacklistTime = view.findViewById(R.id.tvDisconnectBlacklistTime);
+        swDisconnectLinks = view.findViewById(R.id.swDisconnectLinks);
+        swDisconnectImages = view.findViewById(R.id.swDisconnectImages);
 
         grpSafeBrowsing = view.findViewById(R.id.grpSafeBrowsing);
 
@@ -285,6 +290,20 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        swDisconnectLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("disconnect_links", checked).apply();
+            }
+        });
+
+        swDisconnectImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("disconnect_images", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -360,6 +379,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         Long time = DisconnectBlacklist.getTime(getContext());
         DateFormat DF = SimpleDateFormat.getDateTimeInstance();
         tvDisconnectBlacklistTime.setText(time == null ? null : DF.format(time));
+
+        swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
+        swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {

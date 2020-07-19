@@ -448,6 +448,8 @@
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing</string>
     <string name="title_advanced_disconnect_blacklist" translatable="false">Disconnect\'s tracker protection lists</string>
+    <string name="title_advanced_disconnect_links">Use lists to warn about tracking links</string>
+    <string name="title_advanced_disconnect_images">Use lists to recognize tracking images</string>
 
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>

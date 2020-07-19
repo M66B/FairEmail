@@ -5787,6 +5787,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
             ibDifferent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -5888,7 +5890,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                     prefs.edit().putBoolean(uri.getHost() + ".confirm_link", !isChecked).apply();
                 }
             });
@@ -5957,7 +5958,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
-            List<String> categories = DisconnectBlacklist.getCategories(uri.getHost());
+            boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
+            List<String> categories = null;
+            if (disconnect_links)
+                categories = DisconnectBlacklist.getCategories(uri.getHost());
             if (categories != null)
                 tvDisconnectCategories.setText(TextUtils.join(", ", categories));
             tvDisconnect.setVisibility(categories == null ? View.GONE : View.VISIBLE);

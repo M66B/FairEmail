@@ -143,6 +143,18 @@ public class DisconnectBlacklist {
         }
     }
 
+    static boolean isTracking(String host) {
+        if (host == null)
+            return false;
+
+        synchronized (map) {
+            List<String> result = map.get(host.toLowerCase(Locale.ROOT));
+            if (result == null || result.size() == 0)
+                return false;
+            return !result.contains("Content");
+        }
+    }
+
     private static File getFile(Context context) {
         return new File(context.getFilesDir(), "disconnect-blacklist.json");
     }
