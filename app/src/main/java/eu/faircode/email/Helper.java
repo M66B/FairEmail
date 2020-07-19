@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,6 +45,7 @@ import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
@@ -411,10 +413,19 @@ public class Helper {
     }
 
     static boolean isSecure(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean biometrics = prefs.getBoolean("biometrics", false);
-        String pin = prefs.getString("pin", null);
-        return (biometrics || !TextUtils.isEmpty(pin));
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                ContentResolver resolver = context.getContentResolver();
+                int enabled = Settings.System.getInt(resolver, Settings.System.LOCK_PATTERN_ENABLED, 0);
+                return (enabled != 0);
+            } else {
+                KeyguardManager kgm = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+                return (kgm != null && kgm.isDeviceSecure());
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static boolean isOpenKeychainInstalled(Context context) {
