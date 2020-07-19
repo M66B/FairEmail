@@ -23,18 +23,6 @@
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
-    <shortcut
-        android:enabled="false"
-        android:icon="@drawable/ic_shortcut_settings"
-        android:shortcutId="setup"
-        android:shortcutShortLabel="@string/shortcut_setup">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetClass="eu.faircode.email.ActivitySetup"
-            android:targetPackage="eu.faircode.email" />
-        <categories android:name="android.shortcut.conversation" />
-    </shortcut>
-
     <share-target android:targetClass="eu.faircode.email.ActivityMain">
         <category android:name="eu.faircode.email.TEXT_SHARE_TARGET" />
         <data android:mimeType="text/plain" />

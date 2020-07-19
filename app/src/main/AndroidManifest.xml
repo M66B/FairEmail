@@ -141,15 +141,9 @@
 
         <activity
             android:name=".ActivitySetup"
-            android:exported="true"
+            android:exported="false"
             android:launchMode="singleTask"
-            android:parentActivityName=".ActivityMain">
-
-            <intent-filter>
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivitySignature"
