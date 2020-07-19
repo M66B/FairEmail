@@ -3145,6 +3145,11 @@ After downloading the lists in the privacy settings, the lists can optionally be
 * to warn about tracking links on opening links
 * to recognize tracking images in messages
 
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+
+Tracking images will not be recognized when the domain is classified as '*Content*',
+see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
+
 <br />
 
 ## Support
