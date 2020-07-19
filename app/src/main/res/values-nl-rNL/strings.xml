@@ -1106,6 +1106,7 @@
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
+    <string name="title_tracking_link">Deze website kan je volgen</string>
     <string name="title_link_http">Verkeer wordt niet versleuteld</string>
     <string name="title_link_https">Verkeer wordt versleuteld</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>
@@ -1124,6 +1125,7 @@
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Downloaden</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>

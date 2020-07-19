@@ -6,6 +6,7 @@
     <string name="app_limitations">Berjochten wurde bygelyks altyd herformateare om ûnfeilige eleminten te ferwiderjen en lêsberens te ferbetterjen, en iepeningslinks moatte wurde befestige foar feiligens.</string>
     <string name="app_crash">FailEmail wurdt net stipe op dit apparaat om\'t bugs yn Android crashes feroarsaakje</string>
     <string name="app_exit">Gean \'werom\' opnij om út te gean</string>
+    <string name="channel_service">Ûntfangen</string>
     <string name="channel_send">Stjoere</string>
     <string name="channel_notification">Notifikaasjes</string>
     <string name="channel_update">Bywurken</string>
@@ -126,10 +127,12 @@
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
+    <string name="title_setup_advanced_options">Avansearre opsjes sjen litte</string>
     <string name="title_setup_inbox">Gean nei berjochten</string>
     <string name="title_setup_go">Gean</string>
     <string name="title_setup_to_do">Dwaan</string>
     <string name="title_setup_done">Dien</string>
+    <string name="title_setup_still">Noch te dwaan</string>
     <string name="title_setup_error">Fersin</string>
     <string name="title_setup_export">Ynstellings eksportearje</string>
     <string name="title_setup_import">Ynstellings ymportearje</string>
@@ -217,6 +220,7 @@
     <string name="title_advanced_notify_action_snooze">Snooze</string>
     <string name="title_advanced_confirm_images">Befêstigje werjaan fan ôfbyldings</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_openpgp">OpenPGP-provider</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
     <string name="title_advanced_conversation_actions">Hannelje aksjes foar</string>
     <string name="title_advanced_debug">Debug mode</string>
@@ -255,7 +259,10 @@
     <string name="title_review">Resinsje</string>
     <string name="title_synchronize_now">Syngronisearje no</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
+    <string name="title_empty_trash">Lege jiskefet</string>
+    <string name="title_empty_spam">Spam leech</string>
     <string name="title_edit_rules">Bewurkje regel</string>
+    <string name="title_insert_contact">Kontakt tafoegje</string>
     <string name="title_folder_name">Map namme</string>
     <string name="title_display_name">Display namme</string>
     <string name="title_show_folders">Sjoch ferburgen mappen</string>
@@ -263,6 +270,8 @@
     <string name="title_hide_folder">Map ferbergje</string>
     <string name="title_unified_folder">Lit sjen yn unifoarme postfak</string>
     <string name="title_navigation_folder">Lit sjen yn navigaasjemenu</string>
+    <string name="title_months">Moanne</string>
+    <string name="title_months_all">Alle</string>
     <string name="title_folder_unified">Unifieare postfak</string>
     <string name="title_folder_inbox">Postfek YN</string>
     <string name="title_folder_outbox">Utfak</string>
@@ -292,6 +301,7 @@
     <string name="title_new_message">Nij berjocht</string>
     <string name="title_editasnew">Bewurkje as nij</string>
     <string name="title_share">Diele</string>
+    <string name="title_event">Tafoegje oan aginda</string>
     <string name="title_pin">Fluchkeppeling tafoegje</string>
     <string name="title_print">Ôfdrukke</string>
     <string name="title_show_headers">Sjoch kopteksten</string>
@@ -301,12 +311,15 @@
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_trash">Jiskefet</string>
     <string name="title_copy">Kopy &#8230;</string>
+    <string name="title_copy_to">Kopy &#8230;</string>
     <string name="title_subscribe">Ynskriuwe</string>
     <string name="title_delete">Ferwiderje</string>
     <string name="title_more">Mear</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Ferpleatse</string>
+    <string name="title_copy_btn">Kopiearje</string>
     <string name="title_no_junk">Net spam</string>
+    <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_archive">Argyf</string>
     <string name="title_reply">Antwurdzje</string>
     <string name="title_open_with">Iepenje mei</string>
@@ -334,10 +347,16 @@
     <string name="title_send_via">Stjoer fia</string>
     <string name="title_send_encryption">Fersifering</string>
     <string name="title_send_priority">Prioriteit</string>
+    <string name="title_style">Styl</string>
     <string name="title_style_bold">Dryst</string>
     <string name="title_style_italic">Kursyf</string>
     <string name="title_style_underline">Ûnderstreekje</string>
     <string name="title_style_size">Grutte</string>
+    <string name="title_style_size_small">Lyts</string>
+    <string name="title_style_size_medium">Medium</string>
+    <string name="title_style_size_large">Grutte</string>
+    <string name="title_style_font">Lettertypen</string>
+    <string name="title_style_font_default">Standert</string>
     <string name="title_style_link">Link ynfoegje</string>
     <string name="title_attachment_file">Heakje bestân ta</string>
     <string name="title_attachment_photo">Nim foto</string>
@@ -354,6 +373,12 @@
     <string name="title_signature_validity">Jildigens</string>
     <string name="title_signature_store">Bewarje</string>
     <string name="title_search">Sykje</string>
+    <string name="title_search_with_unseen">Net lêzen</string>
+    <string name="title_search_with_flagged">Stjer</string>
+    <string name="title_search_flag_unseen">net lêzen</string>
+    <string name="title_search_flag_flagged">stjer</string>
+    <string name="title_search_flag_hidden">ferburgen</string>
+    <string name="title_search_flag_encrypted">fersifere</string>
     <string name="title_search_in">Sykje yn</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
@@ -376,6 +401,7 @@
     <string name="title_select_all">Alles selektearje</string>
     <string name="title_select_found">Selektearje fûn</string>
     <string name="title_force_sync">Krêft syngronisearje</string>
+    <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
     <string name="title_answer_favorite">Favoryt</string>
@@ -403,10 +429,14 @@
     <string name="title_rule_identity">Identiteit</string>
     <string name="title_rule_execute">No útfiere</string>
     <string name="title_rule_check">Kontrolearje</string>
+    <string name="title_rule_tts_from">Fan</string>
+    <string name="title_rule_tts_subject">Ûnderwerp</string>
+    <string name="title_rule_tts_content">Tekst</string>
     <string name="title_legend_section_synchronize">Syngronisearje</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berjochten</string>
     <string name="title_legend_section_compose">Gearstalle</string>
+    <string name="title_legend_section_keyboard">Toetseboerd</string>
     <string name="title_legend_primary_connected">Akkount ferbûn</string>
     <string name="title_legend_primary_disconnected">Akkount net ferbûn</string>
     <string name="title_legend_disconnected">Verbroken ferbine</string>
@@ -454,6 +484,12 @@
     <string name="title_legend_delete">Ferwiderje</string>
     <string name="title_legend_count">Telle</string>
     <string name="title_legend_folder_type">Map type</string>
+    <string name="title_legend_enter">Iepenje</string>
+    <string name="title_legend_a">Argyf</string>
+    <string name="title_legend_c">Gearstalle</string>
+    <string name="title_legend_n">Folgjende</string>
+    <string name="title_legend_p">Foarige</string>
+    <string name="title_legend_r">Antwurdzje</string>
     <string name="title_hint_important">Belangryk</string>
     <string name="title_open_link">Open link</string>
     <string name="title_check_owner">Kontrolearje eigner</string>
@@ -466,6 +502,7 @@
     <string name="title_add">Tafoegje</string>
     <string name="title_browse">Iepenje mei</string>
     <string name="title_info">Ynfo</string>
+    <string name="title_download">Download</string>
     <string name="title_report">Melde</string>
     <string name="title_fix">Meitsje</string>
     <string name="title_enable">Ynskeakele</string>
@@ -483,6 +520,7 @@
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Wegerje</string>
     <string name="title_snooze_now">Snooze</string>
+    <string name="title_conversation_actions">Aksje</string>
     <string name="title_conversation_action_copy">Kopiearje: %1$s</string>
     <string name="title_icalendar_accept">Akseptearje</string>
     <string name="title_icalendar_decline">Efterútgong</string>
@@ -499,6 +537,8 @@
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
+    <string name="title_widget_font_size">Tekstgrutte</string>
+    <string name="title_widget_background">Eftergrûnkleur</string>
     <string name="title_accessibility_collapsed">Ynsakje</string>
     <string name="title_accessibility_expanded">Utwreidzje</string>
     <string name="title_accessibility_seen">Lêze</string>
@@ -508,6 +548,10 @@
         <item quantity="other">%1$d berjochten</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Belangryk</string>
+    <string name="title_keyword_label2">Wurk</string>
+    <string name="title_keyword_label4">Dwaan</string>
+    <string name="title_keyword_label5">Letter</string>
     <string name="title_accessibility_flagged">Stjer</string>
     <string name="title_accessibility_unflagged">Unstjerre</string>
     <string name="title_accessibility_collapse">Ynsakje</string>
@@ -627,5 +671,18 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursive</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
     </string-array>
 </resources>

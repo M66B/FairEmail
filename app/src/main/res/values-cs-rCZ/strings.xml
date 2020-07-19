@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail je e-mailový klient s otevřeným zdrojovým kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
     <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků které nejsou bezpečné a zároveň pro zlepšení čitelnosti, a otevření odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
-    <string name="app_exit">Znovu \"zpět\" pro ukončení</string>
+    <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="channel_service">Přijmout</string>
     <string name="channel_send">Odesílání</string>

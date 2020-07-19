@@ -1105,6 +1105,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hint_eml">Das ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichernsymbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
+    <string name="title_tracking_link">Diese Website könnte Sie verfolgen</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>
     <string name="title_link_https">Datenverkehr wird verschlüsselt</string>
     <string name="title_sanitize_link">Nachverfolgungsparameter entfernen</string>
@@ -1123,6 +1124,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Öffnen mit</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Herunterladen</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>

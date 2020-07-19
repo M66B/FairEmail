@@ -1095,6 +1095,7 @@
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
+    <string name="title_tracking_link">此网站可能会跟踪你</string>
     <string name="title_link_http">流量不会被加密</string>
     <string name="title_link_https">流量将被加密</string>
     <string name="title_sanitize_link">删除跟踪参数</string>
@@ -1113,6 +1114,7 @@
     <string name="title_add">添加</string>
     <string name="title_browse">打开方式</string>
     <string name="title_info">信息</string>
+    <string name="title_download">下载</string>
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>

@@ -1107,6 +1107,7 @@
     <string name="title_hint_eml">Ceci est l’aperçu du contenu d’un fichier de message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>
+    <string name="title_tracking_link">Ce site web pourrait vous pister</string>
     <string name="title_link_http">Le trafic ne sera pas chiffré</string>
     <string name="title_link_https">Le trafic sera chiffré</string>
     <string name="title_sanitize_link">Supprimer les paramètres de pistage</string>
@@ -1125,6 +1126,7 @@
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Ouvrir avec</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>

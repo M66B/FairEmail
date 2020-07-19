@@ -31,7 +31,7 @@
     <string name="shortcut_compose">Skriv</string>
     <string name="shortcut_setup">Indstillinger</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Monitorere %1$d konto</item>
+        <item quantity="one">Monitorerer %1$d konto</item>
         <item quantity="other">Monitorere %1$d konti</item>
     </plurals>
     <plurals name="title_notification_operations">
