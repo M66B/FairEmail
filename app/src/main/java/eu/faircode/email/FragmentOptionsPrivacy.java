@@ -65,8 +65,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmHtml;
     private SwitchCompat swDisableTracking;
     private SwitchCompat swHideTimeZone;
-    private Button btnBiometrics;
     private Button btnPin;
+    private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swSecure;
@@ -81,7 +81,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "confirm_links", "browse_links", "confirm_images", "confirm_html",
             "disable_tracking", "hide_timezone",
-            "biometrics", "pin", "biometrics_timeout",
+            "pin", "biometrics", "biometrics_timeout",
             "display_hidden", "secure", "safe_browsing"
     };
 
@@ -101,8 +101,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmHtml = view.findViewById(R.id.swConfirmHtml);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swHideTimeZone = view.findViewById(R.id.swHideTimeZone);
-        btnBiometrics = view.findViewById(R.id.btnBiometrics);
         btnPin = view.findViewById(R.id.btnPin);
+        btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swSecure = view.findViewById(R.id.swSecure);
@@ -163,6 +163,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        btnPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogPin fragment = new FragmentDialogPin();
+                fragment.show(getParentFragmentManager(), "pin");
+            }
+        });
+
         btnBiometrics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,14 +198,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                         // Do nothing
                     }
                 });
-            }
-        });
-
-        btnPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentDialogPin fragment = new FragmentDialogPin();
-                fragment.show(getParentFragmentManager(), "pin");
             }
         });
 
