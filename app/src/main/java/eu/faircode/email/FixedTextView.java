@@ -203,4 +203,32 @@ public class FixedTextView extends AppCompatTextView {
             return false;
         }
     }
+
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        try {
+            super.setText(text, type);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IndexOutOfBoundsException:
+                  at android.text.PackedIntVector.getValue (PackedIntVector.java:71)
+                  at android.text.DynamicLayout.getLineTop (DynamicLayout.java:602)
+                  at android.text.Layout.getLineBottom (Layout.java:1260)
+                  at android.widget.TextView.invalidateRegion (TextView.java:5379)
+                  at android.widget.TextView.invalidateCursor (TextView.java:5348)
+                  at android.widget.TextView.spanChange (TextView.java:8351)
+                  at android.widget.TextView$ChangeWatcher.onSpanAdded (TextView.java:10550)
+                  at android.text.SpannableStringInternal.sendSpanAdded (SpannableStringInternal.java:315)
+                  at android.text.SpannableStringInternal.setSpan (SpannableStringInternal.java:138)
+                  at android.text.SpannableString.setSpan (SpannableString.java:46)
+                  at android.text.Selection.setSelection (Selection.java:76)
+                  at android.text.Selection.setSelection (Selection.java:87)
+                  at android.text.method.ArrowKeyMovementMethod.initialize (ArrowKeyMovementMethod.java:336)
+                  at android.widget.TextView.setText (TextView.java:4555)
+                  at android.widget.TextView.setText (TextView.java:4424)
+                  at android.widget.TextView.setText (TextView.java:4379)
+             */
+        }
+    }
 }
