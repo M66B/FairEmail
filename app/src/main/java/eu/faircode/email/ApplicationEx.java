@@ -114,6 +114,8 @@ public class ApplicationEx extends Application {
         MessageHelper.setSystemProperties(this);
         ContactInfo.init(this);
 
+        DisconnectBlacklist.init(this);
+
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
 

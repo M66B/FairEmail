@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.SystemClock;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,14 +32,85 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class DisconnectBlacklist {
+    private static final Map<String, List<String>> map = new HashMap<>();
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "disconnect");
+
     private final static int FETCH_TIMEOUT = 20 * 1000; // milliseconds
     private final static String LIST = "https://raw.githubusercontent.com/disconnectme/disconnect-tracking-protection/master/services.json";
+
+    static void init(Context context) {
+        final File file = getFile(context);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    init(file);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+    }
+
+    private static void init(File file) throws IOException, JSONException {
+        synchronized (map) {
+            long start = SystemClock.elapsedRealtime();
+
+            map.clear();
+
+            String json = Helper.readText(file);
+            JSONObject jdisconnect = new JSONObject(json);
+            JSONObject jcategories = (JSONObject) jdisconnect.get("categories");
+            Iterator<String> categories = jcategories.keys();
+            while (categories.hasNext()) {
+                String category = categories.next();
+                JSONArray jcategory = jcategories.getJSONArray(category);
+                for (int c = 0; c < jcategory.length(); c++) {
+                    JSONObject jblock = (JSONObject) jcategory.get(c);
+                    Iterator<String> names = jblock.keys();
+                    if (names.hasNext()) {
+                        String name = names.next();
+                        JSONObject jsites = (JSONObject) jblock.get(name);
+                        Iterator<String> sites = jsites.keys();
+                        if (sites.hasNext()) {
+                            List<String> domains = new ArrayList<>();
+
+                            String site = sites.next();
+                            String host = Uri.parse(site).getHost();
+                            if (host != null)
+                                domains.add(host.toLowerCase(Locale.ROOT));
+
+                            JSONArray jdomains = jsites.getJSONArray(site);
+                            for (int d = 0; d < jdomains.length(); d++)
+                                domains.add(jdomains.getString(d).toLowerCase(Locale.ROOT));
+
+                            for (String domain : domains) {
+                                if (!map.containsKey(domain))
+                                    map.put(domain, new ArrayList<>());
+                                List<String> list = map.get(domain);
+                                if (!list.contains(category))
+                                    list.add(category);
+                            }
+                        }
+                    }
+                }
+            }
+
+            long elapsed = SystemClock.elapsedRealtime() - start;
+            Log.i("Disconnect domains=" + map.size() + " elapsed=" + elapsed + " ms");
+        }
+    }
 
     static void download(Context context) throws IOException, JSONException {
         File file = getFile(context);
@@ -57,53 +129,18 @@ public class DisconnectBlacklist {
         } finally {
             connection.disconnect();
         }
+
+        init(file);
     }
 
-    static List<String> getCategories(String domain, Context context) throws IOException, JSONException {
+    static List<String> getCategories(String domain) {
         if (domain == null)
             return null;
 
-        File file = getFile(context);
-        if (!file.exists())
-            return null;
-
-        List<String> result = new ArrayList<>();
-
-        String json = Helper.readText(file);
-        JSONObject jdisconnect = new JSONObject(json);
-        JSONObject jcategories = (JSONObject) jdisconnect.get("categories");
-        Iterator<String> categories = jcategories.keys();
-        while (categories.hasNext()) {
-            String category = categories.next();
-            JSONArray jcategory = jcategories.getJSONArray(category);
-            for (int c = 0; c < jcategory.length(); c++) {
-                JSONObject jblock = (JSONObject) jcategory.get(c);
-                Iterator<String> names = jblock.keys();
-                if (names.hasNext()) {
-                    String name = names.next();
-                    JSONObject jsites = (JSONObject) jblock.get(name);
-                    Iterator<String> sites = jsites.keys();
-                    if (sites.hasNext()) {
-                        List<String> domains = new ArrayList<>();
-
-                        String site = sites.next();
-                        String host = Uri.parse(site).getHost();
-                        if (host != null)
-                            domains.add(host);
-
-                        JSONArray jdomains = jsites.getJSONArray(site);
-                        for (int d = 0; d < jdomains.length(); d++)
-                            domains.add(jdomains.getString(d));
-
-                        for (String d : domains)
-                            if (domain.equalsIgnoreCase(d) && !result.contains(category))
-                                result.add(category);
-                    }
-                }
-            }
+        synchronized (map) {
+            List<String> result = map.get(domain.toLowerCase(Locale.ROOT));
+            return (result == null || result.size() == 0 ? null : result);
         }
-
-        return (result.size() == 0 ? null : result);
     }
 
     private static File getFile(Context context) {

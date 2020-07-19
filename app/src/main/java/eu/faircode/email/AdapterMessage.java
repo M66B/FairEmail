@@ -5957,36 +5957,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
 
-            Bundle args = new Bundle();
-            args.putParcelable("uri", uri);
-
-            new SimpleTask<List<String>>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    tvDisconnect.setVisibility(View.GONE);
-                    tvDisconnectCategories.setVisibility(View.GONE);
-                }
-
-                @Override
-                protected List<String> onExecute(Context context, Bundle args) throws Throwable {
-                    Uri uri = args.getParcelable("uri");
-                    return DisconnectBlacklist.getCategories(uri.getHost(), context);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<String> data) {
-                    if (data != null) {
-                        tvDisconnectCategories.setText(TextUtils.join(", ", data));
-                        tvDisconnect.setVisibility(View.VISIBLE);
-                        tvDisconnectCategories.setVisibility(View.VISIBLE);
-                    }
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(getContext(), getViewLifecycleOwner(), args, "disconnect");
+            List<String> categories = DisconnectBlacklist.getCategories(uri.getHost());
+            if (categories != null)
+                tvDisconnectCategories.setText(TextUtils.join(", ", categories));
+            tvDisconnect.setVisibility(categories == null ? View.GONE : View.VISIBLE);
+            tvDisconnectCategories.setVisibility(categories == null ? View.GONE : View.VISIBLE);
 
             final Context context = getContext();
 
