@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.SystemClock;
 
 import org.json.JSONArray;
@@ -84,18 +83,10 @@ public class DisconnectBlacklist {
                         JSONObject jsites = (JSONObject) jblock.get(name);
                         Iterator<String> sites = jsites.keys();
                         if (sites.hasNext()) {
-                            List<String> domains = new ArrayList<>();
-
                             String site = sites.next();
-                            String host = Uri.parse(site).getHost();
-                            if (host != null)
-                                domains.add(host.toLowerCase(Locale.ROOT));
-
                             JSONArray jdomains = jsites.getJSONArray(site);
-                            for (int d = 0; d < jdomains.length(); d++)
-                                domains.add(jdomains.getString(d).toLowerCase(Locale.ROOT));
-
-                            for (String domain : domains) {
+                            for (int d = 0; d < jdomains.length(); d++) {
+                                String domain = jdomains.getString(d).toLowerCase(Locale.ROOT);
                                 if (!map.containsKey(domain))
                                     map.put(domain, new ArrayList<>());
                                 List<String> list = map.get(domain);
@@ -134,25 +125,32 @@ public class DisconnectBlacklist {
     }
 
     static List<String> getCategories(String domain) {
+        return _getCategories(domain);
+    }
+
+    static boolean isTracking(String host) {
+        List<String> categories = _getCategories(host);
+        if (categories == null || categories.size() == 0)
+            return false;
+        return !categories.contains("Content");
+    }
+
+    private static List<String> _getCategories(String domain) {
         if (domain == null)
             return null;
 
         synchronized (map) {
-            List<String> result = map.get(domain.toLowerCase(Locale.ROOT));
-            return (result == null || result.size() == 0 ? null : result);
+            String d = domain.toLowerCase(Locale.ROOT);
+            while (d.contains(".")) {
+                List<String> result = map.get(d);
+                if (result != null)
+                    return result;
+                int dot = d.indexOf(".");
+                d = d.substring(dot + 1);
+            }
         }
-    }
 
-    static boolean isTracking(String host) {
-        if (host == null)
-            return false;
-
-        synchronized (map) {
-            List<String> result = map.get(host.toLowerCase(Locale.ROOT));
-            if (result == null || result.size() == 0)
-                return false;
-            return !result.contains("Content");
-        }
+        return null;
     }
 
     private static File getFile(Context context) {
