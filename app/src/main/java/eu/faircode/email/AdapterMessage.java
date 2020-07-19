@@ -5772,6 +5772,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final TextView tvTitle = dview.findViewById(R.id.tvTitle);
             final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
             final EditText etLink = dview.findViewById(R.id.etLink);
+            final TextView tvDisconnect = dview.findViewById(R.id.tvDisconnect);
             final ImageButton ibShare = dview.findViewById(R.id.ibShare);
             final ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
             final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
@@ -5954,6 +5955,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     uriTitle == null || uriTitle.getHost() == null ||
                     uriTitle.getHost().equalsIgnoreCase(uri.getHost())
                     ? View.GONE : View.VISIBLE);
+
+            Bundle args = new Bundle();
+            args.putParcelable("uri", uri);
+
+            new SimpleTask<List<String>>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    tvDisconnect.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected List<String> onExecute(Context context, Bundle args) throws Throwable {
+                    Uri uri = args.getParcelable("uri");
+                    return DisconnectBlacklist.getCategories(uri.getHost(), context);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<String> data) {
+                    tvDisconnect.setText(data == null ? null : TextUtils.join(", ", data));
+                    tvDisconnect.setVisibility(data == null ? View.GONE : View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(getContext(), getViewLifecycleOwner(), args, "disconnect");
 
             final Context context = getContext();
 

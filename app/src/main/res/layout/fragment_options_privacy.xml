@@ -285,6 +285,49 @@
             app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing"
             app:srcCompat="@drawable/baseline_info_24" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDisconnectBlacklist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_disconnect_blacklist"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ibSafeBrowsing" />
+
+        <ImageButton
+            android:id="@+id/ibDisconnectBlacklist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDisconnectBlacklist"
+            app:srcCompat="@drawable/baseline_info_24" />
+
+        <Button
+            android:id="@+id/btnDisconnectBlacklist"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_download"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDisconnectBlacklist" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDisconnectBlacklistTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="July 19, 11:30 AM"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDisconnectBlacklist" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpSafeBrowsing"
             android:layout_width="0dp"

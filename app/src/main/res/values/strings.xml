@@ -447,6 +447,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing</string>
+    <string name="title_advanced_disconnect_blacklist" translatable="false">Disconnect\'s tracker protection lists</string>
 
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>
@@ -1267,6 +1268,7 @@
     <string name="title_add">Add</string>
     <string name="title_browse">Open with</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Download</string>
     <string name="title_report">Report</string>
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
