@@ -145,4 +145,55 @@ public class FixedRecyclerView extends RecyclerView {
             return false;
         }
     }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        try {
+            super.onLayout(changed, l, t, r, b);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IllegalArgumentException: Comparison method violates its general contract!
+                        at java.util.TimSort.mergeHi(TimSort.java:864)
+                        at java.util.TimSort.mergeAt(TimSort.java:481)
+                        at java.util.TimSort.mergeForceCollapse(TimSort.java:422)
+                        at java.util.TimSort.sort(TimSort.java:219)
+                        at java.util.TimSort.sort(TimSort.java:169)
+                        at java.util.Arrays.sort(Arrays.java:2010)
+                        at java.util.Collections.sort(Collections.java:1883)
+                        at android.view.ViewGroup$ChildListForAccessibility.init(ViewGroup.java:7181)
+                        at android.view.ViewGroup$ChildListForAccessibility.obtain(ViewGroup.java:7138)
+                        at android.view.ViewGroup.dispatchPopulateAccessibilityEventInternal(ViewGroup.java:2734)
+                        at android.view.View.dispatchPopulateAccessibilityEvent(View.java:5617)
+                        at android.view.ViewGroup.dispatchPopulateAccessibilityEventInternal(ViewGroup.java:2740)
+                        at android.view.View.dispatchPopulateAccessibilityEvent(View.java:5617)
+                        at android.view.ViewGroup.dispatchPopulateAccessibilityEventInternal(ViewGroup.java:2740)
+                        at android.view.View$AccessibilityDelegate.dispatchPopulateAccessibilityEvent(View.java:21273)
+                        at android.view.View.dispatchPopulateAccessibilityEvent(View.java:5615)
+                        at android.view.View.sendAccessibilityEventUncheckedInternal(View.java:5582)
+                        at android.view.View$AccessibilityDelegate.sendAccessibilityEventUnchecked(View.java:21252)
+                        at android.view.View.sendAccessibilityEventUnchecked(View.java:5564)
+                        at android.view.View.sendAccessibilityEventInternal(View.java:5543)
+                        at android.view.View$AccessibilityDelegate.sendAccessibilityEvent(View.java:21210)
+                        at android.view.View.sendAccessibilityEvent(View.java:5510)
+                        at android.view.View.onFocusChanged(View.java:5449)
+                        at android.view.View.handleFocusGainInternal(View.java:5229)
+                        at android.view.ViewGroup.handleFocusGainInternal(ViewGroup.java:651)
+                        at android.view.View.requestFocusNoSearch(View.java:7950)
+                        at android.view.View.requestFocus(View.java:7929)
+                        at android.view.ViewGroup.requestFocus(ViewGroup.java:2612)
+                        at android.view.ViewGroup.onRequestFocusInDescendants(ViewGroup.java:2657)
+                        at android.view.ViewGroup.requestFocus(ViewGroup.java:2613)
+                        at android.view.ViewGroup.onRequestFocusInDescendants(ViewGroup.java:2657)
+                        at android.view.ViewGroup.requestFocus(ViewGroup.java:2613)
+                        at android.view.View.requestFocus(View.java:7896)
+                        at android.view.View.requestFocus(View.java:7875)
+                        at androidx.recyclerview.widget.RecyclerView.recoverFocusFromState(SourceFile:4074)
+                        at androidx.recyclerview.widget.RecyclerView.dispatchLayoutStep3(SourceFile:4313)
+                        at androidx.recyclerview.widget.RecyclerView.dispatchLayout(SourceFile:3937)
+                        at androidx.recyclerview.widget.RecyclerView.onLayout(SourceFile:4484)
+                        at android.view.View.layout(View.java:16076)
+             */
+        }
+    }
 }
