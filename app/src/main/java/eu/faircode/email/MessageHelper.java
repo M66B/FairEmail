@@ -303,8 +303,11 @@ public class MessageHelper {
 
                         final ContentType cts = new ContentType(attachment.type);
                         String micalg = cts.getParameter("micalg");
-                        if (TextUtils.isEmpty(micalg))
-                            Log.e("PGP micalg missing");
+                        if (TextUtils.isEmpty(micalg)) {
+                            // Some providers strip parameters
+                            // https://tools.ietf.org/html/rfc3156#section-5
+                            Log.w("PGP micalg missing type=" + attachment.type);
+                        }
                         ParameterList params = cts.getParameterList();
                         if (params != null)
                             params.remove("micalg");
@@ -389,7 +392,8 @@ public class MessageHelper {
                         final ContentType cts = new ContentType(attachment.type);
                         String micalg = cts.getParameter("micalg");
                         if (TextUtils.isEmpty(micalg)) {
-                            Log.e("S/MIME micalg missing type=" + attachment.type);
+                            // Some providers strip parameters
+                            Log.w("S/MIME micalg missing type=" + attachment.type);
                             micalg = "sha-256";
                         }
                         ParameterList params = cts.getParameterList();
