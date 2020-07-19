@@ -38,7 +38,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DisconnectBlacklist {
     private final static int FETCH_TIMEOUT = 20 * 1000; // milliseconds
-    private final static String LIST = "https://raw.githubusercontent.com/mozilla-services/shavar-prod-lists/master/disconnect-blacklist.json";
+    private final static String LIST = "https://raw.githubusercontent.com/disconnectme/disconnect-tracking-protection/master/services.json";
 
     static void download(Context context) throws IOException, JSONException {
         File file = getFile(context);

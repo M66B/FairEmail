@@ -1250,6 +1250,7 @@
 
     <string name="title_open_link">Open link</string>
     <string name="title_different_link">The title and the link address are different</string>
+    <string name="title_tracking_link">This website might track you</string>
     <string name="title_link_http">Traffic will not be encrypted</string>
     <string name="title_link_https">Traffic will be encrypted</string>
     <string name="title_sanitize_link">Remove tracking parameters</string>

@@ -5773,6 +5773,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
             final EditText etLink = dview.findViewById(R.id.etLink);
             final TextView tvDisconnect = dview.findViewById(R.id.tvDisconnect);
+            final TextView tvDisconnectCategories = dview.findViewById(R.id.tvDisconnectCategories);
             final ImageButton ibShare = dview.findViewById(R.id.ibShare);
             final ImageButton ibCopy = dview.findViewById(R.id.ibCopy);
             final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
@@ -5963,6 +5964,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onPreExecute(Bundle args) {
                     tvDisconnect.setVisibility(View.GONE);
+                    tvDisconnectCategories.setVisibility(View.GONE);
                 }
 
                 @Override
@@ -5973,8 +5975,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, List<String> data) {
-                    tvDisconnect.setText(data == null ? null : TextUtils.join(", ", data));
-                    tvDisconnect.setVisibility(data == null ? View.GONE : View.VISIBLE);
+                    if (data != null) {
+                        tvDisconnectCategories.setText(TextUtils.join(", ", data));
+                        tvDisconnect.setVisibility(View.VISIBLE);
+                        tvDisconnectCategories.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 @Override
