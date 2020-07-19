@@ -151,7 +151,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
 * [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images instead?](#user-content-faq27)
+* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
 * [(30) How can I use the provided quick settings?](#user-content-faq30)
@@ -273,7 +273,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(148) How can I use an Apple iCloud account?](#user-content-faq148)
 * [(149) How does the unread message count widget work?](#user-content-faq149)
 * [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore messages?](#user-content-faq151)
+* [(151) Can you add backup/restore of messages?](#user-content-faq151)
 * [(152) How can I insert a contact group?](#user-content-faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
@@ -1093,7 +1093,7 @@ Registration is free.
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images instead?**
+**(27) How can I distinguish between embedded and external images?**
 
 External image:
 
@@ -3040,7 +3040,7 @@ Unfortunately, there exists no intent to delete existing calendar events.
 <br />
 
 <a name="faq151"></a>
-**(151) Can you add backup/restore messages?**
+**(151) Can you add backup/restore of messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages.
 Note that breaking or losing your device, means losing your messages!
