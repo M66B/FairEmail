@@ -501,7 +501,8 @@ public class ContactInfo {
                         "Connection closed by peer".equals(ex.getMessage())) ||
                 (ex instanceof SSLHandshakeException &&
                         ex.getMessage() != null &&
-                        ex.getMessage().contains("usually a protocol error")) ||
+                        (ex.getMessage().contains("usually a protocol error") ||
+                                ex.getMessage().contains("Unacceptable certificate"))) ||
                 (ex instanceof SSLHandshakeException &&
                         (ex.getCause() instanceof SSLProtocolException ||
                                 ex.getCause() instanceof CertificateException ||
