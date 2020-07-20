@@ -21,11 +21,8 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.LocaleList;
 import android.text.Spanned;
-import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +33,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 
 import io.noties.markwon.Markwon;
 
@@ -76,47 +69,8 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
-                if (name == null || !name.contains("."))
-                    throw new IllegalArgumentException(name);
 
-                List<String> names = new ArrayList<>();
-                String[] c = name.split("\\.");
-                List<String> assets = Arrays.asList(getResources().getAssets().list(""));
-
-                List<Locale> locales = new ArrayList<>();
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-                    locales.add(Locale.getDefault());
-                else {
-                    LocaleList ll = context.getResources().getConfiguration().getLocales();
-                    for (int i = 0; i < ll.size(); i++)
-                        locales.add(ll.get(i));
-                }
-
-                for (Locale locale : locales) {
-                    String language = locale.getLanguage();
-                    String country = locale.getCountry();
-                    if ("en".equals(language) && "US".equals(country))
-                        names.add(name);
-                    else {
-                        String localized = c[0] + "-" + language + "-r" + country + "." + c[1];
-                        if (assets.contains(localized))
-                            names.add(localized);
-                    }
-                }
-
-                for (Locale locale : locales) {
-                    String prefix = c[0] + "-" + locale.getLanguage();
-                    for (String asset : assets)
-                        if (asset.startsWith(prefix))
-                            names.add(asset);
-                }
-
-                names.add(name);
-                String asset = names.get(0);
-
-                Log.i("Using " + asset +
-                        " of " + TextUtils.join(",", names) +
-                        " (" + TextUtils.join(",", locales) + ")");
+                String asset = Helper.getLocalizedAsset(context, name);
                 try (InputStream is = context.getAssets().open(asset)) {
                     byte[] buffer = new byte[is.available()];
                     is.read(buffer);
