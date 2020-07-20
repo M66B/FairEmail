@@ -1851,7 +1851,7 @@ You can select one of these actions to apply to matching messages:
 * Automation (Tasker, etc)
 
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
-so it is not possible to apply conditions and actions to the message text.
+so it is not possible to apply conditions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead.
@@ -3155,6 +3155,9 @@ This command can be sent to FairEmail from an automation app to update the prote
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
+
+Updating once a week will probably be sufficient,
+please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
