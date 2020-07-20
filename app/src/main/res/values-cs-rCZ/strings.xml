@@ -408,6 +408,8 @@
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_disconnect_links" comment="title_advanced_disconnect_links&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Použít seznamy k upozornění na sledovací odkazy</string>
+    <string name="title_advanced_disconnect_images" comment="title_advanced_disconnect_images&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Použít seznamy k rozpoznání sledovacích obrázků</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
@@ -1129,6 +1131,7 @@
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
+    <string name="title_tracking_link">Tato stránka vás může sledovat</string>
     <string name="title_link_http">Provoz nebude šifrován</string>
     <string name="title_link_https">Provoz bude šifrován</string>
     <string name="title_sanitize_link">Odebrat sledovací parametry</string>
@@ -1147,6 +1150,7 @@
     <string name="title_add">Přidat</string>
     <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Stáhnout</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>

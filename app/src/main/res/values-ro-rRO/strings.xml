@@ -6,6 +6,7 @@
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
+    <string name="app_cake">Spațiu de stocare insuficient rămas</string>
     <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">Notificări</string>
@@ -130,6 +131,7 @@
         Protocoale-le ne standard, precum Microsoft Exchange Web Services și Microsoft ActiveSync, nu sunt suportate, vedeți de asemenea și descrierea aplicației.    </string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
+    <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
@@ -346,6 +348,7 @@
     <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
+    <string name="title_advanced_undo">Expirare anulare</string>
     <string name="title_advanced_quick_filter">Arată iconițele de filtrare rapidă</string>
     <string name="title_advanced_quick_scroll">Arată iconițele de derulare sus/jos rapidă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
@@ -393,6 +396,8 @@
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
+    <string name="title_advanced_disconnect_links" comment="title_advanced_disconnect_links&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Folosește liste pentru a avertiza despre adrese de urmărire</string>
+    <string name="title_advanced_disconnect_images" comment="title_advanced_disconnect_images&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Folosește listele pentru a recunoaște imaginile de urmărire</string>
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
@@ -556,6 +561,7 @@
     <string name="title_no_password">Lipsește parola</string>
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
+    <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
     <string name="title_no_identities">Trimiterea de e-mail-uri necesită cel puțin o identitate și un dosar de ciorne</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
@@ -798,6 +804,8 @@
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
+    <string name="title_add_image_privacy">Elimină datele confidențiale</string>
+    <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
@@ -805,6 +813,7 @@
     <string name="title_attachment_photo">Fă o poză</string>
     <string name="title_attachment_audio">Înregistrare audio</string>
     <string name="title_show_addresses">Arată CC/BCC</string>
+    <string name="title_save_drafts">Salvează ciorne pe server</string>
     <string name="title_send_dialog">Afișare opțiuni de trimitere</string>
     <string name="title_image_dialog">Afișare opțiuni imagine</string>
     <string name="title_media_toolbar">Bară atașare</string>
@@ -991,6 +1000,7 @@
     <string name="title_rule_tts_prefix">Mesaj nou</string>
     <string name="title_rule_tts_from">De la</string>
     <string name="title_rule_tts_subject">Subiect</string>
+    <string name="title_rule_tts_content">Text</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>
@@ -1109,6 +1119,7 @@
     <string name="title_hint_eml">Acesta este sumarul conținutului unui fișier cu mesajul original. Salvați mesajul original folosind iconița de salvare din bara de acțiuni pentru a putea vizualiza tot conținutul.</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_different_link">Titlul legăturii este diferit de adresa legăturii</string>
+    <string name="title_tracking_link">Acest site v-ar putea urmări</string>
     <string name="title_link_http">Traficul nu va fi criptat</string>
     <string name="title_link_https">Traficul va fi criptat</string>
     <string name="title_sanitize_link">Elimină parametrii de urmărire</string>
@@ -1127,6 +1138,7 @@
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>
+    <string name="title_download">Descărcare</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
     <string name="title_enable">Activează</string>
@@ -1186,6 +1198,7 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
+    <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>
     <string name="title_widget_account">Cont</string>
@@ -1347,7 +1360,7 @@
         <item>50 Mo</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Oprit</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
