@@ -75,6 +75,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.SubMenu;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -503,6 +504,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         rvMessage.setHasFixedSize(false);
         //rvMessage.setItemViewCacheSize(10);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
+
+        final int minOverscroll = Helper.dp2pixels(getContext(),
+                ViewConfiguration.get(getContext()).getScaledPagingTouchSlop());
+
         final LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
             private Rect parentRect = new Rect();
             private Rect childRect = new Rect();
@@ -577,6 +582,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                      */
                     Log.w(ex);
                 }
+            }
+
+            @Override
+            public int scrollVerticallyBy(int dx, RecyclerView.Recycler recycler, RecyclerView.State state) {
+                int scrollRange = super.scrollVerticallyBy(dx, recycler, state);
+                boolean swipe_close = prefs.getBoolean("swipe_close", false);
+                if (swipe_close && viewType == AdapterMessage.ViewType.THREAD) {
+                    int overscroll = dx - scrollRange;
+                    Log.i("Overscroll=" + overscroll + "/" + minOverscroll);
+                    if (overscroll < -minOverscroll)
+                        handleAutoClose();
+                }
+                return scrollRange;
             }
         };
         rvMessage.setLayoutManager(llm);
