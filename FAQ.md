@@ -3150,6 +3150,12 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 Tracking images will not be recognized when the domain is classified as '*Content*',
 see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
+This command can be sent to FairEmail from an automation app to update the protection lists:
+
+```
+(adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
+```
+
 <br />
 
 ## Support

@@ -29,6 +29,10 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -37,10 +41,12 @@ public class ServiceExternal extends Service {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
+    private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
     // adb shell am startservice -a eu.faircode.email.POLL --es account Gmail
     // adb shell am startservice -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am startservice -a eu.faircode.email.DISABLE --es account Gmail
+    // adb shell am startservice -a eu.faircode.email.DISCONNECT
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "external");
@@ -72,52 +78,35 @@ public class ServiceExternal extends Service {
             if (intent == null)
                 return START_NOT_STICKY;
 
-            if (!ActivityBilling.isPro(this))
+            final String action = intent.getAction();
+            boolean pro = ActivityBilling.isPro(this);
+            EntityLog.log(this, action + " pro=" + pro);
+
+            if (!pro)
                 return START_NOT_STICKY;
 
             final Context context = getApplicationContext();
-            final String accountName = intent.getStringExtra("account");
-
-            final Boolean enabled;
-            String action = intent.getAction();
-            if (ACTION_ENABLE.equals(action))
-                enabled = true;
-            else if (ACTION_DISABLE.equals(action))
-                enabled = false;
-            else // poll
-                enabled = null;
-
             executor.submit(new Runnable() {
                 @Override
                 public void run() {
-                    DB db = DB.getInstance(context);
-
-                    if (enabled == null) {
-                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-                        for (EntityAccount account : accounts)
-                            if (accountName == null || accountName.equals(account.name)) {
-                                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
-                                if (folders.size() > 0)
-                                    Collections.sort(folders, folders.get(0).getComparator(context));
-                                for (EntityFolder folder : folders)
-                                    EntityOperation.sync(context, folder.id, false);
-                            }
-                        ServiceSynchronize.eval(context, "external poll account=" + accountName);
-                    } else {
-                        if (accountName == null) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            prefs.edit().putBoolean("enabled", enabled).apply();
-                            ServiceSynchronize.eval(context, "external enabled=" + enabled);
-                        } else {
-                            EntityAccount account = db.account().getAccount(accountName);
-                            if (account == null) {
-                                EntityLog.log(context, "Account not found name=" + accountName);
-                                return;
-                            }
-
-                            db.account().setAccountSynchronize(account.id, enabled);
-                            ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
+                    try {
+                        switch (action) {
+                            case ACTION_POLL:
+                                poll(context, intent);
+                                break;
+                            case ACTION_ENABLE:
+                            case ACTION_DISABLE:
+                                set(context, intent);
+                                break;
+                            case ACTION_DISCONNECT_ME:
+                                disconnect(context, intent);
+                                break;
+                            default:
+                                throw new IllegalArgumentException(action);
                         }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        EntityLog.log(context, Log.formatThrowable(ex));
                     }
                 }
             });
@@ -148,5 +137,54 @@ public class ServiceExternal extends Service {
                         .setLocalOnly(true);
 
         return builder;
+    }
+
+    private static void poll(Context context, Intent intent) {
+        String accountName = intent.getStringExtra("account");
+
+        DB db = DB.getInstance(context);
+        List<EntityAccount> accounts;
+        if (accountName == null)
+            accounts = db.account().getSynchronizingAccounts();
+        else {
+            EntityAccount account = db.account().getAccount(accountName);
+            if (account == null)
+                throw new IllegalArgumentException("Account not found name=" + accountName);
+            accounts = new ArrayList<>();
+            accounts.add(account);
+        }
+
+        for (EntityAccount account : accounts) {
+            List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+            if (folders.size() > 0)
+                Collections.sort(folders, folders.get(0).getComparator(context));
+            for (EntityFolder folder : folders)
+                EntityOperation.sync(context, folder.id, false);
+        }
+
+        ServiceSynchronize.eval(context, "external poll account=" + accountName);
+    }
+
+    private static void set(Context context, Intent intent) {
+        String accountName = intent.getStringExtra("account");
+        boolean enabled = ACTION_ENABLE.equals(intent.getAction());
+
+        DB db = DB.getInstance(context);
+        if (accountName == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putBoolean("enabled", enabled).apply();
+            ServiceSynchronize.eval(context, "external enabled=" + enabled);
+        } else {
+            EntityAccount account = db.account().getAccount(accountName);
+            if (account == null)
+                throw new IllegalArgumentException("Account not found name=" + accountName);
+
+            db.account().setAccountSynchronize(account.id, enabled);
+            ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
+        }
+    }
+
+    private static void disconnect(Context context, Intent intent) throws IOException, JSONException {
+        DisconnectBlacklist.download(context);
     }
 }

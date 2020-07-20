@@ -322,6 +322,7 @@
                 <action android:name="${applicationId}.POLL" />
                 <action android:name="${applicationId}.ENABLE" />
                 <action android:name="${applicationId}.DISABLE" />
+                <action android:name="${applicationId}.DISCONNECT.ME" />
             </intent-filter>
         </service>
 

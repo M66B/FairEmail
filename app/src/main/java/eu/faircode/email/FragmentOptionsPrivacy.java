@@ -376,9 +376,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swSecure.setChecked(prefs.getBoolean("secure", false));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
 
-        Long time = DisconnectBlacklist.getTime(getContext());
+        long time = prefs.getLong("disconnect_last", -1);
         DateFormat DF = SimpleDateFormat.getDateTimeInstance();
-        tvDisconnectBlacklistTime.setText(time == null ? null : DF.format(time));
+        tvDisconnectBlacklistTime.setText(time < 0 ? null : DF.format(time));
+        tvDisconnectBlacklistTime.setVisibility(time < 0 ? View.GONE : View.VISIBLE);
 
         swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
         swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));

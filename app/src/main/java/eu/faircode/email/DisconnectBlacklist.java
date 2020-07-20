@@ -20,7 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.SystemClock;
+
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +34,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -122,6 +126,9 @@ public class DisconnectBlacklist {
             connection.disconnect();
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putLong("disconnect_last", new Date().getTime()).apply();
+
         init(file);
     }
 
@@ -156,10 +163,5 @@ public class DisconnectBlacklist {
 
     private static File getFile(Context context) {
         return new File(context.getFilesDir(), "disconnect-blacklist.json");
-    }
-
-    static Long getTime(Context context) {
-        File file = getFile(context);
-        return (file.exists() ? file.lastModified() : null);
     }
 }
