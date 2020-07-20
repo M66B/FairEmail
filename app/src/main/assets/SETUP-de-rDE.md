@@ -10,7 +10,7 @@ Für die Einrichtung von Konten und Identitäten ist eine Internetverbindung erf
 
 Geben Sie Ihren Namen, E-Mail-Adresse und Passwort ein und tippen Sie auf *prüfen*.
 
-Dies funktioniert für die meisten großen E-Mail-Anbieter.
+Das funktioniert für die meisten großen E-Mail-Anbieter.
 
 Wenn die Schnelleinrichtung nicht funktioniert, müssen Sie Konto und Identität manuell einrichten, siehe Anweisungen unten.
 
@@ -20,13 +20,13 @@ Um ein Konto hinzuzufügen, tippen Sie unter 'Konten einrichten' auf *Verwalten*
 
 Wenn Ihr Provider nicht in der Liste der Anbieter ist, wählen Sie *Benutzerdefiniert*. Geben Sie den Domain-Namen ein, zum Beispiel *gmail.com*, und tippen Sie auf *Einstellungen abrufen*. Wenn Ihr Provider [Auto-discovery](https://tools.ietf.org/html/rfc6186) unterstützt, wird FairEmail den Hostnamen und die Portnummer ausfüllen, so dass Sie die Angaben Ihres Providers für den richtigen IMAP-Hostnamen, Port-Nummer und Protokoll (SSL/TLS oder STARTTLS) nur noch überprüfen müssen. Weitere Informationen dazu finden Sie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Identität einrichten - um E-Mail zu senden
+## Identität einrichten – um E-Mail zu senden
 
 Vergleichbar mit der Konto-Einrichtung tippen Sie unter 'Identitäten einrichten' auf *Verwalten* und tippen Sie dann auf den orange-farbenen Button mit dem *Plus-Zeichen* unten. Geben Sie den Namen ein, der in E-Mails, die Sie von dieser Absender-Adresse senden, erscheinen soll, und wählen Sie ein verknüpftes Konto. Tippen Sie auf *Speichern*, um die Identität hinzuzufügen.
 
 Wenn das Konto manuell konfiguriert wurde, müssen Sie wahrscheinlich auch die Identität manuell konfigurieren. Geben Sie den Domain-Namen ein, zum Beispiel *gmail.com*, und tippen Sie auf *Einstellungen abrufen*. Wenn Ihr Provider [Auto-discovery](https://tools.ietf.org/html/rfc6186) unterstützt, wird FairEmail den Hostnamen und die Portnummer ausfüllen, so dass Sie die Angaben Ihres Providers für den richtigen IMAP-Hostnamen, Port-Nummer und Protokoll (SSL/TLS oder STARTTLS) nur noch überprüfen müssen.
 
-Siehe [diese FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) zur Verwendung von Alias-Adressen.
+Zur Verwendung von Alias-Adressen bitte [diese F&A](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) beachten.
 
 ## Berechtigungen gewähren - Zugriff auf Kontaktinformationen
 

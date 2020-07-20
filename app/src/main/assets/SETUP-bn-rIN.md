@@ -1,8 +1,8 @@
-# Setup help
+# সেটআপের সাহায্য
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+ফেয়ারমেল ঠিক করা বেশ সহজ। তোমার অন্ততপক্ষে একটা অ্যাকাউন্ট লাগবে ইমেইল পেতে এবং একটা পরিচয় যদি তুমি ইমেইল পাঠাতে চাও। এই দ্রুত সেটআপ অংশ তোমাকে বেশিরভাগ বড় প্রোভাইডারের একটা অ্যাকাউন্ট এবং একটা পরিচয় যোগ করতে সাহায্য করবে।
 
-## Requirements
+## প্রয়োজনসমূহ
 
 An internet connection is required to set up accounts and identities.
 

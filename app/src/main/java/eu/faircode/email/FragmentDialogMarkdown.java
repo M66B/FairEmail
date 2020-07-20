@@ -79,15 +79,17 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
                 String country = Locale.getDefault().getCountry();
                 String language = Locale.getDefault().getLanguage();
 
-                String localized = c[0] + "-" + language + "-" + country + "." + c[1];
+                String localized = c[0] + "-" + language + "-r" + country + "." + c[1];
                 Log.i("Checking " + localized);
                 if (assets.contains(localized))
                     name = localized;
                 else {
-                    localized = c[0] + "-" + language + "." + c[1];
-                    Log.i("Checking " + localized);
-                    if (assets.contains(localized))
-                        name = localized;
+                    String prefix = c[0] + "-" + language;
+                    for (String asset : assets)
+                        if (asset.startsWith(prefix)) {
+                            name = asset;
+                            break;
+                        }
                 }
                 Log.i("Using " + name);
 

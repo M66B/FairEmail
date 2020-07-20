@@ -1,18 +1,18 @@
-# Setup help
+# Βοήθεια για τη ρύθμιση
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Η ρύθμιση του FairEmail είναι αρκετά απλή. Θα χρειαστεί να προσθέσετε τουλάχιστον έναν λογαριασμό για να λάβετε email και τουλάχιστον μία ταυτότητα χρήστη εάν θέλετε να στείλετε email. Αυτός ο γρήγορος οδηγός ρύθμισης θα προσθέσει έναν λογαριασμό και μία ταυτότητα χρήστη ταυτόχρονα, τουλάχιστον για τους περισσότερους γνωστούς παρόχους υπηρεσιών email.
 
-## Requirements
+## Απαιτήσεις
 
-An internet connection is required to set up accounts and identities.
+Απαιτείται σύνδεση στο internet για να ρυθμιστούν νέοι λογαριασμοί και ταυτότητες χρήστη.
 
-## Quick setup
+## Γρήγορη ρύθμιση
 
-Just enter your name, email address and password and tap *Go*.
+Απλώς εισαγάγετε το όνομά σας, τη διεύθυνση email σας, και τον κωδικό σας, και πατήστε *Πάμε*.
 
-This will work for most major email providers.
+Αυτό θα λειτουργήσει με επιτυχία για τους περισσότερους γνωστούς παρόχους υπηρεσιών email.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Εάν η γρήγορη ρύθμιση αποτύχει, θα χρειαστεί να ρυθμίσετε έναν λογαριασμό και μία ταυτότητα χρήστη με διαφορετικό τρόπο, δείτε παρακάτω για λεπτομέρειες.
 
 ## Set up account - to receive email
 

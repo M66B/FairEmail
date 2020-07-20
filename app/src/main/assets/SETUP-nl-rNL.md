@@ -1,4 +1,4 @@
-# Help bij instellen
+# Hulp bij instellen
 
 Het instellen van FairEmail is vrij eenvoudig. U moet ten minste één account toevoegen om e-mail te ontvangen en ten minste één identiteit om e-mail te verzenden. Snel instellen zal in één keer een account en een identiteit toevoegen voor de meeste grote providers.
 

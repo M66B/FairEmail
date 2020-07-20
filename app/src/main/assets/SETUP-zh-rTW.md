@@ -1,22 +1,22 @@
-# Setup help
+# 設定說明
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+設定FairEmail相當簡單。 你需要新增至少一個帳號來接收電子郵件，如果想要寄電子郵件則需要新增至少一個身分。 這個快速設定將會新增一個適用於大部分電子郵件服務商的帳戶和身分。
 
-## Requirements
+## 需求
 
-An internet connection is required to set up accounts and identities.
+需要一個網際網路連線來設定帳戶和身分。
 
-## Quick setup
+## 快速設定
 
-Just enter your name, email address and password and tap *Go*.
+只需要輸入你的名字、電子郵件地址和密碼然後按一下*Go*。
 
-This will work for most major email providers.
+這將適用於大部分的電子郵件服務商。
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+如果快速設定失敗，你則需要用其他方法來設定帳戶和身分，請看以下說明。
 
-## Set up account - to receive email
+## 設定帳戶以接收電子郵件
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+若要增加一個帳戶，按一下*帳戶管理*然後點一下位於下方的橘色*新增*按鈕。 Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
 
 If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
@@ -36,6 +36,6 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
 
-## Questions or problems
+## 問題
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+如果你有任何問題，請見[這裡](https://github.com/M66B/FairEmail/blob/master/FAQ.md)來尋求幫助。

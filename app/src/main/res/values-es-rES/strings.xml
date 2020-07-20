@@ -387,6 +387,8 @@
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_disconnect_links" comment="title_advanced_disconnect_links&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Usar listas para advertir sobre enlaces de seguimiento</string>
+    <string name="title_advanced_disconnect_images" comment="title_advanced_disconnect_images&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Usar listas para reconocer imágenes de rastreo</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
@@ -1108,6 +1110,7 @@
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensaje crudo. Guarde el mensaje raw con el icono guardar en la barra de acción para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_different_link">El título y la dirección del enlace son diferentes</string>
+    <string name="title_tracking_link">Este sitio web podría rastrearle</string>
     <string name="title_link_http">El tráfico no será cifrado</string>
     <string name="title_link_https">El tráfico será cifrado</string>
     <string name="title_sanitize_link">Eliminar parámetros de rastreo</string>
@@ -1126,6 +1129,7 @@
     <string name="title_add">Agregar</string>
     <string name="title_browse">Abrir con</string>
     <string name="title_info">Información</string>
+    <string name="title_download">Descargar</string>
     <string name="title_report">Reportar</string>
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
