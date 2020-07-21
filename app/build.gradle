@@ -244,6 +244,7 @@ dependencies {
     def markwon_version = "4.4.0"
     def bouncycastle_version = "1.66"
     def colorpicker_version = "0.0.15"
+    def overscroll_version = "1.1.0"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
 
@@ -382,6 +383,10 @@ dependencies {
 
     // // https://github.com/QuadFlask/colorpicker
     implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
+
+    // https://github.com/EverythingMe/overscroll-decor
+    // https://mvnrepository.com/artifact/me.everything/overscroll-decor-android?repo=jcenter
+    implementation "me.everything:overscroll-decor-android:$overscroll_version"
 
     // https://www.bouncycastle.org/latest_releases.html
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on

@@ -87,7 +87,7 @@ public class FragmentOptions extends FragmentBase {
             "message_zoom", "addresses", "attachments_alt", "thumbnails",
             "contrast", "monospaced", "text_color", "text_size", "text_font", "text_align",
             "inline_images", "collapse_quotes", "seekbar", "actionbar", "actionbar_color", "navbar_colorize",
-            "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",
+            "autoscroll", "swipenav", "swipe_close", "autoexpand", "autoclose", "onclose",
             "language_detection",
             "quick_filter", "quick_scroll",
             "experiments", "debug",
