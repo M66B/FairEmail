@@ -1949,6 +1949,10 @@ public class MessageHelper {
                             break;
                         }
                     }
+                } else if (content instanceof String) {
+                    String text = (String) content;
+                    String sample = text.substring(0, Math.min(80, text.length()));
+                    Log.e("Mixed string=" + sample);
                 } else
                     Log.e("Mixed type=" + (content == null ? null : content.getClass().getName()));
             }
