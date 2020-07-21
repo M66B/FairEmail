@@ -363,7 +363,7 @@ Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.
 but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages.
 The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox instead.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
