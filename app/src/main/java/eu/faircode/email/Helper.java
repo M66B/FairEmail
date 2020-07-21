@@ -520,9 +520,10 @@ public class Helper {
     }
 
     static void view(Context context, Uri uri, boolean browse, boolean task) {
-        Log.i("View=" + uri);
+        boolean has = hasCustomTabs(context, uri);
+        Log.i("View=" + uri + " browse=" + browse + " task=" + task + " has=" + has);
 
-        if (browse || !hasCustomTabs(context, uri)) {
+        if (browse || !has) {
             try {
                 Intent view = new Intent(Intent.ACTION_VIEW, uri);
                 if (task)
