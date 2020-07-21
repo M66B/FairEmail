@@ -166,6 +166,8 @@ Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#faire
 
 ## Support
 
+FairEmail is supported on smartphones, tablets and ChromeOS only.
+
 Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
 
 ## Contributing
