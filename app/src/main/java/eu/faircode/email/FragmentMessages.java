@@ -1322,13 +1322,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
                 @Override
                 public void onOverScrollUpdate(IOverScrollDecor decor, int state, float offset) {
-                    float height = decor.getView().getHeight() / DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD;
-                    if (height != 0 && offset > height / 3)
+                    float height = decor.getView().getHeight();
+                    if (height != 0 &&
+                            offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD > height / 4)
                         handleAutoClose();
                 }
             });
         }
-
 
         final String pkg = Helper.getOpenKeychainPackage(getContext());
         Log.i("PGP binding to " + pkg);
