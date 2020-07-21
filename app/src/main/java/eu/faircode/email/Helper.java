@@ -528,7 +528,10 @@ public class Helper {
                 Intent view = new Intent(Intent.ACTION_VIEW, uri);
                 if (task)
                     view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(getChooser(context, view));
+                context.startActivity(view);
+            } catch (ActivityNotFoundException ex) {
+                Log.w(ex);
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
             } catch (Throwable ex) {
                 Log.e(ex);
                 ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
