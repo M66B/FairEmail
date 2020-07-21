@@ -348,6 +348,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch == other.partial_fetch &&
                     this.ignore_size == other.ignore_size &&
+                    this.use_date == other.use_date &&
                     Objects.equals(this.quota_usage, other.quota_usage) &&
                     Objects.equals(this.quota_limit, other.quota_limit) &&
                     Objects.equals(this.created, other.created) &&
