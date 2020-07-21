@@ -4546,7 +4546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 context.getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG)
                                 .setGestureInsetBottomIgnored(true).show();
                     else
-                        context.startActivity(Helper.getChooser(context, intent));
+                        context.startActivity(intent);
                 }
 
                 @Override
