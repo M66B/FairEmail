@@ -493,7 +493,7 @@
     <string name="title_advanced_app">App settings</string>
     <string name="title_advanced_more">More options</string>
     <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>
-    <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s</string>
+    <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s/%2$s</string>
     <string name="title_advanced_storage_space" translatable="false">Storage space: %1$s/%2$s</string>
     <string name="title_advanced_charsets" translatable="false">Charsets</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>

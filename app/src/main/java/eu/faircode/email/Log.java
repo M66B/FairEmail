@@ -1114,7 +1114,10 @@ public class Log {
         sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
 
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        sb.append(String.format("Memory class: %d\r\n", am.getMemoryClass()));
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        am.getMemoryInfo(mi);
+        sb.append(String.format("Memory class: %d MB/%s\r\n",
+                am.getMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
 
         sb.append(String.format("Storage space: %s/%s\r\n",
                 Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),

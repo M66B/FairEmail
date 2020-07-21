@@ -585,7 +585,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         int class_mb = am.getMemoryClass();
-        tvMemoryClass.setText(getString(R.string.title_advanced_memory_class, class_mb + " MB"));
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        am.getMemoryInfo(mi);
+        tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
+                class_mb + " MB", Helper.humanReadableByteCount(mi.totalMem)));
 
         tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
                 Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
