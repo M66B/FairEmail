@@ -2374,8 +2374,12 @@ This feature depends on support of your launcher.
 FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
 If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Some launchers incorrectly display '1' for [the monitoring notification](#user-content-faq2),
+Some launchers display '1' for [the monitoring notification](#user-content-faq2),
 despite FairEmail explicitly requesting not to show a badge for this notification.
+This could be caused by a bug in the launcher app or in your Android version.
+Please double check if the notification dot is disabled for the receive (service) notification channel.
+You can go to the right notification channel settings via the notification settings of FairEmail.
+This might not be obvious, but you can tap on the channel name for more settings.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
