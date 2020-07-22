@@ -136,7 +136,6 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 3;
     private static final long LOCAL_RETRY_DELAY = 10 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 10;
@@ -1829,8 +1828,11 @@ class Core {
                         Log.i(folder.name + " POP sync=" + uidl);
 
                         Long sent = helper.getSent();
-                        if (sent == null)
-                            sent = 0L;
+                        Long received = helper.getReceivedHeader();
+                        if (received == null)
+                            received = sent;
+                        if (received == null)
+                            received = 0L;
 
                         String[] authentication = helper.getAuthentication();
                         MessageHelper.MessageParts parts = helper.getMessageParts();
@@ -1867,7 +1869,7 @@ class Core {
                         message.content = false;
                         message.encrypt = parts.getEncryption();
                         message.ui_encrypt = message.encrypt;
-                        message.received = sent;
+                        message.received = received;
                         message.sent = sent;
                         message.seen = false;
                         message.answered = false;
@@ -2448,8 +2450,12 @@ class Core {
                         dup.thread = thread;
 
                         if (EntityFolder.SENT.equals(folder.type)) {
-                            dup.received = helper.getReceived();
-                            dup.sent = helper.getSent();
+                            Long sent = helper.getSent();
+                            Long received = helper.getReceived();
+                            if (sent != null)
+                                dup.sent = sent;
+                            if (received != null)
+                                dup.received = received;
                         }
 
                         dup.error = null;
@@ -2466,18 +2472,25 @@ class Core {
 
         if (message == null) {
             Long sent = helper.getSent();
-            long received;
-            if (account.use_date)
-                received = (sent == null ? 0 : sent);
-            else if (account.use_received) {
-                Long rh = helper.getReceivedHeader();
-                received = (rh == null ? helper.getReceived() : rh);
+
+            Long received;
+            if (account.use_date) {
+                received = sent;
+                if (received == null)
+                    received = helper.getReceived();
+                if (received == null)
+                    received = helper.getReceivedHeader();
+            } else if (account.use_received) {
+                received = helper.getReceivedHeader();
+                if (received == null)
+                    received = helper.getReceived();
             } else {
                 received = helper.getReceived();
-                if (received == 0 || received > new Date().getTime() + FUTURE_RECEIVED)
-                    if (sent != null)
-                        received = sent;
+                if (received == null)
+                    received = helper.getReceivedHeader();
             }
+            if (received == null)
+                received = 0L;
 
             String[] authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts();

@@ -1305,17 +1305,21 @@ public class MessageHelper {
         return (size < 0 ? null : size);
     }
 
-    long getReceived() throws MessagingException {
+    Long getReceived() throws MessagingException {
         ensureMessage(false);
 
         Date received = imessage.getReceivedDate();
         if (received == null)
-            received = imessage.getSentDate();
+            return null;
 
-        return (received == null ? new Date() : received).getTime();
+        return received.getTime();
     }
 
     Long getReceivedHeader() throws MessagingException {
+        ensureMessage(false);
+
+        // https://tools.ietf.org/html/rfc5321#section-4.4
+        // https://tools.ietf.org/html/rfc5322#section-3.6.7
         String[] received = imessage.getHeader("Received");
         if (received == null || received.length == 0)
             return null;
@@ -1338,8 +1342,9 @@ public class MessageHelper {
 
         Date sent = imessage.getSentDate();
         if (sent == null)
-            sent = imessage.getReceivedDate();
-        return (sent == null ? new Date() : sent).getTime();
+            return null;
+
+        return sent.getTime();
     }
 
     String getHeaders() throws MessagingException {
