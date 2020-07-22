@@ -405,7 +405,7 @@
 
     <string name="title_advanced_notifications">Manage notifications</string>
     <string name="title_advanced_notifications_default">Default channel</string>
-    <string name="title_advanced_notifications_service">Service channel</string>
+    <string name="title_advanced_notifications_service">Receive channel</string>
     <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
 
