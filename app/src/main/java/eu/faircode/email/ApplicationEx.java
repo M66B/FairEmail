@@ -296,6 +296,12 @@ public class ApplicationEx extends Application {
             int threads = prefs.getInt("query_threads", 4);
             if (threads == 4)
                 editor.remove("query_threads");
+        } else if (version < 1264) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N ||
+                    "Blackview".equalsIgnoreCase(Build.MANUFACTURER) ||
+                    "OnePlus".equalsIgnoreCase(Build.MANUFACTURER) ||
+                    "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER))
+                editor.putInt("query_threads", 2);
         }
 
         if (version < BuildConfig.VERSION_CODE)
