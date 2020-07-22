@@ -3318,15 +3318,7 @@ public class FragmentCompose extends FragmentBase {
                                 // Prevent replying to self
                                 if (ref.replySelf(data.identities, ref.account)) {
                                     data.draft.from = ref.from;
-                                    List<Address> tos = new ArrayList<>();
-                                    if (ref.to != null)
-                                        for (Address to : ref.to)
-                                            for (EntityIdentity identity : data.identities)
-                                                if (!Objects.equals(identity.account, ref.account) ||
-                                                        !identity.self ||
-                                                        !identity.similarAddress(to))
-                                                    tos.add(to);
-                                    data.draft.to = (tos.size() == 0 ? null : tos.toArray(new Address[0]));
+                                    data.draft.to = ref.to;
                                 } else {
                                     data.draft.from = ref.to;
                                     data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);

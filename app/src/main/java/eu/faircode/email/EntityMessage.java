@@ -224,8 +224,10 @@ public class EntityMessage implements Serializable {
     Address[] getAllRecipients(List<TupleIdentityEx> identities, long account) {
         List<Address> addresses = new ArrayList<>();
 
-        if (to != null && !replySelf(identities, account))
-            addresses.addAll(Arrays.asList(to));
+        if (!replySelf(identities, account)) {
+            if (to != null)
+                addresses.addAll(Arrays.asList(to));
+        }
 
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));
