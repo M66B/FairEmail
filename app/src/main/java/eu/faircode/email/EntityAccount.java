@@ -126,7 +126,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean ignore_size = false;
     @NonNull
-    public Boolean use_date = false;
+    public Boolean use_date = false; // Date header
+    @NonNull
+    public Boolean use_received = false; // Received header
     public String prefix; // namespace, obsolete
 
     public Long quota_usage;
@@ -237,6 +239,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("partial_fetch", partial_fetch);
         json.put("ignore_size", ignore_size);
         json.put("use_date", use_date);
+        json.put("use_received", use_received);
         // not prefix
         // not created
         // not tbd
@@ -315,6 +318,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.partial_fetch = json.optBoolean("partial_fetch", true);
         account.ignore_size = json.optBoolean("ignore_size", false);
         account.use_date = json.optBoolean("use_date", false);
+        account.use_received = json.optBoolean("use_received", false);
 
         return account;
     }
@@ -349,6 +353,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     this.partial_fetch == other.partial_fetch &&
                     this.ignore_size == other.ignore_size &&
                     this.use_date == other.use_date &&
+                    this.use_received == other.use_received &&
                     Objects.equals(this.quota_usage, other.quota_usage) &&
                     Objects.equals(this.quota_limit, other.quota_limit) &&
                     Objects.equals(this.created, other.created) &&

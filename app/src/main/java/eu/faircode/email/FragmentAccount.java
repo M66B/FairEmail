@@ -118,6 +118,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbPartialFetch;
     private CheckBox cbIgnoreSize;
     private CheckBox cbUseDate;
+    private CheckBox cbUseReceived;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -223,6 +224,7 @@ public class FragmentAccount extends FragmentBase {
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
         cbIgnoreSize = view.findViewById(R.id.cbIgnoreSize);
         cbUseDate = view.findViewById(R.id.cbUseDate);
+        cbUseReceived = view.findViewById(R.id.cbUseReceived);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -832,6 +834,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
         args.putBoolean("ignore_size", cbIgnoreSize.isChecked());
         args.putBoolean("use_date", cbUseDate.isChecked());
+        args.putBoolean("use_received", cbUseReceived.isChecked());
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -894,6 +897,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean partial_fetch = args.getBoolean("partial_fetch");
                 boolean ignore_size = args.getBoolean("ignore_size");
                 boolean use_date = args.getBoolean("use_date");
+                boolean use_received = args.getBoolean("use_received");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
@@ -984,6 +988,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.ignore_size, ignore_size))
                         return true;
                     if (!Objects.equals(account.use_date, use_date))
+                        return true;
+                    if (!Objects.equals(account.use_received, use_received))
                         return true;
 
                     EntityFolder edrafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
@@ -1117,6 +1123,7 @@ public class FragmentAccount extends FragmentBase {
                     account.partial_fetch = partial_fetch;
                     account.ignore_size = ignore_size;
                     account.use_date = use_date;
+                    account.use_received = use_received;
 
                     if (!update)
                         account.created = now;
@@ -1478,6 +1485,7 @@ public class FragmentAccount extends FragmentBase {
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
                     cbUseDate.setChecked(account == null ? false : account.use_date);
+                    cbUseReceived.setChecked(account == null ? false : account.use_received);
 
                     auth = (account == null ? EmailService.AUTH_TYPE_PASSWORD : account.auth_type);
                     provider = (account == null ? null : account.provider);

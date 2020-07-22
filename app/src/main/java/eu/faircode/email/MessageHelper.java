@@ -56,6 +56,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1310,7 +1311,26 @@ public class MessageHelper {
         Date received = imessage.getReceivedDate();
         if (received == null)
             received = imessage.getSentDate();
+
         return (received == null ? new Date() : received).getTime();
+    }
+
+    Long getReceivedHeader() throws MessagingException {
+        String[] received = imessage.getHeader("Received");
+        if (received == null || received.length == 0)
+            return null;
+
+        String last = MimeUtility.unfold(received[0]);
+        int semi = last.lastIndexOf(';');
+        if (semi < 0)
+            return null;
+
+        MailDateFormat mdf = new MailDateFormat();
+        Date date = mdf.parse(last, new ParsePosition(semi + 1));
+        if (date == null)
+            return null;
+
+        return date.getTime();
     }
 
     Long getSent() throws MessagingException {

@@ -2469,7 +2469,10 @@ class Core {
             long received;
             if (account.use_date)
                 received = (sent == null ? 0 : sent);
-            else {
+            else if (account.use_received) {
+                Long rh = helper.getReceivedHeader();
+                received = (rh == null ? helper.getReceived() : rh);
+            } else {
                 received = helper.getReceived();
                 if (received == 0 || received > new Date().getTime() + FUTURE_RECEIVED)
                     if (sent != null)

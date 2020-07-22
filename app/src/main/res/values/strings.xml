@@ -632,7 +632,8 @@
     <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_partial_fetch" translatable="false">Partial fetch</string>
     <string name="title_ignore_size" translatable="false">Ignore bodystructure size</string>
-    <string name="title_use_date">Use date header sent time instead of server received time</string>
+    <string name="title_use_date">Use \'Date\' header instead of server received time</string>
+    <string name="title_use_received">Use \'Received\' header instead of server received time</string>
     <string name="title_related_identity">Add related identity</string>
     <string name="title_check">Check</string>
     <string name="title_trust">Trust server certificate with fingerprint %1$s</string>
