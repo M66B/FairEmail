@@ -271,6 +271,7 @@
     <string name="title_advanced_thumbnails">Δείξε τις μικρογραφίες μετά από το κείμενο του μηνύματος</string>
     <string name="title_advanced_message_text_zoom">Μεγέθυνση του κειμένου του μηνύματος από προεπιλογή</string>
     <string name="title_advanced_contrast">Χρησιμοποίησε υψηλή αντίθεση για το κείμενο του μηνύματος</string>
+    <string name="title_advanced_monospaced">Χρησιμοποίησε γραμματοσειρά σταθερού πλάτους από προεπιλογή</string>
     <string name="title_advanced_authentication">Εμφάνιση ειδοποίησης αν ο διακομιστής λήψης δεν μπόρεσε να πιστοποιήσει το μήνυμα</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>

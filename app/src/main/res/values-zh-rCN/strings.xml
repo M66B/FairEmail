@@ -339,6 +339,7 @@
     <string name="title_advanced_default_snooze">默认打盹时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
+    <string name="title_advanced_notifications_service">接收频道</string>
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
