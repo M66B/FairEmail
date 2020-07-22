@@ -305,7 +305,6 @@
     <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
     <string name="title_advanced_notifications">Upravljaj obavijestima</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
-    <string name="title_advanced_notifications_service">Kanal usluga</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>
     <string name="title_advanced_notify_summary">Prikaži samo sažetku obavijesti</string>

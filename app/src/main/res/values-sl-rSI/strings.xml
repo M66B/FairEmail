@@ -336,7 +336,6 @@
     <string name="title_advanced_default_snooze">Privzeti čas dremeža</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
-    <string name="title_advanced_notifications_service">Kanal storitev</string>
     <string name="title_advanced_badge">Ikono zaganjalnika prikaži s številom novih sporočil</string>
     <string name="title_advanced_unseen_ignored">Število novih sporočil naj se ujema s številom obvestil</string>
     <string name="title_advanced_notify_summary">Prikaži samo obvestilo s povzetkom</string>

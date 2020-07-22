@@ -301,7 +301,6 @@
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
-    <string name="title_advanced_notifications_service">Hizmet kanalı</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>

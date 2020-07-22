@@ -372,7 +372,7 @@
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
-    <string name="title_advanced_notifications_service">Kanał usługi</string>
+    <string name="title_advanced_notifications_service">Kanał odbioru</string>
     <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>

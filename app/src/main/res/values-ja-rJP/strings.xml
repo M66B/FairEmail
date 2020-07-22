@@ -307,7 +307,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
     <string name="title_advanced_notifications">通知の管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
-    <string name="title_advanced_notifications_service">サービスチャンネル</string>
     <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスはAndroidによって停止される可能性がありますが、ステータスバーに通知が表示されなくなります。</string>
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示</string>

@@ -332,7 +332,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_default_snooze">Szundi alapértelmezett időtartama</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>
-    <string name="title_advanced_notifications_service">Service csatorna</string>
     <string name="title_advanced_notifications_background">Háttérfolyamat használata üzenetek szinkronizálásához</string>
     <string name="title_advanced_notifications_background_hint">Egy háttérfolyamat leállítható az Android által bármikor, de nem szükséges státusz sor értesítés hozzá</string>
     <string name="title_advanced_badge">Új üzenetek számának megjelenítése az indító ikonon</string>

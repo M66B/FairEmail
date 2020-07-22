@@ -351,7 +351,6 @@
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
-    <string name="title_advanced_notifications_service">Servizio canale</string>
     <string name="title_advanced_notifications_background">Usa un servizio in secondo piano per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>

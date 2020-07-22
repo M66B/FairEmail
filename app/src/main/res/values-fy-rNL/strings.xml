@@ -207,7 +207,6 @@
     <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>
-    <string name="title_advanced_notifications_service">Servicekanaal</string>
     <string name="title_advanced_notify_actions">Notifikaasje-aksjes</string>
     <string name="title_advanced_notify_action_trash">Jiskefet</string>
     <string name="title_advanced_notify_action_junk">Spam</string>

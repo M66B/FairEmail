@@ -373,7 +373,6 @@
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
-    <string name="title_advanced_notifications_service">Servisní kanál</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>

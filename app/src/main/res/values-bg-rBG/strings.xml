@@ -342,7 +342,6 @@
     <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
-    <string name="title_advanced_notifications_service">Служебен канал</string>
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>

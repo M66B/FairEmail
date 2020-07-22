@@ -333,7 +333,6 @@
     <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
-    <string name="title_advanced_notifications_service">Canal de serviço</string>
     <string name="title_advanced_notifications_background">Usar o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>

@@ -352,7 +352,6 @@
     <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
     <string name="title_advanced_notifications">Gestionar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
-    <string name="title_advanced_notifications_service">Canal de servicio</string>
     <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
     <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>

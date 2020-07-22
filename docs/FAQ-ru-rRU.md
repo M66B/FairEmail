@@ -44,11 +44,11 @@
 ## Узнайте, как...
 
 * Изменение имени учётной записи: Настройки, Шаг 1, Редактировать, нажмите учётную запись
-* Для изменения цели смахивания влево/вправо: Настройка, Режимы, Настройка жестов
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
+* Для изменения цели смахивания влево/вправо: Настройка, Поведение, Настройка жестов
+* Изменить пароль: Настройки, Шаг 1, Редактировать, нажать на аккаунт, изменить пароль
+* Установка подписи: Настройки, Шаг 2, Редактировать, нажмите на идентификатор, Изменить подпись.
+* Добавить адреса CC и BCC: нажмите на значок человека в конце темы
+* Перейти к следующему/предыдущему сообщению при архивации/удалении: в настройках поведения отключите *Автоматически закрывать диалоги* и выберите *Перейти к следующему/предыдущему диалогу* для *При закрытии диалога*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Synchronize more messages*
@@ -2280,7 +2280,7 @@ If you read from left to right, swiping to the left will show the next message. 
 
 This behavior seems quite natural to me, also because it is similar to turning pages.
 
-Anyway, there is a behavior setting to reverse the swipe direction.
+Во всяком случае, есть настройка поведения для обратного направления свайпа.
 
 <br />
 

@@ -346,7 +346,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
     <string name="title_advanced_notifications_default">Canal per defecte</string>
-    <string name="title_advanced_notifications_service">Canal del servei</string>
     <string name="title_advanced_notifications_background">Utilitzeu el servei en segon pla per sincronitzar els missatges</string>
     <string name="title_advanced_notifications_background_hint">Android pot aturar un servei de fons en qualsevol moment, però no requereix una notificació de la barra d\'estat</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>

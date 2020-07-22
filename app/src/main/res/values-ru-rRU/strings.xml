@@ -236,7 +236,7 @@
     <string name="title_advanced_section_send">Отправка</string>
     <string name="title_advanced_section_connection">Соединение</string>
     <string name="title_advanced_section_display">Отображение</string>
-    <string name="title_advanced_section_behavior">Режимы</string>
+    <string name="title_advanced_section_behavior">Поведение</string>
     <string name="title_advanced_section_privacy">Конфиденциальность</string>
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
@@ -373,7 +373,7 @@
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
-    <string name="title_advanced_notifications_service">Служебный канал</string>
+    <string name="title_advanced_notifications_service">Канал получения</string>
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с количеством новых сообщений</string>

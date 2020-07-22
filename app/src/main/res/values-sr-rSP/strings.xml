@@ -267,7 +267,6 @@
     <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
     <string name="title_advanced_notifications">Управљај обавештењима</string>
     <string name="title_advanced_notifications_default">Подразумевани канал</string>
-    <string name="title_advanced_notifications_service">Сервисни канал</string>
     <string name="title_advanced_badge">Прикажи иконицу са бројем нових порука на покретачу</string>
     <string name="title_advanced_unseen_ignored">Нека се број нових порука поклапа са бројем обавештења</string>
     <string name="title_advanced_notify_summary">Прикажи само једно сумарно обавештење</string>

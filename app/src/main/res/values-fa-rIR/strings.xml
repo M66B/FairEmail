@@ -321,7 +321,6 @@
     <string name="title_advanced_default_snooze">زمان پیش‌فرض چرت زدن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
-    <string name="title_advanced_notifications_service">کانال سرویس</string>
     <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
     <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>

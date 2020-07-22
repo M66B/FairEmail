@@ -307,7 +307,6 @@
     <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_notifications">Administrer varsler</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
-    <string name="title_advanced_notifications_service">Servicekanal</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>

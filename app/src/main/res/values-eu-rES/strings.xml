@@ -328,7 +328,6 @@
     <string name="title_advanced_default_snooze">Lehenetsitako atzeratze denbora</string>
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
     <string name="title_advanced_notifications_default">Kanal lehenetsia</string>
-    <string name="title_advanced_notifications_service">Zerbitzuko kanala</string>
     <string name="title_advanced_notifications_background">Erabili bigarren planoko zerbitzua mezuak sinkrinizatzeko</string>
     <string name="title_advanced_notifications_background_hint">Bigarren planoko zerbitzua Androidek gelditu dezake noiznahi, baina ez du jakinarazpenik behar egoera barran</string>
     <string name="title_advanced_badge">Erakutsi mezu berrien kopurua abiarazleko ikonoan</string>

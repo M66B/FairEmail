@@ -287,7 +287,6 @@
     <string name="title_advanced_default_snooze">預設延後時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>
-    <string name="title_advanced_notifications_service">服務頻道</string>
     <string name="title_advanced_notifications_background">使用背景服務同步訊息</string>
     <string name="title_advanced_badge">在應用程式圖示中顯示新訊息數量</string>
     <string name="title_advanced_notify_preview_all">預覽所有文字</string>
