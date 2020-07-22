@@ -208,36 +208,24 @@ public class EntityMessage implements Serializable {
         return "<" + UUID.randomUUID() + "@" + domain + '>';
     }
 
-    List<Address> replyOthers(List<TupleIdentityEx> identities, long account) {
-        List<Address> others = new ArrayList<>();
+    boolean replySelf(List<TupleIdentityEx> identities, long account) {
         Address[] senders = (reply == null || reply.length == 0 ? from : reply);
         if (identities != null && senders != null)
-            for (Address sender : senders) {
-                boolean self = false;
+            for (Address sender : senders)
                 for (TupleIdentityEx identity : identities)
                     if (identity.account == account &&
                             identity.self &&
-                            identity.similarAddress(sender)) {
-                        self = true;
-                        break;
-                    }
-                if (!self)
-                    others.add(sender);
-            }
+                            identity.similarAddress(sender))
+                        return true;
 
-        return others;
+        return false;
     }
 
     Address[] getAllRecipients(List<TupleIdentityEx> identities, long account) {
         List<Address> addresses = new ArrayList<>();
 
-        List<Address> others = replyOthers(identities, account);
-        if (others.size() > 0)
-            addresses.addAll(others);
-        else {
-            if (to != null)
-                addresses.addAll(Arrays.asList(to));
-        }
+        if (to != null && !replySelf(identities, account))
+            addresses.addAll(Arrays.asList(to));
 
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));

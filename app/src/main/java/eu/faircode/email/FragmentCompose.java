@@ -3151,11 +3151,8 @@ public class FragmentCompose extends FragmentBase {
                                 break;
                             }
 
-                    Address[] refto = null;
-                    if (ref != null) {
-                        List<Address> others = ref.replyOthers(data.identities, ref.account);
-                        refto = (others.size() == 0 ? ref.to : others.toArray(new Address[0]));
-                    }
+                    Address[] refto = (ref == null ? null
+                            : ref.replySelf(data.identities, ref.account) ? ref.from : ref.to);
                     if (refto != null && refto.length > 0) {
                         if (selected == null)
                             for (Address sender : refto)
@@ -3319,13 +3316,20 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                List<Address> others = ref.replyOthers(data.identities, ref.account);
-                                if (others.size() == 0) {
+                                if (ref.replySelf(data.identities, ref.account)) {
                                     data.draft.from = ref.from;
-                                    data.draft.to = ref.to;
+                                    List<Address> tos = new ArrayList<>();
+                                    if (ref.to != null)
+                                        for (Address to : ref.to)
+                                            for (EntityIdentity identity : data.identities)
+                                                if (!Objects.equals(identity.account, ref.account) ||
+                                                        !identity.self ||
+                                                        !identity.similarAddress(to))
+                                                    tos.add(to);
+                                    data.draft.to = (tos.size() == 0 ? null : tos.toArray(new Address[0]));
                                 } else {
                                     data.draft.from = ref.to;
-                                    data.draft.to = others.toArray(new Address[0]);
+                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 }
 
                                 if (data.draft.from != null && data.draft.from.length > 0) {

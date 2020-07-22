@@ -2193,8 +2193,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (data.identities == null)
                     data.identities = new ArrayList<>();
 
-                List<Address> others = message.replyOthers(data.identities, message.account);
-                final Address[] to = (others.size() == 0 ? message.to : others.toArray(new Address[0]));
+                final Address[] to =
+                        message.replySelf(data.identities, message.account)
+                                ? message.to
+                                : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
 
                 Address[] recipients = message.getAllRecipients(data.identities, message.account);
 
