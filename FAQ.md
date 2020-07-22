@@ -1014,8 +1014,9 @@ means that the Android account manager was not able to refresh the authorization
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions.
 Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
-and using a username/password for authentication. Try using the Gmail quick setup wizard instead.
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/):
+"*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*",
+see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
