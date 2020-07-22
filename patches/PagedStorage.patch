@@ -1,0 +1,29 @@
+diff --git a/app/src/main/java/androidx/paging/PagedStorage.java b/app/src/main/java/androidx/paging/PagedStorage.java
+index c644234c7ed..7b2cc1fc788 100644
+--- a/app/src/main/java/androidx/paging/PagedStorage.java
++++ b/app/src/main/java/androidx/paging/PagedStorage.java
+@@ -171,6 +171,10 @@ public T get(int i) {
+             // can only occur in tiled case, with untouched inner/placeholder pages
+             return null;
+         }
++        if (pageInternalIndex >= page.size()) {
++            eu.faircode.email.Log.e("PageStorage pageInternalIndex=" + pageInternalIndex + "/" + page.size());
++            return null;
++        }
+         return page.get(pageInternalIndex);
+     }
+ 
+@@ -542,7 +546,12 @@ public void insertPage(int position, @NonNull List<T> page, @Nullable Callback c
+ 
+             // OK only if existing single page, and it's the last one
+             if (!onlyEndPagePresent && !addingLastPage) {
+-                throw new IllegalArgumentException("page introduces incorrect tiling");
++                //throw new IllegalArgumentException("page introduces incorrect tiling");
++                eu.faircode.email.Log.e("PagedStorage tiling" +
++                        " size=" + newPageSize + "/" + mPageSize +
++                        " addingLastPage=" + addingLastPage +
++                        " onlyEndPagePresent=" + onlyEndPagePresent);
++                return;
+             }
+             if (onlyEndPagePresent) {
+                 mPageSize = newPageSize;

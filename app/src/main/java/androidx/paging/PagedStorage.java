@@ -171,6 +171,10 @@ final class PagedStorage<T> extends AbstractList<T> {
             // can only occur in tiled case, with untouched inner/placeholder pages
             return null;
         }
+        if (pageInternalIndex >= page.size()) {
+            eu.faircode.email.Log.e("PageStorage pageInternalIndex=" + pageInternalIndex + "/" + page.size());
+            return null;
+        }
         return page.get(pageInternalIndex);
     }
 
@@ -542,7 +546,12 @@ final class PagedStorage<T> extends AbstractList<T> {
 
             // OK only if existing single page, and it's the last one
             if (!onlyEndPagePresent && !addingLastPage) {
-                throw new IllegalArgumentException("page introduces incorrect tiling");
+                //throw new IllegalArgumentException("page introduces incorrect tiling");
+                eu.faircode.email.Log.e("PagedStorage tiling" +
+                        " size=" + newPageSize + "/" + mPageSize +
+                        " addingLastPage=" + addingLastPage +
+                        " onlyEndPagePresent=" + onlyEndPagePresent);
+                return;
             }
             if (onlyEndPagePresent) {
                 mPageSize = newPageSize;
