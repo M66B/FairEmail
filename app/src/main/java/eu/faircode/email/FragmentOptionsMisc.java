@@ -31,6 +31,7 @@ import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Debug;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -92,7 +93,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAuthSasl;
     private TextView tvProcessors;
     private TextView tvMemoryClass;
-    private TextView tvStorageSpace;
+    private TextView tvMemoryUsage;
+    private TextView tvStorageUsage;
     private TextView tvFingerprint;
     private Button btnCharsets;
     private Button btnCiphers;
@@ -151,7 +153,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthSasl = view.findViewById(R.id.swAuthSasl);
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
-        tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
+        tvMemoryUsage = view.findViewById(R.id.tvMemoryUsage);
+        tvStorageUsage = view.findViewById(R.id.tvStorageUsage);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnCiphers = view.findViewById(R.id.btnCiphers);
@@ -590,7 +593,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
                 class_mb + " MB", Helper.humanReadableByteCount(mi.totalMem)));
 
-        tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
+        Runtime rt = Runtime.getRuntime();
+        long hused = rt.totalMemory() - rt.freeMemory();
+        long hmax = rt.maxMemory();
+        long nheap = Debug.getNativeHeapAllocatedSize();
+        tvMemoryUsage.setText(getString(R.string.title_advanced_memory_usage,
+                Helper.humanReadableByteCount(hused),
+                Helper.humanReadableByteCount(hmax),
+                Helper.humanReadableByteCount(nheap)));
+
+        tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
                 Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
                 Helper.humanReadableByteCount(Helper.getTotalStorageSpace())));
         tvFingerprint.setText(Helper.getFingerprint(getContext()));

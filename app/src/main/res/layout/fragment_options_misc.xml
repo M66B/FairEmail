@@ -409,14 +409,24 @@
             app:layout_constraintTop_toBottomOf="@id/tvProcessors" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvStorageSpace"
+            android:id="@+id/tvMemoryUsage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/title_advanced_storage_space"
+            android:text="@string/title_advanced_memory_class"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvStorageUsage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_storage_usage"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMemoryUsage" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvFingerprint"
@@ -428,7 +438,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStorageSpace" />
+            app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
 
         <Button
             android:id="@+id/btnCharsets"
@@ -454,6 +464,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swAuthPlain,swAuthLogin,swAuthSasl,tvProcessors,tvMemoryClass,tvStorageSpace,tvFingerprint,btnCharsets,btnCiphers" />
+            app:constraint_referenced_ids="swAuthPlain,swAuthLogin,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
