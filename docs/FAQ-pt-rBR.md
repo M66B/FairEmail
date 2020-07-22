@@ -1,8 +1,8 @@
-# FairEmail support
+# Suporte para FairEmail
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Se você tiver alguma pergunta, verifique primeiro as perguntas mais frequentes abaixo. No final, você pode descobrir como fazer outras perguntas, solicitar recursos e relatar erros.
 
-## Index
+## Índice
 
 * [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
 * [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
@@ -341,7 +341,7 @@ Android 8 Oreo might also show a status bar notification with the text *Apps are
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox instead.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
@@ -1545,7 +1545,7 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions and actions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -2640,6 +2640,8 @@ This command can be sent to FairEmail from an automation app to update the prote
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
+
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 

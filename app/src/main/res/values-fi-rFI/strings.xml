@@ -6,6 +6,7 @@
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene ”takaisin” uudelleen poistuaksesi</string>
+    <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Ilmoitukset</string>
@@ -329,12 +330,14 @@
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_volumenav">Äänenvoimakkuus suuremmalle/pienemmälle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
+    <string name="title_advanced_swipe_close">Pyyhkäise alas sulkeaksesi keskustelun</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
+    <string name="title_advanced_undo">Kumoamisajan kesto</string>
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
@@ -382,6 +385,8 @@
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
+    <string name="title_advanced_disconnect_links">Käytä listoja seurantalinkeistä varoittamiseksi</string>
+    <string name="title_advanced_disconnect_images">Käytä listoja seurantakuvien tunnistamiseksi</string>
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
@@ -787,6 +792,8 @@
     <string name="title_add_image_inline">Lisää</string>
     <string name="title_add_image_attach">Liitä</string>
     <string name="title_add_image_resize">Muuta kokoa</string>
+    <string name="title_add_image_privacy">Poista yksityisyyden kannalta merkitykselliset tiedot</string>
+    <string name="title_add_image_privacy_remark">Maantieteellinen sijainti, sarjanumerot, jne.</string>
     <string name="title_add_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_add_image_select">Valitse tiedosto</string>
     <string name="title_add_attachment">Lisää liite</string>
@@ -794,6 +801,7 @@
     <string name="title_attachment_photo">Ota kuva</string>
     <string name="title_attachment_audio">Tallenna ääntä</string>
     <string name="title_show_addresses">Näytä kopio/piilokopio</string>
+    <string name="title_save_drafts">Tallenna luonnokset palvelimelle</string>
     <string name="title_send_dialog">Näytä lähetysasetukset</string>
     <string name="title_image_dialog">Näytä kuva-asetukset</string>
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
@@ -1099,6 +1107,7 @@
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
+    <string name="title_tracking_link">Tämä verkkosivu saattaa seurata sinua</string>
     <string name="title_link_http">Verkkoliikennettä ei salata</string>
     <string name="title_link_https">Verkkoliikenne salataan</string>
     <string name="title_sanitize_link">Poista seurantaparametrit</string>
@@ -1117,6 +1126,7 @@
     <string name="title_add">Lisää</string>
     <string name="title_browse">Avaa sovelluksessa</string>
     <string name="title_info">Lisätietoa</string>
+    <string name="title_download">Lataa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
     <string name="title_enable">Ota käyttöön</string>
@@ -1176,6 +1186,7 @@
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
+    <string name="title_unexpected_info_remark">Kuvaile mitä olit tekemässä, kun sait virheen:</string>
     <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
     <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_account">Tili</string>

@@ -183,40 +183,40 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [~~(64) Kan du lägga till anpassade åtgärder för att svepa vänster/höger? ~~](#user-content-faq64)
 * [(65) Varför visas några bilagor som är nedtonade?](#user-content-faq65)
 * [(66) Finns FairEmail tillgängligt i Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
+* [(67) Hur kan jag snooza konversationer?](#user-content-faq67)
+* [~~(68) Varför kan Adobe Acrobat läsare inte öppna PDF-bilagor / Microsoft-appar inte öppna bifogade dokument?~~](#user-content-faq68)
+* [(69) Kan du lägga till automatisk scroll på nytt meddelande?](#user-content-faq69)
+* [(70) När kommer meddelanden att expanderas automatiskt?](#user-content-faq70)
+* [(71) Hur använder jag filterregler?](#user-content-faq71)
+* [(72) Vad är primära konton/identiteter?](#user-content-faq72)
+* [(73) Är rörliga meddelanden på konton säkra/effektiva?](#user-content-faq73)
+* [(74) Varför ser jag dubbla meddelanden?](#user-content-faq74)
+* [(75) Kan du göra en iOS, Windows, Linux etc version?](#user-content-faq75)
+* [(76) Vad gör "Rensa lokala meddelanden"?](#user-content-faq76)
+* [(77) Varför visas meddelanden ibland med en liten fördröjning?](#user-content-faq77)
+* [(78) Hur använder jag scheman?](#user-content-faq78)
+* [(79) Hur använder jag synkronisering på begäran (manuell)?](#user-content-faq79)
+* [~~(80) Hur åtgärdar jag felet 'Kan inte ladda BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(81) Kan du göra bakgrunden till det ursprungliga meddelandet mörkt i det mörka temat?~~](#user-content-faq81)
+* [(82) Vad är en spårningsbild?](#user-content-faq82)
+* [(84) Vad är lokala kontakter till?](#user-content-faq84)
+* [(85) Varför är en identitet inte tillgänglig?](#user-content-faq85)
+* [~~(86) Vad är 'extra integritetsfunktioner'?~~](#user-content-faq86)
+* [(87) Vad betyder 'invalid credentials'?](#user-content-faq87)
 * [(88) Hur kan jag använda ett Yahoo, AOL eller Sky konto?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
+* [(89) Hur kan jag skicka enbart textmeddelanden (plain text)?](#user-content-faq89)
+* [(90) Varför är vissa texter länkade när de inte är en länk?](#user-content-faq90)
+* [~~(91) Kan du lägga till periodisk synkronisering för att spara batterikraft?~~](#user-content-faq91)
+* [(92) Kan du lägga till skräppostfiltrering, verifiering av DKIM-signatur och SPF?](#user-content-faq92)
+* [(93) Kan du tillåta installation/datalagring på externt lagringsmedia (sdcard)?](#user-content-faq93)
+* [(94) Vad betyder den röda/orangefärgade randen i slutet av sidhuvudet?](#user-content-faq94)
+* [(95) Varför visas inte alla appar när du väljer en bilaga eller bild?](#user-content-faq95)
+* [(96) Var hittar jag IMAP- och SMTP-inställningarna?](#user-content-faq96)
+* [(97) Vad är "cleanup" ?](#user-content-faq97)
+* [(98) Varför kan jag fortfarande välja kontakter efter att ha återkallat kontaktbehörigheter?](#user-content-faq98)
+* [(99) Kan du lägga till en rich-text- eller markdown-redigerare?](#user-content-faq99)
+* [(100) Hur kan jag synkronisera Gmail-kategorier?](#user-content-faq100)
+* [(101) Vad betyder den blå/orange punkten längst ned i konversationerna?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
 * [(103) How can I record audio?](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
@@ -341,7 +341,7 @@ Android 8 Oreo kan också visa ett meddelande i statusfältet med texten *Apps k
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox instead.
+Om du kom hit genom att klicka på aviseringen, bör du veta att nästa klick kommer att öppna den enhetliga inkorgen.
 
 <br />
 
@@ -1545,7 +1545,7 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions and actions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Reglerna tillämpas direkt efter att meddelandehuvudet har hämtats, men innan meddelandetexten har hämtats, så det är inte möjligt att tillämpa villkoren på meddelandetexten. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -2635,29 +2635,31 @@ Spårningsbilder kommer endast att inaktiveras om motsvarande huvudalternativ "i
 
 Spårningsbilder kommer inte att kännas igen när domänen är klassificerad som '*Content*', se [här](https://disconnect.me/trackerprotection#trackers-we-dont-block) för mer information.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Detta kommando kan skickas till FairEmail från en automationsapp för att uppdatera skyddslistorna:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
+Uppdatering en gång i veckan kommer förmodligen att räcka, se [här](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) för ändringar i de senaste listorna.
+
 <br />
 
 ## Support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Endast den senaste versionen av Play Store och den senaste versionen av GitHub stöds. Detta innebär också att nedgradering inte stöds.
 
-Requested features should:
+Önskade funktioner bör:
 
 * vara användbar för de flesta användare
 * inte komplicera användningen av FairEmail
 * passar in i filosofin i FairEmail (integritetsorienterad, säkerhetsorienterad)
 * följa gemensamma standarder (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Funktioner som inte uppfyller dessa krav kommer sannolikt att avvisas. Detta är också för att hålla underhåll och stöd i det långa loppet genomförbart.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Om du har en fråga, efterfrågar en funktion eller rapportera en bugg, använd [detta formulär](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-issues är inaktiverade på grund av frekvent missbruk.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

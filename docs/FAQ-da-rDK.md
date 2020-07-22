@@ -274,7 +274,7 @@ Designet er baseret på mange debatter, og er du interesseret, kan du også deba
 * [(156) Hvordan opsættes en Office365-konto?](#user-content-faq156)
 * [(157) Hvordan opsættes en Free.fr-konto?](#user-content-faq157)
 * [(158) Hvilken kamera-/lydoptager anbefales?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(159) Hvad er Disconnect's sporingsbeskyttelseslister?](#user-content-faq159)
 
 [Jeg har et andet spørgsmål.](#user-content-support)
 
@@ -337,11 +337,11 @@ Statusnjælkenotifikationen kan deaktiveres via FairEmails notifikationsindstill
 
 For at fjerne notifikationen kan du kan skifte til periodisk beskedsynkronisering i modtagelsesindstillingerne, dog vil dette muligvis forbruger mere strøm. Se [hér](#user-content-faq39) for flere detailjer vedr. batteriforbrug.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Tjek [hér](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) vedr., hvordan du kan deaktivere denne notifikation.
+Android 8 Oreo viser muæigvis også en statusbjælkenotifikation med teksten *Apps kører i baggrunden*. Tjek [hér](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) vedr., hvordan du kan deaktivere denne notifikation.
 
 Anvendelse af [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) er foreslået i stedet for en Android-tjeneste med en statusbjælkenotifikation, men dette vil enten kræve e-mail udbydere, som sender FCM-meddelelser, eller en central server, hvor alle meddelelser samles mhp. afsendlse af FCM-meddelelser. Førstnævnte vil ikke komme til at ske, og sidstnævnte ville have betydelige datafortrolighedskonsekvenser.
 
-Er du kommet hertil via et klik på notifikationen, så vil næste klik i stedet åbner den fælles indbakke.
+Er du kommet hertil via et klik på notifikationen, så vil næste klik åbne den fælles indbakke.
 
 <br />
 
@@ -355,7 +355,7 @@ Lavprioritets statusbjælkenotifikationen viser antallet af afventende operation
 * *kopiér*: Kopiér besked til en anden fjernmappe
 * *hent*: Hent ændret (pushed) besked
 * *slet*: Slet besked i fjernmappe
-* *(u)læst*: Markér beskeder som læst/ulæst i fjernmappe
+* *set*: Markér beskeder som læste/ulæste i fjernmappe
 * *besvaret*: Markér beskeder som besvaret i fjernmappe
 * *stjernemarker*: Tilføj/fjern stjerne i fjernmappe
 * *nøgleord*: Tilføj/fjern IMAP-markering i fjernmappe
@@ -370,12 +370,12 @@ Lavprioritets statusbjælkenotifikationen viser antallet af afventende operation
 * *findes*: Tjek om besked findes
 * *regel*: Eksekvér regel på brødtekst
 
-Operationer behandles kun, såfremt en forbindelse til e-mailserveren findes, eller under manuel synkronisering. See also [this FAQ](#user-content-faq16).
+Operationer behandles kun, såfremt en forbindelse til e-mailserveren findes, eller under manuel synkronisering. Se også [denne FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Hvordan kan jeg benytte et ugyldigt sikkerhedscertifikat/tom adgangskode/simpel tekstforbindelse?**
 
 *... Ikke-betroet ... ikke i certifikatet ...*
 <br />
@@ -387,71 +387,71 @@ Alternativt kan du acceptere fingeraftrykket vist under fejlmeddelelsen, hvis du
 
 Bemærk, at ældre Android-versioner muligvis ikke genkender nyere certificeringsmyndigheder såsom Let’s Encrypt, hvorfor forbindelser kan blive betragtet som usikre, se også [hér](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Trust anchor til certificeringsstien ikke fundet*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor til certificeringsstien ikke fundet...* betyder, at Androids standard trust manager ikke var i stand til at bekræfte servercertifikatkæden.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Du bør enten rette serveropsætningen eller acceptere fingeraftrykket vist neden for fejlmeddelelsen.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Bemærk, at dette problem kan skyldes af, at serveren ikke sender alle mellemliggende certifikater.
 
-*Empty password*
+*Kryptere adgangskode*
 
-Your username is likely easily guessed, so this is insecure.
+Dit brugernavn er sandsynligvis let at gætte og er dermed ikke sikkert.
 
-*Plain text connection*
+*Simpel tekst-forbindelse*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Dit brugernavn og adgangskode samt alle beskeder sendes og modtages ukrypteret, hvilket er **meget usikkert**, da et [mand-i-midten angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) nemt udføres på en ikke-krypteret forbindelse.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Vil du fortsat bruge et ugyldigt sikkerhedscertifikat, en tom adgangskode eller en almindelig tekstforbindelse, så skal usikre forbindelser aktiveres i konto- og/eller identitetsindstillingerne. STARTTLS bør vælges til simpel tekst-forbindelser. Aktiverer du usikre forbindelser, bør du kun oprette forbindelse via private, betroede netværk og aldrig via offentlige netværk på f.eks. hoteller, lufthavne mv.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Hvordan tilpasses beskedvisningen?**
 
-In the three dot overflow menu you can enable or disable or select:
+I menuen med tre prikker kan du aktivere/deaktivere eller vælge:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *tekststørrelse*: Til tre forskellige skriftstørrelser
+* *kompakt visning*: Til flere kondenserede beskedelementer og en mindre beskedtekst skrifttype
 
-In the display section of the settings you can enable or disable:
+I visningsafsnittet i indstillingerne kan du aktivere eller deaktivere:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Show contact photos*: to hide contact photos
-* *Show identicons*: to show generated contact avatars
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Fælles indbakke*: For at deaktivere den fælles indbakke og i stedet vise de valgte mapper fra den fælles indbakke
+* *Gruppér efter dato*: Vis datooverskrift over beskeder med den samme dato
+* *Samtaletråd*: For at deaktivere samtaletråd og i stedet vise beskeder individuelt
+* *Vis kontaktfotos*: For at skjule kontaktfotos
+* *Vis identikoner*: Til visning af genererede kontaktavatarer
+* *Vis navne og e-mailadresser*: For at navne/navne og e-mailadresser
+* *Vis emne uden kursiv*: For at vise beskedemnet som alm. tekst
+* *Vis stjerner*: For at skjule stjerner (favoritter)
+* *Vis beskedforhåndsvisning*: For at vise to linjers beskedtekst
+* *Vis som standard adresseoplysninger*: Vis som standard udvidet adresseafsnit
+* *Benyt monospatieret skrifttype til beskedtekst *: For brug af en skrifttype med fast bredde til beskedtekster
+* *Vis automatisk opridelig besked for kendte kontakter*: Se venligst [denne FAQ](#user-content-faq35) for automatisk at få vist originale beskeder for kontakter på din enhed
+* *Vis automatisk billeder for kendte kontakter*: Se venligst [denne FAQ](#user-content-faq35) for automatisk at få vist billeder for kontakter på din enhed
+* *Samtalehandlingsbjælke*: For at deaktivere navigeringsbjælken nederst
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Bemærk, at beskeder kun kan forhåndsvises, når beeskedteksten er blevet downloadet. Større beskedtekster downloades som standard ikke på afregnede (hovedsaligt mobile) netværk. Du kan ændre dette i indstillingerne.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Er listen over adresser lang, kan du sammenfolde adresseafsnittet vha. *mindre*-ikonet øverst i adresseseafsnittet.
 
-Some people ask:
+Nogle har bedt om:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
-* to move the star to the left, but it is much easier to operate the star on the right side
+* at få emnet vist med fed tekst, men fed benyttes allerede til fremhævelse af ulæste beskeder
+* at få adresse- eller emnevisningen gjort større/mindre, men dette vil forstyrre indstillingen for tekststørrelse
+* at få stjernen flyttet til venstre, men det er meget lettere at betjene stjernen på højre side
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Desværre er det umuligt at stille alle tilpas, og at tilføje mange indstillinger ville ikke kun være forvirrende, men heller aldrig være tilstrækkeligt.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Hvordan logges ind på Gmail/G suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Du kan benytte hurtig opsætnings-guiden til nemt at opsætte en Gmail-konto og -identitet.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
+Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang til "mindre sikre apps" og benytte din kontoadgangskode eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -1545,7 +1545,7 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions and actions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regler effektueres umiddelbart efter beskedhovedet er hentet, men inden beskedteksten er blevet downloadet, så brug af betingelser på beskedteksten er derfor ikke muligt. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -2635,29 +2635,31 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Denne kommando kan sendes til FairEmail fra en automatiserings-app for at opdatere beskyttelseslisterne:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
+Opdatring én gang ugentligt vil formentlig være tilstrækkeligt, se [hér](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for nylige listeændringer.
+
 <br />
 
 ## Support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. Dette betyder også, at nedgradering ikke understøttes.
 
-Requested features should:
+Anmodede funktioner skal:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er også for at muliggøre vedligeholdelse og support i det lange løb.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Har du spørgsmål, ønsker til en funktion eller vil rapportere en fejl, så benyt venligst [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2020 Marcel Bokhorst.

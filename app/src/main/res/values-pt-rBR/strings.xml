@@ -6,6 +6,8 @@
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
+    <string name="app_cake">Espaço de armazenamento insuficiente</string>
+    <string name="channel_service">﻿Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
     <string name="channel_update">Atualizações</string>
@@ -65,6 +67,7 @@
         <item quantity="other">Tratar %1$d mensagens como spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Tratar mensagem de %1$s como spam?</string>
+    <string name="title_junk_hint">Seu provedor de e-mail é responsável por filtrar spam. Um aplicativo de e-mail não possui todos os dados necessários para fazer isso de forma confiável.</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remetente</string>
     <string name="title_block_domain">Bloquear domínio do remetente</string>
@@ -76,9 +79,13 @@
     <string name="title_notification_idle">Ocioso</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">\'%1$s\' alerta de servidor</string>
+    <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
+    <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
+    <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
     <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Sair</string>
     <string name="menu_answers">Modelos</string>
@@ -114,6 +121,7 @@
     </string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Para configurar rapidamente uma conta e uma identidade para a maioria dos provedores</string>
+    <string name="title_setup_quick_support">Alguns fornecedores dificultam a adição de uma conta. Por favor, não culpe a FairEmail por isso, mas peça apoio em seu lugar.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
@@ -154,6 +162,7 @@
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
     <string name="title_setup_data">Economia de dados está habilitada</string>
+    <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
     <string name="title_setup_inbox">Ir para mensagens</string>
     <string name="title_setup_go">Iniciar</string>
     <string name="title_setup_to_do">Para fazer</string>
@@ -210,7 +219,9 @@
     <string name="title_advanced_section_encryption">Criptografia</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
+    <string name="title_advanced_receive">Receber mensagens para todas as contas</string>
     <string name="title_advanced_when">Quando</string>
+    <string name="title_advanced_always">Sempre receber mensagens para estas contas</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_advanced">Avançado</string>
     <string name="title_advanced_no_date">Mensagens sem data</string>
@@ -220,9 +231,11 @@
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_gmail_thread">Estilo de agrupamento de mensagens do Gmail para contas do Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
+    <string name="title_advanced_sync_shared_folders">Sincronizar listas de pastas compartilhadas</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
     <string name="title_advanced_check_reply">Verificar endereços de e-mail de resposta ao sincronizar mensagens</string>
+    <string name="title_advanced_tune_keep_alive">Sintonizar automaticamente o intervalo de manutenção de vida</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados em mensagens enviadas</string>

@@ -332,6 +332,7 @@
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_volumenav">Volume su/giù per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_reversed">Inverti direzione di navigazione</string>
+    <string name="title_advanced_swipe_close">Scorri verso il basso per chiudere la conversazione</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_expand_all">Espandi automaticamente tutti i messaggi letti</string>
     <string name="title_advanced_expand_one">Espandi solo un messaggio alla volta</string>
@@ -386,6 +387,8 @@
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
+    <string name="title_advanced_disconnect_links">Usa le liste per avvisare sui collegamenti di tracciamento</string>
+    <string name="title_advanced_disconnect_images">Usa le liste per riconoscere le immagini di tracciamento</string>
     <string name="title_advanced_sign_default">Firma in modo predefinito</string>
     <string name="title_advanced_encrypt_default">Cripta in modo predefinito</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
@@ -791,6 +794,8 @@
     <string name="title_add_image_inline">Inserisci</string>
     <string name="title_add_image_attach">Allega</string>
     <string name="title_add_image_resize">Ridimensiona</string>
+    <string name="title_add_image_privacy">Rimuovi dati sensibili riguardo alla privacy</string>
+    <string name="title_add_image_privacy_remark">Posizione geografica, numeri di serie, ecc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
@@ -1123,6 +1128,7 @@
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Scarica</string>
     <string name="title_report">Report</string>
     <string name="title_fix">Correggi</string>
     <string name="title_enable">Attiva</string>

@@ -341,7 +341,7 @@ Android 8 Oreo might also show a status bar notification with the text *Apps are
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox instead.
+Если вы попали сюда, нажав на уведомление, вам стоит знать, что следующий щелчок откроет единый почтовый ящик.
 
 <br />
 
@@ -1545,7 +1545,7 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions and actions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -2641,23 +2641,25 @@ Tracking images will not be recognized when the domain is classified as '*Conten
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+
 <br />
 
 ## Поддержка
 
-Поддерживается только последняя версия Play и последняя версия GitHub. Это также означает, что понижение версии не поддерживается.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Запрошенные функции должны:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Характеристики, не удовлетворяющие этим требованиям, скорее всего, будут отклонены. Это также необходимо для поддержики в долгосрочной перспективе.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Если у вас есть вопрос, хотите запросить функцию или сообщить об ошибке, пожалуйста, используйте [эту форму](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Issues на GitHub отключены из-за частых злоупотреблений.
+GitHub issues are disabled due to frequent misusage.
 
-Copyright &copy; 2018-2020 Марсель Bokhorst.
+Copyright &copy; 2018-2020 Marcel Bokhorst.

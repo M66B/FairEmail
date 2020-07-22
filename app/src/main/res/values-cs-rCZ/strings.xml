@@ -99,8 +99,8 @@
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
-    <string name="title_notification_failed">\"%1$s\" selhalo</string>
-    <string name="title_notification_alert">\'%1$s\' upozornění serveru</string>
+    <string name="title_notification_failed">„%1$s“ selhalo</string>
+    <string name="title_notification_alert">„%1$s“ upozornění serveru</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_of">%1$s/%2$s</string>
@@ -149,20 +149,20 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce instalací lze použít vícekrát pro nastavení libovolného počtu účtů</string>
-    <string name="title_setup_wizard_remark">Přejděte \"zpět\" pro vstup do doručených</string>
+    <string name="title_setup_wizard_remark">Přejděte „zpět“ pro vstup do doručených</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
-    <string name="title_setup_office_auth">Chyba \'AUTHENTICATE failed\' může být způsobena zakázaným IMAP/SMTP správcem systému</string>
+    <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
-    <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
+    <string name="title_setup_no_settings">Pro doménu „%1$s“ nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
-    <string name="title_setup_no_auth_hint">Zkontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
@@ -181,7 +181,7 @@
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Nastavit optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Pro průběžný příjem e-mailů (nepovinné)</string>
-    <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte \"Všechny aplikace\", v seznamu vyberte tuto aplikaci a označte a potvrďte volbu \"Neoptimalizovat\"</string>
+    <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
@@ -222,7 +222,7 @@
     <string name="title_setup_theme_dark">Tmavý</string>
     <string name="title_setup_theme_black_background">Černé pozadí</string>
     <string name="title_setup_theme_system">Podle systému</string>
-    <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv \"podle systému\" se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
+    <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv „podle systému“ se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
@@ -315,7 +315,7 @@
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
-    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální \"komu\" kontakt</string>
+    <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální „komu“ kontakt</string>
     <string name="title_advanced_show_recipients">Zobrazit příjemce v hlavičce zprávy</string>
     <string name="title_advanced_font_size_sender">Velikost textu odesílatele</string>
     <string name="title_advanced_font_size_subject">Velikost textu předmětu</string>
@@ -347,13 +347,14 @@
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
-    <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
+    <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_swipenav">Tahem vlevo/vpravo přejít na další/předešlou konverzaci</string>
     <string name="title_advanced_volumenav">Hlasitostí nahoru/dolů přejít na další/předešlou konverzaci</string>
     <string name="title_advanced_reversed">Obrátit směr navigace</string>
+    <string name="title_advanced_swipe_close">Tažení dolů zavře konverzaci</string>
     <string name="title_advanced_autoexpand">Rozbalovat zprávy automaticky</string>
     <string name="title_advanced_expand_all">Rozbalovat všechny přečtené zprávy automaticky</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
@@ -408,8 +409,8 @@
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
-    <string name="title_advanced_disconnect_links" comment="title_advanced_disconnect_links&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Použít seznamy k upozornění na sledovací odkazy</string>
-    <string name="title_advanced_disconnect_images" comment="title_advanced_disconnect_images&#10;This is about Disconnect's tracker protection lists: https://disconnect.me/trackerprotection">Použít seznamy k rozpoznání sledovacích obrázků</string>
+    <string name="title_advanced_disconnect_links">Použít seznamy k upozornění na sledovací odkazy</string>
+    <string name="title_advanced_disconnect_images">Použít seznamy k rozpoznání sledovacích obrázků</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
@@ -519,7 +520,7 @@
     <string name="title_identity_unicode_remark">Většina serverů toto nepodporuje</string>
     <string name="title_identity_max_size">Maximální velikost zprávy (MB)</string>
     <string name="title_identity_receipt">Automaticky požadovat potvrzení doručení/přečtení</string>
-    <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>
+    <string name="title_identity_use_ip_hint">V případech jako „neplatný pozdrav“, „vyžadována platná adresa“ či podobné chyby, zkuste změnit toto nastavení</string>
     <string name="title_optional">Nepovinné</string>
     <string name="title_recommended">Doporučeno</string>
     <string name="title_account_linked">Připojený účet</string>
@@ -565,8 +566,8 @@
     <string name="title_trust">Důvěřovat certifikátu serveru s digitálním otiskem %1$s</string>
     <string name="title_no_name">Chybí jméno</string>
     <string name="title_no_email">Chybí e-mailová adresa</string>
-    <string name="title_email_invalid">E-mailová adresa je neplatná: \'%1$s\'</string>
-    <string name="title_address_parse_error">Adresa \"%1$s\" neplatná: %2$s</string>
+    <string name="title_email_invalid">E-mailová adresa je neplatná: „%1$s“</string>
+    <string name="title_address_parse_error">Adresa „%1$s“ je neplatná: %2$s</string>
     <string name="title_no_account">Chybí účet</string>
     <string name="title_no_host">Chybí název hostitele</string>
     <string name="title_no_user">Chybí uživatelské jméno</string>
@@ -798,7 +799,7 @@
     <string name="title_send_at">Odeslat později &#8230;</string>
     <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Priorita</string>
-    <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
+    <string name="title_no_server">Nenalezen žádný server na „%1$s“</string>
     <string name="title_style">Styl</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
@@ -888,7 +889,7 @@
     <string name="title_search">Hledat</string>
     <string name="title_search_for_hint">Zadejte text</string>
     <string name="title_search_hint">        Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
-        Pro hledání i na serveru, stiskněte tlačítko \"Hledat znovu\".
+        Pro hledání i na serveru, stiskněte tlačítko „Hledat znovu“.
     </string>
     <string name="title_search_index_hint">Hledání s pomocí indexu vyhledávání je rychlé, ale najde pouze celá slova</string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
@@ -999,7 +1000,7 @@
     <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>
     <string name="title_rule_name_missing">Chybí název pravidla</string>
     <string name="title_rule_condition_missing">Chybí podmínka</string>
-    <string name="title_rule_automation_hint">Bude odeslán záměr (intent) \"%1$s\" s dodatky (extras) \"%2$s\"</string>
+    <string name="title_rule_automation_hint">Bude odeslán záměr „%1$s“ s dodatky „%2$s“</string>
     <string name="title_rule_execute">Provést nyní</string>
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
     <string name="title_rule_check">Zkontrolovat</string>
@@ -1128,7 +1129,7 @@
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
-    <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
+    <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Pro zobrazení celého obsahu uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí.</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
     <string name="title_tracking_link">Tato stránka vás může sledovat</string>
@@ -1178,8 +1179,8 @@
     <string name="title_loading">Načítání &#8230;</string>
     <string name="title_fetching_again">Opětovné získávání zprávy ze serveru</string>
     <string name="title_conversation_actions">Akce</string>
-    <string name="title_conversation_action_reply">Odpovědět s: \'%1$s\'</string>
-    <string name="title_conversation_action_copy">Kopírovat: \'%1$s\'</string>
+    <string name="title_conversation_action_reply">Odpovědět s: „%1$s“</string>
+    <string name="title_conversation_action_copy">Kopírovat: „%1$s“</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
