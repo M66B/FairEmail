@@ -12,6 +12,7 @@
 /.idea/misc.xml
 /.idea/vcs.xml
 /.idea/encodings.xml
+/.idea/crowdin_settings.xml
 .DS_Store
 /build
 /captures
