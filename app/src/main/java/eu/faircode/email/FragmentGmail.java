@@ -24,6 +24,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -251,6 +252,8 @@ public class FragmentGmail extends FragmentBase {
         String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
 
+        final String disabled = getString(R.string.title_setup_advanced_protection);
+
         boolean found = false;
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(type);
@@ -275,7 +278,12 @@ public class FragmentGmail extends FragmentBase {
 
                                     onAuthorized(name, token);
                                 } catch (Throwable ex) {
+                                    if (ex instanceof AuthenticatorException &&
+                                            "ServiceDisabled".equals(ex.getMessage()))
+                                        ex = new IllegalArgumentException(disabled, ex);
+
                                     Log.e(ex);
+
                                     tvError.setText(Log.formatThrowable(ex));
                                     grpError.setVisibility(View.VISIBLE);
 
