@@ -117,8 +117,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etInterval;
     private CheckBox cbPartialFetch;
     private CheckBox cbIgnoreSize;
-    private CheckBox cbUseDate;
-    private CheckBox cbUseReceived;
+    private RadioGroup rgDate;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -223,8 +222,7 @@ public class FragmentAccount extends FragmentBase {
         etInterval = view.findViewById(R.id.etInterval);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
         cbIgnoreSize = view.findViewById(R.id.cbIgnoreSize);
-        cbUseDate = view.findViewById(R.id.cbUseDate);
-        cbUseReceived = view.findViewById(R.id.cbUseReceived);
+        rgDate = view.findViewById(R.id.rgDate);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -833,8 +831,8 @@ public class FragmentAccount extends FragmentBase {
         args.putString("interval", etInterval.getText().toString());
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
         args.putBoolean("ignore_size", cbIgnoreSize.isChecked());
-        args.putBoolean("use_date", cbUseDate.isChecked());
-        args.putBoolean("use_received", cbUseReceived.isChecked());
+        args.putBoolean("use_date", rgDate.getCheckedRadioButtonId() == R.id.radio_date_header);
+        args.putBoolean("use_received", rgDate.getCheckedRadioButtonId() == R.id.radio_received_header);
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -1484,8 +1482,13 @@ public class FragmentAccount extends FragmentBase {
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
                     cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
-                    cbUseDate.setChecked(account == null ? false : account.use_date);
-                    cbUseReceived.setChecked(account == null ? false : account.use_received);
+
+                    if (account != null && account.use_date)
+                        rgDate.check(R.id.radio_date_header);
+                    else if (account != null && account.use_received)
+                        rgDate.check(R.id.radio_received_header);
+                    else
+                        rgDate.check(R.id.radio_server_time);
 
                     auth = (account == null ? EmailService.AUTH_TYPE_PASSWORD : account.auth_type);
                     provider = (account == null ? null : account.provider);

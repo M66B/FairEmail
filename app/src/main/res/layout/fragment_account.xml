@@ -562,23 +562,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPartialFetchRemark" />
 
-        <CheckBox
-            android:id="@+id/cbUseDate"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rgDate"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_use_date"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbIgnoreSize" />
+            app:layout_constraintTop_toBottomOf="@id/cbIgnoreSize">
 
-        <CheckBox
-            android:id="@+id/cbUseReceived"
+            <RadioButton
+                android:id="@+id/radio_server_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_server_time" />
+
+            <RadioButton
+                android:id="@+id/radio_received_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_received_header" />
+
+            <RadioButton
+                android:id="@+id/radio_date_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_date_header" />
+        </RadioGroup>
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDateRemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_use_received"
+            android:text="@string/title_date_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUseDate" />
+            app:layout_constraintTop_toBottomOf="@id/rgDate" />
 
         <!-- check -->
 
@@ -590,7 +611,7 @@
             android:tag="disable"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUseReceived" />
+            app:layout_constraintTop_toBottomOf="@id/tvDateRemark" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbCheck"
@@ -965,7 +986,7 @@
                 cbBrowse,tvBrowseHint,
                 cbAutoSeen,
                 tvInterval,etInterval,tvIntervalRemark,
-                cbPartialFetch,tvPartialFetchRemark,cbIgnoreSize,cbUseDate,cbUseReceived" />
+                cbPartialFetch,tvPartialFetchRemark,cbIgnoreSize,rgDate,tvDateRemark" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"
