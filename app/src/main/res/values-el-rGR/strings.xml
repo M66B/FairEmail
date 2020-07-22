@@ -202,7 +202,7 @@
     <string name="title_advanced_suggest_local">Πρότεινε τοπικά αποθηκευμένες επαφές</string>
     <string name="title_advanced_suggest_sent">Πρότεινε διευθύνσεις που βρέθηκαν σε απεσταλμένα μηνύματα</string>
     <string name="title_advanced_suggest_received">Πρότεινε διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
-    <string name="title_advanced_suggest_frequently">Ταξινόμησε τις προτεινόμενες διευθύνσεις με βάση τη συχνότητα που χρησιμοποιούνται</string>
+    <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_auto_list">Αυτόματη δημιουργία λιστών</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
     <string name="title_advanced_extended_reply">Χρήση εκτεταμένων κεφαλίδων κατά την απάντηση/προώθηση</string>
@@ -214,10 +214,10 @@
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
     <string name="title_advanced_receipt">Όταν ζητάτε αποδεικτικό</string>
-    <string name="title_advanced_usenet_signature">Ακολούθησε τις συμβάσεις υπογραφής του Usenet</string>
+    <string name="title_advanced_usenet_signature">Τήρηση των συμβάσεων υπογραφής του Usenet</string>
     <string name="title_advanced_remove_signatures">Απομάκρυνε τις γνωστές υπογραφές</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
-    <string name="title_advanced_lookup_mx">Έλεγξε τις διευθύνσεις των παραληπτών προτού γίνει η αποστολή</string>
+    <string name="title_advanced_lookup_mx">Έλεγχος των διευθύνσεων των παραληπτών προτού γίνει η αποστολή</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
     <string name="title_advanced_metered">Χρήση συνδέσεων με ογκοχρέωση</string>
     <string name="title_advanced_download">Αυτόματη λήψη μηνυμάτων και συνημμένων με σύνδεση ογκοχρέωσης μέχρι</string>
@@ -271,7 +271,12 @@
     <string name="title_advanced_thumbnails">Δείξε τις μικρογραφίες μετά από το κείμενο του μηνύματος</string>
     <string name="title_advanced_message_text_zoom">Μεγέθυνση του κειμένου του μηνύματος από προεπιλογή</string>
     <string name="title_advanced_contrast">Χρησιμοποίησε υψηλή αντίθεση για το κείμενο του μηνύματος</string>
-    <string name="title_advanced_monospaced">Χρησιμοποίησε γραμματοσειρά σταθερού πλάτους από προεπιλογή</string>
+    <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
+    <string name="title_advanced_text_color">Χρήση των χρωμάτων του κειμένου</string>
+    <string name="title_advanced_text_size">Χρήση των μεγεθών του κειμένου</string>
+    <string name="title_advanced_text_font">Χρήση των γραμματοσειρών</string>
+    <string name="title_advanced_text_align">Χρήση της στοίχισης του κειμένου</string>
+    <string name="title_advanced_collapse_quotes">Σύμπτυξη του παρατιθέμενου κειμένου</string>
     <string name="title_advanced_authentication">Εμφάνιση ειδοποίησης αν ο διακομιστής λήψης δεν μπόρεσε να πιστοποιήσει το μήνυμα</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
@@ -299,7 +304,6 @@
     <string name="title_leave_on_server">Άφησε τα μηνύματα στο διακομιστή</string>
     <string name="title_leave_deleted">Άφησε διεγραμμένα μυνήματα στο διακομιστή</string>
     <string name="title_leave_on_device">Αφήστε μηνύματα στη συσκευή</string>
-    <string name="title_use_date">Χρησιμοποίησε την ώρα αποστολής από την κεφαλίδα ημερομηνίας αντί για την ώρα λήψης από το διακομιστή</string>
     <string name="title_check">Έλεγχος</string>
     <string name="title_trust">Όρισε ως αξιόπιστο το πιστοποιητικό διακομιστή με αποτύπωμα %1$s</string>
     <string name="title_no_standard">Αυτός ο πάροχος χρησιμοποιεί ιδιόκτητο ηλεκτρονικό ταχυδρομείο και το πρωτόκολλο δεν επιτρέπει να χρησιμοποιήσετε ηλεκτρονικό ταχυδρομείο τρίτου μέρους</string>

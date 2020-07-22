@@ -498,7 +498,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_leave_deleted">Törölt üzenetek a szerveren hagyás</string>
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
     <string name="title_max_messages">Letöltendő üzenetek maximális száma (összes ha üres)</string>
-    <string name="title_use_date">A fejléc feladási időpont mezőjének megjelenítése a szerver fogadási időpontja helyett</string>
     <string name="title_related_identity">Kapcsolódó identitás felvétele</string>
     <string name="title_check">Ellenőrzés</string>
     <string name="title_trust">A következő ujjlenyomattal rendelkező szerver tanusítványának elfogadása: %1$s</string>

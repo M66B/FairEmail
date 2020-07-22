@@ -439,7 +439,6 @@
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
     <string name="title_leave_on_device">Mesajları cihazda bırak</string>
     <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>
-    <string name="title_use_date">Sunucu alma zamanı yerine tarih başlığındaki gönderme zamanını kullan</string>
     <string name="title_related_identity">İlgili kimliği ekle</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_trust">%1$s parmak izine sahip sunucu sertifikasına güven</string>

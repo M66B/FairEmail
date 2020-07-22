@@ -500,7 +500,6 @@
     <string name="title_leave_on_device">Utzi mezuak gailuan</string>
     <string name="title_max_messages">Deskargatzeko gehienezko mezuen kopurua (guztientzako hutsik)</string>
     <string name="title_keep_alive_interval">Mantendu-bizirik/eskaera tartea (minutuak)</string>
-    <string name="title_use_date">Erabili goiburuko datuetan bidalketa unea eta ez jasoketarena</string>
     <string name="title_related_identity">Gehitu lotutako identitatea</string>
     <string name="title_check">Egiaztatu</string>
     <string name="title_trust">Fidatu %1$s hatz marka duen zerbitzariaren agiriarekin</string>

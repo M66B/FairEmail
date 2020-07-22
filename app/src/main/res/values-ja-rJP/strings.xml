@@ -471,7 +471,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_leave_on_device">デバイスにメッセージを残す</string>
     <string name="title_max_messages">ダウンロードするメッセージの最大数(空白を含め全て)</string>
     <string name="title_keep_alive_interval">Keep-alive/poll 間隔(分)</string>
-    <string name="title_use_date">サーバ受信時刻の代わりに日付ヘッダー送信時刻を使用</string>
     <string name="title_related_identity">関連するIDを追加</string>
     <string name="title_check">確認</string>
     <string name="title_trust">指紋認証 %1$sでサーバ証明書を信頼する</string>

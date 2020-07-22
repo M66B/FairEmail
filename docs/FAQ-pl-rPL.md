@@ -861,7 +861,7 @@ Błąd *... Uwierzytelnianie nie powiodło się ... Nieprawidłowe dane logowani
 
 Błąd *... Uwierzytelnianie nie powiodło się ... Nieprawidłowe dane logowania...* mogą być spowodowane cofnięciem wymaganych uprawnień do konta/kontaktów. Po prostu uruchom kreatora (ale nie wybieraj konta), aby ponownie przyznać wymagane uprawnienia.
 
-Błąd *... ServiceDisabled ... * może być spowodowany zarejestrowaniem się w [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+Błąd *... ServiceDisabled ...* może być spowodowany zarejestrowaniem się w [Advanced Protection Program](https://landing.google.com/advancedprotection/) i używaniem nazwy użytkownika/hasła do autoryzacji. Zamiast tego spróbuj użyć kreatora szybkiej konfiguracji Gmail.
 
 W razie wątpliwości możesz poprosić o [wsparcie](#user-content-support).
 

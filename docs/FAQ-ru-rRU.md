@@ -859,11 +859,11 @@ The errors *... Authentication failed ... No token on refresh ...* means that th
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
+Ошибка *... Authentication failed ... Invalid credentials ...* может быть вызвана отзывом необходимых прав доступа к учетной записи/контактам. Просто запустите мастера (но не выберите учетную запись), чтобы снова предоставить необходимые разрешения.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+Ошибка *... ServiceDisabled ...* может быть вызвана регистрацией в [Advanced Protection Program](https://landing.google.com/advancedprotection/) и использованием имени пользователя/пароля для аутентификации. Попробуйте вместо этого использовать мастер быстрой настройки Gmail.
 
-When in doubt, you can ask for [support](#user-content-support).
+Если вы сомневаетесь, вы можете запросить [поддержку ](#user-content-support).
 
 <br />
 

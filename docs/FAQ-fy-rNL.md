@@ -861,7 +861,7 @@ The error *... Authentication failed ... Invalid credentials ... network error .
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/) and using a username/password for authentication. Try using the Gmail quick setup wizard instead.
 
 When in doubt, you can ask for [support](#user-content-support).
 

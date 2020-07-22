@@ -448,7 +448,6 @@
     <string name="title_leave_on_device">Ostavite poruke na uređaju</string>
     <string name="title_max_messages">Maksimalan broj poruka za preuzimanje (prazno za sve)</string>
     <string name="title_keep_alive_interval">Interval održavanja / prozivanja (u minutama)</string>
-    <string name="title_use_date">Koristi vrijeme slanja iz zaglavlja datuma umjesto vremena primljenog od poslužitelja</string>
     <string name="title_related_identity">Dodaj povezani identitet</string>
     <string name="title_check">Provjeri</string>
     <string name="title_trust">Povjerenje certifikata poslužitelja s otiskom prsta %1$s</string>

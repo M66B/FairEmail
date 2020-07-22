@@ -534,7 +534,6 @@
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
-    <string name="title_use_date">Käytä päivämäärätunnisteen lähetysaikaa palvelimen vastaanottoajan sijaan</string>
     <string name="title_related_identity">Lisää liittyvä identiteetti</string>
     <string name="title_check">Tarkista</string>
     <string name="title_trust">Luota palvelimen sertifikaattiin, jolla on sormenjälki %1$s</string>

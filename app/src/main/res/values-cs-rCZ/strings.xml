@@ -559,7 +559,6 @@
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
-    <string name="title_use_date">Použít datum hlavičky čas odeslání namísto čas přijetí serverem</string>
     <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>
     <string name="title_trust">Důvěřovat certifikátu serveru s digitálním otiskem %1$s</string>

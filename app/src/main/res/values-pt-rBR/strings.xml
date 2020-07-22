@@ -498,7 +498,6 @@
     <string name="title_leave_on_device">Deixar mensagens no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens para baixar (em branco para todas)</string>
     <string name="title_keep_alive_interval">Intervalo de manutenção da conexão (minutos)</string>
-    <string name="title_use_date">Use o cabeçalho da data para enviar a hora em vez do servidor recebido</string>
     <string name="title_related_identity">Adicionar identidade relacionada</string>
     <string name="title_check">Verificar</string>
     <string name="title_trust">Confiar no certificado do servidor com impressão digital %1$s</string>

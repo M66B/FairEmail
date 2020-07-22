@@ -560,7 +560,6 @@
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (мин.)</string>
-    <string name="title_use_date">Использовать время отправки вместо времени получения сервером</string>
     <string name="title_related_identity">Добавить связанный идентификатор</string>
     <string name="title_check">Проверить</string>
     <string name="title_trust">Доверять сертификату сервера с отпечатком %1$s</string>
