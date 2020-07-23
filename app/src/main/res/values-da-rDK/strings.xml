@@ -143,6 +143,7 @@
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
     <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
     <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
+    <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
     <string name="title_setup_manage">Administrér</string>
@@ -351,6 +352,7 @@
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
+    <string name="title_advanced_notifications_service">Modtagekanal</string>
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
@@ -537,6 +539,10 @@
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
+    <string name="title_server_time">Benyt modtagelsestid (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Benyt \"Modtaget\"-overskrift</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Benyt \'Dato\'-overskrift (afsendelsestid)</string>
+    <string name="title_date_remark">Ændringer effektueres kun for nye beskeder</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
     <string name="title_trust">Gør servercertifikat betroet med fingeraftryk %1$s</string>

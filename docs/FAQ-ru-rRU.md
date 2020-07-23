@@ -49,10 +49,10 @@
 * Установка подписи: Настройки, Шаг 2, Редактировать, нажмите на идентификатор, Изменить подпись.
 * Добавить адреса CC и BCC: нажмите на значок человека в конце темы
 * Перейти к следующему/предыдущему сообщению при архивации/удалении: в настройках поведения отключите *Автоматически закрывать диалоги* и выберите *Перейти к следующему/предыдущему диалогу* для *При закрытии диалога*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
+* Добавить папку в единый почтовый ящик: долгое нажатие на папку в списке и галочка *Показать в едином почтовом ящике*
+* Добавьте папку в навигационное меню: долгое нажатие на папку в списке и установите флажок *Показать в меню навигации*
+* Загрузить больше сообщений: долгое нажатие на папку в списке, выберите *Синхронизировать ещё сообщения*
+* Удаление сообщение, минуя корзину: в меню "3 точки" над текстом сообщения *Удалить* или уберите папку "Корзина" в настройках учётной записи
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
 * Undo send: Outbox, tap message, tap undo icon button
@@ -861,7 +861,7 @@ The error *... Authentication failed ... Invalid credentials ... network error .
 
 Ошибка *... Authentication failed ... Invalid credentials ...* может быть вызвана отзывом необходимых прав доступа к учетной записи/контактам. Просто запустите мастера (но не выберите учетную запись), чтобы снова предоставить необходимые разрешения.
 
-Ошибка *... ServiceDisabled ...* может быть вызвана регистрацией в [Advanced Protection Program](https://landing.google.com/advancedprotection/) и использованием имени пользователя/пароля для аутентификации. Попробуйте вместо этого использовать мастер быстрой настройки Gmail.
+Ошибка *... ServiceDisabled... * может быть вызвана вступлением в [Расширенную программу защиты](https://landing.google.com/advancedprotection/): "*Для чтения электронной почты, вы можете (должны) использовать Gmail - Вы не сможете использовать свою учетную запись Google с некоторыми (всеми) приложениями & службами, которые требуют доступа к конфиденциальным данным, таким как ваш email*", см. [здесь](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 Если вы сомневаетесь, вы можете запросить [поддержку ](#user-content-support).
 
@@ -1991,7 +1991,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Some launchers incorrectly display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification.
+Некоторые лаунчеры показывают '1' для [следящего уведомления](#user-content-faq2), несмотря на то, что FairEmail явно запрашивает не показывать значок для этого уведомления. Это может быть вызвано ошибкой в лаунчере или в вашей версии Android. Пожалуйста, дважды проверьте, отключена ли точка уведомления для канала получения (обслуживания) уведомлений. Вы можете перейти в настройки каналов уведомлений через настройки уведомлений FairEmail. Это может быть не очевидно, но для дополнительных настроек можно нажать на название канала.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 

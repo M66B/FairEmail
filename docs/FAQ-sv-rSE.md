@@ -217,12 +217,12 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(99) Kan du lägga till en rich-text- eller markdown-redigerare?](#user-content-faq99)
 * [(100) Hur kan jag synkronisera Gmail-kategorier?](#user-content-faq100)
 * [(101) Vad betyder den blå/orange punkten längst ned i konversationerna?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq103)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I used colored stars?](#user-content-faq107)
+* [(102) Hur kan jag aktivera automatisk rotation av bilder?](#user-content-faq102)
+* [(103) Hur kan jag spela in ljud?](#user-content-faq103)
+* [(104) Vad behöver jag veta om felrapportering?](#user-content-faq104)
+* [(105) Hur fungerar roaming som hemma?](#user-content-faq105)
+* [(106) Vilken hemapp kan visa ett märke med antalet olästa meddelanden?](#user-content-faq106)
+* [(107) Hur använder jag färgade stjärnor?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
@@ -861,7 +861,7 @@ The error *... Authentication failed ... Invalid credentials ... network error .
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/) and using a username/password for authentication. Try using the Gmail quick setup wizard instead.
+The eror *... ServiceDisabled ... /0> kan orsakas av inskrivning i [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*För att läsa din e-post, du kan (måste) använda Gmail - Du kommer inte att kunna använda ditt Google-konto med några (alla) appar & tjänster som kräver åtkomst till känsliga data som din e-post*", se [här](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).</p>
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1991,7 +1991,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Some launchers incorrectly display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification.
+Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 

@@ -131,6 +131,7 @@
     <string name="title_setup_no_auth_hint">请仔细检查您的邮件地址和密码，并确保您的帐户已启用外部访问 (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是帐户密码，请查看该供应商的相关说明</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
+    <string name="title_setup_advanced_protection">当注册了高级保护项目后，将无法使用第三方电子邮件应用程序。 这是Google施加的限制。</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
@@ -327,7 +328,7 @@
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
-    <string name="title_advanced_undo">撤销超时</string>
+    <string name="title_advanced_undo">撤回超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
     <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
@@ -526,6 +527,10 @@
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
+    <string name="title_server_time">使用接收时间(服务器)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">使用“已接收”标头</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">使用“日期”标头 (发送时间)</string>
+    <string name="title_date_remark">更改将仅应用于新消息</string>
     <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>
     <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
@@ -782,7 +787,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
-    <string name="title_add_image_privacy">删除隐私敏感数据</string>
+    <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
@@ -1175,7 +1180,7 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
-    <string name="title_unexpected_info_remark">请描述应用出错时你正在做什么:</string>
+    <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
     <string name="title_widget_account">账户</string>

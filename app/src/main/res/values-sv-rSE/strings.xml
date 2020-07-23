@@ -143,6 +143,7 @@
     <string name="title_setup_no_auth_hint">Vänligen dubbelkolla din e-postadress och lösenord och se till att extern åtkomst (IMAP/SMTP) är aktiverad för ditt konto</string>
     <string name="title_setup_app_password_hint">Denna leverantör kräver ett app-lösenord istället för kontots lösenord, vänligen kontrollera instruktionerna hos din leverantör</string>
     <string name="title_setup_no_system_folders">Inkorgen eller utkastmappen hittades inte</string>
+    <string name="title_setup_advanced_protection">När du är inskriven i det avancerade skyddsprogrammet är det inte möjligt att använda en tredje parts e-postapp. Detta är en begränsning som införts av Google.</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
     <string name="title_setup_manage">Hantera</string>
@@ -350,6 +351,7 @@
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
+    <string name="title_advanced_notifications_service">Mottagningskanal</string>
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
@@ -536,6 +538,10 @@
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
+    <string name="title_server_time">Använd mottagen tid (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Använd \'Mottagen\' i header</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Använd \'Datum\' i header (skickad tid)</string>
+    <string name="title_date_remark">Ändringar kommer endast att tillämpas på nya meddelanden</string>
     <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_trust">Lita på servercertifikat med fingeravtryck %1$s</string>

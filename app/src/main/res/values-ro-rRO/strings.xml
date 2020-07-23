@@ -153,6 +153,7 @@
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
     <string name="title_setup_no_system_folders">Dosarul de primite sau ciorne nu a fost găsit</string>
+    <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
     <string name="title_setup_manage">Gestionează</string>
@@ -342,6 +343,7 @@
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_volumenav">Volum sus/jos pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
+    <string name="title_advanced_swipe_close">Glisați în jos pentru a închide conversația</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
@@ -546,6 +548,10 @@
     <string name="title_leave_on_device">Păstrează mesajele pe dispozitiv</string>
     <string name="title_max_messages">Numărul maxim de mesaje de descărcat (liber pentru toate)</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>
+    <string name="title_server_time">Utilizează ora primită (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Folosește antetul \"Primit\"</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Folosește antetul \'Dată\' (ora trimisă)</string>
+    <string name="title_date_remark">Modificările vor fi aplicate doar mesajelor noi</string>
     <string name="title_related_identity">Adaugă identitate conexă</string>
     <string name="title_check">Verificare</string>
     <string name="title_trust">Autorizare certificat server cu amprenta %1$s</string>

@@ -143,6 +143,7 @@
     <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece della password dell\'account, per favore controlla le istruzioni del tuo provider</string>
     <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
+    <string name="title_setup_advanced_protection">Quando sei iscritto/a al programma di protezione avanzata non è possibile utilizzare un\'applicazione di posta elettronica di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
     <string name="title_setup_manage">Gestisci</string>
@@ -351,6 +352,7 @@
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
+    <string name="title_advanced_notifications_service">Canal «Ricevi»</string>
     <string name="title_advanced_notifications_background">Usa un servizio in secondo piano per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
@@ -537,6 +539,10 @@
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
+    <string name="title_server_time">Usa ora ricevuta (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Usa intestazione «Ricevuto»</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Usa intestazione «Date» (ora di invio)</string>
+    <string name="title_date_remark">Le modifiche saranno applicate solo ai nuovi messaggi</string>
     <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>
     <string name="title_trust">Certificato server fidato con impronta digitale %1$s</string>

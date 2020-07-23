@@ -451,9 +451,9 @@ Desværre er det umuligt at stille alle tilpas, og at tilføje mange indstilling
 
 Du kan benytte hurtig opsætnings-guiden til nemt at opsætte en Gmail-konto og -identitet.
 
-Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang til "mindre sikre apps" og benytte din kontoadgangskode eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
+Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang til "mindre sikre apps" og benytte din kontoadgangskode eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. Se [denne FAQ](#user-content-faq111) om, hvorfor udelukkende konti på enheden kan benyttes.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Bemærk, at en app-specifik adgangskode kræves, når tofaktorgodkendelse er aktiveret.
 
 <br />
 
@@ -471,34 +471,34 @@ Se [hér](https://support.google.com/accounts/answer/185833), hvordan en app-spe
 
 Se [hér](https://support.google.com/accounts/answer/6010255), hvordan "mindre sikre apps"aktiveres eller gå [direkte til Indstillinger](https://www.google.com/settings/security/lesssecureapps).
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+Benytter du flere Gmail-konti, så sørg for at ændre indstillingen "mindre sikre apps" på de korrekte konti.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+Bemærk, at du er nødt til at forlade "mindre sikre apps"-indstillingsskærmen vha. Tilbage-pilen, for at effektuere indstillingen.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Benytter du denne metode, bør du anvende en [stærk adgangskode](https://en.wikipedia.org/wiki/Password_strength) til din Gmail-konto, hvilket i øvrigt altid er en god idé. Bemærk, at brug af [standard](https://tools.ietf.org/html/rfc3501) IMAP-protokollen ikke i sig selv er mindre sikker.
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Når "mindre sikre apps" ikke er aktiveret, får du fejlen *Godkendelse mislykkedes - ugyldige akkreditiver* for konti (IMAP) og *Brugernavn og adgangskode ikke accepteret* for identiteter (SMTP).
 
 <br />
 
 *Generelt*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Du får muligvis advarslen "*Log ind via din webbrowser*". Dette sker, når Google anser det netværk, hvormed du forbinder til Internet (hvilket kan være et VPN), som ikke-sikkert. Dette kan forhindres vha. Gmails hurtig opsætningsguide eller en app-specifik adgangskode.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Se [hér](https://support.google.com/mail/answer/7126229) for Googles instruktioner, og [hér](https://support.google.com/mail/accounts/answer/78754) for fejlfinding.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Hvorfor vises sendte beskeder ikke (direkte) i Sendt-mappen?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Sendte beskeder flyttes normalt fra udbakken til Sendt-mappen, så snart din udbyder føjer sendte beskeder til Sendt-mappen. Dette kræver, at en Sendt-mappe vælges i kontoindstillingerne, og at Sendt-mappen ligeledes opsættes til synkronisering.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Visse udbydere holder ikke styr på sendte beskeder, eller den anvendte SMTP-server er muligvis ikke relateret til udbyderen. I så tilfælde tilføjer FairEmail automatisk sendte beskeder til Sendt-mappen ved synkronisering heraf, hvilket vil ske, efter at en besked er afsendt. Bemærk, at dette vil forøge Internettrafikken.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Sker dette ikke, holder din udbyder muligvis ikke styr på sendte beskeder, eller du anvender muligvis en ikke-udbyderrelateret SMTP-server.~~ ~~I så tilfælde kan du aktivere den avancerede identitetsindstilling *Gem sendte beskeder* for at lade FairEmail føje sendte beskeder til Sendt-mappen umiddelbart efter afsendelse heraf.~~ ~~Bemærk, at aktivering af denne indstilling kan resultere i dubletbeskeder, hvis din udbyder føjer sendte beskeder til Sendt-mappen.~~ ~~Bemærk også, at aktivering af indstillingen vil resultere i forøget dataforbrug, især når du sender beskeder med store vedhæftninger.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Hvis sendte beskeder i udbakken ikke findes i Sendt-mappen ved en fuld synkronisering, flyttes disse også fra udbakken til Sendt-mappen.~~ ~~En fuld synkronisering sker, når der genforbindes til serveren, eller ved periodisk eller manuel synkronisering.~~ ~~Du ønsker sandsynligvis i stedet at aktivere den avancerede indstilling *Gem sendte beskeder* for at flytte beskeder til Sendt-mappen hurtigere.~~
 
 <br />
 
@@ -861,7 +861,7 @@ The error *... Authentication failed ... Invalid credentials ... network error .
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/) and using a username/password for authentication. Try using the Gmail quick setup wizard instead.
+The eror *... ServiceDisabled ...* kan skyldes din tilmelding til [Avanceret Beskyttelsesprogram](https://landing.google.com/advancedprotection/): "*For at læse din e-mail, skal du benytte Gmail - Du kan ikke benytte din Google-konto med apps og tjenester, som kræver adgang til følsomme data såsom dine e-mails*", se [hér](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1991,7 +1991,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Some launchers incorrectly display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification.
+Visse lanchere viser '1'' for [moniteringsnotifikationen](#user-content-faq2) trods FairEmails eksplicitte anmodning om íkke om at vise et badge til denne notifikation. Dette kan skyldes en fejl i launcher-appen eller i din Android-version. Dobbelttjek, at notifikationsprikken er deaktiveret for notifikationsmodtagelseskanalen (tjenesten). Du kan gå til de rigtige notifikationskanalindstillinger via notifikationsindstillingerne i FairEmail. Det er måske ikke indlysende, men du kan trykke på kanalnavnet for yderligere indstillinger.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 

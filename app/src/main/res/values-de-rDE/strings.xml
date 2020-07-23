@@ -133,7 +133,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
-    <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
+    <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner über IMAP nicht zugänglich ist, kann dies in den Gmail Label-Einstellungen korrigiert werden</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
@@ -144,6 +144,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
     <string name="title_setup_app_password_hint">Dieser Anbieter verlangt ein App-Passwort anstelle des Kontenpassworts. Bitte folgen Sie den Anweisungen Ihres Anbieters.</string>
     <string name="title_setup_no_system_folders">Posteingang oder Entwurfsordner nicht gefunden</string>
+    <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Schutzprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-Anwendung von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
     <string name="title_setup_manage">Verwalten</string>
@@ -325,11 +326,11 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
-    <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht legitimieren konnte</string>
+    <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
-    <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben rollen</string>
-    <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
+    <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten zum Anfang scrollen</string>
+    <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
@@ -352,12 +353,13 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
+    <string name="title_advanced_notifications_service">Empfangskanal</string>
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
-    <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
+    <string name="title_advanced_unseen_ignored">Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen</string>
     <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
-    <string name="title_advanced_notify_summary">Nur Benachrichtigungs-Zusammenfassung anzeigen</string>
+    <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
@@ -372,7 +374,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_action_seen">Gelesen</string>
     <string name="title_advanced_notify_action_snooze">Wiedervorlage</string>
     <string name="title_advanced_notify_remove">Benachrichtigung über neue Nachrichten durch Tippen auf die Benachrichtigung entfernen</string>
-    <string name="title_advanced_notify_clear">Neue-Nachrichten-Benachrichtigungen beim Anzeigen der Nachrichtenliste entfernen</string>
+    <string name="title_advanced_notify_clear">Benachrichtigung über neue Nachrichten beim Anzeigen der Nachrichtenliste entfernen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an tragbare Gerätschaften senden</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
@@ -381,14 +383,14 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig neu formatierte Nachrichten anzeigen</string>
-    <string name="title_advanced_tracking">Nachverfolgungsbilder automatisch erkennen und deaktivieren</string>
+    <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_hide_timezone">Nachrichten ohne Zeitzoneninformationen senden</string>
     <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
-    <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
-    <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
+    <string name="title_advanced_disconnect_links">Listen verwenden, um vor Tracking-Links zu warnen</string>
+    <string name="title_advanced_disconnect_images">Listen zur Erkennung von Tracking-Bildern verwenden</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
@@ -444,7 +446,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
     <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgeholt. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roaming zu deaktivieren.</string>
-    <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
+    <string name="title_advanced_browse_hint">Durch Herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
@@ -454,7 +456,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
-    <string name="title_advanced_preview_issue">Rollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
+    <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einem Thema enthalten ist</string>
@@ -467,7 +469,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
-    <string name="title_advanced_notify_remove_hint">Neue-Nachrichten-Benachrichtigungen werden immer entfernt, wenn sie weggewischt werden oder Nachrichten gelesen werden</string>
+    <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
     <string name="title_advanced_notify_manage_hint">Tippen Sie auf den Kanalnamen, um die Kanaleigenschaften zu setzen</string>
     <string name="title_advanced_notify_manage_default_hint">Um den Standard-Ton einzustellen etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Um die permanente Benachrichtigung zu deaktivieren</string>
@@ -538,6 +540,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
     <string name="title_keep_alive_interval">Verbindung halten / Abfrageintervall (Minuten)</string>
+    <string name="title_server_time">Uhrzeit des Empfangs verwenden (Server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">\'Received\' Header verwenden</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">\'Date\' Header verwenden (Sendezeit)</string>
+    <string name="title_date_remark">Änderungen werden nur auf neue Nachrichten angewendet</string>
     <string name="title_related_identity">Hierzu passende Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>
     <string name="title_trust">Serverzertifikat mit Fingerabdruck %1$s vertrauen</string>
@@ -608,7 +614,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_poll_folder">Periodisch überprüfen anstatt einer dauerhaften Synchronisierung</string>
+    <string name="title_poll_folder">Periodisch überprüfen anstatt kontinuierlicher Synchronisierung</string>
     <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
@@ -651,7 +657,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
     <string name="title_flag">Stern hinzufügen</string>
-    <string name="title_flag_color">Farbigen Stern &#8230;</string>
+    <string name="title_flag_color">Farbiger Stern &#8230;</string>
     <string name="title_unflag">Stern entfernen</string>
     <string name="title_set_importance">Wichtigkeit festlegen</string>
     <string name="title_importance_low">Niedrig</string>
@@ -737,7 +743,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
-    <string name="title_ask_show_image_hint">Erkannt Nachverfolgungsbilder werden nicht angezeigt</string>
+    <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -806,7 +812,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_send_dialog">Sendeoptionen anzeigen</string>
     <string name="title_image_dialog">Grafikoptionen anzeigen</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
-    <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
+    <string name="title_insert_contact_group">Kontakt-Gruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als neu formatierten Text bearbeiten</string>
@@ -867,10 +873,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_search_hint">Bei der Suche werden zunächst die auf Ihrem Gerät gespeicherten Nachrichten durchsucht. Um auch die Nachrichten auf dem Server zu durchsuchen, tippen Sie auf die Schaltfläche „Erneut suchen“.    </string>
     <string name="title_search_index_hint">Die Suche über den Suchindex ist schnell, wird aber nur für ganze Wörter durchgeführt</string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
-    <string name="title_search_size_hint">Die Suche von Nachrichten nach Größe funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
+    <string name="title_search_size_hint">Die Suche nach Nachrichten nach Größe funktioniert, wenn die Anzahl der Nachrichten groß ist, auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_more">Weitere Optionen</string>
     <string name="title_search_use_index">Suchindex verwenden</string>
-    <string name="title_search_in_senders">In Absendern (von)</string>
+    <string name="title_search_in_senders">In Absendern (Von)</string>
     <string name="title_search_in_recipients">In Empfängern (An, CC)</string>
     <string name="title_search_in_subject">Im Betreff</string>
     <string name="title_search_in_keywords">In Schlagwörtern (wenn unterstützt)</string>
@@ -886,10 +892,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_search_with_after">Nach</string>
     <string name="title_search_flag_unseen">ungelesen</string>
     <string name="title_search_flag_flagged">markiert</string>
-    <string name="title_search_flag_hidden">verborgen</string>
+    <string name="title_search_flag_hidden">ausgeblendet</string>
     <string name="title_search_flag_encrypted">verschlüsselt</string>
     <string name="title_search_flag_attachments">Anhänge</string>
-    <string name="title_search_flag_invite">Einladung</string>
+    <string name="title_search_flag_invite">Einladungen</string>
     <string name="title_search_flag_size">Größe &gt; %1$s</string>
     <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>
@@ -1049,7 +1055,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
-    <string name="title_legend_tracking_pixel">Nachverfolgungsbild</string>
+    <string name="title_legend_tracking_pixel">Tracking-Bild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
@@ -1109,7 +1115,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_tracking_link">Diese Website könnte Sie verfolgen</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>
     <string name="title_link_https">Datenverkehr wird verschlüsselt</string>
-    <string name="title_sanitize_link">Nachverfolgungsparameter entfernen</string>
+    <string name="title_sanitize_link">Tracking-Parameter entfernen</string>
     <string name="title_insecure_link">Dieser Link ist unsicher</string>
     <string name="title_check_owner">Eigentümer prüfen</string>
     <string name="title_remark_owner">Informationen werden abgerufen von <a href="https://ipinfo.io/">ipinfo.io</a></string>
@@ -1222,8 +1228,8 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_accessibility_view_help">Hilfe anzeigen</string>
     <string name="title_accessibility_selected">Ausgewählt</string>
     <string name="title_accessibility_answered">Beantwortet</string>
-    <string name="title_accessibility_scroll_down">Nach unten rollen</string>
-    <string name="title_accessibility_scroll_up">Nach oben rollen</string>
+    <string name="title_accessibility_scroll_down">Nach unten scrollen</string>
+    <string name="title_accessibility_scroll_up">Nach oben scrollen</string>
     <string name="title_accessibility_filter_out_seen">Filter für gelesene Nachrichten umschalten</string>
     <string name="title_accessibility_filter_out_unflagged">Filter für markierte Nachrichten umschalten</string>
     <string name="title_accessibility_filter_out_snoozed">Filter für zurückgestellte Nachrichten umschalten</string>

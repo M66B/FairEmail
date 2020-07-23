@@ -861,7 +861,7 @@ Błąd *... Uwierzytelnianie nie powiodło się ... Nieprawidłowe dane logowani
 
 Błąd *... Uwierzytelnianie nie powiodło się ... Nieprawidłowe dane logowania...* mogą być spowodowane cofnięciem wymaganych uprawnień do konta/kontaktów. Po prostu uruchom kreatora (ale nie wybieraj konta), aby ponownie przyznać wymagane uprawnienia.
 
-Błąd *... ServiceDisabled ...* może być spowodowany zarejestrowaniem się w [Advanced Protection Program](https://landing.google.com/advancedprotection/) i używaniem nazwy użytkownika/hasła do autoryzacji. Zamiast tego spróbuj użyć kreatora szybkiej konfiguracji Gmail.
+Błąd *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 W razie wątpliwości możesz poprosić o [wsparcie](#user-content-support).
 
@@ -1991,7 +1991,7 @@ W zależności od tego, co chcesz, ustawienie powiadomień *Niech liczba nowych 
 
 Ta funkcja zależy od wsparcia Twojego launchera. FairEmail tylko 'transmituje' liczbę nieprzeczytanych wiadomości za pomocą biblioteki ShortcutBadger. Jeśli to nie działa, nie może to zostać naprawione przez zmiany w FairEmail.
 
-Some launchers incorrectly display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification.
+Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 Zauważ, że Tesla Unread [nie jest już obsługiwana](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 

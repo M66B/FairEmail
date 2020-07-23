@@ -7,7 +7,7 @@
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
-    <string name="channel_service">Přijmout</string>
+    <string name="channel_service">Příjem</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">Oznámení</string>
     <string name="channel_update">Aktualizace</string>
@@ -165,6 +165,7 @@
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
+    <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
     <string name="title_setup_manage">Spravovat</string>
@@ -373,6 +374,7 @@
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
+    <string name="title_advanced_notifications_service">Kanál „příjem“</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
@@ -559,6 +561,10 @@
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
+    <string name="title_server_time">Použít čas přijetí (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Použít hlavičku „přijato“</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Použít hlavičku „datum“ (čas odeslání)</string>
+    <string name="title_date_remark">Změny budou použity pouze u nových zpráv</string>
     <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>
     <string name="title_trust">Důvěřovat certifikátu serveru s digitálním otiskem %1$s</string>

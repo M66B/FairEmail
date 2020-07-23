@@ -165,6 +165,7 @@
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
     <string name="title_setup_app_password_hint">Данный провайдер требует пароль для приложения вместо пароля от учётной записи, пожалуйста, ознакомьтесь с его инструкциями</string>
     <string name="title_setup_no_system_folders">Папка \"Входящие\" или \"Черновики\" не найдена</string>
+    <string name="title_setup_advanced_protection">При регистрации в программе расширенной защиты невозможно использовать стороннее приложение электронной почты. Это ограничение, налагаемое Google.</string>
     <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учётную запись и идентификатор ниже</string>
     <string name="title_setup_manage">Редактировать</string>
@@ -560,6 +561,10 @@
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (мин.)</string>
+    <string name="title_server_time">Использовать время получения (сервер)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Использовать заголовок \'Received\'</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Использовать заголовок \'Date\' (время отправки)</string>
+    <string name="title_date_remark">Изменения будут применены только к новым сообщениям</string>
     <string name="title_related_identity">Добавить связанный идентификатор</string>
     <string name="title_check">Проверить</string>
     <string name="title_trust">Доверять сертификату сервера с отпечатком %1$s</string>

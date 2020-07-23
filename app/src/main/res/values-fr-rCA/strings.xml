@@ -143,6 +143,7 @@
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse courriel et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
     <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d’application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_system_folders">Boîte de réception ou dossier brouillons introuvable</string>
+    <string name="title_setup_advanced_protection">Quand on est inscrit au programme de protection avancée, il n\'est pas possible d\'utiliser une application de messagerie tierce. Il s\'agit d\'une restriction imposée par Google.</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
     <string name="title_setup_manage">Gérer</string>
@@ -538,6 +539,10 @@
     <string name="title_leave_on_device">Laisser les messages sur l’appareil</string>
     <string name="title_max_messages">Nombre maximum de messages à télécharger (laisser vide pour tous)</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
+    <string name="title_server_time">Utiliser l\'heure de réception (serveur)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Utiliser l\'en-tête « Reçu »</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Utiliser l\'en-tête « Date » (heure d\'envoi)</string>
+    <string name="title_date_remark">Les modifications seront appliquées uniquement aux nouveaux messages</string>
     <string name="title_related_identity">Ajouter une identité liée</string>
     <string name="title_check">Vérifier</string>
     <string name="title_trust">Faire confiance au certificat du serveur avec l’empreinte digitale %1$s</string>

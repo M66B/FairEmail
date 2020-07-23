@@ -142,6 +142,7 @@
     <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
     <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het wachtwoord van uw account, controleer a.u.b. de instructies van uw provider</string>
     <string name="title_setup_no_system_folders">Inbox of conceptmap niet gevonden</string>
+    <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
     <string name="title_setup_manage">Beheer</string>
@@ -537,8 +538,10 @@
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
-    <string name="title_use_date" comment="title_use_date&#10;'Date' should not be translated">Gebruik de kop \'Date\' in plaats van de ontvangsttijd van de server</string>
-    <string name="title_use_received" comment="title_use_received&#10;'Received' should not be translated">Gebruik de kop \'Received\' in plaats van de ontvangsttijd van de server</string>
+    <string name="title_server_time">Gebruik ontvangsttijd (server)</string>
+    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Gebruik de kop \'Received\'</string>
+    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Gebruik de kop \'Date\' (verzonden tijd)</string>
+    <string name="title_date_remark">Wijzigingen worden alleen toegepast op nieuwe berichten</string>
     <string name="title_related_identity">Voeg gerelateerde identiteit toe</string>
     <string name="title_check">Controleer</string>
     <string name="title_trust">Vertrouw server certificaat met de vingerafdruk %1$s</string>
