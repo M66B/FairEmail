@@ -50,6 +50,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
 
+    private Spinner spComposeFont;
     private SwitchCompat swAutoList;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swExtendedReply;
@@ -71,7 +72,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "autolist", "prefix_once", "extended_reply", "quote_reply", "resize_reply",
+            "compose_font", "autolist", "prefix_once", "extended_reply", "quote_reply", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "discard_delete",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -95,6 +96,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
+        spComposeFont = view.findViewById(R.id.spComposeFont);
 
         swAutoList = view.findViewById(R.id.swAutoList);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
@@ -175,6 +177,24 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("send_delayed").apply();
+            }
+        });
+
+        spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.fontNameValues);
+                String value = values[position];
+                boolean monospaced = prefs.getBoolean("monospaced", false);
+                if (value.equals(monospaced ? "monospace" : "sans-serif"))
+                    prefs.edit().remove("compose_font").apply();
+                else
+                    prefs.edit().putString("compose_font", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("compose_font").apply();
             }
         });
 
@@ -358,6 +378,15 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         for (int pos = 0; pos < sendDelayedValues.length; pos++)
             if (sendDelayedValues[pos] == send_delayed) {
                 spSendDelayed.setSelection(pos);
+                break;
+            }
+
+        boolean monospaced = prefs.getBoolean("monospaced", false);
+        String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
+        for (int pos = 0; pos < fontNameValues.length; pos++)
+            if (fontNameValues[pos].equals(compose_font)) {
+                spComposeFont.setSelection(pos);
                 break;
             }
 

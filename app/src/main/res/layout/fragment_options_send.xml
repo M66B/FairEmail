@@ -169,6 +169,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spSendDelayed" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvComposeFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_compose_font"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage" />
+
+        <Spinner
+            android:id="@+id/spComposeFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/fontNameNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvComposeFont" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoList"
             android:layout_width="0dp"
@@ -178,7 +200,7 @@
             android:text="@string/title_advanced_auto_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage"
+            app:layout_constraintTop_toBottomOf="@id/spComposeFont"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

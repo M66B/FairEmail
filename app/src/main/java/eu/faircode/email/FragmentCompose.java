@@ -245,6 +245,7 @@ public class FragmentCompose extends FragmentBase {
 
     private boolean prefix_once = false;
     private boolean monospaced = false;
+    private String compose_font;
     private Integer encrypt = null;
     private boolean media = true;
     private boolean compact = false;
@@ -292,6 +293,7 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefix_once = prefs.getBoolean("prefix_once", true);
         monospaced = prefs.getBoolean("monospaced", false);
+        compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
@@ -610,7 +612,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        etBody.setTypeface(Typeface.create(compose_font, Typeface.NORMAL));
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setMovementMethod(LinkMovementMethod.getInstance());
 
