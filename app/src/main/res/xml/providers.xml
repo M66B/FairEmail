@@ -846,4 +846,40 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Amazon EU west 1"
+        link="https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html">
+        <imap
+            host="imap.mail.eu-west-1.awsapps.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.eu-west-1.awsapps.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Amazon US east 1"
+        link="https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html">
+        <imap
+            host="imap.mail.us-east-1.awsapps.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.us-east-1.awsapps.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Amazon US west 2"
+        link="https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html">
+        <imap
+            host="imap.mail.us-west-2.awsapps.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.us-west-2.awsapps.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
