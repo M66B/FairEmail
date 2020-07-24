@@ -3017,7 +3017,7 @@ When desired, this can be turned off in the miscellaneous settings.
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-If you have a problem with the F-Droid build, please check if there is a newer version first.
+If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 
