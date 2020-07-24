@@ -49,7 +49,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -1676,11 +1675,14 @@ public class FragmentCompose extends FragmentBase {
                     if (recipients.size() == 0)
                         throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-                    pgpUserIds = new String[recipients.size()];
+                    List<String> emails = new ArrayList<>();
                     for (int i = 0; i < recipients.size(); i++) {
                         InternetAddress recipient = (InternetAddress) recipients.get(i);
-                        pgpUserIds[i] = recipient.getAddress().toLowerCase();
+                        String email = recipient.getAddress().toLowerCase();
+                        if (!emails.contains(email))
+                            emails.add(email);
                     }
+                    pgpUserIds = emails.toArray(new String[0]);
 
                     Intent intent;
                     if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt))
@@ -2206,8 +2208,9 @@ public class FragmentCompose extends FragmentBase {
                                 // Sign/encrypt
                                 pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
                                 Log.i("Keys=" + pgpKeyIds.length);
-                                if (pgpKeyIds.length == 0)
-                                    throw new OperationCanceledException("Got no key");
+                                if (pgpKeyIds.length != pgpUserIds.length)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_key_missing,
+                                            TextUtils.join(", ", pgpUserIds)));
 
                                 if (identity.sign_key != null) {
                                     pgpSignKeyId = identity.sign_key;
@@ -2336,9 +2339,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof OperationCanceledException)
-                    ; // Do nothing
-                else if (ex instanceof IllegalArgumentException
+                if (ex instanceof IllegalArgumentException
                         || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
