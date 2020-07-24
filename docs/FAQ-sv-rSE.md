@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -617,7 +621,7 @@ Private keys are stored by Android and can be imported via the Android advanced 
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
-Standardkrypteringsmetoden är PGP, men den senast använda krypteringsmetoden kommer att bli ihågkommen för den valda identiteten för nästa gång. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
@@ -855,13 +859,13 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Autentisering misslyckades ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Autentisering misslyckades ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ... /0> kan orsakas av inskrivning i [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*För att läsa din e-post, du kan (måste) använda Gmail - Du kommer inte att kunna använda ditt Google-konto med några (alla) appar & tjänster som kräver åtkomst till känsliga data som din e-post*", se [här](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).</p>
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -929,7 +933,7 @@ Yes, you can translate the texts of FairEmail in your own language [on Crowdin](
 <br />
 
 <a name="faq27"></a>
-**(27) Hur kan jag skilja mellan inbäddade och externa bilder?**
+**(27) How can I distinguish between embedded and external images?**
 
 External image:
 
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Avsändaren innehåller
-* Mottagare innehåller
-* Ämnet innehåller
-* Har bilagor
-* Sidhuvud innehåller
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1533,19 +1537,19 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Dölj
-* Dämpa avisering
-* Slumra
-* Lägg till stjärna
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Lägg till nyckelord
-* Flytta
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Reglerna tillämpas direkt efter att meddelandehuvudet har hämtats, men innan meddelandetexten har hämtats, så det är inte möjligt att tillämpa villkoren på meddelandetexten. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -1777,8 +1781,8 @@ If the account authorization has expired, you will have to select the account ag
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [för AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [för Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Andra e-postappar*)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -2636,8 +2640,8 @@ Please see [here](https://disconnect.me/trackerprotection) for more information 
 
 After downloading the lists in the privacy settings, the lists can optionally be used:
 
-* att varna för spårningslänkar vid öppnande av länkar
-* att känna igen spårningsbilder i meddelanden
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
 Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
@@ -2659,10 +2663,10 @@ Only the latest Play store version and latest GitHub release are supported. This
 
 Requested features should:
 
-* vara användbar för de flesta användare
-* inte komplicera användningen av FairEmail
-* passar in i filosofin i FairEmail (integritetsorienterad, säkerhetsorienterad)
-* följa gemensamma standarder (IMAP, SMTP, etc)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 

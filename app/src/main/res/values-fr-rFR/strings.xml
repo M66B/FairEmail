@@ -823,6 +823,7 @@
     <string name="title_no_key">Aucune clé privée</string>
     <string name="title_invalid_key">Clé privée non valide</string>
     <string name="title_unknown_key">La clé privée ne correspond à aucune clé de chiffrement</string>
+    <string name="title_key_missing" comment="title_key_missing&#10;No keys for &lt;email address(es)&gt;">Aucune clé pour %1$s</string>
     <string name="title_send_reminder_remark">Les rappels peuvent être activés à nouveau dans les paramètres d\'envoi</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander une confirmation</string>

@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -1533,13 +1537,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Απόκρυψη
+* Hide
 * Suppress notification
-* Αναβολή
-* Προσθήκη αστεριού
+* Snooze
+* Add star
 * Set importance (local priority)
 * Add keyword
-* Μετακίνηση
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)

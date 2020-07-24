@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Göndərən ehtiva edir
+* Sender contains
 * Recipient contains
-* Mövzu ehtiva edir
+* Subject contains
 * Has attachments
-* Başlıq ehtiva edir
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1536,10 +1540,10 @@ You can select one of these actions to apply to matching messages:
 * Hide
 * Suppress notification
 * Snooze
-* Ulduz əlavə et
+* Add star
 * Set importance (local priority)
-* Açarsöz əlavə et
-* Köçürt
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
@@ -1777,8 +1781,8 @@ If the account authorization has expired, you will have to select the account ag
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [AOL üçün](https://help.aol.com/articles/Create-and-manage-app-password)
-* [Sky üçün](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (*Digər e-poçt tətbiqləri*nin altında)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 

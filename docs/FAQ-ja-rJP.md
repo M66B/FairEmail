@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* 送信者を含む
-* 受信者を含む
-* 件名に含まれる
-* 添付ファイル有り
-* ヘッダーが含まれています
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1533,13 +1537,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* 非表示
-* 通知を抑制する
-* スヌーズ
-* スターを付けます
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* キーワードの追加
-* 移動します
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)

@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -855,13 +859,13 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Godkendelse mislykkedes ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Godkendelse mislykkedes ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-The eror *... ServiceDisabled ...* kan skyldes din tilmelding til [Avanceret Beskyttelsesprogram](https://landing.google.com/advancedprotection/): "*For at læse din e-mail, skal du benytte Gmail - Du kan ikke benytte din Google-konto med apps og tjenester, som kræver adgang til følsomme data såsom dine e-mails*", se [hér](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Afsender indeholder
-* Modtager indeholder
-* Emne indeholder
-* Har vedhæftninger
-* Overskrift indeholder
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1533,19 +1537,19 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Skjul
-* Undertryk notifikationer
-* Udsæt
-* Tilføj stjerne
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Tilføj stikord
-* Flyt
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Regler effektueres umiddelbart efter beskedhovedet er hentet, men inden beskedteksten er blevet downloadet, så brug af betingelser på beskedteksten er derfor ikke muligt. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
@@ -1776,9 +1780,9 @@ If the account authorization has expired, you will have to select the account ag
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
-* [til Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [til AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [til Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Andre e-mail apps*)
+* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -1991,7 +1995,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Visse lanchere viser '1'' for [moniteringsnotifikationen](#user-content-faq2) trods FairEmails eksplicitte anmodning om íkke om at vise et badge til denne notifikation. Dette kan skyldes en fejl i launcher-appen eller i din Android-version. Dobbelttjek, at notifikationsprikken er deaktiveret for notifikationsmodtagelseskanalen (tjenesten). Du kan gå til de rigtige notifikationskanalindstillinger via notifikationsindstillingerne i FairEmail. Det er måske ikke indlysende, men du kan trykke på kanalnavnet for yderligere indstillinger.
+Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 

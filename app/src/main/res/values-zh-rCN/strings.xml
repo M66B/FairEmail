@@ -230,6 +230,7 @@
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_compose_font">默认字体:</string>
     <string name="title_advanced_auto_list">自动创建列表</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
@@ -810,6 +811,7 @@
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
     <string name="title_unknown_key">私钥与任何加密密钥不匹配</string>
+    <string name="title_key_missing" comment="title_key_missing&#10;No keys for &lt;email address(es)&gt;">没有%1$s的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求回执</string>

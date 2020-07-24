@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -855,7 +859,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Authentifizierung fehlgeschlagen ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentifizierung fehlgeschlagen ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -929,19 +933,19 @@ Yes, you can translate the texts of FairEmail in your own language [on Crowdin](
 <br />
 
 <a name="faq27"></a>
-**(27) Wie kann ich zwischen eingebetteten und externen Grafiken unterscheiden?**
+**(27) How can I distinguish between embedded and external images?**
 
-Externes Bild:
+External image:
 
-![Externes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
 
-Eingebettetes Bild:
+Embedded image:
 
-![Eingebettetes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
 
-Defektes Bild:
+Broken image:
 
-![Defektes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1347,11 +1351,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![Externes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![Externes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Absender enthält
-* Empfänger enthält
-* Betreff enthält
-* Anhang vorhanden
-* Kopfzeile enthält
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1531,15 +1535,15 @@ Note that [dot all mode](https://developer.android.com/reference/java/util/regex
 You can select one of these actions to apply to matching messages:
 
 * No action (useful for *not*)
-* Als gelesen markieren
+* Mark as read
 * Mark as unread
-* Ausblenden
-* Benachrichtigungen unterdrücken
-* Später lesen
-* Stern hinzufügen
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Label hinzufügen
-* Verschieben
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
@@ -1716,7 +1720,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![Externes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -1777,8 +1781,8 @@ If the account authorization has expired, you will have to select the account ag
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [für AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [für Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (unter *Andere E-Mail-Apps*)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 

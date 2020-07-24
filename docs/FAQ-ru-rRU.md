@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -857,13 +861,13 @@ The error *... Authentication failed ... Account not found ...* means that a pre
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+Ошибка *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-Ошибка *... Authentication failed ... Invalid credentials ...* может быть вызвана отзывом необходимых прав доступа к учетной записи/контактам. Просто запустите мастера (но не выберите учетную запись), чтобы снова предоставить необходимые разрешения.
+The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
 
-Ошибка *... ServiceDisabled... * может быть вызвана вступлением в [Расширенную программу защиты](https://landing.google.com/advancedprotection/): "*Для чтения электронной почты, вы можете (должны) использовать Gmail - Вы не сможете использовать свою учетную запись Google с некоторыми (всеми) приложениями & службами, которые требуют доступа к конфиденциальным данным, таким как ваш email*", см. [здесь](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-Если вы сомневаетесь, вы можете запросить [поддержку ](#user-content-support).
+When in doubt, you can ask for [support](#user-content-support).
 
 <br />
 
@@ -1513,11 +1517,11 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* "Отправитель" содержит
-* "Получатель" содержит
-* "Тема" содержит
-* Имеет вложения
-* Заголовок содержит
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
 * Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
@@ -1531,15 +1535,15 @@ Note that [dot all mode](https://developer.android.com/reference/java/util/regex
 You can select one of these actions to apply to matching messages:
 
 * No action (useful for *not*)
-* Пометить прочитанным
+* Mark as read
 * Mark as unread
-* Скрыть
-* Подавить уведомление
-* Отложить
-* В избранное
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Добавить ключ (слово)
-* Переместить
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
@@ -1991,7 +1995,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Некоторые лаунчеры показывают '1' для [следящего уведомления](#user-content-faq2), несмотря на то, что FairEmail явно запрашивает не показывать значок для этого уведомления. Это может быть вызвано ошибкой в лаунчере или в вашей версии Android. Пожалуйста, дважды проверьте, отключена ли точка уведомления для канала получения (обслуживания) уведомлений. Вы можете перейти в настройки каналов уведомлений через настройки уведомлений FairEmail. Это может быть не очевидно, но для дополнительных настроек можно нажать на название канала.
+Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2280,7 +2284,7 @@ If you read from left to right, swiping to the left will show the next message. 
 
 This behavior seems quite natural to me, also because it is similar to turning pages.
 
-Во всяком случае, есть настройка поведения для обратного направления свайпа.
+Anyway, there is a behavior setting to reverse the swipe direction.
 
 <br />
 

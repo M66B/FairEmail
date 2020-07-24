@@ -609,6 +609,10 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
+Common errors:
+
+* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+
 *S/MIME*
 
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
@@ -855,7 +859,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Ferifikaasje mislearre ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Ferifikaasje mislearre ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -1533,13 +1537,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Ferbergje
+* Hide
 * Suppress notification
 * Snooze
-* Stjer tafoegje
+* Add star
 * Set importance (local priority)
-* Foegje kaaiwurd ta
-* Ferpleatse
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer (with template)
 * Text-to-speech (sender and subject)
