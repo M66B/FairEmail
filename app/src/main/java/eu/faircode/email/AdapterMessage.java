@@ -4769,7 +4769,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             @Override
             public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfo info) {
-                super.onInitializeAccessibilityNodeInfo(host, info);
+                try {
+                    super.onInitializeAccessibilityNodeInfo(host, info);
+                } catch (Throwable ex) {
+                    /*
+                        java.lang.IllegalArgumentException: Comparison method violates its general contract!
+                                at java.util.TimSort.mergeHi(TimSort.java:864)
+                                at java.util.TimSort.mergeAt(TimSort.java:481)
+                                at java.util.TimSort.mergeForceCollapse(TimSort.java:422)
+                                at java.util.TimSort.sort(TimSort.java:219)
+                                at java.util.TimSort.sort(TimSort.java:169)
+                                at java.util.Arrays.sort(Arrays.java:2010)
+                                at java.util.Collections.sort(Collections.java:1883)
+                                at android.view.ViewGroup$ChildListForAccessibility.init(ViewGroup.java:7181)
+                                at android.view.ViewGroup$ChildListForAccessibility.obtain(ViewGroup.java:7138)
+                                at android.view.ViewGroup.addChildrenForAccessibility(ViewGroup.java:1792)
+                                at android.view.ViewGroup.addChildrenForAccessibility(ViewGroup.java:1801)
+                                at android.view.ViewGroup.addChildrenForAccessibility(ViewGroup.java:1801)
+                                at android.view.ViewGroup.onInitializeAccessibilityNodeInfoInternal(ViewGroup.java:2761)
+                                at android.view.View$AccessibilityDelegate.onInitializeAccessibilityNodeInfo(View.java:21332)
+                     */
+                    Log.e(ex);
+                }
 
                 TupleMessageEx message = getMessage();
                 if (message == null)
