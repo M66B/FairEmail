@@ -136,6 +136,7 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
+    private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 3;
     private static final long LOCAL_RETRY_DELAY = 10 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 10;
@@ -2474,19 +2475,20 @@ class Core {
             Long sent = helper.getSent();
 
             Long received;
+            long future = new Date().getTime() + FUTURE_RECEIVED;
             if (account.use_date) {
                 received = sent;
-                if (received == null)
+                if (received == null || received == 0 || received > future)
                     received = helper.getReceived();
-                if (received == null)
+                if (received == null || received == 0 || received > future)
                     received = helper.getReceivedHeader();
             } else if (account.use_received) {
                 received = helper.getReceivedHeader();
-                if (received == null)
+                if (received == null || received == 0 || received > future)
                     received = helper.getReceived();
             } else {
                 received = helper.getReceived();
-                if (received == null)
+                if (received == null || received == 0 || received > future)
                     received = helper.getReceivedHeader();
             }
             if (received == null)
