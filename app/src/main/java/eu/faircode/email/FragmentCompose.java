@@ -3022,7 +3022,7 @@ public class FragmentCompose extends FragmentBase {
 
                     exif.saveAttributes();
                 } catch (IOException ex) {
-                    Log.w(ex);
+                    Log.i(ex);
                 }
 
         } catch (Throwable ex) {
