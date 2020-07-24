@@ -816,13 +816,13 @@ Błąd *... Host is unresolved ...* or "*... Unable to resolve host ...* means t
 
 Błąd *... Oprogramowanie spowodowało przerwanie połączenia ...* oznacza, że serwer e-mail lub coś pomiędzy FairEmail a serwerem e-mail aktywnie zakończyło istniejące połączenie. Może się to zdarzyć na przykład w przypadku nagłej utraty łączności. Typowym przykładem jest włączenie trybu samolotowego.
 
-Błąd *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+Błąd *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* oznacza, że serwer e-mail aktywnie zakończył istniejące połączenie.
 
-Błąd *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Błąd *... Connection closed by peer ...* może być spowodowany przez nieaktualizowany serwer Exchange, więcej informacji można znaleźć [tutaj](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/).
 
-Błędy *... Błąd odczytu ...*, *... Błąd zapisu ...*, *... Read timed out ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Błędy *... Błąd odczytu ...*, *... Błąd zapisu ...*, *... Read timed out ...* oznaczają, że ​​serwer e-mail nie odpowiada lub jest złe połączenie internetowe.
 
-Błąd *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Błąd *... Unexpected end of zlib input stream ...*oznacza, że ​​nie wszystkie dane zostały odebrane, prawdopodobnie z powodu złego lub przerwanego połączenia.
 
 Błąd *... błąd połączenia ...* może wskazywać na [Zbyt wiele jednoczesnych połączeń](#user-content-faq23).
 
@@ -2380,73 +2380,81 @@ Błąd *Użytkownik jest uwierzytelniony, ale nie połączony* może wystąpić 
 * Adres e-mail aliasu jest używany jako nazwa użytkownika zamiast głównego adresu e-mail
 * Używany jest niepoprawny schemat logowania do wspólnej skrzynki pocztowej: prawidłowy schemat to * nazwa użytkownika @ domena\alias udostępnionej skrzynki pocztowej ​​*
 
+The shared mailbox alias will mostly be the email address of the shared account, like this:
+
+```
+you@example.com\shared@example.com
+```
+
+Note that it should be a backslash and not a forward slash.
+
 <br />
 
 <a name="faq140"></a>
 **(140) Dlaczego tekst wiadomości zawiera dziwne znaki?**
 
-Wyświetlanie dziwnych znaków jest prawie zawsze spowodowane brakiem określenia lub nieprawidłowego kodowania znaków przez oprogramowanie wysyłające. FairEmail założy [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) gdy nie podano żadnych znaków lub gdy został określony [US-ASCII](https://en.wikipedia.org/wiki/ASCII). Poza tym, nie ma sposobu na automatyczne i wiarygodne określenie poprawnego kodowania znaków, więc FairEmail nie może tego naprawić. Właściwym działaniem jest zgłoszenie do nadawcy.
+Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Poza tym, nie ma sposobu na automatyczne i wiarygodne określenie poprawnego kodowania znaków, więc FairEmail nie może tego naprawić. Właściwym działaniem jest zgłoszenie tego nadawcy.
 
 <br />
 
 <a name="faq141"></a>
-**(141) Jak mogę naprawić 'Folder szkiców jest wymagany do wysyłania wiadomości'?**
+**(141) How can I fix 'A drafts folder is required to send messages'?**
 
-Aby przechowywać szkice wiadomości, wymagany jest folder szkiców. W większości przypadków FairEmail automatycznie wybierze foldery szkiców przy dodawaniu konta w oparciu o [atrybuty](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml), które wysyła serwer e-mail. Niektóre serwery e-mail nie są jednak poprawnie skonfigurowane i nie wysyłają tych atrybutów. W tym przypadku FairEmail próbuje zidentyfikować folder szkiców według nazwy, ale to może się nie powieść, jeśli folder szkiców ma nietypową nazwę lub w ogóle nie jest obecny.
+To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. Jednakże, niektóre serwery e-mail nie są jednak poprawnie skonfigurowane i nie wysyłają tych atrybutów. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-Możesz rozwiązać ten problem ręcznie wybierając folder szkiców w ustawieniach konta (Ustawienie, krok 1, dotknij konta, u dołu). Jeśli w ogóle nie ma folderu szkiców, możesz utworzyć folder szkiców naciskając przycisk '+' na liście folderów konta (dotknij nazwy konta w menu nawigacji).
+You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
-Niektórzy dostawcy, jak Gmail, umożliwiają włączanie/wyłączanie IMAP dla poszczególnych folderów. Więc jeśli folder nie jest widoczny, może być konieczne włączenie IMAP dla folderu.
+Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
-Szybki link do Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
-**(142) Jak przechowywać wysłane wiadomości w skrzynce odbiorczej?**
+**(142) How can I store sent messages in the inbox?**
 
-Ogólnie, nie jest dobrym pomysłem na przechowywanie wysłanych wiadomości w skrzynce odbiorczej, ponieważ jest to trudne do cofnięcia i może być niekompatybilne z innymi klientami poczty elektronicznej.
+Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
 
-To mówiąc, FairEmail jest w stanie poprawnie obsługiwać wysłane wiadomości w skrzynce odbiorczej. FairEmail oznaczy wychodzące wiadomości na przykład ikoną wysłanej wiadomości.
+That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
 
-Najlepszym rozwiązaniem byłoby pokazanie folderu Wysłane we wspólnej skrzynce odbiorczej, przez długie naciśnięcie folderu Wysłane na liście folderów i włączenie *Pokaż we wspólnej skrzynce odbiorczej*. W ten sposób wszystkie wiadomości mogą pozostać tam, gdzie należą, umożliwiając jednocześnie wyświetlanie wiadomości przychodzących i wychodzących w jednym miejscu.
+The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
-Jeśli nie jest to rozwiązaniem, możesz [utworzyć regułę](#user-content-faq71), aby automatycznie przenosić wysłane wiadomości do skrzynki odbiorczej lub ustaw domyślny adres DW/UDW w zaawansowanych ustawieniach tożsamości, aby wysłać sobie kopię.
+If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Czy możesz dodać folder kosza dla kont POP3?~~**
+**~~(143) Can you add a trash folder for POP3 accounts?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) jest bardzo ograniczonym protokołem. Zasadniczo wiadomości mogą tylko zostać pobrane i usunięte z skrzynki odbiorczej. Nie można nawet oznaczyć wiadomości jako przeczytanej.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
 
-Ponieważ POP3 w ogóle nie pozwala na dostęp do folderu kosza, nie ma możliwości przywrócenia wiadomości z kosza.
+Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
 
-Pamiętaj, że możesz ukryć wiadomości i wyszukiwać ukryte wiadomości, podobnie jak do lokalnego folderu kosza, bez sugerowania, że ​​usunięte wiadomości można przywrócić, podczas gdy w rzeczywistości nie jest to możliwe.
+Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
 
-Wersja 1.1082 dodała lokalny folder śmieci. Pamiętaj, że usunięcie wiadomości spowoduje trwałe usunięcie jej z serwera i nie będzie można przywrócić usuniętych wiadomości na serwerze.
+Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
 
 <br />
 
 <a name="faq144"></a>
-**(144) Jak mogę nagrać notatki głosowe?**
+**(144) How can I record voice notes?**
 
-Aby nagrywać notatki głosowe, naciśnij tę ikonę w dolnym pasku akcji kompozytora wiadomości:
+To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Obraz zewnętrzny](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
 
-Wymaga to zainstalowania kompatybilnej aplikacji do nagrywania dźwięku. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
-Na przykład [ta aplikacja do nagrywania dźwięku](https://f-droid.org/app/com.github.axet.audiorecorder) jest kompatybilna.
+For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
 
-Notatki głosowe zostaną automatycznie dołączone.
+Voice notes will automatically be attached.
 
 <br />
 
 <a name="faq145"></a>
-**(145) Jak mogę ustawić dźwięk powiadomienia dla konta, folderu lub nadawcy?**
+**(145) How can I set a notification sound for an account, folder or sender?**
 
-Konto:
+Account:
 
 * Włącz * Oddzielne powiadomienia * w zaawansowanych ustawieniach konta (Ustawienia, krok 1, Zarządzaj, dotknij konta, dotknij Zaawansowane)
 * Naciśnij i przytrzymaj konto na liście kont (Konfiguracja, krok 1, Zarządzaj) i wybierz *Edytuj kanał powiadomień*, aby zmienić dźwięk powiadomienia
@@ -2456,67 +2464,67 @@ Folder:
 * Przytrzymaj folder na liście folderów i wybierz *Utwórz kanał powiadomień*
 * Przytrzymaj folder na liście folderów i wybierz *Edytuj kanał powiadomień*, aby zmienić dźwięk powiadomień
 
-Nadawca:
+Sender:
 
 * Otwórz wiadomość od nadawcy i rozwiń ją
 * Rozwiń sekcję adresów naciskając strzałkę w dół
 * Dotknij ikony dzwonka, aby utworzyć lub edytować kanał powiadomień i zmienić dźwięk powiadomień
 
-Kolejność pierwszeństwa to: dźwięk nadawcy, dźwięk folderu, dźwięk konta i dźwięk domyślny.
+The order of precendence is: sender sound, folder sound, account sound and default sound.
 
-Ustawienie dźwięku powiadomień dla konta, folderu lub nadawcy wymaga Androida 8 Oreo lub nowszego i jest funkcją pro.
+Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
 
 <br />
 
 <a name="faq146"></a>
-**(146) Jak mogę naprawić niepoprawne czasy wiadomości?**
+**(146) How can I fix incorrect message times?**
 
-Ponieważ data i godzina wysłania są opcjonalne i mogą być manipulowane przez nadawcę, FairEmail używa daty/godziny otrzymania przez serwer.
+Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time.
 
-Czasami otrzymana data/czas jest nieprawidłowy, głównie dlatego, że wiadomości zostały niepoprawnie zaimportowane z innego serwera i czasami z powodu błędu na serwerze e-mail.
+Sometimes the received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-W tym rzadkim przypadku możesz włączyć opcję konta *Możesz użyć czasu wysłania nagłówka daty zamiast czasu odebranego przez serwer* (Konfiguracja, krok 1, Zarządzaj, dotknij konta, dotknij Zaawansowane) jako obejścia problemu.
+In this rare case you can enable the account option *Use date header sent time instead of server received time* (Setup, step 1, Manage, tap account, tap Advanced) as a workaround.
 
-To nie zmieni czasu już zsynchronizowanych wiadomości. Aby rozwiązać ten problem, naciśnij długo folder(y) na liście folderów i wybierz *Usuń lokalne wiadomości* i *Synchronizuj teraz*.
+This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
 <br />
 
 <a name="faq147"></a>
-**(147) Co powinienem wiedzieć o wersjach firm trzecich?**
+**(147) What should I know about third party versions?**
 
-Prawdopodobnie przyszedłeś tutaj, ponieważ używasz innej kompilacji FairEmail.
+You likely came here because you are using a third party build of FairEmail.
 
-Wersja F-Droid jest wspierana, ale żadna inna wersja nieoficjalna nie jest wspierana.
+The F-Droid build is supported, but any other unofficial build is not supported.
 
-F-Droid tworzy nieregularnie, co może być problematyczne, gdy jest ważna aktualizacja. Z tego względu zaleca się przełączenie na wersję GitHub.
+F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-Wersja F-Droid jest zbudowana z tego samego kodu źródłowego, ale inaczej podpisana. Oznacza to, że wszystkie funkcje są również dostępne w wersji F-Droid, z wyjątkiem użycia kreatora konfiguracji Gmaila, ponieważ Google zatwierdził (i zezwolił) tylko na jeden podpis.
+The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one signature only.
 
-Zauważ, że musisz najpierw odinstalować wersję F-Droid zanim będziesz mógł zainstalować wersję GitHub, ponieważ Android odmawia instalacji tej samej aplikacji z innym podpisem ze względów bezpieczeństwa.
+Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 
-Pamiętaj, że wersja GitHub automatycznie sprawdza dostępność aktualizacji. Gdy jest to pożądane, można to wyłączyć w ustawieniach różnych.
+Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
 
-[Zobacz tutaj](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads), aby zobaczyć wszystkie opcje pobierania.
+Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-Jeśli masz problem z wersją F-Droid, sprawdź najpierw czy jest nowsza wersja.
+If you have a problem with the F-Droid build, please check if there is a newer version first.
 
 <br />
 
 <a name="faq148"></a>
-**(148) Jak mogę używać konta Apple iCloud?**
+**(148) How can I use an Apple iCloud account?**
 
-Istnieje wbudowany profil dla Apple iCloud, ale w razie potrzeby możesz znaleźć odpowiednie ustawienia [tutaj](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
 
-Podczas korzystania z uwierzytelniania dwuskładnikowego może być konieczne użycie hasła [dla aplikacji](https://support.apple.com/en-us/HT204397).
+When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 
 <br />
 
 <a name="faq149"></a>
-**(149) Jak działa widżet licznika nieprzeczytanych wiadomości?**
+**(149) How does the unread message count widget work?**
 
-Widżet licznika nieprzeczytanych wiadomości pokazuje liczbę nieprzeczytanych wiadomości dla wszystkich kont lub dla wybranego konta, ale tylko dla folderów, dla których włączono powiadomienia o nowych wiadomościach.
+The unread message count widget shows the number of unread messages either for all accounts or for a selected account, but only for the folders for which new message notifications are enabled.
 
-Dotknięcie powiadomienia spowoduje synchronizację wszystkich folderów, dla których synchronizacja jest włączona i zostanie otwarty:
+Tapping on the notification will synchronize all folders for which synchronization is enabled and will open:
 
 * ekran początkowy jeśli wybrane były wszystkie konta
 * lista folderów, gdy wybrano konkretne konto i gdy powiadomienia o nowych wiadomościach są włączone dla wielu folderów
@@ -2525,141 +2533,141 @@ Dotknięcie powiadomienia spowoduje synchronizację wszystkich folderów, dla kt
 <br />
 
 <a name="faq150"></a>
-**(150) Czy możesz dodać anulowanie zaproszeń do kalendarza?**
+**(150) Can you add cancelling calendar invites?**
 
-Anulowanie zaproszeń do kalendarza (usuwanie wydarzeń z kalendarza) wymaga uprawnień do zapisu, co spowoduje przyznanie uprawnień do odczytu i zapisu *wszystkich* wydarzeń kalendarza *wszystkich* kalendarzy.
+Cancelling calendar invites (removing calendar events) requires write calendar permission, which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
 
-Biorąc pod uwagę cel FairEmail, prywatność i bezpieczeństwo oraz fakt, że łatwo jest ręcznie usunąć wydarzenie kalendarza, nie jest dobrym pomysłem, aby poprosić o to uprawnienie tylko z tego powodu.
+Given the goal of FairEmail, privacy and security, and given that it is easy to remove a calendar event manually, it is not a good idea to request this permission for just this reason.
 
-Wstawianie nowych wydarzeń w kalendarzu można wykonywać bez uprawnień ze specjalnymi [intencjami](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents). Unfortunately, there exists no intent to delete existing calendar events.
+Inserting new calendar events can be done without permissions with special [intents](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents). Unfortunately, there exists no intent to delete existing calendar events.
 
 <br />
 
 <a name="faq151"></a>
-**(151) Czy możesz dodać kopię zapasową/przywracanie wiadomości?**
+**(151) Can you add backup/restore of messages?**
 
-Klient poczty e-mail ma na celu odczytywanie i zapisywanie wiadomości, a nie tworzenie kopii zapasowej i przywracanie wiadomości. Zauważ, że uszkodzenie lub utrata urządzenia oznacza utratę wiadomości!
+An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
 
-Zamiast tego dostawca/serwer poczty e-mail jest odpowiedzialny za kopie zapasowe.
+Instead, the email provider/server is responsible for backups.
 
-Jeśli chcesz samodzielnie utworzyć kopię zapasową, możesz użyć narzędzia takiego jak [imapsync](https://imapsync.lamiral.info/).
+If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
 
-Jeśli chcesz zaimportować plik mbox do istniejącego konta e-mail, możesz użyć Thunderbirda na komputerze stacjonarnym i dodatku [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/).
+If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
 <br />
 
 <a name="faq152"></a>
-**(152) W jaki sposób mogę wstawić grupę kontaktową?**
+**(152) How can I insert a contact group?**
 
-Możesz wstawić adresy e-mail wszystkich kontaktów w grupie kontaktów za pomocą menu trzech kropek w kompozytorze wiadomości.
+You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
 
-Możesz zdefiniować grupy kontaktów z aplikacją na Androida, zobacz [tutaj](https://support.google.com/contacts/answer/30970), aby uzyskać instrukcje.
+You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
 <br />
 
 <a name="faq153"></a>
-**(153) Dlaczego trwale usunięcie wiadomości Gmail nie działa?**
+**(153) Why does permanently deleting Gmail message not work?**
 
-Być może będziesz musiał zmienić [ustawienia IMAP Gmail](https://mail.google.com/mail/u/0/#settings/fwdandpop) w przeglądarce komputerowej, aby to działało:
+You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
 
 * Kiedy zaznaczysz wiadomość w IMAP jako usuniętą: Automatyczne wygasanie wyłączone - Poczekaj, aż klient zaktualizuje serwer.
 * Gdy wiadomość zostanie oznaczona jako usunięta i usunięta z ostatniego widocznego folderu IMAP: natychmiast usuń wiadomość na zawsze
 
-Zauważ, że zarchiwizowane wiadomości mogą zostać usunięte tylko poprzez wcześniejsze przeniesienie ich do folderu kosza.
+Note that archived messages can be deleted only by moving them to the trash folder first.
 
-Podłoże: Gmail wydaje się mieć dodatkowy widok wiadomości dla IMAP, który może różnić się od głównego widoku wiadomości.
+Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
 
 <br />
 
 <a name="faq154"></a>
-**~~(154) Czy możesz dodać favikony jako zdjęcia kontaktowe?~~**
+**~~(154) Can you add favicons as contact photos?~~**
 
-~~ Poza tym [favicona](https://en.wikipedia.org/wiki/Favicon) może być współdzielony przez wiele adresów e-mail o tej samej nazwie domeny~~ ~~i dlatego nie jest bezpośrednio związany z adresem e-mail, favicony można wykorzystać do śledzenia.~~
+~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) Co to jest plik winmail.dat?**
+**(155) What is a winmail.dat file?**
 
-Plik *winmail.dat* jest wysyłany przez nieprawidłowo skonfigurowanego klienta Outlook. Jest to specyficzny format pliku Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) zawierający wiadomość i ewentualnie załączniki.
+A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-Więcej informacji na temat tego pliku można znaleźć [tutaj](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-Możesz go obejrzeć w aplikacji na Androida, np. [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
 <a name="faq156"></a>
-**(156) Jak mogę ustawić konto Office365?**
+**(156) How can I set up an Office365 account?**
 
-Konto Office365 można skonfigurować za pomocą szybkiego kreatora konfiguracji i wyborem *Office365 (OAuth)*.
+An Office365 account can be set up via the quick setup wizard and selecting *Office365 (OAuth)*.
 
-Jeśli kreator kończy się z informacją *AUTHENTICATE failed*, IMAP i/lub SMTP mogą być wyłączone dla konta. W takim przypadku powinieneś poprosić administratora o włączenie IMAP i SMTP. Procedura jest udokumentowana [tutaj](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
 <br />
 
 <a name="faq157"></a>
-**(157) Jak mogę ustawić konto Free.fr?**
+**(157) How can I set up an Free.fr account?**
 
-[Zobacz tutaj](https://free.fr/assistance/597.html), aby uzyskać instrukcje.
+Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP jest domyślnie wyłączony**, [zobacz tutaj](https://free.fr/assistance/2406.html), w jaki sposób można go włączyć.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-[Zobacz tutaj](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr), aby uzyskać szczegółowy przewodnik.
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq158"></a>
-**(158) Którą aplikację kamerę / rejestrator dźwięku polecasz?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Aby robić zdjęcia i nagrywać dźwięk, potrzebny jest aparat i aplikacja do rejestrowania dźwięku. Następujące aplikacje to kamery i rejestratory dźwięku otwarto-źródłowe:
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-Aby nagrywać notatki głosowe itp., rejestrator dźwięku musi wspierać [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Wygląda na to, że większość aplikacji do nagrywania dźwięku nie obsługuje tej standardowej akcji Android.
+To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
 
 <br />
 
 <a name="faq159"></a>
-**(159) Czym są listy ochrony przed śledzeniem Disconnect?**
+**(159) What are Disconnect's tracker protection lists?**
 
-Zobacz [tutaj](https://disconnect.me/trackerprotection), aby uzyskać więcej informacji o listach ochrony przed śledzeniem.
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
-Po pobraniu list w ustawieniach prywatności, listy mogą być opcjonalnie używane:
+After downloading the lists in the privacy settings, the lists can optionally be used:
 
 * aby ostrzec przed linkami śledzącymi podczas otwierania linków
 * aby rozpoznać obrazy śledzące w wiadomościach
 
-Obrazy śledzące zostaną wyłączone tylko wtedy, gdy włączona jest odpowiednia główna opcja 'wyłącz'.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
-Obrazy śledzące nie zostaną rozpoznane, gdy domena jest sklasyfikowana jako '*Content*', zobacz [tutaj](https://disconnect.me/trackerprotection#trackers-we-dont-block), aby uzyskać więcej informacji.
+Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Ta komenda może zostać wysłana do FairEmail z aplikacji automatyzującej aby zaktualizować listy ochrony:
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Aktualizacja raz w tygodniu prawdopodobnie wystarczy, zobacz [tutaj](https://github.com/disconnectme/disconnect-tracking-protection/commits/master), aby przeczytać zmiany w ostatnich listach.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 ## Wsparcie
 
-Wspierana jest tylko najnowsza wersja ze Sklepu Play i najnowsze wydanie GitHub. Oznacza to również, że obniżanie wersji nie jest wspierane.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Żądane funkcje powinny:
+Requested features should:
 
 * być przydatne dla większości ludzi
 * nie komplikować użycia FairEmail
 * pasować do filozofii FairEmail (zorientowanej na prywatność i bezpieczeństwo)
 * zgodne z popularnymi standardami (IMAP, SMTP, itp.)
 
-Funkcje, które nie spełniają tych wymogów, zostaną prawdopodobnie odrzucone. Ma to również na celu utrzymanie możliwości utrzymania i wsparcia w dłuższej perspektywie.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Jeśli masz pytanie, chcesz poprosić o funkcję lub zgłosić błąd, użyj [tego formularza](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Zgłoszenia na GitHub są wyłączone z powodu częstych nieprawidłowych zastosowań.
+GitHub issues are disabled due to frequent misusage.
 
-Prawa autorskie &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2020 Marcel Bokhorst.

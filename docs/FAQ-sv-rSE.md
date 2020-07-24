@@ -2380,6 +2380,14 @@ The error *User is authenticated but not connected* might occur if:
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
+The shared mailbox alias will mostly be the email address of the shared account, like this:
+
+```
+you@example.com\shared@example.com
+```
+
+Note that it should be a backslash and not a forward slash.
+
 <br />
 
 <a name="faq140"></a>
@@ -2536,7 +2544,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <br />
 
 <a name="faq151"></a>
-**(151) Kan du lägga till säkerhetskopiering/återställning av meddelanden?**
+**(151) Can you add backup/restore of messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
 
@@ -2622,44 +2630,44 @@ To record voice notes, etc, the audio recorder needs to support [MediaStore.Audi
 <br />
 
 <a name="faq159"></a>
-**(159) Vad är Disconnect's spårningsskyddslistor?**
+**(159) What are Disconnect's tracker protection lists?**
 
-Se [här](https://disconnect.me/trackerprotection) för mer information om Disconnect's spårarskyddslistor.
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
-Efter att ha laddat ner listorna i sekretessinställningarna kan listorna användas valfritt:
+After downloading the lists in the privacy settings, the lists can optionally be used:
 
 * att varna för spårningslänkar vid öppnande av länkar
 * att känna igen spårningsbilder i meddelanden
 
-Spårningsbilder kommer endast att inaktiveras om motsvarande huvudalternativ "inaktiveras" är aktiverat.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
-Spårningsbilder kommer inte att kännas igen när domänen är klassificerad som '*Content*', se [här](https://disconnect.me/trackerprotection#trackers-we-dont-block) för mer information.
+Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Detta kommando kan skickas till FairEmail från en automationsapp för att uppdatera skyddslistorna:
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Uppdatering en gång i veckan kommer förmodligen att räcka, se [här](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) för ändringar i de senaste listorna.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 ## Support
 
-Endast den senaste versionen av Play Store och den senaste versionen av GitHub stöds. Detta innebär också att nedgradering inte stöds.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Önskade funktioner bör:
+Requested features should:
 
 * vara användbar för de flesta användare
 * inte komplicera användningen av FairEmail
 * passar in i filosofin i FairEmail (integritetsorienterad, säkerhetsorienterad)
 * följa gemensamma standarder (IMAP, SMTP, etc)
 
-Funktioner som inte uppfyller dessa krav kommer sannolikt att avvisas. Detta är också för att hålla underhåll och stöd i det långa loppet genomförbart.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Om du har en fråga, efterfrågar en funktion eller rapportera en bugg, använd [detta formulär](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub-issues är inaktiverade på grund av frekvent missbruk.
+GitHub issues are disabled due to frequent misusage.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

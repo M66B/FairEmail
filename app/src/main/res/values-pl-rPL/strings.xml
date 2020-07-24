@@ -164,6 +164,7 @@
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
     <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta, sprawdź instrukcje swojego dostawcy</string>
     <string name="title_setup_no_system_folders">Nie znaleziono folderu skrzynki odbiorczej lub szkiców</string>
+    <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
     <string name="title_setup_manage">Zarządzaj</string>
@@ -262,6 +263,7 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
+    <string name="title_advanced_compose_font">Domyślna czcionka</string>
     <string name="title_advanced_auto_list">Automatycznie twórz listy</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
@@ -559,6 +561,10 @@
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
+    <string name="title_server_time">Użyj czasu otrzymanego (serwer)</string>
+    <string name="title_received_header">Użyj nagłówka \'Odbiorca\'</string>
+    <string name="title_date_header">Użyj nagłówka \'Data\' (wysłany czas)</string>
+    <string name="title_date_remark">Zmiany zostaną zastosowane tylko do nowych wiadomości</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_trust">Zaufaj certyfikatowi serwera za pomocą odcisku palca %1$s</string>

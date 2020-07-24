@@ -2380,6 +2380,14 @@ The error *User is authenticated but not connected* might occur if:
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
+The shared mailbox alias will mostly be the email address of the shared account, like this:
+
+```
+you@example.com\shared@example.com
+```
+
+Note that it should be a backslash and not a forward slash.
+
 <br />
 
 <a name="faq140"></a>

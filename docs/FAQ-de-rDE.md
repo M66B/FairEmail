@@ -2380,6 +2380,14 @@ The error *User is authenticated but not connected* might occur if:
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
+The shared mailbox alias will mostly be the email address of the shared account, like this:
+
+```
+you@example.com\shared@example.com
+```
+
+Note that it should be a backslash and not a forward slash.
+
 <br />
 
 <a name="faq140"></a>
@@ -2433,7 +2441,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Externes Bild](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2536,7 +2544,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <br />
 
 <a name="faq151"></a>
-**(151) Kannst du eine Sicherung/Wiederherstellung von Nachrichten hinzufügen? **
+**(151) Can you add backup/restore of messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
 
@@ -2610,9 +2618,9 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 <br />
 
 <a name="faq158"></a>
-**(158) Welche Kamera / Tonaufnahme empfehlen Sie?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Zur Aufnahme von Fotos und von Tönen ist eine Kamera- und eine Tonaufnahme-App erforderlich. Die folgenden Apps sind eine quelloffene Kamera und Tonaufnahme:
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
@@ -2622,7 +2630,7 @@ To record voice notes, etc, the audio recorder needs to support [MediaStore.Audi
 <br />
 
 <a name="faq159"></a>
-**(159) Was sind Disconnects tracker-protection-Listen?**
+**(159) What are Disconnect's tracker protection lists?**
 
 Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
@@ -2662,4 +2670,4 @@ If you have a question, want to request a feature or report a bug, please use [t
 
 GitHub issues are disabled due to frequent misusage.
 
-Urheberrecht &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2020 Marcel Bokhorst.

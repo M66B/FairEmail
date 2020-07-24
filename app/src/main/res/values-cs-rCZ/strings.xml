@@ -562,8 +562,8 @@
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
     <string name="title_server_time">Použít čas přijetí (server)</string>
-    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Použít hlavičku „přijato“</string>
-    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Použít hlavičku „datum“ (čas odeslání)</string>
+    <string name="title_received_header">Použít hlavičku „přijato“</string>
+    <string name="title_date_header">Použít hlavičku „datum“ (čas odeslání)</string>
     <string name="title_date_remark">Změny budou použity pouze u nových zpráv</string>
     <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>

@@ -528,8 +528,8 @@
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
     <string name="title_server_time">使用接收时间(服务器)</string>
-    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">使用“已接收”标头</string>
-    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">使用“日期”标头 (发送时间)</string>
+    <string name="title_received_header">使用“已接收”标头</string>
+    <string name="title_date_header">使用“日期”标头 (发送时间)</string>
     <string name="title_date_remark">更改将仅应用于新消息</string>
     <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>

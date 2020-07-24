@@ -2380,6 +2380,14 @@ The error *User is authenticated but not connected* might occur if:
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
+The shared mailbox alias will mostly be the email address of the shared account, like this:
+
+```
+you@example.com\shared@example.com
+```
+
+Note that it should be a backslash and not a forward slash.
+
 <br />
 
 <a name="faq140"></a>
@@ -2635,31 +2643,31 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Denne kommando kan sendes til FairEmail fra en automatiserings-app for at opdatere beskyttelseslisterne:
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Opdatring én gang ugentligt vil formentlig være tilstrækkeligt, se [hér](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for nylige listeændringer.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 ## Support
 
-Kun seneste Play Butik- og GitHub-versioner understøttes. Dette betyder også, at nedgradering ikke understøttes.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Anmodede funktioner skal:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er også for at muliggøre vedligeholdelse og support i det lange løb.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Har du spørgsmål, ønsker til en funktion eller vil rapportere en fejl, så benyt venligst [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
+GitHub issues are disabled due to frequent misusage.
 
-Ophavsrettigheder &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2020 Marcel Bokhorst.

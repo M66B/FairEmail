@@ -539,8 +539,8 @@
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
     <string name="title_server_time">Använd mottagen tid (server)</string>
-    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Använd \'Mottagen\' i header</string>
-    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Använd \'Datum\' i header (skickad tid)</string>
+    <string name="title_received_header">Använd \'Mottagen\' i header</string>
+    <string name="title_date_header">Använd \'Datum\' i header (skickad tid)</string>
     <string name="title_date_remark">Ändringar kommer endast att tillämpas på nya meddelanden</string>
     <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>

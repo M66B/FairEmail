@@ -2,36 +2,80 @@
 <resources>
     <string name="app_search">Busca do FairEmail</string>
     <string name="app_changelog">Registo de alterações</string>
-    <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem não funcionar como esperado.</string>
-    <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos não seguros e para melhorar a legibilidade bem como a abertura de links terá de ser confirmada por razões de segurança.</string>
-    <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs no Android causam falhas</string>
+    <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
+    <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, bem como a abertura de hiperligações terá de ser confirmada por razões de segurança.</string>
+    <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
     <string name="app_exit"> Clique novamente em \'voltar\' para sair</string>
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
-    <string name="channel_update">Actualizações</string>
+    <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contactos</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Conversa</item>
+        <item quantity="other">Conversas</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Mensagem</item>
+        <item quantity="other">Mensagens</item>
+    </plurals>
     <string name="page_folders">Pastas</string>
     <string name="page_compose">Compor</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
-    <string name="shortcut_refresh">Actualizar</string>
+    <string name="shortcut_refresh">Atualizar</string>
     <string name="shortcut_compose">Compor</string>
     <string name="shortcut_setup">Definições</string>
-    <string name="title_ask_spam_who">Definir mensagem de %1$s como spam?</string>
-    <string name="title_junk_hint">O seu fornecedor de email é responsável por filtrar spam. Uma aplicação de email não possui toda a informação necessária para o fazer de forma confiável.</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">A monitorizar %1$d conta</item>
+        <item quantity="other">A monitorizar %1$d contas</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d operação pendente</item>
+        <item quantity="other">%1$d operações pendentes</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d nova mensagem</item>
+        <item quantity="other">%1$d novas mensagens</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d mensagem por enviar</item>
+        <item quantity="other">%1$d mensagens por enviar</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nova</item>
+        <item quantity="other">%1$d novas</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d conversa selecionada</item>
+        <item quantity="other">%1$d conversas selecionadas</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Mover %1$d mensagem para %2$s?</item>
+        <item quantity="other">Mover %1$d mensagens para %2$s?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">Excluir %1$d mensagem permanentemente?</item>
+        <item quantity="other">Excluir %1$d mensagens permanentemente?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">Definir %1$d mensagem como indesejada?</item>
+        <item quantity="other">Definir %1$d mensagens como indesejadas?</item>
+    </plurals>
+    <string name="title_ask_spam_who">Definir a mensagem de %1$s como indesejada?</string>
+    <string name="title_junk_hint">O teu fornecedor de email é responsável por filtrar as mensagens indesejadas. Uma aplicação de email não possui toda a informação necessária para o fazer de forma confiável.</string>
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear Remetente</string>
     <string name="title_block_domain">Bloquear domínio do remetente</string>
-    <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de spam.
-        Criar e usar regras é um recurso pro.
+    <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de mensagens indesejadas.
+        Criar e usar regras é uma funcionalidade pro.
     </string>
     <string name="title_notification_sending">A enviar mensagens</string>
-    <string name="title_notification_waiting">A aguardar ligação</string>
-    <string name="title_notification_idle">Inactivo</string>
+    <string name="title_notification_waiting">A aguardar conexão</string>
+    <string name="title_notification_idle">Ausente</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="title_notification_alert">\'%1$s\' alerta do servidor</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
@@ -39,7 +83,7 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s — %2$s</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Sair</string>
@@ -85,7 +129,7 @@
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_gmail_support">Autorização de contas da Google funcionará apenas nas versões oficiais porque o Android verifica a assinatura da aplicação</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
-    <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e excluir permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
+    <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e excluir permanentemente todos os teus e-mails. O FairEmail nunca apagará as tuas mensagens sem o teu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta de rascunhos não estiver acessível pelo IMAP, isso poderá ser corrigido nas configurações de etiquetas do Gmail</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>

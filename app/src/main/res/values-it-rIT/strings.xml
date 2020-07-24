@@ -540,8 +540,8 @@
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
     <string name="title_server_time">Usa ora ricevuta (server)</string>
-    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Usa intestazione «Ricevuto»</string>
-    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Usa intestazione «Date» (ora di invio)</string>
+    <string name="title_received_header">Usa intestazione «Ricevuto»</string>
+    <string name="title_date_header">Usa intestazione «Date» (ora di invio)</string>
     <string name="title_date_remark">Le modifiche saranno applicate solo ai nuovi messaggi</string>
     <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>

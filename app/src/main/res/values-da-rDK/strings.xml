@@ -540,8 +540,8 @@
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
     <string name="title_server_time">Benyt modtagelsestid (server)</string>
-    <string name="title_received_header" comment="title_received_header&#10;'Received' should not be translated">Benyt \"Modtaget\"-overskrift</string>
-    <string name="title_date_header" comment="title_date_header&#10;'Date' should not be translated">Benyt \'Dato\'-overskrift (afsendelsestid)</string>
+    <string name="title_received_header">Benyt \"Modtaget\"-overskrift</string>
+    <string name="title_date_header">Benyt \'Dato\'-overskrift (afsendelsestid)</string>
     <string name="title_date_remark">Ændringer effektueres kun for nye beskeder</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
