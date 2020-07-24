@@ -460,7 +460,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             for (Message m : isub)
                 try {
                     long uid = state.ifolder.getUID(m);
-                    if (db.message().getMessageByUid(browsable.id, uid) == null)
+                    EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
+                    if (message == null)
                         add.add(m);
                 } catch (Throwable ex) {
                     Log.w(ex);
