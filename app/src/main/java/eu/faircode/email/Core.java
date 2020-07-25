@@ -3198,8 +3198,10 @@ class Core {
                 String channelId = message.getNotificationChannelId();
                 if (channelId != null) {
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
-                    if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
+                    if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
+                        Log.i("Notify disabled=" + message.id + " channel=" + channelId);
                         continue;
+                    }
                 }
             }
 
