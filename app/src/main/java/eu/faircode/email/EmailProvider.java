@@ -524,7 +524,7 @@ public class EmailProvider {
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = false;
-            } catch (UnknownHostException ex) {
+            } catch (UnknownHostException ignored) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
                 if (records.length == 0)
@@ -535,15 +535,24 @@ public class EmailProvider {
             }
         }
 
-        if (discover == Discover.ALL || discover == Discover.SMTP) {
-            // Note that this covers connections both with and without Transport Layer Security (TLS)
-            DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
-            if (records.length == 0)
-                throw new UnknownHostException(domain);
-            provider.smtp.host = records[0].name;
-            provider.smtp.port = records[0].port;
-            provider.smtp.starttls = (provider.smtp.port == 587);
-        }
+        if (discover == Discover.ALL || discover == Discover.SMTP)
+            try {
+                // Note that this covers connections both with and without Transport Layer Security (TLS)
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
+                if (records.length == 0)
+                    throw new UnknownHostException(domain);
+                provider.smtp.host = records[0].name;
+                provider.smtp.port = records[0].port;
+                provider.smtp.starttls = (provider.smtp.port == 587);
+            } catch (UnknownHostException ignored) {
+                // https://tools.ietf.org/html/rfc8314
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
+                if (records.length == 0)
+                    throw new UnknownHostException(domain);
+                provider.smtp.host = records[0].name;
+                provider.smtp.port = records[0].port;
+                provider.smtp.starttls = false;
+            }
 
         provider.validate();
 
