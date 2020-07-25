@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.mail.Part;
@@ -171,7 +172,11 @@ public class EntityAttachment {
         if (extension == null)
             return type;
 
+        extension = extension.toLowerCase(Locale.ROOT);
+
         // Fix types
+        if ("gpx".equals(extension))
+            return "application/gpx+xml";
 
         if ("text/plain".equals(type) && "ics".equals(extension))
             return "text/calendar";
