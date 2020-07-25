@@ -71,7 +71,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swBadge;
     private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifyBackgroundOnly;
-    private SwitchCompat swNotifyKnown;
+    private SwitchCompat swNotifyKnownOnly;
     private TextView tvNotifyKnownPro;
     private SwitchCompat swNotifySummary;
     private SwitchCompat swNotifyRemove;
@@ -132,7 +132,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBadge = view.findViewById(R.id.swBadge);
         swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifyBackgroundOnly = view.findViewById(R.id.swNotifyBackgroundOnly);
-        swNotifyKnown = view.findViewById(R.id.swNotifyKnown);
+        swNotifyKnownOnly = view.findViewById(R.id.swNotifyKnownOnly);
         tvNotifyKnownPro = view.findViewById(R.id.tvNotifyKnownPro);
         swNotifySummary = view.findViewById(R.id.swNotifySummary);
         swNotifyRemove = view.findViewById(R.id.swNotifyRemove);
@@ -318,7 +318,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
-        swNotifyKnown.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swNotifyKnownOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("notify_known", checked).apply();
@@ -468,7 +468,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBadge.setChecked(prefs.getBoolean("badge", true));
         swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
         swNotifyBackgroundOnly.setChecked(prefs.getBoolean("notify_background_only", false));
-        swNotifyKnown.setChecked(prefs.getBoolean("notify_known", false));
+        swNotifyKnownOnly.setChecked(prefs.getBoolean("notify_known", false));
         swNotifySummary.setChecked(prefs.getBoolean("notify_summary", false));
         swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
         swNotifyClear.setChecked(prefs.getBoolean("notify_clear", false));
