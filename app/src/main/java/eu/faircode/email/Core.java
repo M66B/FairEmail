@@ -1137,7 +1137,8 @@ class Core {
                         downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
                 }
 
-                EntityLog.log(context, folder.name + " fetch stats " + stats);
+                if (!stats.isEmpty())
+                    EntityLog.log(context, folder.name + " fetch stats " + stats);
             } finally {
                 ((IMAPMessage) imessage).invalidateHeaders();
             }
@@ -2378,6 +2379,7 @@ class Core {
             db.folder().setFolderError(folder.id, null);
 
             stats.total = (SystemClock.elapsedRealtime() - search);
+
             EntityLog.log(context, folder.name + " sync stats " + stats);
         } finally {
             Log.i(folder.name + " end sync state=" + state);
@@ -4098,14 +4100,27 @@ class Core {
     private static class SyncStats {
         long search_ms;
         int flags;
-        int uids;
         long flags_ms;
+        int uids;
         long uids_ms;
         int headers;
         long headers_ms;
         long content;
         long attachments;
         long total;
+
+        boolean isEmpty() {
+            return (search_ms == 0 &&
+                    flags == 0 &&
+                    flags_ms == 0 &&
+                    uids == 0 &&
+                    uids_ms == 0 &&
+                    headers == 0 &&
+                    headers_ms == 0 &&
+                    content == 0 &&
+                    attachments == 0 &&
+                    total == 0);
+        }
 
         @Override
         public String toString() {
