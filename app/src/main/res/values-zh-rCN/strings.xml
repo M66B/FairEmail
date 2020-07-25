@@ -147,7 +147,7 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">设置电池优化</string>
-    <string name="title_setup_doze_remark">持续接受邮件(可选)</string>
+    <string name="title_setup_doze_remark">要可靠地接收电子邮件</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">耗电量高？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
@@ -811,7 +811,7 @@
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
     <string name="title_unknown_key">私钥与任何加密密钥不匹配</string>
-    <string name="title_key_missing" comment="title_key_missing&#10;No keys for &lt;email address(es)&gt;">没有%1$s的密钥</string>
+    <string name="title_key_missing">没有%1$s的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求回执</string>

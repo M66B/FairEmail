@@ -159,7 +159,6 @@
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Imposta ottimizzazioni della batteria</string>
-    <string name="title_setup_doze_remark">Per ricevere continuamente email (facoltativo)</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra, seleziona \"Tutte le app\" in alto, seleziona questa app e seleziona e conferma \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -242,6 +241,7 @@
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti in base alla frequenza d\'uso</string>
+    <string name="title_advanced_compose_font">Tipo di carattere predefinito</string>
     <string name="title_advanced_auto_list">Crea automaticamente liste</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposta/inoltro</string>
@@ -821,6 +821,7 @@
     <string name="title_no_key">Nessuna chiave privata</string>
     <string name="title_invalid_key">Chiave privata non valida</string>
     <string name="title_unknown_key">La chiave privata non corrisponde ad alcuna chiave di crittografia</string>
+    <string name="title_key_missing">Nessuna chiave per %1$s</string>
     <string name="title_send_reminder_remark">I promemoria possono essere nuovamente abilitati nelle impostazioni di invio</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta</string>

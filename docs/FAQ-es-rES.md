@@ -133,18 +133,18 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(13) How does search on device/server work?](#user-content-faq13)
 * [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
+* [(16) ¿Por qué no se sincronizan los mensajes?](#user-content-faq16)
+* [~~(17) ¿Por qué no funciona la sincronización manual?~~](#user-content-faq17)
+* [(18) ¿Por qué no se muestra siempre la vista previa del mensaje?](#user-content-faq18)
+* [(19) ¿Por qué las funcionalidades "pro" son tan caras?](#user-content-faq19)
+* [(20) ¿Puedo obtener un reembolso?](#user-content-faq20)
+* [(21) ¿Cómo activo la luz de notificaciones?](#user-content-faq21)
+* [(22) ¿Qué significa el error cuenta/carpeta?](#user-content-faq22)
+* [(23) ¿Por qué recibo una alerta.. ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) ¿Por qué no puedo seleccionar/abrir/guardar una imagen, adjunto o un archivo?](#user-content-faq25)
-* [(26) ¿Puedo ayudar a traducir FairEmail en mi propio idioma?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
+* [(26) ¿Puedo ayudar a traducir FairEmail a mi propio idioma?](#user-content-faq26)
+* [(27) ¿Cómo distingo entre imágenes embebidas y externas?](#user-content-faq27)
 * [(28) ¿Cómo puedo administrar las notificaciones de la barra de estado?](#user-content-faq28)
 * [(29) ¿Cómo puedo recibir notificaciones de mensajes nuevos para otras carpetas?](#user-content-faq29)
 * [(30) ¿Cómo puedo utilizar los ajustes rápidos proporcionados?](#user-content-faq30)
@@ -152,7 +152,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(32) ¿Cómo puedo comprobar si la lectura del correo electrónico es realmente segura?](#user-content-faq32)
 * [(33) ¿Por qué no funcionan las direcciones de remitentes editadas?](#user-content-faq33)
 * [(34) ¿Cómo coinciden las identidades?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
+* [(35) ¿Por qué debo de tener cuidado con ver imágenes, archivos adjuntos y el mensaje original?](#user-content-faq35)
 * [(36) ¿Cómo se cifran los archivos de configuración?](#user-content-faq36)
 * [(37) ¿Cómo se almacenan las contraseñas?](#user-content-faq37)
 * [(39) ¿Cómo puedo reducir el uso de la batería de FairEmail?](#user-content-faq39)
@@ -161,11 +161,11 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(42) ¿Puedes añadir un nuevo proveedor a la lista de proveedores?](#user-content-faq42)
 * [(43) ¿Puedes mostrar el original ... ?](#user-content-faq43)
 * [(44) ¿Puedes mostrar fotos de contacto / identicons en la carpeta enviada?](#user-content-faq44)
-* [(45) ¿Cómo puedo arreglar 'Esta clave no está disponible. Para utilizarlo, ¡debes importarla como una propia!" ?](#user-content-faq45)
+* [(45) ¿Cómo puedo arreglar 'Esta clave no está disponible'? Para utilizarlo, ¡debes importarla como una propia!" ?](#user-content-faq45)
 * [(46) ¿Por qué la lista de mensajes sigue actualizándose?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
+* [(47) ¿Cómo resuelvo el error "No hay cuenta primaria o carpeta de borradores"?](#user-content-faq47)
+* [~~(48) ¿Cómo resuelvo el error "No hay cuenta primaria o carpeta de archivo"? ~~](#user-content-faq48)
+* [(49) ¿Cómo puedo arreglar 'Una app obsoleta ha enviado la ruta a un archivo en lugar de una secuencia de archivos'?](#user-content-faq49)
 * [(50) ¿Puedes añadir una opción para sincronizar todos los mensajes?](#user-content-faq50)
 * [(51) ¿Cómo se ordenan las carpetas?](#user-content-faq51)
 * [(52) ¿Por qué tomar algún tiempo volver a conectar a una cuenta?](#user-content-faq52)
@@ -283,31 +283,31 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 
 Se necesitan los siguientes permisos de Android:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *tiene acceso a la red completa* (INTERNET): para enviar y recibir correo electrónico
+* *ver conexiones de red* (ACCESS_NETWORK_STATE): para monitorizar los cambios de conectividad a Internet
+* *ejecutar al inicio* (RECEIVE_BOOT_COMPLETED): para iniciar la monitorización al iniciar el dispositivo
+* *servicio de primer plano* (FOREGROUND_SERVICE): para ejecutar un servicio de primer plano en Android 9 Pie y posterior, ver también la siguiente pregunta
+* *evitar que el dispositivo duerme* (WAKE_LOCK): para mantener el dispositivo despierto mientras sincroniza los mensajes
+* *facturación in-app* (BILLING): para permitir compras en la app
+* Opcional: *lee tus contactos* (READ_CONTACTS): para autocompletar direcciones y para mostrar fotos
+* Opcional: *lee el contenido de tu tarjeta SD* (READ_EXTERNAL_STORAGE): para aceptar archivos de otras aplicaciones desactualizadas, consulta también [este FAQ](#user-content-faq49)
+* Opcional: *usar hardware de huella dactilar* (USE_FINGERPRINT) y usar *hardware biométrico* (USE_BIOMETRIC): para usar autenticación biométrica
+* Opcional: *encontrar cuentas en el dispositivo* (GET_ACCOUNTS) para seleccionar una cuenta cuando se utiliza la configuración rápida de Gmail
+* Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
+* Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Permisos opcionales](https://developer.android.com/training/permissions/requesting) son compatibles con Android 6 Marshmallow y sólo posteriores. En versiones anteriores de Android se le pedirá que conceda los permisos opcionales para instalar FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Los siguientes permisos son necesarios para mostrar el recuento de mensajes no leídos como una insignia (ver también [este FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
-* *com.htc.launcher.permission.READ_SETTINGS*
-* *com.htc.launcher.permission.UPDATE_SHORTCUT*
+* *com.htc.launcher.permission.READ_SETINGS*
+* *com.htc.launcher.permission► PDATE_SHORTCUT*
 * *com.sonyericsson.home.permission.BROADCAST_BADGE*
 * *com.sonymobile.home.permission.PROVIDER_INSERT_BADGE*
-* *com.anddoes.launcher.permission.UPDATE_COUNT*
-* *com.majeur.launcher.permission.UPDATE_BADGE*
+* *com.anddoes.launcher.permisos PDATE_COUNT*
+* *com.majeur.launcher.permission► PDATE_BADGE*
 * *com.huawei.android.launcher.permission.CHANGE_BADGE*
 * *com.huawei.android.launcher.permission.READ_SETTINGS*
 * *com.huawei.android.launcher.permission.WRITE_SETTINGS*
@@ -787,24 +787,24 @@ If a purchased pro feature doesn't work as intended and this isn't caused by a p
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
-Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Manage notifications* in the setup to directly go to the Android notification settings. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
+Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. Puede utilizar el botón *Administrar notificaciones* en la configuración para ir directamente a los ajustes de notificación de Android. Ten en cuenta que las aplicaciones no pueden cambiar los ajustes de notificación, incluyendo la configuración de la luz de notificación, en Android 8 Oreo y más adelante. Las aplicaciones diseñadas y orientadas a versiones antiguas de Android podrían seguir siendo capaces de controlar el contenido de las notificaciones, pero estas aplicaciones ya no se pueden actualizar y las versiones recientes de Android mostrarán una advertencia de que dichas aplicaciones están desactualizadas.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
+A veces es necesario desactivar la configuración *Mostrar vista previa del mensaje en las notificaciones* o habilitar la configuración *Mostrar notificaciones con un texto de vista previa* para solucionar un error en Android. Esto podría aplicarse también a los sonidos de notificación y las vibraciones.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Establecer un color de luz antes de Android 8 no es compatible y no es posible en Android 8 y posterior.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) ¿Qué significa el error de cuenta/carpeta... **
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail no oculta errores como las aplicaciones similares a menudo lo hacen, por lo que es más fácil diagnosticar problemas.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+FairEmail intentará conectarse automáticamente después de un retraso. Este retraso se duplicará tras cada intento fallido de evitar que se consuma la batería y de evitar que se bloquee permanentemente.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Hay errores generales y errores específicos para las cuentas de Gmail (ver abajo).
 
-**General errors**
+**Errores Generales**
 
 The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When using copy/paste to enter a username or password, invisible characters might be copied, which could cause this problem as well. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to logging from certain networks / IP addresses only.
 
@@ -2483,11 +2483,11 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time.
+Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
-Sometimes the received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In this rare case you can enable the account option *Use date header sent time instead of server received time* (Setup, step 1, Manage, tap account, tap Advanced) as a workaround.
+In these rare cases it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2510,7 +2510,7 @@ Note that the GitHub version will automatically check for updates. When desired,
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-If you have a problem with the F-Droid build, please check if there is a newer version first.
+If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 

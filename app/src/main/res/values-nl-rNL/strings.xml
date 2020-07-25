@@ -158,7 +158,7 @@
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_doze">Accuoptimalisaties instellen</string>
-    <string name="title_setup_doze_remark">Om voortdurend e-mail te ontvangen (optioneel)</string>
+    <string name="title_setup_doze_remark">Om betrouwbaar e-mail te ontvangen</string>
     <string name="title_setup_doze_instructions">In het volgende dialoogvenster, selecteer \"Alle apps\" bovenin, selecteer deze app en bevestig met \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
@@ -822,7 +822,7 @@
     <string name="title_no_key">Geen privé sleutel</string>
     <string name="title_invalid_key">Ongeldige privé sleutel</string>
     <string name="title_unknown_key">Privésleutel komt niet overeen met coderingssleutels</string>
-    <string name="title_key_missing" comment="title_key_missing&#10;No keys for &lt;email address(es)&gt;">Geen sleutel voor %1$s</string>
+    <string name="title_key_missing">Geen sleutel voor %1$s</string>
     <string name="title_send_reminder_remark">Herinneringen kunnen weer worden ingeschakeld in de verzendinstellingen</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
     <string name="title_send_receipt">Vraag bevestiging</string>

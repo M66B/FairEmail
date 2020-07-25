@@ -154,7 +154,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
     <string name="title_setup_doze">Akkumulátorhasználat optimlizálása</string>
-    <string name="title_setup_doze_remark">Emailek folyamatos fogadása (opcionális)</string>
     <string name="title_setup_doze_instructions">A következő képernyőn válassza az \"Összes alkalmazás\"-t, keresse ki ezt az appot, majd válassza - és erősítse meg - a \"Ne optimalizáld\" opciót</string>
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>

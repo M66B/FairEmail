@@ -155,7 +155,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
     <string name="title_setup_doze">Configuració de l\'optimització de bateria</string>
-    <string name="title_setup_doze_remark">Per rebre correu electrònic contínuament (opcional)</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
     <string name="title_setup_doze_stopped">S\'ha aturat la sincronització?</string>

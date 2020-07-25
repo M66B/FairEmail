@@ -156,7 +156,6 @@
     <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
     <string name="title_setup_doze">راه‌اندازی بهینه‌سازی‌ باتری</string>
-    <string name="title_setup_doze_remark">برای دریافت مداوم ایمیل (اختیاری)</string>
     <string name="title_setup_doze_instructions">در قسمت بعد \"تمام برنامه‌ها\" را از قسمت بالا انتخاب کرده و سپس این برنامه را انتخاب کنید و گزینه \"عدم بهینه سازی\" را انتخاب و تایید نمایید.</string>
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>

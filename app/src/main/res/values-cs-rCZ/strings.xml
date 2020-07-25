@@ -181,7 +181,6 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Nastavit optimalizace výdrže baterie</string>
-    <string name="title_setup_doze_remark">Pro průběžný příjem e-mailů (nepovinné)</string>
     <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -845,7 +844,7 @@
     <string name="title_no_key">Žádný privátní klíč</string>
     <string name="title_invalid_key">Neplatný privátní klíč</string>
     <string name="title_unknown_key">Privátní klíč neodpovídá žádnému z šifrovacích klíčů</string>
-    <string name="title_key_missing" comment="title_key_missing&#10;No keys for &lt;email address(es)&gt;">Není klíč pro %1$s</string>
+    <string name="title_key_missing">Není klíč pro %1$s</string>
     <string name="title_send_reminder_remark">Připomenutí lze znovu zapnout v nastavení odesílání</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_send_receipt">Požádat o potvrzení</string>

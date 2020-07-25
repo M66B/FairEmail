@@ -159,7 +159,7 @@
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_doze">Ställ in batterioptimering</string>
-    <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
+    <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt ta emot e-post</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
@@ -241,6 +241,7 @@
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
+    <string name="title_advanced_compose_font">Standardtypsnitt</string>
     <string name="title_advanced_auto_list">Skapa automatiskt listor</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_extended_reply">Använd förlängd svars-/framåtriktad sidhuvud</string>
@@ -821,6 +822,7 @@
     <string name="title_no_key">Ingen privat nyckel</string>
     <string name="title_invalid_key">Ogiltig privat nyckel</string>
     <string name="title_unknown_key">Privat nyckel matchar inte några krypteringsnycklar</string>
+    <string name="title_key_missing">Ingen nyckel för %1$s</string>
     <string name="title_send_reminder_remark">Påminnelser kan aktiveras igen i sändningsinställningarna</string>
     <string name="title_send_plain_text">Endast oformaterad text</string>
     <string name="title_send_receipt">Begär läskvitto</string>

@@ -133,7 +133,6 @@
     <string name="title_setup_permissions">取得權限</string>
     <string name="title_setup_permissions_remark">取用聯絡人資訊（可選）</string>
     <string name="title_setup_doze">設定電池最佳化</string>
-    <string name="title_setup_doze_remark">為了能一直接收郵件（可選）</string>
     <string name="title_setup_doze_instructions">下一個畫面中，選擇「所有應用程式」後尋找 FairMail，接著選擇「不要最佳化」</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>

@@ -115,7 +115,6 @@
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Şəxs məlumatlarına müraciət (məcburi deyil)</string>
     <string name="title_setup_doze">Batereya optimizasiyalarını quraşdır</string>
-    <string name="title_setup_doze_remark">Davamlı olaraq e-poçt alma (istənilən)</string>
     <string name="title_setup_doze_instructions">Növbəti pəncərədə, Yuxarıdakı \"Bütün tətbiqlər\"i seçin, bu tətbiqi seçib \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_doze_battery">Yüksək batereya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>

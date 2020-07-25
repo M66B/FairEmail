@@ -156,7 +156,6 @@
     <string name="title_setup_permissions">منح الأذونات</string>
     <string name="title_setup_permissions_remark">للحصول على معلومات جهة الاتصال (اختياري)</string>
     <string name="title_setup_doze">إعداد تحسينات البطارية</string>
-    <string name="title_setup_doze_remark">لتلقي البريد الإلكتروني باستمرار (اختياري)</string>
     <string name="title_setup_doze_instructions">في مربع الحوار التالي، حدد \"كافة تطبيقات\" في الجزء العلوي، حدد هذا التطبيق وتحديد وتأكيد \"لا الأمثل\"</string>
     <string name="title_setup_doze_battery">استخدام عالي للبطارية؟</string>
     <string name="title_setup_doze_stopped">المزامنة توقفت؟</string>

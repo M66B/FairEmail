@@ -146,7 +146,6 @@
     <string name="title_setup_permissions">Gi tillatelser</string>
     <string name="title_setup_permissions_remark">Få tilgang til kontaktinformasjon (valgfritt)</string>
     <string name="title_setup_doze">Oppsett av batterioptimaliseringer</string>
-    <string name="title_setup_doze_remark">Slik mottar du kontinuerlig e-post (valgfritt)</string>
     <string name="title_setup_doze_instructions">I den neste dialogboksen velger du \"Alle apper\" øverst, velg så denne appen og så bekrefte \"Ikke optimaliser\"</string>
     <string name="title_setup_doze_battery">Høy batteriforbruk?</string>
     <string name="title_setup_doze_stopped">Synkroniseringen stoppet?</string>

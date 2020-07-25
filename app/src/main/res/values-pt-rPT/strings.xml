@@ -154,7 +154,6 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para aceder a informações de contato (opcional)</string>
     <string name="title_setup_doze">Configurar optimizações de bateria</string>
-    <string name="title_setup_doze_remark">Para receber continuamente e-mail (opcional)</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo, selecione \"Todas as apps\" no topo, selecione esta app, selecione e confirme \"Não optimizar\"</string>
     <string name="title_setup_doze_battery">Utilização elevada de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>

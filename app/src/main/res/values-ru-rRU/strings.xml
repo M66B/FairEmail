@@ -181,7 +181,7 @@
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_doze">Настроить энергосбережение</string>
-    <string name="title_setup_doze_remark">Непрерывно получать электронную почту (необязательно)</string>
+    <string name="title_setup_doze_remark">Для надежного получения электронной почты</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне выберите \"Все приложения\" вверху, выберите это приложение, выберите и подтвердите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
@@ -264,6 +264,7 @@
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
+    <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_auto_list">Автоматическое создание списков</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
@@ -844,6 +845,7 @@
     <string name="title_no_key">Нет приватного ключа</string>
     <string name="title_invalid_key">Приватный ключ недействителен</string>
     <string name="title_unknown_key">Приватный ключ не соответствует ни одному ключу шифрования</string>
+    <string name="title_key_missing">Нет ключа для %1$s</string>
     <string name="title_send_reminder_remark">Напоминания можно повторно включить в настройках отправки</string>
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_receipt">Запросить уведомление</string>

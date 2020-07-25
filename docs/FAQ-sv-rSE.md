@@ -223,13 +223,13 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(105) Hur fungerar roaming som hemma?](#user-content-faq105)
 * [(106) Vilken hemapp kan visa ett märke med antalet olästa meddelanden?](#user-content-faq106)
 * [(107) Hur använder jag färgade stjärnor?](#user-content-faq107)
-* [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
+* [(108) Kan du lägga till permanent ta bort meddelanden från valfri mapp?](#user-content-faq108)
+* [~~(109) Varför finns "välj konto" endast i officiella versioner?~~](#user-content-faq109)
+* [(110) Varför är (vissa) meddelanden tomma och/eller bilagor korrumperade?](#user-content-faq110)
+* [(111) Stöds OAuth?](#user-content-faq111)
+* [(112) Vilken e-postleverantör rekommenderar du?](#user-content-faq112)
+* [(113) Hur fungerar biometrisk autentisering?](#user-content-faq113)
+* [(114) Kan du lägga till en import för inställningarna för andra e-postappar?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
@@ -2483,11 +2483,11 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time.
+Eftersom det skickade datumet/tiden är valfri och kan manipuleras av avsändaren, FairEmail använder mottagen datum/tid från servern som standard.
 
-Sometimes the received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+Ibland är mottagen datum/tid från servern felaktig, främst på grund av att meddelanden importerades felaktigt från en annan server och ibland på grund av ett fel i e-postservern.
 
-In this rare case you can enable the account option *Use date header sent time instead of server received time* (Setup, step 1, Manage, tap account, tap Advanced) as a workaround.
+I dessa sällsynta fall är det möjligt att låta FairEmail använda antingen datum/tid från *Datum* headern (skickad tid) eller från *Mottaget* headern som en lösning. Detta kan ändras i avancerade kontoinställningar: Inställningar, steg 1, Hantera, knacka på konto, välj Avancerat.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2510,7 +2510,7 @@ Note that the GitHub version will automatically check for updates. When desired,
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-If you have a problem with the F-Droid build, please check if there is a newer version first.
+Om du har problem med F-Droid build, kontrollera om det finns en nyare GitHub-version först.
 
 <br />
 

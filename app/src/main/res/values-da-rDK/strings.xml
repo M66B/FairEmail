@@ -159,7 +159,7 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Opsæt batterioptimering</string>
-    <string name="title_setup_doze_remark">Til løbende e-mail modtagelse (valgfrit)</string>
+    <string name="title_setup_doze_remark">For at modtage e-mail pålideligt</string>
     <string name="title_setup_doze_instructions">Vælg \"Alle apps\" øverst i næste dialogboks, vælg denne app og vælg \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
@@ -242,6 +242,7 @@
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
+    <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_auto_list">Generér lister automatisk</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
@@ -822,6 +823,7 @@
     <string name="title_no_key">Ingen privat nøgle</string>
     <string name="title_invalid_key">Ugyldig privat nøgle</string>
     <string name="title_unknown_key">Privat nøgle matcher ingen krypteringsnøgler</string>
+    <string name="title_key_missing">Ingen tast til %1$s</string>
     <string name="title_send_reminder_remark">Påmindelser kan geaktiveres under Send-indstillinger</string>
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_send_receipt">Bed om kvittering</string>
