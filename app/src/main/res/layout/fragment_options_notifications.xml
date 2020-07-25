@@ -329,6 +329,17 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swNotifyBackgroundOnly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_notify_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swUnseenIgnored"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swNotifyKnown"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -336,7 +347,7 @@
             android:text="@string/title_advanced_notify_known"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swUnseenIgnored"
+            app:layout_constraintTop_toBottomOf="@id/swNotifyBackgroundOnly"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

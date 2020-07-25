@@ -3163,7 +3163,7 @@ class Core {
         }
     }
 
-    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<Long, List<Long>> groupNotifying) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<Long, List<Long>> groupNotifying, boolean foreground) {
         if (messages == null)
             messages = new ArrayList<>();
 
@@ -3171,7 +3171,10 @@ class Core {
         if (nm == null)
             return;
 
+        DB db = DB.getInstance(context);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_background_only = prefs.getBoolean("notify_background_only", false);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_preview_only = prefs.getBoolean("notify_preview_only", false);
@@ -3207,6 +3210,13 @@ class Core {
 
             if (notify_preview && notify_preview_only && !message.content)
                 continue;
+
+            if (foreground && notify_background_only && message.notifying >= 0) {
+                Log.i("Notify foreground=" + message.id + " notifying=" + message.notifying);
+                if (message.notifying == 0)
+                    db.message().setMessageNotifying(message.id, 1);
+                continue;
+            }
 
             long group = (pro && message.accountNotify ? message.account : 0);
             if (!message.folderUnified)
@@ -3274,8 +3284,6 @@ class Core {
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size());
-
-            DB db = DB.getInstance(context);
 
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;

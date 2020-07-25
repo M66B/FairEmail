@@ -413,6 +413,7 @@
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
+    <string name="title_advanced_notify_background">Show notifications when on the background only</string>
     <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_summary">Show summary notification only</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>

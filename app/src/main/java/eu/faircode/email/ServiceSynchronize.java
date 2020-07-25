@@ -102,6 +102,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private int lastAccounts = 0;
     private int lastOperations = 0;
 
+    private boolean foreground = false;
     private Map<Long, Core.State> coreStates = new Hashtable<>();
     private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
     private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
@@ -509,7 +510,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
-                            Core.notifyMessages(ServiceSynchronize.this, messages, groupNotifying);
+                            Core.notifyMessages(ServiceSynchronize.this, messages, groupNotifying, foreground);
                         } catch (SecurityException ex) {
                             Log.w(ex);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
@@ -717,6 +718,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onWakeup(intent);
                         break;
 
+                    case "state":
+                        onState(intent);
+                        break;
+
                     case "alarm":
                         onAlarm(intent);
                         break;
@@ -770,6 +775,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.w(ex);
             }
         }
+    }
+
+    private void onState(Intent intent) {
+        foreground = intent.getBooleanExtra("foreground", false);
     }
 
     private void onAlarm(Intent intent) {
@@ -2143,6 +2152,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         start(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("alarm"));
+    }
+
+    static void state(Context context, boolean foreground) {
+        start(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("state")
+                        .putExtra("foreground", foreground));
     }
 
     static void watchdog(Context context) {

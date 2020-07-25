@@ -625,6 +625,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_RULE);
         lbm.registerReceiver(receiver, iff);
 
+        ServiceSynchronize.state(this, true);
+
         checkUpdate(false);
         checkIntent();
     }
@@ -632,8 +634,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onPause() {
         super.onPause();
+
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
+
+        ServiceSynchronize.state(this, false);
     }
 
 
