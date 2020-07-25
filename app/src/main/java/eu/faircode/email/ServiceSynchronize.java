@@ -1751,13 +1751,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
                                 !lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
 
-                        if (reload || BuildConfig.DEBUG)
-                            EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
-                                    " caps=" + caps + " reload=" + reload);
-
                         if (reload) {
                             reloaded = active;
-                            reload(ServiceSynchronize.this, -1L, false, "unmetered");
+                            reload(ServiceSynchronize.this, -1L, false,
+                                    "Connectivity changed " + network + " caps=" + caps);
                         }
 
                         lastActiveCaps = caps;
@@ -1810,13 +1807,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         boolean reload = (!active.equals(reloaded) &&
                                 (ahas4 && !lhas4) || (ahas6 && !lhas6));
 
-                        if (reload || BuildConfig.DEBUG)
-                            EntityLog.log(ServiceSynchronize.this, "Connectivity changed " + network +
-                                    " props=" + props + " reload=" + reload);
-
                         if (reload) {
                             reloaded = active;
-                            reload(ServiceSynchronize.this, -1L, false, "connectivity");
+                            reload(ServiceSynchronize.this, -1L, false,
+                                    "Connectivity changed " + network + " props=" + props);
                         }
 
                         lastActiveProps = props;
