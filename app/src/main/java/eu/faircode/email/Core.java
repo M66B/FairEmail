@@ -4130,7 +4130,7 @@ class Core {
                     " headers=" + headers + "/" + headers_ms + " ms" +
                     " content=" + Helper.humanReadableByteCount(content) +
                     " attachments=" + Helper.humanReadableByteCount(attachments) +
-                    " total=" + total;
+                    " total=" + total + " ms";
         }
     }
 }
