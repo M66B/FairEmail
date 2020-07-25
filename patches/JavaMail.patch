@@ -42,3 +42,34 @@ index 866f17737..929e82d33 100644
      /**
       * Set the user name to be used with the PROXYAUTH command.
       * The PROXYAUTH user name can also be set using the
+diff --git a/app/src/main/java/com/sun/mail/imap/IMAPMessage.java b/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
+index 453479d98..acd5b42f9 100644
+--- a/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
++++ b/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
+@@ -1697,4 +1697,26 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
+     Session _getSession() {
+ 	return session;
+     }
++
++    @Override
++    public boolean isExpunged() {
++        if (super.isExpunged())
++            return true;
++
++        // Workaround expunged messages without deleted flag
++        if (envelope != null &&
++                envelope.date == null &&
++                envelope.subject == null &&
++                envelope.from == null &&
++                envelope.sender == null &&
++                envelope.replyTo == null &&
++                envelope.to == null &&
++                envelope.cc == null &&
++                envelope.inReplyTo == null &&
++                envelope.messageId == null &&
++                headersLoaded && loadedHeaders.size() == 0)
++            return true;
++
++        return false;
++    }
+ }

@@ -1697,4 +1697,26 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
     Session _getSession() {
 	return session;
     }
+
+    @Override
+    public boolean isExpunged() {
+        if (super.isExpunged())
+            return true;
+
+        // Workaround expunged messages without deleted flag
+        if (envelope != null &&
+                envelope.date == null &&
+                envelope.subject == null &&
+                envelope.from == null &&
+                envelope.sender == null &&
+                envelope.replyTo == null &&
+                envelope.to == null &&
+                envelope.cc == null &&
+                envelope.inReplyTo == null &&
+                envelope.messageId == null &&
+                headersLoaded && loadedHeaders.size() == 0)
+            return true;
+
+        return false;
+    }
 }
