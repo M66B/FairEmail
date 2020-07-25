@@ -329,7 +329,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 EntityLog.log(context, "Boundary server connecting account=" + account.name);
                 state.iservice = new EmailService(
-                        context, account.getProtocol(), account.realm, account.insecure, EmailService.PURPOSE_SEARCH, debug);
+                        context, account.getProtocol(), account.realm, account.insecure,
+                        EmailService.PURPOSE_SEARCH, debug || BuildConfig.DEBUG);
                 state.iservice.setPartialFetch(account.partial_fetch);
                 state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 state.iservice.connect(account);
