@@ -23,7 +23,7 @@
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 
-    <share-target android:targetClass="eu.faircode.email.ActivityMain">
+    <share-target android:targetClass="eu.faircode.email.ActivityCompose">
         <category android:name="eu.faircode.email.TEXT_SHARE_TARGET" />
         <data android:mimeType="text/plain" />
     </share-target>
