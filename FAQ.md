@@ -489,7 +489,7 @@ You can use the quick setup wizard to easily setup a Gmail account and identity.
 If you don't want to use an on-device Gmail account,
 you can either enable access for "less secure apps" and use your account password
 or enable two factor authentication and use an app specific password.
-Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -541,7 +541,7 @@ Sent messages are normally moved from the outbox to the sent folder as soon as y
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
 Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider.
-In these cases FairEmail will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
+In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
 Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~
@@ -2986,7 +2986,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 Sometimes the server received date/time is incorrect,
 mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
 This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages.
