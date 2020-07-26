@@ -63,7 +63,6 @@
             android:id="@+id/ivStatus"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginEnd="3dp"
             android:padding="6dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
