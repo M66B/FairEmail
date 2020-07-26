@@ -99,6 +99,9 @@ public class ServiceSend extends ServiceBase {
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
+
+                    if (unsent == null || unsent.count == 0)
+                        stopSelf();
                 }
             }
         });
@@ -109,9 +112,6 @@ public class ServiceSend extends ServiceBase {
             public void onChanged(List<TupleOperationEx> operations) {
                 if (operations == null)
                     operations = new ArrayList<>();
-
-                if (operations.size() == 0)
-                    stopSelf();
 
                 final List<TupleOperationEx> process = new ArrayList<>();
 
