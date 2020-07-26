@@ -1759,6 +1759,9 @@ class Core {
 
             ifolder.expunge();
             Log.i(folder.name + " purge expunged");
+        } catch (Throwable ex) {
+            Log.e(ex);
+            throw ex;
         } finally {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
