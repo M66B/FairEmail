@@ -4157,14 +4157,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             updateExpanded();
 
-            // This is to workaround not drawing when the search is expanded
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    rvMessage.requestLayout();
-                }
-            });
-
             initialized = true;
             updateListState("Observed", SimpleTask.getCount(), messages.size());
 
