@@ -72,7 +72,8 @@ public class ApplicationEx extends Application {
         getMainLooper().setMessageLogging(new Printer() {
             @Override
             public void println(String msg) {
-                Log.d("Loop: " + msg);
+                if (BuildConfig.DEBUG)
+                    Log.d("Loop: " + msg);
             }
         });
 
