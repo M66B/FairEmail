@@ -236,6 +236,11 @@ public class ConnectionHelper {
         }
 
         // VPN: evaluate underlying networks
+        Integer transport = null;
+        if (caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+            transport = NetworkCapabilities.TRANSPORT_CELLULAR;
+        else if (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
+            transport = NetworkCapabilities.TRANSPORT_WIFI;
 
         boolean underlying = false;
         Network[] networks = cm.getAllNetworks();
@@ -261,6 +266,14 @@ public class ConnectionHelper {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                     !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
                 Log.i("isMetered: underlying background");
+                continue;
+            }
+
+            if (!caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN) &&
+                    (caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                            caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) &&
+                    (transport != null && !caps.hasTransport(transport))) {
+                Log.i("isMetered: underlying other transport");
                 continue;
             }
 
