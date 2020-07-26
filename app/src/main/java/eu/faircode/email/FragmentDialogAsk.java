@@ -40,13 +40,17 @@ public class FragmentDialogAsk extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         String question = getArguments().getString("question");
+        String remark = getArguments().getString("remark");
         String notagain = getArguments().getString("notagain");
 
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
+        TextView tvRemark = dview.findViewById(R.id.tvRemark);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
         tvMessage.setText(question);
+        tvRemark.setText(remark);
+        tvRemark.setVisibility(remark == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
 
         if (notagain != null)

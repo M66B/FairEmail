@@ -714,6 +714,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         aargs.putString("question", context.getString(R.string.title_empty_spam_ask));
                     else
                         throw new IllegalArgumentException("Invalid folder type=" + type);
+                    aargs.putString("remark", context.getString(R.string.title_empty_all));
                     aargs.putLong("folder", folder.id);
                     aargs.putString("type", type);
 
