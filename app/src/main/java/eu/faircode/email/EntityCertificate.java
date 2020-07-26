@@ -26,19 +26,25 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import org.bouncycastle.asn1.ASN1Encodable;
+import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
+import org.bouncycastle.asn1.x500.RDN;
+import org.bouncycastle.asn1.x500.X500Name;
+import org.bouncycastle.asn1.x500.style.BCStyle;
 import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.security.NoSuchAlgorithmException;
-import java.security.Principal;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -134,31 +140,25 @@ public class EntityCertificate {
             Log.e(ex);
         }
 
-        if (result.size() == 0)
-            try {
-                Principal principal = certificate.getSubjectDN();
-                if (principal != null) {
-                    String subject = principal.getName();
-                    if (subject != null) {
-                        Log.i("Parsing subject=" + subject);
-                        for (String p : subject.split(",")) {
-                            String[] kv = p.split("=");
-                            if (kv.length == 2) {
-                                String key = kv[0].trim();
-                                String value = kv[1].trim().toLowerCase();
-                                if (Helper.EMAIL_ADDRESS.matcher(value).matches() &&
-                                        ("CN".equalsIgnoreCase(key) ||
-                                                "emailAddress".equalsIgnoreCase(key))) {
-                                    if (!result.contains(value))
-                                        result.add(value);
-                                }
-                            }
-                        }
+        try {
+            X500Name name = new JcaX509CertificateHolder(certificate).getSubject();
+            List<RDN> rdns = new ArrayList<>();
+            rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.CN)));
+            rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.EmailAddress)));
+            for (RDN rdn : rdns) {
+                for (AttributeTypeAndValue tv : rdn.getTypesAndValues()) {
+                    ASN1Encodable enc = tv.getValue();
+                    if (enc != null) {
+                        String email = enc.toString();
+                        if (!result.contains(email) &&
+                                Helper.EMAIL_ADDRESS.matcher(email).matches())
+                            result.add(email);
                     }
                 }
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         return result;
     }
