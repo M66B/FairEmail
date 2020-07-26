@@ -231,65 +231,65 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(113) Hur fungerar biometrisk autentisering?](#user-content-faq113)
 * [(114) Kan du lägga till en import för inställningarna för andra e-postappar?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
+* [~~(116) Hur kan jag visa bilder i meddelanden från betrodda avsändare som standard?~~](#user-content-faq116)
+* [(117) Kan du hjälpa mig att återställa mitt köp?](#user-content-faq117)
+* [(118) Vad gör "Ta bort spårningsparametrar" exakt?](#user-content-faq118)
+* [~~(119) Kan du lägga till färger till den enhetliga inkorgwidgeten?~~](#user-content-faq119)
+* [(120) Varför tas inte avisering av nya meddelanden bort när appen öppnas?](#user-content-faq120)
+* [(121) Hur grupperas meddelanden i en konversation?](#user-content-faq121)
+* [~~(122) Varför visas mottagarens namn/e-postadress med en varningsfärg?~~](#user-content-faq122)
+* [(123) Vad händer när FairEmail inte kan ansluta till en e-postserver?](#user-content-faq123)
+* [(124) Varför får jag 'Meddelande för stort eller för komplext för att visa'?](#user-content-faq124)
+* [(125) Vilka är de nuvarande experimentella funktionerna?](#user-content-faq125)
+* [(126) Kan förhandsvisningar skickas till min bärbara enhet/klocka?](#user-content-faq126)
+* [(127) Hur kan jag fixa 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
+* [(128) Hur kan jag återställa frågorna, till exempel för att visa bilder?](#user-content-faq128)
+* [(129) Stöds ProtonMail, Tutanota?](#user-content-faq129)
+* [(130) Vad innebär felet ... ?](#user-content-faq130)
+* [(131) Kan du ändra riktning för att svepa till föregående/nästa meddelande?](#user-content-faq131)
+* [(132) Varför är nya meddelanden tysta?](#user-content-faq132)
+* [(133) Varför stöds inte ActiveSync?](#user-content-faq133)
+* [(134) Kan du lägga till ta bort lokala meddelanden?](#user-content-faq134)
+* [(135) Varför visas kastade meddelanden och utkast i konversationer?](#user-content-faq135)
+* [(136) Hur tar jag bort en konto/identitet/mapp?](#user-content-faq136)
+* [(137) Hur kan jag återställa 'Fråga inte igen'?](#user-content-faq137)
+* [(138) Kan du lägga till kalender/kontakthantering/synkronisering?](#user-content-faq138)
+* [(139) Hur löser jag 'User is authenticated but not connected'?](#user-content-faq139)
+* [(140) Varför innehåller texten konstiga tecken?](#user-content-faq140)
+* [(141) Hur kan jag åtgärda 'En utkastmapp krävs för att skicka meddelanden'?](#user-content-faq141)
+* [(142) Hur kan jag lagra skickade meddelanden i inkorgen?](#user-content-faq142)
+* [~~(143) Kan du lägga till en papperskorgsmapp för POP3-konton?~~](#user-content-faq143)
+* [(144) Hur kan jag spela in röstnoter?](#user-content-faq144)
+* [(145) Hur kan jag ställa in ett aviseringsljud för ett konto, mapp eller avsändare?](#user-content-faq145)
+* [(146) Hur kan jag åtgärda felaktiga meddelandetider?](#user-content-faq146)
+* [(147) Vad bör jag veta om tredjepartsversioner?](#user-content-faq147)
+* [(148) Hur kan jag använda ett Apple iCloud-konto?](#user-content-faq148)
+* [(149) Hur fungerar den olästa meddelanden widgeten?](#user-content-faq149)
+* [(150) Kan du lägga till annullerande kalenderinbjudningar?](#user-content-faq150)
 * [(151) Kan du lägga till säkerhetskopiering/återställning av meddelanden?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
+* [(152) Hur kan jag sätta in en kontaktgrupp?](#user-content-faq152)
+* [(153) Varför fungerar inte det att permanent radera Gmail-meddelandet?](#user-content-faq153)
+* [~~(154) Kan du lägga till favicons som kontaktbilder?~~](#user-content-faq154)
+* [(155) Vad är en winmail.dat fil?](#user-content-faq155)
+* [(156) Hur kan jag ställa in ett Office365-konto?](#user-content-faq156)
+* [(157) Hur kan jag sätta upp ett Free.fr-konto?](#user-content-faq157)
+* [(158) Vilken kamera / ljudinspelare rekommenderar du?](#user-content-faq158)
 * [(159) Vad är Disconnect's spårningsskyddslistor?](#user-content-faq159)
 
-[I have another question.](#user-content-support)
+[Jag har en annan fråga.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Vilka behörigheter behövs och varför?**
 
-The following Android permissions are needed:
+Följande Android-behörigheter behövs:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
+* *har full nätverksåtkomst* (INTERNET): för att skicka och ta emot e-post
+* *visa nätverksanslutningar* (ACCESS_NETWORK_STATE): för att övervaka ändringar av internetanslutningar
+* *kör vid start* (RECEIVE_BOOT_COMPLETED): för att starta övervakningen på enheten
+* *förgrundstjänst* (FOREGROUND_SERVICE): att köra en förgrundstjänst på Android 9 Pie och senare, se även nästa fråga
+* *förhindra enheten från att sova* (WAKE_LOCK): för att hålla enheten vaken vid synkronisering av meddelanden
+* *i-app fakturering* (BILLING): för att tillåta i-app köp
+* Valfritt: *läs dina kontakter* (READ_CONTACTS): för att automatiskt fylla på adresser och för att visa foton
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
@@ -451,7 +451,7 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Se [denna FAQ](#user-content-faq111) om varför endast konton på enheten kan användas.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -494,7 +494,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. I dessa fall kommer FairEmail, automatiskt lägga till meddelanden till den skickat vid synkronisering av mappen, vilket kommer att hända efter att ett meddelande har skickats. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -2487,7 +2487,7 @@ Eftersom det skickade datumet/tiden är valfri och kan manipuleras av avsändare
 
 Ibland är mottagen datum/tid från servern felaktig, främst på grund av att meddelanden importerades felaktigt från en annan server och ibland på grund av ett fel i e-postservern.
 
-I dessa sällsynta fall är det möjligt att låta FairEmail använda antingen datum/tid från *Datum* headern (skickad tid) eller från *Mottaget* headern som en lösning. Detta kan ändras i avancerade kontoinställningar: Inställningar, steg 1, Hantera, knacka på konto, välj Avancerat.
+I sällsynta fall, är det möjligt att låta FairEmail använda antingen datum/tid från *Datum* headern (skickad tid) eller från headern *Mottaget* som en lösning. Detta kan ändras i avancerade kontoinställningar: Inställningar, steg 1, Hantera, knacka på konto, välj Avancerat.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

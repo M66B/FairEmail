@@ -451,7 +451,7 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Please see [this FAQ](#user-content-faq111) about why it is not possible to non on-device accounts.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Пожалуйста, посмотрите [этот FAQ](#user-content-faq111) о том, почему могут использоваться только учетные записи на устройстве.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -494,7 +494,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. В этих случаях FairEmail, автоматически добавляет отправленные сообщения в папку отправленных при синхронизации этой папки, которая произойдёт после отправки сообщения. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -2487,7 +2487,7 @@ Setting a notification sound for an account, folder or sender requires Android 8
 
 Иногда сервер получает неверную дату/время, главным образом потому, что сообщения были неправильно импортированы с другого сервера, а иногда и из-за ошибки на сервере электронной почты.
 
-В этих редких случаях можно позволить FairEmail использовать дату/время либо из заголовка *Date* (время отправки), либо из заголовка *Received* в качестве обходного решения. Это может быть изменено в расширенных настройках учетной записи: Настройка, Шаг 1, Редактировать, нажмите Учетную запись, нажмите Дополнительно.
+В этих редких случаях можно позволить FairEmail использовать дату/время либо из заголовка *Date* (время отправки), либо из заголовка *Received* в качестве обходного варианта. Это может быть изменено в расширенных настройках учетной записи: Настройка, Шаг 1, Редактировать, нажмите Учетную запись, нажмите Дополнительно.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

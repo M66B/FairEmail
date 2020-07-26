@@ -380,6 +380,7 @@
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с количеством новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
+    <string name="title_advanced_notify_background">Показывать уведомления только в фоновом режиме</string>
     <string name="title_advanced_notify_known">Показывать уведомления только для контактов</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>

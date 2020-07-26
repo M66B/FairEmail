@@ -159,7 +159,7 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Opsæt batterioptimering</string>
-    <string name="title_setup_doze_remark">For at modtage e-mail pålideligt</string>
+    <string name="title_setup_doze_remark">For pålidelig modtagelse af e-mail</string>
     <string name="title_setup_doze_instructions">Vælg \"Alle apps\" øverst i næste dialogboks, vælg denne app og vælg \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
@@ -358,6 +358,7 @@
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
+    <string name="title_advanced_notify_background">Vis kun notifikationer i baggrundstilstand</string>
     <string name="title_advanced_notify_known">Vis kun notifikationer for kontakter</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>

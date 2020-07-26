@@ -359,6 +359,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen</string>
+    <string name="title_advanced_notify_background">Benachrichtigungen nur anzeigen, wenn FairEmail im Hintergrund läuft</string>
     <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>

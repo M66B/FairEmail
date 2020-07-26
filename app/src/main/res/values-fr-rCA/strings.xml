@@ -159,7 +159,7 @@
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
     <string name="title_setup_doze">Configurer les optimisations de la pile</string>
-    <string name="title_setup_doze_remark">Recevoir des e-mails de manière fiable</string>
+    <string name="title_setup_doze_remark">Recevoir des courriels de manière fiable</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez « Toutes les applications » en haut, recherchez cette application puis sélectionnez et validez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la pile?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée?</string>
@@ -358,6 +358,7 @@
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l\'icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
+    <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
     <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
     <string name="title_advanced_notify_preview">Afficher l’aperçu du message dans les notifications</string>

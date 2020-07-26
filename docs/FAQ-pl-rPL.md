@@ -451,7 +451,7 @@ Niestety, nie można uszczęśliwić wszystkich, a dodanie wielu ustawień było
 
 Możesz użyć kreatora szybkiej konfiguracji, aby łatwo skonfigurować konto Gmail i tożsamość.
 
-Jeśli nie chcesz korzystać z konta Gmail znajdującego się na urządzeniu, możesz włączyć dostęp dla „mniej bezpiecznych aplikacji” i użyć hasła do konta lub włączyć uwierzytelnianie dwuskładnikowe i użyć hasła aplikacji. Zobacz to [FAQ](#user-content-faq111) dlaczego nie jest to możliwe na kontach innych niż na urządzeniu.
+Jeśli nie chcesz korzystać z konta Gmail znajdującego się na urządzeniu, możesz włączyć dostęp dla „mniej bezpiecznych aplikacji” i użyć hasła do konta lub włączyć uwierzytelnianie dwuskładnikowe i użyć hasła aplikacji. Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Pamiętaj, że hasło jest wymagane w przypadku włączenia uwierzytelniania dwuskładnikowego.
 
@@ -494,7 +494,7 @@ Instrukcje Google znajdują się [ tutaj ](https://support.google.com/mail/answe
 
 Wysłane wiadomości są zwykle przenoszone ze skrzynki nadawczej do folderu Wysłane, gdy tylko dostawca doda wysłane wiadomości do folderu. Wymaga to wybrania folderu Wysłane w ustawieniach konta i ustawienia synchronizacji folderu Wysłane.
 
-Niektórzy dostawcy nie śledzą wysłanych wiadomości lub używany serwer SMTP może nie być powiązany z dostawcą. W takich przypadkach FairEmail automatycznie doda wysłane wiadomości do folderu Wysłane podczas synchronizacji folderu, co nastąpi po wysłaniu wiadomości. Spowoduje to dodatkowy ruch internetowy.
+Niektórzy dostawcy nie śledzą wysłanych wiadomości lub używany serwer SMTP może nie być powiązany z dostawcą. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Spowoduje to dodatkowy ruch internetowy.
 
 ~~ Jeśli tak się nie stanie, twój dostawca może nie śledzić wysłanych wiadomości lub możesz używać serwera SMTP niezwiązanego z dostawcą. ~~ ~~ W takich przypadkach możesz włączyć zaawansowane ustawienie tożsamości * Przechowuj wysłane wiadomości *, aby umożliwić FairEmail dodawanie wysłanych wiadomości do folderu Wysłane zaraz po wysłaniu wiadomości. ~~ ~~ Pamiętaj, że włączenie tego ustawienia może spowodować zduplikowanie wiadomości, jeśli Twój dostawca doda również wysłane wiadomości do folderu Wysłane. ~~ ~~ Uważaj również, ponieważ włączenie tego ustawienia spowoduje dodatkowe wykorzystanie danych, szczególnie podczas wysyłania wiadomości z dużymi załącznikami. ~~
 
@@ -2487,7 +2487,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

@@ -358,6 +358,7 @@
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l’icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
+    <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
     <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
     <string name="title_advanced_notify_summary">Afficher seulement une notification récapitulative</string>
     <string name="title_advanced_notify_preview">Afficher un aperçu du message dans les notifications</string>

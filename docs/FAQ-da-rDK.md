@@ -451,7 +451,7 @@ Desværre er det umuligt at stille alle tilpas, og at tilføje mange indstilling
 
 Du kan benytte hurtig opsætnings-guiden til nemt at opsætte en Gmail-konto og -identitet.
 
-Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang til "mindre sikre apps" og benytte din kontoadgangskode eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. Se [denne FAQ](#user-content-faq111) om, hvorfor udelukkende konti på enheden kan benyttes.
+Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang til "mindre sikre apps" og benytte din kontoadgangskode eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. Se [denne FAQ](#user-content-faq111) om, hvorfor kun konti på enheden kan benyttes.
 
 Bemærk, at en app-specifik adgangskode kræves, når tofaktorgodkendelse er aktiveret.
 
@@ -494,7 +494,7 @@ Se [hér](https://support.google.com/mail/answer/7126229) for Googles instruktio
 
 Sendte beskeder flyttes normalt fra udbakken til Sendt-mappen, så snart din udbyder føjer sendte beskeder til Sendt-mappen. Dette kræver, at en Sendt-mappe vælges i kontoindstillingerne, og at Sendt-mappen ligeledes opsættes til synkronisering.
 
-Visse udbydere holder ikke styr på sendte beskeder, eller den anvendte SMTP-server er muligvis ikke relateret til udbyderen. I så tilfælde tilføjer FairEmail automatisk sendte beskeder til Sendt-mappen ved synkronisering heraf, hvilket vil ske, efter at en besked er afsendt. Bemærk, at dette vil forøge Internettrafikken.
+Visse udbydere holder ikke styr på sendte beskeder, eller den anvendte SMTP-server er muligvis ikke relateret til udbyderen. I så tilfælde tilføjer FairEmail automatisk sendte beskeder til Sendt-mappen unerd synkronisering af denne, hvilket vil ske, efter at en besked er afsendt. Bemærk, at dette vil forøge Internettrafikken.
 
 ~~Sker dette ikke, holder din udbyder muligvis ikke styr på sendte beskeder, eller du anvender muligvis en ikke-udbyderrelateret SMTP-server.~~ ~~I så tilfælde kan du aktivere den avancerede identitetsindstilling *Gem sendte beskeder* for at lade FairEmail føje sendte beskeder til Sendt-mappen umiddelbart efter afsendelse heraf.~~ ~~Bemærk, at aktivering af denne indstilling kan resultere i dubletbeskeder, hvis din udbyder føjer sendte beskeder til Sendt-mappen.~~ ~~Bemærk også, at aktivering af indstillingen vil resultere i forøget dataforbrug, især når du sender beskeder med store vedhæftninger.~~
 
@@ -528,21 +528,21 @@ Bemærk, at en identitet kan kopieres vha. et langt tryk på den.
 
 Alternativt kan *Tillad redigering af afsenderadresse* aktiveres i de avancerede indstillinger for en eksisterende identitet for at redigere brugernavnet, når du skriver en ny besked, forudsat din udbyder tillader dette.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail opdaterer automatisk adgangskoder til relaterede identiteter, når adgangskoden til den tilknyttede konto/relateret identitet opdateres.
 
-See [this FAQ](#user-content-faq33) for editing the username of email addresses.
+Se [denne FAQ](#user-content-faq33) om redigering af brugernavnet til e-mailadresser.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Hvad betyder 'UIDPLUS ikke understøttet'?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~Fejlmeddelelsen *UIDPLUS ikke understøttet * betyder, at din e-mailudbyder ikke tilbyder IMAP [UIDPLUS-udvidelsen](https://tools.ietf.org/html/rfc4315). Denne IMAP-udvidelse kræves for at implementere tovejssynkronisering, der ikke er en valgfri funktion. Så medmindre din udbyder kan aktivere denne udvidelse, kan du ikke benytte FairEmail til denne udbyder.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Hvorfor understøttes POP ikke'?~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -2487,7 +2487,7 @@ Da afsendelsesdato/-tid er valgfrie og kan ændres af afsender, benytter FairEma
 
 Nogle gange er postserverens modtagelsesdato/-tid dog forkert, primært fordi beskeder blev forkert importeret fra en anden server, men undertiden også grundet en fejl i postserveren.
 
-I disse sjældne tilfælde er det muligt at lade FairEmail benytte enten dato/tid fra *Dato*-overskriften (afsendelsestidspunkt) eller fra *Modtaget*-overskriften som en løsning. Dette kan ændres i de avancerede kontoindstillinger: Opsætning, trin 1, Håndtering, tryk på konto, tryk på Avanceret.
+I sådanne sjældne tilfælde er det som en løsning muligt at lade FairEmail benytte enten dato/tid fra *Dato*-overskriften (afsendelsestidspunkt) eller fra *Modtaget*-overskriften. Dette kan ændres i de avancerede kontoindstillinger: Opsætning, trin 1, Håndtering, tryk på konto, tryk på Avanceret.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
