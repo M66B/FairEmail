@@ -2493,7 +2493,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
                     result.hasJunk = (result.hasJunk == null ? hasJunk : result.hasJunk && hasJunk);
 
-                    if (accounts.size() == 1)
+                    if (accounts.size() == 1 && account.protocol == EntityAccount.TYPE_IMAP)
                         result.copyto = account;
                 }
 
@@ -6832,21 +6832,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     for (EntityAccount account : accounts) {
                         EntityFolder folder = db.folder().getFolderByType(account.id, type);
-                        EntityLog.log(context,
-                                "Empty account=" + account.name + " folder=" + (folder == null ? null : folder.name));
                         if (folder == null)
                             continue;
+
+                        EntityLog.log(context,
+                                "Empty account=" + account.name + " folder=" + folder.name + " count=" + folder.total);
 
                         List<Long> ids = db.message().getMessageByFolder(folder.id);
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
                             if (message != null &&
-                                    (account.protocol == EntityAccount.TYPE_POP ||
-                                            message.uid != null || !TextUtils.isEmpty(message.msgid))) {
-                                Log.i("Deleting account=" + account.id + " folder=" + folder.id + " message=" + message.id);
-                                EntityOperation.queue(context, message, EntityOperation.DELETE);
-                            }
+                                    (account.protocol == EntityAccount.TYPE_POP || message.uid != null))
+                                db.message().setMessageUiHide(message.id, true);
                         }
+
+                        EntityOperation.queue(context, folder, EntityOperation.PURGE);
                     }
 
                     db.setTransactionSuccessful();

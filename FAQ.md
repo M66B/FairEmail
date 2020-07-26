@@ -388,6 +388,7 @@ The low priority status bar notification shows the number of pending operations,
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
 * *subscribe*: subscribe to remote folder
+* *purge*: delete all messages from remote folder
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text

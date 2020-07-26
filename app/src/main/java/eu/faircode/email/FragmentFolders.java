@@ -691,12 +691,22 @@ public class FragmentFolders extends FragmentBase {
                     if (!folder.type.equals(type))
                         throw new IllegalStateException("Invalid folder type=" + type);
 
+                    EntityAccount account = db.account().getAccount(folder.account);
+                    if (account == null)
+                        return null;
+
+                    EntityLog.log(context,
+                            "Empty account=" + account.name + " folder=" + folder.name + " count=" + folder.total);
+
                     List<Long> ids = db.message().getMessageByFolder(folder.id);
                     for (Long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message.uid != null || !TextUtils.isEmpty(message.msgid))
-                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                        if (message != null &&
+                                (account.protocol == EntityAccount.TYPE_POP || message.uid != null))
+                            db.message().setMessageUiHide(message.id, true);
                     }
+
+                    EntityOperation.queue(context, folder, EntityOperation.PURGE);
 
                     db.setTransactionSuccessful();
                 } finally {

@@ -475,12 +475,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
-
-                    if (EntityFolder.TRASH.equals(folder.type))
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
-                    else if (EntityFolder.JUNK.equals(folder.type))
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
                 }
+
+                if (EntityFolder.TRASH.equals(folder.type))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+                else if (EntityFolder.JUNK.equals(folder.type))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
 
                 if (folder.account != null) {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)

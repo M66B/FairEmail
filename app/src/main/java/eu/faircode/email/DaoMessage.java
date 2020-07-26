@@ -769,6 +769,11 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
+            " AND ui_hide")
+    int deleteHiddenMessages(long folder);
+
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
             " AND uid IS NULL" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +

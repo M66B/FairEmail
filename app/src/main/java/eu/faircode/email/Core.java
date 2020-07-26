@@ -56,6 +56,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.MessageSet;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
@@ -186,7 +187,8 @@ class Core {
                         if (message == null &&
                                 !EntityOperation.FETCH.equals(op.name) &&
                                 !EntityOperation.SYNC.equals(op.name) &&
-                                !EntityOperation.SUBSCRIBE.equals(op.name))
+                                !EntityOperation.SUBSCRIBE.equals(op.name) &&
+                                !EntityOperation.PURGE.equals(op.name))
                             throw new MessageRemovedException();
 
                         // Process similar operations
@@ -303,6 +305,10 @@ class Core {
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
+                                case EntityOperation.PURGE:
+                                    onPurgeFolder(context, jargs, folder, (POP3Folder) ifolder);
+                                    break;
+
                                 default:
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
@@ -379,6 +385,10 @@ class Core {
 
                                 case EntityOperation.SUBSCRIBE:
                                     onSubscribeFolder(context, jargs, folder, (IMAPFolder) ifolder);
+                                    break;
+
+                                case EntityOperation.PURGE:
+                                    onPurgeFolder(context, jargs, folder, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.RULE:
@@ -1728,6 +1738,45 @@ class Core {
         db.folder().setFolderSubscribed(folder.id, subscribe);
 
         Log.i(folder.name + " subscribed=" + subscribe);
+    }
+
+    private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
+        // Delete all messages from folder
+        DB db = DB.getInstance(context);
+
+        try {
+            final MessageSet[] sets = new MessageSet[]{new MessageSet(1, ifolder.getMessageCount())};
+
+            Log.i(folder.name + " purge " + MessageSet.toString(sets));
+            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                @Override
+                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                    protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
+                    return null;
+                }
+            });
+            Log.i(folder.name + " purge deleted");
+
+            ifolder.expunge();
+            Log.i(folder.name + " purge expunged");
+        } finally {
+            int count = ifolder.getMessageCount();
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+        }
+    }
+
+    private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, POP3Folder ifolder) throws MessagingException {
+        DB db = DB.getInstance(context);
+        try {
+            db.beginTransaction();
+
+            int purged = db.message().deleteHiddenMessages(folder.id);
+            Log.i(folder.name + " purge count=" + purged);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, IOException {
