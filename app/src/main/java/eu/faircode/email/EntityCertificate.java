@@ -48,6 +48,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.security.auth.x500.X500Principal;
@@ -142,19 +143,22 @@ public class EntityCertificate {
 
         try {
             X500Name name = new JcaX509CertificateHolder(certificate).getSubject();
-            List<RDN> rdns = new ArrayList<>();
-            rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.CN)));
-            rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.EmailAddress)));
-            for (RDN rdn : rdns) {
-                for (AttributeTypeAndValue tv : rdn.getTypesAndValues()) {
-                    ASN1Encodable enc = tv.getValue();
-                    if (enc != null) {
-                        String email = enc.toString();
-                        if (!result.contains(email) &&
-                                Helper.EMAIL_ADDRESS.matcher(email).matches())
-                            result.add(email);
+            if (name != null) {
+                List<RDN> rdns = new ArrayList<>();
+                rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.CN)));
+                rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.EmailAddress)));
+                for (RDN rdn : rdns)
+                    for (AttributeTypeAndValue tv : rdn.getTypesAndValues()) {
+                        ASN1Encodable enc = tv.getValue();
+                        if (enc == null)
+                            continue;
+                        String email = enc.toString().toLowerCase(Locale.ROOT);
+                        if (result.contains(email))
+                            continue;
+                        if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
+                            continue;
+                        result.add(email);
                     }
-                }
             }
         } catch (Throwable ex) {
             Log.e(ex);
