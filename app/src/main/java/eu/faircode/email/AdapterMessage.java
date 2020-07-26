@@ -2324,7 +2324,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (EntityAttachment attachment : attachments) {
                 boolean inline = (attachment.isEncryption() ||
                         (attachment.isInline() && attachment.isImage()));
-                if (inline)
+                if (inline && attachment.available)
                     has_inline = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;
