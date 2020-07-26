@@ -54,7 +54,6 @@ public class ActivitySignature extends ActivityBase {
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
 
-    private boolean raw = false;
     private boolean dirty = false;
 
     private static final int REQUEST_IMAGE = 1;
@@ -64,7 +63,7 @@ public class ActivitySignature extends ActivityBase {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null)
-            raw = savedInstanceState.getBoolean("fair:raw");
+            etText.setRaw(savedInstanceState.getBoolean("fair:raw"));
 
         getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
 
@@ -79,7 +78,7 @@ public class ActivitySignature extends ActivityBase {
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
             public void onSelected(boolean selection) {
-                style_bar.setVisibility(selection && !raw ? View.VISIBLE : View.GONE);
+                style_bar.setVisibility(selection && !etText.getRaw() ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -142,7 +141,7 @@ public class ActivitySignature extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:raw", raw);
+        outState.putBoolean("fair:raw", etText.getRaw());
         super.onSaveInstanceState(outState);
     }
 
@@ -186,7 +185,7 @@ public class ActivitySignature extends ActivityBase {
         String html = getIntent().getStringExtra("html");
         if (html == null)
             etText.setText(null);
-        else if (raw)
+        else if (etText.getRaw())
             etText.setText(html);
         else
             etText.setText(HtmlHelper.fromHtml(html, false, new Html.ImageGetter() {
@@ -207,7 +206,7 @@ public class ActivitySignature extends ActivityBase {
 
     private void save() {
         etText.clearComposingText();
-        String html = (raw
+        String html = (etText.getRaw()
                 ? etText.getText().toString()
                 : HtmlHelper.toHtml(etText.getText(), this));
         Intent result = new Intent();
@@ -217,7 +216,7 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void html(boolean raw) {
-        this.raw = raw;
+        etText.setRaw(raw);
 
         if (!raw || dirty) {
             String html = (raw
@@ -288,7 +287,7 @@ public class ActivitySignature extends ActivityBase {
             getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
             int start = etText.getSelectionStart();
-            if (raw)
+            if (etText.getRaw())
                 etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
             else {
                 SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());

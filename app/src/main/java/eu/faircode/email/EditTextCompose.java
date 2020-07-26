@@ -41,6 +41,7 @@ import androidx.core.view.inputmethod.InputContentInfoCompat;
 import org.jsoup.nodes.Document;
 
 public class EditTextCompose extends FixedEditText {
+    private boolean raw = false;
     private ISelection selectionListener = null;
     private IInputContentListener inputContentListener = null;
 
@@ -54,6 +55,14 @@ public class EditTextCompose extends FixedEditText {
 
     public EditTextCompose(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public void setRaw(boolean raw) {
+        this.raw = raw;
+    }
+
+    public boolean getRaw() {
+        return raw;
     }
 
     @Override
@@ -80,32 +89,37 @@ public class EditTextCompose extends FixedEditText {
                         html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
                     }
 
-                    Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                    Spanned paste = HtmlHelper.fromDocument(getContext(), document, true, new Html.ImageGetter() {
-                        @Override
-                        public Drawable getDrawable(String source) {
-                            return ImageHelper.decodeImage(getContext(),
-                                    -1, source, true, 0, EditTextCompose.this);
+                    SpannableStringBuilder ssb;
+                    if (raw)
+                        ssb = new SpannableStringBuilder(html);
+                    else {
+                        Document document = HtmlHelper.sanitizeCompose(context, html, false);
+                        Spanned paste = HtmlHelper.fromDocument(getContext(), document, true, new Html.ImageGetter() {
+                            @Override
+                            public Drawable getDrawable(String source) {
+                                return ImageHelper.decodeImage(getContext(),
+                                        -1, source, true, 0, EditTextCompose.this);
+                            }
+                        }, null);
+
+                        int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                        int dp3 = Helper.dp2pixels(context, 3);
+                        int dp6 = Helper.dp2pixels(context, 6);
+
+                        ssb = new SpannableStringBuilder(paste);
+                        QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
+                        for (QuoteSpan span : spans) {
+                            QuoteSpan q;
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                q = new QuoteSpan(colorPrimary);
+                            else
+                                q = new QuoteSpan(colorPrimary, dp3, dp6);
+                            ssb.setSpan(q,
+                                    ssb.getSpanStart(span),
+                                    ssb.getSpanEnd(span),
+                                    ssb.getSpanFlags(span));
+                            ssb.removeSpan(span);
                         }
-                    }, null);
-
-                    int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                    int dp3 = Helper.dp2pixels(context, 3);
-                    int dp6 = Helper.dp2pixels(context, 6);
-
-                    SpannableStringBuilder ssb = new SpannableStringBuilder(paste);
-                    QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
-                    for (QuoteSpan span : spans) {
-                        QuoteSpan q;
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                            q = new QuoteSpan(colorPrimary);
-                        else
-                            q = new QuoteSpan(colorPrimary, dp3, dp6);
-                        ssb.setSpan(q,
-                                ssb.getSpanStart(span),
-                                ssb.getSpanEnd(span),
-                                ssb.getSpanFlags(span));
-                        ssb.removeSpan(span);
                     }
 
                     int start = getSelectionStart();
