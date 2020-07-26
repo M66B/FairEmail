@@ -3768,6 +3768,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
         else
             throw new IllegalArgumentException("Invalid folder type=" + type);
+        aargs.putString("remark", getString(R.string.title_empty_all));
         aargs.putLong("account", account);
         aargs.putString("type", type);
 
@@ -4156,14 +4157,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             adapter.submitList(messages);
 
             updateExpanded();
-
-            // This is to workaround not drawing when the search is expanded
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    rvMessage.requestLayout();
-                }
-            });
 
             initialized = true;
             updateListState("Observed", SimpleTask.getCount(), messages.size());
