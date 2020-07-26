@@ -873,7 +873,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (avatars) {
                     int px = Math.round(fz_sender + fz_subject + (compact ? 0 : textSize * 0.9f));
                     ViewGroup.LayoutParams lparams = ibAvatar.getLayoutParams();
-                    if (lparams.height != px) {
+                    if (lparams.width != px || lparams.height != px) {
                         lparams.width = px;
                         lparams.height = px;
                         ibAvatar.requestLayout();
