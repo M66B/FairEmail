@@ -1280,6 +1280,10 @@ Long version:
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption),
 so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
+If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible.
+If this is a problem because you are sharing the device with other people,
+consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+
 <br />
 
 <a name="faq39"></a>
