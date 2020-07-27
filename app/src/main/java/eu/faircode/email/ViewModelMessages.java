@@ -76,6 +76,7 @@ public class ViewModelMessages extends ViewModel {
     private static final int THREAD_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int SEARCH_PAGE_SIZE = 10;
+    private static final int MAX_SIZE_FACTOR = 20;
     private static final int LOW_MEM_MB = 32;
 
     Model getModel(
@@ -110,6 +111,10 @@ public class ViewModelMessages extends ViewModel {
             LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
             switch (viewType) {
                 case UNIFIED:
+                    PagedList.Config configUnified = new PagedList.Config.Builder()
+                            .setPageSize(LOCAL_PAGE_SIZE)
+                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
+                            .build();
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedUnified(
                                     args.type,
@@ -122,7 +127,7 @@ public class ViewModelMessages extends ViewModel {
                                     args.filter_language,
                                     false,
                                     args.debug),
-                            LOCAL_PAGE_SIZE);
+                            configUnified);
                     break;
 
                 case FOLDER:
@@ -130,6 +135,7 @@ public class ViewModelMessages extends ViewModel {
                             .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
                             .build();
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(
@@ -147,19 +153,24 @@ public class ViewModelMessages extends ViewModel {
                     break;
 
                 case THREAD:
+                    PagedList.Config configThread = new PagedList.Config.Builder()
+                            .setPageSize(THREAD_PAGE_SIZE)
+                            .build();
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedThread(
                                     args.account, args.thread,
                                     args.threading ? null : args.id,
                                     args.filter_archive,
                                     args.ascending,
-                                    args.debug), THREAD_PAGE_SIZE);
+                                    args.debug),
+                            configThread);
                     break;
 
                 case SEARCH:
                     PagedList.Config configSearch = new PagedList.Config.Builder()
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
                             .build();
                     if (args.folder < 0)
                         builder = new LivePagedListBuilder<>(
