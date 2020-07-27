@@ -201,6 +201,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     static final int DEFAULT_SYNC = 7; // days
     static final int DEFAULT_KEEP = 30; // days
+    static final int DEFAULT_KEEP_DRAFTS = 180; // days
 
     private static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
             INBOX,
@@ -239,6 +240,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (EntityFolder.INBOX.equals(type)) {
             this.unified = true;
             this.notify = true;
+        }
+
+        if (EntityFolder.DRAFTS.equals(type)) {
+            this.initialize = EntityFolder.DEFAULT_KEEP_DRAFTS;
+            this.keep_days = EntityFolder.DEFAULT_KEEP_DRAFTS;
         }
     }
 
