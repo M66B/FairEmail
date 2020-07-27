@@ -21,6 +21,8 @@ FairEmail is easy to setup and works with virtually all email providers, includi
 
 FairEmail might be for you if you value your privacy.
 
+*FairEmail is an email client only, so you need to bring your own email address.*
+
 *FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.*
 
 ## Main features
