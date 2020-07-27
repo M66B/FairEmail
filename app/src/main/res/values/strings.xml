@@ -159,6 +159,7 @@
     <string name="title_setup_quick_smtp">SMTP server to send messages</string>0
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">The installation wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_new">I need a new email address</string>
     <string name="title_setup_wizard_remark">Go \'back\' to go to the inbox</string>
     <string name="title_setup_gmail" translatable="false">Gmail</string>
     <string name="title_setup_outlook" translatable="false">Outlook</string>

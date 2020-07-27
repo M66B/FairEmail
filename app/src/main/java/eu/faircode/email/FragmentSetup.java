@@ -62,6 +62,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnHelp;
     private Button btnQuick;
+    private TextView tvQuickNew;
     private TextView tvQuickRemark;
 
     private TextView tvAccountDone;
@@ -109,6 +110,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnHelp = view.findViewById(R.id.btnHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
+        tvQuickNew = view.findViewById(R.id.tvQuickNew);
         tvQuickRemark = view.findViewById(R.id.tvQuickRemark);
 
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
@@ -214,6 +216,14 @@ public class FragmentSetup extends FragmentBase {
                 });
 
                 popupMenu.show();
+            }
+        });
+
+        tvQuickNew.setPaintFlags(tvQuickNew.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvQuickNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 112);
             }
         });
 

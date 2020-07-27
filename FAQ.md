@@ -2484,6 +2484,9 @@ So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
+FairEmail is an email client only, so you need to bring your own email address.
+
+There are plenty of email providers to choose from.
 Which email provider is best for you depends on your wishes/requirements.
 Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/)
 for a list of privacy oriented email providers with advantages and disadvantages.
