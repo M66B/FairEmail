@@ -366,9 +366,10 @@ Powiadomienie na pasku stanu o niskim priorytecie pokazuje liczbę oczekujących
 * *attachment*: pobierz załącznik
 * *sync*: synchronizuj lokalne i zdalne wiadomości
 * *subscribe*: subskrybuj zdalny folder
-* *send*: wyślij wiadomość
-* *exists*: sprawdź, czy wiadomość istnieje
-* *rule*: wykonaj regułę na treści
+* *purge*: delete all messages from remote folder
+* *send*: send message
+* *exists*: check if message exists
+* *rule*: execute rule on body text
 
 Operacje są przetwarzane tylko wtedy, gdy istnieje połączenie z serwerem e-mail lub podczas ręcznej synchronizacji. Zobacz również to [FAQ](#user-content-faq16).
 
@@ -451,7 +452,7 @@ Niestety, nie można uszczęśliwić wszystkich, a dodanie wielu ustawień było
 
 Możesz użyć kreatora szybkiej konfiguracji, aby łatwo skonfigurować konto Gmail i tożsamość.
 
-Jeśli nie chcesz korzystać z konta Gmail znajdującego się na urządzeniu, możesz włączyć dostęp dla „mniej bezpiecznych aplikacji” i użyć hasła do konta lub włączyć uwierzytelnianie dwuskładnikowe i użyć hasła aplikacji. Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Jeśli nie chcesz korzystać z konta Gmail znajdującego się na urządzeniu, możesz włączyć dostęp dla „mniej bezpiecznych aplikacji” i użyć hasła do konta lub włączyć uwierzytelnianie dwuskładnikowe i użyć hasła aplikacji. Zobacz [ten FAQ](#user-content-faq111), aby dowiedzieć się dlaczego można używać tylko kont na urządzeniu.
 
 Pamiętaj, że hasło jest wymagane w przypadku włączenia uwierzytelniania dwuskładnikowego.
 
@@ -494,7 +495,7 @@ Instrukcje Google znajdują się [ tutaj ](https://support.google.com/mail/answe
 
 Wysłane wiadomości są zwykle przenoszone ze skrzynki nadawczej do folderu Wysłane, gdy tylko dostawca doda wysłane wiadomości do folderu. Wymaga to wybrania folderu Wysłane w ustawieniach konta i ustawienia synchronizacji folderu Wysłane.
 
-Niektórzy dostawcy nie śledzą wysłanych wiadomości lub używany serwer SMTP może nie być powiązany z dostawcą. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Spowoduje to dodatkowy ruch internetowy.
+Niektórzy dostawcy nie śledzą wysłanych wiadomości lub używany serwer SMTP może nie być powiązany z dostawcą. W takich przypadkach FairEmail automatycznie doda wysłane wiadomości do folderu Wysłane podczas synchronizacji folderu, co nastąpi po wysłaniu wiadomości. Spowoduje to dodatkowy ruch internetowy.
 
 ~~ Jeśli tak się nie stanie, twój dostawca może nie śledzić wysłanych wiadomości lub możesz używać serwera SMTP niezwiązanego z dostawcą. ~~ ~~ W takich przypadkach możesz włączyć zaawansowane ustawienie tożsamości * Przechowuj wysłane wiadomości *, aby umożliwić FairEmail dodawanie wysłanych wiadomości do folderu Wysłane zaraz po wysłaniu wiadomości. ~~ ~~ Pamiętaj, że włączenie tego ustawienia może spowodować zduplikowanie wiadomości, jeśli Twój dostawca doda również wysłane wiadomości do folderu Wysłane. ~~ ~~ Uważaj również, ponieważ włączenie tego ustawienia spowoduje dodatkowe wykorzystanie danych, szczególnie podczas wysyłania wiadomości z dużymi załącznikami. ~~
 
@@ -530,7 +531,7 @@ Alternatywnie możesz włączyć opcję * Zezwól na edycję adresu nadawcy * w 
 
 FairEmail automatycznie zaktualizuje hasła powiązanych tożsamości podczas aktualizacji hasła powiązanego konta lub powiązanej tożsamości.
 
-Zobacz tutaj[FAQ ](#user-content-faq33), aby edytować nazwę użytkownika adresów e-mail.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
@@ -1093,6 +1094,8 @@ Long version:
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
+If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+
 <br />
 
 <a name="faq39"></a>
@@ -1168,7 +1171,7 @@ See also [this FAQ](#user-content-faq4).
 
 Błąd '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
-Błąd '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
+The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
 The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
@@ -2070,7 +2073,9 @@ OAuth access for Yahoo was requested, but Yahoo never responded to the request. 
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+FairEmail is an email client only, so you need to bring your own email address.
+
+There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
 Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
 

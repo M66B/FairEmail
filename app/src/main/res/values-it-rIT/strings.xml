@@ -127,6 +127,7 @@
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">La procedura guidata di installazione può essere utilizzata più volte per impostare account multipli</string>
+    <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
     <string name="title_setup_wizard_remark">Vai \'indietro\' per andare alla casella di posta in arrivo</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_gmail_support">L\'autorizzazione degli account Google funzionerà solo nelle versioni ufficiali, perché Android controlla la firma dell\'app</string>
@@ -358,6 +359,7 @@
     <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
+    <string name="title_advanced_notify_background">Mostra le notifiche solo in sfondo</string>
     <string name="title_advanced_notify_known">Mostra le notifiche solo per i contatti</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
@@ -600,6 +602,7 @@
     <string name="title_empty_spam_ask">Eliminare tutti i messaggi di spam definitivamente?</string>
     <string name="title_empty_trash_all_ask">Eliminare definitivamente tutti i messaggi cestinati di tutti gli account?</string>
     <string name="title_empty_spam_all_ask">Eliminare definitivamente tutti i messaggi di spam di tutti gli account?</string>
+    <string name="title_empty_all">Questo eliminerà tutti i messaggi sia dal dispositivo che dal server</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>

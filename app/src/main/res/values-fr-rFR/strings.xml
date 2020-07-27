@@ -127,6 +127,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
     <string name="title_setup_wizard_multiple">L’assistant de configuration rapide peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
+    <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse électronique</string>
     <string name="title_setup_wizard_remark">Faire « Retour » pour aller à la boîte de réception</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera seulement sur les versions officielles parce qu’Android vérifie la signature de l’application</string>
@@ -601,6 +602,7 @@
     <string name="title_empty_spam_ask">Supprimer définitivement tous les messages indésirables ?</string>
     <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille pour tous les comptes ?</string>
     <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages indésirables pour tous les comptes ?</string>
+    <string name="title_empty_all">Ceci supprimera tous les messages à la fois de l\'appareil et du serveur</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d’erreur ?</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>

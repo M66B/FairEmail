@@ -128,6 +128,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_wizard_multiple">Der Installationsassistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
+    <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
     <string name="title_setup_wizard_remark">„Zurück“ führt zum Posteingang</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
@@ -602,6 +603,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_empty_spam_ask">Alle Spam-Nachrichten endgültig löschen?</string>
     <string name="title_empty_trash_all_ask">Alle in den Papierkorb verschobenen Nachrichten aller Konten endgültig löschen?</string>
     <string name="title_empty_spam_all_ask">Alle Spam-Nachrichten aller Konten endgültig löschen?</string>
+    <string name="title_empty_all">Dies löscht alle Nachrichten sowohl vom Gerät als auch vom Server</string>
     <string name="title_delete_operation">Vorgänge mit einer Fehlermeldung löschen?</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>

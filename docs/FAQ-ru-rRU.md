@@ -53,10 +53,10 @@
 * Добавьте папку в навигационное меню: долгое нажатие на папку в списке и установите флажок *Показать в меню навигации*
 * Загрузить больше сообщений: долгое нажатие на папку в списке, выберите *Синхронизировать ещё сообщения*
 * Удаление сообщение, минуя корзину: в меню "3 точки" над текстом сообщения *Удалить* или уберите папку "Корзина" в настройках учётной записи
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
+* Удалить учетную запись/идентификатор: Настройки шаг 1/2, Редактировать, Учётная запись/идентификатор, меню "три точки", Удалить
+* Удалить папку: долгое нажатие на папке в списке, Изменить свойства, меню трех точек, Удалить
+* Отменить отправку: Исходящие, нажмите на сообщение, нажмите иконку отменить
+* Сохранять отправленные сообщения в папке "Входящие": пожалуйста [смотрите этот FAQ](#user-content-faq142)
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
@@ -366,6 +366,7 @@ The low priority status bar notification shows the number of pending operations,
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
 * *subscribe*: subscribe to remote folder
+* *purge*: delete all messages from remote folder
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
@@ -451,7 +452,7 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Пожалуйста, посмотрите [этот FAQ](#user-content-faq111) о том, почему могут использоваться только учетные записи на устройстве.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Пожалуйста, посмотрите [этот FAQ](#user-content-faq111) о том, почему могут использоваться только учётные записи на устройстве.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -530,7 +531,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-See [this FAQ](#user-content-faq33) for editing the username of email addresses.
+Смотрите [этот FAQ](#user-content-faq33), описывающий редактирование имени пользователя электронной почты.
 
 <br />
 
@@ -1092,6 +1093,8 @@ Long version:
 **(37) How are passwords stored?**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+
+If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
@@ -2070,7 +2073,9 @@ OAuth access for Yahoo was requested, but Yahoo never responded to the request. 
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+FairEmail is an email client only, so you need to bring your own email address.
+
+There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
 Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
 
@@ -2483,11 +2488,11 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Так как дата/время отправки являются необязательными и могут быть искажены отправителем, FairEmail по умолчанию использует дату/время получения сервером.
+Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
-Иногда сервер получает неверную дату/время, главным образом потому, что сообщения были неправильно импортированы с другого сервера, а иногда и из-за ошибки на сервере электронной почты.
+Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-В этих редких случаях можно позволить FairEmail использовать дату/время либо из заголовка *Date* (время отправки), либо из заголовка *Received* в качестве обходного варианта. Это может быть изменено в расширенных настройках учетной записи: Настройка, Шаг 1, Редактировать, нажмите Учетную запись, нажмите Дополнительно.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2510,7 +2515,7 @@ Note that the GitHub version will automatically check for updates. When desired,
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-Если у вас есть проблемы с сборкой F-Droid, пожалуйста, проверьте наличие новой версии GitHub.
+If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 

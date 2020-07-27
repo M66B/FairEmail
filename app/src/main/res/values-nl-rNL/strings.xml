@@ -126,6 +126,7 @@
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">De installatie-wizard kan meerdere keren worden gebruikt om meerdere accounts in te stellen</string>
+    <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
     <string name="title_setup_wizard_remark">Ga \'terug\' om naar het postvak in te gaan</string>
     <string name="title_setup_other">Andere provider</string>
     <string name="title_setup_gmail_support">Het autoriseren van Google accounts werkt alleen in officiële versies omdat Android de app handtekening controleert</string>
@@ -357,6 +358,7 @@
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
+    <string name="title_advanced_notify_background">Toon meldingen alleen wanneer op de achtergrond</string>
     <string name="title_advanced_notify_known">Toon alleen meldingen voor contacten</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
@@ -599,6 +601,7 @@
     <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>
     <string name="title_empty_trash_all_ask">Alle weggegooide berichten van alle accounts definitief verwijderen?</string>
     <string name="title_empty_spam_all_ask">Alle spam berichten van alle accounts permanent verwijderen?</string>
+    <string name="title_empty_all">Dit zal alle berichten van zowel het apparaat als de server verwijderen</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>

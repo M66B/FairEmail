@@ -170,7 +170,7 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(51) Hur är mappar sorterade?](#user-content-faq51)
 * [(52) Varför tar det tid att återansluta till ett konto?](#user-content-faq52)
 * [(53) Kan du fästa meddelandets åtgärdsfält högst upp/nedre?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
+* [~~(54) Hur använder jag ett namnrymdsprefix?~~](#user-content-faq54)
 * [(55) Hur kan jag markera alla meddelanden som lästa/flytta eller ta bort alla meddelanden?](#user-content-faq55)
 * [(56) Kan du lägga till stöd för JMAP?](#user-content-faq56)
 * [~~(57) Kan jag använda HTML i signaturer?~~](#user-content-faq57)
@@ -366,9 +366,10 @@ The low priority status bar notification shows the number of pending operations,
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
 * *subscribe*: subscribe to remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *regel*: kör regel på text
+* *rensa*: ta bort alla meddelanden från fjärrmappen
+* *skicka*: skicka meddelande
+* *existerar*: kontrollera om meddelandet finns
+* *regel*: exekvera regel på text
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. Se även [denna FAQ](#user-content-faq16).
 
@@ -530,7 +531,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-See [this FAQ](#user-content-faq33) for editing the username of email addresses.
+Se [denna FAQ](#user-content-faq33) om hur du redigerar användarnamnet för e-postadresser.
 
 <br />
 
@@ -1092,6 +1093,8 @@ Long version:
 **(37) How are passwords stored?**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+
+If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
@@ -2070,7 +2073,9 @@ OAuth access for Yahoo was requested, but Yahoo never responded to the request. 
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+FairEmail är bara en e-postklient, så du måste ta med din egen e-postadress.
+
+Det finns gott om e-postleverantörer att välja mellan. Vilken e-postleverantör som är bäst för dig beror på dina önskemål/krav. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
 Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
 
@@ -2483,11 +2488,11 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Eftersom det skickade datumet/tiden är valfri och kan manipuleras av avsändaren, FairEmail använder mottagen datum/tid från servern som standard.
+Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
-Ibland är mottagen datum/tid från servern felaktig, främst på grund av att meddelanden importerades felaktigt från en annan server och ibland på grund av ett fel i e-postservern.
+Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-I sällsynta fall, är det möjligt att låta FairEmail använda antingen datum/tid från *Datum* headern (skickad tid) eller från headern *Mottaget* som en lösning. Detta kan ändras i avancerade kontoinställningar: Inställningar, steg 1, Hantera, knacka på konto, välj Avancerat.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2510,7 +2515,7 @@ Note that the GitHub version will automatically check for updates. When desired,
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-Om du har problem med F-Droid build, kontrollera om det finns en nyare GitHub-version först.
+If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 

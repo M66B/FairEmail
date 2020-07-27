@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce instalací lze použít vícekrát pro nastavení libovolného počtu účtů</string>
+    <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_wizard_remark">Přejděte „zpět“ pro vstup do doručených</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
@@ -181,6 +182,7 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Nastavit optimalizace výdrže baterie</string>
+    <string name="title_setup_doze_remark">Pro spolehlivý příjem e-mailu</string>
     <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -379,6 +381,7 @@
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
+    <string name="title_advanced_notify_background">Zobrazovat oznámení pouze při běhu na pozadí</string>
     <string name="title_advanced_notify_known">Zobrazit oznámení pouze pro kontakty</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
@@ -621,6 +624,7 @@
     <string name="title_empty_spam_ask">Trvale odstranit všechny nevyžádané zprávy?</string>
     <string name="title_empty_trash_all_ask">Trvale odstranit všechny zprávy v koši ze všech účtů?</string>
     <string name="title_empty_spam_all_ask">Trvale odstranit všechny nevyžádané zprávy ze všech účtů?</string>
+    <string name="title_empty_all">Tímto smažete všechny zprávy jak ze zařízení, tak i ze serveru</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>

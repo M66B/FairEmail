@@ -125,6 +125,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_wizard">Assistente</string>
     <string name="title_setup_wizard_multiple">O assistente de instalação pode ser usado várias vezes para configurar várias contas</string>
+    <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
     <string name="title_setup_wizard_remark">Clique em \'voltar\' para ir para a caixa de entrada</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_gmail_support">Autorização de contas da Google funcionará apenas nas versões oficiais porque o Android verifica a assinatura da aplicação</string>

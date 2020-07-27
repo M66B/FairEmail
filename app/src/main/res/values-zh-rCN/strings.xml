@@ -115,6 +115,7 @@
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">可多次使用安装向导来设置多个帐户</string>
+    <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
     <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
     <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
@@ -131,7 +132,7 @@
     <string name="title_setup_no_auth_hint">请仔细检查您的邮件地址和密码，并确保您的帐户已启用外部访问 (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是帐户密码，请查看该供应商的相关说明</string>
     <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
-    <string name="title_setup_advanced_protection">当注册了高级保护项目后，将无法使用第三方电子邮件应用程序。 这是Google施加的限制。</string>
+    <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
@@ -147,7 +148,7 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">设置电池优化</string>
-    <string name="title_setup_doze_remark">要可靠地接收电子邮件</string>
+    <string name="title_setup_doze_remark">使接收邮件更可靠</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">耗电量高？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
@@ -230,7 +231,7 @@
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
-    <string name="title_advanced_compose_font">默认字体:</string>
+    <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_auto_list">自动创建列表</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
@@ -529,10 +530,10 @@
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
-    <string name="title_server_time">使用接收时间(服务器)</string>
+    <string name="title_server_time">使用接收时间 (服务器)</string>
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>
-    <string name="title_date_remark">更改将仅应用于新消息</string>
+    <string name="title_date_remark">更改将仅会应用于新消息</string>
     <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>
     <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
@@ -589,6 +590,7 @@
     <string name="title_empty_spam_ask">是否永久删除所有的垃圾邮件？</string>
     <string name="title_empty_trash_all_ask">是否永久删除所有帐户的所有回收站的邮件？</string>
     <string name="title_empty_spam_all_ask">是否永久删除所有帐户的所有垃圾邮件？</string>
+    <string name="title_empty_all">这将删除设备和服务器上的所有消息</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
@@ -812,7 +814,7 @@
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效的私钥</string>
     <string name="title_unknown_key">私钥与任何加密密钥不匹配</string>
-    <string name="title_key_missing">没有%1$s的密钥</string>
+    <string name="title_key_missing">没有 %1$s 的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求回执</string>

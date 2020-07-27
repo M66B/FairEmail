@@ -127,6 +127,7 @@
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_wizard">Guide</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan användas flera gånger om flera konton ska sättas upp</string>
+    <string name="title_setup_wizard_new">Jag behöver en ny e-postadress</string>
     <string name="title_setup_wizard_remark">Gå \"tillbaka\" för att gå till inkorgen</string>
     <string name="title_setup_other">Annan leverantör</string>
     <string name="title_setup_gmail_support">Godkännande av Google-konton fungerar endast i officiella versioner eftersom Android kontrollerar appens signatur</string>
@@ -600,6 +601,7 @@
     <string name="title_empty_spam_ask">Ta bort all skräppost permanent?</string>
     <string name="title_empty_trash_all_ask">Ta bort alla borttagna meddelanden från alla konton permanent?</string>
     <string name="title_empty_spam_all_ask">Ta bort all skräppost från alla konton permanent?</string>
+    <string name="title_empty_all">Detta kommer att ta bort alla meddelanden både från enheten och servern</string>
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>

@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_multiple">Мастер установки может быть использован неоднократно для настройки разных учётных записей</string>
+    <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_wizard_remark">Переход \"назад\" приводит в папку \"Входящие\"</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
@@ -363,7 +364,7 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
-    <string name="title_advanced_undo">Время отмены</string>
+    <string name="title_advanced_undo">Таймаут отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -371,7 +372,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
-    <string name="title_advanced_discard_delete">При отмене удалять черновик безвозвратно</string>
+    <string name="title_advanced_discard_delete">При отклонении черновика удалять его безвозвратно</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
@@ -623,6 +624,7 @@
     <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" навсегда?</string>
     <string name="title_empty_trash_all_ask">Навсегда удалить все сообщения из корзин всех учётных записей?</string>
     <string name="title_empty_spam_all_ask">Навсегда удалить весь спам из всех учётных записей?</string>
+    <string name="title_empty_all">Это действие удалит все сообщения и с устройства, и с сервера</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
@@ -797,7 +799,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_discard">Отменить</string>
+    <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
     <string name="title_send_now">Отправить сейчас</string>
