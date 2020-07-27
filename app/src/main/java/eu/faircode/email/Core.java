@@ -306,7 +306,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.PURGE:
-                                    onPurgeFolder(context, jargs, folder, (POP3Folder) ifolder);
+                                    onPurgeFolder(context, folder);
                                     break;
 
                                 default:
@@ -1768,10 +1768,13 @@ class Core {
         } finally {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+
+            // Delete local, hidden messages
+            onPurgeFolder(context, folder);
         }
     }
 
-    private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, POP3Folder ifolder) throws MessagingException {
+    private static void onPurgeFolder(Context context, EntityFolder folder) {
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
