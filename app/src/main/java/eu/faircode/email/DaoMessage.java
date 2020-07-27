@@ -222,7 +222,6 @@ public interface DaoMessage {
             "  OR NOT EXISTS" +
             "   (SELECT * FROM message m" +
             "   WHERE m.id <> message.id" +
-            "   AND m.account = message.account" +
             "   AND m.thread = message.thread" +
             "   AND (m.hash = message.hash OR m.msgid = message.msgid)" +
             "   AND NOT m.ui_hide))" +
