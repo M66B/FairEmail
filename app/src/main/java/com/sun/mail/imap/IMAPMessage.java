@@ -1714,8 +1714,10 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
                 envelope.cc == null &&
                 envelope.inReplyTo == null &&
                 envelope.messageId == null &&
-                headersLoaded && loadedHeaders.size() == 0)
-            return true;
+                headersLoaded && loadedHeaders.size() == 0) {
+			eu.faircode.email.Log.w("Expunged workaround");
+			return true;
+		}
 
         return false;
     }
