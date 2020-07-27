@@ -43,6 +43,10 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class ConnectionHelper {
+    static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
+            "metered", "roaming", "rlah" // update network state
+    ));
+
     // Roam like at home
     // https://en.wikipedia.org/wiki/European_Union_roaming_regulations
     private static final List<String> RLAH_COUNTRY_CODES = Collections.unmodifiableList(Arrays.asList(

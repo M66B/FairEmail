@@ -63,7 +63,7 @@ import javax.mail.internet.MimeMessage;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-public class ServiceSend extends ServiceBase {
+public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
     private boolean lastSuitable = false;
 
@@ -150,11 +150,15 @@ public class ServiceSend extends ServiceBase {
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(connectionChangedReceiver, iif);
+
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     public void onDestroy() {
         EntityLog.log(this, "Service send destroy");
+
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
 
         unregisterReceiver(connectionChangedReceiver);
 
@@ -170,6 +174,12 @@ public class ServiceSend extends ServiceBase {
         nm.cancel(Helper.NOTIFICATION_SEND);
 
         super.onDestroy();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (ConnectionHelper.PREF_NETWORK.contains(key))
+            checkConnectivity();
     }
 
     @Override

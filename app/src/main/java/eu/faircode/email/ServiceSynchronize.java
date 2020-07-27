@@ -131,10 +131,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "enabled", "poll_interval" // restart account(s)
     ));
 
-    private static final List<String> PREF_NETWORK = Collections.unmodifiableList(Arrays.asList(
-            "metered", "roaming", "rlah" // update network state
-    ));
-
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
             "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
@@ -616,8 +612,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (PREF_EVAL.contains(key) || PREF_NETWORK.contains(key)) {
-            if (PREF_NETWORK.contains(key))
+        if (PREF_EVAL.contains(key) || ConnectionHelper.PREF_NETWORK.contains(key)) {
+            if (ConnectionHelper.PREF_NETWORK.contains(key))
                 updateNetworkState(null, null);
 
             Bundle command = new Bundle();
