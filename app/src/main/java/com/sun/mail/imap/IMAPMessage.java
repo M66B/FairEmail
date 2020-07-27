@@ -1715,7 +1715,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
                 envelope.inReplyTo == null &&
                 envelope.messageId == null &&
                 headersLoaded && loadedHeaders.size() == 0) {
-			eu.faircode.email.Log.w("Expunged workaround");
+			eu.faircode.email.Log.w("Expunged workaround host=" + ((IMAPStore) folder.getStore()).host);
 			return true;
 		}
 
