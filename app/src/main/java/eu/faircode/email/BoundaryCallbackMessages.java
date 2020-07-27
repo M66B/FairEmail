@@ -133,7 +133,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                close(state);
+                close(state, true);
             }
         });
         queue_load(state);
@@ -162,7 +162,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 throw ex;
 
                             Log.w("Boundary", ex);
-                            close(state);
+                            close(state, true);
 
                             // Retry
                             load_server(state);
@@ -529,6 +529,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
         }
 
+        if (state.index < 0) {
+            Log.i("Boundary server end");
+            close(state, false);
+        }
+
         Log.i("Boundary server done");
         return found;
     }
@@ -579,29 +584,30 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                close(old);
+                close(old, true);
             }
         });
     }
 
-    private void close(State state) {
+    private void close(State state, boolean reset) {
         Log.i("Boundary close");
 
         try {
-            if (state.ifolder != null)
+            if (state.ifolder != null && state.ifolder.isOpen())
                 state.ifolder.close();
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
         }
 
         try {
-            if (state.iservice != null)
+            if (state.iservice != null && state.iservice.isOpen())
                 state.iservice.close();
         } catch (Throwable ex) {
             Log.e("Boundary", ex);
         }
 
-        state.reset();
+        if (reset)
+            state.reset();
     }
 
     private class State {

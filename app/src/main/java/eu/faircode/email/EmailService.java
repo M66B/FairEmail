@@ -674,6 +674,10 @@ public class EmailService implements AutoCloseable {
             return false;
     }
 
+    public boolean isOpen() {
+        return (iservice != null && iservice.isConnected());
+    }
+
     public void close() throws MessagingException {
         try {
             if (iservice != null && iservice.isConnected())
