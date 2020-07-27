@@ -977,6 +977,9 @@ class Core {
 
                 file.delete();
 
+                for (Flags.Flag flag : imessage.getFlags().getSystemFlags())
+                    icopy.setFlag(flag, true);
+
                 icopies.add(icopy);
             }
 
