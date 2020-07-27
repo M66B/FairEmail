@@ -86,7 +86,10 @@ public class EditTextCompose extends FixedEditText {
                         CharSequence text = item.getText();
                         if (text == null)
                             return false;
-                        html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
+                        if (raw)
+                            html = text.toString();
+                        else
+                            html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
                     }
 
                     SpannableStringBuilder ssb;
