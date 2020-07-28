@@ -280,15 +280,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private void checkConnectivity() {
         if (Looper.myLooper() == Looper.getMainLooper())
             _checkConnectivity();
-        else {
-            Log.e(new Throwable("Not on main thread"));
+        else
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
                     _checkConnectivity();
                 }
             });
-        }
     }
 
     private void _checkConnectivity() {
