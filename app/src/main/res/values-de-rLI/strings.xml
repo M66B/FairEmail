@@ -82,6 +82,7 @@
     <string name="title_notification_alert">Server-Warnung von \'%1$s\'</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
+    <string name="title_notification_redacted">Geschwärzt: biometrische oder PIN-Authentifizierung aktiviert</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>

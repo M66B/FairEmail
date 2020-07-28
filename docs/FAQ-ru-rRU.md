@@ -57,12 +57,12 @@
 * Удалить папку: долгое нажатие на папке в списке, Изменить свойства, меню трех точек, Удалить
 * Отменить отправку: Исходящие, нажмите на сообщение, нажмите иконку отменить
 * Сохранять отправленные сообщения в папке "Входящие": пожалуйста [смотрите этот FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Сменить системные папки: Настройка, Шаг 1, Редактировать, нажмите на учётную запись, внизу
+* Экспорта/импорт настроек: Настройка, навигация/меню «гамбургер»
 
-## Known problems
+## Известные проблемы
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
+* ~~ [ошибка в Android 5.1 и 6](https://issuetracker.google.com/issues/37054851) заставляет приложения иногда показывать неправильный формат времени. Переключение настройки Android *Использовать 24-часовой формат *. может временно устранить проблему. Обходное решение было добавлено.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
