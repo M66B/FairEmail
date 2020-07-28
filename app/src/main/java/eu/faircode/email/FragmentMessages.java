@@ -4869,9 +4869,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             switch (event.getKeyCode()) {
                 case KeyEvent.KEYCODE_VOLUME_UP:
-                    return (volumenav && onNext(context));
+                    return (down && volumenav && onNext(context));
                 case KeyEvent.KEYCODE_VOLUME_DOWN:
-                    return (volumenav && onPrevious(context));
+                    return (down && volumenav && onPrevious(context));
                 case KeyEvent.KEYCODE_A:
                     if (viewType == AdapterMessage.ViewType.THREAD)
                         return (up && onArchive(context));
