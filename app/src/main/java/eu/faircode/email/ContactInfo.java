@@ -27,6 +27,8 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -474,8 +476,14 @@ public class ContactInfo {
             Bitmap bitmap = BitmapFactory.decodeStream(connection.getInputStream());
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
-            else
-                return bitmap;
+            else {
+                Bitmap favicon = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+                favicon.eraseColor(Color.WHITE);
+                Canvas canvas = new Canvas(favicon);
+                canvas.drawBitmap(bitmap, 0, 0, null);
+                bitmap.recycle();
+                return favicon;
+            }
         } finally {
             connection.disconnect();
         }
