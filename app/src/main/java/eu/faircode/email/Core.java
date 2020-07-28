@@ -3238,10 +3238,12 @@ class Core {
         boolean notify_preview_only = prefs.getBoolean("notify_preview_only", false);
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
+        String pin = prefs.getString("pin", null);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        if (biometrics && !biometric_notify)
+        boolean redacted = ((biometrics || !TextUtils.isEmpty(pin)) && !biometric_notify);
+        if (redacted)
             notify_summary = true;
 
         Log.i("Notify messages=" + messages.size() +
@@ -3338,7 +3340,7 @@ class Core {
             List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
                     group, groupMessages.get(group),
                     notify_summary, new_messages,
-                    biometrics && !biometric_notify);
+                    redacted);
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size());
@@ -3540,7 +3542,7 @@ class Core {
 
             if (notify_preview)
                 if (redacted)
-                    builder.setContentText(context.getString(R.string.title_setup_biometrics));
+                    builder.setContentText(context.getString(R.string.title_notification_redacted));
                 else {
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                     StringBuilder sb = new StringBuilder();
