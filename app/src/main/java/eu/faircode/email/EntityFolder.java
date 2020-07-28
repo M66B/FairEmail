@@ -181,6 +181,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("Entwurf", new TypeScore(EntityFolder.DRAFTS, 100));
         put("brouillon", new TypeScore(EntityFolder.DRAFTS, 100));
         put("Черновики", new TypeScore(EntityFolder.DRAFTS, 100));
+        put("Bozze", new TypeScore(EntityFolder.DRAFTS, 100));
 
         put("trash", new TypeScore(EntityFolder.TRASH, 100));
         put("Papierkorb", new TypeScore(EntityFolder.TRASH, 100));
@@ -192,11 +193,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("pourriel", new TypeScore(EntityFolder.JUNK, 100));
         put("quarantaine", new TypeScore(EntityFolder.JUNK, 50));
         put("Спам", new TypeScore(EntityFolder.JUNK, 100));
+        put("Cestino", new TypeScore(EntityFolder.JUNK, 100));
 
         put("sent", new TypeScore(EntityFolder.SENT, 100));
         put("Gesendet", new TypeScore(EntityFolder.SENT, 100));
         put("envoyé", new TypeScore(EntityFolder.SENT, 100));
         put("Отправленные", new TypeScore(EntityFolder.SENT, 100));
+        put("Inviata", new TypeScore(EntityFolder.SENT, 100));
     }};
 
     static final int DEFAULT_SYNC = 7; // days
