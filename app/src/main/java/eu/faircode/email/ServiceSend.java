@@ -78,7 +78,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
     private static final int PI_SEND = 1;
-    private static final long CONNECTIVITY_DELAY = 5000L; // milliseconds
     private static final int RETRY_MAX = 3;
 
     @Override
@@ -315,14 +314,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             } catch (Throwable ex) {
                 Log.w(ex);
             }
-
-            // Wait for stabilization of connection
-            if (suitable)
-                try {
-                    Thread.sleep(CONNECTIVITY_DELAY);
-                } catch (InterruptedException ex) {
-                    Log.w(ex);
-                }
 
             if (suitable)
                 owner.start();
