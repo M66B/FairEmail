@@ -148,6 +148,7 @@
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_wizard">Kreator</string>
     <string name="title_setup_wizard_multiple">Kreator instalacji może być użyty wielokrotnie, aby skonfigurować wiele kont</string>
+    <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
     <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
@@ -622,6 +623,7 @@
     <string name="title_empty_spam_ask">Czy trwale usunąć wszystkie wiadomości - spam?</string>
     <string name="title_empty_trash_all_ask">Trwale usunąć wszystkie skasowane wiadomości z koszy dla wszystkich kont?</string>
     <string name="title_empty_spam_all_ask">Trwale usunąć wszystkie wiadomości spam dla wszystkich kont?</string>
+    <string name="title_empty_all">Spowoduje to usunięcie wszystkich wiadomości zarówno z urządzenia, jak i serwera</string>
     <string name="title_delete_operation">Usunąć operacje z komunikatem o błędzie?</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>

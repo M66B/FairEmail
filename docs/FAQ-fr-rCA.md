@@ -531,7 +531,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Voir [cette FAQ](#user-content-faq33) pour modifier le nom d'utilisateur des adresses électroniques.
+Voir [cette FAQ](#user-content-faq33) pour modifier le nom d'utilisateur des adresses e-mail.
 
 <br />
 
