@@ -127,6 +127,7 @@ import org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
+import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
@@ -152,6 +153,7 @@ import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
+import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -2661,8 +2663,12 @@ public class FragmentCompose extends FragmentBase {
                         }
                     });
                     snackbar.show();
-                } else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                } else {
+                    boolean expected =
+                            (ex instanceof OperatorCreationException &&
+                                    ex.getCause() instanceof InvalidKeyException);
+                    Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                }
             }
         }.execute(this, args, "compose:s/mime");
     }
