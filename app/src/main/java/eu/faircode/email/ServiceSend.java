@@ -31,6 +31,8 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.text.TextUtils;
 
@@ -65,12 +67,12 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
-    private Network lastActive = null;
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
     private TwoStateOwner owner = new TwoStateOwner("send");
     private List<Long> handling = new ArrayList<>();
+
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
     private static final int PI_SEND = 1;
@@ -274,6 +276,20 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     };
 
     private void checkConnectivity() {
+        if (Looper.myLooper() == Looper.getMainLooper())
+            _checkConnectivity();
+        else {
+            Log.e(new Throwable("Not on main thread"));
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    _checkConnectivity();
+                }
+            });
+        }
+    }
+
+    private void _checkConnectivity() {
         boolean suitable = ConnectionHelper.getNetworkState(this).isSuitable();
         if (lastSuitable != suitable) {
             lastSuitable = suitable;

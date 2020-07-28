@@ -304,6 +304,31 @@ public class ConnectionHelper {
         return true;
     }
 
+    static Network getActiveNetwork(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return null;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            return cm.getActiveNetwork();
+
+        NetworkInfo ani = cm.getActiveNetworkInfo();
+        if (ani == null)
+            return null;
+
+        Network[] networks = cm.getAllNetworks();
+        for (Network network : networks) {
+            NetworkInfo ni = cm.getNetworkInfo(network);
+            if (ni == null)
+                continue;
+            if (ni.getType() == ani.getType() &&
+                    ni.getSubtype() == ani.getSubtype())
+                return network;
+        }
+
+        return null;
+    }
+
     static boolean isIoError(Throwable ex) {
         while (ex != null) {
             if (isMaxConnections(ex.getMessage()) ||
