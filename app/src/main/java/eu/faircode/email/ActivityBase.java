@@ -29,6 +29,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -345,7 +346,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("Stop with screen off");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean biometrics = prefs.getBoolean("biometrics", false);
-            if (biometrics) {
+            String pin = prefs.getString("pin", null);
+            if (biometrics || !TextUtils.isEmpty(pin)) {
                 Helper.clearAuthentication(this);
                 finish();
             }
