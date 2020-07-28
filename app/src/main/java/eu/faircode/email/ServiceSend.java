@@ -65,6 +65,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
+    private Network lastActive = null;
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
@@ -124,8 +125,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 handling = ops;
 
                 if (process.size() > 0) {
-                    Log.i("OUTBOX process=" + TextUtils.join(",", process) +
-                            " handling=" + TextUtils.join(",", handling));
+                    EntityLog.log(ServiceSend.this,
+                            "Send process=" + TextUtils.join(",", process) +
+                                    " handling=" + TextUtils.join(",", handling));
 
                     executor.submit(new Runnable() {
                         @Override
@@ -311,7 +313,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 db.folder().setFolderError(outbox.id, null);
                 db.folder().setFolderSyncState(outbox.id, "syncing");
 
-                Log.i(outbox.name + " processing operations=" + ops.size());
+                EntityLog.log(this, "Send processing operations=" + ops.size());
 
                 while (ops.size() > 0) {
                     if (!ConnectionHelper.getNetworkState(this).isSuitable())
@@ -324,8 +326,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         message = db.message().getMessage(op.message);
 
                     try {
-                        Log.i(outbox.name +
-                                " start op=" + op.id + "/" + op.name +
+                        EntityLog.log(this, "Send start op=" + op.id + "/" + op.name +
                                 " msg=" + op.message +
                                 " tries=" + op.tries +
                                 " args=" + op.args);
@@ -369,7 +370,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         ops.remove(op);
                     } catch (Throwable ex) {
                         Log.e(outbox.name, ex);
-                        EntityLog.log(this, outbox.name + " " + Log.formatThrowable(ex, false));
+                        EntityLog.log(this, "Send " + Log.formatThrowable(ex, false));
 
                         db.operation().setOperationError(op.id, Log.formatThrowable(ex));
                         if (message != null) {
@@ -398,7 +399,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         } else
                             throw ex;
                     } finally {
-                        Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
+                        EntityLog.log(this, "Send end op=" + op.id + "/" + op.name);
                         db.operation().setOperationState(op.id, null);
                     }
                 }
