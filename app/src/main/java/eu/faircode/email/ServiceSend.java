@@ -51,6 +51,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 
@@ -67,6 +68,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
+    private Network lastActive = null;
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
@@ -290,6 +292,20 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     private void _checkConnectivity() {
+        Network active = ConnectionHelper.getActiveNetwork(this);
+        boolean restart = !Objects.equals(lastActive, active);
+        if (restart) {
+            lastActive = active;
+            EntityLog.log(this, "Service send active=" + active);
+
+            if (lastSuitable) {
+                EntityLog.log(this, "Service send restart");
+                lastSuitable = false;
+                owner.stop();
+                handling.clear();
+            }
+        }
+
         boolean suitable = ConnectionHelper.getNetworkState(this).isSuitable();
         if (lastSuitable != suitable) {
             lastSuitable = suitable;
