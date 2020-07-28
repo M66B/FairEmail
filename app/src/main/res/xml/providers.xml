@@ -300,6 +300,7 @@
         domain="web\\.de"
         keepalive="12"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
+        requiresEnabling="true"
         user="local">
         <imap
             host="imap.web.de"
