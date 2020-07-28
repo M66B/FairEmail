@@ -349,6 +349,7 @@
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
+    <string name="title_advanced_notifications_service">Vastaanottokanava</string>
     <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
