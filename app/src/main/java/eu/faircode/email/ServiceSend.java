@@ -79,6 +79,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
     private static final int PI_SEND = 1;
     private static final int RETRY_MAX = 3;
+    private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
 
     @Override
     public void onCreate() {
@@ -289,39 +290,46 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     private void _checkConnectivity() {
-        Network active = ConnectionHelper.getActiveNetwork(this);
-        boolean restart = !Objects.equals(lastActive, active);
-        if (restart) {
-            lastActive = active;
-            EntityLog.log(this, "Service send active=" + active);
+        final Network active = ConnectionHelper.getActiveNetwork(this);
+        final boolean restart = !Objects.equals(lastActive, active);
+        final boolean suitable = ConnectionHelper.getNetworkState(this).isSuitable();
 
-            if (lastSuitable) {
-                EntityLog.log(this, "Service send restart");
-                lastSuitable = false;
-                owner.stop();
-                handling.clear();
-            }
-        }
+        if (restart || lastSuitable != suitable)
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (restart) {
+                        lastActive = active;
+                        EntityLog.log(ServiceSend.this, "Service send active=" + active);
 
-        boolean suitable = ConnectionHelper.getNetworkState(this).isSuitable();
-        if (lastSuitable != suitable) {
-            lastSuitable = suitable;
-            EntityLog.log(this, "Service send suitable=" + suitable);
+                        if (lastSuitable) {
+                            EntityLog.log(ServiceSend.this, "Service send restart");
+                            lastSuitable = false;
+                            owner.stop();
+                            handling.clear();
+                        }
+                    }
 
-            try {
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
+                    if (lastSuitable != suitable) {
+                        lastSuitable = suitable;
+                        EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
-            if (suitable)
-                owner.start();
-            else {
-                owner.stop();
-                handling.clear();
-            }
-        }
+                        try {
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        if (suitable)
+                            owner.start();
+                        else {
+                            owner.stop();
+                            handling.clear();
+                        }
+                    }
+                }
+            }, CONNECTIVITY_DELAY);
     }
 
     private void processOperations(List<TupleOperationEx> ops) {
