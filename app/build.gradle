@@ -145,7 +145,7 @@ android {
         }
         play {
             dimension "all"
-            //minSdkVersion 23
+            minSdkVersion 23
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
