@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -348,6 +350,11 @@ public class FragmentGmail extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, user));
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+                if (ani == null || !ani.isConnected())
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 int at = user.indexOf('@');
                 String username = user.substring(0, at);

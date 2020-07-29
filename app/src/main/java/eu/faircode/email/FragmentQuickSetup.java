@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -273,6 +275,11 @@ public class FragmentQuickSetup extends FragmentBase {
                     imap_fingerprint = null;
                 if (TextUtils.isEmpty(smtp_fingerprint))
                     smtp_fingerprint = null;
+
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+                if (ani == null || !ani.isConnected())
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
                 args.putBoolean("appPassword", provider.appPassword);

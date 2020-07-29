@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -452,6 +454,11 @@ public class FragmentOAuth extends FragmentBase {
 
                 if (!Helper.EMAIL_ADDRESS.matcher(primaryEmail).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, primaryEmail));
+
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+                if (ani == null || !ani.isConnected())
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 Log.i("OAuth email=" + primaryEmail);
                 for (Pair<String, String> identity : identities)
