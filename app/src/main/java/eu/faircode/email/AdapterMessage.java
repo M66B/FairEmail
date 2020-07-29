@@ -2770,7 +2770,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
 
                     case R.id.ibUndo:
-                        onActionUndo(message);
+                        FragmentMessages.onActionUndo(message, context, owner, parentFragment.getParentFragmentManager());
                         break;
                     case R.id.ibRule:
                         onMenuCreateRule(message);
@@ -3645,81 +3645,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
             fragment.show(parentFragment.getParentFragmentManager(), "message:move");
-        }
-
-        private void onActionUndo(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<EntityMessage>() {
-                @Override
-                protected EntityMessage onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    EntityMessage message;
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        message = db.message().getMessage(id);
-                        if (message == null)
-                            return null;
-
-                        db.folder().setFolderError(message.folder, null);
-                        if (message.identity != null)
-                            db.identity().setIdentityError(message.identity, null);
-
-                        File source = message.getFile(context);
-
-                        // Insert into drafts
-                        EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
-                        message.id = null;
-                        message.folder = drafts.id;
-                        message.fts = false;
-                        message.ui_snoozed = null;
-                        message.error = null;
-                        message.id = db.message().insertMessage(message);
-
-                        File target = message.getFile(context);
-                        source.renameTo(target);
-
-                        List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                        for (EntityAttachment attachment : attachments)
-                            db.attachment().setMessage(attachment.id, message.id);
-
-                        EntityOperation.queue(context, message, EntityOperation.ADD);
-
-                        // Delete from outbox
-                        db.message().deleteMessage(id); // will delete operation too
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    ServiceSynchronize.eval(context, "outbox/drafts");
-
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.cancel("send:" + id, 1);
-
-                    return message;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, EntityMessage draft) {
-                    if (draft != null)
-                        context.startActivity(
-                                new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "edit")
-                                        .putExtra("id", draft.id));
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:move:draft");
         }
 
         private void onActionArchive(TupleMessageEx message) {
