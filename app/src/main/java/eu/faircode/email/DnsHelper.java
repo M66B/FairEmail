@@ -47,6 +47,7 @@ import javax.mail.internet.InternetAddress;
 public class DnsHelper {
     // https://dns.watch/
     private static final String DEFAULT_DNS = "84.200.69.80";
+    private static final int CHECK_TIMEOUT = 5; // seconds
     private static final int LOOKUP_TIMEOUT = 15; // seconds
 
     static void checkMx(Context context, Address[] addresses) throws UnknownHostException {
@@ -67,7 +68,7 @@ public class DnsHelper {
             boolean found = true;
             try {
                 SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
-                resolver.setTimeout(LOOKUP_TIMEOUT);
+                resolver.setTimeout(CHECK_TIMEOUT);
                 Lookup lookup = new Lookup(domain, Type.MX);
                 lookup.setResolver(resolver);
                 lookup.run();
