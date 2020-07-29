@@ -44,6 +44,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
@@ -4662,7 +4663,10 @@ public class FragmentCompose extends FragmentBase {
             if (addresses == null)
                 return;
 
-            DnsHelper.checkMx(context, addresses);
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+            if (ani != null && ani.isConnected())
+                DnsHelper.checkMx(context, addresses);
         }
     };
 
