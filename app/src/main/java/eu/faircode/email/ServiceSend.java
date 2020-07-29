@@ -71,6 +71,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private Network lastActive = null;
     private boolean lastSuitable = false;
 
+    private Handler handler;
     private PowerManager.WakeLock wlOutbox;
     private TwoStateOwner owner = new TwoStateOwner("send");
     private List<Long> handling = new ArrayList<>();
@@ -85,6 +86,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         EntityLog.log(this, "Service send create");
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
+
+        handler = new Handler();
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
@@ -281,7 +284,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         if (Looper.myLooper() == Looper.getMainLooper())
             _checkConnectivity();
         else
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
+            handler.post(new Runnable() {
                 @Override
                 public void run() {
                     _checkConnectivity();
