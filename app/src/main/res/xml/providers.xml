@@ -84,7 +84,7 @@
     </provider>
     <!-- no IMAP IDLE -->
     <provider
-        name="Yahoo!"
+        name="Yahoo"
         appPassword="true"
         domain="yahoo\\..*"
         id="yahoo"
@@ -98,10 +98,11 @@
             port="465"
             starttls="false" />
         <oauth
+            askAccount="true"
             authorizationEndpoint="https://api.login.yahoo.com/oauth2/request_auth"
-            clientId="dj0yJmk9MUFMR2dpdnllTHdZJmQ9WVdrOWRraFJNVGwwTkcwbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFl"
-            clientSecret="054ceb7cc001a322126dd51b3399785604543f83"
-            enabled="false"
+            clientId="dj0yJmk9SWtNZm1vUFc2THJDJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWRi"
+            clientSecret="261a91fbbdb2852c4e80fdd3d1db4a8ebfa4c42b"
+            enabled="true"
             pcke="true"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
