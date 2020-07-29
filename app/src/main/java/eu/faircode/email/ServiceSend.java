@@ -97,6 +97,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             public void onChanged(TupleUnsent unsent) {
                 if (unsent == null || !unsent.equals(lastUnsent)) {
                     lastUnsent = unsent;
+                    EntityLog.log(ServiceSend.this, "Unsent=" + (unsent == null ? null : unsent.count));
 
                     try {
                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
