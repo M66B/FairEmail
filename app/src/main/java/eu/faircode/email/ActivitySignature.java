@@ -219,6 +219,7 @@ public class ActivitySignature extends ActivityBase {
         etText.setRaw(raw);
 
         if (!raw || dirty) {
+            etText.clearComposingText();
             String html = (raw
                     ? HtmlHelper.toHtml(etText.getText(), this)
                     : etText.getText().toString());
