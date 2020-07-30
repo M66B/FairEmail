@@ -866,6 +866,7 @@
         It would be appreciated if you could rate FairEmail in the Play Store.
         This will help to maintain a balance between unfavorable and favorable reviews.
     </string>
+    <string name="title_ask_once">This message will only appear once, unless you select \'Later\'</string>
 
     <string name="title_third_party">You are using a version of a third party</string>
 
