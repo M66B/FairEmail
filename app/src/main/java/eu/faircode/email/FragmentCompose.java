@@ -1991,7 +1991,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putInt("start", start);
 
                 // TODO: double conversion
-                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, getContext()), false, new Html.ImageGetter() {
+                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s, context), false, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
