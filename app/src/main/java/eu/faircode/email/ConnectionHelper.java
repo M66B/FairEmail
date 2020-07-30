@@ -354,7 +354,11 @@ public class ConnectionHelper {
     static Boolean isSyntacticallyInvalid(Throwable ex) {
         if (ex.getMessage() == null)
             return false;
-        return ex.getMessage().toLowerCase(Locale.ROOT).contains("syntactically invalid");
+        // 501 HELO requires valid address
+        // 501 Syntactically invalid HELO argument(s)
+        String message = ex.getMessage().toLowerCase(Locale.ROOT);
+        return message.contains("syntactically invalid") ||
+                message.contains("requires valid address");
     }
 
     static boolean vpnActive(Context context) {
