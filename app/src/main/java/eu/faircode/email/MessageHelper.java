@@ -1986,7 +1986,7 @@ public class MessageHelper {
                     }
                 } else if (content instanceof String) {
                     String text = (String) content;
-                    String sample = text.substring(0, Math.min(80, text.length()));
+                    String sample = text.substring(0, Math.min(200, text.length()));
                     Log.e("Mixed string=" + sample);
                 } else
                     Log.e("Mixed type=" + (content == null ? null : content.getClass().getName()));
@@ -2067,7 +2067,7 @@ public class MessageHelper {
                     multipart = (Multipart) part.getContent();
                 else if (content instanceof String) {
                     String text = (String) content;
-                    String sample = text.substring(0, Math.min(80, text.length()));
+                    String sample = text.substring(0, Math.min(200, text.length()));
                     throw new ParseException(content.getClass().getName() + ": " + sample);
                 } else
                     throw new ParseException(content.getClass().getName());
