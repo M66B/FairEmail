@@ -47,7 +47,7 @@ Verwandte Fragen:
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
 * Change password: Setup, step 1, Manage, tap account, change password
 * Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
+* Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
@@ -65,13 +65,13 @@ Verwandte Fragen:
 * ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
 * ~~Ein [Bug in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google hat dies repariert.~~
-* ~~Ein [Bug im AndroidX ROOM](https://issuetracker.google.com/issues/138441698) verursacht manchmal einen Absturz mit "*... Ausnahme beim Berechnen der Datenbank Live-Daten ... Konnte Zeile ...*" nicht lesen. Ein Workaround wurde hinzugefügt.~~
+* ~~Ein [Fehler im AndroidX ROOM](https://issuetracker.google.com/issues/138441698) verursacht manchmal einen Absturz mit "*… Ausnahme beim Berechnen der Datenbank Live-Daten ... Konnte Zeile ...*" nicht lesen. Ein Workaround wurde hinzugefügt.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
 * Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
 * Ein [Fehler in Android](https://issuetracker.google.com/issues/37018931) verursacht manchmal einen Absturz mit *... Der Eingabekanal wurde auf einigen Geräten nicht initialisiert ...*.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~Die Ordnerauswahl zeigt manchmal aus noch unbekannten Gründen keine Ordner an. This seems to be fixed.~~
+* ~~Die Ordnerauswahl zeigt manchmal aus noch unbekannten Gründen keine Ordner an. Dies scheint behoben zu sein.~~
 * ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/64729576) macht es schwer, den Schnellscroller zu fassen. Ein Workaround wurde hinzugefügt.~~
 * ~~Die Verschlüsselung mit YubiKey führt zu einer Endlosschleife. Dies scheint durch einen [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507) verursacht zu werden.~~
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
@@ -107,7 +107,7 @@ Verwandte Fragen:
 * ~~Domain-Auswahl, für die Bilder gezeigt werden dürfen~~ (dies wird zu kompliziert in der Verwendung)
 * ~~Anzeige markierter Nachrichten~~ (dafür gibt es bereits eine spezielle Suche)
 * ~~Move notification action~~
-* ~~S/MIME support~~
+* ~~S/MIME-Unterstützung~~
 * ~~Einstellungen durchsuchen~~
 
 Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zukunft hinzugefügt werden.
@@ -152,7 +152,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(32) Wie kann ich überprüfen, ob das Lesen von E-Mails wirklich sicher ist?](#user-content-faq32)
 * [(33) Warum funktionieren bearbeitete Absenderadressen nicht?](#user-content-faq33)
 * [(34) Wie werden Identitäten abgeglichen?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
+* [(35) Warum sollte ich bei ansehen von Bildern, Anhängen und der Original-Nachricht vorsichtig sein?](#user-content-faq35)
 * [(36) Wie werden Einstellungsdateien verschlüsselt?](#user-content-faq36)
 * [(37) Wie werden Passwörter gespeichert?](#user-content-faq37)
 * [(39) Wie kann ich den Akkuverbrauch von FairEmail verringern?](#user-content-faq39)
@@ -162,27 +162,27 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
 * [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
 * [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
+* [(46) Wieso wird die Nachrichtenliste immer aktualisiert?](#user-content-faq46)
 * [(47) Wie kann ich den Fehler „Kein primäres Konto oder kein Ordner für Entwürfe” lösen?](#user-content-faq47)
 * [~~ (48) Wie kann ich den Fehler „Kein primäres Konto oder kein Archivordner” lösen? ~~](#user-content-faq48)
 * [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
-* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
-* [(51) How are folders sorted?](#user-content-faq51)
-* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
+* [(50) Könnt ihr eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
+* [(51) Wie werden die Ordner sortiert?](#user-content-faq51)
+* [(52) Wieso dauert es so lange Zeit, um sich wieder mit einem Konto zu verbinden?](#user-content-faq52)
 * [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
 * [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [~~(57) Can I use HTML in signatures?~~](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
+* [(55) Wie kann ich alle Nachrichten als gelesen markieren, verschieben oder löschen?](#user-content-faq55)
+* [(56) Können Sie Unterstützung für JMAP hinzufügen?](#user-content-faq56)
+* [~~(57) Kann ich HTML in Signaturen verwenden?~~](#user-content-faq57)
+* [(58) Was bedeutet ein geöffnetes/geschlossenes E-Mail-Symbol?](#user-content-faq58)
+* [(59) Können Original-Nachrichten im Browser geöffnet werden?](#user-content-faq59)
+* [(60) Wussten Sie …?](#user-content-faq60)
+* [(61) Warum werden einige Nachrichten verdunkelt angezeigt?](#user-content-faq61)
+* [(62) Welche Authentifizierungsmethoden werden unterstützt?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
 * [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
+* [(65) Warum werden einige Anhänge verdunkelt angezeigt?](#user-content-faq65)
+* [(66) Gibt es FairMail in der Google Play Familienmediathek?](#user-content-faq66)
 * [(67) How can I snooze conversations?](#user-content-faq67)
 * [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
@@ -190,16 +190,16 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(71) How do I use filter rules?](#user-content-faq71)
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Können Sie eine iOS, Windows, Linux, etc Version machen?](#user-content-faq75)
-* [(76) Was macht 'Lokale Nachrichten löschen'?](#user-content-faq76)
+* [(74) Wieso sehe ich Nachrichten doppelt?](#user-content-faq74)
+* [(75) Können Sie eine iOS-, Windows-, Linux- usw. Version erstellen?](#user-content-faq75)
+* [(76) Was macht »Lokale Nachrichten löschen«?](#user-content-faq76)
 * [(77) Warum werden Mitteilungen manchmal mit einer kleinen Verzögerung angezeigt?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
+* [~~(81) Könnt ihr den Hintergrund der Nachricht im dunklen Modus dunkel machen?~~](#user-content-faq81)
 * [(82) Was ist ein Nachverfolgungsbild?](#user-content-faq82)
-* [(84) Wozu sind lokale Kontakte?](#user-content-faq84)
+* [(84) Wozu gibt es lokale Kontakte?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
@@ -245,7 +245,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
 * [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
+* [(130) Was bedeuten die Nachrichtenfehler?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Why are new message notifications silent?](#user-content-faq132)
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
@@ -1057,7 +1057,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Warum sollte ich bei ansehen von Bildern, Anhängen und der Original-Nachricht vorsichtig sein?**
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 

@@ -1,6 +1,6 @@
 # FairEmail 支持文档
 
-如果您有疑问，请先查阅以下一些常见的问题。 在底部您可以找到如何提出其他问题、请求添加新功能以及报告bug
+如有疑问，请先查阅以下一些常见的问题。 在底部您可以找到如何提出其他问题、请求添加新功能以及报告bug
 
 ## 索引
 
@@ -22,14 +22,14 @@
 
 在某些情况下，你需要启用外部访问你的账户和/或使用一个特殊的(应用) 密码，例如启用双重认证。
 
-For authorizing:
+用于认证
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
+* Gmail / G 套件，见[问题6](#user-content-faq6)
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
 * Office365, see [question 14](#user-content-faq156)
 * Microsoft Exchange, see [question 8](#user-content-faq8)
 * Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
+* 苹果 iCloud，见[问题148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
 
 Please see [here](#user-content-faq22) for common error messages and solutions.

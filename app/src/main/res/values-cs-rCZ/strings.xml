@@ -103,6 +103,7 @@
     <string name="title_notification_alert">„%1$s“ upozornění serveru</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
+    <string name="title_notification_redacted">Revidováno: zapnuto biometrické či PIN ověření</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -436,7 +437,7 @@
     <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
-    <string name="title_advanced_english">Použít nastavení země USA</string>
+    <string name="title_advanced_english">Použít nastavení pro USA</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>

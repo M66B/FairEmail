@@ -758,6 +758,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
         Dies hilft ein Gleichgewicht zwischen guten und schlechten Bewertungen zu halten.
     </string>
+    <string name="title_ask_once">Diese Nachricht wird nur einmal angezeigt, es sei denn, Sie wählen \"Später\"</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>

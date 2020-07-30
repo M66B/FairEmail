@@ -54,7 +54,7 @@ Relaterede spørgsmål:
 * Indlæs flere beskeder: Langt tryk på en mappe på mappelisten, vælg *Synkronisér flere beskeder*
 * Overspring papirkurv ved beskedsletning: I 3-priksmenuen lige over beskedteksten *Slet*, eller fravælg alternativt papirkurvsmappen i kontoindstillingerne
 * Slet en konto/identitet: Opsætningstrin 1/2, Håndtér, tryk på konto/identitet, trepriksmenuen, Slet
-* Slet en mappe: Langt tryk på mappen i mappelisten, Redigér egenskaber, trepriksmenuen, Slet
+* Slet en mappe: Langt tryk på mappen på mappelisten, Redigér egenskaber, trepriksmenuen, Slet
 * Fortryd send: Udbakke, tryk på beskeden, tryk på Fortryd-ikonknappen
 * Gemme sendte beskeder i indbakken: [Se denne FAQ](#user-content-faq142)
 * Skift systemmapper: Opsætning, trin 1, Håndtér, tryk på konto nederst
@@ -622,100 +622,100 @@ Private nøgler gemmes af Android og kan importeres via Androids avancerede sikk
 
 Bemærk, at certifikater kan indeholde flere nøgler til flere formål, f.eks. til godkendelse, kryptering og signering. Android importerer kun den første nøgle, så for at importere alle nøgler, skal certifikatet først opdeles. Dette er ikke en almindelig forekommende handling, så du rådes til at bede certifikatleverandøren om support.
 
-Standardkrypteringsmetoden er PGP, men den sidst anvendte krypteringsmetode huskes for den valgte identitet til næste gang. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+Standardkrypteringsmetoden er PGP, men den sidst anvendte krypteringsmetode huskes for den valgte identitet til næste gang. Det kan være nødvendigt igen at aktivere Send-mulighederne i trepriksmenuen for at kunne vælge krypteringsmetoden.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+For at tillade forskellige private nøgler til den samme e-mailadresse, lader FairEmail dig altid vælge en nøgle, når der er flere identiteter til den samme e-mailadresse for den samme konto.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
+Offentlige nøgler gemmes af FairEmail og kan importeres ifm. bekræftelse af en signatur for første gang eller via fortrolighedsindstillingerne (PEM- eller DER-format).
 
-FairEmail verifies both the signature and the complete certificate chain.
+FairEmail foretager bekræftelse af både signaturen samt den komplette certifikatkæde.
 
-Common errors:
+Almindelige fejl:
 
-* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
-* *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
-* *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
-* *No private key*: no certificate was selected or no certificate was available in the Android keystore
+* *Intet certifikat fundet, der matcher targetContraints*: Dette betyder sandsynligvis, at en gammel version af FairEmail benyttes
+* *kunne ikke finde en gyldig certificeringssti til det anmodede mål*: Dette betyder grundlæggende, at der ikke blev fundet en eller flere mellem- eller rodcertifikater
+* *Privat nøgle matcher ikke nogle krypteringsnøgler*: Den valgte nøgle kan ikke anvendes til beskeddekrypteringen, da den sandsynligvis ikke er den korrekte nøgle
+* *Ingen privat nøgle*: Intet certifikat er valgt eller intet certifikat var tilgængeligt i Android-nøglelageret
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+Er certifikatkæden forkert, kan du trykke på den lille infoknap for at få vist alle certifikaterne. Efter certifikatoplysninger vises udstederen eller "selfSign". Er certifikat er selvsigneret, når både emne og udsteder er identiske. Certifikater fra en certifikatmyndighed (CA) er markeret med "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certifikater i Android-nøglelageret, er markeret med "Android".
 
-A valid chain looks like this:
-
-```
-Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
-```
-
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
-
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
-
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
-
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
-
-How to extract a public key from a S/MIME certificate:
+En gyldig kæde ser således ud:
 
 ```
-openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
+Dit certifikat > nul eller flere mellemliggende certifikater > CA (root) certifikat markeret med "Android"
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Bemærk, at en certifikatkæde altid er ugyldig, hvis intet ankercertifikat findes i Android-nøglelageret, hvilket er fundamentalt for S/MIME-certifikatbekræftelse.
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+Se [hér](https://support.google.com/pixelphone/answer/2844832?hl=en), hvordan certifikater kan importeres til Android-nøglelageret.
+
+Brug af udløbne nøgler, inline-krypterede/signerede beskeder samt hardwaresikkerhedstokens er uunderstøttet.
+
+Kigger du efter et gratis (test) S MIME-certifikat, se [hér](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for muligheder. Husk at [læse dette første](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) ved anmodning om et S/MIME Actalis-certifikat.
+
+Sådan udpakkes en offentlig nøgle fra et S/MIME-certifikat:
+
+```
+openssl pkcs12 -in filenavn.pfx/p12 -clcerts -nokeys -out cert.pem
+```
+
+Du kan afkode S/MIME-signaturer mv. [hér](https://lapo.it/asn1js/).
+
+S/MIME-signering/kryptering er en Pro-funktion, men alle øvrige PGP- og S/MIME-operationer er gratis at benytte.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Hvordan fungerer søgning på en enhed/server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Du kan begynde at søge efter beskeder efter Afsender (fra), Modtager (til, kopi, bcc), Emne, nøgleord eller beskedtekst vha. forstørrelsesglasset i handlingslbjælken i en mappe. Du kan også søge fra enhver app ved at vælge *Søg e-mail * i popup-menuen kopiér/indsæt.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Søgning i den fælles indbakke udføres i alle mapper på alle konti, søgning i mappelisten udføres kun for den tilknyttede konto og søgning i en mappe udføres kun i dén mappe.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Beskeder søges først på enheden. Der vil være en handlingsknap med et søg igen-ikon i bunden for at fortsætte søgningen på serveren. Du kan vælge, i hvilken mappe, du vil fortsætte søgningen.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+IMAP-protokollen understøtter ikke søgning i flere end én mappe samtidigt. Søgning på serveren er en dyr operation, og det er derfor ikke muligt at vælge flere mapper.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Searching local messages is case insensitive and on partial text. Lokle beskedtekster gennemsøges kun, hvis selve beskedteksterne er blevet downloadet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Visse servere kan ikke håndtere søgning i beskedtekster ifm. et stort beskedantal. For sådanne tilfælde findes en mulighed for at deaktivere søgning i beskedtekster.
 
-Searching through a large number of messages is not very fast because of two limitations:
+Gennemsøgning af et stort antal beskeder sker ikke særligt hurtigt grundet to begrænsninger:
 
-* [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
-* Android apps get only limited memory to work with, even if the device has plenty memory available
+* [sqlite](https://www.sqlite.org/), Androids databasemotor har en poststørrelsesbegrænsning, der forhindrer, at beskedtekster gemmes i databasen
+* Android-apps får kun begrænset hukommelse at arbejde med, selv hvis enheden har masser af hukommelse til rådighed
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Dette betyder, at søgning efter en beskedtekst kræver, at filer indeholdende beskedtekster skal åbnes én efter én for at tjekke, om den søgte tekst optræder i filen, hvilket er en relativt dyr proces.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+I *diverse indstillinger* kan du aktivere *Byg søgeindeks* for markant at øge søgehastigheden på enheden, men dette øger dog samtidig forbruget af både batteri samt lagerplads. Søgeindekset er baseret på ord, så søgning efter deltekster er ikke muligt. Søgning vha. søgeindekset er som standard OG (AND), så søgning efter *æble appelsin* vil søge efter både æble OG appelsin. Ord adskilt med komma resulterer i en ELLER (OR) søgning, så f.eks. *æble, appelsin* vil søge efter enten æble ELLER appelsin. Begge kan kombineres, så søgning efter *æble, appelsin banan* vil søge efter æble ELLER (appelsin OG banan). Brug af søgeindekset er en Pro-funktion.
 
-Searching messages on the device is a free feature, searching messages on the server is a pro feature.
+Beskedsøgning på enheden er en gratis funktion, beskedsøgning på serveren er en Pro-funktion.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Hvordan opsættes en Outlook-/Live-/Hotmail-konto?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+En Outlook-/Live-/Hotmail-konto kan opsættes via hurtig opsætnings guiden ved valg af *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+Anvendelse af en Outlook-, Live- eller Hotmail-konto med tofaktorgodkendelse aktiveret kræver oprettelse af en app-adgangskode. Tjek informationen [hér](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Tjek Microsoft-instruktionerne [hér](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040).
 
-For setting up an Office365 account, please see [this FAQ](#user-content-faq156).
+Tjek [denne FAQ](#user-content-faq156) for opsætnig af en Office365-konto.
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Hvorfor genindlæses beskedteksten hele tiden?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
+Beskedhovede og -brødtekst hentes separat fra serveren. Beskedteksten for større beskeder forudindlæses ikke på takserede forbindelser, og den skal derfor hentes, når beskeden åbnes. The message text will keep loading if there is no connection to the account, see also the next question.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+I modtagelsesindstillingerne kan den maksimale størrelse for automatisk download af beskeder på takserede forbindelser indstilles.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Mobilforbindelser er næsten altid takserede, og visse (betalte) Wi-Fi hotspots er det ligeledes.
 
 <br />
 
@@ -1103,7 +1103,7 @@ If the device is secured with a PIN, pattern or password, you can make the accou
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
-*Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
+*Android-indstillinger*, *Batteri*, trepriksmenu *Batteriforbrug*, trepriksmenu *Vis fuld enhedsbrug*
 
 As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
 
@@ -1152,7 +1152,7 @@ By default auto optimize in the receive settings is enabled, which will switch a
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
+Som standard henter FairEmail ikke beskedtekster og vedhæftninger større end 256 KiB, når Internetforbindelsen er takseret (mobildata eller betalt Wi-Fi). You can change this in the connection settings.
 
 <br />
 
@@ -1463,7 +1463,7 @@ The price of FairEmail is too low, lower than that of most similar apps, and the
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternativt kan *Slumre...* benyttes i den udvidede beskedvisning i trepriksmenuens 'mere'-menu eller tidsforskydningshandlingen i den nederste handlingsbjælke. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
 It is also possible to snooze messages with [a rule](#user-content-faq71).
 
@@ -1499,7 +1499,7 @@ When navigation to a conversation one message will be expanded if:
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
 
-There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
+Der er én undtagelse: Beskeden er ikke downloadet endnu, og beskeden er for stor til at downloade automatisk på en takseret (mobildata) forbindelse. You can set or disable the maximum message size on the 'connection' settings tab.
 
 Duplicate (archived) messages, trashed messages and draft messages are not counted.
 
@@ -1552,13 +1552,13 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Bemærk, at store beskedtekster downloades på forlangende via takserede forbindelser mhp. at reducere dataforbruget.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+I trepriks-beskedmenuens *mere*-menu findes et element til oprettelse af en regel for en modtaget besked med de mest almindelige betingelser udfyldt.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
@@ -1849,7 +1849,7 @@ FairEmail uses services and alarms, provides widgets and listens for the boot co
 
 Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
 
-When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
+Om ønsket, kan du gemme (rå) beskeder via trepriksmenuen ovenover beskedteksten samt gemme vedhæftninger ved at trykke på disketteikonet.
 
 If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
 
@@ -1931,7 +1931,7 @@ category:promotions
 
 Unfortunately, this is not possible for snoozed messages folder.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again and you can long press the folders to enable synchronization.
+Du kan benytte *Tvangssynk* i trepriksmenuen i den fælles indbakke for at lade FairEmail synkronisere mappelisten igen, og du kan vha. et langt tryk på mapperne aktivere synkronisering.
 
 <br />
 
@@ -2051,7 +2051,7 @@ Empty messages and/or corrupt attachments are probably being caused by a bug in 
 
 Setup > Step 1 > Manage > Tap account > Tap advanced > Partial fetch > uncheck
 
-After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+Efter deaktivering af indstillingen kan du benytte trepriks-beskedmenuens 'mere'-menu til at 'gensynke' tomme beskeder. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
 Disabling *Partial fetch* will result in more memory usage.
 
@@ -2200,7 +2200,7 @@ Between connectivity changes there is a wait of 90 seconds to give the email ser
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+*Tvangssynk* i trepriksmenuen i den fælles indbakke kan bruges til at lade FairEmail forsøge at oprette forbindelse igen uden at vente.
 
 Sending messages will be retried on connectivity changes only (reconnecting to the same network or connecting to another network) to prevent the email server from blocking the connection permanently. You can pull down the outbox to retry manually.
 
@@ -2252,7 +2252,7 @@ The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP s
 <a name="faq128"></a>
 **(128) How can I reset asked questions, for example to show images?**
 
-You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
+Du kan nulstille stillede spørgsmål via trepriksoverløbsmenuen under diverse indstillinger.
 
 <br />
 
@@ -2326,7 +2326,7 @@ In the account settings (Setup, step 1, Manage, tap account) you can enable *Lea
 
 Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list.
+FairEmail understøtter imidlertid skjulning af beskeer, enten via trepriksmenuen i handlingsbjælken ovenover beskedteksten eller ved at vælge flere beskeder på beskedlisten.
 
 It is also possible to set the swipe left or right action to hide a message.
 
@@ -2337,7 +2337,7 @@ It is also possible to set the swipe left or right action to hide a message.
 
 Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
 
-You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation. Note that this irreversible.
+Du kan slette en besked permanent vha. trepriksbeskedmenuen *slet*, hvilket fjerner beskeden fra samtalen. Note that this irreversible.
 
 Similarly, drafts are shown in conversations to find them back in the context where they belong. It is easy to read through the received messages before continuing to write the draft later.
 
@@ -2352,7 +2352,7 @@ Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 * Identity: Setup > Step 2 > Manage > Tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
-In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
+I trepriksoverløbsmenuen, øverst til højre, er der et element til sletning af kontoen/identiteten/mappen.
 
 <br />
 
@@ -2568,7 +2568,7 @@ If you want to import an mbox file to an existing email account, you can use Thu
 <a name="faq152"></a>
 **(152) How can I insert a contact group?**
 
-You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
+Du kan indsætte e-mailadresserne for alle kontakter i en kontaktgruppe via trepriksmenuen i beskedskrivningsværktøjet.
 
 You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 

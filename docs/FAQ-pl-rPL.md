@@ -1,6 +1,6 @@
 # Wsparcie FairEmail
 
-Jeśli masz pytanie, sprawdź najpierw najczęściej zadawane pytania. Na dole możesz dowiedzieć się, jak zadawać inne pytania, żądać funkcji i zgłaszać błędy.
+Jeśli masz pytanie, najpierw sprawdź najczęściej zadawane pytania umieszczone poniżej. Na dole możesz dowiedzieć się, jak zadawać pytania, zgłaszać nowe funkcjonalności i zgłaszać błędy.
 
 ## Spis treści
 
@@ -37,27 +37,27 @@ Zobacz [tutaj](#user-content-faq22) opisy typowych komunikatów o błędach i ro
 Powiązane pytania:
 
 * [Czy OAuth jest wspierany?](#user-content-faq111)
-* [Dlaczego ActiveSync nie jest obsługiwany? ](#user-content-faq133)
+* [Dlaczego ActiveSync nie jest obsługiwany?](#user-content-faq133)
 
 <a name="howto">
 
 ## W jaki sposób...?
 
-* Zmienić nazwę konta: Konfiguracja, krok 1, Zarządzaj, dotknij konta
-* Zmienić akcję gestu przesunięcia w lewo/w prawo: Ustawienia, Zachowanie, Ustaw akcję przesuwania
-* Zmienić hasło: Ustawienia, krok 1, Zarządzaj, dotknij konta, zmień hasło
-* Ustawić podpis: Konfiguracja, krok 2, Zarządzaj, dotknij tożsamość, edytuj podpis.
-* Dodać adresy DW i UDW: dotknij ikony osób na końcu tematu
-* Przejść do następnej/poprzedniej wiadomości dotyczącej archiwizowania/usuwania: w ustawieniach zachowania wyłącz * Automatycznie zamykaj konwersacje * i wybierz * Przejdź do następnej/poprzedniej rozmowy * dla * Po zamknięciu rozmowy *
-* Dodać folder do wspólnej skrzynki odbiorczej: naciśnij długo folder na liście folderów i zaznacz * Pokaż we wspólnej skrzynce *
-* Dodać folder do menu nawigacji: naciśnij długo folder na liście folderów i zaznacz * Pokaż w menu nawigacji *
-* Załadować więcej wiadomości: przytrzymaj folder na liście folderów, wybierz *Synchronizuj więcej wiadomości*
-* Usunąć wiadomość, pomijając kosz: w menu z trzema kropkami tuż nad tekstem wiadomości * Usuń * lub alternatywnie usuń zaznaczenie folderu Kosz w ustawieniach konta
-* Usunąć konto/tożsamość: Ustawienia, krok 1/2, Zarządzaj, dotknij konta/tożsamość, menu trzech kropek, Usuń
-* Usunąć folder: długo naciśnij folder na liście folderów, Edytuj właściwości, menu trzech kropek, Usuń
-* Cofnąć wysyłanie: Wysłanie, dotknij wiadomości, dotknij przycisku cofnij
-* Przechować wysłane wiadomości w skrzynce odbiorczej: [zobacz to FAQ](#user-content-faq142)
-* Zmienić foldery systemowe: Ustawienia, krok 1, Zarządzaj, dotknij konta, lista na dole
+* Zmiana nazwy konta: Konfiguracja, krok 1, Zarządzaj, dotknij konta
+* Zmiana akcji gestu przesunięcia w lewo/w prawo: Ustawienia, Zachowanie, Ustaw akcję przesuwania
+* Zmiana hasła: Ustawienia, krok 1, Zarządzaj, dotknij konta, zmień hasło
+* Ustawienie podpisu: Konfiguracja, krok 2, Zarządzaj, dotknij tożsamość, edytuj podpis.
+* Dodanie adresów DW i UDW: dotknij ikony osób na końcu tematu
+* Przejście do następnej/poprzedniej wiadomości dotyczącej archiwizowania/usuwania: w ustawieniach zachowania wyłącz * Automatycznie zamykaj konwersacje * i wybierz * Przejdź do następnej/poprzedniej rozmowy * dla * Po zamknięciu rozmowy *
+* Dodanie folderu do wspólnej skrzynki odbiorczej: naciśnij długo folder na liście folderów i zaznacz * Pokaż we wspólnej skrzynce *
+* Dodanie folderu do menu nawigacji: naciśnij długo folder na liście folderów i zaznacz * Pokaż w menu nawigacji *
+* Załadowanie większej ilości wiadomości: przytrzymaj folder na liście folderów, wybierz *Synchronizuj więcej wiadomości*
+* Usuwanie wiadomości, pomijając kosz: w menu z trzema kropkami tuż nad tekstem wiadomości * Usuń * lub alternatywnie usuń zaznaczenie folderu Kosz w ustawieniach konta
+* Usunięcie konta/tożsamości: Ustawienia, krok 1/2, Zarządzaj, dotknij konta/tożsamość, menu trzech kropek, Usuń
+* Usunięcie folderu: długo naciśnij folder na liście folderów, Edytuj właściwości, menu trzech kropek, Usuń
+* Cofnięcie wysyłania: Wysłanie, dotknij wiadomości, dotknij przycisku cofnij
+* Przechowywanie wysyłanych wiadomości w skrzynce odbiorczej: [zobacz to FAQ](#user-content-faq142)
+* Zmiana folderów systemowych: Ustawienia, krok 1, Zarządzaj, dotknij konta, lista na dole
 * Eksport/import ustawień: Ustawienia, menu nawigacji/hamburger (trzy paski u góry)
 
 ## Znane problemy
@@ -531,7 +531,7 @@ Alternatywnie możesz włączyć opcję * Zezwól na edycję adresu nadawcy * w 
 
 FairEmail automatycznie zaktualizuje hasła powiązanych tożsamości podczas aktualizacji hasła powiązanego konta lub powiązanej tożsamości.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Zobacz [ten FAQ](#user-content-faq33), jak edytować nazwy użytkownika adresów e-mail.
 
 <br />
 
@@ -610,7 +610,7 @@ Wiadomości tylko podpisane lub zaszyfrowane nie są dobrym pomysłem, zobacz tu
 
 Wiadomości 'tylko podpisane' są obsługiwane, wiadomości 'tylko szyfrowane' nie są obsługiwane.
 
-Common errors:
+Częste błędy:
 
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
 
@@ -630,7 +630,7 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Common errors:
+Częste błędy:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
@@ -639,7 +639,7 @@ Common errors:
 
 In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
 
-A valid chain looks like this:
+Prawidłowy łańcuch wygląda tak:
 
 ```
 Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"

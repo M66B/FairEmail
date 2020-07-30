@@ -81,6 +81,7 @@
     <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
     <string name="title_notification_sending_left">Försök kvar: %1$d</string>
     <string name="title_notification_sending_failed">Det gick inte att skicka till %1$s</string>
+    <string name="title_notification_redacted">Redigering: biometrisk autentisering eller PIN-kod aktiverad</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -756,6 +757,7 @@
         Det skulle uppskattas om du kunde betygsätta FairEmail i Play Store.
         Detta kommer att bidra till att upprätthålla en balans mellan ogynnsamma och gynnsamma recensioner.
     </string>
+    <string name="title_ask_once">Detta meddelande kommer bara att visas en gång, om du inte väljer \'Senare\'</string>
     <string name="title_third_party">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>

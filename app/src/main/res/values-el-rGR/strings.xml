@@ -30,6 +30,30 @@
     <string name="shortcut_refresh">Ανανέωση</string>
     <string name="shortcut_compose">Σύνθεση</string>
     <string name="shortcut_setup">Ρυθμίσεις</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="one">%1$d λογαριασμός παρακολουθείται</item>
+        <item quantity="other">%1$d λογαριασμοί παρακολουθούνται</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d δραστηριότητα εκκρεμεί</item>
+        <item quantity="other">%1$d δραστηριότητες εκκρεμούν</item>
+    </plurals>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d νέο μήνυμα</item>
+        <item quantity="other">%1$d νέα μηνύματα</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d μήνυμα προς αποστολή</item>
+        <item quantity="other">%1$d μηνύματα προς αποστολή</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d νέο</item>
+        <item quantity="other">%1$d νέα</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Επιλεγμένη %1$d συζήτηση</item>
+        <item quantity="other">Επιλεγμένες %1$d συζητήσεις</item>
+    </plurals>
     <string name="title_ask_spam_who">Καταχωρείται το μύνημα από %1$s σαν ανεπιθύμητο;</string>
     <string name="title_junk_hint">Ο προσωπικός σας πάροχος ηλεκτρονικού ταχυδρομείου είναι αρμόδιος για τον έλεγχο της ανεπιθύμητης αλληλογραφίας. Μια εφαρμογή ηλεκτρονικού ταχυδρομείου δεν διαθέτει όλα τα απαραίτητα δεδομένα για να επιτελέσει αυτό το έργο αξιόπιστα.</string>
     <string name="title_block">Μπλοκάρισμα %1$s</string>
@@ -51,7 +75,7 @@
     <string name="title_factor_minutes">%1$d λεπτά</string>
     <string name="menu_exit">Έξοδος</string>
     <string name="menu_answers">Πρότυπα</string>
-    <string name="menu_operations">Λειτουργείς</string>
+    <string name="menu_operations">Δραστηριότητες</string>
     <string name="menu_contacts">Τοπικές επαφές</string>
     <string name="menu_setup">Ρυθμίσεις</string>
     <string name="menu_legend">Υπόμνημα</string>
@@ -562,10 +586,10 @@
     <string name="title_empty_trash_all_ask">Οριστική διαγραφή όλων των απορριμμάτων όλων των λογαριασμών;</string>
     <string name="title_empty_spam_all_ask">Οριστική διαγραφή όλων των ανεπιθύμητων όλων των λογαριασμών;</string>
     <string name="title_empty_all">Θα διαγράψει όλα τα μηνύματα και από τη συσκευή και από τον εξυπηρετητή</string>
-    <string name="title_delete_operation">Διαγραφή των διεργασιών με ένα μήνυμα σφάλματος;</string>
+    <string name="title_delete_operation">Διαγραφή των δραστηριοτήτων με ένα μήνυμα σφάλματος;</string>
     <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
-    <string name="title_no_operations">Καμία εκκρεμής διεργασία</string>
-    <string name="title_hint_operations">Η διαγραφή των διεργασιών μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
+    <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
+    <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
     <string name="title_folder_name">Όνομα φακέλου</string>
     <string name="title_display_name">Προβαλλόμενο όνομα</string>
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>
@@ -715,6 +739,7 @@
         Θα το εκτιμούσαμε πολύ, εάν θα αξιολογούσατε το FairEmail στο Play Store.
         Έτσι, θα βοηθήσετε να διατηρηθεί μια ισορροπία ανάμεσα στις δυσμενείς και τις ευνοϊκές κριτικές.
     </string>
+    <string name="title_ask_once">Το μήνυμα αυτό θα εμφανιστεί μόνο μια φορά, εκτός αν επιλέξετε \"Αργότερα\"</string>
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
@@ -942,6 +967,7 @@
     <string name="title_rule_identity">Ταυτότητα</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
+    <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>
     <string name="title_rule_name_missing">Λείπει το όνομα του κανόνα</string>
     <string name="title_rule_condition_missing">Λείπει συνθήκη</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>
@@ -1249,12 +1275,28 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Προς</item>
+        <item>Κοιν.</item>
+        <item>Κρ. Κοιν.</item>
+    </string-array>
     <string-array name="biometricsTimeoutNames">
-        <item>One minute</item>
-        <item>2 minutes</item>
+        <item>Ένα λεπτό</item>
+        <item>2 λεπτά</item>
         <item>5 λεπτά</item>
-        <item>10 minutes</item>
-        <item>20 minutes</item>
+        <item>10 λεπτά</item>
+        <item>20 λεπτά</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Στην αρχή</item>
+        <item>Στο μέσο</item>
+        <item>Στο τέλος</item>
+        <item>Προβολή μη συντομευμένου</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Χαμηλή</item>
+        <item>Κανονική</item>
+        <item>Υψηλή</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -1268,12 +1310,22 @@
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
     </string-array>
+    <string-array name="receiptNames">
+        <item>Αποδεικτικό ανάγνωσης μόνο</item>
+        <item>Αποδεικτικό παράδοσης μόνο</item>
+        <item>Αποδεικτικό ανάγνωσης + παράδοσης</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Πάνω από το κείμενο</item>
+        <item>Κάτω από το κείμενο</item>
+        <item>Στο κάτω-κάτω μέρος</item>
+    </string-array>
     <string-array name="encryptNames">
         <item>Καμία</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>Υπογραφή PGP μόνο</item>
+        <item>Υπογραφή και κρυπτογράφηση PGP</item>
+        <item>Υπογραφή S/MIME μόνο</item>
+        <item>Υπογραφή + κρυπτογράφηση S/MIME</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
@@ -1287,10 +1339,16 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Απενεργοποιημένο</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Επισεσυρμένη</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Σταθερού πλάτους</item>
     </string-array>
 </resources>

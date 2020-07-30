@@ -357,68 +357,68 @@ La notification de la barre d'état de faible priorité montre le nombre d'opér
 * *supprimer* : supprimer le message du dossier distant
 * *vu* : marquer le message comme lu/non lu dans le dossier distant
 * *répondu* : marquer le message comme répondu dans le dossier distant
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
-* *headers*: download message headers
-* *raw*: download raw message
-* *body*: download message text
-* *attachment*: download attachment
-* *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *rule*: execute rule on body text
+* *Drapeau* : ajouter/supprimer une étoile dans le dossier distant
+* *mot-clé* : ajouter/supprimer le drapeau IMAP dans le dossier distant
+* *label*: définir/réinitialiser le label Gmail dans le dossier distant
+* *en-têtes* : télécharger les en-têtes de message
+* *crue* : télécharger le message brut
+* *body* : télécharger le texte du message
+* *pièce jointe* : télécharger la pièce jointe
+* *Sync* : synchroniser les messages locaux et distants
+* *abonnez-vous* : abonnez-vous au dossier distant
+* *purge* : supprimer tous les messages du dossier distant
+* *Envoyer* : envoyer un message
+* *existe* : vérifiez si le message existe
+* *règle* : exécute la règle sur le corps du texte
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. Voir aussi [cette FAQ](#user-content-faq16).
+Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de messagerie ou lors de la synchronisation manuelle. Voir aussi [cette FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Comment puis-je utiliser un certificat de sécurité non valide / mot de passe vide / connexion en texte brut ?**
 
-*... Untrusted ... not in certificate ...*
+*... Non fiable ... pas dans le certificat ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificat de sécurité invalide (impossible de vérifier l'identité du serveur) ...*
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Vous devriez essayer de résoudre ce problème en contactant votre fournisseur ou en obtenant un certificat de sécurité valide car les certificats de sécurité non valides sont non sécurisés et autorisent [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si l'argent est un obstacle, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Crypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
+Alternativement, vous pouvez accepter l'empreinte digitale affichée sous le message d'erreur si vous configurez le compte et/ou l'identité lors de l'étape de configuration 1 et 2 (ce n'est pas possible lorsque vous utilisez l'assistant d'installation rapide). Notez que vous devez vous assurer que la connexion Internet que vous utilisez est sûre.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvelles autorités de certification comme Let's Encrypt qui peuvent considérer les connexions comme non sécurisées, voir aussi [ici](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Ancre de confiance pour le chemin de certification introuvable*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Ancre de confiance pour le chemin de certification introuvable... /0> signifie que le gestionnaire de confiance Android par défaut n'a pas pu vérifier la chaîne de certificats du serveur.</p>
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Vous devriez soit corriger la configuration du serveur ou accepter l'empreinte digitale affichée sous le message d'erreur.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Notez que ce problème peut être causé par le serveur qui n'envoie pas tous les certificats intermédiaires.
 
-*Empty password*
+*Mot de passe vide*
 
-Your username is likely easily guessed, so this is insecure.
+Votre nom d'utilisateur est probablement facilement deviné, donc ce n'est pas sûr.
 
-*Plain text connection*
+*Connexion au texte brut*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Votre nom d'utilisateur et votre mot de passe et tous les messages seront envoyés et reçus non chiffrés, qui est **très peu sécurisé** car une [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est très simple sur une connexion non chiffrée.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si vous voulez toujours utiliser un certificat de sécurité invalide, un mot de passe vide ou une connexion en texte brut vous aurez besoin d'activer des connexions non sécurisées dans les paramètres du compte et/ou de l'identité. STARTTLS doit être sélectionné pour les connexions en texte brut. Si vous activez des connexions non sécurisées, vous devez vous connecter par des réseaux privés et de confiance uniquement et jamais par des réseaux publics, comme ceux offerts dans les hôtels, les aéroports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Comment puis-je personnaliser la vue des messages ?**
 
-In the three dot overflow menu you can enable or disable or select:
+Dans les trois points du menu à débordement, vous pouvez activer ou désactiver ou sélectionner :
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *taille de texte* : pour trois tailles de police différentes
+* *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-In the display section of the settings you can enable or disable:
+Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver :
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
+* *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Group by date*: show date header above messages with the same date
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
 * *Show contact photos*: to hide contact photos
@@ -2589,94 +2589,94 @@ Some background: Gmail seems to have an additional message view for IMAP, which 
 <br />
 
 <a name="faq154"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**~~(154) Peut-on ajouter des favicons comme photos de contact?~~**
 
-~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
+~~Outre le fait qu'un [favicon](https://en.wikipedia.org/wiki/Favicon) peut être partagé par de nombreuses adresses e-mail avec le même nom de domaine~~ ~~~et n'est donc pas directement lié à une adresse e-mail, favicon peut être utilisé pour vous suivre.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) What is a winmail.dat file?**
+**(155) Qu'est-ce qu'un fichier winmail.dat ?**
 
-A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+Un fichier *winmail.dat* est envoyé par un client Outlook mal configuré. Il s'agit d'un format de fichier spécifique à Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) contenant un message et éventuellement des pièces jointes.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+Vous pouvez trouver plus d'informations sur ce fichier [ici](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+Vous pouvez le visionner avec l'application Android [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener) par exemple.
 
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office365 account?**
+**(156) Comment puis-je configurer un compte Office365 ?**
 
-An Office365 account can be set up via the quick setup wizard and selecting *Office365 (OAuth)*.
+Un compte Office365 peut être configuré via l'assistant d'installation rapide en sélectionnant *Office365 (OAuth)*.
 
-If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+Si l'assistant se termine par *AUTHENTIFICATION échouée*, IMAP et/ou SMTP peuvent être désactivés pour le compte. Dans ce cas, vous devriez demander à l'administrateur d'activer IMAP et SMTP. La procédure est documentée [ici](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Comment puis-je configurer un compte Free.fr ?**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Quels appareil photo / enregistreur audio photo recommandez-vous ?**
 
-To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
+Pour prendre des photos et enregistrer de l'audio un appareil photo et une application d'enregistrement audio sont nécessaires. Les applications suivantes sont des appareils photo et enregistreurs audio libres :
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
+Pour enregistrer des notes vocales, etc, l'enregistreur audio doit supporter [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Étrangement, la plupart des enregistreurs audio ne semblent pas prendre en charge cette action Android standard.
 
 <br />
 
 <a name="faq159"></a>
-**(159) What are Disconnect's tracker protection lists?**
+**(159) Que sont les listes de protection des trackers de Disconnect ?**
 
-Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+Veuillez consulter [ici](https://disconnect.me/trackerprotection) pour plus d'informations sur les listes de protection des trackers de Disconnect.
 
-After downloading the lists in the privacy settings, the lists can optionally be used:
+Après avoir téléchargé les listes dans les paramètres de confidentialité, les listes peuvent éventuellement être utilisées :
 
-* to warn about tracking links on opening links
-* to recognize tracking images in messages
+* pour avertir des liens de suivi lors de l'ouverture des liens
+* reconnaître les images de suivi dans les messages
 
-Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+Les images de suivi ne seront désactivées que si l'option principale 'désactivé' correspondante est activée.
 
-Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
+Les images de suivi ne seront pas reconnues lorsque le domaine sera classé comme '*Contenu*', voir [ici](https://disconnect.me/trackerprotection#trackers-we-dont-block) pour plus d'informations.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Cette commande peut être envoyée à FairEmail depuis une application d'automatisation pour mettre à jour les listes de protection :
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+Une mise à jour hebdomadaire sera probablement suffisante, veuillez consulter [ici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pour les modifications récentes des listes.
 
 <br />
 
 ## Assistance
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. Cela signifie également que la rétrogradation n'est pas prise en charge.
 
-Requested features should:
+Les demandes d'ajout de fonctionnalités doivent :
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* être utile à la plupart des gens
+* ne pas compliquer l'utilisation de FairEmail
+* s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
+* se conformer aux normes communes (IMAP, SMTP, etc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Les caractéristiques qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de maintenir la maintenance et le soutien à long terme réalisable.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Les problèmes GitHub sont désactivés en raison d'un usage abusif fréquent.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

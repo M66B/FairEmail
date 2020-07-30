@@ -757,6 +757,7 @@
         Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.
         Dit helpt ook om het evenwicht tussen ongunstige en gunstige beoordelingen te bewaren.
     </string>
+    <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
