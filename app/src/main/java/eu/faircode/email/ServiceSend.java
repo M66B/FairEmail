@@ -617,6 +617,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 // Show in sent folder
                 if (sid != null) {
                     db.message().setMessageSent(sid, time);
+                    db.message().setMessageReceived(sid, time);
                     db.message().setMessageUiHide(sid, false);
                 }
 
