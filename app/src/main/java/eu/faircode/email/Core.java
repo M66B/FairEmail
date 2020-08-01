@@ -2920,6 +2920,9 @@ class Core {
     private static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
         DB db = DB.getInstance(context);
 
+        if (EntityFolder.DRAFTS.equals(folder.type))
+            return null;
+
         List<Address> addresses = new ArrayList<>();
         if (folder.isOutgoing()) {
             if (message.from != null)

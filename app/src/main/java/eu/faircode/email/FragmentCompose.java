@@ -3720,6 +3720,21 @@ public class FragmentCompose extends FragmentBase {
                 } else {
                     args.putBoolean("saved", true);
 
+                    // External draft
+                    if (data.draft.identity == null) {
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(data.draft.account))
+                                if (identity.primary) {
+                                    data.draft.identity = identity.id;
+                                    break;
+                                } else if (data.draft.identity == null)
+                                    data.draft.identity = identity.id;
+
+                        if (data.draft.identity != null)
+                            db.message().setMessageIdentity(data.draft.id, data.draft.identity);
+                        Log.i("Selected external identity=" + data.draft.identity);
+                    }
+
                     if (data.draft.revision == null) {
                         data.draft.revision = 1;
                         data.draft.revisions = 1;

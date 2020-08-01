@@ -664,6 +664,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 
+    @Query("UPDATE message SET identity = :identity WHERE id = :id")
+    int setMessageIdentity(long id, Long identity);
+
     @Query("UPDATE message SET revision = :revision WHERE id = :id")
     int setMessageRevision(long id, Integer revision);
 
