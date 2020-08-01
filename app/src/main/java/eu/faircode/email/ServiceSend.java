@@ -604,9 +604,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             // Send message
             EntityLog.log(this, "Sending " + via);
+            long start = new Date().getTime();
             iservice.getTransport().sendMessage(imessage, to);
-            long time = new Date().getTime();
-            EntityLog.log(this, "Sent " + via);
+            long end = new Date().getTime();
+            EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
 
             try {
                 db.beginTransaction();
@@ -616,8 +617,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                 // Show in sent folder
                 if (sid != null) {
-                    db.message().setMessageSent(sid, time);
-                    db.message().setMessageReceived(sid, time);
+                    db.message().setMessageReceived(sid, start);
+                    db.message().setMessageSent(sid, end);
                     db.message().setMessageUiHide(sid, false);
                 }
 
