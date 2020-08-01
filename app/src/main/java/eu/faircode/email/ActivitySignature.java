@@ -62,9 +62,6 @@ public class ActivitySignature extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null)
-            etText.setRaw(savedInstanceState.getBoolean("fair:raw"));
-
         getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
 
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -124,6 +121,9 @@ public class ActivitySignature extends ActivityBase {
                 }
             }
         });
+
+        if (savedInstanceState != null)
+            etText.setRaw(savedInstanceState.getBoolean("fair:raw"));
 
         style_bar.setVisibility(View.GONE);
 
