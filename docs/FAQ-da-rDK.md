@@ -709,9 +709,9 @@ Tjek [denne FAQ](#user-content-faq156) for opsætnig af en Office365-konto.
 <a name="faq15"></a>
 **(15) Hvorfor genindlæses beskedteksten hele tiden?**
 
-Beskedhovede og -brødtekst hentes separat fra serveren. Beskedteksten for større beskeder forudindlæses ikke på takserede forbindelser, og den skal derfor hentes, når beskeden åbnes. The message text will keep loading if there is no connection to the account, see also the next question.
+Beskedhovede og -brødtekst hentes separat fra serveren. Beskedteksten for større beskeder forudindlæses ikke på takserede forbindelser, og den skal derfor hentes, når beskeden åbnes. Beskedteksten genindlæses kontinuerligt, hvis der ingen forbindelse er til kontoen, se også det næste spørgsmål.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+Du kan tjekke konto- og mappelisten for kontoen og mappetilstanden (se forklaringen til betydningen af ikonerne) og operationslisten tilgængelig via hovednavigeringsmenuen til afventende operationer (se [denne FAQ](#user-content-faq3) for betydningen af operationerne).
 
 I modtagelsesindstillingerne kan den maksimale størrelse for automatisk download af beskeder på takserede forbindelser indstilles.
 
@@ -720,108 +720,108 @@ Mobilforbindelser er næsten altid takserede, og visse (betalte) Wi-Fi hotspots 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Hvorfor synkroniseres beskeder ikke?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Mulige årsager til fejl i beskedsynkronisering (sendet eller modtagne) er:
 
-* The account or folder(s) are not set to synchronize
-* The number of days to synchronize message for is set too low
-* There is no usable internet connection
-* The email server is temporarily not available
-* Android stopped the synchronization service
+* Konto eller mappe(r) er ikke opsat til at synkronisere
+* Der er indstillet for få synkroniseringsdage
+* Ingen tilgængelig Internetforbindelse
+* E-mailserveren er midlertidigt utilgængelig
+* Android har stoppet synkroniseringstjenesten
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Tjek derfor dine konto- og mappeindstillinger, og tjek, at konti/mapper er forbundet (se forklaringen i navigeringsmenuen om ikonernes betydning).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+Er der nogle fejlmeddelelser, så tjek [denne FAQ](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+På visse enheder med en masse apps, som slås om hukommelsen, kan Android muligvis stoppe synkroniseringstjenesten som en sidste udvej.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Visse Android-versioner stopper apps og tjenester for aggressivt. Se [dette dedikerede websted](https://dontkillmyapp.com/) samt [dette Android-problem](https://issuetracker.google.com/issues/122098785) for yderligere information.
 
-Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+Deaktivering af batterioptimering (opsætningstrin 4) reducerer chancen for, at Android stopper synkroniseringstjenesten.
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Hvorfor fungerer manuel synkronisering ikke?~~**
 
-~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
+~~Hvis menuen *Synkronisér nu* er nedtonet, er der ingen forbindelse til kontoen.~~
 
-~~See the previous question for more information.~~
+~~Se foregående spørgsmål for yderligere information.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Hvorfor vises beskedforhåndsvisning ikke altid?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+Beskedforhåndsvisningen kan ikke vises, såfremt beskedbrødteksten endnu ikke er downloadet. Se også [denne FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Hvorfor er Pro-funktionerne så dyre?**
 
-The right question is "*why are there so many taxes and fees?*":
+Det rigtige spørgsmål er, "*hvorfor der er så mange skatter og afgifter?*":
 
-* VAT: 25 % (depending on your country)
-* Google fee: 30 %
-* Income tax: 50 %
-* <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
+* Moms: 25 % (afhængigt af land)
+* Google-gebyr: 30 %
+* Inkomstskat: 50 %
+* <sub>Paypal-gebyr: 5-10 % afhængigt af land/beløb</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Så dét, der er tilbage til udvikleren, er blot en brøkdel af dét, du betaler.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Bemærk, at det kun er nødvendigt at købe visse bekvemmeligheds- og avancerede funktioner, hvilket betyder, at FairEmail grundlæggende er gratis at anvende.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+Bemærk også, at de fleste gratis apps ser ud til ikke at være bæredygtige i længden, hvorimod FairEmail vedligeholdes og understøttes korrekt, samt at gratis apps kan have faldgruber, såsom at de lækker fortrolige oplysninger via Internet.
 
-I have been working on FairEmail almost every day for more than one and a half a year, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Jeg har arbejdet på FairEmail næsten hver dag i mere end et halvt år, så jeg synes, at prisen er mere end rimelig. Af samme årsag vil der heller ikke være rabatter.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Kan jeg få refusion?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Hvis en købt Pro-funktion ikke fungerer som tilsigtet, og dette ikke skyldes et problem i de gratis funktioner, og jeg ikke kan løse problemet rettidigt, så kan du få en refusion. I alle øvrigee tilfælde er refusion ikke mulig. Under ingen omstændigheder er der mulighed for refusion for noget problem relateret til de gratis funktioner, da der ikke blev betalt noget for dem, og da de kan evalueres uden nogen begrænsning. Jeg tager ansvar som sælger for at levere dét, der er blevet lovet, og jeg forventer, at du tager ansvar for at informere dig om, hvad det er, du køber.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Hvordan aktiveres notifikationslyset?**
 
-Before Android 8 Oreo: there is an advanced option in the setup for this.
+For Android 8 Oreo: Der findes en avanceret indstilling i opsætningen til dette.
 
-Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Manage notifications* in the setup to directly go to the Android notification settings. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
+Android 8 Oreo og senere: Se [hér](https://developer.android.com/training/notify-user/channels), hvordan du opsætter notifikationskanaler. Du kan benytte knappen *Håndtér notifikationer* i opsætningen for at gå direkte til Android-notifikationsindstillingerne. Bemærk, at apps ikke længere kan ændre notifikationsindstillinger, herunder indstillinger for notifikationslys, på Android 8 Oreo og senere. Apps designet og målrettet ældre Android-versioner kan muligvis stadig styre indholdet af notifikationer, men sådanne apps kan ikke længere opdatere, og nyere Android-versioner viser en advarsel om, at sådanne apps er forældede.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
+Undertiden er det nødvendigt at deaktivere indstillingen *Vis beskedforhåndsvisning i notifikationer* eller at aktivere indstillingerne *Vis kun notifikationer med en forhåndsvisningstekst* for at omgå en fejl i Android. Dette gælder muligvis også notifikationslyde og vibrationer.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Indstilling af lys-farven før Android 8 understøttes ikke og er ikke muligt på Android 8 og senere.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) Hvad betyder konto-/mappefejl ...?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail skjuler ikke fejl (hvilket lignende apps ofte gør), så det er lettere at diagnosticere problemer.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+FairEmail forsøger automatisk at genoprette forbindelse efter en forsinkelse. Denne forsinkelse fordobles efter hvert mislykket forsøg for at forhindre batteridræning samt at blive låst ude permanent.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Der er generelle såvel som specifikke fejl for Gmail-konti (se nedenfor).
 
-**General errors**
+**Generelle fejl**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When using copy/paste to enter a username or password, invisible characters might be copied, which could cause this problem as well. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to logging from certain networks / IP addresses only.
+Fejlen *... Godkendelse mislykkedes ...* eller *... GODKENDELSE mislykkedes ...* skyldes sandsynligvis forkert brugernavn/adgangskode. Viss udbydere forventer som brugernavn blot *brugernavn* og andre din fulde e-mail *brugernavn@eksempel.dk*. Benyttes kopiér/indsæt til angivelse af brugernavn/adgangskode kan der muligvis medtages usynlige tegn, hvilket også kan forårsage denne fejl. Øvrige mulige årsager er, at kontoen er blokeret, eller at indlogning er administrativt begrænset på en eller anden måde, f.eks. ved kun at tillade indlogning fra bestemte netværk/IP-adresser.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
+Fejlen *... For mange fejlede godkendelsesforsøg ...* betyder sandsynligvis, at du bruger en Yahoo-kontoadgangskode i stedet for en app ditto. Se [denne FAQ](#user-content-faq88) vedr. opsætning af en Yahoo-konto.
 
-The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+Meddelelsen *... + OK ...* betyder sandsynligvis, at en POP3-port (normalt portnummer 995) anvendes til en IMAP-konto (normalt ellers portnummer 993).
 
-The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Fejlene *... ugyldig hilsen ...*, *... kræver gyldig adresse ...* og *... Parameter til HELO overholder ikke RFC-syntaks ...* kan sandsynligvis løses ved at ændre den avancerede identitetsindstilling *Anvend lokal IP-adresse i stedet for værtsnavn*.
 
-The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
+Fejlene *... Kunne ikke forbinde til vært ...*, *... Forbindelse nægtet ...* eller *... Netværk kan ikke nås ...* betyder, at FairEmail ude af stand til at forbinde til e-mailserveren.
 
-The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+Fejlen *... Vært er uopløst ...* eller "*... Kan ikke opløse vært ...* betyder, at e-mailserverens værtsadressen ikke kunne opløses. Dette kan forårsages af annonceblokering, eller en utilgængelig eller ikke korrekt fungerende [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+Fejlen *... Software forårsaget forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og e-mailserveren, aktivt afsluttede en eksisterende forbindelse. Dette kan f.eks. ske, når tilslutningen pludselig blev mistet. Et typisk eksempel er aktivering af Flytilstand.
 
-The error *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+Fejlen *... BYE, logger ud ...*, *... Connection reset by peer ...* eller *... Broken pipe ...* betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 

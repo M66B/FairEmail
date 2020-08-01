@@ -746,6 +746,7 @@
         如果您能在谷歌商店为FairEmail评分，我将感激不尽。
         这将有助于保持批评和赞同评论之间的平衡。
     </string>
+    <string name="title_ask_once">此消息将只显示一次，除非您选择“稍后”</string>
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>

@@ -583,7 +583,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_service_vpn">Dies kann durch das verwendete VPN verursacht werden</string>
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
-    <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
+    <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_more">Weitere Nachrichten synchronisieren</string>
@@ -651,7 +651,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_folder_primary">Hauptkontoordner</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_folders">Keine Ordner</string>
-    <string name="title_no_messages">Keine E-Mails</string>
+    <string name="title_no_messages">Keine Nachrichten</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -758,7 +758,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
         Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
         Dies hilft ein Gleichgewicht zwischen guten und schlechten Bewertungen zu halten.
     </string>
-    <string name="title_ask_once">Diese Nachricht wird nur einmal angezeigt, es sei denn, Sie wählen \"Später\"</string>
+    <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>

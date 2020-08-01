@@ -758,6 +758,7 @@
         Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
         Dette vil hjælpe med at bevare balancen mellem ugunstige og gunstige anmeldelser.
     </string>
+    <string name="title_ask_once">Denne besked vises kun én gang, med mindre duvælger \'Senere\'</string>
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>

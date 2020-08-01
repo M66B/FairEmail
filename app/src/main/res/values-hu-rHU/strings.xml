@@ -6,6 +6,7 @@
     <string name="app_limitations">Többek között: formázással mindig eltávolítja az üzenetkből a nem biztonságos elemeket és javítja az olvashatóságot, valamint a hivatkozások megnyitása megerősítést fog igényelni.</string>
     <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
+    <string name="app_cake">Nincs elég tárhely</string>
     <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Értesítések</string>
@@ -79,6 +80,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
     <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_notification_sending_left">Hátralévő próbálkozások: %1$d</string>
+    <string name="title_notification_sending_failed">Küldés nem sikerül erre a címre: %1$s</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
@@ -124,6 +126,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
     <string name="title_setup_wizard">Varázsló</string>
     <string name="title_setup_wizard_multiple">A telepítő varázsló többször is használható további fiókok hozzáadásához</string>
+    <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
     <string name="title_setup_wizard_remark">A \'vissza\' használatával a bejövő mappához jut</string>
     <string name="title_setup_other">Egyéb szolgáltató</string>
     <string name="title_setup_gmail_support">Google fiókok hozzáadása csak a hivatalos verziókban működik, mivel az Android ellenőrzi az app aláírását</string>
@@ -234,6 +237,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_suggest_sent">Elküldött üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
+    <string name="title_advanced_compose_font">Alapértelmezett betűtípus</string>
     <string name="title_advanced_auto_list">Listák automatikus létrehozása</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_extended_reply">Kiterjesztett válasz/továbbítás fejléc használata</string>
@@ -300,12 +304,15 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_addresses">Cím részleteinek alapértelmezett megjelenítése</string>
     <string name="title_advanced_attachments_alt">Csatolmányok megjelenítése a szöveg után</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
+    <string name="title_advanced_monospaced">Fix szélességű betűtípus használata az üzenetek szövegéhez</string>
+    <string name="title_advanced_text_align">Szöveg igazítás</string>
     <string name="title_advanced_collapse_quotes">Idézett szöveg összecsukása</string>
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
     <string name="title_advanced_actionbar">Beszélgetési művelet sáv megjelenítése</string>
     <string name="title_advanced_actionbar_color">Fiókszín használata háttérszínnek a beszélgetés művelet sávjánál</string>
     <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
+    <string name="title_advanced_parse_classes">Stílus lapok beolvasása</string>
     <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
     <string name="title_advanced_pull_refresh">Húzza le a frissítéshez</string>
@@ -320,6 +327,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_collapse_multiple">Több üzenetet tartalmazó beszélgetés üzeneteinek összecsukása \'vissza\'-val</string>
     <string name="title_advanced_autoclose">Beszélgetések automatikus bezárása</string>
     <string name="title_advanced_onclose">Beszélgetés bezárásakor</string>
+    <string name="title_advanced_undo">Visszavonási időzítő</string>
     <string name="title_advanced_quick_filter">Nem zavaró gyorsszűrő ikonok használata</string>
     <string name="title_advanced_quick_scroll">Nem zavaró gyors fel-/legörgetés ikonok használata</string>
     <string name="title_advanced_autoread">Üzenetek automatikus megjelölése olvasottként áthelyezéskor</string>
@@ -487,6 +495,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_port">Port szám</string>
     <string name="title_user">Felhasználónév</string>
     <string name="title_password">Jelszó</string>
+    <string name="title_case_sensitive">Felhasználónevek és jelszók általában kis- és nagybetű érzékenyek</string>
     <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
     <string name="title_use_ip">IP cím használata kiszolgálónév helyett</string>
@@ -759,6 +768,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_attachment_photo">Fénykép készítése</string>
     <string name="title_attachment_audio">Hang rögzítése</string>
     <string name="title_show_addresses">(Titkos) Másolat megjelenítése</string>
+    <string name="title_save_drafts">Piszkozatok mentése a szerveren</string>
     <string name="title_send_dialog">Küldési opciók megjelenítése</string>
     <string name="title_image_dialog">Képi opciók megjelenítése</string>
     <string name="title_media_toolbar">Média eszköztár</string>
@@ -823,6 +833,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
     <string name="title_search_index_hint">Keresés a keresési indexen keresztül gyors, de csak teljes szavakat fog találni</string>
     <string name="title_search_text_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetekben való szövegkeresés nem működik megfelelően</string>
+    <string name="title_search_size_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetek sorba rakása méret szerint nem működik</string>
     <string name="title_search_more">Több opció</string>
     <string name="title_search_use_index">Keresési index használata</string>
     <string name="title_search_in_senders">A küldőkben (tól)</string>
@@ -940,6 +951,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_tts_prefix">Új üzenet</string>
     <string name="title_rule_tts_from">Feladó</string>
     <string name="title_rule_tts_subject">Tárgy</string>
+    <string name="title_rule_tts_content">Szöveg</string>
     <string name="title_legend_section_synchronize">Szinkronizálás</string>
     <string name="title_legend_section_folders">Mappák</string>
     <string name="title_legend_section_messages">Üzenetek</string>
@@ -1056,6 +1068,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_hint_eml">Ez a nyers üzenetfájl tartalmának összefoglalása. Mentsd a nyers üzenetfájlt a műveletmenü mentés ikonjával a teljes tartalom megtekintéséhez.</string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>
+    <string name="title_tracking_link">Ez az oldal követheti Önt</string>
     <string name="title_link_http">A forgalom nem lesz titkosítva</string>
     <string name="title_link_https">A forgalom titkosítva lesz</string>
     <string name="title_sanitize_link">Követési paraméterek eltávolítása</string>
@@ -1074,6 +1087,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_add">Hozzáadás</string>
     <string name="title_browse">Megnyitás a következővel:</string>
     <string name="title_info">Info</string>
+    <string name="title_download">Letöltés</string>
     <string name="title_report">Jelentés</string>
     <string name="title_fix">Javítás</string>
     <string name="title_enable">Bekapcsolás</string>
@@ -1111,6 +1125,11 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_pro_list">Pro szolgáltatások listája</string>
     <string name="title_pro_purchase">Vásárlás</string>
     <string name="title_pro_once">Csak egyszer</string>
+    <string name="title_pro_info">        A FairEmail készítése több ezer órát vett igénybe annak ellenére hogy a legtöbb funkció ingyenes.
+        A FairEmail komolyan veszi a titoktartást, így nem mutat reklámokat, nem használ követési vagy analítikai technológiát pénzszerzési célra.
+        Hogy a FairEmailt fenntartható maradjon hosszútávon, néhány kényelem és haladó beállítások nem ingyenesek.
+        A FairEmail egy kicsi üzenetet jelenít meg hogy emlékeztessen erről, ami el lesz távolítva ha megvásárolod a pro verziót.
+    </string>
     <string name="title_pro_hide">A kicsi üzenet elrejtése %1$d hétre</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
     <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
@@ -1128,6 +1147,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>
+    <string name="title_unexpected_info_remark">Kérem írja le, mit csinált amikor az alkalmazás összeomlott:</string>
     <string name="title_widget_title_count">Új üzenetek számláló</string>
     <string name="title_widget_title_list">Üzenet lista</string>
     <string name="title_widget_account">Fiók</string>
@@ -1287,10 +1307,17 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
         <item>20 MB</item>
         <item>50 MB</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Ki</item>
+        <item>2,5 mp</item>
+        <item>5 mp</item>
+        <item>7,5 mp</item>
+        <item>10 mp</item>
+    </string-array>
     <string-array name="fontNameNames">
-        <item>Cursive</item>
+        <item>Folyóírás</item>
         <item>Talpas</item>
         <item>Talpatlan</item>
-        <item>Monospace</item>
+        <item>Fix szélességű szöveg</item>
     </string-array>
 </resources>

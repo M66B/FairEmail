@@ -428,7 +428,7 @@
     <string name="title_advanced_manage_keys">Управление приватными ключами</string>
     <string name="title_advanced_ca">Установленные сертификаты ЦС</string>
     <string name="title_advanced_manage_keys_hint">        Будут открыты настройки безопасности Android.
-        Ключи и сертификаты обычно находятся в разделе «Дополнительно» - «Шифрование и учётные данные».
+        Ключи и сертификаты обычно находятся в разделе \"Дополнительно\" - \"Шифрование и учётные данные\".
     </string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
@@ -780,7 +780,7 @@
         Будем признательны, если вы сможете оценить FairEmail в Play Store.
         Это поможет поддерживать баланс между неблагоприятными и благоприятными отзывами.
     </string>
-    <string name="title_ask_once">Это сообщение будет показано только один раз, если вы не выберите «Позже»</string>
+    <string name="title_ask_once">Это сообщение будет показано только один раз, если вы не выберите \"Позже\"</string>
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>

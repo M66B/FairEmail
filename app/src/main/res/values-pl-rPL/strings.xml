@@ -102,6 +102,7 @@
     <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
     <string name="title_notification_sending_left">Pozostało prób: %1$d</string>
     <string name="title_notification_sending_failed">Wysyłanie do %1$s nie powiodło się</string>
+    <string name="title_notification_redacted">Włączono uwierzytelnianie biometryczne lub PIN</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -778,6 +779,7 @@
         Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..
         Pomoże to utrzymać równowagę między niekorzystnymi a pozytywnymi ocenami.
     </string>
+    <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>

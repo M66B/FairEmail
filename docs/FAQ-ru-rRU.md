@@ -63,8 +63,8 @@
 ## Известные проблемы
 
 * ~~ [ошибка в Android 5.1 и 6](https://issuetracker.google.com/issues/37054851) заставляет приложения иногда показывать неправильный формат времени. Переключение настройки Android *Использовать 24-часовой формат *. может временно устранить проблему. Обходное решение было добавлено.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
+* ~~[Ошибка в Google Drive](https://issuetracker.google.com/issues/126362828) приводит к экспорту пустых файлов в Google Drive. Google это исправил.~~
+* ~~[Ошибка в AndroidX](https://issuetracker.google.com/issues/78495471) вызывает сбой FairEmail при долгом нажатии или смахивании. Google это исправил.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
