@@ -147,6 +147,7 @@ import org.w3c.dom.css.CSSStyleSheet;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -2018,7 +2019,7 @@ public class FragmentCompose extends FragmentBase {
                 // External app sending absolute file
                 if (ex instanceof SecurityException)
                     handleFileShare();
-                else if (ex instanceof IllegalArgumentException)
+                else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 else
@@ -3967,7 +3968,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
             else if (ex instanceof SecurityException)
                 handleFileShare();
-            else if (ex instanceof IllegalArgumentException)
+            else if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
                         .setGestureInsetBottomIgnored(true).show();
             else if (ex instanceof IllegalStateException) {
