@@ -214,6 +214,7 @@ public class FragmentFolder extends FragmentBase {
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
         tvInboxRootHint.setVisibility(View.GONE);
+
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -227,6 +228,17 @@ public class FragmentFolder extends FragmentBase {
         args.putLong("id", id);
 
         new SimpleTask<EntityFolder>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                // Consider previous save as cancelled
+                pbWait.setVisibility(View.GONE);
+            }
+
             @Override
             protected EntityFolder onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
@@ -285,9 +297,6 @@ public class FragmentFolder extends FragmentBase {
 
                     tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
                 }
-
-                // Consider previous save as cancelled
-                pbWait.setVisibility(View.GONE);
 
                 Helper.setViewsEnabled(view, true);
 

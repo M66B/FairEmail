@@ -138,6 +138,7 @@ public class FragmentAnswer extends FragmentBase {
         // Initialize
         grpReady.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
+
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -151,6 +152,16 @@ public class FragmentAnswer extends FragmentBase {
         args.putLong("id", copy < 0 ? id : copy);
 
         new SimpleTask<EntityAnswer>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
+            }
+
             @Override
             protected EntityAnswer onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
@@ -176,7 +187,6 @@ public class FragmentAnswer extends FragmentBase {
 
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
-                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
 

@@ -510,6 +510,7 @@ public class FragmentRule extends FragmentBase {
         grpAnswer.setVisibility(View.GONE);
         grpTts.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
+
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -745,6 +746,16 @@ public class FragmentRule extends FragmentBase {
 
         new SimpleTask<TupleRuleEx>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
+            }
+
+            @Override
             protected TupleRuleEx onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).rule().getRule(id);
@@ -894,7 +905,6 @@ public class FragmentRule extends FragmentBase {
                     grpReady.setVisibility(View.VISIBLE);
                     bottom_navigation.findViewById(R.id.action_delete).setVisibility(id < 0 ? View.GONE : View.VISIBLE);
                     bottom_navigation.setVisibility(View.VISIBLE);
-                    pbWait.setVisibility(View.GONE);
                 }
             }
 

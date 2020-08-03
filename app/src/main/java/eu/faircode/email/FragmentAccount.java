@@ -556,6 +556,8 @@ public class FragmentAccount extends FragmentBase {
         grpFolders.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
+        pbWait.setVisibility(VISIBLE);
+
         return view;
     }
 
@@ -1407,6 +1409,17 @@ public class FragmentAccount extends FragmentBase {
 
         new SimpleTask<EntityAccount>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                // Consider previous check/save/delete as cancelled
+                pbWait.setVisibility(View.GONE);
+            }
+
+            @Override
             protected EntityAccount onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
@@ -1534,9 +1547,6 @@ public class FragmentAccount extends FragmentBase {
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-
-                // Consider previous check/save/delete as cancelled
-                pbWait.setVisibility(View.GONE);
 
                 if (copy < 0 && account != null) {
                     args.putLong("account", account.id);

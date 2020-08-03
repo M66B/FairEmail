@@ -507,6 +507,8 @@ public class FragmentIdentity extends FragmentBase {
         grpAdvanced.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
+        pbWait.setVisibility(View.VISIBLE);
+
         return view;
     }
 
@@ -1053,6 +1055,16 @@ public class FragmentIdentity extends FragmentBase {
 
         new SimpleTask<EntityIdentity>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
+            }
+
+            @Override
             protected EntityIdentity onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).identity().getIdentity(id);
@@ -1145,8 +1157,6 @@ public class FragmentIdentity extends FragmentBase {
                     Helper.hide(btnOAuth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-
-                pbWait.setVisibility(View.GONE);
 
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
