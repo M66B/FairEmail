@@ -655,24 +655,27 @@ public class EntityRule {
         if (TextUtils.isEmpty(sender))
             return null;
 
+        boolean regex = false;
         if (block_domain) {
             int at = sender.indexOf('@');
             if (at > 0) {
                 boolean whitelisted = false;
-                String domain = sender.substring(at + 1);
+                String domain = DnsHelper.getParentDomain(sender.substring(at + 1));
                 for (String d : whitelist)
                     if (domain.matches(d)) {
                         whitelisted = true;
                         break;
                     }
-                if (!whitelisted)
-                    sender = '@' + domain;
+                if (!whitelisted) {
+                    regex = true;
+                    sender = ".*@.*" + domain + ".*";
+                }
             }
         }
 
         JSONObject jsender = new JSONObject();
         jsender.put("value", sender);
-        jsender.put("regex", false);
+        jsender.put("regex", regex);
 
         JSONObject jcondition = new JSONObject();
         jcondition.put("sender", jsender);
