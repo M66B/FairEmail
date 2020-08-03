@@ -1995,6 +1995,9 @@ public class FragmentCompose extends FragmentBase {
                 if (!image)
                     return null;
 
+                DB db = DB.getInstance(context);
+                db.message().setMessagePlainOnly(id, false);
+
                 args.putInt("start", start);
 
                 // TODO: double conversion
