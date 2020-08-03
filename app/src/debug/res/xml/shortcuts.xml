@@ -6,7 +6,7 @@
         android:shortcutShortLabel="@string/shortcut_refresh">
         <intent
             android:action="eu.faircode.email.REFRESH"
-            android:targetClass="eu.faircode.email.ActivityMain"
+            android:targetClass="eu.faircode.email.debug.ActivityMain"
             android:targetPackage="eu.faircode.email.debug" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
