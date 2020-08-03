@@ -289,6 +289,12 @@ public class HtmlHelper {
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
             Document parsed = JsoupEx.parse(html);
+
+            // Prevent extra newline at end
+            Element body = parsed.body();
+            if (body != null && body.childrenSize() == 1 && "p".equals(body.child(0).tagName()))
+                body.child(0).tagName("span").appendChild(new Element("br"));
+
             return sanitize(context, parsed, false, show_images);
         } catch (Throwable ex) {
             // OutOfMemoryError
