@@ -287,10 +287,10 @@ public abstract class DB extends RoomDatabase {
 
     private static void createTriggers(@NonNull SupportSQLiteDatabase db) {
         List<String> image = new ArrayList<>();
-        for (String img : EntityAttachment.IMAGE_TYPES)
+        for (String img : Helper.IMAGE_TYPES)
             image.add("'" + img + "'");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            for (String img : EntityAttachment.IMAGE_TYPES8)
+            for (String img : Helper.IMAGE_TYPES8)
                 image.add("'" + img + "'");
         String images = TextUtils.join(",", image);
 

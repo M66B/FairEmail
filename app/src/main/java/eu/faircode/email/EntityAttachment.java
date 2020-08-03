@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -31,8 +30,6 @@ import androidx.room.PrimaryKey;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -64,21 +61,6 @@ public class EntityAttachment {
     static final Integer SMIME_SIGNED_DATA = 7;
     static final Integer SMIME_CONTENT = 8;
 
-    // https://developer.android.com/guide/topics/media/media-formats#image-formats
-    static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
-            "image/bmp",
-            "image/gif",
-            "image/jpeg",
-            "image/jpg",
-            "image/png",
-            "image/webp"
-    ));
-
-    static final List<String> IMAGE_TYPES8 = Collections.unmodifiableList(Arrays.asList(
-            "image/heic",
-            "image/heif"
-    ));
-
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
@@ -108,11 +90,7 @@ public class EntityAttachment {
     }
 
     boolean isImage() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            if (IMAGE_TYPES8.contains(getMimeType()))
-                return true;
-
-        return IMAGE_TYPES.contains(getMimeType());
+        return Helper.isImage(getMimeType());
     }
 
     boolean isEncryption() {

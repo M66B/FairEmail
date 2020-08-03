@@ -112,6 +112,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -165,6 +166,21 @@ public class Helper {
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+"
     );
+
+    // https://developer.android.com/guide/topics/media/media-formats#image-formats
+    static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
+            "image/bmp",
+            "image/gif",
+            "image/jpeg",
+            "image/jpg",
+            "image/png",
+            "image/webp"
+    ));
+
+    static final List<String> IMAGE_TYPES8 = Collections.unmodifiableList(Arrays.asList(
+            "image/heic",
+            "image/heif"
+    ));
 
     private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
 
@@ -1129,6 +1145,14 @@ public class Helper {
         intent.putExtra("android.provider.extra.SHOW_ADVANCED", true);
         //File initial = Environment.getExternalStorageDirectory();
         //intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(initial));
+    }
+
+    static boolean isImage(String mimeType) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            if (IMAGE_TYPES8.contains(mimeType))
+                return true;
+
+        return IMAGE_TYPES.contains(mimeType);
     }
 
     // Cryptography
