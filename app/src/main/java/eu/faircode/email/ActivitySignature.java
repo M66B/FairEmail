@@ -48,6 +48,8 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.nodes.Document;
+
 public class ActivitySignature extends ActivityBase {
     private ViewGroup view;
     private EditTextCompose etText;
@@ -205,31 +207,35 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void save() {
-        etText.clearComposingText();
-        String html = (etText.getRaw()
-                ? etText.getText().toString()
-                : HtmlHelper.toHtml(etText.getText(), this));
         Intent result = new Intent();
-        result.putExtra("html", html);
+        result.putExtra("html", getHtml());
         setResult(RESULT_OK, result);
         finish();
     }
 
     private void html(boolean raw) {
+        String html = getHtml();
         etText.setRaw(raw);
 
-        if (!raw || dirty) {
-            etText.clearComposingText();
-            String html = (raw
-                    ? HtmlHelper.toHtml(etText.getText(), this)
-                    : etText.getText().toString());
+        if (!raw || dirty)
             getIntent().putExtra("html", html);
-        }
 
         if (raw)
             style_bar.setVisibility(View.GONE);
 
         load();
+    }
+
+    private String getHtml() {
+        etText.clearComposingText();
+
+        if (etText.getRaw())
+            return etText.getText().toString();
+        else {
+            String html = HtmlHelper.toHtml(etText.getText(), this);
+            Document d = HtmlHelper.fixEdit(JsoupEx.parse(html));
+            return d.body().html();
+        }
     }
 
     private void insertImage() {

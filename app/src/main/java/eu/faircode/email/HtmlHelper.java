@@ -288,13 +288,7 @@ public class HtmlHelper {
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
-            Document parsed = JsoupEx.parse(html);
-
-            // Prevent extra newline at end
-            Element body = parsed.body();
-            if (body != null && body.childrenSize() == 1 && "p".equals(body.child(0).tagName()))
-                body.child(0).tagName("span").appendChild(new Element("br"));
-
+            Document parsed = fixEdit(JsoupEx.parse(html));
             return sanitize(context, parsed, false, show_images);
         } catch (Throwable ex) {
             // OutOfMemoryError
@@ -305,6 +299,22 @@ public class HtmlHelper {
             document.body().appendChild(strong);
             return document;
         }
+    }
+
+    static Document fixEdit(Document document) {
+        // Prevent extra newline at end
+        Element body = document.body();
+        if (body != null && body.childrenSize() == 1) {
+            Element holder = body.child(0);
+            if ("p".equals(holder.tagName())) {
+                holder.tagName("span");
+                int c = holder.childrenSize();
+                Element last = (c > 0 ? holder.child(c - 1) : null);
+                if (last == null || !"br".equals(last.tagName()))
+                    holder.appendChild(new Element("br"));
+            }
+        }
+        return document;
     }
 
     static Document sanitizeView(Context context, Document parsed, boolean show_images) {
