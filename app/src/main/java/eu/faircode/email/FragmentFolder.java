@@ -276,7 +276,7 @@ public class FragmentFolder extends FragmentBase {
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
-                    cbPoll.setChecked(folder == null ? false : folder.poll);
+                    cbPoll.setChecked(folder == null ? true : folder.poll);
                     etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
                     tvPoll.setText(getString(R.string.title_factor_minutes, interval));
                     cbDownload.setChecked(folder == null ? true : folder.download);
