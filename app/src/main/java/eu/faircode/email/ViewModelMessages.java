@@ -159,7 +159,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedThread(
                                     args.account, args.thread,
                                     args.threading ? null : args.id,
-                                    args.filter_archive,
+                                    args.filter_archive && args.threading,
                                     args.ascending,
                                     args.debug),
                             configThread);
