@@ -129,7 +129,7 @@
     <string name="title_setup_wizard_new">Tarvitsen uuttaa sähköpostiosoitetta</string>
     <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
-    <string name="title_setup_gmail_support">Google-tilien valtuuttaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
+    <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
@@ -143,6 +143,7 @@
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovellussalasanan tilin salasanan sijaan, ole hyvä ja tarkista palveluntarjoajan ohjeet</string>
     <string name="title_setup_no_system_folders">Saapuneet- tai luonnokset-kansiota ei löytynyt</string>
+    <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
     <string name="title_setup_manage">Muokkaa</string>
@@ -158,6 +159,7 @@
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
+    <string name="title_setup_doze_remark">Sähköpostien vastaanottoon luotettavasti</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
@@ -239,6 +241,7 @@
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
+    <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_auto_list">Luo listoja automaattisesti</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
@@ -354,6 +357,7 @@
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
+    <string name="title_advanced_notify_background">Näytä ilmoitukset vain taustalla ollessa</string>
     <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
@@ -535,6 +539,10 @@
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
+    <string name="title_server_time">Käytä vastaanottoaikaa (palvelin)</string>
+    <string name="title_received_header">Käytä \'Received\'-tunnistetta</string>
+    <string name="title_date_header">Käytä \'Date\'-tunnistetta (lähetysaika)</string>
+    <string name="title_date_remark">Muutokset vaikuttavat vain uusiin viesteihin</string>
     <string name="title_related_identity">Lisää liittyvä identiteetti</string>
     <string name="title_check">Tarkista</string>
     <string name="title_trust">Luota palvelimen sertifikaattiin, jolla on sormenjälki %1$s</string>
@@ -591,6 +599,7 @@
     <string name="title_empty_spam_ask">Poistetaanko kaikki roskapostit pysyvästi?</string>
     <string name="title_empty_trash_all_ask">Poistetaanko kaikkien tilien kaikki roskakoriin siirretyt viestit pysyvästi?</string>
     <string name="title_empty_spam_all_ask">Poistetaanko kaikkien tilien kaikki paikalliset roskapostit pysyvästi?</string>
+    <string name="title_empty_all">Tämä poistaa kaikki viestit sekä laitteesta että palvelimelta</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
@@ -745,6 +754,7 @@
         Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
         Tämä auttaa pitämään tasapainon hyvien ja huonojen arvioiden välillä.
     </string>
+    <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
@@ -814,6 +824,7 @@
     <string name="title_no_key">Ei yksityistä avainta</string>
     <string name="title_invalid_key">Virheellinen yksityinen avain</string>
     <string name="title_unknown_key">Yksityinen avain ei vastaa mitään salausavainta</string>
+    <string name="title_key_missing">Ei avaimia sähköpostiosoitteille %1$s</string>
     <string name="title_send_reminder_remark">Muistutukset voidaan ottaa uudelleen käyttöön lähetysasetuksissa</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä kuittausta</string>

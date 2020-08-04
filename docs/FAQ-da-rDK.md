@@ -1036,13 +1036,13 @@ Bemærk, at dette er uafhængigt af at modtage beskeder.
 
 Identities are as expected matched by account. For indgående beskeder adresserne *til*, *cc*, *bcc*, *fra* og *(X-)leverede/konvolut/originale-til* blive tjekket (i denne rækkefølge) og for udgående beskeder (kladder, udbakke og sendt) tjekkes kun *fra*-adresserne.
 
-The matched address will be shown as *via* in the addresses section.
+Den matchede adresse vises som *via* i adresseafsnittet.
 
-Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
+Bemærk, at identiteter skal aktiveres for at kunne matches, osamt at identiteter på andre konti ikke overvejes.
 
-Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
+Match udføres kun én gang efter modtagelse af en besked, så ændring af opsætningen ændrer ikke eksisterende beskeder. Du kan dog rydde lokale beskeder vha. langt tryk på en mappe i mappelisten og synkronisere beskederne igen.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match the username of an email address (the part before the @ sign).
+Det er muligt at opsætte en [regex](https://en.wikipedia.org/wiki/Regular_expression) i identitetsindstillingerne for at få en e-mailadresses matchende brugernavn (tekstdelen før @-tegnet).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 

@@ -1,18 +1,18 @@
 # FairEmail-tuki
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysytyt kysymykset. Alimmaisena kerrotaan, kuinka kysyä muita kysymyksiä, pyytää ominaisuuksia, ja raportoida ohjelmistovirheitä.
 
-## Index
+## Sisältö
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Tilien valtuutus](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Kuinka ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Tunnetut ongelmat](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Suunnitellut ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Usein pyydetyt ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Usein Kysytyt Kysymykset](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Tuki](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Tilien valtuutus
 
 In most cases, the quick setup will be able to automatically identify the correct configuration.
 
@@ -22,7 +22,7 @@ Searching for *IMAP* and the name of the provider is mostly sufficient to find t
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-For authorizing:
+Valtuutukseen:
 
 * Gmail / G suite, see [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
@@ -34,14 +34,14 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Related questions:
+Aiheeseen liittyvät kysymykset:
 
-* [Is OAuth supported?](#user-content-faq111)
+* [Onko OAuth tuettu?](#user-content-faq111)
 * [Why is ActiveSync not supported?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Kuinka ...?
 
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
@@ -60,7 +60,7 @@ Related questions:
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
-## Known problems
+## Tunnetut ongelmat
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
