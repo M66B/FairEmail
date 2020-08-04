@@ -780,6 +780,7 @@
         Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
         Pomůže to udržet rovnováhu mezi nepříznivými a příznivými recenzemi.
     </string>
+    <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>

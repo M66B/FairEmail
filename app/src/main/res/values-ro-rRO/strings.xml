@@ -92,6 +92,7 @@
     <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
+    <string name="title_notification_redacted">Cenzurat: autentificare biometrică sau PIN activată</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -137,6 +138,7 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_multiple">Asistentul de instalare poate fi folosit de mai multe ori pentru a seta conturi multiple</string>
+    <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
     <string name="title_setup_wizard_remark">Apasă \'înapoi\' pentru a merge la mesaje primite</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
@@ -169,6 +171,7 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Configurare optimizare baterie</string>
+    <string name="title_setup_doze_remark">Pentru a primi e-mail la timp</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
@@ -765,6 +768,7 @@
         Vom aprecia dacă ați putea evalua FairEmail în Play Store.
         Aceasta ajută la menținerea unui echilibru între recenziile nefavorabile și cele favorabile.
     </string>
+    <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
