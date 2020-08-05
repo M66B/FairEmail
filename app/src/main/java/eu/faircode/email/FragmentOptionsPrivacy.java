@@ -55,6 +55,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -284,7 +285,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                     }
                 }.execute(FragmentOptionsPrivacy.this, new Bundle(), "disconnect");
             }
