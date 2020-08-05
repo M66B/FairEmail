@@ -3269,9 +3269,7 @@ public class FragmentCompose extends FragmentBase {
                             if (a != null) {
                                 data.draft.subject = a.name;
                                 Document d = JsoupEx.parse(a.getText(null));
-                                Element e = d.body();
-                                e.tagName("div");
-                                document.body().appendChild(e);
+                                document.body().append(d.body().html());
                             }
                         }
 
@@ -3435,9 +3433,7 @@ public class FragmentCompose extends FragmentBase {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
                                 Document d = JsoupEx.parse(a.getText(data.draft.to));
-                                Element e = d.body();
-                                e.tagName("div");
-                                document.body().appendChild(e);
+                                document.body().append(d.body().html());
                             }
                         }
 
