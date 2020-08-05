@@ -304,8 +304,8 @@ public class HtmlHelper {
     static Document fixEdit(Document document) {
         // Prevent extra newline at end
         Element body = document.body();
-        if (body != null && body.childrenSize() == 1) {
-            Element holder = body.child(0);
+        if (body != null && body.childrenSize() > 0) {
+            Element holder = body.child(body.childrenSize() - 1);
             if ("p".equals(holder.tagName())) {
                 holder.tagName("span");
                 int c = holder.childrenSize();
