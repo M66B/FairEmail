@@ -92,7 +92,7 @@ public class FragmentOAuth extends FragmentBase {
     private EditText etEmail;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
-    private TextView tvAuthorized;
+    private TextView tvConfiguring;
     private TextView tvGmailHint;
 
     private TextView tvError;
@@ -101,8 +101,6 @@ public class FragmentOAuth extends FragmentBase {
     private Button btnSupport;
 
     private Group grpError;
-
-    private static final int OAUTH_TIMEOUT = 20 * 1000; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,7 +127,7 @@ public class FragmentOAuth extends FragmentBase {
         etEmail = view.findViewById(R.id.etEmail);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
-        tvAuthorized = view.findViewById(R.id.tvAuthorized);
+        tvConfiguring = view.findViewById(R.id.tvConfiguring);
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
 
         tvError = view.findViewById(R.id.tvError);
@@ -160,7 +158,7 @@ public class FragmentOAuth extends FragmentBase {
         etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         pbOAuth.setVisibility(View.GONE);
-        tvAuthorized.setVisibility(View.GONE);
+        tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         hideError();
 
@@ -318,8 +316,6 @@ public class FragmentOAuth extends FragmentBase {
             if (auth == null)
                 throw AuthorizationException.fromIntent(data);
 
-            tvAuthorized.setVisibility(View.VISIBLE);
-
             final EmailProvider provider = EmailProvider.getProvider(getContext(), auth.state);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -384,6 +380,16 @@ public class FragmentOAuth extends FragmentBase {
         args.putString("address", etEmail.getText().toString().trim());
 
         new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                tvConfiguring.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                tvConfiguring.setVisibility(View.GONE);
+            }
+
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String id = args.getString("id");
@@ -612,8 +618,6 @@ public class FragmentOAuth extends FragmentBase {
 
     private void showError(Throwable ex) {
         Log.e(ex);
-
-        pbOAuth.setVisibility(View.GONE);
 
         if (ex instanceof IllegalArgumentException)
             tvError.setText(ex.getMessage());
