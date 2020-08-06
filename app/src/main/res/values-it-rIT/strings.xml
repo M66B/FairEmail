@@ -81,6 +81,7 @@
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
     <string name="title_notification_sending_failed">Invio a %1$s non riuscito</string>
+    <string name="title_notification_redacted">Autenticazione biometrica o via numero di identificazione personale (NIP) abilitata</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -756,6 +757,7 @@
     <string name="title_ask_review_rationale">        Stai usando FairEmail da un po\'.
         Ti saremmo grati se potessi valutare FairEmail nel Play Store.
         Questo aiuterà a mantenere un equilibrio tra revisioni sfavorevoli e favorevoli.    </string>
+    <string name="title_ask_once">Questo messaggio apparirà solo una volta, a meno che tu selezioni «Più tardi»</string>
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
     <string name="title_download_message">Download &#8230;</string>
