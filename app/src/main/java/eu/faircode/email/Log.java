@@ -521,7 +521,6 @@ public class Log {
                 "Thread starting during runtime shutdown".equals(ex.getMessage()))
             /*
                 java.lang.InternalError: Thread starting during runtime shutdown
-                java.lang.InternalError: Thread starting during runtime shutdown
                   at java.lang.Thread.nativeCreate(Native Method)
                   at java.lang.Thread.start(Thread.java:1063)
                   at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:921)
@@ -535,14 +534,12 @@ public class Log {
         if ("android.app.RemoteServiceException".equals(ex.getClass().getName()))
             /*
                 android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
-                android.app.RemoteServiceException: Bad notification for startForeground: java.util.ConcurrentModificationException
-                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2204)
             */
             return false;
 
         if ("android.view.WindowManager$BadTokenException".equals(ex.getClass().getName()))
             /*
-                android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@e9084db is not valid; is your activity running?
                 android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@e9084db is not valid; is your activity running?
                   at android.view.ViewRootImpl.setView(ViewRootImpl.java:827)
                   at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:356)
@@ -558,11 +555,10 @@ public class Log {
         if (ex instanceof NoSuchMethodError)
             /*
                 java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
-                java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
-                at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
-                at com.android.keychain.KeyChainService.(KeyChainService.java:95)
-                at java.lang.Class.newInstance(Native Method)
-                at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
+                  at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
+                  at com.android.keychain.KeyChainService.(KeyChainService.java:95)
+                  at java.lang.Class.newInstance(Native Method)
+                  at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
              */
             return false;
 
@@ -572,13 +568,13 @@ public class Log {
                 Android 9 only
                 java.lang.IllegalStateException: Drag shadow dimensions must be positive
                 java.lang.IllegalStateException: Drag shadow dimensions must be positive
-                at android.view.View.startDragAndDrop(View.java:24027)
-                at android.widget.Editor.startDragAndDrop(Editor.java:1165)
-                at android.widget.Editor.performLongClick(Editor.java:1191)
-                at android.widget.TextView.performLongClick(TextView.java:11346)
-                at android.view.View.performLongClick(View.java:6653)
-                at android.view.View$CheckForLongPress.run(View.java:25855)
-                at android.os.Handler.handleCallback(Handler.java:873)
+                  at android.view.View.startDragAndDrop(View.java:24027)
+                  at android.widget.Editor.startDragAndDrop(Editor.java:1165)
+                  at android.widget.Editor.performLongClick(Editor.java:1191)
+                  at android.widget.TextView.performLongClick(TextView.java:11346)
+                  at android.view.View.performLongClick(View.java:6653)
+                  at android.view.View$CheckForLongPress.run(View.java:25855)
+                  at android.os.Handler.handleCallback(Handler.java:873)
             */
             return false;
 
@@ -587,21 +583,21 @@ public class Log {
             /*
                 Play billing?
                 java.lang.IllegalStateException: Results have already been set
-                        at Gu.a(Unknown:8)
-                        at Fq.a(Unknown:29)
-                        at Fk.b(Unknown:17)
-                        at Fk.a(Unknown:12)
-                        at Fk.b(Unknown:5)
-                        at Ex.a(Unknown:3)
-                        at Ep.b(Unknown:9)
-                        at Ep.a(Unknown:76)
-                        at Ep.a(Unknown:16)
-                        at GH.a(Unknown:2)
-                        at Gz.a(Unknown:48)
-                        at GC.handleMessage(Unknown:6)
-                        at android.os.Handler.dispatchMessage(Handler.java:108)
-                        at android.os.Looper.loop(Looper.java:166)
-                        at android.os.HandlerThread.run(HandlerThread.java:65)
+                  at Gu.a(Unknown:8)
+                  at Fq.a(Unknown:29)
+                  at Fk.b(Unknown:17)
+                  at Fk.a(Unknown:12)
+                  at Fk.b(Unknown:5)
+                  at Ex.a(Unknown:3)
+                  at Ep.b(Unknown:9)
+                  at Ep.a(Unknown:76)
+                  at Ep.a(Unknown:16)
+                  at GH.a(Unknown:2)
+                  at Gz.a(Unknown:48)
+                  at GC.handleMessage(Unknown:6)
+                  at android.os.Handler.dispatchMessage(Handler.java:108)
+                  at android.os.Looper.loop(Looper.java:166)
+                  at android.os.HandlerThread.run(HandlerThread.java:65)
              */
             return false;
 
@@ -684,24 +680,26 @@ public class Log {
 
         if (ex instanceof RuntimeException &&
                 ex.getMessage() != null &&
-                (ex.getMessage().startsWith("Could not get application info") ||
+                (ex.getMessage().contains("DeadSystemException") ||
+                        ex.getMessage().startsWith("Could not get application info") ||
                         ex.getMessage().startsWith("Unable to create service") ||
                         ex.getMessage().startsWith("Unable to start service") ||
                         ex.getMessage().startsWith("Unable to resume activity") ||
                         ex.getMessage().startsWith("Failure delivering result")))
             return false;
             /*
-                java.lang.RuntimeException: Could not get application info.
-                 java.lang.RuntimeException: Could not get application info.
-                   at CH0.a(PG:11)
-                   at org.chromium.content.browser.ChildProcessLauncherHelperImpl.a(PG:34)
-                   at Fn2.run(PG:5)
-                   at android.os.Handler.handleCallback(Handler.java:874)
-                   at android.os.Handler.dispatchMessage(Handler.java:100)
-                   at android.os.Looper.loop(Looper.java:198)
-                   at android.os.HandlerThread.run(HandlerThread.java:65)
+                java.lang.RuntimeException: Unable to unbind to service androidx.work.impl.background.systemjob.SystemJobService@291a412 with Intent { cmp=eu.faircode.email/androidx.work.impl.background.systemjob.SystemJobService }: java.lang.RuntimeException: android.os.DeadSystemException
+                  at android.app.ActivityThread.handleUnbindService(ActivityThread.java:4352)
 
-                java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
+                java.lang.RuntimeException: Could not get application info.
+                  at CH0.a(PG:11)
+                  at org.chromium.content.browser.ChildProcessLauncherHelperImpl.a(PG:34)
+                  at Fn2.run(PG:5)
+                  at android.os.Handler.handleCallback(Handler.java:874)
+                  at android.os.Handler.dispatchMessage(Handler.java:100)
+                  at android.os.Looper.loop(Looper.java:198)
+                  at android.os.HandlerThread.run(HandlerThread.java:65)
+
                 java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
                   at android.app.ActivityThread.handleCreateService(ActivityThread.java:2739)
 
@@ -739,7 +737,6 @@ public class Log {
                 "InputChannel is not initialized.".equals(ex.getMessage()))
             return false;
             /*
-                java.lang.RuntimeException: InputChannel is not initialized.
                 java.lang.RuntimeException: InputChannel is not initialized.
                   at android.view.InputEventReceiver.nativeInit(Native Method)
                   at android.view.InputEventReceiver.<init>(InputEventReceiver.java:72)
@@ -790,17 +787,17 @@ public class Log {
                 "android.database.CursorWindowAllocationException".equals(ex.getClass().getName()))
             /*
                 android.database.CursorWindowAllocationException: Could not allocate CursorWindow '/data/user/0/eu.faircode.email/no_backup/androidx.work.workdb' of size 2097152 due to error -12.
-                at android.database.CursorWindow.nativeCreate(Native Method)
-                at android.database.CursorWindow.<init>(CursorWindow.java:139)
-                at android.database.CursorWindow.<init>(CursorWindow.java:120)
-                at android.database.AbstractWindowedCursor.clearOrCreateWindow(AbstractWindowedCursor.java:202)
-                at android.database.sqlite.SQLiteCursor.fillWindow(SQLiteCursor.java:147)
-                at android.database.sqlite.SQLiteCursor.getCount(SQLiteCursor.java:140)
-                at android.database.AbstractCursor.moveToPosition(AbstractCursor.java:232)
-                at android.database.AbstractCursor.moveToNext(AbstractCursor.java:281)
-                at androidx.room.InvalidationTracker$1.checkUpdatedTable(SourceFile:417)
-                at androidx.room.InvalidationTracker$1.run(SourceFile:388)
-                at androidx.work.impl.utils.SerialExecutor$Task.run(SourceFile:91)
+                  at android.database.CursorWindow.nativeCreate(Native Method)
+                  at android.database.CursorWindow.<init>(CursorWindow.java:139)
+                  at android.database.CursorWindow.<init>(CursorWindow.java:120)
+                  at android.database.AbstractWindowedCursor.clearOrCreateWindow(AbstractWindowedCursor.java:202)
+                  at android.database.sqlite.SQLiteCursor.fillWindow(SQLiteCursor.java:147)
+                  at android.database.sqlite.SQLiteCursor.getCount(SQLiteCursor.java:140)
+                  at android.database.AbstractCursor.moveToPosition(AbstractCursor.java:232)
+                  at android.database.AbstractCursor.moveToNext(AbstractCursor.java:281)
+                  at androidx.room.InvalidationTracker$1.checkUpdatedTable(SourceFile:417)
+                  at androidx.room.InvalidationTracker$1.run(SourceFile:388)
+                  at androidx.work.impl.utils.SerialExecutor$Task.run(SourceFile:91)
              */
             return false;
 
