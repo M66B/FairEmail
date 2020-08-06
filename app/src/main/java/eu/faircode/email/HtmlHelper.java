@@ -833,7 +833,7 @@ public class HtmlHelper {
 
         // Remove tracking pixels
         if (disable_tracking)
-            removeTrackingPixels(context, document);
+            removeTrackingPixels(context, document, false);
 
         // Images
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
@@ -1427,7 +1427,7 @@ public class HtmlHelper {
         return sb.toString();
     }
 
-    static void removeTrackingPixels(Context context, Document document) {
+    static void removeTrackingPixels(Context context, Document document, boolean full) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disconnect_images = prefs.getBoolean("disconnect_images", false);
 
@@ -1461,14 +1461,21 @@ public class HtmlHelper {
         // Images
         for (Element img : document.select("img")) {
             img.removeAttr("x-tracking");
+
             String src = img.attr("src");
-            if (TextUtils.isEmpty(src))
+            if (TextUtils.isEmpty(src)) {
+                if (!full)
+                    img.remove();
                 continue;
+            }
 
             Uri uri = Uri.parse(src);
             String host = uri.getHost();
-            if (host == null || hosts.contains(host))
+            if (host == null || hosts.contains(host)) {
+                if (!full && isTrackingPixel(img)) // Is small image
+                    img.remove();
                 continue;
+            }
 
             if (isTrackingPixel(img) ||
                     (disconnect_images && DisconnectBlacklist.isTracking(host))) {

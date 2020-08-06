@@ -2017,7 +2017,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
                         if (disable_tracking)
-                            HtmlHelper.removeTrackingPixels(context, document);
+                            HtmlHelper.removeTrackingPixels(context, document, true);
 
                         if (debug) {
                             Document format = JsoupEx.parse(file);
