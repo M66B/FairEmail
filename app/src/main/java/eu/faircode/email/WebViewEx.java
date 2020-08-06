@@ -57,6 +57,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
 
         settings.setAllowFileAccess(false);
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
