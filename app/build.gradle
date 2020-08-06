@@ -51,13 +51,13 @@ android {
 
         sourceSets {
             github {
-                java.srcDirs = ['src/main/java', 'src/iab/java']
+                java.srcDirs = ['src/main/java', 'src/play/java']
             }
             fdroid {
                 java.srcDirs = ['src/main/java', 'src/fdroid/java']
             }
             play {
-                java.srcDirs = ['src/main/java', 'src/iab/java']
+                java.srcDirs = ['src/main/java', 'src/play/java']
             }
             main.res.srcDirs += 'src/main/resExtra'
         }
