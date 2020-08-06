@@ -1000,6 +1000,20 @@ public class Helper {
         return true;
     }
 
+    static Integer parseInt(String text) {
+        if (TextUtils.isEmpty(text))
+            return null;
+
+        if (!TextUtils.isDigitsOnly(text))
+            return null;
+
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException ignored) {
+            return null;
+        }
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {

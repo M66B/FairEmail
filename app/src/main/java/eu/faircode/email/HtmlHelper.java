@@ -130,6 +130,7 @@ public class HtmlHelper {
     private static final int MAX_AUTO_LINK = 250;
     private static final int MAX_FORMAT_TEXT_SIZE = 200 * 1024; // characters
     private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
+    private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
@@ -1472,8 +1473,15 @@ public class HtmlHelper {
             Uri uri = Uri.parse(src);
             String host = uri.getHost();
             if (host == null || hosts.contains(host)) {
-                if (!full && isTrackingPixel(img)) // Is small image
-                    img.remove();
+                if (!full) {
+                    // Remove spacer, etc
+                    Integer width = Helper.parseInt(img.attr("width").trim());
+                    Integer height = Helper.parseInt(img.attr("height").trim());
+                    if ((width != null && width <= SMALL_IMAGE_SIZE) ||
+                            (height != null && height <= SMALL_IMAGE_SIZE))
+                        img.remove();
+                }
+
                 continue;
             }
 
