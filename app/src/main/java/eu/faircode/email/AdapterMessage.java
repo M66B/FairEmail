@@ -1869,7 +1869,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 webView.init(
                         height, size, position,
                         textSize, monospaced,
-                        show_images, inline,
                         new WebViewEx.IWebView() {
                             @Override
                             public void onSizeChanged(int w, int h, int ow, int oh) {
@@ -1896,6 +1895,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return ViewHolder.this.onOpenLink(uri, null);
                             }
                         });
+                webView.setImages(show_images, inline);
                 webView.setOnTouchListener(ViewHolder.this);
 
                 tvBody.setVisibility(View.GONE);
@@ -3564,7 +3564,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImagesConfirmed(TupleMessageEx message) {
-            bindBody(message, false);
+            boolean show_full = properties.getValue("full", message.id);
+            boolean show_images = properties.getValue("images", message.id);
+            if (show_full && show_images && wvBody != null)
+                ((WebViewEx) wvBody).setImages(show_images, inline);
+            else
+                bindBody(message, false);
         }
 
         private void onActionUnsubscribe(TupleMessageEx message) {

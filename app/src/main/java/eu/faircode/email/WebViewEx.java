@@ -69,7 +69,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     void init(
             int height, float size, Pair<Integer, Integer> position,
             float textSize, boolean monospaced,
-            boolean show_images, boolean inline,
             IWebView intf) {
         Log.i("Init height=" + height + " size=" + size);
 
@@ -90,10 +89,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         }
         if (monospaced)
             settings.setStandardFontFamily("monospace");
-
-        settings.setLoadsImagesAutomatically(show_images || inline);
-        settings.setBlockNetworkLoads(!show_images);
-        settings.setBlockNetworkImage(!show_images);
 
         this.intf = intf;
 
@@ -118,6 +113,13 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                     intf.onScrollChange(scrollX, scrollY);
                 }
             });
+    }
+
+    void setImages(boolean show_images, boolean inline) {
+        WebSettings settings = getSettings();
+        settings.setLoadsImagesAutomatically(show_images || inline);
+        settings.setBlockNetworkLoads(!show_images);
+        settings.setBlockNetworkImage(!show_images);
     }
 
     @Override
