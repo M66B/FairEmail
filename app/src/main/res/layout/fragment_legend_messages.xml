@@ -35,13 +35,36 @@
             app:layout_constraintTop_toTopOf="@id/ivThread" />
 
         <ImageView
+            android:id="@+id/ivBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_thread"
+            android:padding="12dp"
+            android:tint="?attr/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivThread"
+            app:srcCompat="@drawable/baseline_message_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBookmark"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_bookmark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivBookmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivBookmark"
+            app:layout_constraintTop_toTopOf="@id/ivBookmark" />
+
+        <ImageView
             android:id="@+id/ivZoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_zoom"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivThread"
+            app:layout_constraintTop_toBottomOf="@id/ivBookmark"
             app:srcCompat="@drawable/baseline_format_size_24" />
 
         <eu.faircode.email.FixedTextView

@@ -1179,6 +1179,7 @@
     <string name="title_legend_stop">Stop processing rules</string>
 
     <string name="title_legend_thread">Conversation</string>
+    <string name="title_legend_bookmark">Last opened conversation</string>
     <string name="title_legend_zoom">Change text size</string>
     <string name="title_legend_draft">Has draft</string>
     <string name="title_legend_priority">Has high priority</string>
