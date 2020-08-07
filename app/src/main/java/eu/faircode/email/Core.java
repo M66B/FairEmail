@@ -953,6 +953,8 @@ class Core {
                 db.message().deleteMessage(message.id);
             }
 
+        boolean canMove = istore.hasCapability("MOVE");
+
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
         if (draft) {
@@ -986,7 +988,7 @@ class Core {
             itarget.appendMessages(icopies.toArray(new Message[0]));
         } else {
             for (Message imessage : map.keySet()) {
-                Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags());
+                Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags() + " can=" + canMove);
 
                 // Mark read
                 if (seen && flags.contains(Flags.Flag.SEEN))
@@ -997,11 +999,15 @@ class Core {
                     imessage.setFlag(Flags.Flag.FLAGGED, false);
             }
 
-            ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
+            // https://tools.ietf.org/html/rfc6851
+            if (!copy && canMove)
+                ifolder.moveMessages(map.keySet().toArray(new Message[0]), itarget);
+            else
+                ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
         }
 
         // Delete source
-        if (!copy) {
+        if (!copy && (draft || !canMove)) {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
