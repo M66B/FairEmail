@@ -764,10 +764,6 @@
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
     <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
-    <string name="title_ask_review_rationale">        Utilizați FairEmail de ceva vreme.
-        Vom aprecia dacă ați putea evalua FairEmail în Play Store.
-        Aceasta ajută la menținerea unui echilibru între recenziile nefavorabile și cele favorabile.
-    </string>
     <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>

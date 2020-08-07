@@ -172,6 +172,7 @@
     <string name="title_setup_done">Έγινε</string>
     <string name="title_setup_still">Απομένουν να γίνουν</string>
     <string name="title_setup_error">Σφάλμα</string>
+    <string name="title_setup_configuring">Ρύθμιση λογαριασμού &#8230;</string>
     <string name="title_setup_export">Εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_import">Εισαγωγή ρυθμίσεων</string>
     <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
@@ -749,9 +750,8 @@
     <string name="title_ask_reporting">Να αποστέλλονται αναφορές σφαλμάτων;</string>
     <string name="title_reporting_why">Οι αναφορές σφαλμάτων θα βοηθήσουν να βελτιωθεί το FairEmail</string>
     <string name="title_ask_review">Παρακαλούμε, αξιολογήστε το FairEmail</string>
-    <string name="title_ask_review_rationale">        Χρησιμοποιείτε το FairEmail για αρκετό καιρό.
-        Θα το εκτιμούσαμε πολύ, εάν θα αξιολογούσατε το FairEmail στο Play Store.
-        Έτσι, θα βοηθήσετε να διατηρηθεί μια ισορροπία ανάμεσα στις δυσμενείς και τις ευνοϊκές κριτικές.
+    <string name="title_ask_review_rationale">        Χρησιμοποιείτε το FairEmail για αρκετό χρονικό διάστημα.
+        Θα το εκτιμούσαμε αν θα αξιολογούσατε το FairEmail στο Play Store.
     </string>
     <string name="title_ask_once">Το μήνυμα αυτό θα εμφανιστεί μόνο μια φορά, εκτός αν επιλέξετε \"Αργότερα\"</string>
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>

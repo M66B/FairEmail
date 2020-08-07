@@ -60,7 +60,7 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
-## Known problems
+## مشکلات شناخته شده
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -77,7 +77,7 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 
-## Planned features
+## ویژگی‌های برنامه‌ریزی شده
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -112,11 +112,11 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## ویژگی‌های درخواست شده متداول
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Frequently Asked Questions
+## پرسش‌های متداول
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -821,11 +821,11 @@ The error *... Host is unresolved ...* or "*... Unable to resolve host ...* mean
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The error *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
@@ -2127,11 +2127,12 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
-Google manages all purchases, so as developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
+* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
@@ -2141,7 +2142,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* An application like FairEmail cannot select which Google account to use
+* An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.

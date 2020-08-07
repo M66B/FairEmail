@@ -775,10 +775,6 @@
     <string name="title_ask_reporting">Wyślij raporty o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże ulepszyć FairEmail</string>
     <string name="title_ask_review">Oceń FairEmail</string>
-    <string name="title_ask_review_rationale">        Od pewnego czasu korzystasz z FairEmail.
-        Byłoby mile widziane, gdybyś mógł ocenić FairEmail w Sklepie Play..
-        Pomoże to utrzymać równowagę między niekorzystnymi a pozytywnymi ocenami.
-    </string>
     <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>

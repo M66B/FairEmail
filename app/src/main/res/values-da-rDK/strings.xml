@@ -173,6 +173,7 @@
     <string name="title_setup_done">Udført</string>
     <string name="title_setup_still">Resterer stadig</string>
     <string name="title_setup_error">Fejl</string>
+    <string name="title_setup_configuring">Opsætter konto &#8230;</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
@@ -754,9 +755,8 @@
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
     <string name="title_ask_review">Bedøm venligst FairEmail</string>
-    <string name="title_ask_review_rationale">        Du har brugt FairEmail i et stykke tid nu.
-        Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
-        Dette vil hjælpe med at bevare balancen mellem ugunstige og gunstige anmeldelser.
+    <string name="title_ask_review_rationale">        Du har nu benyttet FairEmail i et stykke tid.
+         Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
     </string>
     <string name="title_ask_once">Denne besked vises kun én gang, med mindre duvælger \'Senere\'</string>
     <string name="title_third_party">Du benytter en tredjepartsversion</string>

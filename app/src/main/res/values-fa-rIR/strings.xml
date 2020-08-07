@@ -125,6 +125,7 @@
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
     <string name="title_setup_wizard">جادوگر</string>
     <string name="title_setup_wizard_multiple">جادوگر نصب می‌تواند چندین بار برای راه‌اندازی چندین حساب‌ مورد استفاده قرار بگیرد</string>
+    <string name="title_setup_wizard_new">من به یک نشانی‌های ایمیل تازه نیاز دارم</string>
     <string name="title_setup_wizard_remark">برای رفتن به صندوق ورودی به عقب بروید</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
@@ -238,6 +239,7 @@
     <string name="title_advanced_suggest_sent">پیشنهاد نشانی‌های یافت شده در پیام‌های ارسال شده</string>
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
+    <string name="title_advanced_compose_font">قلم پیشفرض</string>
     <string name="title_advanced_auto_list">به‌صورت خودکار فهرست‌ها را ایجاد کن</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
@@ -320,6 +322,7 @@
     <string name="title_advanced_default_snooze">زمان پیش‌فرض چرت زدن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
+    <string name="title_advanced_notifications_service">دریافت کانال</string>
     <string name="title_advanced_notifications_background">استفاده از سرویس پس‌زمینه برای همگام‌سازی پیام‌ها</string>
     <string name="title_advanced_notifications_background_hint">یک سرویس پس‌زمینه می‌تواند هر هنگام توسط اندروید متوقف شود، ولی نیاز به اعلان نوار وضعیت ندارد</string>
     <string name="title_advanced_badge">نمایش عدد پیام‌های جدید با آیکون راه‌انداز</string>
@@ -395,6 +398,7 @@
     <string name="title_advanced_autoexpand_hint">باز کردن خودکار پیام وقتی فقط یک پیام یا فقط یک پیام خوانده نشده در مکالمه وجود دارد</string>
     <string name="title_advanced_autoclose_hint">بسته شدن خودکار مکالمات زمانی که همه پیام‌ها آرشیو شده، فرستاده شده و یا به به سطل آشغال فرستاده شده است</string>
     <string name="title_advanced_sender_hint">بیشتر فراهم‌کنندگان نشانی‌های ویرایش شده فرستنده را قبول نمی‌کنند</string>
+    <string name="title_advanced_display_harmful_hint">غیرفعال کردن این گزینه شاید برای حریم شخصی شما زیان آور باشد</string>
     <string name="title_advanced_display_pin_hint">یک پین بر تایید هویت بیومتریک اولویت دارد</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
@@ -634,10 +638,6 @@
     <string name="title_ask_help">به بهبود FairEmail کمک کنید</string>
     <string name="title_ask_reporting">ارسال گزارش‌های خطا؟</string>
     <string name="title_ask_review">لطفا به FairEmail امتیاز بدهید</string>
-    <string name="title_ask_review_rationale">        شما FairEmail برای مدتی استفاده کرده‌اید.
-        اگر بتوانید FairEmail را در Play Store ارزیابی کنید، بسیار قدردان خواهیم بود.
-        این به برقراری توازن بین مرورهای مطلوب و نامطلوب کمک خواهد کرد.
-    </string>
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
@@ -684,6 +684,7 @@
     <string name="title_add_image_inline">درج</string>
     <string name="title_add_image_attach">پیوست</string>
     <string name="title_add_image_resize">تغییر اندازه</string>
+    <string name="title_add_image_privacy">حذف کردن داده شخصی حساس</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
     <string name="title_add_image_select">انتخاب پرونده</string>
     <string name="title_add_attachment">افزودن پیوست</string>
@@ -691,6 +692,7 @@
     <string name="title_attachment_photo">گرفتن عکس</string>
     <string name="title_attachment_audio">ضبط صدا</string>
     <string name="title_show_addresses">نمایش گیرنده رونوشت/رونوشت پنهان</string>
+    <string name="title_save_drafts">ذخیره کردن پیش‌نویس‌ها روی سرور</string>
     <string name="title_send_dialog">نمایش گزینه‌های ارسال</string>
     <string name="title_image_dialog">نمایش گزینه‌های تصویر</string>
     <string name="title_media_toolbar">نوار ابزار رسانه</string>
@@ -703,6 +705,7 @@
     <string name="title_no_key">کلید خصوصی نیست</string>
     <string name="title_invalid_key">کلید خصوصی بی اعتبار</string>
     <string name="title_unknown_key">کلید خصوصی با هیچ کلید رمزنگاری همخوانی ندارد</string>
+    <string name="title_key_missing">هیچ کلیدی برای %1$s نیست</string>
     <string name="title_send_plain_text">فقط متن ساده</string>
     <string name="title_send_receipt">درخواست رسید دریافت</string>
     <string name="title_send_receipt_remark">بیشتر فراهم‌کنندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
@@ -857,6 +860,7 @@
     <string name="title_rule_tts_prefix">پیام جدید</string>
     <string name="title_rule_tts_from">از</string>
     <string name="title_rule_tts_subject">موضوع</string>
+    <string name="title_rule_tts_content">متن</string>
     <string name="title_legend_section_synchronize">همگام سازی</string>
     <string name="title_legend_section_folders">پوشه‌ها</string>
     <string name="title_legend_section_messages">پیام‌ها</string>
@@ -968,6 +972,7 @@
     <string name="title_hint_sync">دریافت پیامها می تواند زمانی بسته به سرعت سرویس دهنده، اتصال به اینترنت، دستگاه و تعداد پیام‌ها طول بکشد. هنگام دریافت پیامها ممکن است عملکرد برنامه کند شود.</string>
     <string name="title_hint_contact_actions">لمس طولانی برای گزینه‌ها</string>
     <string name="title_open_link">بازکردن لینک</string>
+    <string name="title_tracking_link">این وبسایت شاید شما را ردیابی کند</string>
     <string name="title_link_http">ترافیک رمزگذاری نخواهد شد</string>
     <string name="title_link_https">ترافیک رمزگذاری خواهد شد</string>
     <string name="title_sanitize_link">حذف پارامترهای ردیاب</string>
@@ -985,6 +990,7 @@
     <string name="title_add">افزودن</string>
     <string name="title_browse">باز کردن با</string>
     <string name="title_info">اطلاعات</string>
+    <string name="title_download">بارگیری</string>
     <string name="title_report">گزارش</string>
     <string name="title_fix">تعمیر</string>
     <string name="title_enable">فعال‌سازی</string>
@@ -1200,6 +1206,13 @@
         <item>۱۰ MB</item>
         <item>۲۰ MB</item>
         <item>۵۰ MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>خاموش</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

@@ -173,6 +173,7 @@
     <string name="title_setup_done">Effectué</string>
     <string name="title_setup_still">Encore à faire</string>
     <string name="title_setup_error">Erreur</string>
+    <string name="title_setup_configuring">Configuration du compte&#8230;</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
@@ -754,9 +755,8 @@
     <string name="title_ask_reporting">Envoyer des rapports d’erreur?</string>
     <string name="title_reporting_why">Le signalement d’erreurs aidera à améliorer FairEmail</string>
     <string name="title_ask_review">Évaluez FairEmail SVP</string>
-    <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un certain temps maintenant.
-        Il serait appréciable que vous évaluiez FairEmail sur le Play Store.
-        Ceci aiderait à maintenir un équilibre entre les avis défavorables et favorables.
+    <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un certain temps.
+        Il serait souhaitable que vous évaluiez FairEmail dans le Play Store.
     </string>
     <string name="title_ask_once">Ce message n\'apparaîtra qu\'une seule fois, sauf si vous sélectionnez « Plus tard »</string>
     <string name="title_third_party">Vous utilisez une version tierce</string>

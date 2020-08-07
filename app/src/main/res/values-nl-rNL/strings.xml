@@ -172,6 +172,7 @@
     <string name="title_setup_done">Gedaan</string>
     <string name="title_setup_still">Nog te doen</string>
     <string name="title_setup_error">Fout</string>
+    <string name="title_setup_configuring">Account configureren &#8230;</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
@@ -753,9 +754,8 @@
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
     <string name="title_ask_review">Beoordeel a.u.b. FairEmail</string>
-    <string name="title_ask_review_rationale">        U heeft FairEmail al een tijdje gebruikt.
-        Het wordt gewaardeerd als u FairEmail in de Play Store zou beoordelen.
-        Dit helpt ook om het evenwicht tussen ongunstige en gunstige beoordelingen te bewaren.
+    <string name="title_ask_review_rationale">        U gebruikt FairEmail al een tijdje.
+        Het zou gewaardeerd worden als u FairEmail in de Play Store zou kunnen beoordelen.
     </string>
     <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>

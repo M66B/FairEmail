@@ -617,10 +617,6 @@
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
     <string name="title_ask_review">Lütfen FairEmail\'i değerlendirin</string>
-    <string name="title_ask_review_rationale">        Bir süredir FairEmail kullanıyorsunuz.
-        Play Store\'da FairEmail\'e puan verebilirseniz seviniriz.
-        Bu, olumsuz ve olumlu değerlendirmeler arasında bir denge kurulmasına yardımcı olacaktır.
-    </string>
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
     <string name="title_compose">Eposta Oluştur</string>

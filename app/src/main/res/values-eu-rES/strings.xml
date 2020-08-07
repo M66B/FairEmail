@@ -697,10 +697,6 @@
     <string name="title_ask_reporting">Bidali errore txostenak?</string>
     <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
     <string name="title_ask_review">Baloratu FairEmail mesedez</string>
-    <string name="title_ask_review_rationale">FairEmail denbora batez erabili duzu.
-Eskertzekoa litzateke Play Storen FairEmail baloratuko bazenu.
-Honekin aldeko eta kontrako botoen arteko oreka mantenduko da.
-    </string>
     <string name="title_third_party">Hirugarren baten bertsioa erabiltzen ari zara</string>
     <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>

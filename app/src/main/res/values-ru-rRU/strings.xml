@@ -195,6 +195,7 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_still">Осталось сделать</string>
     <string name="title_setup_error">Ошибка</string>
+    <string name="title_setup_configuring">Настройка учётной записи&#8230;</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
@@ -776,9 +777,8 @@
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
     <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
     <string name="title_ask_review">Пожалуйста, оцените FairEmail</string>
-    <string name="title_ask_review_rationale">        Вы давно используете FairEmail.
-        Будем признательны, если вы сможете оценить FairEmail в Play Store.
-        Это поможет поддерживать баланс между неблагоприятными и благоприятными отзывами.
+    <string name="title_ask_review_rationale">        Вы уже пользуетесь FairEmail некоторое время.
+        Мы были бы признательны, если бы вы оценили FairEmail в Play Store.
     </string>
     <string name="title_ask_once">Это сообщение будет показано только один раз, если вы не выберите \"Позже\"</string>
     <string name="title_third_party">Вы используете стороннюю версию</string>

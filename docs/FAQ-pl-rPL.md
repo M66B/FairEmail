@@ -821,11 +821,11 @@ Błąd *... Host is unresolved ...* or "*... Unable to resolve host ...* means t
 
 Błąd *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-Błąd *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
@@ -2127,11 +2127,12 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
-Google manages all purchases, so as developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
+* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
@@ -2141,7 +2142,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* An application like FairEmail cannot select which Google account to use
+* An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.

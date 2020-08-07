@@ -755,10 +755,6 @@
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
-    <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
-        Agradecería que pudiera calificar a FairEmail en Play Store.
-        Esto ayudará a mantener un equilibrio entre reseñas desfavorables y favorables.
-    </string>
     <string name="title_ask_once">Este mensaje sólo aparecerá una vez, a menos que seleccione \'Más tarde\'</string>
     <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>

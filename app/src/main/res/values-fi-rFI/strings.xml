@@ -750,10 +750,6 @@
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
-    <string name="title_ask_review_rationale">Olet käyttänyt FairEmailia jonkin aikaa.
-        Olisi hienoa, jos voisit arvioida FairEmailin Play Kaupassa.
-        Tämä auttaa pitämään tasapainon hyvien ja huonojen arvioiden välillä.
-    </string>
     <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>

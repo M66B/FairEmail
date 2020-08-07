@@ -777,8 +777,7 @@
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
     <string name="title_ask_review">Prosím, ohodnoťte FairEmail</string>
     <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
-        Vážil bych si, kdyby jste mohli FairEmail ohodnotit v Obchodě Play.
-        Pomůže to udržet rovnováhu mezi nepříznivými a příznivými recenzemi.
+        Cenili bychom si, kdyby jste mohli FairEmail ohodnotit v obchodě Google Play.
     </string>
     <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
     <string name="title_third_party">Používáte verzi třetí strany</string>
@@ -1200,9 +1199,9 @@
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>
     <string name="title_pro_once">Jen jednou</string>
-    <string name="title_pro_info">        Vývoj FairEmail trval doslova tisíce hodin a i přesto lze většinu funkcí používat volně.
-        FairEmail bere vaše soukromí vážně a nezobrazuje reklamy a nepoužívá sledování či analytika pro získávání příjmů.
-        Abychom učinili FairEmail dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně k dispozici.
+    <string name="title_pro_info">        Vývoj FairEmailu trval doslova tisíce hodin a i přesto je většina funkcí k dispozici bez omezení.
+        FairEmail bere vaše soukromí vážně a nezobrazuje reklamy, ani nepoužívá sledování či analytika pro získávání příjmů.
+        Pro učinění FairEmailu dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně přístupné.
         Jako připomínku téhož zobrazuje FairEmail stručnou zprávu, jež bude odstraněna, zakoupíte-li si funkce Pro.
     </string>
     <string name="title_pro_hide">Skrýt stručnou zprávu po dobu %1$d týdnů</string>

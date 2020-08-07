@@ -688,10 +688,6 @@
     <string name="title_ask_reporting">Pošiljaj poročila o napakah?</string>
     <string name="title_reporting_why">Poročanje o napakah bo pomagalo izboljšati FairEmail.</string>
     <string name="title_ask_review">Prosimo, ocenite FairEmail.</string>
-    <string name="title_ask_review_rationale">        FairEmail uporabljate že nekaj časa.
-        Zelo bi cenili, če ga ocenite v Trgovini Play.
-        To bo pomagalo ohraniti ravnotežje med ugodnimi in neugodnimi ocenami.
-    </string>
     <string name="title_third_party">Uporabljate različico tretje osebe.</string>
     <string name="title_expand_warning">Razširitev tega sporočila bo prejela %1$s.</string>
     <string name="title_download_message">Prejemanje &#8230;</string>

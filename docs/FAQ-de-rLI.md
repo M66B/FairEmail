@@ -20,7 +20,7 @@ Wenn die schnelle Einrichtung fehlschlägt, müssen Sie manuell ein Konto (für 
 
 Die Suche nach *IMAP* und dem Namen des Email-Anbieters reichen im Internet meistens aus, um die richtige Anleitung zu finden.
 
-In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto aktivieren und/oder ein spezielles (App-) Passwort verwenden, zum Beispiel, wenn die Zwei-Faktor-Authentifizierung aktiviert ist.
+In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto gestatten und/oder ein spezielles (App-) Passwort verwenden, wenn beispielsweise eine Zwei-Faktor-Authentifizierung aktiviert ist.
 
 Zur Autorisierung:
 
@@ -32,7 +32,7 @@ Zur Autorisierung:
 * Apple iCloud: siehe [Frage 148](#user-content-faq148)
 * Free.fr: siehe [Frage 157](#user-content-faq157)
 
-Allgemeine Fehlermeldungen und Lösungen finden Sie unter [hier](#user-content-faq22).
+Bitte lesen Sie [hier](#user-content-faq22) häufige Fehlermeldungen und Lösungen.
 
 Verwandte Fragen:
 
@@ -821,11 +821,11 @@ The error *... Host is unresolved ...* or "*... Unable to resolve host ...* mean
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The error *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+Die Fehler * … BYE Logging out ...*, *... Verbindung durch Peer zurückgesetzt …* bedeutet, dass der E-Mail-Server eine bestehende Verbindung aktiv beendet hat.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Zeitüberschreitung beim Lesen … *, * … Unterbrochene Pipe …* bedeutet, dass der E-Mail-Server nicht mehr antwortet oder dass die Internetverbindung gestört ist.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
@@ -2127,12 +2127,13 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
-Google manages all purchases, so as developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google verwaltet alle Einkäufe, so dass ich als Entwickler wenig Kontrolle über Einkäufe habe. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
+* Stellen Sie sicher, dass Sie FairEmail über das richtige Google-Konto installiert haben, wenn mehrere Google-Konten auf Ihrem Gerät eingerichtet wurden.
+* Öffnen Sie die App des Play Store und warten Sie mindestens eine Minute, um ihr Zeit zu geben, sich mit den Google-Servern zu synchronisieren.
+* Öffnen Sie FairEmail und navigieren Sie zum Bildschirm mit den Pro-Funktionen, damit FairEmail die Einkäufe überprüfen kann.
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2141,7 +2142,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* An application like FairEmail cannot select which Google account to use
+* Eine App wie FairEmail kann nicht auswählen, welches Google-Konto verwendet werden soll
 * It may take a while until the Play store app has synchronized a purchase to another device
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.

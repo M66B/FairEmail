@@ -821,11 +821,11 @@ Fejlen *... Vært er uopløst ...* eller "*... Kan ikke opløse vært ...* betyd
 
 Fejlen *... Software forårsaget forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og e-mailserveren, aktivt afsluttede en eksisterende forbindelse. Dette kan f.eks. ske, når tilslutningen pludselig blev mistet. Et typisk eksempel er aktivering af Flytilstand.
 
-Fejlen *... BYE, logger ud ...*, *... Connection reset by peer ...* eller *... Broken pipe ...* betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
+Fejlene *... BYE, logger ud ...*, *... Forbindelse nulstillet af peer ... * betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
 
 Fejlen *... Forbindelse lukket af peer ...* kan forårsages af en ikke-opdateret Exchange-server, se [hér](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for yderligere oplysninger.
 
-Fejlene *... Læsefejl ...*, *... Skrivefejl ...*, *... Læsning fik timeout ...* betyder, at e-mailserveren ikke længere svarer, eller at Internetforbindelsen er ringe.
+Fejlene *... Læsefejl ...*, *... Skrivefejl ...*, *... Læsning fik timeout ...*, *... Ødelagt pipe ...* betyder, at e-mailserveren ikke længere svarer, eller at Internetforbindelsen er ringe.
 
 Fejlen *... Uventet afslutning af zlib-inputstrøm ...* betyder, at ikke alle data blev modtaget, muligvis grundet en dårlig/afbrudt forbindelse.
 
@@ -1115,40 +1115,40 @@ Gentilslutninger til en e-mailserver forbruger ekstra strøm, hvilket f.eks. en 
 
 [På visse enheder](https://dontkillmyapp.com/) er det nødvendigt at *deaktivere* batterioptimeringer (opsætningstrin 4) for at holde forbindelser til e-mailservere åbne.
 
-Størstedelen af strømforbruget, fraset at se beskeder, skyldes synkronisering (modtagelse/afsendelse) af beskeder. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
+Størstedelen af strømforbruget, fraset at se beskeder, skyldes synkronisering (modtagelse/afsendelse) af beskeder. For at reducere strømforbruget så indstil antallet af synkroniseringsdage til en lavere værdi, især hvis der er en masse nylige beskeder i en mappe. Langt tryk på et mappenavn i mappelisten, og valg af *Redigér egenskaber* giver adgang til denne indstilling.
 
-If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
+Har du mindst én gang om dagen Internetforbindelse, er det tilstrækkeligt at synkronisere beskeder blot for én dag.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+Bemærk, det antal dage, hvori beskeder *beholdes* maksimalt kan indstilles til det antal dage, hvori beskeder *synkroniseres*. Du kan f.eks. indledningsvis synkronisere beskeder i et stort antal dage, og efter at dette er afsluttet reducer antallet af beskedsynkroniseringsdage, men bevare antallet af dage, hvori beskeder skal beholdes.
 
-In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
+I modtagelsesindstillingerne kan du aktivere altid at synkronisere stjernemarkerede beskeder, hvilket lader dig beholde ældre beskeder, selvom du synkroniserer beskeder i et begrænset antal dage.
 
-Disabling the folder option *Automatically download message texts and attachments* will result in less network traffic and thus less battery usage. You could disable this option for example for the sent folder and the archive.
+Deaktivering af mappeindstillingen *Download automatisk beskedtekster og vedhæftninger* vil betyde mindre netværkstrafik og dermed mindre strømforbrug. Du kan deaktivere denne indstilling for eksempelvis Sendt-mappen og arkivet.
 
-Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In the settings you can select a schedule for message synchronization (this is a pro feature).
+Synkronisering af beskeder om natten er for det meste unødvendigt, så du kan spare på strømmen ved ikke at gøre dette. Du kan i indstillingerne vælge en tidsplan for beskedsynkronisering (dette er en Pro-funktion).
 
-FairEmail will by default synchronize the folder list on each connection. Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
+FairEmail vil som standard synkronisere mappelisten ved hver tilslutning. Da mapper stort set ikke oprettes, omdøbes og slettes særligt ofte, kan du spare på netværks- og strømforbruget ved at deaktivere dette i modtagelsesindstillingerne.
 
-FairEmail will by default check if old messages were deleted from the server on each connection. If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+Som standard vil FairEmail ved hver tilslutning tjekke, om gamle beskeder blev slettet fra serveren. Hvis du ikke har noget imod, at gamle beskederr, som blev slettet fra serveren stadig er synlige i FairEmail, kan du spare netværks- og strømforbrug ved at deaktivere dette i modtagelsesindstillingerne.
 
-Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 4 to reliably keep connections alive.
+Visse udbydere følger ikke IMAP-standarden og holder ikke forbindelserne åbne længe nok. Det tvinger FairEmail til ofte at oprette forbindelse igen, hvilket medfører ekstra strømforbrug. Du kan tjekke *Loggen* via hovednavigeringsmenuen for at se, om der er hyppige forbindelsesgenoprettelser (forbindelse lukket/nulstillet, læse-/skrivefejl/timeout mv.). Du kan omgå dette ved i de avancerede kontoindstillinger at sænke keep-alive intervallet til f.eks. 9 eller 15 min. Bemærk, at batterioptimeringer skal deaktiveres i opsætningstrin 4 for pålideligt at holde forbindelserne i live.
 
-Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
+Visse udbydere sender hvert 2. minut noget i retning af et '*Stadig her*', hvilket resulterer i netværkstrafik samt vækning af din enhed og forårsager unødigt ekstra strømforbrug. Du kan tjekke *Loggen* via hovednavigeringsmenuen for at se, hvorvidt din udbyder gør dette. Benytter din udbyder [Dovecot](https://www.dovecot.org/) som IMAP-server, kan du bede din udbyder om at ændre indstillingen [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) til en højere værdi eller endnu bedre, deaktivere dette. Er din udbyder ikke er i stand til eller villig til at ændre/deaktivere dette, så overvej at skifte til periodisk i stedet for kontinuerlig synkronisering. Du kan ændre dette i modtagelsesindstillingerne.
 
-If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
+Ser du under opsætningen af en konto meddelelsen *Denne udbyder understøtter ikke push-beskeder*, så overvej at skifte til en moderne udbyder, der understøtter push-beskeder (IMAP IDLE) for at reducere strømforbruget.
 
-If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
+Har din enhed en [AMOLED](https://en.wikipedia.org/wiki/AMOLED)-skærm, kan du ved at skifte til det sorte tema spare strøm, mens du ser beskeder.
 
-By default auto optimize in the receive settings is enabled, which will switch an account to periodically checking for new messages when the email server:
+Som standard er autooptimering i modtagelsesindstillingerne aktiveret, hvilket omskifter en konto til periodisk at tjekke for nye beskeder, når e-mailserveren:
 
-* Says '*Still here*' within 3 minutes
-* The email server does not support push messages
-* The keep-alive interval is lower than 12 minutes
+* Sender et '*Stadig her*' inden for 3 minutter
+* Ikke understøtter push-beskeder
+* Keep-alive intervallet er kortere end 12 minutes
 
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the network usage of FairEmail?**
+**(40) Hvordan reduceres FairEmails netværksforbrug?**
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
@@ -2127,12 +2127,13 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
-Google manages all purchases, so as developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google håndterer alle køb, så som udvikler har jeg ringe kontrol over køb. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
+* Har du flere aktive Google-konti på din enhed, så sørg for at benytte den korrekte under installationen af FairEmail
+* Åbn Play Butik-appen, og vent mindst ét minut på at give den tid til at synkronisere med Google-serverne
+* Åbn FairEmail, og gå til Pro-funktionssiden for at lade FairEmail tjekke købene
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2141,7 +2142,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* An application like FairEmail cannot select which Google account to use
+* En app som FairEmail kan ikke vælge, hvilken Google-konto, der skal benyttes
 * It may take a while until the Play store app has synchronized a purchase to another device
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.

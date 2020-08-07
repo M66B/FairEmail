@@ -174,6 +174,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
+    <string name="title_setup_configuring">Konto konfigurieren &#8230;</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
@@ -754,10 +755,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
     <string name="title_ask_review">Bitte bewerten Sie FairEmail</string>
-    <string name="title_ask_review_rationale">        Du benutzt FairEmail schon eine Weile.
-        Sofern Du zufrieden bist, wäre es nett, wenn du FairEmail im Play Store positiv bewerten könntest.
-        Dies hilft ein Gleichgewicht zwischen guten und schlechten Bewertungen zu halten.
-    </string>
+    <string name="title_ask_review_rationale">Sie nutzen FairEmail bereits seit einiger Zeit. Es wäre schön, wenn Sie FairEmail im Play Store bewerten könnten.</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
