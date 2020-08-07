@@ -1014,6 +1014,9 @@ class Core {
             } catch (MessageRemovedException ignored) {
             }
             ifolder.expunge();
+        } else {
+            int count = ifolder.getMessageCount();
+            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
 
         // Fetch appended/copied when needed
