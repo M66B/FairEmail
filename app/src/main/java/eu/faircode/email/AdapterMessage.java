@@ -149,6 +149,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -172,12 +173,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
+import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
@@ -1962,6 +1966,42 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("signed_data", signed_data);
 
                     Document document = JsoupEx.parse(file);
+
+                    // Add embedded messages
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.available && "message/rfc822".equals(attachment.type))
+                            try (FileInputStream fis = new FileInputStream(attachment.getFile(context))) {
+                                Properties props = MessageHelper.getSessionProperties();
+                                Session isession = Session.getInstance(props, null);
+                                MimeMessage imessage = new MimeMessage(isession, fis);
+                                MessageHelper helper = new MessageHelper(imessage, context);
+                                MessageHelper.MessageParts parts = helper.getMessageParts();
+
+                                EntityMessage embedded = new EntityMessage();
+                                embedded.from = helper.getFrom();
+                                embedded.to = helper.getTo();
+                                embedded.cc = helper.getCc();
+                                embedded.received = helper.getReceivedHeader();
+                                if (embedded.received == null)
+                                    embedded.received = helper.getSent();
+                                embedded.subject = helper.getSubject();
+
+                                String html = parts.getHtml(context);
+                                Document d = JsoupEx.parse(html);
+
+                                Element div = document.createElement("div");
+                                div.appendElement("hr");
+
+                                Element p = embedded.getReplyHeader(context, document, true);
+                                div.appendChild(p);
+
+                                div.appendChild(d.body().tagName("p"));
+
+                                document.body().appendChild(div);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+
                     HtmlHelper.cleanup(document);
 
                     // Check for inline encryption
