@@ -1903,7 +1903,7 @@ public class MessageHelper {
                 }
 
                 db.attachment().setDownloaded(local.id, file.length());
-            } else
+            } else {
                 try (InputStream is = apart.part.getInputStream()) {
                     long size = 0;
                     long total = apart.part.getSize();
@@ -1945,6 +1945,43 @@ public class MessageHelper {
                     db.attachment().setError(local.id, Log.formatThrowable(ex));
                     throw ex;
                 }
+
+                if ("message/rfc822".equals(local.type))
+                    try (FileInputStream fis = new FileInputStream(local.getFile(context))) {
+                        Properties props = MessageHelper.getSessionProperties();
+                        Session isession = Session.getInstance(props, null);
+                        MimeMessage imessage = new MimeMessage(isession, fis);
+                        MessageHelper helper = new MessageHelper(imessage, context);
+                        MessageHelper.MessageParts parts = helper.getMessageParts();
+
+                        int sequence = db.attachment().getAttachmentSequence(local.message) + 1;
+                        for (AttachmentPart epart : parts.getAttachmentParts())
+                            try {
+                                Log.i("Embedded attachment seq=" + local.sequence + ":" + sequence);
+                                epart.attachment.message = local.message;
+                                epart.attachment.sequence = sequence++;
+                                epart.attachment.id = db.attachment().insertAttachment(epart.attachment);
+
+                                File efile = epart.attachment.getFile(context);
+                                Log.i("Writing to " + efile);
+
+                                try (InputStream is = epart.part.getInputStream()) {
+                                    try (OutputStream os = new FileOutputStream(efile)) {
+                                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                                        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                                            os.write(buffer, 0, len);
+                                    }
+                                }
+
+                                db.attachment().setDownloaded(epart.attachment.id, efile.length());
+                            } catch (Throwable ex) {
+                                db.attachment().setError(epart.attachment.id, Log.formatThrowable(ex));
+                                db.attachment().setAvailable(epart.attachment.id, true); // unrecoverable
+                            }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+            }
         }
 
         String getWarnings(String existing) {
