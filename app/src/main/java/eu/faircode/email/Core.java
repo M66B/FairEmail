@@ -991,11 +991,11 @@ class Core {
                 Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags() + " can=" + canMove);
 
                 // Mark read
-                if (seen && flags.contains(Flags.Flag.SEEN))
+                if (seen && !imessage.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
                     imessage.setFlag(Flags.Flag.SEEN, true);
 
                 // Remove star
-                if (unflag && flags.contains(Flags.Flag.FLAGGED))
+                if (unflag && imessage.isSet(Flags.Flag.FLAGGED) && flags.contains(Flags.Flag.FLAGGED))
                     imessage.setFlag(Flags.Flag.FLAGGED, false);
             }
 
