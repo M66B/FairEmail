@@ -736,6 +736,7 @@
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
+    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Bijgevoegd bericht</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>

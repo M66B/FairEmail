@@ -43,34 +43,34 @@ Verwandte Fragen:
 
 ## Wie kann ich …?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
+* Kontonamen ändern: Einrichten, Schritt 1, Verwalten, Konto tippen
+* Ändern Sie das Ziel für das Links/Rechts-Wischen: Einrichten, Verhalten, Wisch-Aktionen einstellen
+* Passwort ändern: Einrichten, Schritt 1, Verwalten, Konto tippen, Passwort ändern
+* Signatur festlegen: Setup, Schritt 2, Verwalten, Identität tippen, Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Gehe zur nächsten/vorherigen Nachricht im Archiv/Löschen: In den Einstellungen deaktiviere *Konversation automatisch schließen* und wähle *Gehe zur nächsten/vorherigen Konversation* für *Beim Schließen einer Konversation*
+* Fügen Sie einen Ordner zum einheitlichen Posteingang hinzu: Drücken Sie lange den Ordner in der Ordnerliste und markieren Sie *Im einheitlichen Posteingang anzeigen*
+* Fügen Sie einen Ordner zum Navigationsmenü hinzu: Drücken Sie lange den Ordner in der Ordnerliste und markieren Sie *Im Navigationsmenü anzeigen*
+* Weitere Nachrichten laden: Drücken Sie lange auf einen Ordner in der Ordnerliste, wählen Sie *Weitere Nachrichten synchronisieren*
+* Lösche eine Nachricht, überspringe den Papierkorb: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder deaktiviere den Papierkorb in den Kontoeinstellungen
+* Konto/Identität löschen: Schritt 1/2, Verwalten, Benutzerkonten/Identität, Drei-Punkte-Menü, Löschen
+* Ordner löschen: Drücken Sie lange auf den Ordner in der Ordnerliste, Eigenschaften, Drei-Punkte-Menü, Löschen
+* Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
+* Gesendete Nachrichten im Posteingang speichern: [Siehe diese FAQ](#user-content-faq142)
+* Systemordner ändern: Einrichten, Schritt 1, Verwalten, Benutzerkonto unten
+* Export/Import-Einstellungen: Setup, Navigation/Hamburger Menü
 
 ## Bekannte Probleme
 
 * ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
 * ~~Ein [Bug in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google hat dies repariert.~~
+* ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/78495471) lässt FairEmail bei langem Drücken oder Wischen gelegentlich abstürzen. Google hat dies repariert.~~
 * ~~Ein [Fehler im AndroidX ROOM](https://issuetracker.google.com/issues/138441698) verursacht manchmal einen Absturz mit "*… Ausnahme beim Berechnen der Datenbank Live-Daten ... Konnte Zeile ...*" nicht lesen. Ein Workaround wurde hinzugefügt.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
+* Ein [Bug im Android](https://issuetracker.google.com/issues/119872129) verursacht manchmal einen FairEmail-Absturz mit "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
 * Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
 * Ein [Fehler in Android](https://issuetracker.google.com/issues/37018931) verursacht manchmal einen Absturz mit *... Der Eingabekanal wurde auf einigen Geräten nicht initialisiert ...*.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
+* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) verursacht manchmal einen Absturz mit *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Ein Fehler in Nova Launcher unter Android 5.x lässt FairEmail mit einem *java.lang.StackOverflowError* abstürzen, wenn Nova Launcher einen Zugriff auf die Bedienungshilfen hat.
 * ~~Die Ordnerauswahl zeigt manchmal aus noch unbekannten Gründen keine Ordner an. Dies scheint behoben zu sein.~~
 * ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/64729576) macht es schwer, den Schnellscroller zu fassen. Ein Workaround wurde hinzugefügt.~~
 * ~~Die Verschlüsselung mit YubiKey führt zu einer Endlosschleife. Dies scheint durch einen [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507) verursacht zu werden.~~
@@ -160,17 +160,17 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(41) Wie kann ich den Fehler »Handshake failed« beheben?](#user-content-faq41)
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
-* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
+* [(45) Wie kann ich 'Dieser Schlüssel ist nicht verfügbar' beheben. To use it, you must import it as one of your own!' ?](#user-content-faq45)
 * [(46) Wieso wird die Nachrichtenliste immer aktualisiert?](#user-content-faq46)
 * [(47) Wie kann ich den Fehler „Kein primäres Konto oder kein Ordner für Entwürfe” lösen?](#user-content-faq47)
 * [~~ (48) Wie kann ich den Fehler „Kein primäres Konto oder kein Archivordner” lösen? ~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
-* [(50) Könnt ihr eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
+* [(49) Wie behebe ich 'Eine veraltete App hat einen Dateipfad anstelle eines Datei-Streams gesendet' ?](#user-content-faq49)
+* [(50) Kann man eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
 * [(51) Wie werden die Ordner sortiert?](#user-content-faq51)
 * [(52) Wieso dauert es so lange Zeit, um sich wieder mit einem Konto zu verbinden?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
+* [(53) Kann ich die Aktionsleiste nach oben/unten verlagern?](#user-content-faq53)
+* [~~(54) Wie benutze ich ein Namensraum-Präfix?~~](#user-content-faq54)
 * [(55) Wie kann ich alle Nachrichten als gelesen markieren, verschieben oder löschen?](#user-content-faq55)
 * [(56) Können Sie Unterstützung für JMAP hinzufügen?](#user-content-faq56)
 * [~~(57) Kann ich HTML in Signaturen verwenden?~~](#user-content-faq57)
@@ -179,126 +179,126 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(60) Wussten Sie …?](#user-content-faq60)
 * [(61) Warum werden einige Nachrichten verdunkelt angezeigt?](#user-content-faq61)
 * [(62) Welche Authentifizierungsmethoden werden unterstützt?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
+* [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
+* [~~(64) Kann man benutzerdefinierte Aktionen zum Links/Rechts-Wischen hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge verdunkelt angezeigt?](#user-content-faq65)
 * [(66) Gibt es FairMail in der Google Play Familienmediathek?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
+* [(67) Wie kann ich Konversationen stumm schalten?](#user-content-faq67)
+* [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
+* [(69) Gibt es eine Option 'Bei neuen Nachrichten automatisch nach oben scrollen'?](#user-content-faq69)
+* [(70) Wann werden Nachrichten automatisch erweitert?](#user-content-faq70)
+* [(71) Wie verwende ich Filterregeln?](#user-content-faq71)
+* [(72) Was sind Primärkonten/Identitäten?](#user-content-faq72)
+* [(73) Ist das Verschieben von Nachrichten zwischen verschiedenen Konten sicher/effizient?](#user-content-faq73)
 * [(74) Wieso sehe ich Nachrichten doppelt?](#user-content-faq74)
 * [(75) Können Sie eine iOS-, Windows-, Linux- usw. Version erstellen?](#user-content-faq75)
 * [(76) Was macht »Lokale Nachrichten löschen«?](#user-content-faq76)
 * [(77) Warum werden Mitteilungen manchmal mit einer kleinen Verzögerung angezeigt?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Könnt ihr den Hintergrund der Nachricht im dunklen Modus dunkel machen?~~](#user-content-faq81)
+* [(78) Wie verwende ich Zeitpläne?](#user-content-faq78)
+* [(79) Wie verwende ich Synchronisieren auf Anfrage (manuell)?](#user-content-faq79)
+* [~~(80) Wie kann ich den Fehler 'Unable to load BODYSTRUCTURE' beheben?~~](#user-content-faq80)
+* [~~(81) Könnt ihr den Nachrichtenhintergrund im dunklen Modus dunkel machen?~~](#user-content-faq81)
 * [(82) Was ist ein Nachverfolgungsbild?](#user-content-faq82)
 * [(84) Wozu gibt es lokale Kontakte?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
+* [(85) Warum ist eine Identität nicht verfügbar?](#user-content-faq85)
+* [~~(86) Was sind 'zusätzliche Privatsphäre-Funktionen'?~~](#user-content-faq86)
+* [(87) Was bedeutet "ungültige Anmeldedaten"?](#user-content-faq87)
 * [(88) Wie kann ich ein Yahoo-, AOL- oder Sky-Konto verwenden?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
+* [(89) Wie kann ich Nur-Text-Nachrichten senden?](#user-content-faq89)
+* [(90) Warum sind einige Texte als Link formatiert, ohne ein gültiger Link zu sein?](#user-content-faq90)
+* [~~(91) Gibt es eine periodische Synchronisierung, um Akkuleistung zu sparen?~~](#user-content-faq91)
+* [(92) Gibt es Spamfilter, Überprüfung der DKIM-Signatur und SPF-Autorisierung?](#user-content-faq92)
+* [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?](#user-content-faq93)
+* [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Kopfes?](#user-content-faq94)
+* [(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?](#user-content-faq95)
 * [(96) Wo finde ich die IMAP- und SMTP-Einstellungen?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Können Sie einen Rich-Text oder Markdown-Editor hinzufügen?](#user-content-faq99)
+* [(97) Was ist "Aufräumen" ?](#user-content-faq97)
+* [(98) Warum kann ich immer noch Kontakte auswählen, nachdem ich Kontaktberechtigungen entzogen habe?](#user-content-faq98)
+* [(99) Gibt es einen Rich-Text- oder Markdown-Editor?](#user-content-faq99)
 * [(100) Wie kann ich Google Mail-Kategorien synchronisieren?](#user-content-faq100)
 * [(101) Was bedeutet der blaue/orangefarbene Punkt am unteren Ende der Konversationen?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
+* [(102) Wie kann ich die automatische Drehung von Bildern aktivieren?](#user-content-faq102)
 * [(103) Wie kann ich Audio aufnehmen?](#user-content-faq103)
 * [(104) Was muss ich über die Fehlermeldung wissen?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
+* [(105) Wie funktioniert die 'Roam-Like-At-Home'-Option?](#user-content-faq105)
 * [(106) Welche Launcher können die Anzahl der ungelesenen Nachrichten als Abzeichen anzeigen?](#user-content-faq106)
-* [(107) How do I used colored stars?](#user-content-faq107)
-* [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
+* [(107) Wie verwende ich farbige Sterne?](#user-content-faq107)
+* [(108) Kann man Nachrichten aus beliebigen Ordnern dauerhaft löschen?](#user-content-faq108)
+* [~~(109) Warum ist 'Konto auswählen' nur in offiziellen Versionen verfügbar?~~](#user-content-faq109)
 * [(110) Warum sind (einige) Nachrichten leer und/oder Anhänge beschädigt?](#user-content-faq110)
 * [(111) Wird OAuth unterstützt?](#user-content-faq111)
 * [(112) Welchen E-Mail-Provider empfehlen Sie?](#user-content-faq112)
 * [(113) Wie funktioniert die biometrische Authentifizierung?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
+* [(114) Kann man die Einstellungen anderer E-Mail-Apps importieren?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
+* [~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen? ~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) Was bedeutet »Nachverfolgungsparameter entfernen« genau?](#user-content-faq118)
 * [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
 * [(120) Warum werden neue Nachrichten beim Öffnen der App nicht entfernt?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
+* [(121) Wie werden Nachrichten zu einer Konversation gruppiert?](#user-content-faq121)
+* [~~~(122) Warum wird der Empfängername/E-Mail-Adresse mit einer Warnfarbe angezeigt?~~](#user-content-faq122)
+* [(123) Was geschieht, wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann?](#user-content-faq123)
+* [(124) Warum erhalte ich den Hinweis 'Nachricht zu groß oder zu komplex, um sie anzuzeigen'?](#user-content-faq124)
+* [(125) Was sind die aktuellen experimentellen Eigenschaften?](#user-content-faq125)
+* [(126) Können Nachrichtenvorschauen an mein Wearable gesendet werden?](#user-content-faq126)
+* [(127) Wie kann ich den Fehler 'Syntaktisch ungültige HELO-Argumente(n)' beheben?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) Was bedeuten die Nachrichtenfehler?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Kannst du eine Sicherung/Wiederherstellung von Nachrichten hinzufügen?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(129) Wird ProtonMail, Tutanota unterstützt?](#user-content-faq129)
+* [(130) Was bedeutet die Meldung 'Fehler ...'?](#user-content-faq130)
+* [(131) Kann man die Richtung für das Wischen für vorherige/nächste Nachricht ändern?](#user-content-faq131)
+* [(132) Warum sind Benachrichtigungen für neue Nachrichten stumm?](#user-content-faq132)
+* [(133) Warum wird ActiveSync nicht unterstützt?](#user-content-faq133)
+* [(134) Wie kann ich Nachrichten nur in der App löschen?](#user-content-faq134)
+* [(135) Warum werden gelöschte Nachrichten oder Entwürfe in Konversationen angezeigt?](#user-content-faq135)
+* [(136) Wie kann ich ein Konto/Identität/Ordner löschen?](#user-content-faq136)
+* [(137) Wie kann ich 'Nicht erneut fragen' zurücksetzen?](#user-content-faq137)
+* [(138) Gibt es die Funktionen Kalender/Kontaktmanagement/Synchronisation?](#user-content-faq138)
+* [(139) Wie behebe ich 'Benutzer ist angemeldet, aber nicht verbunden'?](#user-content-faq139)
+* [(140) Warum enthält der Nachrichtentext seltsame Zeichen?](#user-content-faq140)
+* [(141) Wie kann ich 'Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden' beheben?](#user-content-faq141)
+* [(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?](#user-content-faq142)
+* [~~~(143) Gibt es einen Papierkorb für POP3-Konten? ~~](#user-content-faq143)
+* [(144) Wie kann ich Sprachnotizen aufnehmen?](#user-content-faq144)
+* [(145) Wie kann ich einen Benachrichtigungston für ein Konto, einen Ordner oder einen Absender festlegen?](#user-content-faq145)
+* [(146) Wie kann ich falsche Zeiten von Nachrichten beheben?](#user-content-faq146)
+* [(147) Was sollte ich über Drittanbieter-Versionen wissen?](#user-content-faq147)
+* [(148) Wie kann ich ein Apple iCloud-Konto verwenden?](#user-content-faq148)
+* [(149) Wie funktioniert das Widget für ungelesene Nachrichten?](#user-content-faq149)
+* [(150) Gibt es eine Möglichkeit zum Ablehnen von Kalendereinladungen?](#user-content-faq150)
+* [(151) Gibt es eine Datensicherung/Wiederherstellung von Nachrichten?](#user-content-faq151)
+* [(152) Wie kann ich eine Kontaktgruppe einfügen?](#user-content-faq152)
+* [(153) Warum funktioniert das dauerhafte Löschen von Google Mail-Nachrichten nicht?](#user-content-faq153)
+* [~~(154) Kann man Favicons als Kontaktfotos verwenden?~~](#user-content-faq154)
+* [(155) Was ist eine winmail.dat-Datei?](#user-content-faq155)
+* [(156) Wie kann ich ein Office365-Konto einrichten?](#user-content-faq156)
+* [(157) Wie kann ich ein Free.fr-Konto einrichten?](#user-content-faq157)
+* [(158) Welche/r Kamera/Audiorekorder ist empfehlenswert?](#user-content-faq158)
+* [(159) Was sind Disconnect Trackingschutz-Listen?](#user-content-faq159)
 
-[I have another question.](#user-content-support)
+[Ich habe eine weitere Frage.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Welche Berechtigungen werden benötigt und warum?**
 
-The following Android permissions are needed:
+Die folgenden Android-Berechtigungen werden benötigt:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* *Auf alle Netzwerke zugreifen * (INTERNET): E-Mails senden und empfangen
+* *Netzwerkverbindungen abrufen* (ACCESS_NETWORK_STATE): Um Änderungen bei der Internetverbindung zu überwachen
+* *Beim Start ausführen* (RECEIVE_BOOT_COMPLETED): Wird für den automatischen Start der App nach dem Einschalten des Geräts benötigt
+* *Vordergrunddienste verwenden* (FOREGROUND_SERVICE): um einen Vordergrund-Dienst auf Android 9 Pie und später auszuführen, siehe auch die nächste Frage
+* *Ruhezustand deaktivieren* (WAKE_LOCK): hält das Gerät wach, während die Nachrichten synchronisiert werden
+* *Google Play-Rechnungsdienst* (BILLING): Erlaubt In-App-Käufe
+* Optional: *Kontakte lesen* (READ_CONTACTS): Wird für das automatische Vervollständigen von Adressen und für das Anzeigen von Fotos benötigt
+* Optional: *SD-Karteninhalte lesen* (READ_EXTERNAL_STORAGE): um Dateien von anderen, veralteten Apps anzunehmen, siehe auch [diese FAQ](#user-content-faq49)
+* Optional: *Fingerabdruckhardware nutzen* (USE_FINGERPRINT) und *biometrische Hardware nutzen* (USE_BIOMETRIC): um biometrische Authentifizierung zu verwenden
+* Optional: *Konten auf dem Gerät suchen* (GET_ACCOUNTS): Um ein Konto auszuwählen, wenn die Gmail Schnelleinrichtung verwendet wird
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Optionale Berechtigungen](https://developer.android.com/training/permissions/requesting) werden nur auf Android 6 Marshmallow und später unterstützt. Bei früheren Android-Versionen werden Sie aufgefordert, die optionalen Berechtigungen für die Installation von FairEmail zu erteilen.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Die folgenden Berechtigungen werden benötigt, um die Anzahl ungelesener Nachrichten auf dem App-Icon anzuzeigen (siehe auch [diese FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*

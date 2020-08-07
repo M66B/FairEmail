@@ -1150,49 +1150,49 @@ Som standard er autooptimering i modtagelsesindstillingerne aktiveret, hvilket o
 <a name="faq40"></a>
 **(40) Hvordan reduceres FairEmails netværksforbrug?**
 
-You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+Du kan grundlæggende reducere netværksforbruget på samme måde som strømforbruget. Se foregående spørgsmål for forslag.
 
-Som standard henter FairEmail ikke beskedtekster og vedhæftninger større end 256 KiB, når Internetforbindelsen er takseret (mobildata eller betalt Wi-Fi). You can change this in the connection settings.
+Som standard henter FairEmail ikke beskedtekster og vedhæftninger større end 256 KiB, når Internetforbindelsen er takseret (mobildata eller betalt Wi-Fi). Du kan ændre dette i forbindelsesindstillingerne.
 
 <br />
 
 <a name="faq41"></a>
-**(41) How can I fix the error 'Handshake failed' ?**
+**(41) Hvordan rettes fejlen 'Handshake mislykkedes'?**
 
-There are several possible causes, so please read to the end of this answer.
+Der er flere mulige årsager, så tjek slutningen af dette svar.
 
-The error '*Handshake failed ... WRONG_VERSION_NUMBER ...*' might mean that you are trying to connect to an IMAP or SMTP server without an encrypted connection, typically using port 143 (IMAP) and port 25 (SMTP), or that a wrong protocol (SSL/TLS or STARTTLS) is being used.
+Fejlen '*Handshake mislykkedes ... WRONG_VERSION_NUMBER ...*' kan betyde, at du forsøger at oprette forbindelse til en IMAP- eller SMTP-server uden en krypteret forbindelse, typisk via port 143 (IMAP) og port 25 (SMTP), eller at der anvendes en forkert protokol (SSL/TLS eller STARTTLS).
 
-Most providers provide encrypted connections using different ports, typically port 993 (IMAP) and port 465/587 (SMTP).
+De fleste udbydere leverer krypterede forbindelser vha. forskellige porte, typisk port 993 (IMAP) og port 465/587 (SMTP).
 
-If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
+Understøtter din udbyder ikke krypterede forbindelser, bør du anmode om, at dette gøres muligt. Er dette ikke en mulighed, kan du aktivere *Tillad usikre forbindelser* i både de avancerede indstillinger OG konto-/identitetsindstillingerne.
 
-See also [this FAQ](#user-content-faq4).
+Se også [denne FAQ](#user-content-faq4).
 
-The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
+Fejlen '*Handshake mislykkedes ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' er enten forårsaget af en fejl i implementeringen af SSL-protokollen eller ved en for kort DH-nøgle på e-mailserveren og kan desværre ikke rettes af FairEmail.
 
-The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
+Fejlen '*Handshake mislykkedes ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' kan være forårsaget af, at udbyderen stadig anvender RC4, hvilket siden [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) ikke længere understøttes.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+Fejlen '*Handshake mislykkedes ... UNSUPPORTED_PROTOCOL ...*' kan være forårsaget af aktivering af hærdning af forbindelser i forbindelsesindstillingerne eller af at Android ikke længere understøtter ældre protokoller såsom SSLv3.
 
-Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
+Android 8 Oreo og senere [understøtter ikke længere](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3. Der er ingen måde at løse manglende RC4- og SSLv3-understøttelse på, da disse er helt fjernet fra Android.
 
-You can use [this website](https://ssl-tools.net/mailservers) or [this website](https://www.immuniweb.com/ssl/) to check for SSL/TLS problems of email servers.
+Du kan benytte [dette websted](https://ssl-tools.net/mailservers) eller [dette websted](https://www.immuniweb.com/ssl/) til at tjekke for SSL-/TLS-problemer på e-mailservere.
 
 <br />
 
 <a name="faq42"></a>
-**(42) Can you add a new provider to the list of providers?**
+**(42) Kan der tilføjes en ny udbyder på udbyderlisten?**
 
-If the provider is used by more than a few people, yes, with pleasure.
+Anvendes udbyderen af flere end blot et par personer, ja, med glæde.
 
-The following information is needed:
+Flg. oplysninger kræves:
 
 ```
 <provider
     name="Gmail"
     link="https://support.google.com/mail/answer/7126229" // link to the instructions of the provider
-    type="com.google"> // this is not needed
+    type="com.google"> // dette kræves ikke
     <imap
         host="imap.gmail.com"
         port="993"
@@ -1204,27 +1204,27 @@ The following information is needed:
 </provider>
 ```
 
-The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
+EFF-[skrivere](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Derudover er der stadig ingen garanti for, at din kommunikation bliver krypteret, selvom du opsætter STARTTLS korrekt samt anvender et gyldigt certifikat.*"
 
-So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
+Så rene SSL-forbindelser er sikrere end at anvende [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) og derfor foretrukne.
 
-Please make sure receiving and sending messages works properly before contacting me to add a provider.
+Sørg for at tjekke, at beskedmodtagelse/-afsendelse fungerer korrekt, før du kontakter mig vedr. udbydertilføjelse.
 
-See below about how to contact me.
+Se nedenfor, hvordan du kontakter mig.
 
 <br />
 
 <a name="faq43"></a>
-**(43) Can you show the original ... ?**
+**(43) Kan du vise den originale ... ?**
 
-Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc. FairEmail does and will not alter this in any way, except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), which will *attempt* to make small text more readable.
+Vis original, viser den originale besked, som afsenderen har sendt den, inkl. originale skrifttyper, farver, marginer mv. FairEmail ændrer på ingen måde på dette, bortset fra at anmode om [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), som *forsøger* at gøre en lille tekst mere læsbar.
 
 <br />
 
 <a name="faq44"></a>
-**~~(44) Can you show contact photos / identicons in the sent folder?~~**
+**~~(44) Kan man få vist kontaktfotos/-identikoner i Sendt-mappen?~~**
 
-~~Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.~~ ~~Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.~~
+~~Kontaktfotos og identikoner vises altid for afsenderen, da dette er nødvendigt for samtaletråde.~~ ~~At få kontaktfotos til både afsender og modtager er ikke rigtig en mulighed, da hentning af et kontaktfoto er en dyr operation.~~
 
 <br />
 

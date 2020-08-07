@@ -736,6 +736,7 @@
     <string name="title_unused_inline">Infogade bilder som är oanvända kommer att tas bort vid sändning</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_raw_saved">Rent meddelande sparat</string>
+    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Bifogat meddelande</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
     <string name="title_attachments_saved">Bilagor sparade</string>
     <string name="title_attachments_incomplete">Vissa bilagor eller bilder hämtades inte och kunde inte läggas till</string>

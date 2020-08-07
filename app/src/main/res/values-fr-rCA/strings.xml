@@ -737,6 +737,7 @@
     <string name="title_unused_inline">Les images incluses non utilisées seront supprimées lors de l’envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message original enregistré</string>
+    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Message joint</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n’ont pas été téléchargées et n’ont pas pu être ajoutées</string>

@@ -161,7 +161,7 @@
     <string name="title_setup_done">已完成</string>
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
-    <string name="title_setup_configuring">正在配置账户&#8230;</string>
+    <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
@@ -743,10 +743,10 @@
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
     <string name="title_ask_review">请给FairEmail评分</string>
-    <string name="title_ask_review_rationale">        你使用FairEmail已经有一段时间了。
-        如果您可以在Play商店中对FairEmail进行评分，我将不胜感激。
+    <string name="title_ask_review_rationale">        您使用 FairEmail 已经有一段时间了
+        如果您能在 Play Store 中为 FairEmail 评分, 我将不胜感激
     </string>
-    <string name="title_ask_once">此消息将只显示一次，除非您选择“稍后”</string>
+    <string name="title_ask_once">此消息将只会显示一次，除非您选择\"稍后再说\"</string>
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>

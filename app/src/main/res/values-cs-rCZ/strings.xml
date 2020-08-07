@@ -195,6 +195,7 @@
     <string name="title_setup_done">Hotovo</string>
     <string name="title_setup_still">Zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
+    <string name="title_setup_configuring">Probíhá konfigurace účtu &#8230;</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
@@ -758,6 +759,7 @@
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
+    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Přiložená zpráva</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_attachments_incomplete">Některé přílohy nebo obrázky nebyly staženy a nemohly být proto přidány</string>

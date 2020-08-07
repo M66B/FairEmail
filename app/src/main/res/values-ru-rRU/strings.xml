@@ -366,7 +366,7 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
-    <string name="title_advanced_undo">Таймаут отмены</string>
+    <string name="title_advanced_undo">Время ожидания отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -759,6 +759,7 @@
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
+    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Прикрепленное сообщение</string>
     <string name="title_attachment_saved">Вложение сохранено</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
