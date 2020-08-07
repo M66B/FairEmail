@@ -837,6 +837,26 @@ public class Log {
             if (ex instanceof RuntimeException && ex.getCause() instanceof DeadObjectException)
                 return false;
 
+        StackTraceElement[] stack = ex.getStackTrace();
+        if (stack.length > 0 &&
+                stack[0].getClassName().equals("android.text.TextLine") &&
+                stack[0].getMethodName().equals("measure"))
+            /*
+                java.lang.IndexOutOfBoundsException: offset(21) should be less than line limit(20)
+                  at android.text.TextLine.measure(Unknown Source:233)
+                  at android.text.Layout.getHorizontal(Unknown Source:104)
+                  at android.text.Layout.getHorizontal(Unknown Source:4)
+                  at android.text.Layout.getPrimaryHorizontal(Unknown Source:4)
+                  at android.text.Layout.getPrimaryHorizontal(Unknown Source:1)
+                  at android.widget.Editor$ActionPinnedPopupWindow.computeLocalPosition(Unknown Source:275)
+                  at android.widget.Editor$PinnedPopupWindow.show(Unknown Source:15)
+                  at android.widget.Editor$ActionPinnedPopupWindow.show(Unknown Source:3)
+                  at android.widget.Editor$EmailAddPopupWindow.show(Unknown Source:92)
+                  at android.widget.Editor$1.run(Unknown Source:6)
+                  at android.os.Handler.handleCallback(Unknown Source:2)
+             */
+            return false;
+
         if (BuildConfig.BETA_RELEASE)
             return true;
 
