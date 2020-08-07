@@ -157,6 +157,9 @@ public class EntityAttachment {
         if ("gpx".equals(extension))
             return "application/gpx+xml";
 
+        if ("pdf".equals(extension))
+            return "application/pdf";
+
         if ("text/plain".equals(type) && "ics".equals(extension))
             return "text/calendar";
 
