@@ -320,7 +320,9 @@ public class ViewModelMessages extends ViewModel {
                             for (int j = 0; j < messages.size(); j++)
                                 if (messages.get(j).id == id) {
                                     int pos = i + j;
-                                    model.list.getValue().loadAround(pos);
+
+                                    if (pos < plist.size())
+                                        plist.loadAround(pos);
 
                                     List<TupleMessageEx> lprev = null;
                                     if (pos - 1 >= 0)
