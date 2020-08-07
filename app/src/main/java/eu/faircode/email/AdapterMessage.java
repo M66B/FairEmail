@@ -1999,6 +1999,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 Element div = document.createElement("div");
                                 div.appendElement("hr");
 
+                                Element h = document.createElement("p");
+                                h.attr("style", "text-align: center;");
+
+                                Element em = document.createElement("em");
+                                em.text(TextUtils.isEmpty(attachment.name)
+                                        ? context.getString(R.string.title_attachment_eml) : attachment.name);
+                                h.appendChild(em);
+
+                                div.appendChild(h);
+
                                 Element p = embedded.getReplyHeader(context, document, true);
                                 div.appendChild(p);
 
