@@ -30,7 +30,7 @@ import java.util.List;
 public interface DaoAttachment {
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
-            " ORDER BY sequence")
+            " ORDER BY sequence, subsequence")
     LiveData<List<EntityAttachment>> liveAttachments(long message);
 
     @Query("SELECT ifnull(MAX(sequence), 0)" +
@@ -40,7 +40,7 @@ public interface DaoAttachment {
 
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
-            " ORDER BY sequence")
+            " ORDER BY sequence, subsequence")
     List<EntityAttachment> getAttachments(long message);
 
     @Query("SELECT * FROM attachment" +

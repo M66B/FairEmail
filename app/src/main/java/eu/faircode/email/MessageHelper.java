@@ -1954,12 +1954,13 @@ public class MessageHelper {
                         MessageHelper helper = new MessageHelper(imessage, context);
                         MessageHelper.MessageParts parts = helper.getMessageParts();
 
-                        int sequence = db.attachment().getAttachmentSequence(local.message) + 1;
+                        int subsequence = 1;
                         for (AttachmentPart epart : parts.getAttachmentParts())
                             try {
-                                Log.i("Embedded attachment seq=" + local.sequence + ":" + sequence);
+                                Log.i("Embedded attachment seq=" + local.sequence + ":" + subsequence);
                                 epart.attachment.message = local.message;
-                                epart.attachment.sequence = sequence++;
+                                epart.attachment.sequence = local.sequence;
+                                epart.attachment.subsequence = subsequence++;
                                 epart.attachment.id = db.attachment().insertAttachment(epart.attachment);
 
                                 File efile = epart.attachment.getFile(context);

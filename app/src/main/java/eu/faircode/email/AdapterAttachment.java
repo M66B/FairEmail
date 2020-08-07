@@ -62,6 +62,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
     private boolean readonly;
     private boolean debug;
+    private int dp12;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -110,6 +111,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private void bindTo(EntityAttachment attachment) {
             view.setAlpha(!attachment.isAttachment() ? Helper.LOW_LIGHT : 1.0f);
+
+            ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            lparam.setMarginStart(attachment.subsequence == null ? 0 : dp12);
+            view.setLayoutParams(lparam);
 
             ibDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
 
@@ -316,6 +321,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
+        this.dp12 = Helper.dp2pixels(context, 12);
 
         setHasStableIds(true);
 
