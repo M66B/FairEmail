@@ -197,7 +197,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Drawer opened");
                 owner.start();
 
-                if (normal && landscape && landscape3 &&
+                if (normal && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
                     childContent.setPaddingRelative(childDrawer.getLayoutParams().width, 0, 0, 0);
@@ -214,7 +214,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 else
                     owner.stop();
 
-                if (normal && landscape && landscape3 &&
+                if (normal && landscape3 &&
                         config.orientation == Configuration.ORIENTATION_LANDSCAPE)
                     childContent.setPaddingRelative(
                             Math.round(slideOffset * childDrawer.getLayoutParams().width), 0, 0, 0);

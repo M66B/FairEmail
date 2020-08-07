@@ -273,7 +273,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("landscape", checked).apply();
-                swLandscape3.setEnabled(checked);
             }
         });
 
@@ -794,7 +793,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
         swLandscape.setEnabled(normal);
         swLandscape3.setChecked(prefs.getBoolean("landscape3", false));
-        swLandscape3.setEnabled(normal && swLandscape.isChecked());
+        swLandscape3.setEnabled(normal);
 
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
