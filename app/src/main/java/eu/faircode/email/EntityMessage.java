@@ -23,16 +23,23 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
 import java.io.File;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -250,6 +257,61 @@ public class EntityMessage implements Serializable {
                 if ("$Forwarded".equalsIgnoreCase(keyword))
                     return true;
         return false;
+    }
+
+    Element getReplyHeader(Context context, Document document, boolean extended) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean language_detection = prefs.getBoolean("language_detection", false);
+        String l = (language_detection ? language : null);
+
+        DateFormat DF;
+        if (l == null)
+            DF = Helper.getDateTimeInstance(context);
+        else
+            DF = SimpleDateFormat.getDateTimeInstance(
+                    SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM, new Locale(l));
+
+        Element p = document.createElement("p");
+        if (extended) {
+            if (from != null && from.length > 0) {
+                Element strong = document.createElement("strong");
+                strong.text(Helper.getString(context, l, R.string.title_from) + " ");
+                p.appendChild(strong);
+                p.appendText(MessageHelper.formatAddresses(from));
+                p.appendElement("br");
+            }
+            if (to != null && to.length > 0) {
+                Element strong = document.createElement("strong");
+                strong.text(Helper.getString(context, l, R.string.title_to) + " ");
+                p.appendChild(strong);
+                p.appendText(MessageHelper.formatAddresses(to));
+                p.appendElement("br");
+            }
+            if (cc != null && cc.length > 0) {
+                Element strong = document.createElement("strong");
+                strong.text(Helper.getString(context, l, R.string.title_cc) + " ");
+                p.appendChild(strong);
+                p.appendText(MessageHelper.formatAddresses(cc));
+                p.appendElement("br");
+            }
+            {
+                Element strong = document.createElement("strong");
+                strong.text(Helper.getString(context, l, R.string.title_received) + " ");
+                p.appendChild(strong);
+                p.appendText(DF.format(received));
+                p.appendElement("br");
+            }
+            {
+                Element strong = document.createElement("strong");
+                strong.text(Helper.getString(context, l, R.string.title_subject) + " ");
+                p.appendChild(strong);
+                p.appendText(subject == null ? "" : subject);
+                p.appendElement("br");
+            }
+        } else
+            p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
+
+        return p;
     }
 
     String getNotificationChannelId() {

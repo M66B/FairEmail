@@ -465,18 +465,20 @@ public class EntityRule {
 
         reply.id = db.message().insertMessage(reply);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean extended_reply = prefs.getBoolean("extended_reply", false);
+        boolean quote_reply = prefs.getBoolean("quote_reply", true);
+
         String body = answer.getText(message.from);
         Document msg = JsoupEx.parse(body);
 
         Element div = msg.createElement("div");
 
-        Element p = msg.createElement("p");
-        DateFormat DF = Helper.getDateTimeInstance(context);
-        p.text(DF.format(new Date(message.received)) + " " + MessageHelper.formatAddresses(message.from) + ":");
+        Element p = message.getReplyHeader(context, msg, extended_reply);
         div.appendChild(p);
 
         Document answering = JsoupEx.parse(message.getFile(context));
-        div.appendChild(answering.body().tagName("blockquote"));
+        div.appendChild(answering.body().tagName(quote_reply ? "blockquote" : "p"));
 
         msg.body().appendChild(div);
 
