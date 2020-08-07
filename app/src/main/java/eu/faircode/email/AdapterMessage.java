@@ -1464,25 +1464,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                    int inlineImages = 0;
+                    int embeddedMessages = 0;
+                    if (attachments != null)
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.available)
+                                if (attachment.isInline() && attachment.isImage())
+                                    inlineImages++;
+                                else if ("message/rfc822".equals(attachment.type))
+                                    embeddedMessages++;
+
+                    int lastInlineImages = 0;
+                    int lastEmbeddedMessages = 0;
+                    List<EntityAttachment> lastAttachments = properties.getAttachments(message.id);
+                    if (lastAttachments != null)
+                        for (EntityAttachment attachment : lastAttachments)
+                            if (attachment.available)
+                                if (attachment.isInline() && attachment.isImage())
+                                    lastInlineImages++;
+                                else if ("message/rfc822".equals(attachment.type))
+                                    lastEmbeddedMessages++;
+
                     boolean show_images = properties.getValue("images", message.id);
                     boolean inline = prefs.getBoolean("inline_images", false);
-                    if (show_images || inline) {
-                        int inlineImages = 0;
-                        if (attachments != null)
-                            for (EntityAttachment attachment : attachments)
-                                if (attachment.available && attachment.isInline() && attachment.isImage())
-                                    inlineImages++;
-
-                        int lastInlineImages = 0;
-                        List<EntityAttachment> lastAttachments = properties.getAttachments(message.id);
-                        if (lastAttachments != null)
-                            for (EntityAttachment attachment : lastAttachments)
-                                if (attachment.available && attachment.isInline() && attachment.isImage())
-                                    lastInlineImages++;
-
-                        if (inlineImages > lastInlineImages)
-                            bindBody(message, false);
-                    }
+                    if (embeddedMessages > lastEmbeddedMessages ||
+                            (inlineImages > lastInlineImages && (show_images || inline)))
+                        bindBody(message, false);
 
                     bindAttachments(message, attachments);
                 }
