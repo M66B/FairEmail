@@ -71,8 +71,8 @@
     </plurals>
 
     <plurals name="title_moving_messages">
-        <item quantity="one">Move %1$d message from %2$s to %3$s?</item>
-        <item quantity="other">Move %1$d messages from %2$s to %3$s?</item>
+        <item quantity="one">Move %1$d message?</item>
+        <item quantity="other">Move %1$d messages?</item>
     </plurals>
 
     <plurals name="title_deleting_messages">

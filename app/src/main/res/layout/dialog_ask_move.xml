@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:scrollbarStyle="outsideOverlay">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Messages"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSourceFolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Source folders"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessages" />
+
+        <ImageView
+            android:id="@+id/ivArrow"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:tint="?android:attr/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSourceFolders"
+            app:srcCompat="@drawable/baseline_arrow_downward_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvTargetFolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Target folders"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArrow" />
+
+        <CheckBox
+            android:id="@+id/cbNotAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_no_ask_again"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetFolders" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ScrollViewEx>

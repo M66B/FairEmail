@@ -4876,15 +4876,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         Bundle aargs = new Bundle();
-        aargs.putString("question", getResources()
-                .getQuantityString(R.plurals.title_moving_messages,
-                        result.size(), result.size(),
-                        getDisplay(result, false),
-                        getDisplay(result, true)));
         aargs.putString("notagain", key);
         aargs.putParcelableArrayList("result", result);
 
-        FragmentDialogAsk ask = new FragmentDialogAsk();
+        FragmentMoveAsk ask = new FragmentMoveAsk();
         ask.setArguments(aargs);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_ASKED_MOVE);
         ask.show(getParentFragmentManager(), "messages:move");
@@ -5078,7 +5073,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "undo:hide");
     }
 
-    private String getDisplay(ArrayList<MessageTarget> result, boolean dest) {
+    private static String getDisplay(ArrayList<MessageTarget> result, boolean dest) {
         boolean across = false;
         for (MessageTarget target : result)
             if (target.isAccross())
@@ -7520,6 +7515,54 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(R.string.title_boundary_retry, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentMoveAsk extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            String notagain = getArguments().getString("notagain");
+            ArrayList<MessageTarget> result = getArguments().getParcelableArrayList("result");
+
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_move, null);
+            TextView tvMessages = dview.findViewById(R.id.tvMessages);
+            TextView tvSourceFolders = dview.findViewById(R.id.tvSourceFolders);
+            TextView tvTargetFolders = dview.findViewById(R.id.tvTargetFolders);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            String question = getResources()
+                    .getQuantityString(R.plurals.title_moving_messages,
+                            result.size(), result.size());
+
+            tvMessages.setText(question);
+            tvSourceFolders.setText(getDisplay(result, false));
+            tvTargetFolders.setText(getDisplay(result, true));
+
+            if (notagain != null)
+                cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        prefs.edit().putBoolean(notagain, isChecked).apply();
+                    }
+                });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(Activity.RESULT_OK);

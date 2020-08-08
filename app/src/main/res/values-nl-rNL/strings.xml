@@ -55,8 +55,8 @@
         <item quantity="other">%1$d gesprekken geselecteerd</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Één bericht verplaatsen van %2$s naar %3$s?</item>
-        <item quantity="other">%1$d berichten verplaatsen van %2$s naar %3$s?</item>
+        <item quantity="one">Één bericht verplaatsen?</item>
+        <item quantity="other">%1$d berichten verplaatsen?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Verwijder één bericht definitief?</item>
