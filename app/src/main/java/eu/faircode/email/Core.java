@@ -1035,11 +1035,11 @@ class Core {
                                     Message icopy = itarget.getMessageByUID(uid);
 
                                     // Mark read
-                                    if (seen && flags.contains(Flags.Flag.SEEN))
+                                    if (seen && !icopy.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
                                         icopy.setFlag(Flags.Flag.SEEN, true);
 
                                     // Remove star
-                                    if (unflag && flags.contains(Flags.Flag.FLAGGED))
+                                    if (unflag && icopy.isSet(Flags.Flag.FLAGGED) && flags.contains(Flags.Flag.FLAGGED))
                                         icopy.setFlag(Flags.Flag.FLAGGED, false);
 
                                     // Set drafts flag
