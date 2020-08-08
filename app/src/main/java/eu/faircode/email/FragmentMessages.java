@@ -335,12 +335,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_MESSAGES_SNOOZE = 14;
     static final int REQUEST_MESSAGE_MOVE = 15;
     private static final int REQUEST_MESSAGES_MOVE = 16;
-    static final int REQUEST_PRINT = 17;
-    private static final int REQUEST_SEARCH = 18;
-    private static final int REQUEST_ACCOUNT = 19;
-    private static final int REQUEST_EMPTY_FOLDER = 20;
-    private static final int REQUEST_BOUNDARY_RETRY = 21;
-    static final int REQUEST_PICK_CONTACT = 22;
+    private static final int REQUEST_THREAD_MOVE = 17;
+    static final int REQUEST_PRINT = 18;
+    private static final int REQUEST_SEARCH = 19;
+    private static final int REQUEST_ACCOUNT = 20;
+    private static final int REQUEST_EMPTY_FOLDER = 21;
+    private static final int REQUEST_BOUNDARY_RETRY = 22;
+    static final int REQUEST_PICK_CONTACT = 23;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -1307,13 +1308,42 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        boolean swipe_close = prefs.getBoolean("swipe_close", false);
-        if (swipe_close && viewType == AdapterMessage.ViewType.THREAD) {
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            boolean swipe_close = prefs.getBoolean("swipe_close", false);
+            boolean swipe_move = prefs.getBoolean("swipe_move", false);
             IOverScrollDecor decor = new VerticalOverScrollBounceEffectDecorator(
                     new RecyclerViewOverScrollDecorAdapter(rvMessage, touchHelper) {
                         @Override
+                        public boolean isInAbsoluteStart() {
+                            if (!swipe_close)
+                                return false;
+                            return super.isInAbsoluteStart();
+                        }
+
+                        @Override
                         public boolean isInAbsoluteEnd() {
-                            return false;
+                            PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
+                            if (list == null)
+                                return false;
+
+                            boolean moveable = false;
+                            for (TupleMessageEx message : list) {
+                                if (message == null)
+                                    return false;
+
+                                if (!EntityFolder.isOutgoing(message.folderType) &&
+                                        (!filter_archive || !EntityFolder.ARCHIVE.equals(message.folderType))) {
+                                    moveable = true;
+                                    break;
+                                }
+                            }
+
+                            if (!moveable)
+                                return false;
+
+                            if (!swipe_move)
+                                return false;
+                            return super.isInAbsoluteEnd();
                         }
                     },
                     DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD,
@@ -1321,12 +1351,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     DEFAULT_DECELERATE_FACTOR
             );
             decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
+                private boolean triggered = false;
+
                 @Override
                 public void onOverScrollUpdate(IOverScrollDecor decor, int state, float offset) {
                     float height = decor.getView().getHeight();
-                    if (height != 0 &&
-                            offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD > height / 4)
-                        handleAutoClose();
+                    if (height == 0)
+                        return;
+
+                    if (offset == 0)
+                        triggered = false;
+                    else if (!triggered &&
+                            Math.abs(offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD) > height / 4) {
+                        triggered = true;
+
+                        if (offset > 0)
+                            handleAutoClose();
+                        else {
+                            Bundle args = new Bundle();
+                            args.putString("title", getString(R.string.title_move_to_folder));
+                            args.putLong("account", account);
+                            args.putString("thread", thread);
+                            args.putLong("id", id);
+                            args.putBoolean("filter_archive", filter_archive);
+                            args.putLongArray("disabled", new long[]{folder});
+
+                            FragmentDialogFolder fragment = new FragmentDialogFolder();
+                            fragment.setArguments(args);
+                            fragment.setTargetFragment(FragmentMessages.this, REQUEST_THREAD_MOVE);
+                            fragment.show(getParentFragmentManager(), "overscroll:move");
+                        }
+                    }
                 }
             });
         }
@@ -3156,6 +3211,61 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "messages:move");
+    }
+
+    private void onActionMoveThread(Bundle args) {
+        new SimpleTask<ArrayList<MessageTarget>>() {
+            @Override
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
+                long aid = args.getLong("account");
+                String thread = args.getString("thread");
+                long id = args.getLong("id");
+                boolean filter_archive = args.getBoolean("filter_archive");
+                long tid = args.getLong("folder");
+
+                ArrayList<MessageTarget> result = new ArrayList<>();
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account == null)
+                        return result;
+
+                    EntityFolder targetFolder = db.folder().getFolder(tid);
+                    if (targetFolder == null)
+                        return result;
+
+                    List<EntityMessage> messages = db.message().getMessagesByThread(
+                            aid, thread, threading ? null : id, null);
+                    for (EntityMessage threaded : messages) {
+                        EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
+                        if (sourceFolder != null && !sourceFolder.read_only &&
+                                !targetFolder.id.equals(threaded.folder) &&
+                                !EntityFolder.isOutgoing(sourceFolder.type) &&
+                                (!filter_archive || !EntityFolder.ARCHIVE.equals(sourceFolder.type)))
+                            result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                moveAskConfirmed(result);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:move");
     }
 
     static void onActionUndo(TupleMessageEx message, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
@@ -5384,6 +5494,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_MESSAGES_MOVE:
                     if (resultCode == RESULT_OK && data != null)
                         onActionMoveSelection(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_THREAD_MOVE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onActionMoveThread(data.getBundleExtra("args"));
                     break;
                 case REQUEST_PRINT:
                     if (resultCode == RESULT_OK && data != null)
