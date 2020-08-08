@@ -1015,7 +1015,7 @@ class Core {
             }
             ifolder.expunge();
         } else {
-            int count = ifolder.getMessageCount();
+            int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
 
@@ -1182,7 +1182,7 @@ class Core {
 
             db.message().deleteMessage(folder.id, uid);
         } finally {
-            int count = ifolder.getMessageCount();
+            int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
     }
@@ -1227,7 +1227,7 @@ class Core {
 
             db.message().deleteMessage(message.id);
         } finally {
-            int count = ifolder.getMessageCount();
+            int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
     }
@@ -1775,7 +1775,7 @@ class Core {
             Log.e(ex);
             throw ex;
         } finally {
-            int count = ifolder.getMessageCount();
+            int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
 
             // Delete local, hidden messages
@@ -2379,7 +2379,7 @@ class Core {
                     db.message().deleteOrphans(folder.id);
             }
 
-            int count = ifolder.getMessageCount();
+            int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
             account.last_connected = new Date().getTime();
             db.account().setAccountConnected(account.id, account.last_connected);

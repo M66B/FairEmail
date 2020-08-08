@@ -77,6 +77,7 @@ import javax.activation.FileTypeMap;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Flags;
+import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.Header;
 import javax.mail.Message;
@@ -2284,6 +2285,18 @@ public class MessageHelper {
             else
                 throw ex;
         }
+    }
+
+    static int getMessageCount(Folder folder) throws MessagingException {
+        // Keep alive
+        folder.getMessageCount();
+
+        int count = 0;
+        for (Message message : folder.getMessages())
+            if (!message.isExpunged())
+                count++;
+
+        return count;
     }
 
     static String sanitizeKeyword(String keyword) {
