@@ -1546,13 +1546,15 @@ public class HtmlHelper {
 
     static void setViewport(Document document) {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
-        document.head().select("meta").select("[name=viewport]").remove();
+        Elements meta = document.head().select("meta").select("[name=viewport]");
+        if (meta.size() > 0) {
+            meta.remove();
+            document.head().prependChild(document.createElement("meta")
+                    .attr("name", "viewport")
+                    .attr("content", "width=device-width, initial-scale=1.0"));
+        }
 
-        document.head().prependChild(document.createElement("meta")
-                .attr("name", "viewport")
-                .attr("content", "width=device-width, initial-scale=1.0"));
-
-        Log.i(document.head().html());
+        Log.d(document.head().html());
     }
 
     static String getLanguage(Context context, String body) {
