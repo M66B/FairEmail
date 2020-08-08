@@ -55,8 +55,8 @@
         <item quantity="other">%1$d gesprekken geselecteerd</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Eén bericht verplaatsen naar %2$s ?</item>
-        <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
+        <item quantity="one">Één bericht verplaatsen van %2$s naar %3$s?</item>
+        <item quantity="other">%1$d berichten verplaatsen van %2$s naar %3$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Verwijder één bericht definitief?</item>
@@ -736,7 +736,7 @@
     <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra datagebruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
-    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Bijgevoegd bericht</string>
+    <string name="title_attachment_eml">Bijgevoegd bericht</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>
@@ -1039,6 +1039,7 @@
     <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
     <string name="title_legend_stop">Stop met het verwerken van regels</string>
     <string name="title_legend_thread">Gesprek</string>
+    <string name="title_legend_bookmark">Laatste geopende gesprek</string>
     <string name="title_legend_zoom">Tekstgrootte wijzigen</string>
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
