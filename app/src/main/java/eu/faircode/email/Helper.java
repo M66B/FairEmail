@@ -363,7 +363,7 @@ public class Helper {
 
     static String[] getOAuthPermissions() {
         List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CONTACTS); // profile
+        //permissions.add(Manifest.permission.READ_CONTACTS); // profile
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             permissions.add(Manifest.permission.GET_ACCOUNTS);
         return permissions.toArray(new String[0]);
