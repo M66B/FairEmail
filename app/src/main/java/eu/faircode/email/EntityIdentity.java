@@ -153,7 +153,8 @@ public class EntityIdentity {
 
         // User
         if (TextUtils.isEmpty(sender_extra_regex)) {
-            String user = (cother[0].contains("+") ? cother[0].split("\\+")[0] : cother[0]);
+            int plus = cother[0].indexOf('+');
+            String user = (plus < 0 ? cother[0] : cother[0].substring(0, plus));
             if (user.equalsIgnoreCase(cemail[0]))
                 return true;
         } else {
