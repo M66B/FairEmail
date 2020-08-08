@@ -23,6 +23,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
@@ -72,6 +73,7 @@ public interface DaoFolder {
             " WHERE account.`synchronize`")
     List<TupleFolderSort> getSortedFolders();
 
+    @Transaction
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
