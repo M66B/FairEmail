@@ -1361,13 +1361,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if (offset == 0)
                         triggered = false;
-                    else if (!triggered &&
-                            Math.abs(offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD) > height / 4) {
-                        triggered = true;
-
-                        if (offset > 0)
+                    else if (!triggered) {
+                        float dx = Math.abs(offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD);
+                        if (offset > 0 && dx > height / 4) {
+                            triggered = true;
                             handleAutoClose();
-                        else {
+                        }
+
+                        if (offset < 0 && dx > height / 8) {
+                            triggered = true;
+
                             Bundle args = new Bundle();
                             args.putString("title", getString(R.string.title_move_to_folder));
                             args.putLong("account", account);
