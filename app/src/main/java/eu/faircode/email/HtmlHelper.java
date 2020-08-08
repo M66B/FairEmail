@@ -309,9 +309,9 @@ public class HtmlHelper {
             Element holder = body.child(body.childrenSize() - 1);
             if ("p".equals(holder.tagName())) {
                 holder.tagName("span");
-                int c = holder.childrenSize();
-                Element last = (c > 0 ? holder.child(c - 1) : null);
-                if (last == null || !"br".equals(last.tagName()))
+                int c = holder.childNodeSize();
+                Node last = (c > 0 ? holder.childNode(c - 1) : null);
+                if (last == null || !"br".equals(last.nodeName()))
                     holder.appendChild(new Element("br"));
             }
         }
