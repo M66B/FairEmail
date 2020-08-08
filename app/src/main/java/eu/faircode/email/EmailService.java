@@ -111,6 +111,7 @@ public class EmailService implements AutoCloseable {
 
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
+    private final static int POOL_SIZE = 1; // default 1
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
@@ -199,7 +200,7 @@ public class EmailService implements AutoCloseable {
 
             properties.put("mail." + protocol + ".separatestoreconnection", "false");
             properties.put("mail." + protocol + ".connectionpool.debug", "true");
-            properties.put("mail." + protocol + ".connectionpoolsize", "1");
+            properties.put("mail." + protocol + ".connectionpoolsize", Integer.toString(POOL_SIZE));
             properties.put("mail." + protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
             properties.put("mail." + protocol + ".finalizecleanclose", "false");
