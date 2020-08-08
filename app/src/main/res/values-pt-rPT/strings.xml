@@ -53,10 +53,6 @@
         <item quantity="one">%1$d conversa selecionada</item>
         <item quantity="other">%1$d conversas selecionadas</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Mover %1$d mensagem para %2$s?</item>
-        <item quantity="other">Mover %1$d mensagens para %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Excluir %1$d mensagem permanentemente?</item>
         <item quantity="other">Excluir %1$d mensagens permanentemente?</item>

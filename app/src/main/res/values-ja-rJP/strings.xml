@@ -44,9 +44,6 @@
     <plurals name="title_selected_conversations">
         <item quantity="other">会話 %1$d を選択</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="other">%1$d メッセージを %2$s に移動しますか？</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">%1$d メッセージを完全に削除しますか？</item>
     </plurals>

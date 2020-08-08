@@ -53,10 +53,6 @@
         <item quantity="one">%1$d petear is selekteare</item>
         <item quantity="other">%1$d petearen selekteare</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Ferpleatse %1$d berjocht nei %2$s?</item>
-        <item quantity="other">Ferpleatse %1$d berjochten nei %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ferwiderje %1$d berjocht permanint?</item>
         <item quantity="other">Ferwiderje %1$d berjochten permanint?</item>

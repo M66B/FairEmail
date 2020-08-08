@@ -67,13 +67,13 @@
 * ~~[Ошибка в AndroidX](https://issuetracker.google.com/issues/78495471) вызывает сбой FairEmail при долгом нажатии или смахивании. Google это исправил.~~
 * ~~[ошибка в AndroidX ROOM](https://issuetracker.google.com/issues/138441698) вызывает сбой с "*... Исключение при обработке базы данных в реальном времени ... Не удалось прочитать строку ...*". Обходное решение было добавлено.~~
 * Ошибка [в Android](https://issuetracker.google.com/issues/119872129) вызывает сбой FairEmail с "*... Плохое уведомление отправлено ...*" на некоторых устройствах после обновления FairEmail и нажатия на уведомление.
-* Ошибка [в Android](https://issuetracker.google.com/issues/62427912) иногда вызывает сбой с "*... Запись активности не найдена для ...*" после обновления FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Ошибка [в Android](https://issuetracker.google.com/issues/62427912) иногда вызывает сбой с "*... Запись активности не найдена для ...*" после обновления FairEmail. Переустановка ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) может решить эту проблему.
+* Ошибка [в Android](https://issuetracker.google.com/issues/37018931) иногда вызывает сбой с *... InputChannel не инициализирован ...* на некоторых устройствах.
+* ~~ [ошибка в LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) иногда вызывает сбой *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Ошибка в Nova Launcher на Android 5.x вызывает сбой FairEmail с *java.lang.StackOverflowError*, когда Nova Launcher имеет доступ к службе специальных возможностей.
+* ~~Выбор папки иногда не показывает папок по неизвестным причинам. Похоже, это исправлено.~~
+* ~~ [ошибка в AndroidX](https://issuetracker.google.com/issues/64729576) затрудняет захват быстрой прокрутки. Обходное решение было добавлено.~~
+* ~~~Шифрование с помощью YubiKey приводит к бесконечному циклу. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. This can't be fixed because the original message view is contained in a scrolling view.
 * Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 

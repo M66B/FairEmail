@@ -60,11 +60,6 @@
         <item quantity="few">Означена %1$d разговора</item>
         <item quantity="other">Означено %1$d разговора</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Помери %1$d поруку у %2$s?</item>
-        <item quantity="few">Помери %1$d поруке у %2$s?</item>
-        <item quantity="other">Помери %1$d порука у %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Заувек обрисати %1$d поруку?</item>
         <item quantity="few">Заувек обрисати %1$d поруке?</item>

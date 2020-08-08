@@ -53,10 +53,6 @@
         <item quantity="one">%1$d گفتگوی انتخاب شده</item>
         <item quantity="other">%1$d گفتگوی انتخاب شده</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">انتقال %1$d پیام به %2$s?</item>
-        <item quantity="other">انتقال%1$d پیام به%2$s؟</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">حذف همیشگی %1$d پیام؟</item>
         <item quantity="other">حذف همیشگی %1$d پیام؟</item>

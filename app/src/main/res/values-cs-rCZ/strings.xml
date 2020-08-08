@@ -70,12 +70,6 @@
         <item quantity="many">Vybráno %1$d konverzací</item>
         <item quantity="other">Vybráno %1$d konverzací</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
-        <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
-        <item quantity="many">Přesunout %1$d zpráv do %2$s?</item>
-        <item quantity="other">Přesunout %1$d zpráv do %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Trvale odstranit %1$d zprávu?</item>
         <item quantity="few">Trvale odstranit %1$d zprávy?</item>
@@ -759,7 +753,7 @@
     <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
-    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Přiložená zpráva</string>
+    <string name="title_attachment_eml">Přiložená zpráva</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_attachments_incomplete">Některé přílohy nebo obrázky nebyly staženy a nemohly být proto přidány</string>
@@ -1062,6 +1056,7 @@
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>
     <string name="title_legend_stop">Zastavit zpracování pravidel</string>
     <string name="title_legend_thread">Konverzace</string>
+    <string name="title_legend_bookmark">Poslední otevřená konverzace</string>
     <string name="title_legend_zoom">Změnit velikost textu</string>
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>

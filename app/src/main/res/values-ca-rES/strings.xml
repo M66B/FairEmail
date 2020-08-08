@@ -53,10 +53,6 @@
         <item quantity="one">S\'han seleccionat %1$d conversa</item>
         <item quantity="other">S\'han seleccionat %1$d converses</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Moure el missatge %1$d a %2$s?</item>
-        <item quantity="other">Moure els missatges %1$d a %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Esborrar el missatge %1$d per sempre?</item>
         <item quantity="other">Esborrar els missatges %1$d per sempre?</item>

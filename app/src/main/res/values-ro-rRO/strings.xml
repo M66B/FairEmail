@@ -62,11 +62,6 @@
         <item quantity="few">%1$d conversații selectate</item>
         <item quantity="other">%1$d de conversații selectate</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Se mută %1$d mesaj la %2$s ?</item>
-        <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
-        <item quantity="other">Se mută %1$d de mesaje la %2$s ?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ștergeți definitiv %1$d mesaj?</item>
         <item quantity="few">Ștergeți definitiv %1$d mesaje?</item>

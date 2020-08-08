@@ -71,10 +71,10 @@
         <item quantity="other">Выбрано %1$d диалогов</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Переместить %1$d сообщение в %2$s?</item>
-        <item quantity="few">Переместить %1$d сообщения в %2$s?</item>
-        <item quantity="many">Переместить %1$d сообщений в %2$s?</item>
-        <item quantity="other">Переместить %1$d сообщений в %2$s?</item>
+        <item quantity="one">Переместить %1$d сообщение из %2$s в %3$s?</item>
+        <item quantity="few">Переместить %1$d сообщения из %2$s в %3$s?</item>
+        <item quantity="many">Переместить %1$d сообщений из %2$s в %3$s?</item>
+        <item quantity="other">Переместить %1$d сообщений из %2$s в %3$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Удалить %1$d сообщение навсегда?</item>
@@ -360,6 +360,7 @@
     <string name="title_advanced_volumenav">Кнопки увеличения/уменьшения громкости для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_reversed">Обратное направление навигации</string>
     <string name="title_advanced_swipe_close">Смахивание вниз, чтобы закрыть диалог</string>
+    <string name="title_advanced_swipe_move">Смахивание вверх, чтобы переместить диалог</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_expand_all">Автоматически разворачивать все прочитанные сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
@@ -374,7 +375,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
-    <string name="title_advanced_discard_delete">При отклонении черновика удалять его безвозвратно</string>
+    <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
@@ -759,7 +760,7 @@
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
-    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Прикрепленное сообщение</string>
+    <string name="title_attachment_eml">Прикреплённое сообщение</string>
     <string name="title_attachment_saved">Вложение сохранено</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
@@ -1062,6 +1063,7 @@
     <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_thread">Диалог</string>
+    <string name="title_legend_bookmark">Последний открытый диалог</string>
     <string name="title_legend_zoom">Изменить размер текста</string>
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>

@@ -60,11 +60,6 @@
         <item quantity="few">Odabrana %1$d razgovora</item>
         <item quantity="other">Odabrano %1$d razgovora</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Premjesti %1$d poruku u %2$s?</item>
-        <item quantity="few">Premjesti %1$d poruke u %2$s?</item>
-        <item quantity="other">Premjesti %1$d poruka u %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Želite li trajno izbrisati %1$d poruku?</item>
         <item quantity="few">Želite li trajno izbrisati %1$d poruke?</item>

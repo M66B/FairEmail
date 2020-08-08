@@ -52,10 +52,6 @@
         <item quantity="one">Elkarrizketa %1$d hautatuta</item>
         <item quantity="other">%1$d elkarrizketa hautatuta</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Eraman mezu %1$d %2$s helburura?</item>
-        <item quantity="other">Eraman %1$d mezu %2$s(e)ra?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ezabatu mezu %1$d behin betiko?</item>
         <item quantity="other">Ezabatu %1$d mezu behin betiko?</item>

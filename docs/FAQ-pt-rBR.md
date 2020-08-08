@@ -1,4 +1,4 @@
-# Suporte para FairEmail
+# Suporte do FairEmail
 
 Se você tiver alguma pergunta, verifique primeiro as perguntas mais frequentes abaixo. No final, você pode descobrir como fazer outras perguntas, solicitar recursos e relatar erros.
 

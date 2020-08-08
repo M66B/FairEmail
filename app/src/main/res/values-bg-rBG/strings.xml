@@ -53,10 +53,6 @@
         <item quantity="one">Маркиран %1$d разговор</item>
         <item quantity="other">Маркирани %1$d разговори</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Премести %1$d съобщение в %2$s?</item>
-        <item quantity="other">Премести %1$d съобщения в %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Изтъркай %1$d съобщение завинаги?</item>
         <item quantity="other">Изтъркай %1$d съобщения завинаги?</item>

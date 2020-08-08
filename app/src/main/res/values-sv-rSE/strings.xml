@@ -54,10 +54,6 @@
         <item quantity="one">Vald %1$d konversation</item>
         <item quantity="other">Valda %1$d konversationer</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Flytta %1$d meddelande till %2$s?</item>
-        <item quantity="other">Flytta %1$d meddelanden till %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ta bort %1$d meddelande permanent?</item>
         <item quantity="other">Ta bort %1$d meddelanden permanent?</item>
@@ -736,7 +732,7 @@
     <string name="title_unused_inline">Infogade bilder som är oanvända kommer att tas bort vid sändning</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_raw_saved">Rent meddelande sparat</string>
-    <string name="title_attachment_eml" comment="title_attachment_eml&#10;This is a title (heading) for displaying attached messages (EML files)">Bifogat meddelande</string>
+    <string name="title_attachment_eml">Bifogat meddelande</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
     <string name="title_attachments_saved">Bilagor sparade</string>
     <string name="title_attachments_incomplete">Vissa bilagor eller bilder hämtades inte och kunde inte läggas till</string>
@@ -1039,6 +1035,7 @@
     <string name="title_legend_download_fetch">Antal hämtade meddelanden / hämtade rubriker</string>
     <string name="title_legend_stop">Sluta bearbeta regler</string>
     <string name="title_legend_thread">Konversation</string>
+    <string name="title_legend_bookmark">Senast öppnade konversation</string>
     <string name="title_legend_zoom">Ändra textstorlek</string>
     <string name="title_legend_draft">Har utkast</string>
     <string name="title_legend_priority">Har hög prioritet</string>

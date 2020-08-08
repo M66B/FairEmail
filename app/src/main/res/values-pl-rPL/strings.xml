@@ -70,12 +70,6 @@
         <item quantity="many">Wybrano %1$d okien dialogowych</item>
         <item quantity="other">Wybrano %1$d okien dialogowych</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Przenieść %1$d wiadomość do %2$s?</item>
-        <item quantity="few">Przenieść %1$d wiadomości do %2$s?</item>
-        <item quantity="many">Przenieść %1$d wiadomości do %2$s?</item>
-        <item quantity="other">Przenieść %1$d wiadomości do %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Usunąć bezpowrotnie %1$d wiadomość?</item>
         <item quantity="few">Usunąć bezpowrotnie %1$d wiadomości?</item>
@@ -194,6 +188,7 @@
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_still">Nadal do wykonania</string>
     <string name="title_setup_error">Błąd</string>
+    <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
@@ -757,6 +752,7 @@
     <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
+    <string name="title_attachment_eml">Załączona wiadomość</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachments_incomplete">Niektóre załączniki lub obrazy nie zostały pobrane i nie można ich dodać</string>
@@ -775,6 +771,9 @@
     <string name="title_ask_reporting">Wyślij raporty o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże ulepszyć FairEmail</string>
     <string name="title_ask_review">Oceń FairEmail</string>
+    <string name="title_ask_review_rationale">        Używasz FairEmail już od jakiegoś czasu.
+        Byłbym wdzięczny, gdybyś mógł ocenić FairEmail w Sklepie Play.
+    </string>
     <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
@@ -1056,6 +1055,7 @@
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / pobranych nagłówków</string>
     <string name="title_legend_stop">Zatrzymaj przetwarzanie reguł</string>
     <string name="title_legend_thread">Konwersacja</string>
+    <string name="title_legend_bookmark">Ostatnio otwarta konwersacja</string>
     <string name="title_legend_zoom">Zmień rozmiar tekstu</string>
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>

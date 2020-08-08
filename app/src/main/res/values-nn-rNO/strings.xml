@@ -52,10 +52,6 @@
         <item quantity="one">Valgt %1$d samtale</item>
         <item quantity="other">Valgte %1$d samtaler</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Flytte %1$d melding til %2$s?</item>
-        <item quantity="other">Flytte %1$d meldinger til %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Slette %1$d melding permanent?</item>
         <item quantity="other">Slette %1$d meldinger permanent?</item>

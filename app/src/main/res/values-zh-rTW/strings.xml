@@ -44,9 +44,6 @@
     <plurals name="title_selected_conversations">
         <item quantity="other">選擇 %1$d 個會話</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="other">移動 %1$d 則訊息到 %2$s？</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">永久刪除 %1$d 則訊息？</item>
     </plurals>

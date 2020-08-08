@@ -52,10 +52,6 @@
         <item quantity="one">%1$d sohbet seçildi</item>
         <item quantity="other">%1$d sohbet seçildi</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">%1$d iletiyi %2$s konumuna taşı?</item>
-        <item quantity="other">%1$d iletiyi %2$s konumuna taşı?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">%1$d ileti kalıcı olarak silinsin mi?</item>
         <item quantity="other">%1$d ileti kalıcı olarak silinsin mi?</item>

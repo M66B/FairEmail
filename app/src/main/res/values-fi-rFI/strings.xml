@@ -54,10 +54,6 @@
         <item quantity="one">Valittuna %1$d keskustelu</item>
         <item quantity="other">Valittuna %1$d keskustelua</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Siirrä %1$d viesti kansioon %2$s?</item>
-        <item quantity="other">Siirrä %1$d viestiä kansioon %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Poista %1$d viesti pysyvästi?</item>
         <item quantity="other">Poista %1$d viestiä pysyvästi?</item>

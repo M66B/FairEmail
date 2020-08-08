@@ -44,10 +44,6 @@
         <item quantity="one">%1$d yeni</item>
         <item quantity="other">%1$d yeni</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">%1$d mesaj %2$s qovluğuna köçürülsün?</item>
-        <item quantity="other">%1$d mesaj %2$s qovluğuna köçürülsün?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">%1$d mesaj birdəfəlik silinsin?</item>
         <item quantity="other">%1$d mesaj birdəfəlik silinsin?</item>

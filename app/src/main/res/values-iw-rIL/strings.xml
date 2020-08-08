@@ -62,12 +62,6 @@
         <item quantity="many">%1$d הודעות חדשות</item>
         <item quantity="other">%1$d הודעות חדשות</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">להעביר %1$d הודעות ל %2$s?</item>
-        <item quantity="two">להעביר %1$d הודעות ל %2$s?</item>
-        <item quantity="many">להעביר %1$d הודעות ל %2$s?</item>
-        <item quantity="other">להעביר %1$d הודעות ל %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">למחוק %1$d הודעות לצמיתות?</item>
         <item quantity="two">למחוק %1$d הודעות לצמיתות?</item>

@@ -47,7 +47,7 @@
         <item quantity="other">选定了 %1$d 个会话</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="other">移动 %1$d 邮件到  %2$s 吗？</item>
+        <item quantity="other">将 %1$d 条消息从 %2$s 移动到 %3$s？</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">永久删除这%1$d则邮件？</item>
@@ -326,6 +326,7 @@
     <string name="title_advanced_volumenav">音量上/下键切换邮件</string>
     <string name="title_advanced_reversed">反转导航方向</string>
     <string name="title_advanced_swipe_close">向下滑动关闭对话</string>
+    <string name="title_advanced_swipe_move">向上滑动以移动对话</string>
     <string name="title_advanced_autoexpand">自动展开消息</string>
     <string name="title_advanced_expand_all">自动展开所有已读消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
@@ -725,6 +726,7 @@
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
+    <string name="title_attachment_eml">附加的消息</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
@@ -1027,6 +1029,7 @@
     <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_legend_stop">停止处理规则</string>
     <string name="title_legend_thread">对话</string>
+    <string name="title_legend_bookmark">上次打开的对话</string>
     <string name="title_legend_zoom">改变文字大小</string>
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>

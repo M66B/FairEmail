@@ -84,14 +84,6 @@
         <item quantity="many">تم اختيار %1$d محادثات</item>
         <item quantity="other">تم اختيار %1$d محادثات</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="zero">نقل %1$d رسائل إلى %2$s؟</item>
-        <item quantity="one">نقل %1$d رسائل إلى %2$s؟</item>
-        <item quantity="two">نقل %1$d رسائل إلى %2$s؟</item>
-        <item quantity="few">نقل %1$d رسائل إلى %2$s؟</item>
-        <item quantity="many">نقل %1$d رسائل إلى %2$s؟</item>
-        <item quantity="other">نقل %1$d رسائل إلى %2$s؟</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="zero">حذف %1$d رسائل إلى الأبد؟</item>
         <item quantity="one">هل تريد حذف %1$d رسالة بشكل دائم؟</item>

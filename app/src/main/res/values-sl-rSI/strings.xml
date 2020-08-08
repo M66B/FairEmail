@@ -68,12 +68,6 @@
         <item quantity="few">Izbrani so bili %1$d-je pogovori</item>
         <item quantity="other">Izbranih je bilo %1$d pogovorov</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Premakni %1$d sporočilo v %2$s?</item>
-        <item quantity="two">Premakni %1$d sporočili v %2$s?</item>
-        <item quantity="few">Premakni %1$d sporočila v %2$s?</item>
-        <item quantity="other">Premakni %1$d sporočil v %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Trajno izbriši %1$d sporočilo?</item>
         <item quantity="two">Trajno izbriši %1$d sporočili?</item>

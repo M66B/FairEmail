@@ -54,10 +54,6 @@
         <item quantity="one">%1$d konversation valgt</item>
         <item quantity="other">%1$d konversationer valgt</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Flyt %1$d besked til %2$s?</item>
-        <item quantity="other">Flyt %1$d beskeder til %2$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Slet %1$d besked permanent?</item>
         <item quantity="other">Slet %1$d beskeder permanent?</item>
@@ -737,6 +733,7 @@
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>
+    <string name="title_attachment_eml">Vedhæftet besked</string>
     <string name="title_attachment_saved">Vedhæftning gemt</string>
     <string name="title_attachments_saved">Vedhæftninger gemt</string>
     <string name="title_attachments_incomplete">Visse vedhæftninger eller billeder blev ikke downloadet og kunne ikke tilføjes</string>
@@ -1039,6 +1036,7 @@
     <string name="title_legend_download_fetch">Antal downloadede beskeder/hentede overskrifter</string>
     <string name="title_legend_stop">Stop afvikling af regler</string>
     <string name="title_legend_thread">Samtale</string>
+    <string name="title_legend_bookmark">Senest åbnede samtale</string>
     <string name="title_legend_zoom">Ændr tekststørrelse</string>
     <string name="title_legend_draft">Har kladde</string>
     <string name="title_legend_priority">Har høj prioritet</string>

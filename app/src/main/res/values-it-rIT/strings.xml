@@ -54,10 +54,6 @@
         <item quantity="one">%1$d conversazione selezionata</item>
         <item quantity="other">%1$d conversazioni selezionate</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Spostare %1$d messaggio in %2$s ?</item>
-        <item quantity="other">Spostare %1$d messaggi in %2$s ?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Eliminare %1$d messaggio definitivamente?</item>
         <item quantity="other">Eliminare %1$d messaggi definitivamente?</item>
@@ -173,6 +169,7 @@
     <string name="title_setup_done">Fine</string>
     <string name="title_setup_still">Ancora da fare</string>
     <string name="title_setup_error">Errore</string>
+    <string name="title_setup_configuring">Configurazione account &#8230;</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
     <string name="title_setup_import_do">Gli account importati saranno aggiunti senza sovrascrivere quelli esistenti</string>
@@ -736,6 +733,7 @@
     <string name="title_unused_inline">Le immagini in linea inutilizzate verranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
+    <string name="title_attachment_eml">Messaggio allegato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachments_incomplete">Alcuni allegati o immagini non sono stati scaricati e non possono essere aggiunti</string>
@@ -754,6 +752,9 @@
     <string name="title_ask_reporting">Inviare rapporti di errore?</string>
     <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>
     <string name="title_ask_review">Si prega di valutare FairEmail</string>
+    <string name="title_ask_review_rationale">        Stai usando FairEmail da un po’.
+        Sarebbe apprezzato se potessi votare FairEmail nel Play Store.
+    </string>
     <string name="title_ask_once">Questo messaggio apparirà solo una volta, a meno che tu selezioni «Più tardi»</string>
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
@@ -1035,6 +1036,7 @@
     <string name="title_legend_download_fetch">Numero di messaggi scaricati / intestazioni recuperate</string>
     <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
     <string name="title_legend_thread">Conversazione</string>
+    <string name="title_legend_bookmark">Ultima conversazione aperta</string>
     <string name="title_legend_zoom">Cambia dimensione testo</string>
     <string name="title_legend_draft">Ha bozza</string>
     <string name="title_legend_priority">Ha priorità alta</string>
