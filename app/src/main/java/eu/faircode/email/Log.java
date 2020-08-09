@@ -857,6 +857,30 @@ public class Log {
              */
             return false;
 
+        if (stack.length > 0 &&
+                stack[0].getClassName().equals("android.os.Parcel") &&
+                (stack[0].getMethodName().equals("createException") ||
+                        stack[0].getMethodName().equals("readException")))
+            /*
+                java.lang.IllegalArgumentException
+                  at android.os.Parcel.createException(Parcel.java:1954)
+                  at android.os.Parcel.readException(Parcel.java:1918)
+                  at android.os.Parcel.readException(Parcel.java:1868)
+                  at android.view.IWindowSession$Stub$Proxy.addToDisplay(IWindowSession.java:826)
+                  at android.view.ViewRootImpl.setView(ViewRootImpl.java:758)
+                  at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:356)
+                  at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:93)
+                  at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:3906)
+
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.job.controllers.JobStatus.getUid()' on a null object reference
+                  at android.os.Parcel.readException(Parcel.java:1605)
+                  at android.os.Parcel.readException(Parcel.java:1552)
+                  at android.app.job.IJobCallback$Stub$Proxy.jobFinished(IJobCallback.java:167)
+                  at android.app.job.JobService$JobHandler.handleMessage(JobService.java:147)
+                  at android.os.Handler.dispatchMessage(Handler.java:102)
+             */
+            return false;
+
         if (BuildConfig.BETA_RELEASE)
             return true;
 
