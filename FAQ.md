@@ -1843,7 +1843,13 @@ The following rule conditions are available:
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
-If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
+If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+
+Note that email addresses are formatted like this:
+
+``
+"Somebody" <somebody@example.org>
+``
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
@@ -1854,7 +1860,7 @@ You can test a regex [here](https://regexr.com/).
 Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
 
 ``
-alice@example.org|bob@example.org|carol@example.org
+.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*
 ``
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled
