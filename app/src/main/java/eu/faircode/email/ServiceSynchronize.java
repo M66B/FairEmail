@@ -1139,7 +1139,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                             for (Message imessage : e.getMessages()) {
                                                 long uid = ifolder.getUID(imessage);
-                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
+                                                EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid, true);
                                             }
 
                                             db.setTransactionSuccessful();

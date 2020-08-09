@@ -1108,16 +1108,19 @@ class Core {
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
+        boolean removed = jargs.optBoolean(1);
+
         if (uid < 0)
             throw new MessageRemovedException(folder.name + " fetch uid=" + uid);
 
         DB db = DB.getInstance(context);
         EntityAccount account = db.account().getAccount(folder.account);
-        boolean download = db.folder().getFolderDownload(folder.id);
-        List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
         try {
-            SyncStats stats = new SyncStats();
+            if (removed) {
+                db.message().deleteMessage(folder.id, uid);
+                throw new MessageRemovedException("removed uid=" + uid);
+            }
 
             MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
             if (imessage == null)
@@ -1126,6 +1129,10 @@ class Core {
                 throw new MessageRemovedException(folder.name + " fetch expunged uid=" + uid);
             if (imessage.isSet(Flags.Flag.DELETED))
                 throw new MessageRemovedException(folder.name + " fetch deleted uid=" + uid);
+
+            SyncStats stats = new SyncStats();
+            boolean download = db.folder().getFolderDownload(folder.id);
+            List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
             try {
                 FetchProfile fp = new FetchProfile();
