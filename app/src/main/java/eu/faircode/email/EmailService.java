@@ -352,6 +352,15 @@ public class EmailService implements AutoCloseable {
                 AuthState authState = OAuthRefresh(context, provider, password);
                 connect(host, port, auth, user, authState.getAccessToken(), factory);
                 return authState.jsonSerializeString();
+            } else if (purpose == PURPOSE_CHECK) {
+                String msg = ex.getMessage();
+                if (msg != null)
+                    msg = msg.trim();
+                if (TextUtils.isEmpty(msg))
+                    throw ex;
+                throw new AuthenticationFailedException(
+                        context.getString(R.string.title_service_auth, msg),
+                        ex.getNextException());
             } else
                 throw ex;
         } catch (MailConnectException ex) {
