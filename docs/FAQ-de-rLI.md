@@ -702,7 +702,7 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-For setting up an Office365 account, please see [this FAQ](#user-content-faq156).
+Um ein Office 365-Konto einzurichten, lesen Sie bitte [diese FAQ](#user-content-faq156).
 
 <br />
 
@@ -854,11 +854,20 @@ Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you c
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
+**Send errors**
+
+SMTP-Server können Nachrichten aus [einer Reihe von Gründen ablehnen](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Zu große Nachrichten und das Auslösen des Spam-Filters eines E-Mail-Servers sind die häufigsten Gründe.
+
+* Die Größe von Anhängen für Google Mail [beträgt 25 MB](https://support.google.com/mail/answer/6584)
+* The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
+* The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
+* *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
+
 **Gmail errors**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-The error *... Authentifizierung fehlgeschlagen ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -1057,7 +1066,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Warum sollte ich bei ansehen von Bildern, Anhängen und der Original-Nachricht vorsichtig sein?**
+**(35) Why should I be careful with viewing images, attachments, and the original message?**
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 
@@ -2064,7 +2073,7 @@ OAuth for Gmail is supported via the quick setup wizard. The Android account man
 
 OAuth for Yandex is supported via the quick setup wizard.
 
-OAuth for Office365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
 OAuth access for Yahoo was requested, but Yahoo never responded to the request. OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL. Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media). So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
@@ -2127,13 +2136,13 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
-Google verwaltet alle Einkäufe, so dass ich als Entwickler wenig Kontrolle über Einkäufe habe. So, basically the only thing I can do, is give some advice:
+Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Stellen Sie sicher, dass Sie FairEmail über das richtige Google-Konto installiert haben, wenn mehrere Google-Konten auf Ihrem Gerät eingerichtet wurden.
-* Öffnen Sie die App des Play Store und warten Sie mindestens eine Minute, um ihr Zeit zu geben, sich mit den Google-Servern zu synchronisieren.
-* Öffnen Sie FairEmail und navigieren Sie zum Bildschirm mit den Pro-Funktionen, damit FairEmail die Einkäufe überprüfen kann.
+* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2142,7 +2151,7 @@ Note that:
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
-* Eine App wie FairEmail kann nicht auswählen, welches Google-Konto verwendet werden soll
+* An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
@@ -2608,9 +2617,9 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office365 account?**
+**(156) How can I set up an Office 365 account?**
 
-An Office365 account can be set up via the quick setup wizard and selecting *Office365 (OAuth)*.
+An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 

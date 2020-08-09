@@ -55,8 +55,8 @@
         <item quantity="other">%1$d Unterhaltungen ausgewählt</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">%1$d Nachricht von %2$s nach %3$s verschieben?</item>
-        <item quantity="other">%1$d Nachrichten von %2$s nach %3$s verschieben?</item>
+        <item quantity="one">%1$d Nachricht verschieben?</item>
+        <item quantity="other">%1$d Nachrichten verschieben?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">%1$d Nachricht dauerhaft löschen?</item>
@@ -339,7 +339,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_swipe_close">Zum Schließen der Unterhaltung nach unten wischen</string>
-    <string name="title_advanced_swipe_move">Zum Verschieben der Unterhaltung nach oben wischen</string>
+    <string name="title_advanced_swipe_move">Zum Verschieben der Konversation nach oben wischen</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>

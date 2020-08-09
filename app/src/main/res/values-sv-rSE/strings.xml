@@ -54,6 +54,10 @@
         <item quantity="one">Vald %1$d konversation</item>
         <item quantity="other">Valda %1$d konversationer</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Flytta %1$d meddelande?</item>
+        <item quantity="other">Flytta %1$d meddelanden?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ta bort %1$d meddelande permanent?</item>
         <item quantity="other">Ta bort %1$d meddelanden permanent?</item>
@@ -333,6 +337,7 @@
     <string name="title_advanced_volumenav">Använd volymknappen upp/ned för att gå till nästa/föregående konversation</string>
     <string name="title_advanced_reversed">Omvänd navigeringsriktning</string>
     <string name="title_advanced_swipe_close">Svep nedåt för att stänga konversationen</string>
+    <string name="title_advanced_swipe_move">Svep uppåt för att flytta konversation</string>
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_expand_all">Expandera automatiskt alla lästa meddelanden</string>
     <string name="title_advanced_expand_one">Expandera endast ett meddelande åt gången</string>

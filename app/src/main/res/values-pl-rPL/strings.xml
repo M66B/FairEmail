@@ -353,6 +353,7 @@
     <string name="title_advanced_volumenav">Zwiększanie/zmniejszanie głośności, aby przejść do następnej/poprzedniej rozmowy</string>
     <string name="title_advanced_reversed">Odwróć kierunek nawigacji</string>
     <string name="title_advanced_swipe_close">Przesuń palcem w dół, aby zamknąć rozmowę</string>
+    <string name="title_advanced_swipe_move">Przesuń w górę, aby przenieść konwersację</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_expand_all">Automatycznie rozwiń wszystkie przeczytane wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>

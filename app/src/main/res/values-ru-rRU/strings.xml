@@ -70,12 +70,6 @@
         <item quantity="many">Выбрано %1$d диалогов</item>
         <item quantity="other">Выбрано %1$d диалогов</item>
     </plurals>
-    <plurals name="title_moving_messages">
-        <item quantity="one">Переместить %1$d сообщение из %2$s в %3$s?</item>
-        <item quantity="few">Переместить %1$d сообщения из %2$s в %3$s?</item>
-        <item quantity="many">Переместить %1$d сообщений из %2$s в %3$s?</item>
-        <item quantity="other">Переместить %1$d сообщений из %2$s в %3$s?</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Удалить %1$d сообщение навсегда?</item>
         <item quantity="few">Удалить %1$d сообщения навсегда?</item>

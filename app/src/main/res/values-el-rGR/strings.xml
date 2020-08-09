@@ -55,8 +55,8 @@
         <item quantity="other">Επιλεγμένες %1$d συζητήσεις</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Μετακίνηση %1$d μηνύματος από %2$s προς %3$s;</item>
-        <item quantity="other">Μετακίνηση %1$d μηνυμάτων από %2$s προς %3$s;</item>
+        <item quantity="one">Μετακίνηση %1$d μηνύματος;</item>
+        <item quantity="other">Μετακίνηση %1$d μηνυμάτων;</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Οριστική διαγραφή %1$d μηνύματος;</item>

@@ -169,7 +169,7 @@
     <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>
     <string name="title_setup_account">Nastavit účty</string>
     <string name="title_setup_account_remark">Pro příjem e-mailů</string>
-    <string name="title_setup_account_hint">Pro změnu barvy, cílové složky pro tažení doleva/doprava, apod.</string>
+    <string name="title_setup_account_hint">Pro změnu barvy, cílové složky při tažení doleva/doprava, apod.</string>
     <string name="title_setup_identity">Nastavit identity</string>
     <string name="title_setup_identity_remark">Pro odesílání e-mailů</string>
     <string name="title_setup_identity_hint">Pro změnu jména, barvy, podpisu, apod.</string>

@@ -54,6 +54,10 @@
         <item quantity="one">%1$d conversación seleccionada</item>
         <item quantity="other">%1$d conversaciones seleccionadas</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">¿Mover %1$d mensaje?</item>
+        <item quantity="other">¿Mover %1$d mensajes?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">¿Eliminar %1$d mensaje permanentemente?</item>
         <item quantity="other">¿Eliminar %1$d mensajes permanentemente?</item>
@@ -170,6 +174,7 @@
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_still">Aún por hacer</string>
     <string name="title_setup_error">Error</string>
+    <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
@@ -334,6 +339,7 @@
     <string name="title_advanced_volumenav">Volumen arriba/abajo para ir a la conversación siguiente/anterior</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
     <string name="title_advanced_swipe_close">Deslice hacia abajo para cerrar la conversación</string>
+    <string name="title_advanced_swipe_move">Deslice hacia arriba para mover la conversación</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
@@ -733,6 +739,7 @@
     <string name="title_unused_inline">Las imágenes embebidas no usadas serán eliminadas al enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
+    <string name="title_attachment_eml">Mensaje adjunto</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
     <string name="title_attachments_incomplete">Algunos adjuntos o imágenes no fueron descargados y no pudieron añadirse</string>
@@ -751,6 +758,9 @@
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
     <string name="title_ask_review">Por favor califique FairEmail</string>
+    <string name="title_ask_review_rationale">        Ha estado usando FairEmail durante un tiempo.
+        Se agradecería que pudiese calificar FairEmail en Play Store.
+    </string>
     <string name="title_ask_once">Este mensaje sólo aparecerá una vez, a menos que seleccione \'Más tarde\'</string>
     <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
@@ -1032,6 +1042,7 @@
     <string name="title_legend_download_fetch">Número de mensajes descargados / cabeceras obtenidas</string>
     <string name="title_legend_stop">Detener procesamiento de reglas</string>
     <string name="title_legend_thread">Conversación</string>
+    <string name="title_legend_bookmark">Última conversación abierta</string>
     <string name="title_legend_zoom">Cambiar tamaño del texto</string>
     <string name="title_legend_draft">Tiene borrador</string>
     <string name="title_legend_priority">Tiene prioridad alta</string>

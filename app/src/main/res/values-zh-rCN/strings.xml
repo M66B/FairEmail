@@ -47,7 +47,7 @@
         <item quantity="other">选定了 %1$d 个会话</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="other">将 %1$d 条消息从 %2$s 移动到 %3$s？</item>
+        <item quantity="other">移动 %1$d 条消息吗？</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">永久删除这%1$d则邮件？</item>

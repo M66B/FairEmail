@@ -334,6 +334,7 @@
     <string name="title_advanced_volumenav">Lydstyrke op/ned for at gå til næste/foregående samtale</string>
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_swipe_close">Stryg nedad for at lukke samtale</string>
+    <string name="title_advanced_swipe_move">Stryg opad for at flytte samtale</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>

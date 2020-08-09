@@ -26,7 +26,7 @@ Pro autorizaci:
 
 * Gmail / G suite, viz [otázka č. 6](#user-content-faq6)
 * Outlook / Live / Hotmail, viz [otázka č. 14](#user-content-faq14)
-* Office365, viz [otázka č. 14](#user-content-faq156)
+* Office 365, see [question 14](#user-content-faq156)
 * Microsoft Exchange, viz [otázka č. 8](#user-content-faq8)
 * Yahoo, AOL a Sky, viz [otázka č. 88](#user-content-faq88)
 * Apple iCloud, viz [otázka č. 148](#user-content-faq148)
@@ -271,7 +271,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office365 account?](#user-content-faq156)
+* [(156) How can I set up an Office 365 account?](#user-content-faq156)
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
@@ -702,7 +702,7 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-For setting up an Office365 account, please see [this FAQ](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
@@ -854,11 +854,20 @@ Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you c
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
+**Send errors**
+
+SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+
+* The attachment size limit for Gmail [is 25 MB](https://support.google.com/mail/answer/6584)
+* The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
+* The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
+* *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
+
 **Gmail errors**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-The error *... Ověření se nezdařilo ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -2064,7 +2073,7 @@ OAuth for Gmail is supported via the quick setup wizard. The Android account man
 
 OAuth for Yandex is supported via the quick setup wizard.
 
-OAuth for Office365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
 OAuth access for Yahoo was requested, but Yahoo never responded to the request. OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL. Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media). So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
@@ -2608,9 +2617,9 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office365 account?**
+**(156) How can I set up an Office 365 account?**
 
-An Office365 account can be set up via the quick setup wizard and selecting *Office365 (OAuth)*.
+An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 

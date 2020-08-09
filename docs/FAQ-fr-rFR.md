@@ -26,7 +26,7 @@ Pour l'autorisation :
 
 * Gmail / G suite, voir [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, voir [question 14](#user-content-faq14)
-* Office365, voir [question 14](#user-content-faq156)
+* Office 365, see [question 14](#user-content-faq156)
 * Microsoft Echange, voir [question 8](#user-content-faq8)
 * Yahoo, AOL et Sky, voir [question 88](#user-content-faq88)
 * Apple iCloud, voir [question 148](#user-content-faq148)
@@ -271,7 +271,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(153) Pourquoi la suppression définitive du message Gmail ne fonctionne-t-elle pas ?](#user-content-faq153)
 * [~~(154) Peut-on ajouter des favicons comme photos de contact?~~](#user-content-faq154)
 * [(155) Qu'est-ce qu'un fichier winmail.dat ?](#user-content-faq155)
-* [(156) Comment puis-je créer un compte Office365 ?](#user-content-faq156)
+* [(156) How can I set up an Office 365 account?](#user-content-faq156)
 * [(157) Comment puis-je créer un compte gratuit ?](#user-content-faq157)
 * [(158) Quelle caméra / enregistreur audio recommandez-vous?](#user-content-faq158)
 * [(159) Qu'est ce que deconnecter les listes de protection du tracker ?](#user-content-faq159)
@@ -702,7 +702,7 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-For setting up an Office365 account, please see [this FAQ](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
@@ -853,6 +853,15 @@ Possible causes are:
 Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+
+**Send errors**
+
+SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+
+* The attachment size limit for Gmail [is 25 MB](https://support.google.com/mail/answer/6584)
+* The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
+* The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
+* *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 
 **Gmail errors**
 
@@ -2064,7 +2073,7 @@ OAuth for Gmail is supported via the quick setup wizard. The Android account man
 
 OAuth for Yandex is supported via the quick setup wizard.
 
-OAuth for Office365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
 OAuth access for Yahoo was requested, but Yahoo never responded to the request. OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL. Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media). So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
@@ -2073,9 +2082,9 @@ OAuth access for Yahoo was requested, but Yahoo never responded to the request. 
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-FairEmail est un client de messagerie uniquement, vous devez donc fournir vous-même votre adresse e-mail.
+FairEmail is an email client only, so you need to bring your own email address.
 
-Il y a beaucoup de fournisseurs de messagerie parmi lesquels choisir. Le fournisseur de messagerie qui vous convient le mieux dépend de vos souhaits/exigences. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
 Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
 
@@ -2590,94 +2599,94 @@ Some background: Gmail seems to have an additional message view for IMAP, which 
 <br />
 
 <a name="faq154"></a>
-**~~(154) Peut-on ajouter des favicons comme photos de contact?~~**
+**~~(154) Can you add favicons as contact photos?~~**
 
-~~Outre le fait qu'un [favicon](https://en.wikipedia.org/wiki/Favicon) peut être partagé par de nombreuses adresses e-mail avec le même nom de domaine~~ ~~~et n'est donc pas directement lié à une adresse e-mail, favicon peut être utilisé pour vous suivre.~~
+~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) Qu'est-ce qu'un fichier winmail.dat ?**
+**(155) What is a winmail.dat file?**
 
-Un fichier *winmail.dat* est envoyé par un client Outlook mal configuré. Il s'agit d'un format de fichier spécifique à Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) contenant un message et éventuellement des pièces jointes.
+A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-Vous pouvez trouver plus d'informations sur ce fichier [ici](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-Vous pouvez le visionner avec l'application Android [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener) par exemple.
+You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
 <a name="faq156"></a>
-**(156) Comment puis-je configurer un compte Office365 ?**
+**(156) How can I set up an Office 365 account?**
 
-Un compte Office365 peut être configuré via l'assistant d'installation rapide en sélectionnant *Office365 (OAuth)*.
+An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
-Si l'assistant se termine par *AUTHENTIFICATION échouée*, IMAP et/ou SMTP peuvent être désactivés pour le compte. Dans ce cas, vous devriez demander à l'administrateur d'activer IMAP et SMTP. La procédure est documentée [ici](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
 <br />
 
 <a name="faq157"></a>
-**(157) Comment puis-je configurer un compte Free.fr ?**
+**(157) How can I set up an Free.fr account?**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq158"></a>
-**(158) Quels appareil photo / enregistreur audio photo recommandez-vous ?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Pour prendre des photos et enregistrer de l'audio un appareil photo et une application d'enregistrement audio sont nécessaires. Les applications suivantes sont des appareils photo et enregistreurs audio libres :
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-Pour enregistrer des notes vocales, etc, l'enregistreur audio doit supporter [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Étrangement, la plupart des enregistreurs audio ne semblent pas prendre en charge cette action Android standard.
+To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
 
 <br />
 
 <a name="faq159"></a>
-**(159) Que sont les listes de protection des trackers de Disconnect ?**
+**(159) What are Disconnect's tracker protection lists?**
 
-Veuillez consulter [ici](https://disconnect.me/trackerprotection) pour plus d'informations sur les listes de protection des trackers de Disconnect.
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
-Après avoir téléchargé les listes dans les paramètres de confidentialité, les listes peuvent éventuellement être utilisées :
+After downloading the lists in the privacy settings, the lists can optionally be used:
 
-* pour avertir des liens de suivi lors de l'ouverture des liens
-* reconnaître les images de suivi dans les messages
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
-Les images de suivi ne seront désactivées que si l'option principale 'désactivé' correspondante est activée.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
-Les images de suivi ne seront pas reconnues lorsque le domaine sera classé comme '*Contenu*', voir [ici](https://disconnect.me/trackerprotection#trackers-we-dont-block) pour plus d'informations.
+Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Cette commande peut être envoyée à FairEmail depuis une application d'automatisation pour mettre à jour les listes de protection :
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Une mise à jour hebdomadaire sera probablement suffisante, veuillez consulter [ici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pour les modifications récentes des listes.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 ## Assistance
 
-Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. Cela signifie également que la rétrogradation n'est pas prise en charge.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Les demandes d'ajout de fonctionnalités doivent :
+Requested features should:
 
-* être utile à la plupart des gens
-* ne pas compliquer l'utilisation de FairEmail
-* s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
-* se conformer aux normes communes (IMAP, SMTP, etc.)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
-Les caractéristiques qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de maintenir la maintenance et le soutien à long terme réalisable.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Les problèmes GitHub sont désactivés en raison d'un usage abusif fréquent.
+GitHub issues are disabled due to frequent misusage.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

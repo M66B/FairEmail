@@ -55,8 +55,8 @@
         <item quantity="other">%1$d conversations sélectionnées</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Déplacer %1$d message de %2$s vers %3$s ?</item>
-        <item quantity="other">Déplacer %1$d messages de %2$s vers %3$s ?</item>
+        <item quantity="one">Déplacer %1$d message?</item>
+        <item quantity="other">Déplacer %1$d messages?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Supprimer définitivement %1$d message?</item>
