@@ -132,7 +132,6 @@ import static javax.mail.Folder.READ_WRITE;
 
 class Core {
     private static final int MAX_NOTIFICATION_COUNT = 10; // per group
-    private static final long AFTER_SEND_DELAY = 20 * 1000L; // milliseconds
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
@@ -1442,19 +1441,6 @@ class Core {
 
         if (message.msgid == null)
             throw new IllegalArgumentException("exists without msgid");
-
-        if (EntityFolder.SENT.equals(folder.type)) {
-            long ago = new Date().getTime() - op.created;
-            long delay = AFTER_SEND_DELAY - ago;
-            if (delay > 0) {
-                Log.i(folder.name + " send delay=" + delay);
-                try {
-                    Thread.sleep(delay);
-                } catch (InterruptedException ex) {
-                    Log.w(ex);
-                }
-            }
-        }
 
         Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
         if (imessages == null || imessages.length == 0)

@@ -80,6 +80,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int PI_SEND = 1;
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
+    private static final long EXISTS_DELAY = 20 * 1000L; // milliseconds
 
     @Override
     public void onCreate() {
@@ -634,13 +635,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         EntityOperation.queue(this, forwarded, EntityOperation.KEYWORD, "$Forwarded", true);
                 }
 
-                // Check sent message
-                if (sid != null) {
-                    // Check for sent orphans
-                    EntityMessage orphan = db.message().getMessage(sid);
-                    EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
-                }
-
                 // Reset identity
                 db.identity().setIdentityConnected(ident.id, new Date().getTime());
                 db.identity().setIdentityError(ident.id, null);
@@ -650,10 +644,34 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(ServiceSend.this, "sent");
+            ServiceSynchronize.eval(this, "sent");
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send:" + message.id, 1);
+
+            // Check sent message
+            if (sid != null) {
+                try {
+                    Thread.sleep(EXISTS_DELAY);
+                } catch (InterruptedException ex) {
+                    Log.e(ex);
+                }
+
+                try {
+                    db.beginTransaction();
+
+                    // Message could have been deleted
+                    EntityMessage orphan = db.message().getMessage(sid);
+                    if (orphan != null)
+                        EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                ServiceSynchronize.eval(this, "orphan");
+            }
         } catch (MessagingException ex) {
             Log.e(ex);
 
