@@ -365,12 +365,13 @@ public class EmailService implements AutoCloseable {
                 throw ex;
         } catch (MailConnectException ex) {
             if (ConnectionHelper.vpnActive(context)) {
-                MailConnectException mex = new MailConnectException(new SocketConnectException(
-                        context.getString(R.string.title_service_vpn),
-                        new Exception(),
-                        ex.getHost(),
-                        ex.getPort(),
-                        ex.getConnectionTimeout()));
+                MailConnectException mex = new MailConnectException(
+                        new SocketConnectException(
+                                context.getString(R.string.title_service_vpn),
+                                new Exception(),
+                                ex.getHost(),
+                                ex.getPort(),
+                                ex.getConnectionTimeout()));
                 mex.setNextException(ex.getNextException());
                 throw mex;
             } else
