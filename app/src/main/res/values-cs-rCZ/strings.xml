@@ -350,10 +350,11 @@
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
-    <string name="title_advanced_swipenav">Tahem vlevo/vpravo přejít na další/předešlou konverzaci</string>
-    <string name="title_advanced_volumenav">Hlasitostí nahoru/dolů přejít na další/předešlou konverzaci</string>
+    <string name="title_advanced_swipenav">Přejít na další/předešlou konverzaci tažením vlevo/vpravo</string>
+    <string name="title_advanced_volumenav">Přejít na další/předešlou konverzaci zvýšením/snížením hlasitosti</string>
     <string name="title_advanced_reversed">Obrátit směr navigace</string>
-    <string name="title_advanced_swipe_close">Tažení dolů zavře konverzaci</string>
+    <string name="title_advanced_swipe_close">Zavřít konverzaci tažením dolů</string>
+    <string name="title_advanced_swipe_move">Přesunout konverzaci tažením nahoru</string>
     <string name="title_advanced_autoexpand">Rozbalovat zprávy automaticky</string>
     <string name="title_advanced_expand_all">Rozbalovat všechny přečtené zprávy automaticky</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>

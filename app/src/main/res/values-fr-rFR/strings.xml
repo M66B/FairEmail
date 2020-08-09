@@ -581,6 +581,7 @@
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
     <string name="title_review">Récapitulatif</string>
     <string name="title_hint_alias">Appuyer longuement sur une identité pour afficher les options, comme copier afin de créer des identités alias</string>
+    <string name="title_service_auth">Le serveur de messagerie a dit : %1$s</string>
     <string name="title_service_vpn">Ceci pourrait être dû au VPN utilisé</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier à nouveau le protocole (SSL/TLS ou STARTTLS)</string>

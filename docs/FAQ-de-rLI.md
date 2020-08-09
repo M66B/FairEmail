@@ -2376,7 +2376,7 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact management/synchronizing?**
 
-Calendar and contact management can better be done by a separate, specialized app.
+Kalender und Kontakte können besser durch eine separate, spezialisierte App verwaltet werden. Bitte beachten Sie, dass FairEmail eine reine E-Mail-App ist und keine Office-Suite.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 

@@ -569,6 +569,7 @@
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
+    <string name="title_service_auth">电子邮件服务器说：\'%1$s\'</string>
     <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
     <string name="title_service_port">请再次检查端口号</string>
     <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>

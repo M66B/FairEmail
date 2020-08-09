@@ -580,6 +580,7 @@
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>
     <string name="title_hint_alias">Långtryck för alternativ, som att kopiera för att skapa alias för olika identiteter</string>
+    <string name="title_service_auth">E-postservern sa: \'%1$s\'</string>
     <string name="title_service_vpn">Detta kan orsakas av den VPN som används</string>
     <string name="title_service_port">Vänligen dubbelkolla portnumret</string>
     <string name="title_service_protocol">Vänligen dubbelkolla protokollet (SSL/TLS eller STARTTLS)</string>

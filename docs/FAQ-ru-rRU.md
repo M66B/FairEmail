@@ -26,7 +26,7 @@
 
 * Gmail / G suite, см. [вопрос 6](#user-content-faq6)
 * Outlook / Live / Hotmail, см. [вопрос 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
+* Office 365, см. [вопрос 14](#user-content-faq156)
 * Microsoft Exchange, см. [вопрос 8](#user-content-faq8)
 * Yahoo, AOL и Sky, см. [вопрос 88](#user-content-faq88)
 * Apple iCloud, см. [вопрос 148](#user-content-faq148)
@@ -73,23 +73,23 @@
 * Ошибка в Nova Launcher на Android 5.x вызывает сбой FairEmail с *java.lang.StackOverflowError*, когда Nova Launcher имеет доступ к службе специальных возможностей.
 * ~~Выбор папки иногда не показывает папок по неизвестным причинам. Похоже, это исправлено.~~
 * ~~ [ошибка в AndroidX](https://issuetracker.google.com/issues/64729576) затрудняет захват быстрой прокрутки. Обходное решение было добавлено.~~
-* ~~~Шифрование с помощью YubiKey приводит к бесконечному циклу. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. This can't be fixed because the original message view is contained in a scrolling view.
-* Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
+* ~~~Шифрование с помощью YubiKey приводит к бесконечному циклу. Похоже, что это вызвано ошибкой [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. Это не может быть исправлено, потому что исходный вид сообщения содержится в прокрутке.
+* Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Известно, что текст предварительного просмотра сообщений правильно отображаются на экране Pebble 2, Fitbit Charge 3 и Mi band 3. См. также [этот FAQ](#user-content-faq126).
 
-## Planned features
+## Запланированные возможности
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~Синхронизировать по требованию (вручную)~~
+* ~~~Полуавтоматическое шифрование~~
+* ~~Копировать сообщение~~
+* ~~~Цветные звезды~~
+* ~~~Настройки уведомлений для папок~~
+* ~~Выбрать локальные изображения для подписей~~ (это не будет добавлено, потому что требуется управление файлами изображений и потому что изображения не отображаются по умолчанию в большинстве почтовых клиентов в любом случае)
+* ~~Показать сообщения, соответствующие правилу~~
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (нет поддерживаемых библиотек Java с соответствующей лицензией и без зависимостей, кроме того, у FairEmail есть свои собственные правила фильтрайии)
+* ~~~Поиск сообщений с / без вложений~~ (это нельзя добавить, потому что IMAP не поддерживает поиск вложений)
+* ~~~Поиск папки~~ (фильтрация списка иерархических папок проблематична)
+* ~~Подсказки поиска~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
@@ -2376,7 +2376,7 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact management/synchronizing?**
 
-Calendar and contact management can better be done by a separate, specialized app.
+Для управления календарём и контактами лучше подходят отдельные специализированные приложения. Обратите внимание, что FairEmail является специализированным почтовым приложением, а не офисным программным комплексом.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 
