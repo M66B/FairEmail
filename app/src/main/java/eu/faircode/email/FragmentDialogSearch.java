@@ -35,6 +35,7 @@ import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
     @NonNull
@@ -295,9 +296,52 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                         imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
 
-                        FragmentMessages.search(
-                                getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                account, folder, false, criteria);
+                        if (criteria.query != null && criteria.query.startsWith("raw:"))
+                            new SimpleTask<EntityFolder>() {
+                                @Override
+                                protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                                    long aid = args.getLong("account", -1);
+
+                                    DB db = DB.getInstance(context);
+                                    EntityAccount account = null;
+                                    if (aid < 0) {
+                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                                        if (accounts == null)
+                                            return null;
+                                        for (EntityAccount a : accounts)
+                                            if (a.isGmail())
+                                                if (account == null)
+                                                    account = a;
+                                                else
+                                                    return null;
+                                    } else
+                                        account = db.account().getAccount(aid);
+
+                                    if (account == null || !account.isGmail())
+                                        return null;
+
+                                    return db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, EntityFolder archive) {
+                                    FragmentMessages.search(
+                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                            account,
+                                            archive == null ? folder : archive.id,
+                                            archive != null,
+                                            criteria);
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                }
+                            }.execute(getContext(), getViewLifecycleOwner(), getArguments(), "search:raw");
+                        else
+                            FragmentMessages.search(
+                                    getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                    account, folder, false, criteria);
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
