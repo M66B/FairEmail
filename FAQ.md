@@ -784,7 +784,17 @@ Searching on the server might be case sensitive or case insensitive and might be
 Some servers cannot handle searching in the message text when there are a large number of messages.
 For this case there is an option to disable searching in the message text.
 
-Searching through a large number of messages is not very fast because of two limitations:
+It is possible to use Gmail search commands by prefixing a search command with *raw:*.
+If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox.
+If you configured multiple Gmail accounts,
+you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in.
+Please [see here](https://support.google.com/mail/answer/7190) for the possible commands. Example:
+
+``
+raw:larger:10M
+``
+
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
