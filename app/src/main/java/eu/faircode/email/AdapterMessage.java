@@ -5870,17 +5870,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     Uri uri = Uri.parse(etLink.getText().toString());
-                    Uri.Builder builder = uri.buildUpon();
-
-                    builder.scheme(checked ? "https" : "http");
-
-                    String authority = uri.getEncodedAuthority();
-                    if (authority != null) {
-                        authority = authority.replace(checked ? ":80" : ":443", checked ? ":443" : ":80");
-                        builder.encodedAuthority(authority);
-                    }
-
-                    etLink.setText(builder.build().toString());
+                    etLink.setText(secure(uri, checked).toString());
                 }
             });
 
@@ -5889,10 +5879,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    if (checked)
-                        etLink.setText(sanitized.toString());
-                    else
-                        etLink.setText(uri.toString());
+                    etLink.setText(secure(checked ? sanitized : uri, cbSecure.isChecked()).toString());
                 }
             });
 
@@ -6064,6 +6051,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
             return (changed ? builder.build() : null);
+        }
+
+        private static Uri secure(Uri uri, boolean https) {
+            String scheme = uri.getScheme();
+            if (https ? "http".equals(scheme) : "https".equals(scheme)) {
+                Uri.Builder builder = uri.buildUpon();
+                builder.scheme(https ? "https" : "http");
+
+                String authority = uri.getEncodedAuthority();
+                if (authority != null) {
+                    authority = authority.replace(https ? ":80" : ":443", https ? ":443" : ":80");
+                    builder.encodedAuthority(authority);
+                }
+
+                return builder.build();
+            } else
+                return uri;
         }
     }
 
