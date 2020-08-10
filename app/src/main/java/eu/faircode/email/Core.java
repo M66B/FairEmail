@@ -4036,9 +4036,13 @@ class Core {
             thread.setPriority(THREAD_PRIORITY_BACKGROUND);
         }
 
-        void release() {
+        boolean release() {
+            if (!thread.isAlive())
+                return false;
+
             semaphore.release();
             yield();
+            return true;
         }
 
         boolean acquire(long milliseconds) throws InterruptedException {

@@ -765,11 +765,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         String action = intent.getAction();
         long account = Long.parseLong(action.split(":")[1]);
         Core.State state = coreStates.get(account);
+
+        boolean ok = false;
         if (state == null)
             EntityLog.log(this, "### wakeup missing account=" + account);
         else {
             EntityLog.log(this, "### waking up account=" + account);
-            state.release();
+            ok = state.release();
+        }
+
+        if (!ok) {
+            Log.e("Wakeup failed account=" + account);
+            reload(this, account, false, "wakeup failed");
         }
     }
 
