@@ -7098,12 +7098,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         List<Long> ids = db.message().getMessageByFolder(folder.id);
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
-                            if (message != null &&
-                                    (account.protocol == EntityAccount.TYPE_POP || message.uid != null))
+                            if (message == null)
+                                continue;
+
+                            if (message.uid != null || account.protocol == EntityAccount.TYPE_POP)
                                 db.message().setMessageUiHide(message.id, true);
                         }
 
                         EntityOperation.queue(context, folder, EntityOperation.PURGE);
+                        EntityOperation.sync(context, folder.id, false);
                     }
 
                     db.setTransactionSuccessful();
