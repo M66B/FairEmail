@@ -1259,7 +1259,7 @@ class Core {
                     else
                         msgid = helper.getMessageID();
 
-                    Log.i("POP searching=" + message.msgid + " iterate=" + msgid);
+                    Log.i(folder.name + " POP searching=" + message.msgid + " iterate=" + msgid);
                     if (msgid != null &&
                             (msgid.equals(message.uidl) || msgid.equals(message.msgid))) {
                         found = true;
@@ -1836,7 +1836,8 @@ class Core {
                 imessages = Arrays.copyOfRange(imessages,
                         imessages.length - account.max_messages, imessages.length);
 
-            if (caps.containsKey("UIDL")) {
+            boolean hasUidl = caps.containsKey("UIDL");
+            if (hasUidl) {
                 FetchProfile ifetch = new FetchProfile();
                 ifetch.add(UIDFolder.FetchProfileItem.UID);
                 ifolder.fetch(imessages, ifetch);
@@ -1845,16 +1846,52 @@ class Core {
             db.folder().setFolderSyncState(folder.id, "downloading");
 
             List<TupleUidl> ids = db.message().getUidls(folder.id);
-            Log.i(folder.name + " POP existing=" + ids.size());
+            Log.i(folder.name + " POP existing=" + ids.size() + " uidl=" + hasUidl);
 
-            // Map identifiers
-            Map<String, TupleUidl> uidls = new HashMap<>();
-            Map<String, TupleUidl> msgids = new HashMap<>();
+            // Index UIDLs
+            Map<String, String> uidlMsgId = new HashMap<>();
             for (TupleUidl id : ids)
-                if (id.uidl != null)
-                    uidls.put(id.uidl, id);
-                else if (id.msgid != null)
-                    msgids.put(id.msgid, id);
+                if (id.uidl != null && id.msgid != null)
+                    uidlMsgId.put(id.uidl, id.msgid);
+
+            if (!account.leave_on_device) {
+                if (hasUidl) {
+                    Map<String, TupleUidl> known = new HashMap<>();
+                    for (TupleUidl id : ids)
+                        if (id.uidl != null)
+                            known.put(id.uidl, id);
+
+                    for (Message imessage : imessages) {
+                        String uidl = ifolder.getUID(imessage);
+                        if (TextUtils.isEmpty(uidl))
+                            known.clear(); // better safe than sorry
+                        else
+                            known.remove(uidl);
+                    }
+
+                    for (TupleUidl uidl : known.values()) {
+                        Log.i(folder.name + " POP purging uidl=" + uidl.uidl);
+                        db.message().deleteMessage(uidl.id);
+                    }
+                } else {
+                    Map<String, TupleUidl> known = new HashMap<>();
+                    for (TupleUidl id : ids)
+                        if (id.msgid != null)
+                            known.put(id.msgid, id);
+
+                    for (Message imessage : imessages) {
+                        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+                        String msgid = helper.getMessageID(); // expensive!
+                        if (!TextUtils.isEmpty(msgid))
+                            known.remove(msgid);
+                    }
+
+                    for (TupleUidl uidl : known.values()) {
+                        Log.i(folder.name + " POP purging msgid=" + uidl.msgid);
+                        db.message().deleteMessage(uidl.id);
+                    }
+                }
+            }
 
             for (Message imessage : imessages)
                 try {
@@ -1862,32 +1899,40 @@ class Core {
                         return;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-                    String uidl = caps.containsKey("UIDL")
-                            ? ifolder.getUID(imessage)
-                            : helper.getMessageID();
 
-                    if (TextUtils.isEmpty(uidl)) {
-                        Log.w(folder.name + " POP no message ID");
-                        continue;
-                    }
+                    String uidl;
+                    String msgid;
+                    if (hasUidl) {
+                        uidl = ifolder.getUID(imessage);
+                        if (TextUtils.isEmpty(uidl)) {
+                            Log.w(folder.name + " POP no uidl");
+                            continue;
+                        }
 
-                    if (uidls.containsKey(uidl)) {
-                        uidls.remove(uidl);
-                        Log.i(folder.name + " POP having uidl=" + uidl);
-                        continue;
-                    }
+                        msgid = uidlMsgId.get(uidl);
+                        if (msgid == null)
+                            msgid = helper.getMessageID();
+                        else {
+                            Log.i(folder.name + " POP having uidl=" + uidl);
+                            continue;
+                        }
+                    } else {
+                        uidl = null;
+                        msgid = helper.getMessageID();
 
-                    if (caps.containsKey("UIDL")) {
-                        String msgid = helper.getMessageID();
-                        if (msgids.containsKey(msgid)) {
+                        if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
                             Log.i(folder.name + " POP having msgid=" + msgid);
-                            db.message().setMessageUidl(msgids.get(msgid).id, uidl);
                             continue;
                         }
                     }
 
+                    if (TextUtils.isEmpty(msgid)) {
+                        Log.w(folder.name + " POP no msgid");
+                        continue;
+                    }
+
                     try {
-                        Log.i(folder.name + " POP sync=" + uidl);
+                        Log.i(folder.name + " POP sync=" + msgid);
 
                         Long sent = helper.getSent();
                         Long received = helper.getReceivedHeader();
@@ -1904,7 +1949,7 @@ class Core {
                         message.folder = folder.id;
                         message.uid = null;
                         message.uidl = uidl;
-                        message.msgid = helper.getMessageID();
+                        message.msgid = msgid;
                         message.hash = helper.getHash();
                         message.references = TextUtils.join(" ", helper.getReferences());
                         message.inreplyto = helper.getInReplyTo();
@@ -2008,12 +2053,6 @@ class Core {
                     }
                 } finally {
                     ((POP3Message) imessage).invalidate(true);
-                }
-
-            if (!account.leave_on_device)
-                for (TupleUidl id : uidls.values()) {
-                    Log.i(folder.name + " POP deleting=" + id.msgid);
-                    db.message().deleteMessage(folder.id, id.msgid);
                 }
 
             Log.i(folder.name + " POP done");
