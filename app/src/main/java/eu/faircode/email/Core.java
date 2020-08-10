@@ -1166,7 +1166,7 @@ class Core {
                 }
 
                 if (!stats.isEmpty())
-                    EntityLog.log(context, folder.name + " fetch stats " + stats);
+                    EntityLog.log(context, account.name + "/" + folder.name + " fetch stats " + stats);
             } finally {
                 ((IMAPMessage) imessage).invalidateHeaders();
             }
@@ -2440,7 +2440,7 @@ class Core {
 
             stats.total = (SystemClock.elapsedRealtime() - search);
 
-            EntityLog.log(context, folder.name + " sync stats " + stats);
+            EntityLog.log(context, account.name + "/" + folder.name + " sync stats " + stats);
         } finally {
             Log.i(folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);
