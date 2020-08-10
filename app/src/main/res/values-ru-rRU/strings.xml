@@ -603,7 +603,7 @@
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
-    <string name="title_service_auth">Сервер электронной почты сообщил: \'%1$s\'</string>
+    <string name="title_service_auth">Сервер электронной почты сообщил: \"%1$s\"</string>
     <string name="title_service_vpn">Это может быть вызвано использованием VPN</string>
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>

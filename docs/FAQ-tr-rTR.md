@@ -1,66 +1,66 @@
-# FairEmail support
+# E-Posta Desteği
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Sorununuz olması halinde, öncelikle aşağıdaki sıkça sorulan soruları kontrol ediniz. Son kısımda diğer soruları nasıl soracağınız, özellikleri nasıl talep edeceğiniz ve hataları nasıl şikayet edeceğiniz anlatılmıştır.
 
-## Index
+## İçindekiler
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Hesap Yetkilendirme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Nasıl yapılır?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Bilinen Hatalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Planlanan Özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Sıkça İstenen Özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Sıkça Sorulan Sorular](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Destek](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Hesap Yetkilendirme
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Çoğu zaman hızlı kurulum doğru konfigürasyonu otomatik olarak tanımlayacaktır.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Hızlı kurulumun çalışmadığı durumlarda, (e-posta almak için) bir hesap ve (e-posta gönderebilmek için) bir kimlik oluşturmalısınız. Bunun için SSL/TLS veya STARTTLS kullanılan IMAP ve SMTP sunucu adresi ve bağlantı noktası numaraları, (genellikle e-posta adresin olan) kullanıcı adın ve şifren gerekmektedir.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+*IMAP* ve sağlayıcının adını aramak çoğunlukla doğru belgelemeyi bulmak için yeterlidir.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Bazı durumlarda, örneğin iki faktörlü kimlik doğrulamada, hesabınıza üçüncü parti erişimine izin vermek ve/veya özel (uygulama) şifre kullanmak durumunda kalabilirsiniz.
 
-For authorizing:
+Yetkilendirme için:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
+* Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
+* Office 365, [14. soru](#user-content-faq156)ya bakınız
+* Microsoft Exchange, [8. soru](#user-content-faq8)ya bakınız
+* Yahoo, AOL and Sky, [88. soru](#user-content-faq88)ya bakınız
+* Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
+* Free.fr, [157. soru](#user-content-faq157)ya bakınız
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-faq22) kontrol ediniz.
 
-Related questions:
+İlgili sorular:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [OAuth destekleniyor mu?](#user-content-faq111)
+* [ActiveSync neden desteklenmiyor?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Nasıl yapılır?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Hesap ismini değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın
+* Sağ/sol hedefi değiştirme: Kurulum, Davranış, hareketleri değiştirmeyi ayarlayın
+* Şifreyi değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın, şifreyi değiştirin
+* İmza ayarlama: Kurulum, adım 2, Yönet, kimliğe tıklayın, imzayı düzenleyin.
+* CC ve BCC adresi ekleme: konu kısmının sonundaki insan ikonuna tıklayın
+* Arşiv/silinenlerdeki bir önceki/sonraki mesaja gitme: davranış ayarlarında *konuşmaları otomatik silmeyi* devre dışı bırakıp *bir görüşmeyi kapatırken* *bir sonraki/önceki konuşmaya giti* seçin
+* Toplu gelen kutusuna dosya ekleme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Toplu gelen postayı gösteri* seçin
+* Dolaşım menüsüne dosya ekleme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Navigasyon menüsünü gösteri* seçin
+* Daha fazla mesaj gösterme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Daha fazla mesaj eşzamanlayı* seçin
+* Çöp kutusunu atlayarak bir mesajı silme: mesaj kutusunun üstündeki üç noktaya tıklayıp *Sil*in veya hesap ayarlarında çöp kutusu seçeneğini kaldırın
+* Hesabı/Kimliği silme: Kurulum adım 1/2, Yönet, hesap/kimliğe tıklayın, üç noktaya tıklayın, Silin
+* Dosya silme: dosya listesindeki dosyaya uzun süre basılı tutun, özellikleri düzenle, üç noktaya tıklayın, silin
+* Gönderilen mesajı iptal etme: mesaja tıklayın, geri al ikonuna tıklayın
+* Gönderilen mesajları gelen kutusunda saklama: lütfen [SSS'ı inceleyin](#user-content-faq142)
+* Sistem dosyalarını değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın, en altta
+* Ayarları içe/dışa aktarma: Ayarlar, menü
 
-## Known problems
+## Bilinen Hatalar
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~

@@ -26,7 +26,7 @@ Engedélyezéshez:
 
 * Gmail / G suite, lásd: [6. kérdés](#user-content-faq6)
 * Outlook / Live / Hotmail, lásd: [14. kérdés](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
+* Office 365, lásd: [14. Kérdés](#user-content-faq156)
 * Microsoft Exchange, lásd: [8. kérdés](#user-content-faq8)
 * Yahoo, AOL and Sky, lásd [88. kérdés](#user-content-faq88)
 * Apple iCloud, lásd [148. kerdés](#user-content-faq148)
@@ -218,7 +218,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq103)
+* [(103) Hogyan vehetek fel hangot?](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
@@ -279,11 +279,11 @@ The design is based on many discussions and if you like you can discuss about it
 [I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Milyen engedélyek szükségesek és miért?**
 
-The following Android permissions are needed:
+Ezek az Android engedélyek szükségesek:
 
-* *have full network access* (INTERNET): to send and receive email
+* *tejles hálózat hozzáférés* (INTERNET): emailek küldéséhez és fogadásához
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
@@ -504,7 +504,7 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Használhatom a Microsoft Exchange fiókomat?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 

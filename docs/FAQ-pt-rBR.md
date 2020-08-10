@@ -4,301 +4,301 @@ Se você tiver alguma pergunta, verifique primeiro as perguntas mais frequentes 
 
 ## Índice
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Autorizando contas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Como ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Problemas conhecidos](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Funcionalidades planejadas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Funcionalidades solicitadas frequentemente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Perguntas Frequentes (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Suporte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Autorizando contas
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Na maior parte dos casos, a configuração rápida conseguirá identificar automaticamente a configuração correta.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Se ela falhar, você precisará definir manualmente uma conta (para receber e-mails) e uma identidade (para enviar e-mails). Para isso, você precisará dos endereços de servidor IMAP e SMTP e dos números de porta, selecionar se deve utilizar SSL/TLS ou STARTTLS e por fim, seu nome de usuário (normalmente, mas não sempre, seu e-mail) e sua senha.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Procurar por *IMAP* junto com o nome do provedor geralmente é suficiente para encontrar a documentação correta.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Em alguns casos, você precisará permitir acesso externo à sua conta e/ou usar uma senha especial (aplicativo), como nos casos em que a autenticação de dois fatores estiver ativada.
 
-For authorizing:
+Para autorizar:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G Suite, veja a [pergunta 6](#user-content-faq6)
+* Outlook / Live / Hotmail, veja a [pergunta 14](#user-content-faq14)
+* Office 365, veja a [pergunta 14](#user-content-faq156)
+* Microsoft Exchange, veja a [pergunta 8](#user-content-faq8)
+* Yahoo, AOL e Sky, veja a [pergunta 88](#user-content-faq88)
+* Apple iCloud, veja a [pergunta 148](#user-content-faq148)
+* Free.fr, veja a [pergunta 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Por favor, veja [aqui](#user-content-faq22) as mensagens de erro mais comuns e suas soluções.
 
-Related questions:
+Perguntas relacionadas:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [OAuth é suportado?](#user-content-faq111)
+* [Por que o ActiveSync não é suportado?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Como ...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Mudar o nome da conta: Configuração, etapa 1, Gerenciar, toque em conta
+* Mudar a função do deslizar para a esquerda/direita: Configuração, Comportamento, Definir ações de deslizar
+* Mudar a senha: Configuração, etapa 1, Gerenciar, toque em conta, mudar senha
+* Definir uma assinatura: Configuração, etapa 2, Gerenciar, toque em identidade, Editar assinatura.
+* Adicionar endereços CC e BCC: toque no ícone de pessoas ao final do assunto
+* Ir para a próxima/anterior mensagem no arquivo/excluídos: na configuração de comportamente desative *Fechar conversas automaticamente* e seleciona *Ir para a próxima/anterior mensagem* em *Ao fechar uma conversa*
+* Adicionar uma pasta à caixa de entrada unificada: toque e segure a pasta na lista de pastas e marque *Mostrar na caixa de entrada unificada*
+* Adicionar uma pasta ao menu de navegação: toque e segure a pasta na lista de pastas e marque *Mostrar no menu de navegação*
+* Carregar mais mensagens: toque e segure a pasta na lista de pastas, selecione *Sincronizar mais mensagens*
+* Deletar uma mensagem, sem enviar à lixeira: nos três pontos logo acima do texto da mensagem selecione, *Deletar* ou alternativamente, desmarque a lixeira nas configurações da conta
+* Deletar uma conta/identidade: Configuração, etapa 1/2, Gerenciar, toque na conta/identidade, três pontos, Deletar
+* Apagar uma pasta: toque e segure a pasta na lista de pastas, Editar propriedades, três pontos, Deletar
+* Desfazer envio: Caixa de saída, toque na mensagem, toque no botão com ícone de desfazer
+* Armazenas mensagens enviadas na caixa de entrada: por favor [veja esse FAQ](#user-content-faq142)
+* Mudar pastas do sistema: Configuração, etapa 1, Gerenciar, toque na conta, procure na parte inferior
+* Exportar/importar configurações: Configuração, navegação/menu de hambúrguer
 
-## Known problems
+## Problemas conhecidos
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
+* ~~Um [problema nos Androids 5.1 e 6](https://issuetracker.google.com/issues/37054851) faz com que o aplicativo mostre um formato de hora errado. Habilitar a configuração do Android *Usar formato de 24 horas* pode resolver esse problema temporariamente. Uma solução alternativa foi adicionada.~~
+* ~~Um [problema no Google Drive](https://issuetracker.google.com/issues/126362828) faz com os arquivos exportados para o Google Drive fiquem vazios. O Google consertou isso.~~
+* ~~Um [problema no AndroidX](https://issuetracker.google.com/issues/78495471) faz com que o FairEmail ocasionalmente trave ao tocar e segurar ou deslizar no app. O Google consertou isso.~~
+* ~~Um [problema na ROOM do AndroidX](https://issuetracker.google.com/issues/138441698) causa algumas vezes um travamento com a mensagem "*... Exceção ao computar dados ativos do banco de dados ... Nor foi possível ler a linha ...*". Uma solução alternativa foi adicionada.~~
+* Um [problema no Android](https://issuetracker.google.com/issues/119872129) faz com que o FairEmail trave com a mensagem "*... Notificação incorreta postada ...*" em alguns dispositivos uma vez após atualizar o FairEmail e tocar em uma notificação.
+* Um [problema no Android](https://issuetracker.google.com/issues/62427912) às vezes causa um travamento com a mensagem "*... Registro de Atividades não encontrado para ...*" após atualizar o FairEmail. Reinstalar a ([causa](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) pode corrigir o problema.
+* Um [problema no Android](https://issuetracker.google.com/issues/37018931) às vezes causa um travamento com a mensagem *... Canal de Entrada não inicializado ...* em alguns dispositivos.
+* ~~Um [problema no LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) às vezes causa um travamento com a mensagem *... java.lang.ArrayIndexOutOfBoundsException> length=...; index=... ...*.~~
+* Um problema no Nova Launcher no Android 5.x faz com que o FairEmail trave com a mensagem *java.lang.StackOverflowError* quando o Nova Launcher tem acesso aos serviços de acessibilidade.
+* ~~O seletor de pastas às vezes mostra sem pastas por razões ainda desconhecidas. Isso parece ter sido consertado.~~
+* ~~Um [problema no AndroidX](https://issuetracker.google.com/issues/64729576) torna difícil selecionar a rolagem rápida. Uma solução alternativa foi adicionada.~~
+* ~~Criptografia com YubiKey resulta em um loop (ciclo) infinito. Isso parece ser causado por um [problema no OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Rolar para um local com link interno nas mensagens originais não funciona. Não é possível corrigir porque a visualização de mensagem original é limitada na visualização de rolagem.
+* A pré-visualização do texto de uma mensagem não aparece (sempre) nos relógios Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. É sabido que a pré-visualização do texto de mensagens é exibida corretamente nos relógios Pebble 2, Fitbit Charge 3, e Mi band 3. Veja também [ esse FAQ](#user-content-faq126).
 
-## Planned features
+## Funcionalidades planejadas
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
+* ~~Sincronização sob demanda (manual)~~
+* ~~Criptografia semi-automática~~
+* ~~Copiar mensagem~~
+* ~~Estrelas coloridas~~
+* ~~Configurações de notificação por pasta~~
+* ~~Selecionar imagens locais para assinaturas~~ (isso não será adicionado porque requer gerenciamento de imagens e porque as imagens não são mostradas por padrão na maioria dos clientes de e-mail)
+* ~~Mostrar mensagens que correspondam a uma regra~~
+* ~~[Gerenciar Filtros](https://tools.ietf.org/html/rfc5804)~~ (não existem bibliotecas Java mantidas com uma licença adequada e sem dependências e, além disso, o FairEmail tem suas próprias regras de filtro)
+* ~~Procurar por mensagens com/sem anexos~~ (isso não pode ser adicionado porque o IMAP não suporta a busca por anexos)
+* ~~Porcurar por uma pasta~~ (é problemático filtrar uma lista de pastas hierarquizadas)
+* ~~Sugestões de Pesquisa~~
+* ~~[Configuração de Mensagens do Autocrypt](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (seção 4.4)~~ (na minha opinião, não é uma boa ideia permitir que um cliente de e-mail lide com chaves criptografadas sensíveis para o caso de um uso excepcional, já que o OpenKeychain pode exportar chaves também)
+* ~~Pastas unificadas genéricas~~
+* Nova programação de notificação de mensagens por conta~~ (implementado adicionando uma condição de tempo às regras, para que as mensagens possam ser adiadas durante períodos selecionados)
+* ~~Copiar contas e identidades~~
+* ~~Zoom ao aproximar dois dedos~~ (não é possível com segurança em uma lista de rolagem; em vez disso, a visualização de mensagem completa pode ser ampliada)
+* ~~Visualização de pastas mais compacta~~
+* ~~Criar listas e tabelas~~ (requer um editor de texto completo, veja [nessa FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Mostrar GIFs~~
+* ~~Temas~~ (temas escuro e cinza claro foram adicionados porque é isso que a maioria das pessoas parece querer)
+* ~~Qualquer condição de hora do dia~~ (qualquer dia realmente não se encaixa na condição de/para dia/horário)
+* ~~Enviar como anexo~~
+* ~~Widget para a conta selecionada~~
+* ~~Lembrete para anexar arquivos~~
+* ~~Selecionar domínios para mostrar imagens~~ (isso será muito complicado de utilizar)
+* ~~Visualização unificada de mensagens marcadas~~ (já existe uma busca especial para isso)
+* ~~Ação de mover notificação~~
+* ~~Suporte a S/MIME~~
+* ~~Busca por configurações~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Tudo que está nessa lista está em ordem aleatória e *pode* ser adicionado em um futuro próximo.
 
-## Frequently requested features
+## Funcionalidades solicitadas frequentemente
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+O design é baseado em várias discussões e, se quiser, você pode discutir sobre isso também [nesse fórum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). O objetivo do design é ser minimalista (sem menus e botões desnecessários, etc) e sem distrações (sem cores bonitas, animações, etc). Todas as coisas exibidas devem ser úteis de uma forma ou outra e devem ser cuidadosamente posicionadas para fácil uso. Fontes, tamanhos, cores etc devem ser de design simples sempre que possível.
 
-## Frequently Asked Questions
+## Perguntas Frequentes (FAQ)
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
-* [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the network usage of FairEmail?](#user-content-faq40)
+* [(1) Quais permissões são necessárias e por quê?](#user-content-faq1)
+* [(2) Porque a notificação é mostrada de forma permanente?](#user-content-faq2)
+* [(3) O que são operações e porque elas estão pendentes?](#user-content-faq3)
+* [(4) Como posso usar um certificado de segurança inválido / senha em branco / conexão de texto simples?](#user-content-faq4)
+* [(5) Como posso personalizar a visualização de mensagens?](#user-content-faq5)
+* [(6) Como posso fazer login com Gmail / G Suite?](#user-content-faq6)
+* [(7) Por que as mensagens enviadas não estão aparecendo (diretamente) na pasta enviados?](#user-content-faq7)
+* [(8) Posso usar uma conta do Microsoft Exchange?](#user-content-faq8)
+* [(9) O que são identidades / como adicionar apelidos (alias)?](#user-content-faq9)
+* [~~(11) Porque POP não é suportado?~~](#user-content-faq11)
+* [~~(10) O que 'UIDPLUS não suportado' significa?~~](#user-content-faq10)
+* [(12) Como funciona a criptografia/descriptografia?](#user-content-faq12)
+* [(13) Como funciona a pesquisa no dispositivo/servidor?](#user-content-faq13)
+* [(14) Como posso configurar uma conta do Outlook / Live / Hotmail?](#user-content-faq14)
+* [(15) Porque o texto da mensagem continua carregando?](#user-content-faq15)
+* [(16) Porque as mensagens não estão sendo sincronizadas?](#user-content-faq16)
+* [~~(17) Porque a sincronização manual não funciona?~~](#user-content-faq17)
+* [(18) Por que a visualização da mensagem não é mostrada sempre?](#user-content-faq18)
+* [(19) Porque os recursos Pro são tão caros?](#user-content-faq19)
+* [(20) Posso pedir um reembolso?](#user-content-faq20)
+* [(21) Como posso ativar a notificação com LED (luz da lanterna)?](#user-content-faq21)
+* [(22) Oque o erro na conta/pasta ... significa?](#user-content-faq22)
+* [(23) Por que recebo o alerta .. ?](#user-content-faq23)
+* [(24) O que é a procura de mensagem no servidor?](#user-content-faq24)
+* [(25) Porque não posso selecionar/abrir/salvar uma imagem, um anexo ou um arquivo?](#user-content-faq25)
+* [(26) Posso ajudar a traduzir o FairEmail para meu próprio idioma?](#user-content-faq26)
+* [(27) Como posso distinguir entre imagens embutidas e imagens externas?](#user-content-faq27)
+* [(28) Como posso gerenciar as notificações na barra de status?](#user-content-faq28)
+* [(29) Como posso receber notificações de novas mensagens para outras pastas?](#user-content-faq29)
+* [(30) Como posso utilizar as configurações rápidas fornecidas?](#user-content-faq30)
+* [(31) Como posso utilizar os atalhos fornecidos?](#user-content-faq31)
+* [(32) Como posso verificar se a leitura de um e-mail é realmente segura?](#user-content-faq32)
+* [(33) Porque os endereços de remetentes editados não estão funcionando?](#user-content-faq33)
+* [(34) Como as identidades são combinadas?](#user-content-faq34)
+* [(35) Porque eu deveria ter cuidado ao visualizar imagens, anexos e a mensagem original?](#user-content-faq35)
+* [(36) Como os arquivos de configuração são criptografados?](#user-content-faq36)
+* [(37) Como são armazenadas as senhas?](#user-content-faq37)
+* [(39) Como posso reduzir o uso de bateria do FairEmail?](#user-content-faq39)
+* [(40) Como posso reduzir o uso de dados da internet do FairEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
-* [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
-* [(43) Can you show the original ... ?](#user-content-faq43)
-* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
-* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
-* [(51) How are folders sorted?](#user-content-faq51)
-* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
+* [(42) Você pode adicionar um novo provedor à lista de provedores?](#user-content-faq42)
+* [(43) Você pode mostrar a/o ... original?](#user-content-faq43)
+* [(44) Você pode mostrar fotos de contatos / ícones de identificação na pasta de enviados?](#user-content-faq44)
+* [(45) Como posso corrigir o erro 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(46) Por que a lista de mensagens continua atualizando?](#user-content-faq46)
+* [(47) Como posso resolver o erro 'Nenhuma conta principal ou nenhuma pasta de rascunhos' ?](#user-content-faq47)
+* [~~(48) Como posso resolver o erro 'Nenhuma conta principal ou nenhuma pasta de arquivos' ?~~](#user-content-faq48)
+* [(49) Como posso resolver o erro 'Um aplicativo desatualizado enviou um caminho de arquivo ao invés de um fluxo de arquivo' ?](#user-content-faq49)
+* [(50) Você pode adicionar uma opção para sincronizar todas as mensagens?](#user-content-faq50)
+* [(51) Como as pastas são ordenadas?](#user-content-faq51)
+* [(52) Porque leva algum tempo para se reconectar a uma conta?](#user-content-faq52)
+* [(53) Você pode colocar a barra de ação na parte superior/inferior?](#user-content-faq53)
 * [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [~~(57) Can I use HTML in signatures?~~](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq103)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I used colored stars?](#user-content-faq107)
-* [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(55) Como posso marcar todas as mensagens como lidas / mover ou excluir todas as mensagens?](#user-content-faq55)
+* [(56) Você pode adicionar suporte para JMAP?](#user-content-faq56)
+* [~~(57) Posso usar HTML em assinaturas?~~](#user-content-faq57)
+* [(58) O que um ícone de e-mail aberto/fechado significa?](#user-content-faq58)
+* [(59) Mensagens originais podem ser abertas no navegador?](#user-content-faq59)
+* [(60) Você sabia ...?](#user-content-faq60)
+* [(61) Porque algumas mensagens são mostradas de forma esmaecida?](#user-content-faq61)
+* [(62) Quais métodos de autenticação são suportados?](#user-content-faq62)
+* [(63) Como as imagens são redimensionadas para a exibição em telas?](#user-content-faq63)
+* [~~(64) Você pode adicionar ações personalizadas para o deslizar à esquerda/direita?~~](#user-content-faq64)
+* [(65) Porque alguns anexos são mostrados de forma esmaecida?](#user-content-faq65)
+* [(66) O FairEmail está disponível na Biblioteca da Família do Google Play?](#user-content-faq66)
+* [(67) Como posso silenciar conversas?](#user-content-faq67)
+* [~~(68) Porque o Adobe Acrobat não pode abrir PDFs em anexo / aplicativos da Microsoft não podem abrir documentos em anexo?~~](#user-content-faq68)
+* [(69) Você pode adicionar a rolagem automática para novas mensagens?](#user-content-faq69)
+* [(70) Quando as mensagens serão expandidas automaticamente?](#user-content-faq70)
+* [(71) Como posso utilizar regras de filtro?](#user-content-faq71)
+* [(72) O que são contas/identidades principais?](#user-content-faq72)
+* [(73) Mover/enviar mensagens entre contas é seguro/eficiente?](#user-content-faq73)
+* [(74) Por que eu vejo mensagens duplicadas?](#user-content-faq74)
+* [(75) Você pode fazer uma versão para iOS, Windows, Linux etc?](#user-content-faq75)
+* [(76) O que 'Limpar mensagens locais' faz?](#user-content-faq76)
+* [(77) Por que as mensagens às vezes são mostradas com um pequeno atraso?](#user-content-faq77)
+* [(78) Como posso utilizar agendamentos?](#user-content-faq78)
+* [(79) Como eu sincronizo por demanda (manualmente)?](#user-content-faq79)
+* [~~(80) Como posso corrigir o erro 'Não foi possível carregar BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(81) Você conseque tornar o fundo da mensagem original escuro no tema escuro?~~](#user-content-faq81)
+* [(82) O que é uma imagem com rastreamento?](#user-content-faq82)
+* [(84) Para que servem os contatos locais?](#user-content-faq84)
+* [(85) Por que certa identidade não está disponível?](#user-content-faq85)
+* [~~(86) O que são 'recursos extras de privacidade'?~~](#user-content-faq86)
+* [(87) O que 'credenciais inválidas' significa?](#user-content-faq87)
+* [(88) Como posso utilizar uma conta do Yahoo, AOL ou Sky?](#user-content-faq88)
+* [(89) Como posso enviar mensagens com apenas texto simples?](#user-content-faq89)
+* [(90) Porque alguns textos aparecem como links sem serem realmente links?](#user-content-faq90)
+* [~~(91) Você pode adicionar uma sincronização periódica para economizar energia da bateria?~~](#user-content-faq91)
+* [(92) Você pode adicionar filtragem de spam, verificação de assinatura DKIM e autorização SPF?](#user-content-faq92)
+* [(93) Você pode permitir instalação/armazenamento de dados em uma mídia de armazenamento externo (sdcard)?](#user-content-faq93)
+* [(94) O que significa a faixa vermelha/laranja ao final do cabeçalho?](#user-content-faq94)
+* [(95) Porque não são exibidos todos os aplicativos ao selecionar um anexo ou imagem?](#user-content-faq95)
+* [(96) Onde posso encontrar as configurações IMAP e SMTP?](#user-content-faq96)
+* [(97) O que é 'limpeza' ?](#user-content-faq97)
+* [(98) Por que razão ainda posso escolher contatos depois de revogar as permissões de contatos?](#user-content-faq98)
+* [(99) Você pode adicionar um editor de texto completo ou um editor com markdown?](#user-content-faq99)
+* [(100) Como posso sincronizar as categorias do Gmail?](#user-content-faq100)
+* [(101) O que significa o ponto azul/laranja na parte inferior das conversas?](#user-content-faq101)
+* [(102) Como posso ativar a rotação automática de imagens?](#user-content-faq102)
+* [(103) Como posso gravar áudio?](#user-content-faq103)
+* [(104) O que preciso saber sobre relato de erros?](#user-content-faq104)
+* [(105) Como a opção roam-like-at-home funciona?](#user-content-faq105)
+* [(106) Quais launcher (inicializadores) podem mostrar um contador com o número de mensagens não lidas?](#user-content-faq106)
+* [(107) Como eu utilizo estrelas coloridas?](#user-content-faq107)
+* [(108) Você pode configurar para apagar mensagens permanentemente de qualquer pasta?](#user-content-faq108)
+* [~~(109) Porque 'selecionar conta' está disponível apenas nas versões oficiais?~~](#user-content-faq109)
+* [(110) Por que (algumas) mensagems estão vazias e/ou com anexos corrompidos?](#user-content-faq110)
+* [(111) OAuth é suportado?](#user-content-faq111)
+* [(112) Qual provedor de e-mail você recomenda?](#user-content-faq112)
+* [(113) Como funciona a autenticação biométrica?](#user-content-faq113)
+* [(114) Você pode adicionar uma importação para as configurações de outros aplicativos de e-mail?](#user-content-faq114)
+* [(115) É possível adicionar um chip de endereço de e-mail?](#user-content-faq115)
+* [~~(116) Como posso mostrar por padrão imagens em mensagens de remetentes confiáveis?~~](#user-content-faq116)
+* [(117) Você pode me ajudar a restaurar minha compra?](#user-content-faq117)
+* [(118) O que 'Remover parâmetros de monitoramento' faz exatamente?](#user-content-faq118)
+* [~~(119) É possível adicionar cores ao widget de caixa de entrada unificada?~~](#user-content-faq119)
+* [(120) Porque a notificação de novas mensagens não é removida ao abrir o aplicativo?](#user-content-faq120)
+* [(121) Como as mensagens são agrupadas em uma conversa?](#user-content-faq121)
+* [~~(122) Porque o nome/endereço de e-mail de um destinatário é mostrado com uma cor de aviso?~~](#user-content-faq122)
+* [(123) O que acontecerá quando o FairEmail não puder conectar a um servidor de e-mail?](#user-content-faq123)
+* [(124) Porque eu recebo a mensagem 'Mensagem muito grande ou muito complexa para mostrar'?](#user-content-faq124)
+* [(125) Quais são os recursos experimentais atuais?](#user-content-faq125)
+* [(126) A pré-visualização de mensagens pode ser enviada ao meu relógio?](#user-content-faq126)
+* [(127) Como posso corrigir 'Argumento(s) HELO sintaticamente inválido(s)'?](#user-content-faq127)
+* [(128) Como posso redefinir perguntas feitas, por exemplo, para mostrar imagens?](#user-content-faq128)
+* [(129) ProtonMail, Tutanota são suportados?](#user-content-faq129)
+* [(130) O que a mensagem de erro ... significa?](#user-content-faq130)
+* [(131) É possível mudar a direção do deslizar para mensagem anterior/próxima?](#user-content-faq131)
+* [(132) Por que a notificação de novas mensagens está silenciada?](#user-content-faq132)
+* [(133) Porque o ActiveSync não é suportado?](#user-content-faq133)
+* [(134) É possível adicionar a exclusão de mensagens locais?](#user-content-faq134)
+* [(135) Porque mensagens e rascunhos apagados são exibidos em conversas?](#user-content-faq135)
+* [(136) Como posso excluir uma conta/identidade/pasta?](#user-content-faq136)
+* [(137) Como posso redefinir o 'Não perguntar novamente'?](#user-content-faq137)
+* [(138) É possível adicionar o gerenciamento/sincronização de calendário/contatos?](#user-content-faq138)
+* [(139) Como posso resolver o erro 'Usuário está autenticado mas não conectado'?](#user-content-faq139)
+* [(140) Porque a mensagem contém caracteres estranhos?](#user-content-faq140)
+* [(141) Como posso corrigir o erro 'Uma pasta de rascunhos é necessária para enviar mensagens'?](#user-content-faq141)
+* [(142) Como posso armazenar mensagens enviadas na caixa de entrada?](#user-content-faq142)
+* [~~(143) É possível adicionar uma lixeira para contas do POP3?~~](#user-content-faq143)
+* [(144) Como posso gravar notas de voz?](#user-content-faq144)
+* [(145) Como posso definir um som de notificação para uma conta, pasta ou remetente?](#user-content-faq145)
+* [(146) Como posso corrigir o horário incorreto de mensagens?](#user-content-faq146)
+* [(147) O que devo saber sobre versões de terceiros?](#user-content-faq147)
+* [(148) Como posso utilizar uma conta iCloud da Apple?](#user-content-faq148)
+* [(149) Como o widget de contador de mensagens não lidas funciona?](#user-content-faq149)
+* [(150) É possível adicionar o cancelamento de convites de calendário?](#user-content-faq150)
+* [(151) É possível adicionar backup/restauração de mensagens?](#user-content-faq151)
+* [(152) Como posso inserir um grupo de contatos?](#user-content-faq152)
+* [(153) Porque a exclusão permanente de mensagens do Gmail não funciona?](#user-content-faq153)
+* [~~(154) É possível adicionar ícones de favoritos como fotos de contatos?~~](#user-content-faq154)
+* [(155) O que é um arquivo winmail.dat?](#user-content-faq155)
+* [(156) Como posso configurar uma conta do Office 365?](#user-content-faq156)
+* [(157) Como posso configurar uma conta do Free.fr?](#user-content-faq157)
+* [(158) Qual câmera / gravador de áudio você recomenda?](#user-content-faq158)
+* [(159) O que são listas de proteção de rastreador de desconexão?](#user-content-faq159)
 
-[I have another question.](#user-content-support)
+[Eu tenho outra pergunta.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quais permissões são necessárias e por quê?**
 
-The following Android permissions are needed:
+As seguintes permissões do Android são necessárias:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *acesso completo à rede* (INTERNET): para enviar e receber e-mails
+* *ver conexões de rede* (ACCESS_NETWORK_STATE): para monitorar mudanças de conectividade com a internet
+* *abrir ao iniciar* (RECEIVE_BOOT_COMPLETED): para iniciar o monitoramento ao ligar o dispositivo
+* *serviço de primeiro plano* (FOREGROUND_SERVICE): para rodar como um serviço de primeiro plano no Android 9 Pie e posteriores, veja também a próxima pergunta
+* *evitar que o dispositivo hiberne* (WAKE_LOCK): para manter o dispositivo ativado durante a sincronização de mensagens
+* *compras no aplicativo* (BILLING): para permitir compras no aplicativo
+* Opcional: *ler seus contatos* (READ_CONTACTS): para preencher endereços automaticamente e mostrar fotos
+* Opcional: *ler o conteúdo do seu cartão de memória* (READ_EXTERNAL_STORAGE): para aceitar mensagens de outros aplicativos desatualizados, veja também [ este FAQ](#user-content-faq49)
+* Opcional: *usar hardware de impressão digital* (USE_FINGERPRINT) e *usar hardware de biometria* (USE_BIOMETRIC): para utilizar autenticação biométrica
+* Opcional: *encontrar contas no dispositivo* (GET_ACCOUNTS): para selecionar uma conta ao utilizar a configuração rápida do Gmail
+* Android 5.1 Lollipop e anteriores: *usar contas no dispositivo* (USE_CREDENTIALS): para selecionar uma conta quando estiver usando a configuração rápida do Gmail (não é solicitada nas versões posteriores do Android)
+* Android 5.1 Lollipop e anteriores: *Ler perfil* (READ_PROFILE): para ler seu nome quando estiver a configurção rápida do Gmail (não é solicitada nas versões posteriores do Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Permissões opcionais](https://developer.android.com/training/permissions/requesting) são concedidas automaticamente apenas no Android 6 Marshmallow e posteriores. Nas versões anteriores do Android você será solicitado a conceder as permissões opcionais ao instalar o FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+As seguintes permissões são necessárias para mostrar a contagem de mensagens não lidas como um ícone (veja também [esse FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -317,138 +317,138 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+O FairEmail manterá uma lista de endereços dos quais você recebe mensagens e para os quais você envia e utilizará essa lista como sugestão de contatos quando a permissão para ler seus contatos não for concedida ao FairEmail. Isso significa que você pode utilizar o FairEmail mesmo sem o provedor de contatos do Android (livro de endereços). Observe que você ainda pode escolher contatos sem conceder a permissão para ler seus contatos. Apenas a sugestão de contatos não irá funcionar sem a concessão dessa permissão.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Porque a notificação é mostrada de forma permanente?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Uma notificação de baixa prioridade com o número de contas monitoradas e o número de operações pendentes (veja a próxima pergunta) é exibida na barra de status de forma permanente para evitar que o Android encerre o serviço que possibilita o contínuo recebimento de e-mails. Isso [ já era necessário](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)) antes, mas com a introdução do [Modo Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) no Android 6 Marshmallow isso se tornou mais necessário do que nunca. O Modo Doze irá fechar todos os aplicativos depois de algum tempo que a tela estiver desligada, a menos que o aplicativo inicie em primeiro plano, o que requer a exibição de uma notificação na barra de status.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+A maioria, se não todos, os outros aplicativos de e-mail não mostram uma notificação, com o "efeito colateral" de que novas mensagens muitas vezes não são relatadas ou são relatadas tardiamente e mensagens acabam não sendo enviadas ou são enviadas tardiamente.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+O Android mostra os ícones de alta prioridade primeiro na barra de status e irá esconder o ícone do FairEmail se não houver mais espaço para mostrar ícones. Na prática, isso significa que a notificação do FairEmail não ocupa espaço na barra de status, a não ser que exista espaço sobrando.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+A notificação na barra de status pode ser desabilitada através das configurações de notificação do FairEmail:
 
-* Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 8 Oreo e posterior: toque no botão *Canal de Serviços* e desative o canal de notificação através das configurações do Android
+* Android 7 Nougat e anterior: toque em *Usar o serviço em segundo plano para sincronizar mensagens*, mas lembre-se de ler o comentário abaixo da configuração
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Você pode alternar para a sincronização periódica de mensagens nas configurações de recebimento para remover a notificação, mas esteja ciente de que isso pode usar mais bateria. Veja [aqui](#user-content-faq39) para mais detalhes sobre o uso de bateria.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Ore pode exibir também uma notificação na barra de status com a mensagem * Aplicativos estão sendo executados em segundo plano*. Por favor, veja [aqui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) sobre como desativar essa notificação.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Algumas pessoas sugeriram o uso do [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) ao invés de um serviço do Android com uma notificação na barra de status, mas isso requer que os provedores de mensagens enviem mensagens FCM ou a existência de um servidor central onde todas as mensagens são coletadas enviando mensagens FCM. A primeira opção não irá acontecer e a última terias implicações significativas em termos de privacidade.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Se você chegou aqui após clicar na notificação, saiba que o próximo clique abrirá a caixa de entrada unificada.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) O que são operações e por que elas estão pendentes?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+A notificação de baixa prioridade na barra de status mostra o número de operações pendentes, que podem ser:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
-* *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
-* *headers*: download message headers
-* *raw*: download raw message
-* *body*: download message text
-* *attachment*: download attachment
-* *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *rule*: execute rule on body text
+* *a adicionar*: adicionar mensagens a uma pasta remota
+* *a mover*: mover mensagens para outra pasta remota
+* *a copiar*: copiando mensagens para outra pasta remota
+* *a buscar*: buscando mensagens alteradas
+* *a deletar*: deletando mensagens de uma pasta remota
+* *a ver*: marcando mensagens como lidas/não lidas na pasta remota
+* *a responder*: marcando mensagens como respondidas na pasta remota
+* *a marcar*: adicionando/removendo estrelas (marcações) na pasta remota
+* *palavra-chave*: adicionando/removendo uma marcação IMAP na pasta remota
+* *a etiquetar*: definindo/redefinindo etiquetas do Gmail na pasta remota
+* *cabeçalhos*: baixando cabeçalhos de mensagens
+* *texto bruto*: baixando uma mensagem bruta
+* *corpo*: baixando a mensagem propriamente dita
+* *anexo*: baixando anexos
+* *a sincronizar*: sincronizando mensagens locais e remotas
+* *a inscrever*: inscrevendo em uma pasta remota
+* *a limpar*: apagando todas as mensagens da pasta remota
+* *a enviar*: enviando mensagens
+* *a checar*: checando se a mensagens existe
+* *regra*: executando uma regra no texto do corpo
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Operações são processadas somente quando há uma conexão com o servidor de e-mail ou quando é feita a sincronização manual. Veja também [esse FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Como posso usar um certificado de seguranã inválido / senha em branco / conexão de texto simples?**
 
-*... Untrusted ... not in certificate ...*
+*... Não confiável ... não está no certificado ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificado de segurança inválido (Não foi possível verificar a identidade do servidor) ...*
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Você deve tentar corrigir isso entrando em contato com seu provedor ou obtendo um certificado de segurança válido porque certificados de segurança inválidos são inseguros e permitem os chamados [ ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se dinheiro for um obstáculo, você pode obter certificados de segurança gratuitos no [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
+Alternativamente, você pode aceitar a impressão digital mostrada abaixo da mensagem de erro, se você configurou a conta e/ou identidade nas etapas de configuração 1 e 2 (isso não é possível ao utilizar o assistente de configuração rápida). Observe que você deve se certificar de que a conexão com a intertet que você está utilizando é segura.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Observe ainda que versões mais antigas do Android podem não reconhecer as autoridades de certificados mais recentes como o Encrypt, fazendo com que as conexões sejam consideradas inseguras, veja também [aqui](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Âncora confiável para o caminho de certificação não encontrada*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security,cet.CertPathValidatorException: Trust anchor for certification path not found ...* significa que o gerenciador de confiança padrão do Android não pôde verificar a cadeia de certificados do servidor.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Você deve ou corrigir a configuração do servidor, ou aceitar a impressão digital mostrada abaixo da mensagem de erro.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Observe que esse problema pode ser causado pelo fato de o servidor não estar enviando todos os certificados intermediários também.
 
-*Empty password*
+*Senha em branco*
 
-Your username is likely easily guessed, so this is insecure.
+Seu nome de usuário é provavelmente facilmente descoberto, então isso não é seguro.
 
-*Plain text connection*
+*Conexão de texto simples*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Seu nome de usuário, senha e todas as mensagens serão enviadas e recebidas sem criptografia, o que é **muito inseguro** porque um [ataque man-in=the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) é muito fácil em uma conexão não criptografada.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se ainda assim você quiser utilizar um certificado inválido, uma senha em branco ou uma conexão de texto simples, você precisará habilitar conexões inseguras nas configurações de conta/identidade. O STARTTLS deve ser utilizado para conexões de texto simples. Se você habilitar conexões inseguras, você deve se conectar através de redes privadas e confiáveis e nunca através de redes públicas, como as oferecidas em hóteis, aeroportos etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Como posso personalizar a visualização de mensagens?**
 
-In the three dot overflow menu you can enable or disable or select:
+No menu de três pontos você pode ativar, desativar ou selecionar:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *tamanho do texto*: para três tamanhos de texto diferentes
+* *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
 
-In the display section of the settings you can enable or disable:
+Na seção de exibição das configurações, você pode ativar ou desativar:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Show contact photos*: to hide contact photos
-* *Show identicons*: to show generated contact avatars
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
+* *Agrupar por data*: mostrar cabeçalhos de data acima de mensagens com a mesma data
+* *Junção de conversas*: para dasativar a junção de conversas e mostrar mensagens de forma individual
+* *Exibir fotos de contatos*: para ocultar fotos de contatos
+* *Exibir ícones de identificação*: para mostrar avatares de contato gerados
+* *Exibit nomes e endereços de e-mail*: para exibir nomes ou exibir nomes e endereços de e-mail
+* *Mostrar assunto em itálico*: para exibir o assunto como um texto normal
+* *Mostrar estrelas*: para ocultar estrelas (marcações)
+* *Mostrar pré-visualização da mensagem*: para exibir duas linhas do texto da mensagem
+* *Mostrar detalhes do endereço por padrão*: para expandir a seção de endereços por padrão
+* *Usar fonte monoespaçada para a mensagem*: para mostrar um tipo de texto com largura fixa para mensagens
+* *Exibir automaticamente a mensagem original para contatos conhecidos*: para mostrar automaticamente a mensagem original para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
+* *Exibir automaticamente imagens para contatos conhecidos*: para exibir automaticamente imagens para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
+* *Barra de ação da conversa*: para desativar a barra de navegação inferior
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Observe que as mensagens só podem ser pre-visualizadas quando o texto delas tiver sido baixado. Mensagens grandes não são baixadas por padrão em redes limitadas (geralmente em dados móveis). Você pode alterar isso nas configurações.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Se a lista de endereços for longa, você pode recolher a seção de endereços com o ícone de *menos* no topo da seção de endereços.
 
-Some people ask:
+Algumas pessoas pedem:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
-* to move the star to the left, but it is much easier to operate the star on the right side
+* para mostrar o assunto em negrito, mas o negrito já é utilizado para destacar mensagens não lidas
+* para mostrar o endereço ou o assunto maior/menor, mas isso poderia interferir com a opção de tamanho do texto
+* para mostrar a estrela à esquerda, mas é muito mais fácil utilizar a estrela no lado direito
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Infelizmente, é impossível fazer todo mundo feliz e adicionar muitas configurações poderia não só ser confuso, mas também sempre faltaria alguma.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Como posso fazer login com Gmail / G Suite?**
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 

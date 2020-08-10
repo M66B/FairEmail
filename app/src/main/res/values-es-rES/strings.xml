@@ -582,6 +582,7 @@
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_review">Revisar</string>
     <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
+    <string name="title_service_auth">El servidor de correo electrónico dijo: \'%1$s\'</string>
     <string name="title_service_vpn">Esto podría ser causado por la VPN que está siendo usada</string>
     <string name="title_service_port">Por favor, compruebe el número de puerto</string>
     <string name="title_service_protocol">Por favor, compruebe el protocolo (SSL/TLS o STARTTLS)</string>

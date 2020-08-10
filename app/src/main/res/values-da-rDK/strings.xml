@@ -54,6 +54,10 @@
         <item quantity="one">%1$d konversation valgt</item>
         <item quantity="other">%1$d konversationer valgt</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Flyt %1$d besked?</item>
+        <item quantity="other">Flyt %1$d beskeder?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Slet %1$d besked permanent?</item>
         <item quantity="other">Slet %1$d beskeder permanent?</item>
@@ -577,6 +581,7 @@
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
     <string name="title_hint_alias">Tryk og hold for indstillinger, såsom kopiér for at oprette aliasidentiteter</string>
+    <string name="title_service_auth">E-mailserveren returnerede: \'%1$s\'</string>
     <string name="title_service_vpn">Dette kan være forårsaget af den anvendte VPN</string>
     <string name="title_service_port">Dobbelttjek portnummeret</string>
     <string name="title_service_protocol">Dobbelttjek protokollen (SSL/TLS eller STARTTLS)</string>

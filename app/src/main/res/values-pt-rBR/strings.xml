@@ -54,6 +54,10 @@
         <item quantity="one">%1$d conversa selecionada</item>
         <item quantity="other">%1$d conversas selecionadas</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Mover %1$d mensagem?</item>
+        <item quantity="other">Mover %1$d mensagens?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Excluir a mensagem %1$d permanentemente?</item>
         <item quantity="other">Excluir %1$d mensagens permanentemente?</item>
@@ -334,6 +338,7 @@
     <string name="title_advanced_volumenav">Volume para cima/baixo para ir para próxima/anterior conversa</string>
     <string name="title_advanced_reversed">Reverter a direção de navegação</string>
     <string name="title_advanced_swipe_close">Deslize para baixo para fechar uma conversa</string>
+    <string name="title_advanced_swipe_move">Deslize para cima para mover a conversa</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem por vez</string>
@@ -557,6 +562,7 @@
     <string name="title_no_password">Senha faltante</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
+    <string name="title_no_junk_folder">Não existe pasta de spam selecionada para essa conta</string>
     <string name="title_no_identities">O envio de e-mails requer pelo menos uma identidade e uma pasta de rascunhos</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
@@ -575,8 +581,10 @@
     <string name="title_oauth_support">OAuth não é suportado</string>
     <string name="title_review">Revisar</string>
     <string name="title_hint_alias">Toque longo para opções, como copiar para criar identidades de alias</string>
+    <string name="title_service_auth">O servidor de e-mail disse: \'%1$s\'</string>
     <string name="title_service_vpn">Isso pode ser causado pela VPN que está sendo usada</string>
     <string name="title_service_port">Por favor, verifique novamente o número da porta</string>
+    <string name="title_service_protocol">Por favor, cheque novamente o protocolo (SSL/TLS ou STARTTLS)</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensagens lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
@@ -598,6 +606,7 @@
     <string name="title_empty_spam_ask">Excluir todas as mensagens de spam permanentemente?</string>
     <string name="title_empty_trash_all_ask">Excluir todas as mensagens na lixeira de todas as contas permanentemente?</string>
     <string name="title_empty_spam_all_ask">Excluir todas as mensagens de spam de todas as contas permanentemente?</string>
+    <string name="title_empty_all">Isso irá deletar todas as mensagens, tanto do aparelho quanto do servidor</string>
     <string name="title_delete_operation">Excluir operações com uma mensagem de erro?</string>
     <string name="title_delete_contacts">Excluir todos os contatos locais?</string>
     <string name="title_no_operations">Nenhuma operação pendente</string>
@@ -650,6 +659,7 @@
     <string name="title_duplicate_in">Duplicar mensagem em %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Enc: %1$s</string>
+    <string name="title_buttons">Botões</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como não lida</string>
     <string name="title_hide">Ocultar</string>
@@ -674,6 +684,7 @@
     <string name="title_raw_save">Salvar imagem raw</string>
     <string name="title_raw_send">Enviar como anexo</string>
     <string name="title_manage_keywords">Gerenciar palavras-chave</string>
+    <string name="title_manage_labels">Gerenciar rótulos do Gmail</string>
     <string name="title_add_keyword">Adicionar palavra-chave</string>
     <string name="title_show_inline">Mostrar anexos inline</string>
     <string name="title_download_all">Baixar todos</string>
@@ -687,6 +698,9 @@
     <string name="title_more">Mais</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_copy_btn">Copiar</string>
+    <string name="title_unsubscribe">Desinscrever</string>
+    <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>
     <string name="title_move_to">Mover para &#8230;</string>
     <string name="title_move_to_folder">Mover para &#8230;</string>
@@ -701,6 +715,7 @@
     <string name="title_reply_list">Responder à lista</string>
     <string name="title_reply_receipt">Enviar confirmação de leitura</string>
     <string name="title_reply_template">Modelo de resposta</string>
+    <string name="title_move_undo">Movendo para %1$s (%2$d)</string>
     <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>
@@ -724,6 +739,7 @@
     <string name="title_unused_inline">Imagens embutidas não utilizadas serão removidas ao enviar</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>
     <string name="title_raw_saved">Mensagem bruta salva</string>
+    <string name="title_attachment_eml">Mensagem anexada</string>
     <string name="title_attachment_saved">Anexo salvo</string>
     <string name="title_attachments_saved">Anexos salvos</string>
     <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram baixados e não puderam ser adicionados</string>
@@ -742,6 +758,10 @@
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
     <string name="title_ask_review">Por favor, reveja o FairEmail</string>
+    <string name="title_ask_review_rationale">        Você tem usado o FaitEmail já há algum tempo.
+        Nós apreciaríamos se você pudesse nos dar uma nota na Play Store.
+    </string>
+    <string name="title_ask_once">Essa mensagem só aparecerá uma vez, a menos que selecione \'Mais tarde\'</string>
     <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
@@ -753,6 +773,7 @@
     <string name="title_reply_to">Responder a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_recipients">%1$d destinatários</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Enviado:</string>
     <string name="title_received">Recebida:</string>
@@ -770,16 +791,25 @@
     <string name="title_send_encryption">Criptografia</string>
     <string name="title_send_priority">Prioridade</string>
     <string name="title_no_server">Nenhum servidor encontrado em \'%1$s\'</string>
+    <string name="title_style">Estilo</string>
     <string name="title_style_bold">Negrito</string>
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_underline">Sublinhado</string>
     <string name="title_style_size">Tamanho</string>
+    <string name="title_style_size_small">Pequeno</string>
+    <string name="title_style_size_medium">Médio</string>
+    <string name="title_style_size_large">Grande</string>
+    <string name="title_style_font">Fonte</string>
+    <string name="title_style_font_default">Padrão</string>
+    <string name="title_style_color">Cor &#8230;</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_add_image">Adicionar imagem</string>
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_privacy">Remover dados confidenciais</string>
+    <string name="title_add_image_privacy_remark">Localização, número de série, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecionar arquivo</string>
     <string name="title_add_attachment">Adicionar anexo</string>
@@ -787,6 +817,7 @@
     <string name="title_attachment_photo">Tirar foto</string>
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_show_addresses">Mostrar CC/CCO</string>
+    <string name="title_save_drafts">Salvar rascunhos no servidor</string>
     <string name="title_send_dialog">Mostrar opções de envio</string>
     <string name="title_image_dialog">Mostrar opções de imagem</string>
     <string name="title_media_toolbar">Barra de mídia</string>
@@ -800,6 +831,8 @@
     <string name="title_no_key">Nenhuma chave privada</string>
     <string name="title_invalid_key">Chave privada inválida</string>
     <string name="title_unknown_key">A chave privada não corresponde a nenhuma chave de criptografia</string>
+    <string name="title_key_missing">Nenhuma chave para %1$s</string>
+    <string name="title_send_reminder_remark">Os lembretes podem ser ativados novamente nas configurações de envio</string>
     <string name="title_send_plain_text">Somente texto simples</string>
     <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
@@ -811,6 +844,7 @@
     <string name="title_text_reminder">A mensagem está em branco</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>
     <string name="title_attachment_reminder">Você quis adicionar um anexo?</string>
+    <string name="title_size_reminder">A mensagem (%1$s) é maior que o limite do servidor (%2$s)</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser ativada novamente através do menu de três pontos na barra de ação superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
@@ -845,6 +879,31 @@
     <string name="title_signature_outdated">Esta chave pública não é válida no momento</string>
     <string name="title_signature_store">Loja</string>
     <string name="title_search">Pesquisar</string>
+    <string name="title_search_for_hint">Digite o texto</string>
+    <string name="title_search_hint">        A pesquisa procurará inicialmente as mensagens salvas no seu dispositivo.
+        Para pesquisar também no servidor, clique no botão \'buscar novamente\'.
+    </string>
+    <string name="title_search_index_hint">Pesquisar no indexador de pesquisa é mais rápido, mas só serão encontradas palavras inteiras</string>
+    <string name="title_search_text_hint">Pesquisar por textos em mensagens, quando há um grande número delas, pode não funcionar em alguns servidores</string>
+    <string name="title_search_size_hint">Pesquisar por mensagens pelo tamanho, quando há um grande número delas, pode não funcionar em alguns servidores</string>
+    <string name="title_search_more">Mais opções</string>
+    <string name="title_search_use_index">Usar indexador de pesquisa</string>
+    <string name="title_search_in_senders">Por remetentes (de)</string>
+    <string name="title_search_in_recipients">Por destinatários (para, cc)</string>
+    <string name="title_search_in_subject">Por assunto</string>
+    <string name="title_search_in_keywords">Por palavras-chave (se suportado)</string>
+    <string name="title_search_in_message">Por texto da mensagem</string>
+    <string name="title_search_with">Limitar busca a</string>
+    <string name="title_search_with_unseen">Não lida(s)</string>
+    <string name="title_search_with_flagged">Favorita(s)</string>
+    <string name="title_search_with_hidden">Ocultas (apenas no dispositivo)</string>
+    <string name="title_search_with_encrypted">Criptografadas (apenas no dispositivo)</string>
+    <string name="title_search_with_attachments">Com anexos (apenas no dispositivo)</string>
+    <string name="title_search_with_size">Tamanho da mensagem maior que</string>
+    <string name="title_search_with_before">Antes de</string>
+    <string name="title_search_with_after">Após</string>
+    <string name="title_search_flag_unseen">não lido</string>
+    <string name="title_search_flag_flagged">marcado</string>
     <string name="title_search_flag_hidden">oculto</string>
     <string name="title_search_flag_encrypted">criptografado</string>
     <string name="title_search_flag_attachments">anexos</string>
@@ -1157,6 +1216,7 @@
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do preenchimento</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
+    <string name="title_widget_background">Cor de fundo</string>
     <string name="title_accessibility_collapsed">Desabou</string>
     <string name="title_accessibility_expanded">Expandido</string>
     <string name="title_accessibility_seen">Lido</string>
@@ -1166,6 +1226,11 @@
         <item quantity="other">%1$d mensagens</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Importante</string>
+    <string name="title_keyword_label2">Trabalho</string>
+    <string name="title_keyword_label3">Pessoal</string>
+    <string name="title_keyword_label4">Para fazer</string>
+    <string name="title_keyword_label5">Mais tarde</string>
     <string name="title_accessibility_flagged">Com estrela</string>
     <string name="title_accessibility_unflagged">Sem Estrela</string>
     <string name="title_accessibility_collapse">Colapso</string>
@@ -1209,8 +1274,8 @@
     <string-array name="startupNames">
         <item>Caixa de entrada unificada</item>
         <item>Pastas unificadas</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
+        <item>Pasta de contas principais</item>
+        <item>Contas</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
@@ -1252,7 +1317,7 @@
         <item>No início</item>
         <item>No meio</item>
         <item>No final</item>
-        <item>Show untruncated</item>
+        <item>Mostrar inteiro</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Baixa</item>
@@ -1271,6 +1336,16 @@
         <item>Médio</item>
         <item>Grande</item>
     </string-array>
+    <string-array name="receiptNames">
+        <item>Somente confirmação de leitura</item>
+        <item>Somente confirmação de envio</item>
+        <item>Confirmação de leitura+envio</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Acima do texto</item>
+        <item>Abaixo do texto</item>
+        <item>Na parte inferior</item>
+    </string-array>
     <string-array name="encryptNames">
         <item>Nenhum</item>
         <item>Assinante PGP</item>
@@ -1278,11 +1353,28 @@
         <item>Assinante S/MIME</item>
         <item>Assinaturas S/MIME + criptografias</item>
     </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Desl.</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursiva</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monoespaçado</item>
     </string-array>
 </resources>

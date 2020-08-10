@@ -26,7 +26,7 @@ Para autorización:
 
 * Gmail / G suite, ver [pregunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, ver [pregunta 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
+* Office 365, ver [pregunta 14](#user-content-faq156)
 * Microsoft Exchange: ver [pregunta 8](#user-content-faq8)
 * Yahoo, AOL y Sky, ver [pregunta 88](#user-content-faq88)
 * Apple iCloud, ver [pregunta 148](#user-content-faq148)

@@ -596,6 +596,7 @@
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
     <string name="title_hint_alias">Naciśnij i przytrzymaj tożsamość, aby wyświetlić opcje, np. kopiuj, aby utworzyć tożsamość aliasu</string>
+    <string name="title_service_auth">Serwer e-mail odpowiedział: \'%1$s\'</string>
     <string name="title_service_vpn">Może to być spowodowane przez używany VPN</string>
     <string name="title_service_port">Zweryfikuj dokładnie numer portu</string>
     <string name="title_service_protocol">Upewnij się w kwestii protokołu (SSL/TLS lub STARTTLS)</string>
