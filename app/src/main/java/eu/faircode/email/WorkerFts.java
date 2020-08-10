@@ -147,9 +147,13 @@ public class WorkerFts extends Worker {
     }
 
     static void cancel(Context context) {
-        Log.i("Cancelling " + getName());
-        WorkManager.getInstance(context).cancelUniqueWork(getName());
-        Log.i("Cancelled " + getName());
+        try {
+            Log.i("Cancelling " + getName());
+            WorkManager.getInstance(context).cancelUniqueWork(getName());
+            Log.i("Cancelled " + getName());
+        } catch (IllegalStateException ex) {
+            Log.w(ex);
+        }
     }
 
     private static String getName() {
