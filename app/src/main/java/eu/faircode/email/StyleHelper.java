@@ -200,7 +200,7 @@ public class StyleHelper {
                             int i = s;
                             int j = s + 1;
                             while (j < e) {
-                                if (t.charAt(j) == '\n') {
+                                if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
                                     t.setSpan(new BulletSpan(), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     i = j + 1;
                                 }
@@ -208,7 +208,6 @@ public class StyleHelper {
                             }
 
                             etBody.setText(t);
-                            etBody.setSelection(s, e);
 
                             return true;
                         }
