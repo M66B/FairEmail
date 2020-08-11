@@ -2102,7 +2102,11 @@ public class HtmlHelper {
                     }
 
                     // Apply element
-                    switch (element.tagName()) {
+                    String tag = element.tagName();
+                    int semi = tag.indexOf(':');
+                    if (semi >= 0)
+                        tag = tag.substring(semi + 1);
+                    switch (tag) {
                         case "a":
                             String href = element.attr("href");
                             if (!TextUtils.isEmpty(href))
