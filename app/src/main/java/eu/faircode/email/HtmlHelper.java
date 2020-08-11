@@ -982,6 +982,9 @@ public class HtmlHelper {
                 if (next == null || !"br".equals(next.tagName()))
                     e.appendElement("br");
             }
+
+            e.removeAttr("x-line-before");
+            e.removeAttr("x-line-after");
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
