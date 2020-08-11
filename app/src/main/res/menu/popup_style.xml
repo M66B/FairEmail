@@ -25,12 +25,20 @@
     </group>
 
     <group
+        android:id="@+id/group_style_list"
+        android:orderInCategory="3">
+        <item
+            android:id="@+id/menu_style_list"
+            android:title="@string/title_style_list" />
+    </group>
+
+    <group
         android:id="@+id/group_style_font"
-        android:orderInCategory="3" />
+        android:orderInCategory="4" />
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="4">
+        android:orderInCategory="5">
         <item
             android:id="@+id/menu_style_clear"
             android:title="@string/title_style_clear" />

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
@@ -13,7 +14,6 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -96,8 +96,8 @@ public class StyleHelper {
 
                     String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
                     for (int i = 0; i < fontNames.length; i++)
-                        popupMenu.getMenu().add(R.id.group_style_font, i, 3, fontNames[i]);
-                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, 3, R.string.title_style_font_default);
+                        popupMenu.getMenu().add(R.id.group_style_font, i, 4, fontNames[i]);
+                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, 4, R.string.title_style_font_default);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -107,6 +107,8 @@ public class StyleHelper {
                                     return setSize(item);
                                 case R.id.group_style_color:
                                     return setColor(item);
+                                case R.id.group_style_list:
+                                    return setList(item);
                                 case R.id.group_style_font:
                                     return setFont(item);
                                 case R.id.group_style_clear:
@@ -188,6 +190,27 @@ public class StyleHelper {
 
                             etBody.setText(t);
                             etBody.setSelection(s, e);
+                        }
+
+                        private boolean setList(MenuItem item) {
+                            BulletSpan[] spans = t.getSpans(s, e, BulletSpan.class);
+                            for (BulletSpan span : spans)
+                                t.removeSpan(span);
+
+                            int i = s;
+                            int j = s + 1;
+                            while (j < e) {
+                                if (t.charAt(j) == '\n') {
+                                    t.setSpan(new BulletSpan(), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                    i = j + 1;
+                                }
+                                j++;
+                            }
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return true;
                         }
 
                         private boolean setFont(MenuItem item) {

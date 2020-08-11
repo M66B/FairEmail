@@ -916,6 +916,7 @@
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Default</string>
     <string name="title_style_color">Color &#8230;</string>
+    <string name="title_style_list">Create list</string>
     <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Insert link</string>
 

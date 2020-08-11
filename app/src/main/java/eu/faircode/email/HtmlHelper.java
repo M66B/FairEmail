@@ -113,7 +113,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
+import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
 import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 
 public class HtmlHelper {
@@ -769,7 +769,7 @@ public class HtmlHelper {
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        if (!view) {
+        if (!view && !BuildConfig.DEBUG) {
             for (Element li : document.select("li")) {
                 li.tagName("span");
                 Element parent = li.parent();
@@ -1702,6 +1702,9 @@ public class HtmlHelper {
     }
 
     static void convertLists(Document document) {
+        if (BuildConfig.DEBUG)
+            return;
+
         for (Element span : document.select("span")) {
             // Skip signature and referenced message
             boolean body = true;
@@ -2301,7 +2304,7 @@ public class HtmlHelper {
 
     static String toHtml(Spanned spanned, Context context) {
         HtmlEx converter = new HtmlEx(context);
-        String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
+        String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
 
         // @Google: why convert size to and from in a different way?
         Document doc = JsoupEx.parse(html);
