@@ -563,7 +563,8 @@ public class MessageHelper {
 
             if (send) {
                 for (Element child : document.body().children())
-                    if (TextUtils.isEmpty(child.attr("fairemail"))) {
+                    if (!TextUtils.isEmpty(child.text()) &&
+                            TextUtils.isEmpty(child.attr("fairemail"))) {
                         String style = HtmlHelper.mergeStyles(
                                 "font-family:" + compose_font, child.attr("style"));
                         child.attr("style", style);
