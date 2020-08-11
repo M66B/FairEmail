@@ -919,62 +919,62 @@ Gennemse beskeder på serveren henter beskeder fra e-mailserveren i realtid, nå
 <a name="faq25"></a>
 **(25) Hvorfor kan der ikke vælges/åbnes/gemmes et billede, vedhæftning/fil?**
 
-Når et menupunkt til at vælge/åbne/gemme en fil er deaktiveret (nedtonet), eller når du ser meddelelsen *Lageradgangs-framework ikke tilgængelig*, så er [lageradgangs-framework'en](https://developer.android.com/guide/topics/providers/document-provider), en standard Android-komponent, sandsynligvis ikke til stede. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Når et menupunkt til at vælge/åbne/gemme en fil er deaktiveret (nedtonet), eller når du ser meddelelsen *Lageradgangs-framework ikke tilgængelig*, så er [lageradgangs-framework'en](https://developer.android.com/guide/topics/providers/document-provider), en standard Android-komponent, sandsynligvis ikke til stede. Dette kan skyldes, at din tilpassede ROM ikke inkluderer den, eller fordi den er blevet fjernet (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail anmoder ikke om lagerpladstilladelser, så denne framework kræves for at kunne vælge filer og mapper. Ingen app, undtagen måske filhåndteringer målrettet Android 4.4 KitKat eller senere, bør anmode om lagerpladstilladelser, da dette giver adgang til *alle* filer.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+Framework for lagerpladsadgang leveres af pakken *com.android.documentsui*, der er synlig som *Fil*-app i visse Android-versioner (specifikt OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Du kan aktivere framework for lagerpladsadgang (igen) med denne adb-kommando:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativt kan du muligvis aktivere *Fil*-appen igen vha. Android app-indstillingerne.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Kan jeg hjælpe med at oversætte FairEmail til mit sprog?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Ja, du kan oversætte FairEmail-teksterne til dit sprog [via Crowdin](https://crowdin.com/project/open-source-email). Tilmelding er gratis.
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Hvordan skelnes mellem indlejrede eller eksterne billeder?**
 
-External image:
+Eksternt billede:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![Eksternt billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
 
-Embedded image:
+Indlejret billede:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Indlejret billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
 
-Broken image:
+Ødelagt billede:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Defekt billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Bemærk, at download af eksterne billeder fra en fjernserver kan bruges til at registrere, at du har set en besked, hvilket du sandsynligvis ikke ønsker, hvis beskeden er spam eller ondsindet.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Hvordan håndteres statusbjælkenotifikationer?**
 
-In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+I opsætningen findes knappen *Håndtér notifikationer *til at navigere direkte til Android-notifikationsindstillingerne for FairEmail.
 
-On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
+I Android 8.0 Oreo og senere kan du håndtere egenskaberne for de individuelle notifikationskanaler, f.eks. indstilling af en bestemt notifikationslyd eller visning af notifikationer på låseskærmen.
 
-FairEmail has the following notification channels:
+FairEmail har flg. notifikationskanaler:
 
-* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
-* Send: used for the notification of the send service
-* Notifications: used for new message notifications
-* Warning: used for warning notifications
-* Error: used for error notifications
+* Tjeneste: Benytttes til notifikation om synkroniseringstjenesten, se også [denne FAQ](#user-content-faq2)
+* Send: Benyttes til sendetjenestenotiifikation
+* Notifikationer: Benyttes til notifikation om ny besked
+* Advarsel: Benyttes til advarselsnotifikationer
+* Fejl: Benyttes til notifikationer om fejl
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 

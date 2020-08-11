@@ -135,14 +135,14 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(15) Porque o texto da mensagem continua carregando?](#user-content-faq15)
 * [(16) Porque as mensagens não estão sendo sincronizadas?](#user-content-faq16)
 * [~~(17) Porque a sincronização manual não funciona?~~](#user-content-faq17)
-* [(18) Por que a visualização da mensagem não é mostrada sempre?](#user-content-faq18)
+* [(18) Por que a pré-visualização da mensagem nem sempre é exibida?](#user-content-faq18)
 * [(19) Porque os recursos Pro são tão caros?](#user-content-faq19)
 * [(20) Posso pedir um reembolso?](#user-content-faq20)
 * [(21) Como posso ativar a notificação com LED (luz da lanterna)?](#user-content-faq21)
-* [(22) Oque o erro na conta/pasta ... significa?](#user-content-faq22)
+* [(22) O que o erro ... na conta/pasta significa?](#user-content-faq22)
 * [(23) Por que recebo o alerta .. ?](#user-content-faq23)
-* [(24) O que é a procura de mensagem no servidor?](#user-content-faq24)
-* [(25) Porque não posso selecionar/abrir/salvar uma imagem, um anexo ou um arquivo?](#user-content-faq25)
+* [(24) O que é a procura por mensagens no servidor?](#user-content-faq24)
+* [(25) Por que não consigo selecionar/abrir/salvar uma imagen, um anexo ou um arquivo?](#user-content-faq25)
 * [(26) Posso ajudar a traduzir o FairEmail para meu próprio idioma?](#user-content-faq26)
 * [(27) Como posso distinguir entre imagens embutidas e imagens externas?](#user-content-faq27)
 * [(28) Como posso gerenciar as notificações na barra de status?](#user-content-faq28)
@@ -150,9 +150,9 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(30) Como posso utilizar as configurações rápidas fornecidas?](#user-content-faq30)
 * [(31) Como posso utilizar os atalhos fornecidos?](#user-content-faq31)
 * [(32) Como posso verificar se a leitura de um e-mail é realmente segura?](#user-content-faq32)
-* [(33) Porque os endereços de remetentes editados não estão funcionando?](#user-content-faq33)
+* [(33) Por que os endereços de remetente editados não estão funcionando?](#user-content-faq33)
 * [(34) Como as identidades são combinadas?](#user-content-faq34)
-* [(35) Porque eu deveria ter cuidado ao visualizar imagens, anexos e a mensagem original?](#user-content-faq35)
+* [(35) Por que eu deveria ter cuidado ao visualizar imagens/anexos e a mensagem original?](#user-content-faq35)
 * [(36) Como os arquivos de configuração são criptografados?](#user-content-faq36)
 * [(37) Como são armazenadas as senhas?](#user-content-faq37)
 * [(39) Como posso reduzir o uso de bateria do FairEmail?](#user-content-faq39)
@@ -450,100 +450,100 @@ Infelizmente, é impossível fazer todo mundo feliz e adicionar muitas configura
 <a name="faq6"></a>
 **(6) Como posso fazer login com Gmail / G Suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Você pode usar o assistente de configuração rápida para configurar facilmente uma conta e uma identidade do Gmail.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Se você não quiser usar uma conta do Gmail salva em seu dispositivo, você pode ativar o acesso a "aplicativos menos seguros" e usar a senha de sua conta ou habilitar a autenticação em duas etapas e usar uma senha de específica de aplicativo. Por favor, [veja essa FAQ](#user-content-faq111) sobre o porque apenas contas salvas no dispositivo podem ser usadas.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Observe que uma senha específica do aplicativo é necessário quando a autenticação em duas etapas estiver habilitada.
 
 <br />
 
-*Enable "Less secure apps"*
+*Senha específica do aplicativo*
 
-**Important**: using this method is not recommended because it is less reliable.
+Veja [aqui](https://support.google.com/accounts/answer/185833) sobre como gerar uma senha específica do aplicativo.
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+<br />
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+*Habilitar "Aplicativos menos seguros"*
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+**Importante**: usar este método não é recomendado porque é menos confiável.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+**Importante**: Contas do G Suite autorizadas com um nome de usuário/senha irão deixar de funcionar [em um futuro próximo](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Veja [aqui](https://support.google.com/accounts/answer/6010255) sobre como habilitar "aplicativos menos seguros" ou vá [diretamente para as configurações](https://www.google.com/settings/security/lesssecureapps).
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Se você utilizar múltiplas contas do Gmail, certifique-se de alterar a configuração "aplicativos menos seguros" na(s) conta(s) correta(s).
+
+Esteja ciente de que você você precisa sair da tela de configuração "aplicativos menos seguros" usando a seta que aponta para trás para aplicar a configuração.
+
+Se você utilizar esse método, você deve usar uma [senha forte](https://en.wikipedia.org/wiki/Password_strength) para sua conta do Gmail, o que de todo modo é uma boa ideia. Observe que utilizar o protocolo IMAP [padrão](https://tools.ietf.org/html/rfc3501) por si só não é menos seguro.
+
+Quando a configuração "aplicativos menos seguros" não estiver habilitada, você receberá a mensagem de erro *Autenticação falhou - credenciais inválidas* para contas (IMAP) e *Usuário ou Senha não aceitos* para identidades (SMTP).
 
 <br />
 
 *Geral*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Talvez você receba o alerta "*Por favor, faça login através de seu navegador*". Isso acontece quando o Google considera que a rede que te conecta à internet (que pode ser uma CPN) não é segura. Isso pode ser evitado utilizando o assistente de configuração rápida do Gmail ou uma senha específica do aplicativo.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Veja [aqui](https://support.google.com/mail/answer/7126229) as instruções do Google e clique [aqui](https://support.google.com/mail/accounts/answer/78754) para buscar a solução de problemas.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Por que as mensagens enviadas não estão aparecendo (diretamente) na pasta enviados?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+As mensagens geralmente são movidas da caixa de saída para a pasta de enviados assim que seu provedor as adiciona à pasta de enviados. Isso requer que você selecione uma pasta de enviados nas configurações da conta e que seja definida uma pasta de enviados a ser sincronizada.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Alguns provedores não acompanham as mensagens enviadas ou o SMTP usado pode não estar relacionado ao provedor. Nesses casos, o FairEmail irá automaticamente adicionar à pasta de enviados as mensagens enviadas ao fazer a sincronização da pasta de enviados, o que irá acontecer após a mensagem ser enviada. Observe que isso resultará em tráfego extra de internet.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Se isso não acontecer, seu provedor talvez não acompanhe as mensagens enviadas ou talvez você esteja utilizando um servidor de SMTP que não tem relação com o provedor.~~ ~~Nesses casos, você pode ativar a configuração avançada de identidade *Armazenar mensagens enviadas* para permitir que o FairEmail adicione mensagens enviadas à pasta de enviados logo após a mensagem ser enviada.~~ ~~Observe que habilitar essa configuração pode resultar em duplicação de mensagens, se o seu provedor por natureza já adicionar as mensagens enviadas à pasta de enviados também.~~ ~~Além disso, saiba que ativar essa configuração irá resultar em maior uso de armazenamento, especialmente quando for feito o envio de mensagens com grandes anexos.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Se as mensagens enviadas presentes na caixa de saída não forem encontradas na pasta de enviados após uma sincronização completa, elas serão movidas da caixa de saída para a caixa de enviados também.~~ ~~Uma sincronização completa acontece quando há uma reconexão com o servidor ou pode acontecer periodicamente e/ou manualmente.~~ ~~Você provavelmente vai querer ativar a configuração avançada *Armazenar mensagens enviadas* ao invés disso, para mover as mensagens para a pasta de enviados mais cedo.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Posso usar uma conta to Microsoft Exchange?**
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Você pode usar uma conta do Microsoft Exchange se ela for acessível via IMAP, o que normalmente é o caso. Clique [aqui](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) para mais informações.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Por favor veja [aqui](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)o documento da Microsoft sobre como configurar um cliente de e-mail. Há também uma seção sobre os erros de conexão mais comuns e soluções.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Algumas versões antigas de servidores do Exchange têm um problema que faz com as mensagens apareçam vazias e com anexos corrompidos. Por favor, veja [esse FAQ](#user-content-faq110) para obter uma solução alternativa.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Por favor, veja [esse FAQ](#user-content-faq133) sobre o suporte ao ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Por favor, veja [esse FAQ](#user-content-faq111) sobre o suporte ao OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) O que são identidades / como adicionar apelidos (alias)?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+As identidades representam os endereços de e-mail *dos quais* você está enviando através de um servidor de e-mail (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Alguns provedores permitam que você possua múltiplos apelidos (aliases). Você pode configurá-los definindo o campo do endereço de e-mail de uma identidade adicional como o endereço do alias e definindo o campo do nome de usuário como seu e-mail principal.
 
-Note that you can copy an identity by long pressing it.
+Observe que você pode copiar uma identidade ao tocar e segurar sobre ela.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Como alternativa, você pode ativar *Permitir a edição do endereço do remetente* nas configurações avançadas de uma identidade existente para editar o nome de usuário ao escrever uma nova mensagem, se seu provedor permitir isso.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+O FairEmail irá automaticamente atualizar as senhas de identidades relacionadas quando você atualizar a senha de uma conta associada ou uma identidade relacionada.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Veja [esse FAQ](#user-content-faq33) sobre como editar o nome de usuário de endereços de e-mail.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) O que 'UIDPLUS não suportado' significa?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~A mensagem de erro *UIDPLUS não suportado* significa que seu provedor não fornece a [extensão UIDPLUS](https://tools.ietf.org/html/rfc4315) do IMAP. Essa extensão do IMAP é necessária para implementar a sincronização dupla, o que não é um recurso opcional. Então, a menos que seu provedor possa ativar essa extensão, você não poderá utilizar o FairEmail para esse provedor.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Por que POP não é suportado?~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -558,7 +558,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Como funciona a criptografia/descriptografia?**
 
 *Geral*
 
@@ -666,7 +666,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Como funciona a pesquisa no dispositivo/servidor?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -694,7 +694,7 @@ Searching messages on the device is a free feature, searching messages on the se
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Como posso configurar uma conta do Outlook / Live / Hotmail?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -707,7 +707,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Por que o texto da mensagem continua carregando?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
 
@@ -720,7 +720,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Por que as mensagens não estão sendo sincronizadas?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -743,7 +743,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Por que a sincronização manual não funciona?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -752,14 +752,14 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Por que a pré-visualização da mensagem nem sempre é exibida?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Por que os recursos Pro são tão caros?**
 
 The right question is "*why are there so many taxes and fees?*":
 
@@ -779,12 +779,12 @@ I have been working on FairEmail almost every day for more than one and a half a
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Posso pedir um reembolso?**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Como posso ativar a notificação com LED (luz da lanterna)?**
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
@@ -797,7 +797,7 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) O que o erro ... na conta/pasta significa?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
@@ -882,7 +882,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Por que recebo o alerta ... ?**
 
 *General*
 
@@ -910,14 +910,14 @@ When using a Dovecot server, you might want to change the setting [mail_max_user
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) O que é a procura por mensagens no servidor?**
 
 Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Por que não consigo selecionar/abrir/salvar uma imagem, um anexo ou um arquivo?**
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
@@ -936,14 +936,14 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Posso ajudar a traduzir o FairEmail para meu próprio idioma?**
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Como posso distinguir entre imagens embutidas e imagens externas?**
 
 External image:
 
@@ -962,7 +962,7 @@ Note that downloading external images from a remote server can be used to record
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Como posso gerenciar as notificações na barra de status?**
 
 In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
@@ -985,14 +985,14 @@ See [this FAQ](#user-content-faq21) if your device has a notification light.
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) Como posso receber notificações de novas mensagens para outras pastas?**
 
 Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) Como posso utilizar as configurações rápidas fornecidas?**
 
 There are quick settings (settings tiles) available to:
 
@@ -1004,7 +1004,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) Como posso utilizar os atalhos fornecidos?**
 
 There are shortcuts available to:
 
@@ -1016,14 +1016,14 @@ Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explain
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) Como posso verificar se a leitura de um e-mail é realmente segura?**
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Por que os endereços de remetente editados não estão funcionando?**
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
@@ -1041,7 +1041,7 @@ Note that this is independent of receiving messages.
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Comos as identidades são combinadas?**
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
@@ -1066,7 +1066,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Por que eu deveria ter cuidado ao visualizar imagens/anexos e a mensagem original?**
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 
@@ -1087,7 +1087,7 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Como os arquivos de configuração são criptografados?**
 
 Short version: AES 256 bit
 
