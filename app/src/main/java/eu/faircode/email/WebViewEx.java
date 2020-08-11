@@ -49,7 +49,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         WebSettings settings = getSettings();
         settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
+        settings.setLoadWithOverviewMode(false);
 
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
@@ -75,7 +75,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         this.height = (height == 0 ? getMinimumHeight() : height);
 
-        setInitialScale(size == 0 ? 1 : Math.round(size * 100));
+        setInitialScale(size == 0 ? 0 : Math.round(size * 100));
 
         if (position != null) {
             setScrollX(position.first);
