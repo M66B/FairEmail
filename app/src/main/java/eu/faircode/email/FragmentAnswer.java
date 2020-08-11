@@ -272,7 +272,7 @@ public class FragmentAnswer extends FragmentBase {
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
 
-                Document document = HtmlHelper.fixEdit(JsoupEx.parse(html));
+                Document document = JsoupEx.parse(html);
 
                 DB db = DB.getInstance(context);
                 if (id < 0) {

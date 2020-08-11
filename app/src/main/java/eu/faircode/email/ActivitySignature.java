@@ -233,7 +233,7 @@ public class ActivitySignature extends ActivityBase {
             return etText.getText().toString();
         else {
             String html = HtmlHelper.toHtml(etText.getText(), this);
-            Document d = HtmlHelper.fixEdit(JsoupEx.parse(html));
+            Document d = JsoupEx.parse(html);
             return d.body().html();
         }
     }
