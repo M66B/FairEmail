@@ -550,6 +550,7 @@ public class FragmentCompose extends FragmentBase {
                             etBody.setSelection(added);
                         }
 
+                        boolean renum = false;
                         BulletSpan[] bullets = text.getSpans(added + 1, added + 1, BulletSpan.class);
                         for (BulletSpan span : bullets) {
                             int s = text.getSpanStart(span);
@@ -570,8 +571,12 @@ public class FragmentCompose extends FragmentBase {
                                 Log.i("Span " + (added + 1) + "..." + e);
                             }
 
+                            renum = true;
                             text.removeSpan(span);
                         }
+
+                        if (renum)
+                            renumber(text);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -580,6 +585,7 @@ public class FragmentCompose extends FragmentBase {
 
                 if (removed != null)
                     try {
+                        boolean renum = false;
                         BulletSpan[] spans = text.getSpans(removed - 1, removed - 1, BulletSpan.class);
                         if (spans.length == 1) {
                             int end = text.getSpanEnd(spans[0]);
@@ -587,10 +593,15 @@ public class FragmentCompose extends FragmentBase {
                             for (BulletSpan b : bs) {
                                 int s = text.getSpanStart(b);
                                 int e = text.getSpanEnd(b);
-                                if (s == e)
+                                if (s == e) {
+                                    renum = true;
                                     text.removeSpan(b);
+                                }
                             }
                         }
+
+                        if (renum)
+                            renumber(text);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -621,6 +632,39 @@ public class FragmentCompose extends FragmentBase {
 
                 } else
                     throw new IllegalArgumentException(type.getName());
+            }
+
+            public void renumber(Editable text) {
+                Context context = etBody.getContext();
+                int dp6 = Helper.dp2pixels(context, 6);
+                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+
+                int next;
+                int index = 1;
+                int pos = -1;
+                for (int i = 0; i < text.length(); i = next) {
+                    next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
+
+                    NumberSpan[] spans = text.getSpans(i, next, NumberSpan.class);
+                    if (spans.length == 1) {
+                        int start = text.getSpanStart(spans[0]);
+                        int end = text.getSpanEnd(spans[0]);
+                        int flags = text.getSpanFlags(spans[0]);
+
+                        if (start == pos)
+                            index++;
+                        else
+                            index = 1;
+
+                        if (index != spans[0].getIndex()) {
+                            NumberSpan clone = new NumberSpan(dp6, colorAccent, spans[0].getTextSize(), index);
+                            text.removeSpan(spans[0]);
+                            text.setSpan(clone, start, end, flags);
+                        }
+
+                        pos = end;
+                    }
+                }
             }
         });
 
