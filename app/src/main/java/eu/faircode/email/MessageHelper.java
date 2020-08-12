@@ -548,7 +548,6 @@ public class MessageHelper {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean autolist = prefs.getBoolean("autolist", true);
         boolean format_flowed = prefs.getBoolean("format_flowed", false);
         boolean monospaced = prefs.getBoolean("monospaced", false);
         String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
@@ -558,9 +557,6 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null) {
-            if (autolist)
-                HtmlHelper.convertLists(document);
-
             if (send) {
                 for (Element child : document.body().children())
                     if (!TextUtils.isEmpty(child.text()) &&
