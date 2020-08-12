@@ -2026,145 +2026,150 @@ public class HtmlHelper {
                     }
 
                     // Apply element
-                    String tag = element.tagName();
-                    int semi = tag.indexOf(':');
-                    if (semi >= 0)
-                        tag = tag.substring(semi + 1);
-                    switch (tag) {
-                        case "a":
-                            String href = element.attr("href");
-                            if (!TextUtils.isEmpty(href))
-                                ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "body":
-                            // Do nothing
-                            break;
-                        case "big":
-                            ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "blockquote":
-                            if (start == 0 || ssb.charAt(start - 1) != '\n')
-                                ssb.insert(start++, "\n");
-                            if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
-                                ssb.append("\n");
+                    try {
+                        String tag = element.tagName();
+                        int semi = tag.indexOf(':');
+                        if (semi >= 0)
+                            tag = tag.substring(semi + 1);
 
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                            else
-                                ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "br":
-                            newline(ssb.length());
-                            break;
-                        case "div": // compose
-                        case "p": // compose
-                            newline(ssb.length());
-                            newline(ssb.length());
-                            break;
-                        case "i":
-                        case "em":
-                            ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "font":
-                            // Do nothing
-                            break;
-                        case "h1":
-                        case "h2":
-                        case "h3":
-                        case "h4":
-                        case "h5":
-                        case "h6":
-                            int level = element.tagName().charAt(1) - '1';
-                            ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            newline(start);
-                            newline(ssb.length());
-                            break;
-                        case "hr":
-                            ssb.append("\n" + LINE + "\n");
-                            float stroke = context.getResources().getDisplayMetrics().density;
-                            ssb.setSpan(new LineSpan(colorSeparator, stroke),
-                                    ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "img":
-                            String src = element.attr("src");
-                            Drawable d = (imageGetter == null
-                                    ? context.getDrawable(R.drawable.baseline_broken_image_24)
-                                    : imageGetter.getDrawable(src));
-                            ssb.insert(start, "\uFFFC"); // Object replacement character
-                            ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "li":
-                            if (start == 0 || ssb.charAt(start - 1) != '\n')
-                                ssb.insert(start++, "\n");
-                            if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
-                                ssb.append("\n");
+                        switch (tag) {
+                            case "a":
+                                String href = element.attr("href");
+                                if (!TextUtils.isEmpty(href))
+                                    ssb.setSpan(new URLSpan(href), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "body":
+                                // Do nothing
+                                break;
+                            case "big":
+                                ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "blockquote":
+                                if (start == 0 || ssb.charAt(start - 1) != '\n')
+                                    ssb.insert(start++, "\n");
+                                if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
+                                    ssb.append("\n");
 
-                            Element parent = element.parent();
-                            if (parent == null || "ul".equals(parent.tagName()))
                                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                    ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 else
-                                    ssb.setSpan(new BulletSpan(dp6, colorAccent, dp3), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            else {
-                                int index = 0;
-                                for (Node child : parent.childNodes()) {
-                                    if (child instanceof Element &&
-                                            child.nodeName().equals(element.tagName())) {
-                                        index++;
-                                        if (child == element)
-                                            break;
-                                    }
-                                }
+                                    ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "br":
+                                newline(ssb.length());
+                                break;
+                            case "div": // compose
+                            case "p": // compose
+                                newline(ssb.length());
+                                newline(ssb.length());
+                                break;
+                            case "i":
+                            case "em":
+                                ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "font":
+                                // Do nothing
+                                break;
+                            case "h1":
+                            case "h2":
+                            case "h3":
+                            case "h4":
+                            case "h5":
+                            case "h6":
+                                int level = element.tagName().charAt(1) - '1';
+                                ssb.setSpan(new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                newline(start);
+                                newline(ssb.length());
+                                break;
+                            case "hr":
+                                ssb.append("\n" + LINE + "\n");
+                                float stroke = context.getResources().getDisplayMetrics().density;
+                                ssb.setSpan(new LineSpan(colorSeparator, stroke),
+                                        ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "img":
+                                String src = element.attr("src");
+                                Drawable d = (imageGetter == null
+                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
+                                        : imageGetter.getDrawable(src));
+                                ssb.insert(start, "\uFFFC"); // Object replacement character
+                                ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "li":
+                                if (start == 0 || ssb.charAt(start - 1) != '\n')
+                                    ssb.insert(start++, "\n");
+                                if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
+                                    ssb.append("\n");
 
-                                float textSize = Helper.getTextSize(context, 0);
-                                ssb.setSpan(new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            }
-                            break;
-                        case "ol":
-                        case "ul":
-                            int llevel = 0;
-                            Element lparent = element.parent();
-                            while (lparent != null) {
-                                if (lparent.tagName().equals(element.tagName()))
-                                    llevel++;
-                                lparent = lparent.parent();
-                            }
-                            if (llevel > 0)
-                                ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "small":
-                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "span":
-                            // Do nothing
-                            break;
-                        case "sub":
-                            ssb.setSpan(new SubscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "sup":
-                            ssb.setSpan(new SuperscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "b":
-                        case "strong":
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "s":
-                        case "del":
-                        case "strike":
-                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "tt":
-                            ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        case "u":
-                            ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            break;
-                        default:
-                            if (warn)
-                                Log.e("Unknown tag=" + element.tagName());
+                                Element parent = element.parent();
+                                if (parent == null || "ul".equals(parent.tagName()))
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                        ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    else
+                                        ssb.setSpan(new BulletSpan(dp6, colorAccent, dp3), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                else {
+                                    int index = 0;
+                                    for (Node child : parent.childNodes()) {
+                                        if (child instanceof Element &&
+                                                child.nodeName().equals(element.tagName())) {
+                                            index++;
+                                            if (child == element)
+                                                break;
+                                        }
+                                    }
+
+                                    float textSize = Helper.getTextSize(context, 0);
+                                    ssb.setSpan(new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                }
+                                break;
+                            case "ol":
+                            case "ul":
+                                int llevel = 0;
+                                Element lparent = element.parent();
+                                while (lparent != null) {
+                                    if (lparent.tagName().equals(element.tagName()))
+                                        llevel++;
+                                    lparent = lparent.parent();
+                                }
+                                if (llevel > 0)
+                                    ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "small":
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "span":
+                                // Do nothing
+                                break;
+                            case "sub":
+                                ssb.setSpan(new SubscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "sup":
+                                ssb.setSpan(new SuperscriptSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "b":
+                            case "strong":
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "s":
+                            case "del":
+                            case "strike":
+                                ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "tt":
+                                ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case "u":
+                                ssb.setSpan(new UnderlineSpan(), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            default:
+                                if (warn)
+                                    Log.e("Unknown tag=" + element.tagName());
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
                     }
                 }
             }
