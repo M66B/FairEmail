@@ -207,11 +207,14 @@ public class StyleHelper {
                             int dp6 = Helper.dp2pixels(context, 6);
                             float textSize = Helper.getTextSize(context, 0);
 
+                            int end = e;
+                            if (e > 1 && e + 1 < t.length() && t.charAt(e - 1) != '\n' && t.charAt(e) == '\n')
+                                end++;
 
                             int i = s;
                             int j = s + 1;
                             int index = 1;
-                            while (j < e) {
+                            while (j < end) {
                                 if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
                                     if (item.getItemId() == R.id.menu_style_list_bullets)
                                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
@@ -227,6 +230,7 @@ public class StyleHelper {
                             }
 
                             etBody.setText(t);
+                            etBody.setSelection(s, end);
 
                             return true;
                         }
