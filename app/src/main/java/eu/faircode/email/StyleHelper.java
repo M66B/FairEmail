@@ -106,19 +106,24 @@ public class StyleHelper {
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
-                            switch (item.getGroupId()) {
-                                case R.id.group_style_size:
-                                    return setSize(item);
-                                case R.id.group_style_color:
-                                    return setColor(item);
-                                case R.id.group_style_list:
-                                    return setList(item);
-                                case R.id.group_style_font:
-                                    return setFont(item);
-                                case R.id.group_style_clear:
-                                    return clear(item);
-                                default:
-                                    return false;
+                            try {
+                                switch (item.getGroupId()) {
+                                    case R.id.group_style_size:
+                                        return setSize(item);
+                                    case R.id.group_style_color:
+                                        return setColor(item);
+                                    case R.id.group_style_list:
+                                        return setList(item);
+                                    case R.id.group_style_font:
+                                        return setFont(item);
+                                    case R.id.group_style_clear:
+                                        return clear(item);
+                                    default:
+                                        return false;
+                                }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                return false;
                             }
                         }
 
