@@ -487,7 +487,7 @@ public class FragmentCompose extends FragmentBase {
 
                 if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n') {
                     // break block quotes
-                    boolean broken = false;
+                    boolean qbroken = false;
                     SpannableStringBuilder ssb = new SpannableStringBuilder(text);
                     QuoteSpan[] spans = ssb.getSpans(start + 1, start + 1, QuoteSpan.class);
                     for (QuoteSpan span : spans) {
@@ -499,7 +499,7 @@ public class FragmentCompose extends FragmentBase {
                         if (s > 0 && start - s > 0 && e - (start + 1) > 0 &&
                                 ssb.charAt(s - 1) == '\n' && ssb.charAt(start - 1) == '\n' &&
                                 ssb.charAt(start) == '\n' && ssb.charAt(e - 1) == '\n') {
-                            broken = true;
+                            qbroken = true;
 
                             QuoteSpan q1 = clone(span, QuoteSpan.class, etBody.getContext());
                             ssb.setSpan(q1, s, start, f);
@@ -513,6 +513,7 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }
 
+                    boolean bbroken = false;
                     BulletSpan[] bullets = ssb.getSpans(start + 1, start + 1, BulletSpan.class);
                     for (BulletSpan span : bullets) {
                         int s = ssb.getSpanStart(span);
@@ -520,24 +521,27 @@ public class FragmentCompose extends FragmentBase {
                         int f = ssb.getSpanFlags(span);
                         Log.i("Span " + s + "..." + e + " start=" + start);
 
-                        broken = true;
-                        if (start + 1 > s) {
+                        if (s > 0 &&
+                                start + 1 > s && e > start + 1 &&
+                                ssb.charAt(s - 1) == '\n' && ssb.charAt(e - 1) == '\n') {
+                            bbroken = true;
+
                             BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
                             ssb.setSpan(b1, s, start + 1, f);
                             Log.i("Span " + s + "..." + (start + 1));
-                        }
 
-                        if (e > start + 1) {
-                            BulletSpan b2 = clone(span, span.getClass(), etBody.getContext());
+                            BulletSpan b2 = clone(b1, span.getClass(), etBody.getContext());
                             ssb.setSpan(b2, start + 1, e, f);
                             Log.i("Span " + (start + 1) + "..." + e);
                         }
 
-                        start++; // next bullet
                         ssb.removeSpan(span);
                     }
 
-                    if (broken) {
+                    if (bbroken)
+                        start++; // next bullet
+
+                    if (qbroken || bbroken) {
                         CharacterStyle[] sspan = ssb.getSpans(start + 1, start + 1, CharacterStyle.class);
                         for (CharacterStyle span : sspan) {
                             int s = ssb.getSpanStart(span);
