@@ -245,8 +245,8 @@
             starttls="false" />
         <smtp
             host="mail.gmx.net"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="disroot.org"
