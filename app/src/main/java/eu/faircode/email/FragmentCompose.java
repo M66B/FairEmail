@@ -62,8 +62,10 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
+import android.text.style.LeadingMarginSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
@@ -499,24 +501,40 @@ public class FragmentCompose extends FragmentBase {
                                 ssb.charAt(start) == '\n' && ssb.charAt(e - 1) == '\n') {
                             broken = true;
 
-                            QuoteSpan q1;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q1 = new QuoteSpan(span.getColor());
-                            else
-                                q1 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
+                            QuoteSpan q1 = clone(span, QuoteSpan.class, etBody.getContext());
                             ssb.setSpan(q1, s, start, f);
                             Log.i("Span " + s + "..." + start);
 
-                            QuoteSpan q2;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q2 = new QuoteSpan(span.getColor());
-                            else
-                                q2 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
+                            QuoteSpan q2 = clone(span, QuoteSpan.class, etBody.getContext());
                             ssb.setSpan(q2, start + 1, e, f);
                             Log.i("Span " + (start + 1) + "..." + e);
 
                             ssb.removeSpan(span);
                         }
+                    }
+
+                    BulletSpan[] bullets = ssb.getSpans(start + 1, start + 1, BulletSpan.class);
+                    for (BulletSpan span : bullets) {
+                        int s = ssb.getSpanStart(span);
+                        int e = ssb.getSpanEnd(span);
+                        int f = ssb.getSpanFlags(span);
+                        Log.i("Span " + s + "..." + e + " start=" + start);
+
+                        broken = true;
+                        if (start + 1 > s) {
+                            BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
+                            ssb.setSpan(b1, s, start + 1, f);
+                            Log.i("Span " + s + "..." + (start + 1));
+                        }
+
+                        if (e > start + 1) {
+                            BulletSpan b2 = clone(span, span.getClass(), etBody.getContext());
+                            ssb.setSpan(b2, start + 1, e, f);
+                            Log.i("Span " + (start + 1) + "..." + e);
+                        }
+
+                        start++; // next bullet
+                        ssb.removeSpan(span);
                     }
 
                     if (broken) {
@@ -542,10 +560,6 @@ public class FragmentCompose extends FragmentBase {
                             ssb.removeSpan(span);
                         }
 
-                        //int color = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
-                        //int flags = (Spanned.SPAN_INCLUSIVE_INCLUSIVE | Spanned.SPAN_COMPOSING);
-                        //ssb.setSpan(new ForegroundColorSpan(color), start, start, flags);
-
                         etBody.setText(ssb);
                         etBody.setSelection(start);
                     }
@@ -555,6 +569,31 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
+            }
+
+            public <T extends LeadingMarginSpan> T clone(Object span, Class<T> type, Context context) {
+                if (QuoteSpan.class.isAssignableFrom(type)) {
+                    QuoteSpan q = (QuoteSpan) span;
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                        return (T) new QuoteSpan(q.getColor());
+                    else
+                        return (T) new QuoteSpan(q.getColor(), q.getStripeWidth(), q.getGapWidth());
+                } else if (NumberSpan.class.isAssignableFrom(type)) {
+                    NumberSpan n = (NumberSpan) span;
+                    int dp6 = Helper.dp2pixels(context, 6);
+                    int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                    return (T) new NumberSpan(dp6, colorAccent, n.getTextSize(), n.getIndex() + 1);
+                } else if (BulletSpan.class.isAssignableFrom(type)) {
+                    BulletSpan b = (BulletSpan) span;
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+                        int dp6 = Helper.dp2pixels(context, 6);
+                        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                        return (T) new BulletSpan(dp6, colorAccent);
+                    } else
+                        return (T) new BulletSpan(b.getGapWidth(), b.getColor(), b.getBulletRadius());
+
+                } else
+                    throw new IllegalArgumentException(type.getName());
             }
         });
 

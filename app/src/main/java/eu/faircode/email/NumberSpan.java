@@ -28,6 +28,8 @@ import android.text.TextPaint;
 import android.text.style.BulletSpan;
 
 public class NumberSpan extends BulletSpan {
+    private int index;
+
     private TextPaint tp;
     private String number;
     private int margin;
@@ -39,8 +41,18 @@ public class NumberSpan extends BulletSpan {
         tp.setTypeface(Typeface.MONOSPACE);
         tp.setTextSize(textSize);
 
+        this.index = index;
+
         number = index + ".";
         margin = Math.round(tp.measureText(number) + gapWidth);
+    }
+
+    float getTextSize() {
+        return tp.getTextSize();
+    }
+
+    int getIndex() {
+        return index;
     }
 
     @Override
