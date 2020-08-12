@@ -473,10 +473,40 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        // https://developer.android.com/reference/android/text/TextWatcher
         etBody.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence text, int start, int count, int after) {
                 // Do nothing
+                if (count == 1 && text.charAt(start) == '\n' && after == 0 && start > 0) {
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(text);
+                    BulletSpan[] bullets = ssb.getSpans(start + 1, start + 1, BulletSpan.class);
+                    int min = -1;
+                    int max = -1;
+                    BulletSpan clone = null;
+                    for (BulletSpan span : bullets) {
+                        int s = ssb.getSpanStart(span);
+                        int e = ssb.getSpanEnd(span);
+                        Log.i("Span " + s + "..." + e + " start=" + start);
+
+                        if (min < 0 || s < min)
+                            min = s;
+                        if (max < 0 || e > max)
+                            max = e;
+
+                        if (clone == null)
+                            clone = clone(span, span.getClass(), etBody.getContext());
+
+                        ssb.removeSpan(span);
+                    }
+
+                    if (clone != null) {
+                        ssb.setSpan(clone, min, max, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                        ssb.delete(start, start + 1);
+                        etBody.setText(ssb);
+                        etBody.setSelection(start);
+                    }
+                }
             }
 
             @Override
