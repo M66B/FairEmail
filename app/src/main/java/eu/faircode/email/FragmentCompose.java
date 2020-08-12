@@ -485,7 +485,8 @@ public class FragmentCompose extends FragmentBase {
                 if (activity != null)
                     activity.onUserInteraction();
 
-                if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n') {
+                if (before == 0 && count == 1 && start > 0 &&
+                        text.charAt(start) == '\n' && text.charAt(start - 1) == '\n') {
                     // break block quotes
                     boolean qbroken = false;
                     SpannableStringBuilder ssb = new SpannableStringBuilder(text);
@@ -493,7 +494,7 @@ public class FragmentCompose extends FragmentBase {
                     for (QuoteSpan span : spans) {
                         int s = ssb.getSpanStart(span);
                         int e = ssb.getSpanEnd(span);
-                        int f = ssb.getSpanFlags(span);
+                        int f = ssb.getSpanFlags(span) | Spanned.SPAN_PARAGRAPH;
                         Log.i("Span " + s + "..." + e + " start=" + start);
 
                         if (s > 0 && start - s > 0 && e - (start + 1) > 0 &&

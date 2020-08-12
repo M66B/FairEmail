@@ -2043,16 +2043,15 @@ public class HtmlHelper {
                             ssb.setSpan(new RelativeSizeSpan(FONT_LARGE), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "blockquote":
-                            if (start > 0 && ssb.charAt(start - 1) != '\n')
+                            if (start == 0 || ssb.charAt(start - 1) != '\n')
                                 ssb.insert(start++, "\n");
+                            if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
+                                ssb.append("\n");
 
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                 ssb.setSpan(new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                             else
                                 ssb.setSpan(new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-
-                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
-                                ssb.append("\n");
                             break;
                         case "br":
                             newline(ssb.length());
@@ -2096,7 +2095,11 @@ public class HtmlHelper {
                             ssb.setSpan(new ImageSpan(d, src), start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             break;
                         case "li":
-                            newline(ssb.length());
+                            if (start == 0 || ssb.charAt(start - 1) != '\n')
+                                ssb.insert(start++, "\n");
+                            if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
+                                ssb.append("\n");
+
                             Element parent = element.parent();
                             if (parent == null || "ul".equals(parent.tagName()))
                                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
