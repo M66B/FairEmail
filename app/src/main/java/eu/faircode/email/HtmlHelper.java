@@ -769,18 +769,18 @@ public class HtmlHelper {
 
         // Lists
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        if (!view && !BuildConfig.DEBUG) {
+        if (!view) {
             for (Element li : document.select("li")) {
-                li.tagName("span");
                 Element parent = li.parent();
                 if (parent == null || "ul".equals(parent.tagName()))
-                    li.prependText("• ");
+                    continue; // li.prependText("• ");
                 else
                     li.prependText((li.elementSiblingIndex() + 1) + ". ");
+                li.tagName("span");
                 li.appendElement("br"); // line break after list item
             }
             document.select("ol").tagName("div");
-            document.select("ul").tagName("div");
+            //document.select("ul").tagName("div");
         }
 
         // Tables
@@ -1730,7 +1730,7 @@ public class HtmlHelper {
                 if (node instanceof TextNode) {
                     String text = ((TextNode) node).text().trim();
                     Node next = node.nextSibling();
-                    if ((text.startsWith("* ") || text.startsWith("- ")) &&
+                    if ((/*text.startsWith("* ") ||*/ text.startsWith("- ")) &&
                             (next == null || "br".equals(next.nodeName()))) {
                         item = true;
                         String type = (text.startsWith("* ") ? "ul" : "ol");
@@ -2181,7 +2181,6 @@ public class HtmlHelper {
                             newline(ssb.length());
                             Element parent = element.parent();
                             if (parent == null || "ul".equals(parent.tagName()))
-                                // TODO BulletSpanCompat
                                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                     ssb.setSpan(new BulletSpan(dp6, colorAccent), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 else
@@ -2212,8 +2211,6 @@ public class HtmlHelper {
                             }
                             if (llevel > 0)
                                 ssb.setSpan(new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            newline(start);
-                            newline(ssb.length());
                             break;
                         case "small":
                             ssb.setSpan(new RelativeSizeSpan(FONT_SMALL), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -2290,8 +2287,16 @@ public class HtmlHelper {
             flags.put(span, ssb.getSpanFlags(span));
             ssb.removeSpan(span);
         }
-        for (int i = spans.length - 1; i >= 0; i--)
-            ssb.setSpan(spans[i], start.get(spans[i]), end.get(spans[i]), flags.get(spans[i]));
+        for (int i = spans.length - 1; i >= 0; i--) {
+            int s = start.get(spans[i]);
+            int e = end.get(spans[i]);
+            int f = flags.get(spans[i]);
+            if (spans[i] instanceof BulletSpan)
+                if (s > 1 && ssb.charAt(s - 1) == '\n' &&
+                        e > 1 && ssb.charAt(e - 1) == '\n')
+                    f |= Spanned.SPAN_PARAGRAPH;
+            ssb.setSpan(spans[i], s, e, f);
+        }
 
         return ssb;
     }
