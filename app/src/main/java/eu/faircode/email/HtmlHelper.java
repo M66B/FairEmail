@@ -767,22 +767,6 @@ public class HtmlHelper {
             for (Element subp : document.select("sub,sup"))
                 subp.tagName("small");
 
-        // Lists
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-        if (!view) {
-            for (Element li : document.select("li")) {
-                Element parent = li.parent();
-                if (parent == null || "ul".equals(parent.tagName()))
-                    continue; // li.prependText("• ");
-                else
-                    li.prependText((li.elementSiblingIndex() + 1) + ". ");
-                li.tagName("span");
-                li.appendElement("br"); // line break after list item
-            }
-            document.select("ol").tagName("div");
-            //document.select("ul").tagName("div");
-        }
-
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
@@ -2291,7 +2275,7 @@ public class HtmlHelper {
             int s = start.get(spans[i]);
             int e = end.get(spans[i]);
             int f = flags.get(spans[i]);
-            if (spans[i] instanceof BulletSpan)
+            if (spans[i] instanceof BulletSpan || spans[i] instanceof NumberSpan)
                 if (s > 1 && ssb.charAt(s - 1) == '\n' &&
                         e > 1 && ssb.charAt(e - 1) == '\n')
                     f |= Spanned.SPAN_PARAGRAPH;
@@ -2347,42 +2331,6 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
-    }
-
-    private static class NumberSpan implements LeadingMarginSpan {
-        private TextPaint tp;
-        private String number;
-        private int margin;
-
-        public NumberSpan(int gapWidth, int color, float textSize, int index) {
-            tp = new TextPaint();
-            tp.setStyle(Paint.Style.FILL);
-            tp.setColor(color);
-            tp.setTypeface(Typeface.MONOSPACE);
-            tp.setTextSize(textSize);
-
-            number = index + ".";
-            margin = Math.round(tp.measureText(number) + gapWidth);
-        }
-
-        @Override
-        public int getLeadingMargin(boolean first) {
-            // https://issuetracker.google.com/issues/36956124
-            // This is called before drawLeadingMargin to justify the text
-            return margin;
-        }
-
-        @Override
-        public void drawLeadingMargin(Canvas c, Paint p, int x, int dir, int top, int baseline, int bottom, CharSequence text, int start, int end, boolean first, Layout layout) {
-            if (text instanceof Spanned &&
-                    ((Spanned) text).getSpanStart(this) == start) {
-                float textSize = tp.getTextSize();
-                if (textSize > p.getTextSize())
-                    tp.setTextSize(p.getTextSize());
-                c.drawText(number, x + dir, baseline, tp);
-                tp.setTextSize(textSize);
-            }
-        }
     }
 
     public static class LineSpan extends ReplacementSpan {

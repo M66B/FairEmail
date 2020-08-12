@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group
-        android:id="@+id/group_style_size"
-        android:orderInCategory="1">
-        <item
-            android:id="@+id/menu_style_size_small"
-            android:title="@string/title_style_size_small" />
+    <item
+        android:id="@+id/menu_style_size"
+        android:orderInCategory="1"
+        android:title="@string/title_style_size">
+        <menu>
+            <group android:id="@+id/group_style_size">
+                <item
+                    android:id="@+id/menu_style_size_small"
+                    android:title="@string/title_style_size_small" />
 
-        <item
-            android:id="@+id/menu_style_size_medium"
-            android:title="@string/title_style_size_medium" />
+                <item
+                    android:id="@+id/menu_style_size_medium"
+                    android:title="@string/title_style_size_medium" />
 
-        <item
-            android:id="@+id/menu_style_size_large"
-            android:title="@string/title_style_size_large" />
-    </group>
+                <item
+                    android:id="@+id/menu_style_size_large"
+                    android:title="@string/title_style_size_large" />
+            </group>
+        </menu>
+    </item>
 
     <group
         android:id="@+id/group_style_color"
@@ -24,17 +29,31 @@
             android:title="@string/title_style_color" />
     </group>
 
-    <group
-        android:id="@+id/group_style_list"
-        android:orderInCategory="3">
-        <item
-            android:id="@+id/menu_style_list"
-            android:title="@string/title_style_list" />
-    </group>
+    <item
+        android:id="@+id/menu_style_list"
+        android:orderInCategory="3"
+        android:title="@string/title_style_list">
+        <menu>
+            <group android:id="@+id/group_style_list">
+                <item
+                    android:id="@+id/menu_style_list_bullets"
+                    android:title="@string/title_style_list_bullets" />
+                <item
+                    android:id="@+id/menu_style_list_numbered"
+                    android:title="@string/title_style_list_numbered" />
+            </group>
+        </menu>
+    </item>
 
-    <group
-        android:id="@+id/group_style_font"
-        android:orderInCategory="4" />
+
+    <item
+        android:id="@+id/menu_style_font"
+        android:orderInCategory="4"
+        android:title="@string/title_style_font">
+        <menu>
+            <group android:id="@+id/group_style_font" />
+        </menu>
+    </item>
 
     <group
         android:id="@+id/group_style_clear"

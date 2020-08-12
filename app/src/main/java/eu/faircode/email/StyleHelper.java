@@ -2,6 +2,7 @@ package eu.faircode.email;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -16,6 +17,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -96,9 +98,10 @@ public class StyleHelper {
                     popupMenu.inflate(R.menu.popup_style);
 
                     String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
+                    SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
                     for (int i = 0; i < fontNames.length; i++)
-                        popupMenu.getMenu().add(R.id.group_style_font, i, 4, fontNames[i]);
-                    popupMenu.getMenu().add(R.id.group_style_font, fontNames.length, 4, R.string.title_style_font_default);
+                        smenu.add(R.id.group_style_font, i, 0, fontNames[i]);
+                    smenu.add(R.id.group_style_font, fontNames.length, 0, R.string.title_style_font_default);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -198,18 +201,25 @@ public class StyleHelper {
                             for (BulletSpan span : spans)
                                 t.removeSpan(span);
 
-                            int colorAccent = Helper.resolveColor(etBody.getContext(), R.attr.colorAccent);
-                            int dp3 = Helper.dp2pixels(etBody.getContext(), 3);
-                            int dp6 = Helper.dp2pixels(etBody.getContext(), 6);
+                            Context context = etBody.getContext();
+                            int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                            int dp3 = Helper.dp2pixels(context, 3);
+                            int dp6 = Helper.dp2pixels(context, 6);
+                            float textSize = Helper.getTextSize(context, 0);
+
 
                             int i = s;
                             int j = s + 1;
+                            int index = 1;
                             while (j < e) {
                                 if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
-                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        t.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                    if (item.getItemId() == R.id.menu_style_list_bullets)
+                                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                            t.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        else
+                                            t.setSpan(new BulletSpan(dp6, colorAccent, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     else
-                                        t.setSpan(new BulletSpan(dp6, colorAccent, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        t.setSpan(new NumberSpan(dp6, colorAccent, textSize, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
 
                                     i = j + 1;
                                 }
