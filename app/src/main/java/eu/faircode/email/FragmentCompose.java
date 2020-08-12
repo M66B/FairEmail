@@ -476,39 +476,12 @@ public class FragmentCompose extends FragmentBase {
         // https://developer.android.com/reference/android/text/TextWatcher
         etBody.addTextChangedListener(new TextWatcher() {
             private Integer added = null;
+            private Integer removed = null;
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
-                // Do nothing
-                if (count == 1 && text.charAt(start) == '\n' && after == 0 && start > 0) {
-                    SpannableStringBuilder ssb = new SpannableStringBuilder(text);
-                    BulletSpan[] bullets = ssb.getSpans(start + 1, start + 1, BulletSpan.class);
-                    int min = -1;
-                    int max = -1;
-                    BulletSpan clone = null;
-                    for (BulletSpan span : bullets) {
-                        int s = ssb.getSpanStart(span);
-                        int e = ssb.getSpanEnd(span);
-                        Log.i("Span " + s + "..." + e + " start=" + start);
-
-                        if (min < 0 || s < min)
-                            min = s;
-                        if (max < 0 || e > max)
-                            max = e;
-
-                        if (clone == null)
-                            clone = clone(span, span.getClass(), etBody.getContext());
-
-                        ssb.removeSpan(span);
-                    }
-
-                    if (clone != null) {
-                        ssb.setSpan(clone, min, max, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
-                        ssb.delete(start, start + 1);
-                        etBody.setText(ssb);
-                        etBody.setSelection(start);
-                    }
-                }
+                if (count == 1 && text.charAt(start) == '\n' && after == 0 && start > 0)
+                    removed = start;
             }
 
             @Override
@@ -603,6 +576,25 @@ public class FragmentCompose extends FragmentBase {
                         Log.e(ex);
                     } finally {
                         added = null;
+                    }
+
+                if (removed != null)
+                    try {
+                        BulletSpan[] spans = text.getSpans(removed - 1, removed - 1, BulletSpan.class);
+                        if (spans.length == 1) {
+                            int end = text.getSpanEnd(spans[0]);
+                            BulletSpan[] bs = text.getSpans(end, end, BulletSpan.class);
+                            for (BulletSpan b : bs) {
+                                int s = text.getSpanStart(b);
+                                int e = text.getSpanEnd(b);
+                                if (s == e)
+                                    text.removeSpan(b);
+                            }
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        removed = null;
                     }
             }
 
