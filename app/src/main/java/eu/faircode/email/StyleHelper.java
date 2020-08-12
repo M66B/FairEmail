@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.BulletSpan;
@@ -197,11 +198,19 @@ public class StyleHelper {
                             for (BulletSpan span : spans)
                                 t.removeSpan(span);
 
+                            int colorAccent = Helper.resolveColor(etBody.getContext(), R.attr.colorAccent);
+                            int dp3 = Helper.dp2pixels(etBody.getContext(), 3);
+                            int dp6 = Helper.dp2pixels(etBody.getContext(), 6);
+
                             int i = s;
                             int j = s + 1;
                             while (j < e) {
                                 if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
-                                    t.setSpan(new BulletSpan(), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                        t.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                    else
+                                        t.setSpan(new BulletSpan(dp6, colorAccent, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+
                                     i = j + 1;
                                 }
                                 j++;
