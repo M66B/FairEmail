@@ -430,6 +430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibInbox;
         private ImageButton ibMore;
         private ImageButton ibTools;
+        private TextView tvReformatted;
         private TextView tvSignedData;
 
         private TextView tvBody;
@@ -638,6 +639,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox = vsBody.findViewById(R.id.ibInbox);
             ibMore = vsBody.findViewById(R.id.ibMore);
             ibTools = vsBody.findViewById(R.id.ibTools);
+            tvReformatted = vsBody.findViewById(R.id.tvReformatted);
             tvSignedData = vsBody.findViewById(R.id.tvSignedData);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -1300,6 +1302,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
+            tvReformatted.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             tvNoInternetBody.setVisibility(View.GONE);
@@ -1434,6 +1437,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInbox.setVisibility(View.GONE);
             ibMore.setVisibility(View.GONE);
             ibTools.setVisibility(View.GONE);
+            tvReformatted.setVisibility(View.GONE);
             tvSignedData.setVisibility(View.GONE);
 
             // Message text
@@ -2178,6 +2182,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt))
                             ? View.VISIBLE : View.GONE);
+
+                    boolean reformatted_hint = prefs.getBoolean("reformatted_hint", true);
+                    tvReformatted.setVisibility(reformatted_hint ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
@@ -3494,6 +3501,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
+            if (full && tvReformatted.getVisibility() == View.VISIBLE) {
+                prefs.edit().putBoolean("reformatted_hint", false).apply();
+                tvReformatted.setVisibility(View.GONE);
+            }
+
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
             if (current || asked) {

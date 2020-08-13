@@ -874,6 +874,7 @@
 
     <string name="title_expand_warning">Expanding this message will download %1$s</string>
     <string name="title_download_message">Downloading &#8230;</string>
+    <string name="title_reformatted">This is the reformatted message view. You can tap on the &#x26F6; icon to view the original message and to hide this message.</string>
 
     <string name="title_compose">Compose</string>
     <string name="title_submitter">Sent by:</string>
