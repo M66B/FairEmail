@@ -2222,10 +2222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         break;
                                     default:
                                         if (raction == null) {
-                                            // This seems to happen when there is no app available for the action
-                                            if (!ConversationAction.TYPE_VIEW_MAP.equals(type) &&
-                                                    !ConversationAction.TYPE_TRACK_FLIGHT.equals(type))
-                                                Log.e("Unknown action type=" + type);
+                                            Log.w("Unknown action type=" + type);
                                             continue;
                                         }
                                         text = null;
