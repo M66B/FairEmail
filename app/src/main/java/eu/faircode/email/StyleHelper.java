@@ -222,6 +222,9 @@ public class StyleHelper {
                                 end++;
                             }
 
+                            while (start < end && t.charAt(start - 1) != '\n')
+                                start++;
+
                             if (end == t.length() && end > 0 && t.charAt(end - 1) != '\n') {
                                 t.append("\n");
                                 end++;
