@@ -680,7 +680,12 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Searching through a large number of messages is not very fast because of two limitations:
+Es ist möglich, Gmail-Suchoperatoren zu verwenden, indem einem Suchbefehl die Präfix *raw:* vorangestellt wird. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Die möglichen Suchoperatoren finden Sie [hier](https://support.google.com/mail/answer/7190). Zum Beispiel:
+
+`
+raw:larger:10M`
+
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
@@ -702,7 +707,7 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-Um ein Office 365-Konto einzurichten, lesen Sie bitte [diese FAQ](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
@@ -821,11 +826,11 @@ The error *... Host is unresolved ...* or "*... Unable to resolve host ...* mean
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-Die Fehler * … BYE Logging out ...*, *... Verbindung durch Peer zurückgesetzt …* bedeutet, dass der E-Mail-Server eine bestehende Verbindung aktiv beendet hat.
+The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The errors *... Read error ...*, *... Write error ...*, *... Zeitüberschreitung beim Lesen … *, * … Unterbrochene Pipe …* bedeutet, dass der E-Mail-Server nicht mehr antwortet oder dass die Internetverbindung gestört ist.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
@@ -856,7 +861,7 @@ If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network),
 
 **Send errors**
 
-SMTP-Server können Nachrichten aus [einer Reihe von Gründen ablehnen](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Zu große Nachrichten und das Auslösen des Spam-Filters eines E-Mail-Servers sind die häufigsten Gründe.
+SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
 * Die Größe von Anhängen für Google Mail [beträgt 25 MB](https://support.google.com/mail/answer/6584)
 * The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -1536,11 +1541,21 @@ The following rule conditions are available:
 * Header contains
 * Day/time between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+
+Note that email addresses are formatted like this:
+
+`
+"Somebody" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+
+Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+
+`
+.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
@@ -2376,7 +2391,9 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact management/synchronizing?**
 
-Kalender und Kontakte können besser durch eine separate, spezialisierte App verwaltet werden. Bitte beachten Sie, dass FairEmail eine reine E-Mail-App ist und keine Office-Suite.
+Calendar and contact management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+
+Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 

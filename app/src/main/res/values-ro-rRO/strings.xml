@@ -62,6 +62,11 @@
         <item quantity="few">%1$d conversații selectate</item>
         <item quantity="other">%1$d de conversații selectate</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Se mută %1$d mesaj?</item>
+        <item quantity="few">Se mută %1$d mesaje?</item>
+        <item quantity="other">Se mută %1$d de mesaje?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ștergeți definitiv %1$d mesaj?</item>
         <item quantity="few">Ștergeți definitiv %1$d mesaje?</item>
@@ -178,6 +183,7 @@
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
+    <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
@@ -342,6 +348,7 @@
     <string name="title_advanced_volumenav">Volum sus/jos pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
     <string name="title_advanced_swipe_close">Glisați în jos pentru a închide conversația</string>
+    <string name="title_advanced_swipe_move">Glisați în sus pentru a muta conversația</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
@@ -584,6 +591,7 @@
     <string name="title_oauth_support">OAuth nu este suportat</string>
     <string name="title_review">Revizuire</string>
     <string name="title_hint_alias">Apăsare lunga pentru opțiuni, precum copiere pentru crearea de identități alias</string>
+    <string name="title_service_auth">Serverul de e-mail a spus: \'%1$s\'</string>
     <string name="title_service_vpn">Acesta poate fi cauzată de VPN-ul folosit</string>
     <string name="title_service_port">Vă rugăm să verificaţi din nou numărul de port</string>
     <string name="title_service_protocol">Vă rugăm să verificaţi protocolul (SSL/TLS sau STARTTLS)</string>
@@ -741,6 +749,7 @@
     <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
+    <string name="title_attachment_eml">Mesaj atașat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachments_saved">Atașamente salvate</string>
     <string name="title_attachments_incomplete">Unele atașamente sau imagini nu au fost descărcate și nu s-au putut adăuga</string>
@@ -759,6 +768,9 @@
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
     <string name="title_ask_review">Vă rugăm să evaluați FairEmail</string>
+    <string name="title_ask_review_rationale">        Folosiți FairEmail de ceva vreme.
+        Ar fi apreciat dacă ați putea evalua FairEmail în Magazinul Play.
+    </string>
     <string name="title_ask_once">Acest mesaj va apărea o singură dată, decât dacă nu selectați \'Mai târziu\'</string>
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
@@ -797,9 +809,12 @@
     <string name="title_style_size_small">Mic</string>
     <string name="title_style_size_medium">Mediu</string>
     <string name="title_style_size_large">Mare</string>
+    <string name="title_style_color">Culoare &#8230;</string>
+    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Listă</string>
+    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Buline</string>
+    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Numere</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Implicit</string>
-    <string name="title_style_color">Culoare &#8230;</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_add_image">Adăugare imagine</string>
@@ -1040,6 +1055,7 @@
     <string name="title_legend_download_fetch">Numărul de mesaje / antete de descărcat</string>
     <string name="title_legend_stop">Oprește procesarea regulilor</string>
     <string name="title_legend_thread">Conversație</string>
+    <string name="title_legend_bookmark">Ultima conversație deschisă</string>
     <string name="title_legend_zoom">Modificare dimensiune text</string>
     <string name="title_legend_draft">Are ciornă</string>
     <string name="title_legend_priority">Prioritate ridicată</string>

@@ -16,7 +16,7 @@ Amennyiben kérdésed merül fel, kérlek először nézd át az alábbi Gyik-et
 
 Az gyors beállítás varázsló a legtöbb esetben képes megállapítani a helyes konfigurációt.
 
-Amennyiben a gyors beállítás varázsló tanácstalan, kézzel kell beállítanod a felhasználói fiókod hozzáférési adatait (hogy E-maileket fogadhass), illetve a levelező kiszolgálói hozzáférési adataid (Hogy leveleket küldheds). Ehhez szükséges ismerned a szolgáltatód IMAP és SMTP kiszolgálójának IP-címét vagy domain nevét, valamint a levelező szolgáltatások port számát. Ki kell választanod a megfelelő, szolgáltató által támogatott, titkosítási protocolt, ami SSL/TLS vagy STARTTSL lehet. Legvégül, a felhasználó név (általában megegyezik az e-mail címmel) és jelszavad segítségével csatlakozhatsz az E-Mail szolgáltatásokhoz.
+Amennyiben a gyors beállítás varázsló tanácstalan, kézzel kell beállítanod a felhasználói fiókod hozzáférési adatait (hogy E-maileket fogadhass), illetve a levelező kiszolgálói hozzáférési adataid (Hogy leveleket küldheds). Ehhez szükséges ismerned a szolgáltatód IMAP és SMTP kiszolgálójának IP-címét vagy domain nevét, valamint a levelező szolgáltatások port számát. Ki kell választanod a megfelelő, szolgáltató által támogatott, titkosítási protokolt, ami SSL/TLS vagy STARTTSL lehet. Legvégül, a felhasználó név (általában megegyezik az e-mail címmel) és jelszavad segítségével csatlakozhatsz az email szolgáltatásokhoz.
 
 A megfelelő beállítások megtalálásához többnyire elegendő a szolgáltató nevére az *IMAP* kulcsszóval együtt rákeresni az internetetn, Például: "Acme Mail IMAP".
 
@@ -41,12 +41,12 @@ Kapcsolódó kérdések:
 
 <a name="howto">
 
-## How to ...?
+## Hogyan kell ...?
 
-* Change the account name: Setup, step 1, Manage, tap account
+* Fióknevet megváltoztatni: Varázsló, 1. lépés, Kezelés, nyomj rá a fiókra
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
+* Jelszót változtatni: Varázsló, 1. lépés, nyomj rá a fiókra, jelszó megváltoztatása
+* Aláírást beállítani: Varázsló, 2. lépés, Kezelés, kattints rá az identitásra, Aláírás szerkesztése.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
@@ -81,7 +81,7 @@ Kapcsolódó kérdések:
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
-* ~~Copy message~~
+* ~~Üzenet másolása~~
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
@@ -108,7 +108,7 @@ Kapcsolódó kérdések:
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
 * ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Beállítások keresése~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -680,7 +680,12 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Searching through a large number of messages is not very fast because of two limitations:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+
+`
+raw:larger:10M`
+
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
@@ -1536,11 +1541,21 @@ The following rule conditions are available:
 * Header contains
 * Day/time between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+
+Note that email addresses are formatted like this:
+
+`
+"Somebody" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+
+Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+
+`
+.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
@@ -2377,6 +2392,8 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 **(138) Can you add calendar/contact management/synchronizing?**
 
 Calendar and contact management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+
+Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 

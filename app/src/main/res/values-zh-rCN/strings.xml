@@ -569,7 +569,7 @@
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
-    <string name="title_service_auth">电子邮件服务器说：\'%1$s\'</string>
+    <string name="title_service_auth">电子邮件服务器返回：\'%1$s\'</string>
     <string name="title_service_vpn">这可能是正在使用的 VPN 造成的</string>
     <string name="title_service_port">请再次检查端口号</string>
     <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>
@@ -727,7 +727,7 @@
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
-    <string name="title_attachment_eml">附加的消息</string>
+    <string name="title_attachment_eml">含附件的消息</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
@@ -787,9 +787,12 @@
     <string name="title_style_size_small">小</string>
     <string name="title_style_size_medium">中等</string>
     <string name="title_style_size_large">大</string>
+    <string name="title_style_color">颜色 &#8230;</string>
+    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">列表</string>
+    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">项目符号</string>
+    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">有编号的</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
-    <string name="title_style_color">颜色 &#8230;</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_add_image">添加图片</string>

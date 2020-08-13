@@ -90,13 +90,13 @@
 * ~~~Поиск сообщений с / без вложений~~ (это нельзя добавить, потому что IMAP не поддерживает поиск вложений)
 * ~~~Поиск папки~~ (фильтрация списка иерархических папок проблематична)
 * ~~Подсказки поиска~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
+* ~~[Настройка Автоматического Шифрования Сообщения](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (раздел 4.4)~~ (IMO нецелесообразно позволять почтовому клиенту обрабатывать такие чувствительные данные, как ключи шифрования, в то время как OpenKeychain тоже может экспортировать ключи)
+* ~~Унифицированные папки~~
+* ~~Новое уведомление для каждого аккаунта~~ (реализовано путем добавления условий времени в правила, чтобы сообщения могли быть отложены в выбранные периоды)
+* ~~Копировать учетные записи и идентификаторы~~
+* ~~Pinch zoom~~ (невозможно надежно использовать в прокручиваемом списке; вместо этого можно масштабировать всё сообщение)
+* ~~~Более компактный вид папок~~
+* ~~~Создавать списки и таблицы~~ (требуется rich text редактор, смотрите [этот FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
 * ~~Display GIFs~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
@@ -680,7 +680,12 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Searching through a large number of messages is not very fast because of two limitations:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+
+`
+raw:larger:10M`
+
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
@@ -867,7 +872,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-Ошибка *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -1536,11 +1541,21 @@ The following rule conditions are available:
 * Header contains
 * Day/time between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+
+Note that email addresses are formatted like this:
+
+`
+"Somebody" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+
+Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+
+`
+.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
@@ -2376,7 +2391,9 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact management/synchronizing?**
 
-Для управления календарём и контактами лучше подходят отдельные специализированные приложения. Обратите внимание, что FairEmail является специализированным почтовым приложением, а не офисным программным комплексом.
+Calendar and contact management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+
+Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 

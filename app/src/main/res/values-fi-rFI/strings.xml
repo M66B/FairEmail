@@ -784,9 +784,9 @@
     <string name="title_style_size_small">Pieni</string>
     <string name="title_style_size_medium">Keskikokoinen</string>
     <string name="title_style_size_large">Suuri</string>
+    <string name="title_style_color">Väri &#8230;</string>
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
-    <string name="title_style_color">Väri &#8230;</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_add_image">Lisää kuva</string>

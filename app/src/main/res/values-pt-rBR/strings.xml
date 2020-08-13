@@ -799,9 +799,9 @@
     <string name="title_style_size_small">Pequeno</string>
     <string name="title_style_size_medium">Médio</string>
     <string name="title_style_size_large">Grande</string>
+    <string name="title_style_color">Cor &#8230;</string>
     <string name="title_style_font">Fonte</string>
     <string name="title_style_font_default">Padrão</string>
-    <string name="title_style_color">Cor &#8230;</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_add_image">Adicionar imagem</string>

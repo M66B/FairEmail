@@ -545,15 +545,15 @@ Veja [esse FAQ](#user-content-faq33) sobre como editar o nome de usuário de end
 <a name="faq11"></a>
 **~~(11) Por que POP não é suportado?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Além do fato de que qualquer provedor de e-mail decende suporta [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) hoje em dia,~~ ~~usar [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) resultará em uso extra de bateria e atraso na notificação de novas mensagens.~~ ~~Além disso, POP é incompatível com a sincronização dupla e, mais do que nunca, as pessoas leem e escrevem mensagens em diferentes aparelhos hoje em dia.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~Basicamente, POP suporta apenas o download e a exclusão de mensagens da caixa de entrada.~~ ~~Então, funções simples como definir atributos de mensagens (lido, marcado, respondido etc), adicionar (fazer backup) e mover mensagens não é possível.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Veja também [o que o Google escreve sobre isso ](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~Por exemplo, [o Gmail pode importar mensagens](https://support.google.com/mail/answer/21289) de outra conta POP,~~ ~~o que pode ser usado como uma alternativa para quando o seu provedor não tiver suporte a IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~Resumindo: considere mudar para IMAP.~~
 
 <br />
 
@@ -562,106 +562,106 @@ Veja [esse FAQ](#user-content-faq33) sobre como editar o nome de usuário de end
 
 *Geral*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Por favor, [veja aqui](https://en.wikipedia.org/wiki/Public-key_cryptography) como funciona a criptografia de chaves públicas/privadas.
 
-Encryption in short:
+Criptografia de forma simples:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Mensagens enviadas** são criptografadas com a **chave pública** do destinatário
+* **Mensagens recebidas** são descriptografadas com a **chave privada** do destinatário
 
-Signing in short:
+Assinatura de forma simples:
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* **Mensagens enviadas** são assinadas com a **chave privada** do remetente
+* **Mensagens recebidas** são verificadas com a **chave pública** do remetente
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Para assinar/criptografar uma mensagens, basta selecionar o método apropriado na caixa de diálogo de envio. Você pode sempre abrir a caixa de diálogo de envio usando o menu de três pontos, no caso de você ter selecionado *Não mostrar novamente* anteriormente.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Para verificar a assinatura ou descriptografar uma mensagem, abra a mensagem e apenas toque no sinal ou no ícone de cadeado logo abaixo da barra de ação da mensagem.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Na primeira vez que você enviar uma mensagem assinada/criptografada, talvez uma chave de assinatura seja solicitada. O FairEmail irá armazenar automaticamente a chave de assinatura selecionada na identidade utilizada para a próxima vez. Se você precisar redefinir a cgave de assinatura, apenas salve a identidade ou toque e segure a identidade na lista de identidades e selecione *Redefinir chave de assinatura*. A chave de assinatura selecionada é visível na lista de identidades. Se você precisar selecionar chaves diferentes para cada situação, você pode criar múltiplas identidades para a mesma conta com o mesmo endereço de e-mail.
 
-In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+Nas configurações de privacidade você pode selecionar o método de criptografia padrão (PGP ou S/MIME), habilitar *Assinar por padrão*, *Criptografar por padrão* e *Descriptografar mensagens automaticamente*, mas saiba que a descriptografia automática não é possível se forem necessárias ações do usuário, como selecionar uma chave ou ler um token de segurança.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+O texto/anexo das mensagens a serem criptografadas e o texto/anexo das mensagens descriptografadas são armazenados apenas localmente e nunca serão adicionados ao servidor remoto. Se você quiser desfazer a descriptografia, você pode utilizar a opção *ressincronizar* no menu de três pontos da barra de ação de mensagens.
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Você precisará instalar e configurar o [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) primeiro. O FairEmail foi testado com o OpenKeychain versão 5.4. Versões posteriores provavelmente serão compatíveis, mas versões anteriores podem não ser.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Importante**: O aplicativo OpenKeychain é conhecido por (silenciosamente) falhar quando o aplicativo chamado (FairEmail) não é autorizado ainda e está recebendo uma chave pública existente. Você pode contornar isso tentando enviar uma mensagem assinada/criptografada a um remetente com uma chave pública desconhecida.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
+**Importante**: Se o aplicativo OpenKeychain não conseguir encontrar (mais) uma chave, talvez você precise redefinir uma chave previamente selecionada. Isso pode ser feito ao tocar e segurar em uma identidade na lista de identidades (Configuração, etapa 2, Gerenciar).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Importante**: para permitir que aplicativos como o FairEmail se conectem correttamente com o serviço do OpenKeychain para criptografar/descriptografar mensagens, talvez seja necessário desativar a otimização de bateria do aplicativo OpenKeychain.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Importante**: em alguns dispositivos ou versões do Android é necessário ativar *Mostrar popups durante a execução em segundo plano* nas permissões adicionais das configurações do Android para o OpenKeychain. Sem essas permissões, o rascunho será salvo, mas o popup do OpenKeychain para confirmar/selecionar pode não aparecer.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients and send received Autocrypt headers to the OpenKeychain app for storage.
+O FairEmail irá enviar os cabeçalhos do [Autocrypt](https://autocrypt.org/) para ser usado por outros clientes de e-mail e enviar cabeçalhos do Autocrypt recebidos para o aplicativo do OpenKeychain para armazenagem.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+Toda a manipulação de chaves é delagado ao aplicativo Openkeychain por razões de segurança. Isso também significa que o FairEmail não armazena chaves PGP.
 
-Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+O uso de PGP criptografado embutido em mensagens recebidas é suportado, mas o uso de assinaturas PGP embutidas e PGP embutido em mensagens enviadas não é suportado, veja [aqui](https://josefsson.org/inline-openpgp-considered-harmful.html) porque não.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+Mensagens somente assinadas ou somente criptografadas não é uma boa ideia. Por favor, veja aqui porque não:
 
-* [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
-* [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
-* [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+* [Considerações do OpenPGP - Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
+* [Considerações do OpenPGP - Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
+* [Considerações do OpenPGP - Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Mensagens somente assinadas são suportadas. Mensagens somente criptografadas não são suportadas.
 
-Common errors:
+Erros comuns:
 
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Chave ausente para criptografia*: provavelmente há uma chave selecionada no FairEmail que não existe mais no aplicativo do OpenKeychain. Redefinir a chave (veja acima) provavelmente irá corrigir este problema.
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Criptografar uma mensagem requer a(s) chave(s) pública(s) do(s) destinatário(s). Assinar uma mensagem requer sua chave privada.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Chaves privadas são armazenas pelo Android e podem ser importadas através das configurações avançadas de segurança do Android. Há um atalho (botão) para isso nas configurações de privacidade. O Android pedirá que você defina um PIN, padrão ou senha se você ainda não fez antes. Se você tiver um dispositivo da Nokia com Android 9, por favor, [leia isso primeiro](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
-Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+Note que certificados podem conter múltiplas chaves para múltiplas finalidade, como por exemplo autenticação, criptografia e assinatura. O Android apeenas importa a primeira chave, então para importar todas as chaves, o certificado deve ser dividido primeiro. Isso não é muito trivial e recomenda-se pedir apoio ao fornecedor do certificado para obter suporte.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+O método de criptografia padrão é PGP, mas o último método de criptografia utilizado será lembrado para a identidade selecionada da próxima vez. Talvez você tenha que habilitar as opções de envio no menu de três pontos novamente para poder selecionar o método de criptografia.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+Para permitir diferentes chaves privadas para o mesmo endereço de e-mail, o FairEmail irá sempre permitir que você selecione uma chave quando existirem várias identidades com o mesmo endereço de e-mail para a mesma conta.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
+Chaves públicas são armazenadas pelo FairEmail e podem ser importadas ao verificar uma assinatura pela primeira vez ou através das configurações de privacidade (formato PEM ou DER).
 
-FairEmail verifies both the signature and the complete certificate chain.
+O FairEmail verifica tanto a assinatura, quando a cadeia completa de certificados.
 
-Common errors:
+Erros comuns:
 
-* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
-* *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
-* *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
-* *No private key*: no certificate was selected or no certificate was available in the Android keystore
+* *Nenhum certificado encontrado correspondendo ao targetContraints*: isso significa que você está usando uma versão antiga do FairEmail
+* *Não foi possível encontrar um caminho de certificado válido para o alvo requisitado*: basicamente isso significada que um ou mais intermediários ou certificados de raiz não foram encontrados
+* *A chave privada não corresponde a nenhuma chave de criptografia*: a chave selecionada não pode ser usada para descriptografar a mensagem, provavelmente porque ela não é a chave correta
+* *Nenhuma chave privada*: nenhum certificado foi selecionado ou nenhum certificado estava disponível no armazenamento de chaves do Android
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+No caso de a cadeia de certificados estar incorreta, você pode clicar no pequeno botão de informação para mostrar todos os certificados. Após os detalhes do certificados, o emissor ou "selfSign" é exibido. Um certificado é auto-assinado quando o destinatário e o emissor são os mesmos. Certificados de uma autoridade certificadora (CA) são marcados com "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificados encontrados no armazenamento de chaves do Android são marcadas com "Android".
 
-A valid chain looks like this:
+Uma cadeia válida parece com:
 
 ```
-Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
+Seu certificado > zero ou mais certificados intermediários > certificado CA (raiz) marcado com "Android"
 ```
 
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
+Observe que uma cadeia de certificados irá sempre ser inválida quando nenhum certificado de ancoragem puder ser encontrado no armazenamento de chaves do Android, o que é fundamental para a validação de certificados S/MIME.
 
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
+Por favor, veja [aqui](https://support.google.com/pixelphone/answer/2844832?hl=en) como você pode importar certificados no armazenamento de chaves do Android.
 
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
+O uso de chaves expiradas, mensagens criptografadas/assinadas embutidas e tokens de segurança de hardware não é suportado.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+Se você estiver procurando um certificado S/MIME gratuito (teste), veja aqui [aqui](http://kb.mozillazine.org/Getting_an_SMIME_certificate) as opções. Por favor, certifique-se de [ler isso primeiro](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) se você quiser solicitar um certificado S/MIME Actalis.
 
-How to extract a public key from a S/MIME certificate:
+Como extrair uma chave pública de um certificado S/MIME:
 
 ```
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Você pode decodificar assinaturas S/MIME etc [aqui](https://lapo.it/asn1js/).
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+Criptografia/assinatura S/MIME é uma funcionalidade Pro, mas todas as outras operações PGP e S/MIME são gratuitas para serem usadas.
 
 <br />
 
@@ -680,7 +680,12 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Searching through a large number of messages is not very fast because of two limitations:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+
+`
+raw:larger:10M`
+
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
@@ -694,7 +699,7 @@ Searching messages on the device is a free feature, searching messages on the se
 <br />
 
 <a name="faq14"></a>
-**(14) Como posso configurar uma conta do Outlook / Live / Hotmail?**
+**(14) How can I set up an Outlook / Live / Hotmail account?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -707,7 +712,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Por que o texto da mensagem continua carregando?**
+**(15) Why does the message text keep loading?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
 
@@ -720,7 +725,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Por que as mensagens não estão sendo sincronizadas?**
+**(16) Why are messages not being synchronized?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -743,7 +748,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Por que a sincronização manual não funciona?~~**
+**~~(17) Why does manual synchronize not work?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -752,14 +757,14 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Por que a pré-visualização da mensagem nem sempre é exibida?**
+**(18) Why is the message preview not always shown?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Por que os recursos Pro são tão caros?**
+**(19) Why are the pro features so expensive?**
 
 The right question is "*why are there so many taxes and fees?*":
 
@@ -779,12 +784,12 @@ I have been working on FairEmail almost every day for more than one and a half a
 <br />
 
 <a name="faq20"></a>
-**(20) Posso pedir um reembolso?**
+**(20) Can I get a refund?**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) Como posso ativar a notificação com LED (luz da lanterna)?**
+**(21) How do I enable the notification light?**
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
@@ -797,7 +802,7 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 <br />
 
 <a name="faq22"></a>
-**(22) O que o erro ... na conta/pasta significa?**
+**(22) What does account/folder error ... mean?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
@@ -882,7 +887,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Por que recebo o alerta ... ?**
+**(23) Why do I get alert ... ?**
 
 *General*
 
@@ -910,14 +915,14 @@ When using a Dovecot server, you might want to change the setting [mail_max_user
 <br />
 
 <a name="faq24"></a>
-**(24) O que é a procura por mensagens no servidor?**
+**(24) What is browse messages on the server?**
 
 Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Por que não consigo selecionar/abrir/salvar uma imagem, um anexo ou um arquivo?**
+**(25) Why can't I select/open/save an image, attachment or a file?**
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
@@ -936,14 +941,14 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Posso ajudar a traduzir o FairEmail para meu próprio idioma?**
+**(26) Can I help to translate FairEmail in my own language?**
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
 <br />
 
 <a name="faq27"></a>
-**(27) Como posso distinguir entre imagens embutidas e imagens externas?**
+**(27) How can I distinguish between embedded and external images?**
 
 External image:
 
@@ -962,7 +967,7 @@ Note that downloading external images from a remote server can be used to record
 <br />
 
 <a name="faq28"></a>
-**(28) Como posso gerenciar as notificações na barra de status?**
+**(28) How can I manage status bar notifications?**
 
 In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
@@ -985,14 +990,14 @@ See [this FAQ](#user-content-faq21) if your device has a notification light.
 <br />
 
 <a name="faq29"></a>
-**(29) Como posso receber notificações de novas mensagens para outras pastas?**
+**(29) How can I get new message notifications for other folders?**
 
 Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) Como posso utilizar as configurações rápidas fornecidas?**
+**(30) How can I use the provided quick settings?**
 
 There are quick settings (settings tiles) available to:
 
@@ -1004,7 +1009,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <br />
 
 <a name="faq31"></a>
-**(31) Como posso utilizar os atalhos fornecidos?**
+**(31) How can I use the provided shortcuts?**
 
 There are shortcuts available to:
 
@@ -1016,14 +1021,14 @@ Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explain
 <br />
 
 <a name="faq32"></a>
-**(32) Como posso verificar se a leitura de um e-mail é realmente segura?**
+**(32) How can I check if reading email is really safe?**
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Por que os endereços de remetente editados não estão funcionando?**
+**(33) Why are edited sender addresses not working?**
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
@@ -1041,7 +1046,7 @@ Note that this is independent of receiving messages.
 <br />
 
 <a name="faq34"></a>
-**(34) Comos as identidades são combinadas?**
+**(34) How are identities matched?**
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
@@ -1066,7 +1071,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Por que eu deveria ter cuidado ao visualizar imagens/anexos e a mensagem original?**
+**(35) Why should I be careful with viewing images, attachments, and the original message?**
 
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 
@@ -1087,7 +1092,7 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) Como os arquivos de configuração são criptografados?**
+**(36) How are settings files encrypted?**
 
 Short version: AES 256 bit
 
@@ -1536,11 +1541,21 @@ The following rule conditions are available:
 * Header contains
 * Day/time between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email address will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+
+Note that email addresses are formatted like this:
+
+`
+"Somebody" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+
+Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+
+`
+.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
@@ -2377,6 +2392,8 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 **(138) Can you add calendar/contact management/synchronizing?**
 
 Calendar and contact management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+
+Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
 You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
 

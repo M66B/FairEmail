@@ -792,9 +792,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_size_small">Kicsi</string>
     <string name="title_style_size_medium">Közepes</string>
     <string name="title_style_size_large">Nagy</string>
+    <string name="title_style_color">Szín &#8230;</string>
     <string name="title_style_font">Betűtípus</string>
     <string name="title_style_font_default">Alapértelmezett</string>
-    <string name="title_style_color">Szín &#8230;</string>
     <string name="title_style_clear">Formázás törlése</string>
     <string name="title_style_link">Hivatkozás beillesztése</string>
     <string name="title_add_image">Kép hozzáadása</string>

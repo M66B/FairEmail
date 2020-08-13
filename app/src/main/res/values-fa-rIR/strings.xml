@@ -671,9 +671,9 @@
     <string name="title_style_size_small">کوچک</string>
     <string name="title_style_size_medium">متوسط</string>
     <string name="title_style_size_large">بزرگ</string>
+    <string name="title_style_color">رنگ &#8230;</string>
     <string name="title_style_font">فونت</string>
     <string name="title_style_font_default">پیش‌فرض</string>
-    <string name="title_style_color">رنگ &#8230;</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
     <string name="title_style_link">درج لینک</string>
     <string name="title_add_image">افزودن تصویر</string>

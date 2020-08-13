@@ -814,9 +814,12 @@
     <string name="title_style_size_small">Malý</string>
     <string name="title_style_size_medium">Střední</string>
     <string name="title_style_size_large">Velký</string>
+    <string name="title_style_color">Barva &#8230;</string>
+    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Seznam</string>
+    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Odrážky</string>
+    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Číslovaný</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Výchozí</string>
-    <string name="title_style_color">Barva &#8230;</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_add_image">Přidat obrázek</string>
