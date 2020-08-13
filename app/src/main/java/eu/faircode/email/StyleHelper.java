@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
@@ -92,7 +93,7 @@ public class StyleHelper {
                 case R.id.menu_style: {
                     final int s = start;
                     final int e = end;
-                    final SpannableString t = ss;
+                    final SpannableStringBuilder t = new SpannableStringBuilder(ss);
 
                     PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
                     popupMenu.inflate(R.menu.popup_style);
@@ -202,22 +203,37 @@ public class StyleHelper {
                         }
 
                         private boolean setList(MenuItem item) {
-                            BulletSpan[] spans = t.getSpans(s, e, BulletSpan.class);
-                            for (BulletSpan span : spans)
-                                t.removeSpan(span);
-
                             Context context = etBody.getContext();
                             int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
                             int dp3 = Helper.dp2pixels(context, 3);
                             int dp6 = Helper.dp2pixels(context, 6);
                             float textSize = Helper.getTextSize(context, 0);
 
+                            int start = s;
                             int end = e;
-                            if (e > 1 && e + 1 < t.length() && t.charAt(e - 1) != '\n' && t.charAt(e) == '\n')
+
+                            BulletSpan[] spans = t.getSpans(start, end, BulletSpan.class);
+                            for (BulletSpan span : spans)
+                                t.removeSpan(span);
+
+                            if (start == 0 && t.charAt(start) != '\n') {
+                                t.insert(0, "\n");
+                                start++;
+                                end++;
+                            }
+
+                            if (end == t.length() && end > 0 && t.charAt(end - 1) != '\n') {
+                                t.append("\n");
+                                end++;
+                            }
+
+                            // Expand selection when needed
+                            if (end > 1 && end < t.length() &&
+                                    t.charAt(end - 1) != '\n' && t.charAt(end) == '\n')
                                 end++;
 
-                            int i = s;
-                            int j = s + 1;
+                            int i = start;
+                            int j = start + 1;
                             int index = 1;
                             while (j < end) {
                                 if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
@@ -235,7 +251,7 @@ public class StyleHelper {
                             }
 
                             etBody.setText(t);
-                            etBody.setSelection(s, end);
+                            etBody.setSelection(start, end);
 
                             return true;
                         }
