@@ -3343,6 +3343,8 @@ class Core {
                 // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
+                else
+                    db.message().setMessageUiIgnored(message.id, true);
             }
         }
 
