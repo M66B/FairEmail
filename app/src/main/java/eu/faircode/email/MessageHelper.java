@@ -2286,14 +2286,18 @@ public class MessageHelper {
 
     static int getMessageCount(Folder folder) throws MessagingException {
         // Keep alive
-        folder.getMessageCount();
+        int total = folder.getMessageCount();
+        try {
+            int count = 0;
+            for (Message message : folder.getMessages())
+                if (!message.isExpunged())
+                    count++;
 
-        int count = 0;
-        for (Message message : folder.getMessages())
-            if (!message.isExpunged())
-                count++;
-
-        return count;
+            return count;
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return total;
+        }
     }
 
     static String sanitizeKeyword(String keyword) {
