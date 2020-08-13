@@ -65,7 +65,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
-import android.text.style.LeadingMarginSpan;
+import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
@@ -480,8 +480,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
-                if (count == 1 && text.charAt(start) == '\n' && after == 0 && start > 0)
+                if (count == 1 && after == 0 && text.charAt(start) == '\n') {
+                    Log.i("Removed=" + start);
                     removed = start;
+                }
             }
 
             @Override
@@ -490,8 +492,10 @@ public class FragmentCompose extends FragmentBase {
                 if (activity != null)
                     activity.onUserInteraction();
 
-                if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n')
+                if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n') {
+                    Log.i("Added=" + start);
                     added = start;
+                }
             }
 
             @Override
@@ -576,40 +580,67 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         if (renum)
-                            renumber(text);
+                            renumber(text, false);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
                         added = null;
                     }
 
-                if (removed != null)
-                    try {
-                        boolean renum = false;
-                        BulletSpan[] spans = text.getSpans(removed - 1, removed - 1, BulletSpan.class);
-                        if (spans.length == 1) {
-                            int end = text.getSpanEnd(spans[0]);
-                            BulletSpan[] bs = text.getSpans(end, end, BulletSpan.class);
-                            for (BulletSpan b : bs) {
-                                int s = text.getSpanStart(b);
-                                int e = text.getSpanEnd(b);
-                                if (s == e) {
-                                    renum = true;
-                                    text.removeSpan(b);
-                                }
-                            }
-                        }
+                if (removed != null) {
+                    renumber(text, true);
+                    removed = null;
+                }
 
-                        if (renum)
-                            renumber(text);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    } finally {
-                        removed = null;
-                    }
+                //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
             }
 
-            public <T extends LeadingMarginSpan> T clone(Object span, Class<T> type, Context context) {
+            public void renumber(Editable text, boolean clean) {
+                Context context = etBody.getContext();
+                int dp6 = Helper.dp2pixels(context, 6);
+                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+
+                Log.i("Renumber clean=" + clean + " text=" + text);
+
+                int next;
+                int index = 1;
+                int pos = -1;
+                for (int i = 0; i < text.length(); i = next) {
+                    next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
+                    Log.i("Bullet span next=" + next);
+
+                    BulletSpan[] spans = text.getSpans(i, next, BulletSpan.class);
+                    for (BulletSpan span : spans) {
+                        int start = text.getSpanStart(span);
+                        int end = text.getSpanEnd(span);
+                        int flags = text.getSpanFlags(span);
+                        Log.i("Bullet span " + start + "..." + end);
+
+                        if (clean && start == end) {
+                            text.removeSpan(span);
+                            continue;
+                        }
+
+                        if (span instanceof NumberSpan) {
+                            if (start == pos)
+                                index++;
+                            else
+                                index = 1;
+
+                            NumberSpan ns = (NumberSpan) span;
+                            if (index != ns.getIndex()) {
+                                NumberSpan clone = new NumberSpan(dp6, colorAccent, ns.getTextSize(), index);
+                                text.removeSpan(span);
+                                text.setSpan(clone, start, end, flags);
+                            }
+
+                            pos = end;
+                        }
+                    }
+                }
+            }
+
+            public <T extends ParagraphStyle> T clone(Object span, Class<T> type, Context context) {
                 if (QuoteSpan.class.isAssignableFrom(type)) {
                     QuoteSpan q = (QuoteSpan) span;
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
@@ -632,39 +663,6 @@ public class FragmentCompose extends FragmentBase {
 
                 } else
                     throw new IllegalArgumentException(type.getName());
-            }
-
-            public void renumber(Editable text) {
-                Context context = etBody.getContext();
-                int dp6 = Helper.dp2pixels(context, 6);
-                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-
-                int next;
-                int index = 1;
-                int pos = -1;
-                for (int i = 0; i < text.length(); i = next) {
-                    next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
-
-                    NumberSpan[] spans = text.getSpans(i, next, NumberSpan.class);
-                    if (spans.length == 1) {
-                        int start = text.getSpanStart(spans[0]);
-                        int end = text.getSpanEnd(spans[0]);
-                        int flags = text.getSpanFlags(spans[0]);
-
-                        if (start == pos)
-                            index++;
-                        else
-                            index = 1;
-
-                        if (index != spans[0].getIndex()) {
-                            NumberSpan clone = new NumberSpan(dp6, colorAccent, spans[0].getTextSize(), index);
-                            text.removeSpan(spans[0]);
-                            text.setSpan(clone, start, end, flags);
-                        }
-
-                        pos = end;
-                    }
-                }
             }
         });
 
