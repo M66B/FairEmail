@@ -243,6 +243,9 @@ public class StyleHelper {
                                 end++;
                             }
 
+                            if (end == t.length())
+                                t.append("\n"); // workaround Android bug
+
                             // Remove existing bullets
                             BulletSpan[] spans = t.getSpans(start, end, BulletSpan.class);
                             for (BulletSpan span : spans)
@@ -253,6 +256,7 @@ public class StyleHelper {
                             int index = 1;
                             while (j < end) {
                                 if (i > 0 && t.charAt(i - 1) == '\n' && t.charAt(j) == '\n') {
+                                    Log.i("Insert " + i + "..." + (j + 1) + " size=" + end);
                                     if (item.getItemId() == R.id.menu_style_list_bullets)
                                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                             t.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
