@@ -3963,7 +3963,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		protocol.noop(); 
 	}
 
-        if (keepStoreAlive && ((IMAPStore)store).hasSeparateStoreConnection()) {
+        if (keepStoreAlive && ((IMAPStore)store).hasSeparateStoreConnection() &&
+				!((IMAPStore)store).isStoreConnectionInUse()) {
             IMAPProtocol p = null;
 	    try {
 		p = ((IMAPStore)store).getFolderStoreProtocol();

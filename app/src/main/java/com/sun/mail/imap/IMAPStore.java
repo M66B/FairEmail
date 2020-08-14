@@ -1264,7 +1264,11 @@ public class IMAPStore extends Store
         return pool.separateStoreConnection;
     }
 
-    /** 
+    boolean isStoreConnectionInUse() {
+		return pool.storeConnectionInUse;
+	}
+
+    /**
      * Return the connection pool logger.
      */ 
     MailLogger getConnectionPoolLogger() {
