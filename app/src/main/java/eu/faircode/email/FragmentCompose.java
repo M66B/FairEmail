@@ -536,19 +536,17 @@ public class FragmentCompose extends FragmentBase {
                                 int f = text.getSpanFlags(span);
                                 Log.i("Style span " + s + "..." + e + " start=" + added);
 
-                                if (s <= added) {
+                                if (s <= added && added + 1 <= e) {
                                     CharacterStyle s1 = CharacterStyle.wrap(span);
                                     text.setSpan(s1, s, added, f);
                                     Log.i("Style span " + s + "..." + added);
-                                }
 
-                                if (added + 1 <= e) {
                                     CharacterStyle s2 = CharacterStyle.wrap(span);
                                     text.setSpan(s2, added + 1, e, f);
                                     Log.i("Style span " + (added + 1) + "..." + e);
-                                }
 
-                                text.removeSpan(span);
+                                    text.removeSpan(span);
+                                }
                             }
 
                             etBody.setSelection(added);
@@ -565,7 +563,6 @@ public class FragmentCompose extends FragmentBase {
                             if (s > 0 &&
                                     added + 1 > s && e > added + 1 &&
                                     text.charAt(s - 1) == '\n' && text.charAt(e - 1) == '\n') {
-
                                 BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
                                 text.setSpan(b1, s, added + 1, f);
                                 Log.i("Span " + s + "..." + (added + 1));
@@ -573,10 +570,10 @@ public class FragmentCompose extends FragmentBase {
                                 BulletSpan b2 = clone(b1, span.getClass(), etBody.getContext());
                                 text.setSpan(b2, added + 1, e, f);
                                 Log.i("Span " + (added + 1) + "..." + e);
-                            }
 
-                            renum = true;
-                            text.removeSpan(span);
+                                renum = true;
+                                text.removeSpan(span);
+                            }
                         }
 
                         if (renum)
