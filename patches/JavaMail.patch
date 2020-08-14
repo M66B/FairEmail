@@ -1,8 +1,129 @@
-diff --git a/app/src/main/java/com/sun/mail/imap/IMAPStore.java b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-index 866f17737..929e82d33 100644
---- a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-+++ b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
-@@ -1014,6 +1014,8 @@ public class IMAPStore extends Store
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handler_base.java ./app/src/main/java/com/sun/mail/handlers/handler_base.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handler_base.java	2020-08-14 11:44:05.401359065 +0200
++++ ./app/src/main/java/com/sun/mail/handlers/handler_base.java	2020-06-14 11:48:36.978868184 +0200
+@@ -17,7 +17,6 @@
+ package com.sun.mail.handlers;
+ 
+ import java.io.IOException;
+-import java.awt.datatransfer.DataFlavor;
+ import javax.activation.*;
+ 
+ /**
+@@ -52,14 +51,8 @@ public abstract class handler_base imple
+      *
+      * @return The DataFlavors
+      */
+-    @Override
+-    public DataFlavor[] getTransferDataFlavors() {
+-	ActivationDataFlavor[] adf = getDataFlavors();
+-	if (adf.length == 1)	// the common case
+-	    return new DataFlavor[] { adf[0] };
+-	DataFlavor[] df = new DataFlavor[adf.length];
+-	System.arraycopy(adf, 0, df, 0, adf.length);
+-	return df;
++    public ActivationDataFlavor[] getTransferDataFlavors() {
++	return getDataFlavors().clone();
+     }
+ 
+     /**
+@@ -70,8 +63,7 @@ public abstract class handler_base imple
+      * @return	the object
+      * @exception	IOException	for errors reading the data
+      */
+-    @Override
+-    public Object getTransferData(DataFlavor df, DataSource ds) 
++    public Object getTransferData(ActivationDataFlavor df, DataSource ds) 
+ 			throws IOException {
+ 	ActivationDataFlavor[] adf = getDataFlavors();
+ 	for (int i = 0; i < adf.length; i++) {
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-14 11:44:05.403359065 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-14 10:16:07.678028377 +0200
+@@ -3963,7 +3963,8 @@ public class IMAPFolder extends Folder i
+ 		protocol.noop(); 
+ 	}
+ 
+-        if (keepStoreAlive && ((IMAPStore)store).hasSeparateStoreConnection()) {
++        if (keepStoreAlive && ((IMAPStore)store).hasSeparateStoreConnection() &&
++				!((IMAPStore)store).isStoreConnectionInUse()) {
+             IMAPProtocol p = null;
+ 	    try {
+ 		p = ((IMAPStore)store).getFolderStoreProtocol();
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPMessage.java ./app/src/main/java/com/sun/mail/imap/IMAPMessage.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPMessage.java	2020-08-14 11:44:05.403359065 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPMessage.java	2020-07-30 15:10:19.658663089 +0200
+@@ -1697,4 +1697,28 @@ public class IMAPMessage extends MimeMes
+     Session _getSession() {
+ 	return session;
+     }
++
++    @Override
++    public boolean isExpunged() {
++        if (super.isExpunged())
++            return true;
++
++        // Workaround expunged messages without deleted flag
++        if (envelope != null &&
++                envelope.date == null &&
++                envelope.subject == null &&
++                envelope.from == null &&
++                envelope.sender == null &&
++                envelope.replyTo == null &&
++                envelope.to == null &&
++                envelope.cc == null &&
++                envelope.inReplyTo == null &&
++                envelope.messageId == null &&
++                headersLoaded && loadedHeaders.size() == 0) {
++			eu.faircode.email.Log.w("Expunged workaround host=" + ((IMAPStore) folder.getStore()).host);
++			return true;
++		}
++
++        return false;
++    }
+ }
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.java ./app/src/main/java/com/sun/mail/imap/IMAPStore.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.java	2020-08-14 11:44:05.404359065 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPStore.java	2020-08-14 10:19:48.076033041 +0200
+@@ -887,18 +887,26 @@ public class IMAPStore extends Store
+ 		continue;
+ 	    }
+ 
+-	    if (m.equals("PLAIN"))
+-		p.authplain(authzid, user, password);
+-	    else if (m.equals("LOGIN"))
+-		p.authlogin(user, password);
+-	    else if (m.equals("NTLM"))
+-		p.authntlm(authzid, user, password);
+-	    else if (m.equals("XOAUTH2"))
+-		p.authoauth2(user, password);
+-	    else {
+-		logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
+-		continue;
+-	    }
++	    try {
++			if (m.equals("PLAIN"))
++				p.authplain(authzid, user, password);
++			else if (m.equals("LOGIN"))
++				p.authlogin(user, password);
++			else if (m.equals("NTLM"))
++				p.authntlm(authzid, user, password);
++			else if (m.equals("XOAUTH2"))
++				p.authoauth2(user, password);
++			else {
++				logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
++				continue;
++			}
++		} catch (ProtocolException ex) {
++			if (m.equals("PLAIN") || m.equals("LOGIN")) {
++				eu.faircode.email.Log.i("Falling back to classic LOGIN");
++				p.authclassic(user, password);
++			} else
++				throw ex;
++		}
+ 	    return;
+ 	}
+ 
+@@ -1014,6 +1022,8 @@ public class IMAPStore extends Store
                              p.disconnect();
                          } catch (Exception ex2) { }
                      p = null;
@@ -11,7 +132,33 @@ index 866f17737..929e82d33 100644
                  }
                   
                  if (p == null)
-@@ -1529,6 +1531,30 @@ public class IMAPStore extends Store
+@@ -1175,7 +1185,11 @@ public class IMAPStore extends Store
+ 		    // someone else is using the connection, give up
+ 		    // and wait until they're done
+ 		    p = null;
+-		    pool.wait();
++		    pool.wait(pool.clientTimeoutInterval);
++		    if (pool.storeConnectionInUse) {
++				eu.faircode.email.Log.e("getStoreProtocol timeout");
++				throw new InterruptedException("getStoreProtocol timeout");
++			}
+ 		} catch (InterruptedException ex) {
+ 		    // restore the interrupted state, which callers might
+ 		    // depend on
+@@ -1250,7 +1264,11 @@ public class IMAPStore extends Store
+         return pool.separateStoreConnection;
+     }
+ 
+-    /** 
++    boolean isStoreConnectionInUse() {
++		return pool.storeConnectionInUse;
++	}
++
++    /**
+      * Return the connection pool logger.
+      */ 
+     MailLogger getConnectionPoolLogger() {
+@@ -1529,6 +1547,30 @@ public class IMAPStore extends Store
          }
      }
  
@@ -42,34 +189,92 @@ index 866f17737..929e82d33 100644
      /**
       * Set the user name to be used with the PROXYAUTH command.
       * The PROXYAUTH user name can also be set using the
-diff --git a/app/src/main/java/com/sun/mail/imap/IMAPMessage.java b/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
-index 453479d98..acd5b42f9 100644
---- a/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
-+++ b/app/src/main/java/com/sun/mail/imap/IMAPMessage.java
-@@ -1697,4 +1697,26 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
-     Session _getSession() {
- 	return session;
+@@ -2035,7 +2077,11 @@ public class IMAPStore extends Store
+ 		    // without aborting it ourselves
+ 		    try {
+ 			// give up lock and wait to be not idle
+-			pool.wait();
++			pool.wait(pool.clientTimeoutInterval);
++			if (pool.idleState != ConnectionPool.RUNNING) {
++				eu.faircode.email.Log.e("idle timeout");
++				throw new InterruptedException("idle timeout");
++			}
+ 		    } catch (InterruptedException ex) {
+ 			// restore the interrupted state, which callers might
+ 			// depend on
+@@ -2128,7 +2174,11 @@ public class IMAPStore extends Store
+ 	    }
+ 	    try {
+ 		// give up lock and wait to be not idle
+-		pool.wait();
++		pool.wait(pool.clientTimeoutInterval);
++		if (pool.idleState != ConnectionPool.RUNNING) {
++			eu.faircode.email.Log.e("waitIfIdle timeout");
++			throw new InterruptedException("waitIfIdle timeout");
++		}
+ 	    } catch (InterruptedException ex) {
+ 		// If someone is trying to interrupt us we can't keep going
+ 		// around the loop waiting for IDLE to complete, but we can't
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-14 11:44:05.406359065 +0200
++++ ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-10 18:05:30.293227224 +0200
+@@ -627,6 +627,59 @@ public class IMAPProtocol extends Protoc
+ 	authenticated = true;
      }
+ 
++	public synchronized void authclassic(String u, String p)
++			throws ProtocolException {
++		List<Response> v = new ArrayList<>();
++		String tag = null;
++		Response r = null;
++		boolean done = false;
 +
-+    @Override
-+    public boolean isExpunged() {
-+        if (super.isExpunged())
-+            return true;
++		try {
 +
-+        // Workaround expunged messages without deleted flag
-+        if (envelope != null &&
-+                envelope.date == null &&
-+                envelope.subject == null &&
-+                envelope.from == null &&
-+                envelope.sender == null &&
-+                envelope.replyTo == null &&
-+                envelope.to == null &&
-+                envelope.cc == null &&
-+                envelope.inReplyTo == null &&
-+                envelope.messageId == null &&
-+                headersLoaded && loadedHeaders.size() == 0)
-+            return true;
++			if (noauthdebug && isTracing()) {
++				logger.fine("LOGIN command trace suppressed");
++				suspendTracing();
++			}
 +
-+        return false;
-+    }
- }
++			try {
++				Argument arg = new Argument();
++				arg.writeNString(u);
++				arg.writeNString(p);
++				tag = writeCommand("LOGIN", arg);
++			} catch (Exception ex) {
++				r = Response.byeResponse(ex);
++				done = true;
++			}
++
++			while (!done) {
++				try {
++					r = readResponse();
++					if (r.isTagged() && r.getTag().equals(tag))
++						done = true;
++					else if (r.isBYE()) // outta here
++						done = true;
++				} catch (Exception ioex) {
++					r = Response.byeResponse(ioex);
++					done = true;
++				}
++				v.add(r);
++			}
++
++		} finally {
++			resumeTracing();
++		}
++
++		Response[] responses = v.toArray(new Response[v.size()]);
++
++		handleCapabilityResponse(responses);
++		notifyResponseHandlers(responses);
++
++		if (noauthdebug && isTracing())
++			logger.fine("LOGIN command result: " + r);
++		handleLoginResult(r);
++		setCapabilities(r);
++		authenticated = true;
++	}
+ 
+     /**
+      * The AUTHENTICATE command with AUTH=PLAIN authentication scheme.
