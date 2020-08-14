@@ -771,7 +771,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         else {
             EntityLog.log(this, "### waking up account=" + account);
             if (!state.release())
-                Log.e("Wakeup failed account=" + account);
+                EntityLog.log(this, "### waking up failed account=" + account);
         }
     }
 
@@ -1389,6 +1389,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
 
                             // Sends store NOOP
+                            EntityLog.log(ServiceSynchronize.this, account.name + " checking store");
                             if (!iservice.getStore().isConnected())
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
 
@@ -1399,7 +1400,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 throw new StoreClosedException(iservice.getStore(), "App died");
                             }
 
-                            if (sync)
+                            if (sync) {
+                                EntityLog.log(ServiceSynchronize.this, account.name + " checking folders");
                                 for (EntityFolder folder : mapFolders.keySet())
                                     if (folder.synchronize)
                                         if (!folder.poll && capIdle) {
@@ -1413,6 +1415,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             db.folder().setFolderPollCount(folder.id, folder.poll_count);
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
                                         }
+                            }
                         } catch (Throwable ex) {
                             if (tune) {
                                 account.keep_alive_failed++;
