@@ -1998,7 +1998,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 embedded.subject = helper.getSubject();
 
                                 String html = parts.getHtml(context);
-                                Document d = JsoupEx.parse(html);
+                                Document d = (html == null ? Document.createShell("") : JsoupEx.parse(html));
 
                                 Element div = document.createElement("div");
                                 div.appendElement("hr");
