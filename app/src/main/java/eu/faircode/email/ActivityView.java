@@ -484,21 +484,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setExternal(true));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_language_24, R.string.menu_translate, new Runnable() {
-            @Override
-            public void run() {
-                if (!drawerLayout.isLocked(drawerContainer))
-                    drawerLayout.closeDrawer(drawerContainer);
-                onMenuTranslate();
-            }
-        }).setExternal(true));
-
         extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
                     drawerLayout.closeDrawer(drawerContainer);
                 onMenuIssue();
+            }
+        }).setExternal(true));
+
+        extra.add(new NavMenuItem(R.drawable.baseline_language_24, R.string.menu_translate, new Runnable() {
+            @Override
+            public void run() {
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
+                onMenuTranslate();
             }
         }).setExternal(true));
 
