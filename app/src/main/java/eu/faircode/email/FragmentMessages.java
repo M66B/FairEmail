@@ -2211,7 +2211,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading && thread ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null)
+                            if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
 
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder));
@@ -3105,7 +3105,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null)
+                            if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
 
                             result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
@@ -3185,7 +3185,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null)
+                            if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
 
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder, copy));
@@ -6871,7 +6871,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityOperation.queue(context, message, EntityOperation.COPY, tid);
                         else {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                            if (sourceFolder == null)
+                            if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder));
                         }
