@@ -1808,6 +1808,9 @@ public class HtmlHelper {
         final int dp24 = Helper.dp2pixels(context, 24);
         final boolean ltr = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_LTR);
 
+        int message_zoom = prefs.getInt("message_zoom", 100);
+        float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
+
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;
@@ -2120,7 +2123,6 @@ public class HtmlHelper {
                                         }
                                     }
 
-                                    float textSize = Helper.getTextSize(context, 0);
                                     ssb.setSpan(new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 }
                                 break;

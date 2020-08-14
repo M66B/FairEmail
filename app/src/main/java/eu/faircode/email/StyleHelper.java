@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.text.SpannableString;
@@ -24,6 +25,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.PopupMenu;
+import androidx.preference.PreferenceManager;
 
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
@@ -204,10 +206,14 @@ public class StyleHelper {
 
                         private boolean setList(MenuItem item) {
                             Context context = etBody.getContext();
+
                             int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
                             int dp3 = Helper.dp2pixels(context, 3);
                             int dp6 = Helper.dp2pixels(context, 6);
-                            float textSize = Helper.getTextSize(context, 0);
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            int message_zoom = prefs.getInt("message_zoom", 100);
+                            float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
 
                             int start = s;
                             int end = e;
