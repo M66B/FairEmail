@@ -1580,8 +1580,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTrash.setTag(delete);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
-                    ibRule.setVisibility(tools && button_rule && !outbox &&
-                            message.accountProtocol == EntityAccount.TYPE_IMAP ? View.VISIBLE : View.GONE);
+                    ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
@@ -3819,7 +3818,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.folderReadOnly);
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
