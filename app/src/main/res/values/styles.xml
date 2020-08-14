@@ -346,6 +346,27 @@
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
+    <style name="AppThemeBlackAndWhite" parent="AppThemeBlack">
+        <item name="colorPrimary">@color/blackAndWhitePrimary</item>
+        <item name="colorPrimaryDark">@color/blackAndWhitePrimaryDark</item>
+        <item name="colorAccent">@color/white</item>
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorTertiary">@color/white</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="android:textColorSecondaryInverse">@color/black</item>
+        <item name="android:textColorTertiaryInverse">@color/black</item>
+        <item name="android:textColorLink">@color/lightBluePrimary</item>
+
+        <item name="colorRead">@color/white</item>
+        <item name="colorUnread">@color/white</item>
+        <item name="colorUnreadHighlight">@color/white</item>
+
+        <item name="colorFabBackground">@color/blackAndWhitePrimaryLight</item>
+    </style>
+
     <style name="AppThemeGreySteelBlueLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@color/greyPrimary</item>
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>

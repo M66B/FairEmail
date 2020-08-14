@@ -79,6 +79,14 @@
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeBlackAndWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_black_and_white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
 
         <androidx.appcompat.widget.SwitchCompat

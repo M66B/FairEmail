@@ -119,6 +119,11 @@
     <color name="blackPrimaryDark">#1b1b1b</color>
     <color name="blackAccent">#ff8f00</color>
 
+    <!-- Grey 900 -->
+    <color name="blackAndWhitePrimary">#212121</color>
+    <color name="blackAndWhitePrimaryDark">#000000</color>
+    <color name="blackAndWhitePrimaryLight">#484848</color>
+
     <!-- Grey 800 / Blue grey 300 -->
     <color name="greyPrimary">#424242</color>
     <color name="greyPrimaryDark">#1b1b1b</color>
