@@ -100,11 +100,11 @@
 * ~~Масштабирование текста щипком~~
 * ~~Отображать GIFы-~~
 * ~~Темы~~ (светлая и темная серые темы добавлены, потому что, похоже, большинство людей этого хотят)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
+* ~~Временное условие "Любой день"~~ (любой день не подходит для условия от/до даты/времени)
+* ~~Отправить как вложение~~
+* ~~Виджет для выбранной учётной записи~~
+* ~~Напоминать о прикреплении файлов~~
+* ~~Выбор доменов для отображения изображений~~ (это будет слишком сложно использовать)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
 * ~~S/MIME support~~

@@ -812,7 +812,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. Beim Kopieren/Einfügen eines Benutzernamens oder Passworts können unsichtbare Zeichen kopiert werden, was auch zu diesem Problem führen kann. Einige Anbieter benötigen statt des regulären Passworts ein App-spezfisches Passwort. Bitte überprüfen Sie die Dokumentation des Anbieters. In einigen Fällen ist es erforderlich, den externen Zugang (IMAP/SMTP) auf der Website des Anbieters zuerst zu ermöglichen. Andere mögliche Ursachen können eine Kontensperrung sein oder eine Anmeldebeschränkung in sonstiger/administrativer Hinsicht. Eine Anmeldung kann z. B. auf bestimmte Netzwerke oder IP-Adressen beschränkt sein.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -1856,26 +1856,26 @@ Links for less usual protocols like telnet and ftp will not automatically be lin
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Das Blockieren des Absenders erstellt eine Filterregel, um zukünftige Nachrichten dieses Absenders automatisch in den Spam-Ordner zu verschieben.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Beachten Sie, dass Sie Spam-Nachrichten nicht löschen sollten, auch nicht aus dem Spam-Ordner. E-Mail-Server nutzen die Nachrichten im Spam-Ordner, um die Erkennung von zukünftigen Spam-Nachrichten zu trainieren.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Wenn Sie viele Spam-Nachrichten in Ihrem Posteingang erhalten, sollten Sie den E-Mail-Anbieter kontaktieren und anfragen, ob dessen Spam-Filter verbessert werden könnte.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+FairEmail kann auch eine kleine rote Warnmeldung anzeigen, wenn DKIM, SPF oder [DMARC](https://en.wikipedia.org/wiki/DMARC) Authentifizierung auf dem empfangenen Server fehlgeschlagen ist. Sie können [Authentifizierungsüberprüfung](https://en.wikipedia.org/wiki/Email_authentication) in den Anzeigeeinstellungen aktivieren/deaktivieren.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+FairEmail kann auch ein Warnzeichen anzeigen, wenn für den Domänennamen der (Antworten-) E-Mail-Adresse des Absenders keinen MX-Eintrag hinterlegt ist, mit dem auf einen E-Mail-Server verwiesen wird. Dies kann in den Empfangseinstellungen aktiviert werden. Beachten Sie, dass dies die Synchronisierung von Nachrichten erheblich verlangsamt.
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+Wenn bei legitimen Nachrichten die Authentifizierung fehlschlägt, sollten Sie den Absender benachrichtigen, da dies zu einem hohen Risiko führt, dass Nachrichten im Spam-Ordner landen. Darüber hinaus besteht ohne ordnungsgemäße Authentifizierung das Risiko, dass die Identität des Absenders vorgetäuscht werden kann. Der Absender könnte [dieses Tool](https://www.mail-tester.com/) verwenden, um die Authentifizierung und weitere Punkte zu überprüfen.
 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail verwendet Dienste und Alarme, bietet Widgets und überwacht den abgeschlossenen Startvorgang des Geräts, wodurch es nicht möglich ist, die App auf externen Speichermedien, wie etwa auf einer SD-Karte, zu speichern. Siehe auch [hier](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Auf Nachrichten und Anhängen können andere Apps zugreifen, wenn die Daten auf externen Speichermedien gespeichert werden, wie z. B. auf einer SD-Karte. Siehe [hier](https://developer.android.com/training/data-storage) für die Details.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 

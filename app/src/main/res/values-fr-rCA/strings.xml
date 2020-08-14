@@ -200,6 +200,7 @@
     <string name="title_setup_theme_red_green">Rouge/vert</string>
     <string name="title_setup_theme_grey">Gris</string>
     <string name="title_setup_theme_black">Noir</string>
+    <string name="title_setup_theme_black_and_white">Noir et blanc</string>
     <string name="title_setup_theme_reverse">Inverser les couleurs</string>
     <string name="title_setup_theme_dark">Sombre</string>
     <string name="title_setup_theme_black_background">Fond noir</string>

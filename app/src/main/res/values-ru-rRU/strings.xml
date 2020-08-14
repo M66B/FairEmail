@@ -222,6 +222,7 @@
     <string name="title_setup_theme_red_green">Красно-зелёная</string>
     <string name="title_setup_theme_grey">Серая</string>
     <string name="title_setup_theme_black">Чёрная</string>
+    <string name="title_setup_theme_black_and_white">Чёрно-белая</string>
     <string name="title_setup_theme_reverse">Инвертировать цвета</string>
     <string name="title_setup_theme_dark">Тёмная</string>
     <string name="title_setup_theme_black_background">Чёрный фон</string>

@@ -199,6 +199,7 @@
     <string name="title_setup_theme_red_green">Κόκκινο/πράσινο</string>
     <string name="title_setup_theme_grey">Γκρι</string>
     <string name="title_setup_theme_black">Μαύρο</string>
+    <string name="title_setup_theme_black_and_white">Ασπρόμαυρο</string>
     <string name="title_setup_theme_reverse">Αντιστροφή χρωμάτων</string>
     <string name="title_setup_theme_dark">Σκούρο</string>
     <string name="title_setup_theme_black_background">Μαύρο φόντο</string>

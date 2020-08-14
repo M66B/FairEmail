@@ -1,6 +1,6 @@
-# FairEmail support
+# FairEmail 지원
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+질문이 있으면 먼저 하단의 자주 묻는 질문들을 확인해주세요. At the bottom, you can find out how to ask other questions, request features, and report bugs.
 
 ## Index
 
