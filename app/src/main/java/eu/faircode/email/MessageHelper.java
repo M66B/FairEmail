@@ -2284,8 +2284,7 @@ public class MessageHelper {
         }
     }
 
-    static int getMessageCount(Folder folder) throws MessagingException {
-        // Keep alive
+    static int getMessageCount(Folder folder) {
         try {
             int count = 0;
             for (Message message : folder.getMessages())
