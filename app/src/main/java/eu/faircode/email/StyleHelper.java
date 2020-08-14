@@ -212,28 +212,35 @@ public class StyleHelper {
                             int start = s;
                             int end = e;
 
-                            BulletSpan[] spans = t.getSpans(start, end, BulletSpan.class);
-                            for (BulletSpan span : spans)
-                                t.removeSpan(span);
+                            // Expand selection at start
+                            while (start > 0 && t.charAt(start - 1) != '\n')
+                                start--;
 
+                            // Expand selection at end
+                            while (end > 0 && end < t.length() && t.charAt(end - 1) != '\n')
+                                end++;
+
+                            // Nothing to do
+                            if (start == end)
+                                return false;
+
+                            // Create paragraph at start
                             if (start == 0 && t.charAt(start) != '\n') {
                                 t.insert(0, "\n");
                                 start++;
                                 end++;
                             }
 
-                            while (start < end && t.charAt(start - 1) != '\n')
-                                start++;
-
-                            if (end == t.length() && end > 0 && t.charAt(end - 1) != '\n') {
+                            // Create paragraph at end
+                            if (end == t.length() && t.charAt(end - 1) != '\n') {
                                 t.append("\n");
                                 end++;
                             }
 
-                            // Expand selection when needed
-                            if (end > 1 && end < t.length() &&
-                                    t.charAt(end - 1) != '\n' && t.charAt(end) == '\n')
-                                end++;
+                            // Remove existing bullets
+                            BulletSpan[] spans = t.getSpans(start, end, BulletSpan.class);
+                            for (BulletSpan span : spans)
+                                t.removeSpan(span);
 
                             int i = start;
                             int j = start + 1;
