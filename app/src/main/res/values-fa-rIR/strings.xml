@@ -236,7 +236,6 @@
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
     <string name="title_advanced_compose_font">قلم پیشفرض</string>
-    <string name="title_advanced_auto_list">به‌صورت خودکار فهرست‌ها را ایجاد کن</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>

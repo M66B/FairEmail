@@ -268,7 +268,6 @@
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
-    <string name="title_advanced_auto_list">Автоматическое создание списков</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
@@ -787,6 +786,7 @@
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
+    <string name="title_reformatted">Это переформатированное сообщение. Вы можете нажать на значок &#x26F6; для просмотра оригинального сообщения и скрытия этого сообщения.</string>
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
     <string name="title_delivered_to">Доставлено:</string>
@@ -822,9 +822,9 @@
     <string name="title_style_size_medium">Средний</string>
     <string name="title_style_size_large">Большой</string>
     <string name="title_style_color">Цвет&#8230;</string>
-    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Список</string>
-    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Маркированный список</string>
-    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Нумерованный</string>
+    <string name="title_style_list">Список</string>
+    <string name="title_style_list_bullets">Маркированный</string>
+    <string name="title_style_list_numbered">Нумерованный</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">По умолчанию</string>
     <string name="title_style_clear">Очистить форматирование</string>

@@ -246,7 +246,6 @@
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
-    <string name="title_advanced_auto_list">Generér lister automatisk</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
@@ -800,9 +799,9 @@
     <string name="title_style_size_medium">Mellem</string>
     <string name="title_style_size_large">Stor</string>
     <string name="title_style_color">Farve &#8230;</string>
-    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Liste</string>
-    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Punktliste</string>
-    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Nummereret</string>
+    <string name="title_style_list">Liste</string>
+    <string name="title_style_list_bullets">Punktliste</string>
+    <string name="title_style_list_numbered">Nummereret</string>
     <string name="title_style_font">Skrifttype</string>
     <string name="title_style_font_default">Standard</string>
     <string name="title_style_clear">Ryd formatering</string>

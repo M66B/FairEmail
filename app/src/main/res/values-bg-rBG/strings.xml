@@ -231,7 +231,6 @@
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
-    <string name="title_advanced_auto_list">Автоматично създаване на списъци</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>

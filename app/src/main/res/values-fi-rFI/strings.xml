@@ -238,7 +238,6 @@
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
-    <string name="title_advanced_auto_list">Luo listoja automaattisesti</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>

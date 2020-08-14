@@ -245,7 +245,6 @@
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
-    <string name="title_advanced_auto_list">Αυτόματη δημιουργία λιστών</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
     <string name="title_advanced_extended_reply">Χρήση εκτεταμένων κεφαλίδων κατά την απάντηση/προώθηση</string>
     <string name="title_advanced_quote_reply">Παράθεση του προς απάντηση κειμένου</string>
@@ -760,6 +759,7 @@
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
+    <string name="title_reformatted">Αυτή είναι η αναμορφοποιημένη προβολή μηνύματος. Μπορείτε να πατήσετε πάνω στο εικονίδιο &#x26F6; για να δείτε το αρχικό μήνυμα και να αποκρύψετε το παρόν μήνυμα.</string>
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_delivered_to">Παραδόθηκε σε:</string>
@@ -795,9 +795,9 @@
     <string name="title_style_size_medium">Μεσαία</string>
     <string name="title_style_size_large">Μεγάλα</string>
     <string name="title_style_color">Χρώμα &#8230;</string>
-    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Λίστα</string>
-    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Κουκκίδες</string>
-    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Αρίθμηση</string>
+    <string name="title_style_list">Λίστα</string>
+    <string name="title_style_list_bullets">Κουκκίδες</string>
+    <string name="title_style_list_numbered">Αρίθμηση</string>
     <string name="title_style_font">Γραμματοσειρά</string>
     <string name="title_style_font_default">Προεπιλογή</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>

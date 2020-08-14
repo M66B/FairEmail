@@ -246,7 +246,6 @@
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti in base alla frequenza d\'uso</string>
     <string name="title_advanced_compose_font">Tipo di carattere predefinito</string>
-    <string name="title_advanced_auto_list">Crea automaticamente liste</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposta/inoltro</string>
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
@@ -581,6 +580,7 @@
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
     <string name="title_hint_alias">Premi a lungo per le opzioni, come copia per creare le identità alias</string>
+    <string name="title_service_auth">Il server di posta elettronica ha detto: %1$s</string>
     <string name="title_service_vpn">Questo potrebbe essere causato dalla VPN in uso</string>
     <string name="title_service_port">Per favore ricontrolla il numero della porta</string>
     <string name="title_service_protocol">Si prega di controllare di nuovo il protocollo (SSL/TLS o STARTTLS)</string>
@@ -764,6 +764,7 @@
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
     <string name="title_download_message">Download &#8230;</string>
+    <string name="title_reformatted">Questa è la vista dei messaggi riformattati. Puoi toccare l\'icona &#x26F6; per visualizzare il messaggio originale e nascondere questo messaggio.</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
     <string name="title_delivered_to">Consegnato a:</string>
@@ -799,6 +800,9 @@
     <string name="title_style_size_medium">Medio</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_color">Colore &#8230;</string>
+    <string name="title_style_list">Lista</string>
+    <string name="title_style_list_bullets">Punti</string>
+    <string name="title_style_list_numbered">Numerata</string>
     <string name="title_style_font">Tipo di carattere</string>
     <string name="title_style_font_default">Predefinito</string>
     <string name="title_style_clear">Cancella formattazione</string>

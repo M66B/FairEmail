@@ -227,7 +227,6 @@
     <string name="title_advanced_suggest_sent">Proposatu bidalitako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_received">Proposatu jasotako mezuetan aurkitutako helbideak</string>
     <string name="title_advanced_suggest_frequently">Ordenatu iradokitako helbideak erabilera maiztasunaren arabera</string>
-    <string name="title_advanced_auto_list">Sortu zerrendak automatikoki</string>
     <string name="title_advanced_prefix_once">Jarri aurrizkia mintzagaiari behin bakarrik erantzun edo birbidaltzean</string>
     <string name="title_advanced_extended_reply">Erabili erantzun/birbidali goiburu hedatua</string>
     <string name="title_advanced_quote_reply">Aipatu erantzundako testua</string>

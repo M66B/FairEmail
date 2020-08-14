@@ -234,7 +234,6 @@
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_compose_font">默认字体</string>
-    <string name="title_advanced_auto_list">自动创建列表</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
@@ -753,6 +752,7 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
+    <string name="title_reformatted">这是更改格式后的消息视图。你可以按&#x26F6; 图标来查看原始消息并隐藏此消息。</string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_delivered_to">发送给：</string>
@@ -788,9 +788,9 @@
     <string name="title_style_size_medium">中等</string>
     <string name="title_style_size_large">大</string>
     <string name="title_style_color">颜色 &#8230;</string>
-    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">列表</string>
-    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">项目符号</string>
-    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">有编号的</string>
+    <string name="title_style_list">列表</string>
+    <string name="title_style_list_bullets">项目符号</string>
+    <string name="title_style_list_numbered">有编号的</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
     <string name="title_style_clear">清除格式</string>

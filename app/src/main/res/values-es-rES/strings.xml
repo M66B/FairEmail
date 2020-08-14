@@ -247,7 +247,6 @@
     <string name="title_advanced_suggest_received">Sugerir direcciones encontradas en mensajes recibidos</string>
     <string name="title_advanced_suggest_frequently">Ordenar direcciones sugeridas por frecuencia de uso</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
-    <string name="title_advanced_auto_list">Crear listas automáticamente</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
@@ -766,6 +765,7 @@
     <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
+    <string name="title_reformatted">Esta es la vista de mensaje reformateada. Puede tocar el icono &#x26F6; para ver el mensaje original y ocultar este mensaje.</string>
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregado a:</string>
@@ -801,6 +801,9 @@
     <string name="title_style_size_medium">Mediano</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_color">Color &#8230;</string>
+    <string name="title_style_list">Lista</string>
+    <string name="title_style_list_bullets">Viñetas</string>
+    <string name="title_style_list_numbered">Numeradas</string>
     <string name="title_style_font">Fuente</string>
     <string name="title_style_font_default">Por defecto</string>
     <string name="title_style_clear">Quitar formato</string>

@@ -233,7 +233,6 @@
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
-    <string name="title_advanced_auto_list">Criar listas automaticamente</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento extendido</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>

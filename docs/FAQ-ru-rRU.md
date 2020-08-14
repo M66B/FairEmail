@@ -73,33 +73,33 @@
 * Ошибка в Nova Launcher на Android 5.x вызывает сбой FairEmail с *java.lang.StackOverflowError*, когда Nova Launcher имеет доступ к службе специальных возможностей.
 * ~~Выбор папки иногда не показывает папок по неизвестным причинам. Похоже, это исправлено.~~
 * ~~ [ошибка в AndroidX](https://issuetracker.google.com/issues/64729576) затрудняет захват быстрой прокрутки. Обходное решение было добавлено.~~
-* ~~~Шифрование с помощью YubiKey приводит к бесконечному циклу. Похоже, что это вызвано ошибкой [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* ~~Шифрование с помощью YubiKey приводит к бесконечному циклу. Похоже, что это вызвано ошибкой [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. Это не может быть исправлено, потому что исходный вид сообщения содержится в прокрутке.
 * Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Известно, что текст предварительного просмотра сообщений правильно отображаются на экране Pebble 2, Fitbit Charge 3 и Mi band 3. См. также [этот FAQ](#user-content-faq126).
 
 ## Запланированные возможности
 
 * ~~Синхронизировать по требованию (вручную)~~
-* ~~~Полуавтоматическое шифрование~~
+* ~~Полуавтоматическое шифрование~~
 * ~~Копировать сообщение~~
-* ~~~Цветные звезды~~
-* ~~~Настройки уведомлений для папок~~
+* ~~Цветные звезды~~
+* ~~Настройки уведомлений для папок~~
 * ~~Выбрать локальные изображения для подписей~~ (это не будет добавлено, потому что требуется управление файлами изображений и потому что изображения не отображаются по умолчанию в большинстве почтовых клиентов в любом случае)
 * ~~Показать сообщения, соответствующие правилу~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (нет поддерживаемых библиотек Java с соответствующей лицензией и без зависимостей, кроме того, у FairEmail есть свои собственные правила фильтрайии)
-* ~~~Поиск сообщений с / без вложений~~ (это нельзя добавить, потому что IMAP не поддерживает поиск вложений)
-* ~~~Поиск папки~~ (фильтрация списка иерархических папок проблематична)
+* ~~Поиск сообщений с/без вложений~~ (это нельзя добавить, потому что IMAP не поддерживает поиск вложений)
+* ~~Поиск папки~~ (фильтрация списка иерархических папок проблематична)
 * ~~Подсказки поиска~~
 * ~~[Настройка Автоматического Шифрования Сообщения](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (раздел 4.4)~~ (IMO нецелесообразно позволять почтовому клиенту обрабатывать такие чувствительные данные, как ключи шифрования, в то время как OpenKeychain тоже может экспортировать ключи)
 * ~~Унифицированные папки~~
 * ~~Новое уведомление для каждого аккаунта~~ (реализовано путем добавления условий времени в правила, чтобы сообщения могли быть отложены в выбранные периоды)
 * ~~Копировать учетные записи и идентификаторы~~
 * ~~Pinch zoom~~ (невозможно надежно использовать в прокручиваемом списке; вместо этого можно масштабировать всё сообщение)
-* ~~~Более компактный вид папок~~
-* ~~~Создавать списки и таблицы~~ (требуется rich text редактор, смотрите [этот FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
+* ~~Более компактный вид папок~~
+* ~~Создавать списки и таблицы~~ (требуется rich text редактор, смотрите [этот FAQ](#user-content-faq99))
+* ~~Масштабирование текста щипком~~
+* ~~Отображать GIFы-~~
+* ~~Темы~~ (светлая и темная серые темы добавлены, потому что, похоже, большинство людей этого хотят)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~Send as attachment~~
 * ~~Widget for selected account~~
@@ -812,7 +812,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When using copy/paste to enter a username or password, invisible characters might be copied, which could cause this problem as well. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to logging from certain networks / IP addresses only.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -1856,7 +1856,11 @@ Links for less usual protocols like telnet and ftp will not automatically be lin
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too.
+Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+
+Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+
+If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
 
 Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
 

@@ -256,7 +256,6 @@
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
-    <string name="title_advanced_auto_list">Creează automat liste</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
@@ -810,9 +809,9 @@
     <string name="title_style_size_medium">Mediu</string>
     <string name="title_style_size_large">Mare</string>
     <string name="title_style_color">Culoare &#8230;</string>
-    <string name="title_style_list" comment="title_style_list&#10;Create list in message composer&#10;">Listă</string>
-    <string name="title_style_list_bullets" comment="title_style_list_bullets&#10;Create bulleted list in message composer&#10;">Buline</string>
-    <string name="title_style_list_numbered" comment="title_style_list_numbered&#10;Create numbered list in message composer&#10;">Numere</string>
+    <string name="title_style_list">Listă</string>
+    <string name="title_style_list_bullets">Buline</string>
+    <string name="title_style_list_numbered">Numere</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Implicit</string>
     <string name="title_style_clear">Elimină toate formatările</string>
