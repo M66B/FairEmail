@@ -881,6 +881,16 @@ public class Log {
              */
             return false;
 
+        if (stack.length > 0 &&
+                stack[0].getClassName().equals("android.hardware.biometrics.BiometricPrompt"))
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.hardware.fingerprint.FingerprintManager.getErrorString(int, int)' on a null object reference
+                  at android.hardware.biometrics.BiometricPrompt.lambda$sendError$0(BiometricPrompt.java:490)
+                  at android.hardware.biometrics.-$$Lambda$BiometricPrompt$HqBGXtBUWNc-v8NoHYsj2gLfaRw.run(Unknown Source:6)
+                  at android.os.Handler.handleCallback(Handler.java:873)
+             */
+            return false;
+
         if (BuildConfig.BETA_RELEASE)
             return true;
 
