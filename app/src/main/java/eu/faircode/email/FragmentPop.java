@@ -80,10 +80,11 @@ public class FragmentPop extends FragmentBase {
     private TextView tvColorPro;
 
     private CheckBox cbSynchronize;
-    private CheckBox cbNotify;
-    private TextView tvNotifyPro;
     private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
+    private CheckBox cbNotify;
+    private TextView tvNotifyPro;
+    private CheckBox cbAutoSeen;
     private CheckBox cbLeaveServer;
     private CheckBox cbLeaveDeleted;
     private CheckBox cbLeaveDevice;
@@ -143,6 +144,7 @@ public class FragmentPop extends FragmentBase {
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
+        cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         cbLeaveServer = view.findViewById(R.id.cbLeaveServer);
         cbLeaveDeleted = view.findViewById(R.id.cbLeaveDeleted);
         cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
@@ -259,6 +261,8 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
+        args.putBoolean("auto_seen", cbAutoSeen.isChecked());
+
         args.putBoolean("leave_server", cbLeaveServer.isChecked());
         args.putBoolean("leave_deleted", cbLeaveDeleted.isChecked());
         args.putBoolean("leave_device", cbLeaveDevice.isChecked());
@@ -303,6 +307,7 @@ public class FragmentPop extends FragmentBase {
                 boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
                 boolean notify = args.getBoolean("notify");
+                boolean auto_seen = args.getBoolean("auto_seen");
                 boolean leave_server = args.getBoolean("leave_server");
                 boolean leave_deleted = args.getBoolean("leave_deleted");
                 boolean leave_device = args.getBoolean("leave_device");
@@ -398,6 +403,7 @@ public class FragmentPop extends FragmentBase {
                     account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
+                    account.auto_seen = auto_seen;
                     account.leave_on_server = leave_server;
                     account.leave_deleted = leave_deleted;
                     account.leave_on_device = leave_device;
@@ -574,21 +580,26 @@ public class FragmentPop extends FragmentBase {
                     etName.setText(account == null ? null : account.name);
                     btnColor.setColor(account == null ? null : account.color);
 
+                    cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                    cbOnDemand.setChecked(account == null ? false : account.ondemand);
+                    cbPrimary.setChecked(account == null ? false : account.primary);
+
                     boolean pro = ActivityBilling.isPro(getContext());
                     cbNotify.setChecked(account != null && account.notify && pro);
                     cbNotify.setEnabled(pro);
 
-                    cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                    cbOnDemand.setChecked(account == null ? false : account.ondemand);
-                    cbPrimary.setChecked(account == null ? false : account.primary);
+                    cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
+
                     cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
                     cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
+
                     if (account != null && account.max_messages == null)
                         etMax.setText(null);
                     else
                         etMax.setText(Integer.toString(account == null
                                 ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
+
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     List<EntityFolder> folders = getSwipeActions();

@@ -3430,9 +3430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean expanded = !properties.getValue("expanded", message.id);
 
                 // Prevent flicker
-                if (expanded &&
-                        (message.accountProtocol != EntityAccount.TYPE_IMAP ||
-                                (message.accountAutoSeen && !message.folderReadOnly))) {
+                if (expanded && message.accountAutoSeen && !message.folderReadOnly) {
                     message.unseen = 0;
                     message.ui_seen = true;
                     message.visible_unseen = 0;

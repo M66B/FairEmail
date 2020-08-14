@@ -1602,9 +1602,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void setExpanded(TupleMessageEx message, boolean value) {
             // Prevent flicker
-            if (value &&
-                    (message.accountProtocol != EntityAccount.TYPE_IMAP ||
-                            (message.accountAutoSeen && !message.ui_seen && !message.folderReadOnly))) {
+            if (value && message.accountAutoSeen && !message.folderReadOnly) {
                 message.unseen = 0;
                 message.ui_seen = true;
                 message.visible_unseen = 0;
@@ -4742,7 +4740,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.message().setMessageUnsnoozed(message.id, false);
 
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
-                        if (!message.ui_seen)
+                        if (!message.ui_seen && account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
                         if (!message.content)
