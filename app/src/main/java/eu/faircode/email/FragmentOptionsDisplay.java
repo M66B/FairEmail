@@ -660,6 +660,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        String theme = prefs.getString("theme", "light");
+        swTextColor.setEnabled(!"black_and_white".equals(theme));
+
         swTextSize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
