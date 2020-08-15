@@ -1116,7 +1116,7 @@ class Core {
         EntityAccount account = db.account().getAccount(folder.account);
 
         try {
-            if (removed && BuildConfig.DEBUG) {
+            if (removed) {
                 db.message().deleteMessage(folder.id, uid);
                 throw new MessageRemovedException("removed uid=" + uid);
             }
