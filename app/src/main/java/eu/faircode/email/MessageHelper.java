@@ -29,6 +29,7 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailMessage;
+import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
@@ -2286,6 +2287,13 @@ public class MessageHelper {
 
     static int getMessageCount(Folder folder) {
         try {
+            // Prevent pool lock
+            if (folder instanceof IMAPFolder) {
+                int count = ((IMAPFolder) folder).getCachedCount();
+                Log.i(folder.getFullName() + " total count=" + count);
+                return count;
+            }
+
             int count = 0;
             for (Message message : folder.getMessages())
                 if (!message.isExpunged())
