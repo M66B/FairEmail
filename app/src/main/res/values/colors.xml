@@ -135,5 +135,6 @@
 
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
+    <color name="grey">#ff7f7f7f</color>
     <color name="transparent">#00000000</color>
 </resources>
