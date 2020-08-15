@@ -753,7 +753,7 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
-    <string name="title_reformatted">这是更改格式后的消息视图。你可以按&#x26F6; 图标来查看原始消息并隐藏此消息。</string>
+    <string name="title_reformatted">这是重构格式后的消息视图，你可以点击 &#x26F6; 图标来查看原始消息并隐藏此消息</string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_delivered_to">发送给：</string>
@@ -790,8 +790,8 @@
     <string name="title_style_size_large">大</string>
     <string name="title_style_color">颜色 &#8230;</string>
     <string name="title_style_list">列表</string>
-    <string name="title_style_list_bullets">项目符号</string>
-    <string name="title_style_list_numbered">有编号的</string>
+    <string name="title_style_list_bullets">项目符号列表</string>
+    <string name="title_style_list_numbered">编号列表</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
     <string name="title_style_clear">清除格式</string>
@@ -816,7 +816,7 @@
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
-    <string name="title_edit_formatted_text">以格式化文本形式编辑</string>
+    <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>
     <string name="title_certificate_missing">%1$s 没有公钥</string>
     <string name="title_certificate_invalid">%1$s 的公钥无效</string>

@@ -350,13 +350,13 @@ If you came here by clicking on the notification, you should know that the next 
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
+* *Hinzufügen*: Nachricht zum Remote-Ordner hinzufügen
+* *Verschieben*: Nachricht in einen anderen Remote-Ordner verschieben
+* *kopieren*: Nachricht in einen anderen Remote-Ordner kopieren
 * *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
+* *Löschen*: Lösche Nachricht aus dem Remote-Ordner
+* *Gesehen*: Markiere Nachricht als gelesen/ungelesen im Remote-Ordner
+* *Beantwortet*: Markiere die Nachricht als beantwortet im Remote-Ordner
 * *flag*: add/remove star in remote folder
 * *keyword*: add/remove IMAP flag in remote folder
 * *label*: set/reset Gmail label in remote folder

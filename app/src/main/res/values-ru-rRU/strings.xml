@@ -787,7 +787,7 @@
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
-    <string name="title_reformatted">Это переформатированное сообщение. Вы можете нажать на значок &#x26F6; для просмотра оригинального сообщения и скрытия этого сообщения.</string>
+    <string name="title_reformatted">Это переформатированное сообщение. Вы можете нажать на значок &#x26F6; для просмотра оригинального сообщения и скрытия этой надписи.</string>
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
     <string name="title_delivered_to">Доставлено:</string>
