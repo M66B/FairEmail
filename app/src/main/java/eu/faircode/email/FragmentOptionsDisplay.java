@@ -936,6 +936,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         private SwitchCompat swDark;
         private SwitchCompat swBlack;
         private SwitchCompat swSystem;
+        private TextView tvSystem;
 
         private void eval() {
             int checkedId = rgTheme.getCheckedRadioButtonId();
@@ -949,6 +950,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swDark.setEnabled(dark);
             swBlack.setEnabled(colored && swDark.isChecked());
             swSystem.setEnabled(dark && !swDark.isChecked());
+            tvSystem.setEnabled(swSystem.isEnabled() && swSystem.isChecked());
         }
 
         @NonNull
@@ -961,6 +963,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swDark = dview.findViewById(R.id.swDark);
             swBlack = dview.findViewById(R.id.swBlack);
             swSystem = dview.findViewById(R.id.swSystem);
+            tvSystem = dview.findViewById(R.id.tvSystem);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
