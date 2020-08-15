@@ -3691,7 +3691,7 @@ class Core {
             Address[] afrom = messageFrom.get(message.id);
             String from = MessageHelper.formatAddresses(afrom, name_email, false);
             mbuilder.setContentTitle(from);
-            if (message.folderUnified)
+            if (message.folderUnified && !EntityFolder.INBOX.equals(message.folderType))
                 mbuilder.setSubText(message.accountName + " · " + message.getFolderName(context));
             else
                 mbuilder.setSubText(message.accountName);
