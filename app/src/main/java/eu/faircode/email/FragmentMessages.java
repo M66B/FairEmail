@@ -7283,11 +7283,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         static class Folder implements Serializable {
             long id;
+            String type;
             String name;
             String display;
 
             Folder(Context context, EntityFolder folder) {
                 this.id = folder.id;
+                this.type = folder.type;
                 this.name = folder.name;
                 this.display = folder.getDisplayName(context);
             }
@@ -7551,6 +7553,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             tvMessages.setText(question);
             tvSourceFolders.setText(getDisplay(result, false));
             tvTargetFolders.setText(getDisplay(result, true));
+
+            Drawable source = null;
+            Drawable target = null;
+            if (result.size() == 1) {
+                source = getResources().getDrawable(EntityFolder.getIcon(result.get(0).sourceFolder.type), null);
+                target = getResources().getDrawable(EntityFolder.getIcon(result.get(0).targetFolder.type), null);
+                if (source != null)
+                    source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
+                if (target != null)
+                    target.setBounds(0, 0, target.getIntrinsicWidth(), source.getIntrinsicHeight());
+            }
+
+            tvSourceFolders.setCompoundDrawablesRelative(source, null, null, null);
+            tvTargetFolders.setCompoundDrawablesRelative(target, null, null, null);
 
             if (notagain != null)
                 cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
