@@ -41,7 +41,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -176,11 +178,15 @@ public class ServiceUI extends IntentService {
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
             }
+
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("action", action);
+            Log.breadcrumb("serviceui", crumb);
+
+            ServiceSynchronize.eval(this, "ui/" + action);
         } catch (Throwable ex) {
             Log.e(ex);
         }
-
-        ServiceSynchronize.eval(this, "ui/" + action);
     }
 
     private void onClear(long group) {
