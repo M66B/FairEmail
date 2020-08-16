@@ -752,6 +752,8 @@ class Core {
             if (imessages != null && imessages.length > 0)
                 try {
                     Message imessage = ifolder.getMessageByUID(message.uid);
+                    if (imessage == null)
+                        throw new MessageRemovedException();
                     imessage.setFlag(Flags.Flag.DELETED, true);
                     ifolder.expunge();
                 } catch (MessagingException ex) {
@@ -1032,6 +1034,8 @@ class Core {
                             if (uid != null) {
                                 if (draft) {
                                     Message icopy = itarget.getMessageByUID(uid);
+                                    if (icopy == null)
+                                        continue;
 
                                     // Mark read
                                     if (seen && !icopy.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
