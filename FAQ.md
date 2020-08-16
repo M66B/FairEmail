@@ -2908,8 +2908,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* The account password was changed: changing it in FairEmail too should fix the problem
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
