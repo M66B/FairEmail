@@ -631,7 +631,7 @@ public class HtmlHelper {
                                     Float[] p = new Float[4];
 
                                     String[] v = value.split(" ");
-                                    for (int i = 0; i < v.length; i++)
+                                    for (int i = 0; i < v.length && i < p.length; i++)
                                         p[i] = getFontSize(v[i], 1.0f);
 
                                     if (v.length == 1) {
