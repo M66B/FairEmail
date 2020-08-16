@@ -2630,6 +2630,20 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    throw new FolderClosedException(this, cex.getMessage());
 	} catch (ProtocolException pex) {
 	    throw new MessagingException(pex.getMessage(), pex);
+	} catch (ArrayIndexOutOfBoundsException ex) {
+		eu.faircode.email.Log.w(ex);
+		/*
+			java.lang.ArrayIndexOutOfBoundsException: message number (0) out of bounds (110)
+					at com.sun.mail.imap.MessageCache.getMessage(SourceFile:116)
+					at com.sun.mail.imap.MessageCache.getMessageBySeqnum(SourceFile:148)
+					at com.sun.mail.imap.IMAPFolder.getMessageBySeqNumber(SourceFile:3999)
+					at com.sun.mail.imap.IMAPFolder.processFetchResponse(SourceFile:3604)
+					at com.sun.mail.imap.IMAPFolder.handleResponse(SourceFile:3586)
+					at com.sun.mail.iap.Protocol.notifyResponseHandlers(SourceFile:245)
+					at com.sun.mail.imap.protocol.IMAPProtocol.fetchSequenceNumber(SourceFile:2057)
+					at com.sun.mail.imap.IMAPFolder.getMessageByUID(SourceFile:2598)
+		 */
+		return null;
 	}
 
 	return m;
