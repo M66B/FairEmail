@@ -1879,39 +1879,39 @@ Auf Nachrichten und Anhängen können andere Apps zugreifen, wenn die Daten auf 
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+Wenn Sie auf dem Speicherplatz sparen müssen, können Sie die Anzahl der Tage begrenzen, in denen Nachrichten synchronisiert und gespeichert werden. Sie können diese Einstellungen ändern, indem Sie lange auf einen Ordner in der Ordnerliste drücken und *Eigenschaften bearbeiten* auswählen.
 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Kopfes?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+Der rot-orangefarbene Streifen auf der linken Seite des Headers bedeutet, dass die Authentifizierung von DKIM, SPF oder DMARC fehlgeschlagen ist. Siehe auch [diese FAQ](#user-content-faq92).
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+Aus Datenschutz- und Sicherheitsgründen hat FairEmail keine Berechtigungen, um auf Dateien direkt zuzugreifen. Für diesen Zweck wird das Storage Access Framework verwendet und empfohlen, das seit Android 4.4 KitKat (veröffentlicht 2013) verfügbar ist.
 
 If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
 
-Android Q will make it harder and maybe even impossible to directly access files, see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
+Android Q wird es schwieriger und vielleicht sogar unmöglich machen, direkt auf Dateien zuzugreifen, lesen Sie [hier](https://developer.android.com/preview/privacy/scoped-storage) und [hier](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) für weitere Details.
 
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Wo finde ich die IMAP-und SMTP-Einstellungen?**
 
-The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+Die IMAP-Einstellungen sind Teil der (benutzerdefinierten) Kontoeinstellungen und die SMTP-Einstellungen sind Teil der Identitätseinstellungen.
 
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) Was ist 'Bereinigen' ?**
 
-About each four hours FairEmail runs a cleanup job that:
+Ungefähr alle vier Stunden führt FairEmail einen Bereinigung durch, der:
 
 * Removes old message texts
 * Removes old attachment files
@@ -1919,7 +1919,7 @@ About each four hours FairEmail runs a cleanup job that:
 * Removes old local contacts
 * Removes old log entries
 
-Note that the cleanup job will only run when the synchronize service is active.
+Beachten Sie, dass die Bereinigung nur durchgeführt wird, wenn der Synchronisierungsdienst aktiv ist.
 
 <br />
 

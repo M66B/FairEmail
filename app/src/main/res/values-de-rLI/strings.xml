@@ -201,7 +201,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_theme_red_green">Rot/Grün</string>
     <string name="title_setup_theme_grey">Grau</string>
     <string name="title_setup_theme_black">Schwarz</string>
-    <string name="title_setup_theme_black_and_white">Schwarz-Weiß</string>
+    <string name="title_setup_theme_black_and_white">Schwarzweiß</string>
     <string name="title_setup_theme_reverse">Farben umkehren</string>
     <string name="title_setup_theme_dark">Dunkler Hintergrund</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>

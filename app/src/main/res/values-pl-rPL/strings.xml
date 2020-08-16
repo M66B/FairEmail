@@ -221,6 +221,7 @@
     <string name="title_setup_theme_red_green">Czerwony/zielony</string>
     <string name="title_setup_theme_grey">Szary</string>
     <string name="title_setup_theme_black">Czarny</string>
+    <string name="title_setup_theme_black_and_white">Czarno-biały</string>
     <string name="title_setup_theme_reverse">Odwróć kolory</string>
     <string name="title_setup_theme_dark">Ciemny</string>
     <string name="title_setup_theme_black_background">Czarne tło</string>
@@ -785,6 +786,7 @@
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
+    <string name="title_reformatted">To jest przeformatowany widok wiadomości. Możesz dotknąć przycisku &#x26F6;, aby wyświetlić oryginalną wiadomość.</string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>
