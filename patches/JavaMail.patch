@@ -38,8 +38,58 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handle
  	for (int i = 0; i < adf.length; i++) {
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-14 11:44:05.403359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-14 10:16:07.678028377 +0200
-@@ -3963,7 +3963,8 @@ public class IMAPFolder extends Folder i
++++ ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-16 11:39:14.284425135 +0200
+@@ -1659,6 +1659,28 @@ public class IMAPFolder extends Folder i
+ 	}
+     }
+ 
++	public synchronized int getCachedCount() {
++		synchronized (messageCacheLock) {
++			if (messageCache == null)
++				return -1;
++
++			try {
++				int count = 0;
++				int size = messageCache.size();
++				for (int i = 1; i <= size; i++) {
++					Message message = messageCache.getMessage(i);
++					if (message != null && !message.isExpunged())
++						count++;
++				}
++
++				return count;
++			} catch (Throwable ex) {
++				eu.faircode.email.Log.e(ex);
++				return -1;
++			}
++		}
++	}
++
+     /**
+      * Get the new message count.
+      */
+@@ -2608,6 +2630,20 @@ public class IMAPFolder extends Folder i
+ 	    throw new FolderClosedException(this, cex.getMessage());
+ 	} catch (ProtocolException pex) {
+ 	    throw new MessagingException(pex.getMessage(), pex);
++	} catch (ArrayIndexOutOfBoundsException ex) {
++		eu.faircode.email.Log.w(ex);
++		/*
++			java.lang.ArrayIndexOutOfBoundsException: message number (0) out of bounds (110)
++					at com.sun.mail.imap.MessageCache.getMessage(SourceFile:116)
++					at com.sun.mail.imap.MessageCache.getMessageBySeqnum(SourceFile:148)
++					at com.sun.mail.imap.IMAPFolder.getMessageBySeqNumber(SourceFile:3999)
++					at com.sun.mail.imap.IMAPFolder.processFetchResponse(SourceFile:3604)
++					at com.sun.mail.imap.IMAPFolder.handleResponse(SourceFile:3586)
++					at com.sun.mail.iap.Protocol.notifyResponseHandlers(SourceFile:245)
++					at com.sun.mail.imap.protocol.IMAPProtocol.fetchSequenceNumber(SourceFile:2057)
++					at com.sun.mail.imap.IMAPFolder.getMessageByUID(SourceFile:2598)
++		 */
++		return null;
+ 	}
+ 
+ 	return m;
+@@ -3963,7 +3999,8 @@ public class IMAPFolder extends Folder i
  		protocol.noop(); 
  	}
  
