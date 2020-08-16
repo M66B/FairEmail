@@ -3348,7 +3348,7 @@ class Core {
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
                 else
-                    db.message().setMessageUiIgnored(message.id, true);
+                    db.message().setMessageNotifying(message.id, 1);
             }
         }
 
