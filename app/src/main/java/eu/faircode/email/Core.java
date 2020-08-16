@@ -3319,10 +3319,10 @@ class Core {
             if (notify_preview && notify_preview_only && !message.content)
                 continue;
 
-            if (foreground && notify_background_only && message.notifying >= 0) {
-                Log.i("Notify foreground=" + message.id + " notifying=" + message.notifying);
-                if (message.notifying == 0)
-                    db.message().setMessageNotifying(message.id, 1);
+            if (foreground && notify_background_only && message.notifying == 0) {
+                Log.i("Notify foreground=" + message.id);
+                if (!message.ui_ignored)
+                    db.message().setMessageUiIgnored(message.id, true);
                 continue;
             }
 
@@ -3347,8 +3347,10 @@ class Core {
                 // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
-                else
-                    db.message().setMessageNotifying(message.id, 1);
+                else {
+                    if (!message.ui_ignored)
+                        db.message().setMessageUiIgnored(message.id, true);
+                }
             }
         }
 
