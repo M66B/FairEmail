@@ -557,19 +557,18 @@ public class MessageHelper {
         Document document = JsoupEx.parse(message.getFile(context));
 
         // When sending message
-        if (identity != null) {
-            if (send) {
-                for (Element child : document.body().children())
-                    if (!TextUtils.isEmpty(child.text()) &&
-                            TextUtils.isEmpty(child.attr("fairemail"))) {
-                        String style = HtmlHelper.mergeStyles(
-                                "font-family:" + compose_font, child.attr("style"));
-                        child.attr("style", style);
-                    }
-                document.select("div[fairemail=signature]").removeAttr("fairemail");
-                document.select("div[fairemail=reference]").removeAttr("fairemail");
-            }
+        if (identity != null && send) {
+            for (Element child : document.body().children())
+                if (!TextUtils.isEmpty(child.text()) &&
+                        TextUtils.isEmpty(child.attr("fairemail"))) {
+                    String style = HtmlHelper.mergeStyles(
+                            "font-family:" + compose_font, child.attr("style"));
+                    child.attr("style", style);
+                }
+            document.select("div[fairemail=signature]").removeAttr("fairemail");
+            document.select("div[fairemail=reference]").removeAttr("fairemail");
 
+            boolean save = false;
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
@@ -615,6 +614,7 @@ public class MessageHelper {
 
                     attachments.add(attachment);
                     img.attr("src", "cid:" + cid);
+                    save = true;
                 }
 
                 db.setTransactionSuccessful();
@@ -623,6 +623,9 @@ public class MessageHelper {
             } finally {
                 db.endTransaction();
             }
+
+            if (save)
+                Helper.writeText(message.getFile(context), document.html());
         }
 
         // multipart/mixed

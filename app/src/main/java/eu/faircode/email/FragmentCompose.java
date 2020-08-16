@@ -4449,7 +4449,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (identity.unicode)
                                     props.put("mail.mime.allowutf8", "true");
                                 Session isession = Session.getInstance(props, null);
-                                Message imessage = MessageHelper.from(context, draft, identity, isession, true);
+                                Message imessage = MessageHelper.from(context, draft, identity, isession, false);
 
                                 File file = draft.getRawFile(context);
                                 try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
