@@ -298,7 +298,8 @@ public class EntityMessage implements Serializable {
                 Element strong = document.createElement("strong");
                 strong.text(Helper.getString(context, l, R.string.title_received) + " ");
                 p.appendChild(strong);
-                p.appendText(DF.format(received));
+                if (received != null) // embedded messages
+                    p.appendText(DF.format(received));
                 p.appendElement("br");
             }
             {
