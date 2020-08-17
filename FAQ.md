@@ -2531,7 +2531,8 @@ Which email provider is best for you depends on your wishes/requirements.
 Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/)
 for a list of privacy oriented email providers with advantages and disadvantages.
 
-Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
+Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
