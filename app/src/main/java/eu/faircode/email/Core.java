@@ -1684,6 +1684,7 @@ class Core {
                                 db.folder().setFolderType(folder.id, type);
                         }
                     }
+
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
