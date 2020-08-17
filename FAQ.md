@@ -1004,7 +1004,7 @@ Possible causes are:
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
 * The are problems with the internet connection
-* The email server is refusing to accept connections
+* The email server is refusing to accept (external) connections
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
