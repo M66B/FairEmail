@@ -155,6 +155,7 @@ public class Helper {
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String CROWDIN_URI = "https://crowdin.com/project/open-source-email";
     static final String GRAVATAR_PRIVACY_URI = "https://meta.stackexchange.com/questions/44717/is-gravatar-a-privacy-risk";
+    static final String LICENSE_URI = "https://www.gnu.org/licenses/gpl-3.0.html";
 
     static final Pattern EMAIL_ADDRESS
             = Pattern.compile(
