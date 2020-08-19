@@ -283,7 +283,7 @@ public class Log {
         config.setAutoTrackSessions(false);
 
         ErrorTypes etypes = new ErrorTypes();
-        etypes.setAnrs(false);
+        etypes.setAnrs(BuildConfig.DEBUG);
         etypes.setNdkCrashes(false);
         config.setEnabledErrorTypes(etypes);
 
