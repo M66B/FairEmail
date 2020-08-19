@@ -85,7 +85,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int pageSize;
 
     private IBoundaryCallbackMessages intf;
+
     private Handler handler;
+
     private State state;
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
@@ -109,9 +111,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.pageSize = pageSize;
     }
 
-    void setCallback(IBoundaryCallbackMessages intf, Handler handler) {
+    void setCallback(IBoundaryCallbackMessages intf) {
+        this.handler = new Handler();
         this.intf = intf;
-        this.handler = handler;
         this.state = new State();
     }
 
