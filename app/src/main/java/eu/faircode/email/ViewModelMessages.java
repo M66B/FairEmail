@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Pair;
 
@@ -516,9 +517,9 @@ public class ViewModelMessages extends ViewModel {
             this.boundary = boundary;
         }
 
-        void setCallback(LifecycleOwner owner, BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
+        void setCallback(LifecycleOwner owner, BoundaryCallbackMessages.IBoundaryCallbackMessages callback, Handler handler) {
             if (boundary != null) {
-                boundary.setCallback(callback);
+                boundary.setCallback(callback, handler);
 
                 owner.getLifecycle().addObserver(new LifecycleObserver() {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
