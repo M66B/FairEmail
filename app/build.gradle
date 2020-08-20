@@ -237,7 +237,7 @@ dependencies {
     def jax_version = "2.3.0-jaxb-1.0.6"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
-    def requery_version = "3.31.0"
+    def requery_version = "3.32.2"
     def badge_version = "1.1.22"
     def bugsnag_version = "5.0.0"
     def biweekly_version = "0.6.3"
