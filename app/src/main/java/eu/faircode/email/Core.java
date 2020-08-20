@@ -1253,21 +1253,26 @@ class Core {
                 Message[] imessages = ifolder.getMessages();
                 Log.i(folder.name + " POP messages=" + imessages.length);
 
+                boolean hasUidl = caps.containsKey("UIDL");
+                if (hasUidl) {
+                    FetchProfile ifetch = new FetchProfile();
+                    ifetch.add(UIDFolder.FetchProfileItem.UID);
+                    ifolder.fetch(imessages, ifetch);
+                }
+
                 boolean found = false;
                 for (Message imessage : imessages) {
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
 
-                    String msgid;
-                    if (caps.containsKey("UIDL"))
-                        msgid = ifolder.getUID(imessage);
-                    else
-                        msgid = helper.getMessageID();
+                    String uidl = (hasUidl ? ifolder.getUID(imessage) : null);
+                    String msgid = helper.getMessageID();
 
-                    Log.i(folder.name + " POP searching=" + message.msgid + " iterate=" + msgid);
-                    if (msgid != null &&
-                            (msgid.equals(message.uidl) || msgid.equals(message.msgid))) {
+                    Log.i(folder.name + " POP searching=" + message.uidl + "/" + message.msgid +
+                            " iterate=" + uidl + "/" + msgid);
+                    if ((uidl != null && uidl.equals(message.uidl)) ||
+                            (msgid != null && msgid.equals(message.msgid))) {
                         found = true;
-                        Log.i(folder.name + " POP delete=" + msgid);
+                        Log.i(folder.name + " POP delete=" + uidl + "/" + msgid);
                         imessage.setFlag(Flags.Flag.DELETED, true);
                         break;
                     }
@@ -1937,7 +1942,7 @@ class Core {
                     }
 
                     try {
-                        Log.i(folder.name + " POP sync=" + msgid);
+                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
 
                         Long sent = helper.getSent();
                         Long received = helper.getReceivedHeader();
