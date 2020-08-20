@@ -40,6 +40,7 @@ public interface DaoIdentity {
     @Query("SELECT identity.*, account.name AS accountName" +
             " FROM identity" +
             " JOIN account ON account.id = identity.account" +
+            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
             " AND identity.synchronize" +
             " AND account.synchronize")
     LiveData<List<TupleIdentityEx>> liveComposableIdentities();
@@ -47,6 +48,7 @@ public interface DaoIdentity {
     @Query("SELECT identity.*, account.name AS accountName" +
             " FROM identity" +
             " JOIN account ON account.id = identity.account" +
+            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND identity.synchronize" +
             " AND account.synchronize" +
