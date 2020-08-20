@@ -7554,15 +7554,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             tvSourceFolders.setText(getDisplay(result, false));
             tvTargetFolders.setText(getDisplay(result, true));
 
+            List<String> sources = new ArrayList<>();
+            List<String> targets = new ArrayList<>();
+            for (MessageTarget t : result) {
+                if (!sources.contains(t.sourceFolder.type))
+                    sources.add(t.sourceFolder.type);
+                if (!targets.contains(t.targetFolder.type))
+                    targets.add(t.targetFolder.type);
+            }
+
             Drawable source = null;
-            Drawable target = null;
-            if (result.size() == 1) {
-                source = getResources().getDrawable(EntityFolder.getIcon(result.get(0).sourceFolder.type), null);
-                target = getResources().getDrawable(EntityFolder.getIcon(result.get(0).targetFolder.type), null);
+            if (sources.size() == 1) {
+                source = getResources().getDrawable(EntityFolder.getIcon(sources.get(0)), null);
                 if (source != null)
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
+            }
+
+            Drawable target = null;
+            if (targets.size() == 1) {
+                target = getResources().getDrawable(EntityFolder.getIcon(targets.get(0)), null);
                 if (target != null)
-                    target.setBounds(0, 0, target.getIntrinsicWidth(), source.getIntrinsicHeight());
+                    target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
             }
 
             tvSourceFolders.setCompoundDrawablesRelative(source, null, null, null);

@@ -366,7 +366,7 @@ dependencies {
 
     // https://github.com/bugsnag/bugsnag-android
     implementation("com.bugsnag:bugsnag-android:$bugsnag_version") {
-        exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
+        //exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
         exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
     }
 

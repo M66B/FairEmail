@@ -43,6 +43,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/app_eula"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEulaTitle" />
 
@@ -53,7 +54,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/title_gplv3"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="italic"
+        android:textColor="?android:attr/textColorLink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEula" />
 </androidx.constraintlayout.widget.ConstraintLayout>

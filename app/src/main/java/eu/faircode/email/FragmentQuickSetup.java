@@ -318,18 +318,22 @@ public class FragmentQuickSetup extends FragmentBase {
                             throw ex;
                     } catch (Throwable ex) {
                         // Why not AuthenticationFailedException?
-                        // Some providers refuse connection with an invalid username
-                        if (!user.equals(username)) {
-                            Log.w(ex);
-                            user = username;
-                            Log.i("Retry with user=" + user);
-                            iservice.connect(
-                                    provider.imap.host, provider.imap.port,
-                                    EmailService.AUTH_TYPE_PASSWORD, null,
-                                    user, password,
-                                    null, null);
-                        } else
+                        // Some providers terminate the connection with an invalid username
+                        if (user.equals(username))
                             throw ex;
+                        else
+                            try {
+                                user = username;
+                                Log.i("Retry with user=" + user);
+                                iservice.connect(
+                                        provider.imap.host, provider.imap.port,
+                                        EmailService.AUTH_TYPE_PASSWORD, null,
+                                        user, password,
+                                        null, null);
+                            } catch (Throwable ex1) {
+                                Log.w(ex1);
+                                throw ex;
+                            }
                     }
 
                     folders = iservice.getFolders();
