@@ -485,9 +485,6 @@ public class FragmentOAuth extends FragmentBase {
                             null, null);
 
                     folders = iservice.getFolders();
-
-                    if (folders == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
                 Log.i("OAuth checking SMTP provider=" + provider.id);

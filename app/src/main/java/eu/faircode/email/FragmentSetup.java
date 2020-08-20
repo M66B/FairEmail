@@ -67,7 +67,6 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvAccountDone;
     private Button btnAccount;
-    private TextView tvNoPrimaryDrafts;
 
     private TextView tvIdentityDone;
     private Button btnIdentity;
@@ -115,7 +114,6 @@ public class FragmentSetup extends FragmentBase {
 
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
         btnAccount = view.findViewById(R.id.btnAccount);
-        tvNoPrimaryDrafts = view.findViewById(R.id.tvNoPrimaryDrafts);
 
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
         btnIdentity = view.findViewById(R.id.btnIdentity);
@@ -309,7 +307,6 @@ public class FragmentSetup extends FragmentBase {
 
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
-        tvNoPrimaryDrafts.setVisibility(View.GONE);
 
         tvIdentityDone.setText(null);
         tvIdentityDone.setCompoundDrawables(null, null, null, null);
@@ -386,25 +383,6 @@ public class FragmentSetup extends FragmentBase {
                 btnInbox.setEnabled(done);
 
                 prefs.edit().putBoolean("has_accounts", done).apply();
-
-                if (done)
-                    new SimpleTask<EntityFolder>() {
-                        @Override
-                        protected EntityFolder onExecute(Context context, Bundle args) {
-                            DB db = DB.getInstance(context);
-                            return db.folder().getPrimaryDrafts();
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, EntityFolder drafts) {
-                            tvNoPrimaryDrafts.setVisibility(drafts == null ? View.VISIBLE : View.GONE);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex);
-                        }
-                    }.execute(FragmentSetup.this, new Bundle(), "setup:drafts");
             }
         });
 

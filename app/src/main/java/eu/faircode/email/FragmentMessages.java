@@ -987,7 +987,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     protected void onExecuted(Bundle args, EntityFolder drafts) {
                         if (drafts == null)
-                            Snackbar.make(view, R.string.title_no_primary_drafts, Snackbar.LENGTH_LONG)
+                            Snackbar.make(view, R.string.title_no_drafts, Snackbar.LENGTH_LONG)
                                     .setGestureInsetBottomIgnored(true).show();
                         else {
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());

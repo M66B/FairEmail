@@ -337,9 +337,6 @@ public class FragmentQuickSetup extends FragmentBase {
                     }
 
                     folders = iservice.getFolders();
-
-                    if (folders == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
                 Long max_size = null;

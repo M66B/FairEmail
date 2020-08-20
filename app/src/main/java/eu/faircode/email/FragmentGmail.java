@@ -373,9 +373,6 @@ public class FragmentGmail extends FragmentBase {
                             null, null);
 
                     folders = iservice.getFolders();
-
-                    if (folders == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
                 Long max_size;

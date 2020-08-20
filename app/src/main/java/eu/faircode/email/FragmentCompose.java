@@ -3646,7 +3646,7 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityFolder drafts = db.folder().getFolderByType(selected.account, EntityFolder.DRAFTS);
                     if (drafts == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
                     data.draft.account = drafts.account;
                     data.draft.folder = drafts.id;

@@ -240,17 +240,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvAccountDone" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNoPrimaryDrafts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_no_primary_drafts"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAccount" />
-
         <!-- identity -->
 
         <View
@@ -261,7 +250,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
+            app:layout_constraintTop_toBottomOf="@id/btnAccount" />
 
         <ImageView
             android:id="@+id/two"
