@@ -4257,7 +4257,7 @@ public class FragmentCompose extends FragmentBase {
                         Document d;
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
-                            Document c = JsoupEx.parse(body);
+                            Document c = HtmlHelper.sanitizeCompose(context, body, true);
 
                             for (Element e : ref)
                                 c.body().appendChild(e);
@@ -4266,7 +4266,7 @@ public class FragmentCompose extends FragmentBase {
 
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
-                            d = JsoupEx.parse(extras.getString("html"));
+                            d = HtmlHelper.sanitizeCompose(context, extras.getString("html"), true);
                         } else {
                             d = HtmlHelper.sanitizeCompose(context, body, true);
 
