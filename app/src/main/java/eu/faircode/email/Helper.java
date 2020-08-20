@@ -1231,7 +1231,7 @@ public class Helper {
             return true;
 
         BiometricManager bm = BiometricManager.from(context);
-        return (bm.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS);
+        return (bm.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS);
     }
 
     static boolean shouldAuthenticate(Context context) {
