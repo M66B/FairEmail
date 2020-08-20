@@ -3205,7 +3205,7 @@ public class FragmentCompose extends FragmentBase {
 
                 data.identities = db.identity().getComposableIdentities(null);
                 if (data.identities == null || data.identities.size() == 0)
-                    throw new IllegalStateException(context.getString(R.string.title_no_identities));
+                    throw new IllegalStateException(context.getString(R.string.title_no_composable));
 
                 data.draft = db.message().getMessage(id);
                 if (data.draft == null || data.draft.ui_hide) {
@@ -3315,7 +3315,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     if (selected == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_identities));
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_composable));
 
                     if (plain_only)
                         data.draft.plain_only = true;
