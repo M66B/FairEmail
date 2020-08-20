@@ -512,7 +512,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             TupleAccountEx f1 = prev.get(oldItemPosition);
             TupleAccountEx f2 = next.get(newItemPosition);
-            return f1.uiEquals(f2);
+            return f1.equals(f2);
         }
     }
 
