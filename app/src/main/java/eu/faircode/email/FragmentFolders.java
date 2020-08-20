@@ -207,14 +207,26 @@ public class FragmentFolders extends FragmentBase {
         fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+
                 new SimpleTask<EntityFolder>() {
                     @Override
                     protected EntityFolder onExecute(Context context, Bundle args) {
-                        return DB.getInstance(context).folder().getPrimaryDrafts();
+                        long account = args.getLong("account");
+
+                        DB db = DB.getInstance(context);
+                        if (account < 0)
+                            return db.folder().getPrimaryDrafts();
+                        else
+                            return db.folder().getFolderByType(account, EntityFolder.DRAFTS);
                     }
 
                     @Override
                     protected void onExecuted(Bundle args, EntityFolder drafts) {
+                        if (drafts == null)
+                            return;
+
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
@@ -227,7 +239,7 @@ public class FragmentFolders extends FragmentBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.execute(FragmentFolders.this, new Bundle(), "folders:drafts");
+                }.execute(FragmentFolders.this, args, "folders:drafts");
 
                 return true;
             }

@@ -195,14 +195,15 @@ public class FragmentAccounts extends FragmentBase {
 
                     @Override
                     protected void onExecuted(Bundle args, EntityFolder drafts) {
-                        if (drafts != null) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                            .putExtra("account", drafts.account)
-                                            .putExtra("folder", drafts.id)
-                                            .putExtra("type", drafts.type));
-                        }
+                        if (drafts == null)
+                            return;
+
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", drafts.account)
+                                        .putExtra("folder", drafts.id)
+                                        .putExtra("type", drafts.type));
                     }
 
                     @Override

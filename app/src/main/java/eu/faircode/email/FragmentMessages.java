@@ -987,16 +987,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     protected void onExecuted(Bundle args, EntityFolder drafts) {
                         if (drafts == null)
-                            Snackbar.make(view, R.string.title_no_drafts, Snackbar.LENGTH_LONG)
-                                    .setGestureInsetBottomIgnored(true).show();
-                        else {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                            .putExtra("account", drafts.account)
-                                            .putExtra("folder", drafts.id)
-                                            .putExtra("type", drafts.type));
-                        }
+                            return;
+
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", drafts.account)
+                                        .putExtra("folder", drafts.id)
+                                        .putExtra("type", drafts.type));
                     }
 
                     @Override
