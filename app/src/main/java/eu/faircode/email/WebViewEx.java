@@ -41,6 +41,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     public WebViewEx(Context context) {
         super(context);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean overview_mode = prefs.getBoolean("overview_mode", false);
+        boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+
+
         setVerticalScrollBarEnabled(false);
         setHorizontalScrollBarEnabled(false);
 
@@ -49,7 +54,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         WebSettings settings = getSettings();
         settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(false);
+        settings.setLoadWithOverviewMode(overview_mode);
 
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
@@ -60,11 +65,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             settings.setSafeBrowsingEnabled(safe_browsing);
-        }
     }
 
     void init(

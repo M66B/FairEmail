@@ -1516,7 +1516,7 @@ public class HtmlHelper {
         }
     }
 
-    static void setViewport(Document document) {
+    static void setViewport(Document document, boolean overview) {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
         Elements meta = document.head().select("meta").select("[name=viewport]");
         if (meta.size() == 1) {
@@ -1527,9 +1527,10 @@ public class HtmlHelper {
             meta.attr("content", content);
         } else {
             meta.remove();
-            document.head().prependElement("meta")
-                    .attr("name", "viewport")
-                    .attr("content", "width=device-width, initial-scale=1.0");
+            if (!overview)
+                document.head().prependElement("meta")
+                        .attr("name", "viewport")
+                        .attr("content", "width=device-width, initial-scale=1.0");
         }
 
         Log.d(document.head().html());

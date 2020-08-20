@@ -369,6 +369,7 @@
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
     <string name="title_advanced_message_text_zoom">Default message text zoom</string>
+    <string name="title_advanced_overview_mode">Zoom original messages to fit the screen</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text by default</string>
     <string name="title_advanced_text_color">Use text colors</string>
@@ -543,6 +544,7 @@
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
+    <string name="title_advanced_overview_mode_hint">This can result in very small fonts</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 
