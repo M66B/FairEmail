@@ -161,10 +161,10 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_seen"
+        android:contentDescription="@string/title_toggle_seen"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_seen"
+        android:tooltipText="@string/title_toggle_seen"
         app:srcCompat="@drawable/baseline_visibility_24"
         tools:ignore="MissingConstraints" />
 

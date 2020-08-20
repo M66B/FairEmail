@@ -767,6 +767,7 @@
     <string name="title_buttons">Buttons</string>
     <string name="title_seen">Mark read</string>
     <string name="title_unseen">Mark unread</string>
+    <string name="title_toggle_seen">Toggle read</string>
     <string name="title_hide">Hide</string>
     <string name="title_unhide">Show</string>
     <string name="title_flag">Add star</string>

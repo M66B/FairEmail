@@ -27,7 +27,7 @@
             <item
                 android:id="@+id/menu_button_seen"
                 android:checkable="true"
-                android:title="@string/title_unseen" />
+                android:title="@string/title_toggle_seen" />
             <item
                 android:id="@+id/menu_button_event"
                 android:checkable="true"
