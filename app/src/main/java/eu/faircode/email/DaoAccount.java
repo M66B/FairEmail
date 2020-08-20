@@ -63,7 +63,7 @@ public interface DaoAccount {
             "    FROM identity" +
             "    WHERE identity.account = account.id" +
             "    AND identity.synchronize) AS identities" +
-            ", CASE WHEN drafts.id IS NULL THEN 0 ELSE 1 END AS drafts" +
+            ", drafts.id AS drafts" +
             " FROM account" +
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " WHERE :all OR account.synchronize" +
