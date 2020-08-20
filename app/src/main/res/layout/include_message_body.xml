@@ -140,7 +140,7 @@
         app:srcCompat="@drawable/baseline_archive_24" />
 
     <ImageButton
-        android:id="@+id/ibSeen"
+        android:id="@+id/ibSeenBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
@@ -148,6 +148,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tint="?attr/colorSeparator"
+        android:tooltipText="@string/title_seen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
         app:srcCompat="@drawable/baseline_visibility_24" />
@@ -159,7 +160,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibSeen" />
+        app:layout_constraintTop_toBottomOf="@id/ibSeenBottom" />
 
     <include
         android:id="@+id/InCalendar"
