@@ -338,7 +338,8 @@ public class MessageHelper {
 
                         // Build message
                         ContentType ct = new ContentType("multipart/signed");
-                        ct.setParameter("micalg", micalg);
+                        if (micalg != null)
+                            ct.setParameter("micalg", micalg);
                         ct.setParameter("protocol", "application/pgp-signature");
                         String ctx = ct.toString();
                         int slash = ctx.indexOf("/");
