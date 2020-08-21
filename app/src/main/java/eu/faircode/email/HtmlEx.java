@@ -225,7 +225,8 @@ public class HtmlEx {
                     out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
                     isInBulletList = null;
                 }
-                out.append("<br>\n");
+                if (i != text.length())
+                    out.append("<br>\n");
             } else {
                 Boolean isBulletListItem = null;
                 ParagraphStyle[] paragraphStyles = text.getSpans(i, next, ParagraphStyle.class);
