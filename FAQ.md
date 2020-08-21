@@ -1770,6 +1770,7 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 The price of FairEmail is too low, lower than that of most similar apps,
 and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %,
 to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+Note that Google promotes the Family libray, but lets developers pay for it and doesn't contribute anything.
 
 <br />
 
