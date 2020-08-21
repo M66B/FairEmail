@@ -1,0 +1,272 @@
+diff --git a/app/src/main/java/eu/faircode/email/HtmlEx.java b/app/src/main/java/eu/faircode/email/HtmlEx.java
+index af06a672b..bbfcdc5fc 100644
+--- a/app/src/main/java/eu/faircode/email/HtmlEx.java
++++ b/app/src/main/java/eu/faircode/email/HtmlEx.java
+@@ -55,7 +55,7 @@ public class HtmlEx {
+      * @deprecated use {@link #toHtml(Spanned, int)} instead.
+      */
+     @Deprecated
+-    public /* static */ String toHtml(Spanned text) {
++    public static String toHtml(Spanned text) {
+         return toHtml(text, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
+     }
+ 
+@@ -69,7 +69,7 @@ public class HtmlEx {
+      *     {@link #TO_HTML_PARAGRAPH_LINES_INDIVIDUAL}
+      * @return string containing input converted to HTML
+      */
+-    public /* static */ String toHtml(Spanned text, int option) {
++    public static String toHtml(Spanned text, int option) {
+         StringBuilder out = new StringBuilder();
+         withinHtml(out, text, option);
+         return out.toString();
+@@ -78,13 +78,13 @@ public class HtmlEx {
+     /**
+      * Returns an HTML escaped representation of the given plain text.
+      */
+-    public /* static */ String escapeHtml(CharSequence text) {
++    public static String escapeHtml(CharSequence text) {
+         StringBuilder out = new StringBuilder();
+         withinStyle(out, text, 0, text.length());
+         return out.toString();
+     }
+ 
+-    private /* static */ void withinHtml(StringBuilder out, Spanned text, int option) {
++    private static void withinHtml(StringBuilder out, Spanned text, int option) {
+         if ((option & TO_HTML_PARAGRAPH_FLAG) == TO_HTML_PARAGRAPH_LINES_CONSECUTIVE) {
+             encodeTextAlignmentByDiv(out, text, option);
+             return;
+@@ -93,7 +93,7 @@ public class HtmlEx {
+         withinDiv(out, text, 0, text.length(), option);
+     }
+ 
+-    private /* static */ void encodeTextAlignmentByDiv(StringBuilder out, Spanned text, int option) {
++    private static void encodeTextAlignmentByDiv(StringBuilder out, Spanned text, int option) {
+         int len = text.length();
+ 
+         int next;
+@@ -129,7 +129,7 @@ public class HtmlEx {
+         }
+     }
+ 
+-    private /* static */ void withinDiv(StringBuilder out, Spanned text, int start, int end,
++    private static void withinDiv(StringBuilder out, Spanned text, int start, int end,
+                                   int option) {
+         int next;
+         for (int i = start; i < end; i = next) {
+@@ -148,7 +148,7 @@ public class HtmlEx {
+         }
+     }
+ 
+-    private /* static */ String getTextDirection(Spanned text, int start, int end) {
++    private static String getTextDirection(Spanned text, int start, int end) {
+         if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(text, start, end - start)) {
+             return " dir=\"rtl\"";
+         } else {
+@@ -156,7 +156,7 @@ public class HtmlEx {
+         }
+     }
+ 
+-    private /* static */ String getTextStyles(Spanned text, int start, int end,
++    private static String getTextStyles(Spanned text, int start, int end,
+                                         boolean forceNoVerticalMargin, boolean includeTextAlign) {
+         String margin = null;
+         String textAlign = null;
+@@ -200,7 +200,7 @@ public class HtmlEx {
+         return style.append("\"").toString();
+     }
+ 
+-    private /* static */ void withinBlockquote(StringBuilder out, Spanned text, int start, int end,
++    private static void withinBlockquote(StringBuilder out, Spanned text, int start, int end,
+                                          int option) {
+         if ((option & TO_HTML_PARAGRAPH_FLAG) == TO_HTML_PARAGRAPH_LINES_CONSECUTIVE) {
+             withinBlockquoteConsecutive(out, text, start, end);
+@@ -209,9 +209,9 @@ public class HtmlEx {
+         }
+     }
+ 
+-    private /* static */ void withinBlockquoteIndividual(StringBuilder out, Spanned text, int start,
++    private static void withinBlockquoteIndividual(StringBuilder out, Spanned text, int start,
+                                                    int end) {
+-        Boolean isInBulletList = null;
++        boolean isInList = false;
+         int next;
+         for (int i = start; i <= end; i = next) {
+             next = TextUtils.indexOf(text, '\n', i, end);
+@@ -220,48 +220,42 @@ public class HtmlEx {
+             }
+ 
+             if (next == i) {
+-                if (isInBulletList != null) {
++                if (isInList) {
+                     // Current paragraph is no longer a list item; close the previously opened list
+-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
+-                    isInBulletList = null;
++                    isInList = false;
++                    out.append("</ul>\n");
+                 }
+-                if (i != text.length())
+-                    out.append("<br>\n");
++                out.append("<br>\n");
+             } else {
+-                Boolean isBulletListItem = null;
++                boolean isListItem = false;
+                 ParagraphStyle[] paragraphStyles = text.getSpans(i, next, ParagraphStyle.class);
+                 for (ParagraphStyle paragraphStyle : paragraphStyles) {
+                     final int spanFlags = text.getSpanFlags(paragraphStyle);
+                     if ((spanFlags & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH
+                             && paragraphStyle instanceof BulletSpan) {
+-                        isBulletListItem = !(paragraphStyle instanceof eu.faircode.email.NumberSpan);
++                        isListItem = true;
+                         break;
+                     }
+                 }
+ 
+-                if (isBulletListItem != null && isInBulletList != null && isBulletListItem != isInBulletList) {
+-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
+-                    isInBulletList = null;
+-                }
+-
+-                if (isBulletListItem != null && isInBulletList == null) {
++                if (isListItem && !isInList) {
+                     // Current paragraph is the first item in a list
+-                    isInBulletList = isBulletListItem;
+-                    out.append(isInBulletList ? "<ul" : "<ol")
++                    isInList = true;
++                    out.append("<ul")
+                             .append(getTextStyles(text, i, next, true, false))
+                             .append(">\n");
+                 }
+ 
+-                if (isInBulletList != null && isBulletListItem == null) {
++                if (isInList && !isListItem) {
+                     // Current paragraph is no longer a list item; close the previously opened list
+-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
+-                    isInBulletList = null;
++                    isInList = false;
++                    out.append("</ul>\n");
+                 }
+ 
+-                String tagType = isBulletListItem != null ? "li" : "span";
++                String tagType = isListItem ? "li" : "p";
+                 out.append("<").append(tagType)
+                         .append(getTextDirection(text, i, next))
+-                        .append(getTextStyles(text, i, next, isBulletListItem == null, true))
++                        .append(getTextStyles(text, i, next, !isListItem, true))
+                         .append(">");
+ 
+                 withinParagraph(out, text, i, next);
+@@ -269,12 +263,10 @@ public class HtmlEx {
+                 out.append("</");
+                 out.append(tagType);
+                 out.append(">\n");
+-                if (isBulletListItem == null)
+-                    out.append("<br>\n");
+ 
+-                if (next == end && isInBulletList != null) {
+-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
+-                    isInBulletList = null;
++                if (next == end && isInList) {
++                    isInList = false;
++                    out.append("</ul>\n");
+                 }
+             }
+ 
+@@ -282,9 +274,9 @@ public class HtmlEx {
+         }
+     }
+ 
+-    private /* static */ void withinBlockquoteConsecutive(StringBuilder out, Spanned text, int start,
++    private static void withinBlockquoteConsecutive(StringBuilder out, Spanned text, int start,
+                                                     int end) {
+-        out.append("<span").append(getTextDirection(text, start, end)).append(">");
++        out.append("<p").append(getTextDirection(text, start, end)).append(">");
+ 
+         int next;
+         for (int i = start; i < end; i = next) {
+@@ -302,24 +294,24 @@ public class HtmlEx {
+ 
+             withinParagraph(out, text, i, next - nl);
+ 
+-            if (nl == 0) {
++            if (nl == 1) {
+                 out.append("<br>\n");
+             } else {
+-                for (int j = 0; j < nl; j++) {
++                for (int j = 2; j < nl; j++) {
+                     out.append("<br>");
+                 }
+                 if (next != end) {
+                     /* Paragraph should be closed and reopened */
+-                    out.append("</span>\n");
+-                    out.append("<span").append(getTextDirection(text, start, end)).append(">");
++                    out.append("</p>\n");
++                    out.append("<p").append(getTextDirection(text, start, end)).append(">");
+                 }
+             }
+         }
+ 
+-        out.append("</span>\n");
++        out.append("</p>\n");
+     }
+ 
+-    private /* static */ void withinParagraph(StringBuilder out, Spanned text, int start, int end) {
++    private static void withinParagraph(StringBuilder out, Spanned text, int start, int end) {
+         int next;
+         for (int i = start; i < end; i = next) {
+             next = text.nextSpanTransition(i, end, CharacterStyle.class);
+@@ -339,11 +331,9 @@ public class HtmlEx {
+                 if (style[j] instanceof TypefaceSpan) {
+                     String s = ((TypefaceSpan) style[j]).getFamily();
+ 
+-                    //if ("monospace".equals(s)) {
+-                    //    out.append("<tt>");
+-                    //}
+-
+-                    out.append("<span style=\"font-family:" + s + ";\">");
++                    if ("monospace".equals(s)) {
++                        out.append("<tt>");
++                    }
+                 }
+                 if (style[j] instanceof SuperscriptSpan) {
+                     out.append("<sup>");
+@@ -374,8 +364,8 @@ public class HtmlEx {
+                     AbsoluteSizeSpan s = ((AbsoluteSizeSpan) style[j]);
+                     float sizeDip = s.getSize();
+                     if (!s.getDip()) {
+-                        //Application application = ActivityThread.currentApplication();
+-                        sizeDip /= context.getResources().getDisplayMetrics().density;
++                        Application application = ActivityThread.currentApplication();
++                        sizeDip /= application.getResources().getDisplayMetrics().density;
+                     }
+ 
+                     // px in CSS is the equivalance of dip in Android
+@@ -427,13 +417,11 @@ public class HtmlEx {
+                     out.append("</sup>");
+                 }
+                 if (style[j] instanceof TypefaceSpan) {
+-                    //String s = ((TypefaceSpan) style[j]).getFamily();
+-
+-                    //if (s.equals("monospace")) {
+-                    //    out.append("</tt>");
+-                    //}
++                    String s = ((TypefaceSpan) style[j]).getFamily();
+ 
+-                    out.append("</span>");
++                    if (s.equals("monospace")) {
++                        out.append("</tt>");
++                    }
+                 }
+                 if (style[j] instanceof StyleSpan) {
+                     int s = ((StyleSpan) style[j]).getStyle();
+@@ -449,8 +437,8 @@ public class HtmlEx {
+         }
+     }
+ 
+-    //@UnsupportedAppUsage
+-    private /* static */ void withinStyle(StringBuilder out, CharSequence text,
++    @UnsupportedAppUsage
++    private static void withinStyle(StringBuilder out, CharSequence text,
+                                     int start, int end) {
+         for (int i = start; i < end; i++) {
+             char c = text.charAt(i);
