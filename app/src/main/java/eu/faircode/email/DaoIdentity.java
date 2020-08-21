@@ -32,12 +32,13 @@ public interface DaoIdentity {
     @Query(TupleIdentityView.query)
     LiveData<List<TupleIdentityView>> liveIdentityView();
 
-    @Query("SELECT identity.*, account.name AS accountName" +
+    @Query("SELECT identity.*, account.name AS accountName, folder.id AS drafts" +
             " FROM identity" +
-            " JOIN account ON account.id = identity.account")
+            " JOIN account ON account.id = identity.account" +
+            " LEFT JOIN folder ON folder.account = account.id AND folder.type = '" + EntityFolder.DRAFTS + "'")
     LiveData<List<TupleIdentityEx>> liveIdentities();
 
-    @Query("SELECT identity.*, account.name AS accountName" +
+    @Query("SELECT identity.*, account.name AS accountName, folder.id AS drafts" +
             " FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
@@ -45,7 +46,7 @@ public interface DaoIdentity {
             " AND account.synchronize")
     LiveData<List<TupleIdentityEx>> liveComposableIdentities();
 
-    @Query("SELECT identity.*, account.name AS accountName" +
+    @Query("SELECT identity.*, account.name AS accountName, folder.id AS drafts" +
             " FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
