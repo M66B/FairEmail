@@ -135,7 +135,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_no_settings_hint">Proveu de configurar un compte i una identitat als passos 1 i 2 de configuració mitjançant la configuració del proveïdor de correu electrònic</string>
     <string name="title_setup_no_auth_hint">Comproveu la vostra adreça de correu electrònic i la contrasenya i assegureu-vos que l’accés extern (IMAP/SMTP) estigui habilitat per al vostre compte</string>
     <string name="title_setup_app_password_hint">Aquest proveïdor necessita una contrasenya de l’aplicació en lloc de la contrasenya del compte, consulteu les instruccions del proveïdor</string>
-    <string name="title_setup_no_system_folders">La safata d\'entrada o la carpeta d\'esborranys no s\'ha trobat</string>
     <string name="title_setup_quick_success">S\'han afegit correctament un compte i una identitat</string>
     <string name="title_setup_quick_failed">A més, podeu provar de configurar un compte i una identitat</string>
     <string name="title_setup_manage">Gestiona</string>
@@ -527,15 +526,11 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_no_user">Falta nom de d\'usuari</string>
     <string name="title_no_password">Falta la contrasenya</string>
     <string name="title_no_inbox">No s\'ha trobat la bustia</string>
-    <string name="title_no_primary_drafts">No hi ha cap compte principal ni cap carpeta d\'esborranys</string>
-    <string name="title_no_identities">L’enviament de correus electrònics requereix almenys una identitat i una carpeta d’esborranys</string>
     <string name="title_no_standard">Aquest proveïdor utilitza un protocol de correu electrònic propietari i per tant no és possible utilitzar clients de correu electrònic de tercers</string>
     <string name="title_no_idle">Aquest proveïdor no admet missatges push. Això retardarà la recepció de nous missatges i augmentarà l’ús de la bateria.</string>
     <string name="title_no_utf8">Aquest proveïdor no és compatible amb UTF-8</string>
     <string name="title_no_sync">Errors de sincronització des de %1$s</string>
     <string name="title_reply_domain">El domini de l’emissor (%1$s) i el de resposta (%2$s) difereixen</string>
-    <string name="title_identity_required">Cal enviar una identitat per enviar missatges</string>
-    <string name="title_drafts_required">Cal enviar una carpeta d\'esborranys per enviar missatges</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>

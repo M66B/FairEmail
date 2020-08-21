@@ -1,98 +1,98 @@
 # Supporto FairEmail
 
-Se hai una domanda, controlla prima le domande frequenti qui sotto. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Se hai una domanda, controlla prima le domande frequenti qui sotto. In fondo puoi trovare come porre altre domande, richiedere funzionalità e segnalare errori.
 
-## Index
+## Indice
 
-* [Account di autorizzazione](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Autorizzare account](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Come fare per ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Problemi noti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Funzionalità pianificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Funzionalità richieste di frequente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Domande frequenti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Supporto](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Account di autorizzazione
+## Autorizzare account
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Nella maggior parte dei casi, la configurazione rapida sarà in grado di identificare automaticamente la configurazione giusta.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Se la configurazione rapida fallisce, dovrai configurare manualmente un account (per ricevere email) e un'identità (per inviare email). Per farlo avrai bisogno degli indirizzi dei server IMAP e SMTP e dei numeri delle porte, di sapere se SSL/TLS o STARTTLS devono essere usati e conoscere il tuo nome utente (solitamente, ma non sempre, il tuo indirizzo email) e la password.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Cercare *IMAP* e il nome del fornitore di solito è sufficiente per trovare la documentazione giusta.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+In alcuni casi, dovrai abilitare l'accesso esterno al tuo account e/o utilizzare una password speciale (app), per esempio quando l'autenticazione a due fattori è attiva.
 
-For authorizing:
+Per autorizzare:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL e Sky, vedi [domanda 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, vedi la [domanda 6](#user-content-faq6)
+* Outlook / Live / Hotmail, vedi la [domanda 14](#user-content-faq14)
+* Office 365, vedi [la domanda 14](#user-content-faq156)
+* Microsoft Exchange, vedi [la domanda 8](#user-content-faq8)
+* Yahoo, AOL e Sky, vedi la [domanda 88](#user-content-faq88)
+* Apple iCloud, vedi la [domanda 148](#user-content-faq148)
+* Free.fr, vedi la [domanda 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Si prega di vedere [qui](#user-content-faq22) per messaggi di errore e soluzioni comuni.
 
-Related questions:
+Domande correlate:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [OAuth è supportato?](#user-content-faq111)
+* [Perché ActiveSync non è supportato?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Come fare per ...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Cambiare il nome dell'account: Impostazioni, passo 1, Gestisci, tocca l'account
+* Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Comportamento, Imposta azioni di scorrimento
+* Cambiare password: Impostazioni, passo 1, Gestisci, tocca l'account, cambia la password
+* Impostare una firma: Impostazioni, passo 2, Gestisci, tocca l'identità, Modifica firma.
+* Aggiungere indirizzi CC e CCN: tocca l'icona persone alla fine dell'oggetto dell'email
+* Andare al messaggio successivo/precedente all'archiviazione/eliminazione: nelle impostazioni di comportamento disattiva *Chiudi automaticamente le conversazioni* e seleziona *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
+* Aggiungere una cartella nella casella di posta unificata: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nella casella di posta unificata*
+* Aggiungere una cartella al menu di navigazione: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nel menu di navigazione*
+* Caricare più messaggi: premi a lungo una cartella nell'elenco delle cartelle, seleziona *Sincronizza più messaggi*
+* Eliminare un messaggio, evitando il cestino: nel menu a 3 punti appena sopra il testo del messaggio *Elimina* o, in alternativa, deseleziona la cartella cestino nelle impostazioni dell'account
+* Eliminare un account/identità: Impostazioni, passi 1/2, Gestisci, tocca account/identità, menu a tre punti, Elimina
+* Eliminare una cartella: premi a lungo la cartella nell'elenco delle cartelle, Modifica le proprietà, menu a tre punti, Elimina
+* Annullare l'invio: posta In uscita, tocca il messaggio, tocca l'icona Annulla
+* Conservare i messaggi inviati nella posta in arrivo: [vedi queste domande frequenti](#user-content-faq142)
+* Cambiare cartelle di sistema: Impostazioni, passo 1, Gestisci, tocca l'account, in fondo
+* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione/menu hamburger
 
-## Known problems
+## Problemi noti
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
+* ~~Un [errore in Android 5.1 e 6](https://issuetracker.google.com/issues/37054851) causa la visualizzazione di un formato sbagliato delle ore. Attivando/disattivando l'impostazione di Android *Usa il formato 24 ore* potrebbe risolvere temporaneamente il problema. È stato aggiunto un espediente.~~
+* ~~Un [errore in Google Drive](https://issuetracker.google.com/issues/126362828) fa sì che i file esportati su Google Drive siano vuoti. Google lo ha corretto.~~
+* ~~Un [errore in AndroidX](https://issuetracker.google.com/issues/78495471) provoca un crash occasionale di FairEmail durante la pressione a lungo o lo scorrimento. Google lo ha corretto.~~
+* ~~Un [errore in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causa a volte un crash con "*... Eccezione durante il calcolo dei dati live del database ... Impossibile leggere la riga ...*". È stato aggiunto un espediente.~~
+* Un [errore in Android](https://issuetracker.google.com/issues/119872129) causa un crash di FairEmail con "*... Notifica errata postata ...*" su alcuni dispositivi dopo l'aggiornamento di FairEmail e toccando su una notifica.
+* Un [errore in Android](https://issuetracker.google.com/issues/62427912) a volte provoca un crash con "*... ActivityRecord non trovato per ...*" dopo l'aggiornamento FairEmail. La reinstallazione ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) potrebbe risolvere il problema.
+* Un [errore in Android](https://issuetracker.google.com/issues/37018931) a volte provoca un crash con *... InputChannel non è inizializzato ...* su alcuni dispositivi.
+* ~~Un [errore in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) a volte provoca un crash con *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Un errore in Nova Launcher su Android 5.x causa il crash di FairEmail con un *java.lang.StackOverflowError* quando Nova Launcher ha accesso al servizio di accessibilità.
+* ~~Il selettore di cartelle a volte non mostra cartelle per motivi ancora sconosciuti. Sembra essere risolto.~~
+* ~~Un [errore in AndroidX](https://issuetracker.google.com/issues/64729576) rende difficile toccare lo scroller rapido. È stato aggiunto un espediente.~~
+* ~~La crittografia con YubiKey risulta in un ciclo infinito. Ciò sembra essere causato da un [errore in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Lo scorrimento verso una posizione collegata internamente nei messaggi originali non funziona. Ciò non può essere risolto perché la vista originale dei messaggi è contenuta in una vista a scorrimento.
+* Un'anteprima di un testo di un messaggio non (sempre) appare negli orologi Samsung perché [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sembra venga ignorato. Le anteprime dei messaggi sono note per essere visualizzate correttamente su Pebble 2, Fitbit Charge 3 e Mi band 3. Vedi anche [queste domande frequenti](#user-content-faq126).
 
-## Planned features
+## Funzionalità pianificate
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
+* ~~Sicronizzazione su richiesta (manuale)~~
+* ~~Cifratura semi-automatica~~
+* ~~Copia messaggio~~
 * ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* ~~Impostazioni di notifica per cartella~~
+* ~~Selezione immagini locali per le firme~~ (non verrà aggiunto perchè richiede la gestione dei file e quasi tutti i client email non mostrano le immagini per impostazione predefinita)
+* ~~Mostra messaggi che soddisfano un criterio~~
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (non ci sono librerie Java mantenute con licenza adeguata e senza dipendenze, inoltre FairEmail ha le proprie regole di filtraggio)
+* ~~Cerca messaggi con/senza allegati~~ (non può essere implementata perchè IMAP non supporta la ricerca degli allegati)
+* ~~Cerca una cartella~~ (il filtro su cartelle gerarchiche è problematico)
+* ~~Suggerimenti di ricerca~~
+* ~~[Messaggio di configurazione Autocrypt](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (Secondo me non è una buona idea permette ad un client di posta elettronica di gestire le chiavi di crittografia solo per casi d'uso rari se OpenKeychain può esportare anche le chiavi)
+* ~~Cartelle unificate generiche~~
+* ~~Programmazione notifiche nuovo messaggio per account~~ (implementato aggiungendo regole di orario in modo che i messaggi possano essere silenziati durante periodi scelti)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
@@ -112,11 +112,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## Funzionalità richieste di frequente
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in questo forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). L'obiettivo del design è quello di essere minimalista (senza menu inutili, pulsanti, ecc.) e di non distrarre (senza colori fantasiosi, animazioni, ecc). Tutte le cose visualizzate devono essere utili in un modo o nell'altro e devono essere posizionate con attenzione per un facile utilizzo. Caratteri, dimensioni, colori, ecc devono essere in material design quando possibile.
 
-## Frequently Asked Questions
+## Domande frequenti
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -851,7 +851,7 @@ Possible causes are:
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
 * The are problems with the internet connection
-* The email server is refusing to accept connections
+* The email server is refusing to accept (external) connections
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
@@ -2105,7 +2105,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2415,8 +2415,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* The account password was changed: changing it in FairEmail too should fix the problem
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
@@ -2534,7 +2534,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-The F-Droid build is supported, but any other unofficial build is not supported.
+There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
@@ -2695,19 +2695,19 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 ## Supporto
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Sono supportate solo l'ultima versione del Play Store e l'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
 
-Requested features should:
+Le funzionalità richieste dovrebbero:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* essere utili alla maggior parte delle persone
+* non complicare l'utilizzo di FairEmail
+* inserirsi nella filosofia di FairEmail (rispettoso della privacy, con un occhio alla sicurezza)
+* essere conformi agli standard comuni (IMAP, SMTP, ecc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò significa anche rendere gestibile la manutenzione e il supporto a lungo termine.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

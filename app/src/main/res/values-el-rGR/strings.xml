@@ -143,7 +143,7 @@
     <string name="title_setup_no_settings_hint">Παρακαλούμε, δοκιμάστε να ρυθμίσετε έναν λογαριασμό και μια ταυτότητα σύμφωνα με τα βήματα 1 και 2, χρησιμοποιώντας τις ρυθμίσεις που παρέχει ο πάροχος του ηλ. ταχυδρομείου σας</string>
     <string name="title_setup_no_auth_hint">Παρακαλούμε, ελέγξτε πάλι τη διεύθυνση ηλ. ταχυδρομείου και τον κωδικό σας, και βεβαιωθείτε ότι η εξωτερική πρόσβαση (IMAP/SMTP) είναι ενεργοποιημένη για τον λογαριασμό σας</string>
     <string name="title_setup_app_password_hint">Ο πάροχος απαιτεί έναν κωδικό εφαρμογής αντί για τον κωδικό του λογαριασμού σας. Παρακαλούμε, ελέγξτε τις οδηγίες του παρόχου σας</string>
-    <string name="title_setup_no_system_folders">Δεν βρέθηκαν εισερχόμενα ή φάκελος για πρόχειρα</string>
+    <string name="title_setup_no_inbox">Δεν βρέθηκαν εισερχόμενα</string>
     <string name="title_setup_advanced_protection">Δεν επιτρέπεται η χρήση ανεξάρτητων εφαρμογών ηλεκτρονικού ταχυδρομείου σε χρήστες εγγεγραμμένους/-ες σε πρόγραμμα αυξημένης ασφάλειας. Ο περιορισμός αυτός έχει επιβληθεί από την Google.</string>
     <string name="title_setup_quick_success">Ένας λογαριασμός και μια ταυτότητα έχουν προστεθεί με επιτυχία</string>
     <string name="title_setup_quick_failed">Μπορείτε, επίσης, να δοκιμάσετε να διαμορφώσετε έναν λογαριασμό και μια ταυτότητα παρακάτω</string>
@@ -314,6 +314,7 @@
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
     <string name="title_advanced_message_text_zoom">Μεγέθυνση του κειμένου του μηνύματος από προεπιλογή</string>
+    <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
     <string name="title_advanced_text_color">Χρήση των χρωμάτων του κειμένου</string>
@@ -458,6 +459,7 @@
     <string name="title_advanced_name_email_hint">Αν απενεργοποιηθεί, θα προβάλλονται μόνον τα ονόματα εφόσον είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>
     <string name="title_advanced_preview_issue">Η κύλιση ενδέχεται να καθυστερεί εξαιτίας ενός σφάλματος σε ορισμένες εκδόσεις του Android, όταν ο αριθμός των σειρών υπερβαίνει τη μία</string>
+    <string name="title_advanced_overview_mode_hint">Μπορεί να προκαλέσει πολύ μικρές γραμματοσειρές</string>
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
@@ -557,16 +559,14 @@
     <string name="title_no_user">Λείπει όνομα χρήστη</string>
     <string name="title_no_password">Λείπει κωδικός πρόσβασης</string>
     <string name="title_no_inbox">Δεν βρέθηκαν εισερχόμενα</string>
-    <string name="title_no_primary_drafts">Κανένας κύριος λογαριασμός ή κανείς φάκελος \"Πρόχειρα\"</string>
+    <string name="title_no_drafts">Δεν βρέθηκε φάκελος με πρόχειρα</string>
     <string name="title_no_junk_folder">Δεν έχει επιλεγεί φάκελος ανεπιθύμητων για αυτόν τον λογαριασμό</string>
-    <string name="title_no_identities">Η αποστολή μηνυμάτων απαιτεί τουλάχιστον μια ταυτότητα και έναν φάκελο προχείρων</string>
+    <string name="title_no_composable">Για την αποστολή μηνυμάτων απαιτείται να ρυθμιστεί μια ταυτότητα και να επιλεγεί ένα φάκελος για πρόχειρα στις ρυθμίσεις λογαριασμού</string>
     <string name="title_no_standard">Αυτός ο πάροχος χρησιμοποιεί ιδιόκτητο πρωτόκολλο ηλ. ταχυδρομείου και, ως εκ τούτου, δεν υποστηρίζει τη χρήση ενός ανεξάρτητου πελάτη ηλ. ταχυδρομείου</string>
     <string name="title_no_idle">Ο πάροχος αυτός δεν υποστηρίζει μηνύματα push. Αυτό καθυστερεί τη λήψη νέων μηνυμάτων και αυξάνει τη χρήση μπαταρίας.</string>
     <string name="title_no_utf8">Ο πάροχος αυτός δεν υποστηρίζει UTF-8</string>
     <string name="title_no_sync">Σφάλματα συγχρονισμού από %1$s</string>
     <string name="title_reply_domain">Ο τομέας αποστολέα (%1$s) και ο τομέας απάντησης (%2$s) διαφέρουν</string>
-    <string name="title_identity_required">Απαιτείται μια ταυτότητα για την αποστολή μηνυμάτων</string>
-    <string name="title_drafts_required">Ένας φάκελος \"Πρόχειρα\" απαιτείται για την αποστολή μηνυμάτων</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
@@ -658,6 +658,7 @@
     <string name="title_buttons">Κουμπιά</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένο</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένο</string>
+    <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
     <string name="title_hide">Απόκρυψη</string>
     <string name="title_unhide">Προβολή</string>
     <string name="title_flag">Προσθήκη αστεριού</string>

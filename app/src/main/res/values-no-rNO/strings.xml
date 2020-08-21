@@ -127,7 +127,6 @@
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv å konfigurere en konto og identitet i konfigureringstrinn 1 og 2 ved å bruke innstillingene som er levert av e-postleverandøren</string>
     <string name="title_setup_no_auth_hint">Kontroller e-postadressen og passordet ditt, og sørg for at ekstern tilgang (IMAP/SMTP) er aktivert for kontoen din</string>
-    <string name="title_setup_no_system_folders">Innboks eller kladdmappe ikke funnet</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>
     <string name="title_setup_quick_failed">Du kan prøve å konfigurere en konto og en identitet nedenfor også</string>
     <string name="title_setup_manage">Behandle</string>
@@ -463,15 +462,11 @@
     <string name="title_no_user">Brukernavn mangler</string>
     <string name="title_no_password">Passor mangler</string>
     <string name="title_no_inbox">Finner ikke innboks</string>
-    <string name="title_no_primary_drafts">Ingen primærkonto eller ingen utkast-mappe</string>
-    <string name="title_no_identities">Å sende e-postmeldinger krever minst en identitet og en kladd mappe</string>
     <string name="title_no_standard">Denne leverandøren bruker en proprietær e-postprotokoll, og det er derfor ikke mulig å bruke tredjeparts e-postklienter</string>
     <string name="title_no_idle">Denne leverandøren støtter ikke push-meldinger. Dette vil forsinke mottak av nye meldinger og øke batteriforbruket.</string>
     <string name="title_no_utf8">Denne leverandøren støtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
     <string name="title_reply_domain">Avsenderen (%1$s) og svardomenet (%2$s) er forskjellige</string>
-    <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
-    <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>

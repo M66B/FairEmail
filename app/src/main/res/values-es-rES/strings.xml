@@ -145,7 +145,6 @@
     <string name="title_setup_no_settings_hint">Por favor, intente configurar una cuenta e identidad en los pasos de configuración 1 y 2 utilizando los ajustes proporcionados por su proveedor de correo electrónico</string>
     <string name="title_setup_no_auth_hint">Por favor, compruebe su dirección de correo electrónico y contraseña y asegúrese de que el acceso externo (IMAP/SMTP) está habilitado para su cuenta</string>
     <string name="title_setup_app_password_hint">Este proveedor requiere una contraseña de aplicación en lugar de la contraseña de la cuenta, por favor revise las instrucciones de su proveedor</string>
-    <string name="title_setup_no_system_folders">Carpeta de entrada o borradores no encontrada</string>
     <string name="title_setup_advanced_protection">Al inscribirse en el programa de protección avanzada no es posible utilizar una aplicación de correo electrónico de terceros. Esta es una restricción impuesta por Google.</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
     <string name="title_setup_quick_failed">Puede intentar configurar una cuenta y una identidad a continuación también</string>
@@ -201,6 +200,7 @@
     <string name="title_setup_theme_red_green">Rojo/verde</string>
     <string name="title_setup_theme_grey">Gris</string>
     <string name="title_setup_theme_black">Negro</string>
+    <string name="title_setup_theme_black_and_white">Blanco y Negro</string>
     <string name="title_setup_theme_reverse">Invertir colores</string>
     <string name="title_setup_theme_dark">Oscuro</string>
     <string name="title_setup_theme_black_background">Fondo negro</string>
@@ -316,6 +316,7 @@
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
     <string name="title_advanced_message_text_zoom">Zoom del texto de mensaje por defecto</string>
+    <string name="title_advanced_overview_mode">Hacer zoom en mensajes originales para ajustarse a la pantalla</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
     <string name="title_advanced_text_color">Usar colores de texto</string>
@@ -462,6 +463,7 @@
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_preview_issue">El desplazamiento puede ser lento debido a un error en algunas versiones de Android cuando el número de líneas es más de una</string>
+    <string name="title_advanced_overview_mode_hint">Esto puede resultar en fuentes muy pequeñas</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
@@ -561,16 +563,12 @@
     <string name="title_no_user">Falta nombre de usuario</string>
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
-    <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
     <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
-    <string name="title_no_identities">El envío de correos electrónicos requiere al menos una identidad y una carpeta de borradores</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_reply_domain">El remitente (%1$s) y el dominio de respuesta (%2$s) son distintos</string>
-    <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
-    <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -662,6 +660,7 @@
     <string name="title_buttons">Botones</string>
     <string name="title_seen">Marcar como leído</string>
     <string name="title_unseen">Marcar como no leído</string>
+    <string name="title_toggle_seen">Cambiar leído</string>
     <string name="title_hide">Ocultar</string>
     <string name="title_unhide">Mostrar</string>
     <string name="title_flag">Marcar como favorito</string>

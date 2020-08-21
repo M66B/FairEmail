@@ -144,7 +144,7 @@
     <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
     <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
-    <string name="title_setup_no_system_folders">Indbakke- eller Udkastmappe ikke fundet</string>
+    <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
     <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
@@ -316,6 +316,7 @@
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
     <string name="title_advanced_message_text_zoom">Standard tekstzoom for besked</string>
+    <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_text_color">Benyt tekstfarver</string>
@@ -462,6 +463,7 @@
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
+    <string name="title_advanced_overview_mode_hint">Dette kan resultere i meget små skrifttyper</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
@@ -561,16 +563,14 @@
     <string name="title_no_user">Brugernavn mangler</string>
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_no_inbox">Indbakke ikke fundet</string>
-    <string name="title_no_primary_drafts">Ingen primærkonto eller kladdemappe</string>
+    <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
-    <string name="title_no_identities">Afsendelse af e-mails kræver mindst én identitet og en kladdemappe</string>
+    <string name="title_no_composable">Afsendelse af e-mails kræver, at en identitet opsættes samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfejl siden %1$s</string>
     <string name="title_reply_domain">Afsender- (%1$s) og svardomæne (%2$s) er ikke ens</string>
-    <string name="title_identity_required">En identitet kræves for at kunne sende beskeder</string>
-    <string name="title_drafts_required">Kladdemappe kræves for at kunne sende beskeder</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
@@ -662,6 +662,7 @@
     <string name="title_buttons">Knapper</string>
     <string name="title_seen">Markér som læst</string>
     <string name="title_unseen">Markér som ulæst</string>
+    <string name="title_toggle_seen">Slå læst til/fra</string>
     <string name="title_hide">Skjul</string>
     <string name="title_unhide">Vis</string>
     <string name="title_flag">Tilføj stjerne</string>
@@ -765,6 +766,7 @@
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
+    <string name="title_reformatted">Dette er den omformaterede beskedvisning. Du kan trykke på &#x26F6;-ikonet for at se den oprindelige besked og skjule denne.</string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
     <string name="title_delivered_to">Leveret til:</string>

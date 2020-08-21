@@ -130,7 +130,6 @@
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Pokušajte postaviti račun i identitet u koracima 1 i 2 za postavljanje pomoću postavki danih od vašeg davatelja usluga e-pošte</string>
     <string name="title_setup_no_auth_hint">Molimo da provjerite svoju adresu e-pošte i zaporku i provjerite je li omogućen vanjski pristup (IMAP / SMTP) za vaš račun</string>
-    <string name="title_setup_no_system_folders">Mapa pristigle pošte ili skica nije pronađena</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
     <string name="title_setup_quick_failed">U nastavku možete pokušati konfigurirati račun i identitet</string>
     <string name="title_setup_manage">Upravljaj</string>
@@ -454,15 +453,11 @@
     <string name="title_no_user">Nedostaje korisničko ime</string>
     <string name="title_no_password">Nedostaje lozinka</string>
     <string name="title_no_inbox">Ulazni spremnik nije pronađen</string>
-    <string name="title_no_primary_drafts">Nema primarnog računa ili mape skica</string>
-    <string name="title_no_identities">Za slanje e-poruka potreban je barem jedan identitet i mapa za skice</string>
     <string name="title_no_standard">Ovaj davatelj koristi vlasnički protokol e-pošte i stoga nije moguće koristiti klijente e-pošte trećih strana</string>
     <string name="title_no_idle">Ovaj davatelj usluga ne podržava push poruke. To će odgoditi prijem novih poruka i povećati potrošnju baterije.</string>
     <string name="title_no_utf8">Ovaj davatelj ne podržava UTF-8</string>
     <string name="title_no_sync">Pogreške sinkronizacije od %1$s</string>
     <string name="title_reply_domain">Domena pošiljatelja (%1$s) i odgovora (%2$s) razlikuju se</string>
-    <string name="title_identity_required">Za slanje poruka potreban je identitet</string>
-    <string name="title_drafts_required">Za slanje poruka potrebna je mapa skica</string>
     <string name="title_account_delete">Želite li trajno izbrisati ovaj račun?</string>
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>

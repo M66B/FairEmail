@@ -165,7 +165,7 @@
     <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto i tożsamość w krokach konfiguracji 1 i 2, korzystając z ustawień dostarczonych przez dostawcę poczty e-mail</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
     <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta, sprawdź instrukcje swojego dostawcy</string>
-    <string name="title_setup_no_system_folders">Nie znaleziono folderu skrzynki odbiorczej lub szkiców</string>
+    <string name="title_setup_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
     <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
@@ -337,6 +337,7 @@
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>
     <string name="title_advanced_message_text_zoom">Domyślne powiększenie tekstu wiadomości</string>
+    <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
@@ -483,6 +484,7 @@
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, jeśli są dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jedna</string>
+    <string name="title_advanced_overview_mode_hint">Może to skutkować bardzo małymi czcionkami</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
@@ -582,16 +584,14 @@
     <string name="title_no_user">Brak nazwy użytkownika</string>
     <string name="title_no_password">Brak hasła</string>
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
-    <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
+    <string name="title_no_drafts">Brak folderu szkiców</string>
     <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
-    <string name="title_no_identities">Wysyłanie wiadomości e-mail wymaga co najmniej jednej tożsamości i folderu kopii roboczych</string>
+    <string name="title_no_composable">Wysyłanie wiadomości e-mail wymaga skonfigurowania tożsamości i wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
     <string name="title_no_sync">Błędy synchronizacji od %1$s</string>
     <string name="title_reply_domain">Nadawca (%1$s) i domena odpowiedzi (%2$s) różnią się</string>
-    <string name="title_identity_required">Do wysyłania wiadomości wymagana jest tożsamość</string>
-    <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
@@ -683,6 +683,7 @@
     <string name="title_buttons">Przyciski</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
     <string name="title_unseen">Oznacz jako nieprzeczytane</string>
+    <string name="title_toggle_seen">Przeczytane/nieprzeczytane</string>
     <string name="title_hide">Ukryj</string>
     <string name="title_unhide">Pokaż</string>
     <string name="title_flag">Dodaj gwiazdkę</string>

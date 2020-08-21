@@ -147,7 +147,6 @@
     <string name="title_setup_no_settings">Nastavitev za domeno \'%1$s\' ni bilo mogoče najti.</string>
     <string name="title_setup_no_settings_hint">Poizkusite nastaviti račun in identiteto v 1. in 2. koraku z uporabo nastavitev od svojega e-poštnega ponudnika.</string>
     <string name="title_setup_no_auth_hint">Preverite e-poštni naslov in geslo in se prepričajte, da je za vaš račun omogočen zunanji dostop (IMAP/SMTP).</string>
-    <string name="title_setup_no_system_folders">Mape \'Prejeto\' ali \'Osnutki\' ni bilo mogoče najti.</string>
     <string name="title_setup_quick_success">Račun in identiteta sta bila uspešno dodana.</string>
     <string name="title_setup_quick_failed">Račun in identiteto lahko poizkusite nastaviti tudi spodaj.</string>
     <string name="title_setup_manage">Upravljaj</string>
@@ -501,15 +500,11 @@
     <string name="title_no_user">Manjka uporabniško ime.</string>
     <string name="title_no_password">Manjka geslo.</string>
     <string name="title_no_inbox">Mapa \'Prejeto\' ni bila najdena.</string>
-    <string name="title_no_primary_drafts">Ni glavnega računa ali mape z osnutki.</string>
-    <string name="title_no_identities">Pošiljanje e-pošte zahteva vsaj eno identiteto in mapo z osnutki.</string>
     <string name="title_no_standard">Ta ponudnik uporablja lastniški e-poštni protokol, zato ni mogoče uporabljati odjemalcev tretjih oseb.</string>
     <string name="title_no_idle">Ta ponudnik ne podpira potisnih sporočil.  To bo odložilo prejem novih sporočil in povečalo porabo energije.</string>
     <string name="title_no_utf8">Ta ponudnik ne podpira kodiranja UTF-8.</string>
     <string name="title_no_sync">Napake sinhronizacije od %1$s</string>
     <string name="title_reply_domain">Pošiljatelj (%1$s) in domena za odgovor (%2$s) se razlikujeta.</string>
-    <string name="title_identity_required">Za pošiljanje sporočil je zahtevana identiteta.</string>
-    <string name="title_drafts_required">Za pošiljanje sporočil je zahtevana mapa z osnutki.</string>
     <string name="title_account_delete">Trajno izbriši ta račun?</string>
     <string name="title_identity_delete">Trajno izbriši to identiteto?</string>
     <string name="title_edit_html">Uredi kot HTML</string>

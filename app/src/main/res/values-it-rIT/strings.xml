@@ -144,7 +144,6 @@
     <string name="title_setup_no_settings_hint">Prova a configurare un account e un\'identità nei passaggi 1 e 2 del setup utilizzando le impostazioni fornite dal tuo provider di posta elettronica</string>
     <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece della password dell\'account, per favore controlla le istruzioni del tuo provider</string>
-    <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
     <string name="title_setup_advanced_protection">Quando sei iscritto/a al programma di protezione avanzata non è possibile utilizzare un\'applicazione di posta elettronica di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
@@ -200,6 +199,7 @@
     <string name="title_setup_theme_red_green">Rosso/verde</string>
     <string name="title_setup_theme_grey">Grigio</string>
     <string name="title_setup_theme_black">Nero</string>
+    <string name="title_setup_theme_black_and_white">Bianco e nero</string>
     <string name="title_setup_theme_reverse">Inverti colori</string>
     <string name="title_setup_theme_dark">Scuro</string>
     <string name="title_setup_theme_black_background">Sfondo nero</string>
@@ -560,16 +560,12 @@
     <string name="title_no_user">Nome utente mancante</string>
     <string name="title_no_password">Password mancante</string>
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
-    <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
-    <string name="title_no_identities">L\'invio di email richiede almeno un\'identità e una cartella bozze</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_reply_domain">Il mittente (%1$s) e il dominio di risposta (%2$s) differiscono</string>
-    <string name="title_identity_required">È necessaria un\'identità per inviare messaggi</string>
-    <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella bozze</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_edit_html">Modifica come HTML</string>

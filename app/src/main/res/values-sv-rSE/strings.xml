@@ -144,7 +144,7 @@
     <string name="title_setup_no_settings_hint">Försök att skapa ett konto och en identitet i steg 1 och 2 med de inställningar som tillhandahålls av din e-postleverantör</string>
     <string name="title_setup_no_auth_hint">Vänligen dubbelkolla din e-postadress och lösenord och se till att extern åtkomst (IMAP/SMTP) är aktiverad för ditt konto</string>
     <string name="title_setup_app_password_hint">Denna leverantör kräver ett app-lösenord istället för kontots lösenord, vänligen kontrollera instruktionerna hos din leverantör</string>
-    <string name="title_setup_no_system_folders">Inkorgen eller utkastmappen hittades inte</string>
+    <string name="title_setup_no_inbox">Inkorgen hittades inte</string>
     <string name="title_setup_advanced_protection">När du är inskriven i det avancerade skyddsprogrammet är det inte möjligt att använda en tredje parts e-postapp. Detta är en begränsning som införts av Google.</string>
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
@@ -315,6 +315,7 @@
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_message_text_zoom">Förvald zoom på meddelandetext</string>
+    <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
     <string name="title_advanced_text_color">Använd textfärger</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_preview_issue">Scrollningen kan vara långsam på grund av en bugg i vissa Android-versioner när antalet rader är mer än en</string>
+    <string name="title_advanced_overview_mode_hint">Detta kan resultera i mycket små typsnitt</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
@@ -560,16 +562,17 @@
     <string name="title_no_user">Användarnamn saknas</string>
     <string name="title_no_password">Lösenord saknas</string>
     <string name="title_no_inbox">Inkorgen hittades inte</string>
-    <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
+    <string name="title_no_drafts">Ingen utkastmapp</string>
     <string name="title_no_junk_folder">Det finns ingen skräppostmapp vald för detta konto</string>
-    <string name="title_no_identities">Att skicka e-post kräver minst en identitet och en utkastmapp</string>
+    <string name="title_no_composable">Att skicka e-post kräver att en identitet konfigureras och att en utkastmapp väljs i kontoinställningarna</string>
     <string name="title_no_standard">Denna leverantör använder ett egenutvecklat e-postprotokoll och därför är det inte möjligt att använda tredje parts e-postklienter</string>
     <string name="title_no_idle">Leverantören stödjer inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stödjer inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
     <string name="title_reply_domain">Avsändaren (%1$s) och svarsdomän (%2$s) skiljer sig åt</string>
-    <string name="title_identity_required">En identitet krävs för att skicka meddelanden</string>
-    <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
+    <string name="title_identity_required">En identitet krävs för att skicka e-post</string>
+    <string name="title_drafts_required">En utkastmapp krävs för att skicka e-post</string>
+    <string name="title_drafts_select">Att skicka e-post kräver att en utkastmapp väljs i kontoinställningarna</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
@@ -661,6 +664,7 @@
     <string name="title_buttons">Knappar</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
+    <string name="title_toggle_seen">Växla lästa</string>
     <string name="title_hide">Dölj</string>
     <string name="title_unhide">Visa</string>
     <string name="title_flag">Lägg till stjärna</string>

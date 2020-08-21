@@ -70,6 +70,12 @@
         <item quantity="many">Vybráno %1$d konverzací</item>
         <item quantity="other">Vybráno %1$d konverzací</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Přesunout %1$d zprávu?</item>
+        <item quantity="few">Přesunout %1$d zprávy?</item>
+        <item quantity="many">Přesunout %1$d zpráv?</item>
+        <item quantity="other">Přesunout %1$d zpráv?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Trvale odstranit %1$d zprávu?</item>
         <item quantity="few">Trvale odstranit %1$d zprávy?</item>
@@ -160,7 +166,6 @@
     <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
-    <string name="title_setup_no_system_folders">Složka doručené či koncepty nebyla nalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -328,7 +333,7 @@
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
-    <string name="title_advanced_addresses">Zobrazit detaily adresy automaticky</string>
+    <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_message_text_zoom">Výchozí zvětšení textu zprávy</string>
@@ -478,6 +483,7 @@
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
+    <string name="title_advanced_overview_mode_hint">Může mít za následek velmi malé písmo</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
@@ -577,16 +583,12 @@
     <string name="title_no_user">Chybí uživatelské jméno</string>
     <string name="title_no_password">Chybí heslo</string>
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
-    <string name="title_no_primary_drafts">Žádný hlavní účet nebo žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
-    <string name="title_no_identities">Odesílání e-mailů vyžaduje alespoň jednu identitu a složku konceptů</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_reply_domain">Doména odesílatele (%1$s) a odpovědi (%2$s) se liší</string>
-    <string name="title_identity_required">Identita je nutná pro odesílání zpráv</string>
-    <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -597,6 +599,7 @@
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírování pro vytvoření aliasu identity</string>
+    <string name="title_service_auth">E-mailový server navrátil: \'%1$s\'</string>
     <string name="title_service_vpn">Toto může být zapříčiněno použitou VPN</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_service_protocol">Překontrolujte prosím protokol (SSL/TLS nebo STARTTLS)</string>
@@ -677,6 +680,7 @@
     <string name="title_buttons">Tlačítka</string>
     <string name="title_seen">Označit přečtené</string>
     <string name="title_unseen">Označit nepřečtené</string>
+    <string name="title_toggle_seen">Označit ne/přečteno</string>
     <string name="title_hide">Skrýt</string>
     <string name="title_unhide">Zobrazit</string>
     <string name="title_flag">Přidat hvězdičku</string>
@@ -780,6 +784,7 @@
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
+    <string name="title_reformatted">Toto je přeformátované zobrazení zprávy. Stisknutím ikony &#x26F6; lze zobrazit původní zprávu a skrýt toto oznámení.</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
     <string name="title_delivered_to">Doručeno na:</string>

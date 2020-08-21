@@ -115,7 +115,6 @@
     <string name="title_setup_no_settings">無法從 \'%1$s\' 獲得設定</string>
     <string name="title_setup_no_auth_hint">請再次確認您的郵件地址及密碼，以及有外部存取（IMAP/SMTP）的權限。</string>
     <string name="title_setup_app_password_hint">這個郵件服務商需要使用額外的應用程式密碼而不是帳號本身的密碼，請確認服務商提供的步驟</string>
-    <string name="title_setup_no_system_folders">沒有找到收件匣或草稿資料夾</string>
     <string name="title_setup_quick_success">帳號及身份已成功被加入</string>
     <string name="title_setup_quick_failed">您可以嘗試在下方設定帳號及身份</string>
     <string name="title_setup_manage">管理</string>

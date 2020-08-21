@@ -238,8 +238,6 @@
     <string name="title_no_host">اسم المضيف مفقود</string>
     <string name="title_no_user">اسم المستخدم مفقود</string>
     <string name="title_no_password">كلمة المرور مفقودة</string>
-    <string name="title_no_primary_drafts">لا يوجد حساب أساسي أو لا مجلد المسودات</string>
-    <string name="title_drafts_required">مجلد للمسودات مطلوب لغرض إرسال رسائل</string>
     <string name="title_account_delete">حذف هذا الحساب نهائيا؟</string>
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>

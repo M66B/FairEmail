@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
     <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за акаунта, моля, проверете инструкциите на вашия доставчик</string>
-    <string name="title_setup_no_system_folders">Папките вх. поща или чернова не са намерени</string>
     <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
     <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
     <string name="title_setup_manage">Управление</string>
@@ -523,15 +522,11 @@
     <string name="title_no_user">Липсва потребителско име</string>
     <string name="title_no_password">Липсва парола</string>
     <string name="title_no_inbox">Не е намерена входяща кутия</string>
-    <string name="title_no_primary_drafts">Няма първичен профил или няма папка чернови</string>
-    <string name="title_no_identities">Изпращането на имейли изисква поне една самоличност и папка за чернови</string>
     <string name="title_no_standard">Този доставчик използва собствен имейл протокол и следователно не е възможно да се използват имейл клиенти на трети страни</string>
     <string name="title_no_idle">Този доставчик не поддържа push съобщения. Това ще забави получаването на нови съобщения и ще увеличи консумацията на батерията.</string>
     <string name="title_no_utf8">Този доставчик не поддържа UTF-8</string>
     <string name="title_no_sync">Грешки при синхронизиране от %1$s</string>
     <string name="title_reply_domain">Подателят (%1$s) и домейна за отговор (%2$s) се различават</string>
-    <string name="title_identity_required">За изпращане на съобщения е необходима идентичност</string>
-    <string name="title_drafts_required">За изпращане на съобщения е необходима папка за чернови</string>
     <string name="title_account_delete">Искате ли да изтриете този профил за постоянно?</string>
     <string name="title_identity_delete">Да се изтрие ли идентичността за постоянно?</string>
     <string name="title_edit_html">Редактиране като HTML</string>

@@ -143,7 +143,7 @@
     <string name="title_setup_no_settings_hint">Probeer a.u.b. een account en identiteit in stappen 1 en 2 in te stellen met behulp van de instellingen die door uw e-mailprovider werden verstrekt</string>
     <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
     <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het wachtwoord van uw account, controleer a.u.b. de instructies van uw provider</string>
-    <string name="title_setup_no_system_folders">Inbox of conceptmap niet gevonden</string>
+    <string name="title_setup_no_inbox">Postvak in niet gevonden</string>
     <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
     <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
@@ -315,6 +315,7 @@
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_message_text_zoom">Standaard berichttekst zoom</string>
+    <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_text_color">Gebruik tekstkleuren</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
+    <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
@@ -560,16 +562,17 @@
     <string name="title_no_user">Gebruikersnaam ontbreekt</string>
     <string name="title_no_password">Wachtwoord ontbreekt</string>
     <string name="title_no_inbox">Postvak in niet gevonden</string>
-    <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
+    <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
-    <string name="title_no_identities">Het verzenden van e-mails vereist ten minste één identiteit en een conceptmap</string>
+    <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_reply_domain">Het afzender (%1$s) en antwoorddomein (%2$s) verschillen</string>
-    <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
-    <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
+    <string name="title_identity_required">Een identiteit is vereist voor het verzenden van e-mails</string>
+    <string name="title_drafts_required">Een conceptenmap is vereist voor het verzenden van e-mails</string>
+    <string name="title_drafts_select">Het verzenden van e-mails vereist een conceptmap die geselecteerd moet worden in de accountinstellingen</string>
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
     <string name="title_edit_html">Bewerk als HTML</string>
@@ -661,6 +664,7 @@
     <string name="title_buttons">Knoppen</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
+    <string name="title_toggle_seen">Lezen schakelen</string>
     <string name="title_hide">Verbergen</string>
     <string name="title_unhide">Tonen</string>
     <string name="title_flag">Ster toevoegen</string>

@@ -1,20 +1,20 @@
-# FairEmail support
+# Dukungan FairEmail
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan di bawah ini terlebih dahulu. Di bagian bawah, Anda dapat mengetahui cara mengajukan pertanyaan lain, meminta fitur, dan melaporkan bug.
 
-## Index
+## Indeks
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Laguntza](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
+* [Memberi otorisasi akun](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Bagaimana caranya?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Masalah yang diketahui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Fitur yang terencana](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Fitur yang sering diminta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Pertanyaan yang sering di ajukan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Dukungan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Memberi otorisasi akun
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Dalam banyak kasus, pengaturan cepat akan mampu secara otomatis mengidentifikasi konfigurasi yang benar.
 
 If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
@@ -482,7 +482,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*Orokorra*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -560,7 +560,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-*Orokorra*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -2693,7 +2693,7 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 <br />
 
-## Laguntza
+## Support
 
 Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 

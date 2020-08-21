@@ -130,7 +130,6 @@
     <string name="title_setup_no_settings_hint">Saiatu kontu eta identitate bat konfiguratzen 1. eta 2. konfigurazio-urratsean, zure posta elektronikoaren hornitzaileak emandako ezarpenak erabiliz</string>
     <string name="title_setup_no_auth_hint">Egiaztatu zure helbide elektronikoa eta pasahitza eta ziurtatu kanpoko sarbidea (IMAP / SMTP) gaituta dagoela zure konturako</string>
     <string name="title_setup_app_password_hint">Hornitzaile honek aplikazio-pasahitza eskatzen du kontu-pasahitzaren ordez, egiaztatu zure hornitzailearen argibideak</string>
-    <string name="title_setup_no_system_folders">Sarrera-ontzia edo zirriborroen karpeta ez da aurkitu</string>
     <string name="title_setup_quick_success">Kontu eta identitate bat gehitu dira</string>
     <string name="title_setup_quick_failed">Kontu eta identitate bat konfiguratzen saiatu zaitezke hemen azpian</string>
     <string name="title_setup_manage">Kudeatu</string>
@@ -506,15 +505,11 @@
     <string name="title_no_user">Erabiltzailearen izena falta da</string>
     <string name="title_no_password">Pasahitza falta da</string>
     <string name="title_no_inbox">Ez da sarrera ontzia aurkitu</string>
-    <string name="title_no_primary_drafts">Kontu nagusirik edo zirriborroen karpetarik ez</string>
-    <string name="title_no_identities">Posta elektronikoak bidaltzeak gutxienez identitate bat eta zirriborroen karpeta behar ditu</string>
     <string name="title_no_standard">Hornitzaile honek e-posta protokolo jabeduna erabiltzen du eta, beraz, ezin da hirugarrenen bezeroak erabili</string>
     <string name="title_no_idle">Hornitzaile honek ez ditu push mezuak onartzen. Honek mezu berriak jasotzea atzeratuko du eta bateriaren erabilera areagotuko du.</string>
     <string name="title_no_utf8">Hornitzaile honek ez du UTF-8 onartzen</string>
     <string name="title_no_sync">Sinkronizazio akatsak %1$s geroztik</string>
     <string name="title_reply_domain">Bidaltzailearena (%1$s) eta erantzuteko domeinua (%2$s) ez datoz bat</string>
-    <string name="title_identity_required">Identitate bat behar da mezuak bidaltzeko</string>
-    <string name="title_drafts_required">Zirriborroen karpeta beharrezkoa da mezuak bidaltzeko</string>
     <string name="title_account_delete">Ezabatu kontu hau behin betiko?</string>
     <string name="title_identity_delete">Ezabatu identitate hau behin betiko?</string>
     <string name="title_edit_html">Editatu HTML gisa</string>

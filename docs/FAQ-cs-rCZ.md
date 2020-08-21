@@ -62,7 +62,7 @@ Související dotazy:
 
 ## Známé problémy
 
-* ~~[Chyba v Androidu 5.1 a 6](https://issuetracker.google.com/issues/37054851) způsobí, že aplikace mohou někdy zobrazovat špatný formát času. Přepnutí nastavení Androidu *Použít 24hod. formát* může dočasně problém vyřešit. Bylo přidáno provizorní řešení.~~
+* ~~[Chyba v Androidu 5.1 a 6](https://issuetracker.google.com/issues/37054851) způsobuje, že aplikace mohou někdy zobrazovat špatný formát času. Přepnutí nastavení Androidu *Použít 24hod. formát* může dočasně problém vyřešit. Bylo přidáno provizorní řešení.~~
 * ~~[Chyba v Google Disku](https://issuetracker.google.com/issues/126362828) způsobí, že soubory exportované do Google Disku jsou prázdné. Google toto opravil.~~
 * ~~[Chyba v AndroidX](https://issuetracker.google.com/issues/78495471) působí občasné pády FairEmailu při dlouhém podržení nebo tažení. Google toto opravil.~~
 * ~~[Chyba v AndroidX ROOM](https://issuetracker.google.com/issues/138441698) někdy způsobí pád s "*... Exception while computing database live data ... Couldn't read row ...*". Bylo přidáno provizorní řešení.~~
@@ -510,7 +510,7 @@ You can use a Microsoft Exchange account if it is accessible via IMAP, which is 
 
 Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Some older Exchange server versions have a bug causing empty message and corrupt attachments. Pro provizorní řešení se prosím podívejte na [tento FAQ](#user-content-faq110).
 
 Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
@@ -851,7 +851,7 @@ Possible causes are:
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
 * The are problems with the internet connection
-* The email server is refusing to accept connections
+* The email server is refusing to accept (external) connections
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
@@ -2105,7 +2105,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2415,8 +2415,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* The account password was changed: changing it in FairEmail too should fix the problem
 * Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
@@ -2534,7 +2534,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-The F-Droid build is supported, but any other unofficial build is not supported.
+There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 

@@ -140,7 +140,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
     <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
-    <string name="title_setup_no_system_folders">Bejövő vagy piszkozatok mappa nem található</string>
     <string name="title_setup_advanced_protection">Az \"Advanced Protection\" programban részt vevők fiókjaihoz való hozzáférést a Google letiltotta minden harmadik féltől származó app számára.</string>
     <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
     <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
@@ -554,16 +553,12 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_user">Hiányzó felhasználónév</string>
     <string name="title_no_password">Hiányzó jelszó</string>
     <string name="title_no_inbox">Bejövő mappa nem található</string>
-    <string name="title_no_primary_drafts">Nincs elsődleges fiók vagy elsődleges piszkozatok mappa</string>
     <string name="title_no_junk_folder">Ehhez a fiókhoz nincs Spam mappa kijelölve</string>
-    <string name="title_no_identities">Üzenetek küldéséhez szükséges legalább 1 identitás és egy piszkozatok mappa</string>
     <string name="title_no_standard">Ez a szolgáltató zárt email protokollt használ, ezért nem lehetséges harmadik féltől származó email kliens használata</string>
     <string name="title_no_idle">Ez a szolgáltató nem támogatja a push üzenetek kuldését. Ez a bejövő üzenetek késlekedésével és megnövekedett akkumulátorhasználattal jár.</string>
     <string name="title_no_utf8">A szolgáltató nem támogatja az UTF-8-at</string>
     <string name="title_no_sync">Szinkronizálási hibák %1$s óta</string>
     <string name="title_reply_domain">A küldő (%1$s) és a válaszoló domain (%2$s) különbözik egymástól</string>
-    <string name="title_identity_required">Identitás szükséges az üzenetek küldéséhez</string>
-    <string name="title_drafts_required">Az üzenetek küldéséhez piszkozat mappa szükséges</string>
     <string name="title_account_delete">Véglegesen törli a fiókot?</string>
     <string name="title_identity_delete">Véglegesen törli az identitást?</string>
     <string name="title_edit_html">Szerkesztés HTML-ként</string>

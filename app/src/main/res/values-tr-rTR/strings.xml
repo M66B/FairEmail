@@ -125,7 +125,6 @@
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
     <string name="title_setup_no_settings_hint">Lütfen e-posta sağlayıcınız tarafından sağlanan ayarları kullanarak 1. ve 2. kurulum adımında bir hesap ve kimlik ayarlamaya çalışın</string>
     <string name="title_setup_no_auth_hint">Lütfen e-posta adresinizi ve parolanızı tekrar kontrol edin ve hesabınız için harici erişimin (IMAP/SMTP) etkinleştirilmiş olduğundan emin olun</string>
-    <string name="title_setup_no_system_folders">Gelen kutusu veya taslaklar klasörü bulunamadı</string>
     <string name="title_setup_quick_success">Bir hesap ve bir kimlik başarıyla eklendi</string>
     <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
     <string name="title_setup_manage">Yönet</string>
@@ -446,15 +445,11 @@
     <string name="title_no_user">Kullanıcı adı eksik</string>
     <string name="title_no_password">Parola Eksik</string>
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
-    <string name="title_no_primary_drafts">Birincil hesap veya taslak klasörü yok</string>
-    <string name="title_no_identities">E-posta göndermek için en az bir kimlik ve bir taslaklar klasörü gerekmektedir</string>
     <string name="title_no_standard">Bu sağlayıcı, açık olmayan bir e-posta protokolü kullanıyor ve bu nedenle üçüncü taraf e-posta istemcilerini kullanmak mümkün değil</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_reply_domain">Gönderen (%1$s) ve yanıtlama alan adı (%2$s) farklı</string>
-    <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
-    <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>

@@ -54,6 +54,10 @@
         <item quantity="one">Seleccionada %1$d conversa</item>
         <item quantity="other">Seleccionadas %1$d conversas</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Mover %1$d mensaxe?</item>
+        <item quantity="other">Mover %1$d mensaxes?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Borrar %1$d mensaxe definitivamente?</item>
         <item quantity="other">Borrar %1$d mensaxes definitivamente?</item>
@@ -139,7 +143,6 @@
     <string name="title_setup_no_settings_hint">Por favor, tente configurar unha conta e identidade nos pasos de configuración 1 e 2 usando os parámetros do seu provedor de email</string>
     <string name="title_setup_no_auth_hint">Por favor, repase o seu enderezo de email e o seu contrasinal e comprobe que o acceso externo (IMAP/SMTP) estea activado para a súa conta</string>
     <string name="title_setup_app_password_hint">Este provedor require un contrasinal de aplicación no canto do contrasinal de conta; por favor, comprobe as instrucións do seu provedor</string>
-    <string name="title_setup_no_system_folders">Non se atoparon os cartafoles de entrada ou de borradores</string>
     <string name="title_setup_advanced_protection">Ao estaren activado o programa de protección avanzado, non é posible empregar unha aplicación de email de terceiros. Isto é unha restrición imposta por Google.</string>
     <string name="title_setup_quick_success">Engadiuse con éxito unha conta e identidade</string>
     <string name="title_setup_quick_failed">Tamén pode tentar configurar tamén unha conta e identidade debaixo</string>
@@ -168,6 +171,7 @@
     <string name="title_setup_done">Feito</string>
     <string name="title_setup_still">Aínda por facer</string>
     <string name="title_setup_error">Erro</string>
+    <string name="title_setup_configuring">Estase a configurar a conta &#8230;</string>
     <string name="title_setup_export">Exportar axustes</string>
     <string name="title_setup_import">Importar axustes</string>
     <string name="title_setup_import_do">As contas importadas engadiranse sen sobrescribir as existentes</string>
@@ -194,6 +198,7 @@
     <string name="title_setup_theme_red_green">Vermello/verde</string>
     <string name="title_setup_theme_grey">Gris</string>
     <string name="title_setup_theme_black">Negro</string>
+    <string name="title_setup_theme_black_and_white">Branco e negro</string>
     <string name="title_setup_theme_reverse">Intercambiar cores</string>
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_black_background">Fondo escuro</string>
@@ -309,6 +314,7 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos despois do texto da mensaxe</string>
     <string name="title_advanced_thumbnails">Mostrar as miniaturas das imaxes despois do texto da mensaxe</string>
     <string name="title_advanced_message_text_zoom">Factor de ampliación do texto da mensaxe por defecto</string>
+    <string name="title_advanced_overview_mode">Ampliar as mensaxes orixinais para encher a pantalla</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto das mensaxes</string>
     <string name="title_advanced_monospaced">Usar fontes de ancho fixo para o texto das mensaxes por defecto</string>
     <string name="title_advanced_text_color">Usar cores de texto</string>
@@ -331,6 +337,7 @@
     <string name="title_advanced_volumenav">Teclas de volume alto/baixo para ir á conversa seguinte/anterior</string>
     <string name="title_advanced_reversed">Dirección de navegación inversa</string>
     <string name="title_advanced_swipe_close">Esvarar cara abaixo para pechar a conversa</string>
+    <string name="title_advanced_swipe_move">Esvarar cara arriba para mover a conversa</string>
     <string name="title_advanced_autoexpand">Expandir automaticamente as mensaxes</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensaxes lidas</string>
     <string name="title_advanced_expand_one">Expandir soamente unha mensaxe de cada vez</string>
@@ -339,10 +346,12 @@
     <string name="title_advanced_onclose">Cando se pecha unha conversa</string>
     <string name="title_advanced_undo">Tempo límite para desfacer</string>
     <string name="title_advanced_quick_filter">Mostrar iconas rápidas de filtro non obstruíntes</string>
+    <string name="title_advanced_quick_scroll">Mostrar iconas rápidas de mover arriba/abaixo non obstruíntes</string>
     <string name="title_advanced_autoread">Marcar mensaxes como lidas automaticamente cando se movan as mensaxes</string>
     <string name="title_advanced_star_snoozed">Engadir unha estrela automaticamente ás mensaxes adiadas</string>
     <string name="title_advanced_autounstar">Quitar as estrelas automaticamente das mensaxes ao movelas</string>
     <string name="title_advanced_auto_important">Marcar como importantes as mensaxes con estrela</string>
+    <string name="title_advanced_reset_importance">Reiniciar a importancia ao mover as mensaxes</string>
     <string name="title_advanced_discard_delete">Borrar permanentemente os borradores descartados</string>
     <string name="title_advanced_default_snooze">Tempo predeterminado do adiamento</string>
     <string name="title_advanced_notifications">Xestionar notificacións</string>
@@ -393,6 +402,10 @@
     <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo de Autocrypt</string>
     <string name="title_advanced_check_certificate">Verificar chave pública ao enviar</string>
+    <string name="title_advanced_manage_certificates">Xestionar as chaves públicas</string>
+    <string name="title_advanced_import_key">Importar chave privada</string>
+    <string name="title_advanced_manage_keys">Xestionar chaves privadas</string>
+    <string name="title_advanced_ca">Certificados CA instalados</string>
     <string name="title_advanced_startup_hint">Pulsación longa en calquera cartafol na lista de cartafoles para engadilo ou quitalo da lista unificada de cartafoles</string>
     <string name="title_advanced_date_hint">As mensaxes soamente se agrupan por data se están ordenadas temporalmente</string>
     <string name="title_advanced_navbar_colorize_hint">Se isto funciona ou non depende da versión e variante de Android</string>
@@ -501,16 +514,12 @@
     <string name="title_no_user">Falta o nome de usuario</string>
     <string name="title_no_password">Non hai contrasinal</string>
     <string name="title_no_inbox">Non se atopa a caixa de entrada</string>
-    <string name="title_no_primary_drafts">Non hai conta primaria ou cartafol de borradores</string>
     <string name="title_no_junk_folder">Non hai un cartafol de spam seleccionado para esta conta</string>
-    <string name="title_no_identities">Para enviar emails é preciso dispor de polo menos unha identidade e un cartafol de borradores</string>
     <string name="title_no_standard">Este provedor emprega un protocolo propietario de email, e polo tanto non é posible usar clientes de email de terceiros</string>
     <string name="title_no_idle">Este provedor non soporta mensaxes \'push\'. Isto adiará a recepción de novas mensaxes e incrementará o uso de batería.</string>
     <string name="title_no_utf8">Este provedor non soporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronización dende %1$s</string>
     <string name="title_reply_domain">O remitente (%1$s) e o dominio de resposta (%2$s) non son o mesmo</string>
-    <string name="title_identity_required">Requírese unha identidade para enviar mensaxes</string>
-    <string name="title_drafts_required">Requírese un cartafol de borradores para enviar mensaxes</string>
     <string name="title_account_delete">Borrar esta conta permanentemente?</string>
     <string name="title_identity_delete">Borrar esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -600,6 +609,7 @@
     <string name="title_buttons">Botóns</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como non lida</string>
+    <string name="title_toggle_seen">Trocar lido/non lido</string>
     <string name="title_hide">Agochar</string>
     <string name="title_unhide">Amosar</string>
     <string name="title_flag">Engadir estrela</string>

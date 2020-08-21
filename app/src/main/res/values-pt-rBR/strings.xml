@@ -81,6 +81,7 @@
     <string name="title_notification_alert">\'%1$s\' alerta de servidor</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
+    <string name="title_notification_redacted">Reformulado: autenticação biométrica ou PIN habilitado</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -143,7 +144,6 @@
     <string name="title_setup_no_settings_hint">Tente criar uma conta e identidade nas etapas de configuração 1 e 2 utilizando as configurações fornecidas pelo seu fornecedor de e-mail</string>
     <string name="title_setup_no_auth_hint">Por favor, verifique o seu endereço de e-mail e senha e certifique-se de que o acesso externo (IMAP/SMTP) está ativado para sua conta</string>
     <string name="title_setup_app_password_hint">Este provedor requer uma senha do aplicativo ao invés da senha da conta, verifique as instruções do seu provedor</string>
-    <string name="title_setup_no_system_folders">Caixa de entrada ou pasta de rascunho não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar um aplicativo de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
@@ -199,6 +199,7 @@
     <string name="title_setup_theme_red_green">Vermelho/verde</string>
     <string name="title_setup_theme_grey">Cinza</string>
     <string name="title_setup_theme_black">Preto</string>
+    <string name="title_setup_theme_black_and_white">Preto e branco</string>
     <string name="title_setup_theme_reverse">Inverter cores</string>
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
@@ -560,16 +561,12 @@
     <string name="title_no_user">Nome do usuário faltante</string>
     <string name="title_no_password">Senha faltante</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
-    <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
     <string name="title_no_junk_folder">Não existe pasta de spam selecionada para essa conta</string>
-    <string name="title_no_identities">O envio de e-mails requer pelo menos uma identidade e uma pasta de rascunhos</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_reply_domain">O remetente (%1$s) e o domínio de resposta (%2$s) são diferentes</string>
-    <string name="title_identity_required">Uma identidade é necessária para enviar mensagens</string>
-    <string name="title_drafts_required">Uma pasta de rascunhos é necessário para enviar mensagens</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -764,6 +761,7 @@
     <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
+    <string name="title_reformatted">Esta é a visualização de mensagem reformatada. Você pode tocar no ícone &#x26F6; para ver a mensagem original e ocultar esta mensagem.</string>
     <string name="title_compose">Escrever</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
@@ -799,6 +797,9 @@
     <string name="title_style_size_medium">Médio</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_color">Cor &#8230;</string>
+    <string name="title_style_list">Lista</string>
+    <string name="title_style_list_bullets">Marcadores</string>
+    <string name="title_style_list_numbered">Numerado</string>
     <string name="title_style_font">Fonte</string>
     <string name="title_style_font_default">Padrão</string>
     <string name="title_style_clear">Limpar formatação</string>

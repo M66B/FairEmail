@@ -154,7 +154,6 @@
     <string name="title_setup_no_settings_hint">Încercați să configurați un cont și o identitate în etapele 1 și 2 de configurare utilizând setările furnizate de furnizorul de e-mail</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
-    <string name="title_setup_no_system_folders">Dosarul de primite sau ciorne nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -210,6 +209,7 @@
     <string name="title_setup_theme_red_green">Roșu/verde</string>
     <string name="title_setup_theme_grey">Gri</string>
     <string name="title_setup_theme_black">Negru</string>
+    <string name="title_setup_theme_black_and_white">Alb și negru</string>
     <string name="title_setup_theme_reverse">Inversează culorile</string>
     <string name="title_setup_theme_dark">Întunecată</string>
     <string name="title_setup_theme_black_background">Fundal negru</string>
@@ -570,16 +570,12 @@
     <string name="title_no_user">Lipsește numele de utilizator</string>
     <string name="title_no_password">Lipsește parola</string>
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
-    <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
     <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
-    <string name="title_no_identities">Trimiterea de e-mail-uri necesită cel puțin o identitate și un dosar de ciorne</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_reply_domain">Expeditorul (%1$s) și domeniul de răspuns (%2$s) diferă</string>
-    <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
-    <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -774,6 +770,7 @@
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
+    <string name="title_reformatted">Aceasta este vizualizarea mesajelor reformatate. Puteți apăsa pe pictograma &#x26F6; pentru a vizualiza mesajul original și pentru a ascunde acest mesaj.</string>
     <string name="title_compose">Compune</string>
     <string name="title_submitter">Trimis de:</string>
     <string name="title_delivered_to">Livrare către:</string>

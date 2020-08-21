@@ -851,7 +851,7 @@ Possible causes are:
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
 * The are problems with the internet connection
-* The email server is refusing to accept connections
+* Сервер электронной почты отказывается принимать (внешние) соединения
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
@@ -2105,7 +2105,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
+Некоторые провайдеры, такие как ProtonMail, Tutanota, используют проприетарные протоколы электронной почты, что делает невозможным использование почтовых приложений сторонних производителей. Пожалуйста, смотрите [этот FAQ](#user-content-faq129) для получения дополнительной информации.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2415,8 +2415,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* The account password was changed: changing it in FairEmail too should fix the problem
-* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* Push-сообщения включены для слишком большого числа папок: смотрите [этот FAQ](#user-content-faq23) для получения дополнительной информации об обходном пути
+* Пароль учетной записи был изменен: изменение его и в FairEmail должно исправить проблему
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
@@ -2534,7 +2534,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-The F-Droid build is supported, but any other unofficial build is not supported.
+**Поддерживается только** последняя версия Play Store, последняя версия GitHub и сборка F-Droid, но **только если** номер версии сборки F-Droid совпадает с номером версии последнего релиза GitHub.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 

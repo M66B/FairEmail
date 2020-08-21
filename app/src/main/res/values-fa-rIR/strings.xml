@@ -137,7 +137,6 @@
     <string name="title_setup_no_settings_hint">لطفا در گام ۱ و ۲ با استفاده از تنطیمات ارائه شده توسط فراهم‌کننده ایمیلتان، یک حساب و هویت راه اندازی کنید</string>
     <string name="title_setup_no_auth_hint">لطفا نشانی ایمیل و گذرواژه خود را دوباره بررسی کنید و اطمینان یابید که دسترسی بیرونی (IMAP/SMTP) برای حسابتان فعال می‌باشد</string>
     <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
-    <string name="title_setup_no_system_folders">صندوق دریافت یا پوشه پیش‌نویس‌ها یافت نشد</string>
     <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
     <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
     <string name="title_setup_manage">مدیریت</string>
@@ -459,13 +458,11 @@
     <string name="title_no_user">نام کاربری وجود ندارد</string>
     <string name="title_no_password">گذرواژه موجود نیست</string>
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
-    <string name="title_no_primary_drafts">عدم وجود حساب اصلی یا پوشه پیش‌نویس‌ها</string>
     <string name="title_no_standard">فراهم‌کننده از پروتکل اختصاصی استفاده می‌کند برای همین استفاده از کارخواه‌های شخص سوم ممکن نیست</string>
     <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
     <string name="title_no_sync">خطای همگام سازی از %1$s</string>
     <string name="title_reply_domain">فرستنده (%1$s) و دامنه پاسخ (%2$s) متفاوت هستند</string>
-    <string name="title_drafts_required">برای ارسال پیام‌ها به پوشه پیش‌نویس‌ها نیاز است</string>
     <string name="title_account_delete">حذف همیشگی این حساب؟</string>
     <string name="title_identity_delete">حذف همیشگی این هویت؟</string>
     <string name="title_edit_html">ویرایش به‌صورت HTML</string>

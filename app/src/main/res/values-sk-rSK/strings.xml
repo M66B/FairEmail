@@ -153,7 +153,6 @@
     <string name="title_setup_no_settings_hint">Vyskúšajte nastavenie účtu a identity v krokoch 1 a 2 nastavení použitím nastavení poskytovaných vaším e-mailovým poskytovateľom</string>
     <string name="title_setup_no_auth_hint">Dvakrát skontrolujte vašu e-mailovú adresu a heslo a uistite sa, že u vášho účtu je povolený externý prístup IMAP/SMTP</string>
     <string name="title_setup_app_password_hint">Tento poskytovateľ požaduje heslo aplikácie namiesto hesla účtu, skontrolujte pokyny vášho poskytovateľa</string>
-    <string name="title_setup_no_system_folders">Priečinok s doručenou poštu alebo s konceptmi nebol nájdený</string>
     <string name="title_setup_quick_success">Účet a identita boli úspešne pridané</string>
     <string name="title_setup_quick_failed">Môžete vyskúšať nastaviť účet a identitu nižšie</string>
     <string name="title_setup_manage">Spravovať</string>

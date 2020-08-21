@@ -132,7 +132,7 @@
     <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和2中设置一个帐户和身份</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的邮件地址和密码，并确保您的帐户已启用外部访问 (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是帐户密码，请查看该供应商的相关说明</string>
-    <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
+    <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
@@ -304,6 +304,7 @@
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
     <string name="title_advanced_message_text_zoom">默认缩放消息文本</string>
+    <string name="title_advanced_overview_mode">缩放原始消息以适合屏幕</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
@@ -450,6 +451,7 @@
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
+    <string name="title_advanced_overview_mode_hint">这可能导致非常小的字体</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
@@ -549,16 +551,17 @@
     <string name="title_no_user">缺少用户名</string>
     <string name="title_no_password">缺少密码</string>
     <string name="title_no_inbox">未找到收件箱</string>
-    <string name="title_no_primary_drafts">没有主帐户或草稿文件夹</string>
+    <string name="title_no_drafts">没有草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_identities">发送电子邮件需要至少一个身份和一个草稿文件夹</string>
+    <string name="title_no_composable">发送电子邮件需要配置身份，并在帐户设置中选择草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_reply_domain">发件人 (%1$s) 和回复对象 (%2$s) 地址不同</string>
-    <string name="title_identity_required">需要一个身份来发送消息</string>
-    <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
+    <string name="title_identity_required">发送邮件需要身份信息</string>
+    <string name="title_drafts_required">发送电子邮件需要一个草稿文件夹</string>
+    <string name="title_drafts_select">发送电子邮件需要在帐户设置中选定草稿文件夹</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以HTML格式编辑</string>
@@ -650,6 +653,7 @@
     <string name="title_buttons">按钮</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
+    <string name="title_toggle_seen">切换阅读状态</string>
     <string name="title_hide">隐藏</string>
     <string name="title_unhide">显示</string>
     <string name="title_flag">加注星标</string>

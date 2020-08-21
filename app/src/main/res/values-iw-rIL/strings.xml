@@ -134,7 +134,6 @@
     <string name="title_setup_no_settings">אין הגדרת לדומיין \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">נא לנסות להגדיר חשבון וזהות בשלבים 1 ו-2 על ידי הנתונים מהספק מייל </string>
     <string name="title_setup_no_auth_hint">נא לבדוק בחזרה הכתובת והסיסמא ולבדוק שהגישה החיצונית (IMAP/SMTP) מופעלת בחשבונך  </string>
-    <string name="title_setup_no_system_folders">דואר נכנס או טיוטות נעדרים</string>
     <string name="title_setup_quick_success">חשבון וזהות הוספו בהצלחה</string>
     <string name="title_setup_manage">נהל</string>
     <string name="title_setup_grant">הענק</string>

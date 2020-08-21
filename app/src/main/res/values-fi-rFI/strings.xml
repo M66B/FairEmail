@@ -54,6 +54,10 @@
         <item quantity="one">Valittuna %1$d keskustelu</item>
         <item quantity="other">Valittuna %1$d keskustelua</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Siirrä %1$d viesti?</item>
+        <item quantity="other">Siirrä %1$d viestiä?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Poista %1$d viesti pysyvästi?</item>
         <item quantity="other">Poista %1$d viestiä pysyvästi?</item>
@@ -138,7 +142,6 @@
     <string name="title_setup_no_settings_hint">Yritä asettaa tili ja identiteetti asetusvaiheissa 1 ja 2 käyttäen sähköpostipalveluntarjoajasi antamia asetuksia</string>
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovellussalasanan tilin salasanan sijaan, ole hyvä ja tarkista palveluntarjoajan ohjeet</string>
-    <string name="title_setup_no_system_folders">Saapuneet- tai luonnokset-kansiota ei löytynyt</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
@@ -167,6 +170,7 @@
     <string name="title_setup_done">Valmis</string>
     <string name="title_setup_still">Vielä tehtävänä</string>
     <string name="title_setup_error">Virhe</string>
+    <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
@@ -193,6 +197,7 @@
     <string name="title_setup_theme_red_green">Punainen/vihreä</string>
     <string name="title_setup_theme_grey">Harmaa</string>
     <string name="title_setup_theme_black">Musta</string>
+    <string name="title_setup_theme_black_and_white">Musta ja valkoinen</string>
     <string name="title_setup_theme_reverse">Käänteiset värit</string>
     <string name="title_setup_theme_dark">Tumma</string>
     <string name="title_setup_theme_black_background">Musta tausta</string>
@@ -329,6 +334,7 @@
     <string name="title_advanced_volumenav">Äänenvoimakkuus suuremmalle/pienemmälle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
     <string name="title_advanced_swipe_close">Pyyhkäise alas sulkeaksesi keskustelun</string>
+    <string name="title_advanced_swipe_move">Pyyhkäise ylös siirtääksesi keskustelun</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
@@ -359,15 +365,15 @@
     <string name="title_advanced_notify_preview_all">Esikatsele teksti kokonaisuudessaan</string>
     <string name="title_advanced_notify_preview_only">Näytä ilmoitukset vain esikatselutekstin kanssa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
-    <string name="title_advanced_notify_action_trash">Roskakori</string>
-    <string name="title_advanced_notify_action_junk">Roskaposti</string>
-    <string name="title_advanced_notify_action_archive">Arkisto</string>
+    <string name="title_advanced_notify_action_trash">Roskakoriin</string>
+    <string name="title_advanced_notify_action_junk">Roskapostiin</string>
+    <string name="title_advanced_notify_action_archive">Arkistoi</string>
     <string name="title_advanced_notify_action_move">Siirrä</string>
-    <string name="title_advanced_notify_action_reply">Vastaus sovelluksessa</string>
-    <string name="title_advanced_notify_action_reply_direct">Vastaus</string>
-    <string name="title_advanced_notify_action_flag">Tähti</string>
-    <string name="title_advanced_notify_action_seen">Luettu</string>
-    <string name="title_advanced_notify_action_snooze">Torkku</string>
+    <string name="title_advanced_notify_action_reply">Vastaa sovelluksessa</string>
+    <string name="title_advanced_notify_action_reply_direct">Vastaa</string>
+    <string name="title_advanced_notify_action_flag">Lisää tähti</string>
+    <string name="title_advanced_notify_action_seen">Luetuksi</string>
+    <string name="title_advanced_notify_action_snooze">Torkuta</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
     <string name="title_advanced_wearable_preview">Lähetä ilmoitukset puettaviin laitteisiin vain esikatselun kanssa</string>
@@ -550,16 +556,12 @@
     <string name="title_no_user">Käyttäjätunnus puuttuu</string>
     <string name="title_no_password">Salasana puuttuu</string>
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
-    <string name="title_no_primary_drafts">Ei ensisijainen tili tai ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
-    <string name="title_no_identities">Viestien lähettäminen vaatii vähintään yhden identiteetin ja luonnoskansion</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
     <string name="title_reply_domain">Lähetys- (%1$s) ja vastausverkkotunnukset (%2$s) poikkeavat toisistaan</string>
-    <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
-    <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
@@ -570,6 +572,7 @@
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
     <string name="title_hint_alias">Pitkä painallus näyttää vaihtoehdot, kuten kopioinnin aliasten luomiseksi</string>
+    <string name="title_service_auth">Sähköpostipalvelin sanoi: \'%1$s\'</string>
     <string name="title_service_vpn">Tämä voi olla käytössä olevan VPN-palvelun aiheuttama</string>
     <string name="title_service_port">Tarkista porttinumero uudelleen</string>
     <string name="title_service_protocol">Tarkista uudelleen protokolla (SSL/TLS tai STARTTLS)</string>
@@ -727,6 +730,7 @@
     <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
+    <string name="title_attachment_eml">Liitetty viesti</string>
     <string name="title_attachment_saved">Liite tallennettu</string>
     <string name="title_attachments_saved">Liitteet tallennettu</string>
     <string name="title_attachments_incomplete">Joitakin liitteitä tai kuvia ei ladattu eikä voitu lisätä</string>
@@ -745,10 +749,14 @@
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
     <string name="title_ask_review">Ole hyvä ja arvostele FairEmail</string>
+    <string name="title_ask_review_rationale">        Olet käyttänyt FairEmailia jo jonkin aikaa.
+        Olisi hyvä, jos voisit arvostella FairEmailin Play Kaupassa.
+    </string>
     <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
+    <string name="title_reformatted">Tämä on uudelleenmuotoiltu viestinäkymä. Voit napauttamalla kuvaketta &#x26F6; katsoa alkuperäisen viestin ja piilottaa tämän viestin.</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_submitter">Lähettäjä:</string>
     <string name="title_delivered_to">Toimitettu osoitteeseen:</string>
@@ -784,6 +792,9 @@
     <string name="title_style_size_medium">Keskikokoinen</string>
     <string name="title_style_size_large">Suuri</string>
     <string name="title_style_color">Väri &#8230;</string>
+    <string name="title_style_list">Lista</string>
+    <string name="title_style_list_bullets">Luettelomerkit</string>
+    <string name="title_style_list_numbered">Numeroitu</string>
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
     <string name="title_style_clear">Poista muotoilu</string>
@@ -1026,6 +1037,7 @@
     <string name="title_legend_download_fetch">Ladattujen viestien / haettujen tunnistetietojen lukumäärä</string>
     <string name="title_legend_stop">Lopeta sääntöjen käsittely</string>
     <string name="title_legend_thread">Keskustelu</string>
+    <string name="title_legend_bookmark">Viimeksi avattu keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>

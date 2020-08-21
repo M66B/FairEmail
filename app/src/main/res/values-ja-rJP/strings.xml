@@ -119,7 +119,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_no_settings_hint">メールプロバイダーから提供された設定を使用しセットアップ手順1及び2でアカウントとIDをセットアップして下さい</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードで無くアプリのパスワードが必要です。プロバイダーの指示を確認して下さい</string>
-    <string name="title_setup_no_system_folders">受信トレイ又は下書きフォルダーが見つかりません</string>
     <string name="title_setup_quick_success">アカウントとユーザ情報が正常に追加されました</string>
     <string name="title_setup_quick_failed">以下のアカウントとユーザ情報設定してみて下さい</string>
     <string name="title_setup_manage">管理する</string>
@@ -479,15 +478,11 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_no_user">ユーザー名を入力して下さい</string>
     <string name="title_no_password">パスワードを入力して下さい</string>
     <string name="title_no_inbox">受信トレイが見つかりません</string>
-    <string name="title_no_primary_drafts">プライマリアカウントもドラフトフォルダも有りません</string>
-    <string name="title_no_identities">メールを送信するには少なくとも1つのIDと下書きフォルダーが必要です</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>
     <string name="title_no_sync">%1$s 以降の同期エラー</string>
     <string name="title_reply_domain">送信者(%1$s)と返信ドメイン(%2$s)が異なります</string>
-    <string name="title_identity_required">メッセージを送信するにはIDが必要です</string>
-    <string name="title_drafts_required">メッセージを送信するには下書きフォルダが必要です</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
     <string name="title_identity_delete">このIDを完全に削除しますか？</string>
     <string name="title_edit_html">HTMLとして編集</string>
