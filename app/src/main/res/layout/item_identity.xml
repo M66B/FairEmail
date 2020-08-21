@@ -184,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
-                android:text="@string/title_drafts_required"
+                android:text="@string/title_drafts_select"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?attr/colorWarning"
                 app:layout_constraintEnd_toEndOf="parent"

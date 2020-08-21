@@ -666,8 +666,9 @@
     <string name="title_no_utf8">This provider does not support UTF-8</string>
     <string name="title_no_sync">Synchronization errors since %1$s</string>
     <string name="title_reply_domain">The sender (%1$s) and reply domain (%2$s) differ</string>
-    <string name="title_identity_required">An identity is required to send messages</string>
-    <string name="title_drafts_required">A drafts folder is required to send messages</string>
+    <string name="title_identity_required">An identity is required to send emails</string>
+    <string name="title_drafts_required">A drafts folder is required to send emails</string>
+    <string name="title_drafts_select">Sending emails requires a drafts folder to be selected in the account settings</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
