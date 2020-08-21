@@ -183,6 +183,24 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         return super.onGenericMotionEvent(event);
     }
 
+    public boolean isZoomed() {
+        int xtend = computeHorizontalScrollExtent();
+        if (xtend != 0) {
+            float xscale = computeHorizontalScrollRange() / (float) xtend;
+            if (xscale > 1.2)
+                return true;
+        }
+
+        int ytend = computeVerticalScrollExtent();
+        if (ytend != 0) {
+            float yscale = computeVerticalScrollRange() / (float) ytend;
+            if (yscale > 1.2)
+                return true;
+        }
+
+        return false;
+    }
+
     interface IWebView {
         void onSizeChanged(int w, int h, int ow, int oh);
 

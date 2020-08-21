@@ -2764,8 +2764,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else
                     return false;
             } else {
-                view.getParent().requestDisallowInterceptTouchEvent(false);
-                return (view.getId() == R.id.wvBody && ev.getAction() == MotionEvent.ACTION_MOVE);
+                boolean intercept = (view.getId() == R.id.wvBody && ((WebViewEx) wvBody).isZoomed());
+                view.getParent().requestDisallowInterceptTouchEvent(intercept);
+                return false;
             }
         }
 
