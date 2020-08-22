@@ -1908,6 +1908,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                             @Override
+                            public void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
+                                if (clampedY) {
+                                    int dy = context.getResources().getDisplayMetrics().heightPixels / 50;
+                                    properties.scrollBy(0, scrollY == 0 ? -dy : dy);
+                                }
+                            }
+
+                            @Override
                             public boolean onOpenLink(String url) {
                                 if (parentFragment == null)
                                     return false;
@@ -5759,6 +5767,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         List<EntityAttachment> getAttachments(long id);
 
         void scrollTo(int pos, int y);
+
+        void scrollBy(int x, int y);
 
         void move(long id, String type);
 

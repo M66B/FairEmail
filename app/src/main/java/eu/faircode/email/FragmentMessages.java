@@ -1701,6 +1701,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
+        public void scrollBy(int x, int y) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    rvMessage.scrollBy(x, y);
+                }
+            });
+        }
+
+        @Override
         public void move(long id, String type) {
             Bundle args = new Bundle();
             args.putLong("id", id);

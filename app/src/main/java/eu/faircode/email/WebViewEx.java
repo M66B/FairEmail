@@ -146,6 +146,13 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     @Override
+    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
+        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
+        Log.i("Over scrolled=" + scrollX + "/" + scrollY + " clamped=" + clampedX + "/" + clampedY);
+        intf.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
+    }
+
+    @Override
     public void onDownloadStart(
             String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
         Log.i("Download url=" + url + " mime type=" + mimetype);
@@ -207,6 +214,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         void onScaleChanged(float newScale);
 
         void onScrollChange(int scrollX, int scrollY);
+
+        void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY);
 
         boolean onOpenLink(String url);
     }
