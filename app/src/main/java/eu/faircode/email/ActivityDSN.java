@@ -128,7 +128,7 @@ public class ActivityDSN extends ActivityBase {
                     Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 else
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }
         }.execute(this, args, "disposition:decode");
     }
