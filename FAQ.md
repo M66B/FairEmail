@@ -2730,7 +2730,8 @@ FairEmail updates exiting notifications with a preview of the message text, but 
 Since there is no guarantee that a message text will always be fetched directly after a message header,
 it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*
+and if this does not work the notification option *Show notifications with a preview text only*.
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*.
 Note that some wearables are known to crash with this option enabled.
