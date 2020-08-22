@@ -418,6 +418,17 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Object tag = cbInsecure.getTag();
+                if (tag != null && tag.equals(isChecked))
+                    return;
+                if (isChecked)
+                    rgEncryption.check(R.id.radio_starttls);
+            }
+        });
+
         btnCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1084,6 +1095,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     etHost.setText(identity == null ? null : identity.host);
                     rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                    cbInsecure.setTag(identity == null ? false : identity.insecure);
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
