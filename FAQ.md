@@ -954,6 +954,8 @@ There are general errors and errors specific to Gmail accounts (see below).
 The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect.
 Some providers expect as username just *username* and others your full email address *username@example.com*.
 When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well.
+Some password managers are known to do this incorrectly too.
+The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive.
 Some providers require using an app password instead of the account password, so please check the documentation of the provider.
 Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first.
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
