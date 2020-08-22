@@ -510,7 +510,18 @@ public class EmailService implements AutoCloseable {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            iservice.connect(address.getHostAddress(), port, user, password);
+            try {
+                iservice.connect(address.getHostAddress(), port, user, password);
+            } catch (MessagingException ex) {
+                if (startTlsFailure(ex)) {
+                    // Workaround servers with non working STARTTLS capability
+                    Log.i("Disabling STARTTLS");
+                    properties.put("mail.imap.starttls.enable", "false");
+                    iservice = isession.getStore(protocol);
+                    iservice.connect(address.getHostAddress(), port, user, password);
+                } else
+                    throw ex;
+            }
 
             // https://www.ietf.org/rfc/rfc2971.txt
             IMAPStore istore = (IMAPStore) getStore();
@@ -551,7 +562,13 @@ public class EmailService implements AutoCloseable {
             try {
                 iservice.connect(address.getHostAddress(), port, user, password);
             } catch (MessagingException ex) {
-                if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
+                if (startTlsFailure(ex)) {
+                    // Workaround servers with non working STARTTLS capability
+                    Log.i("Disabling STARTTLS");
+                    properties.put("mail.smtp.starttls.enable", "false");
+                    iservice = isession.getStore(protocol);
+                    iservice.connect(address.getHostAddress(), port, user, password);
+                } else if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
                     properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
                     Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
                     try {
@@ -566,6 +583,20 @@ public class EmailService implements AutoCloseable {
             }
         } else
             throw new NoSuchProviderException(protocol);
+    }
+
+    private boolean startTlsFailure(MessagingException ex) {
+        if (!"STARTTLS failure".equals(ex.getMessage()))
+            return false;
+
+        Throwable cause = ex.getCause();
+        while (cause != null && cause.getCause() != null)
+            cause = cause.getCause();
+
+        if (cause == null)
+            return false;
+
+        return "Unable to parse TLS packet header".equals(cause.getMessage());
     }
 
     private static class ErrorHolder {
