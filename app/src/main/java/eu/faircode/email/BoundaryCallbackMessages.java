@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -112,7 +113,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     void setCallback(IBoundaryCallbackMessages intf) {
-        this.handler = new Handler();
+        this.handler = new Handler(Looper.getMainLooper());
         this.intf = intf;
         this.state = new State();
     }
