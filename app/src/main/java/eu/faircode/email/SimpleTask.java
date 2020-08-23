@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -93,7 +94,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
-        final Handler handler = new Handler();
+        final Handler handler = new Handler(Looper.getMainLooper());
 
         this.name = name;
 
