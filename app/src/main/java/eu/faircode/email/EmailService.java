@@ -70,6 +70,7 @@ import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.event.StoreListener;
+import javax.net.SocketFactory;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -188,6 +189,11 @@ public class EmailService implements AutoCloseable {
             properties.put("mail.debug.auth", "true");
 
         boolean starttls = (encryption == ENCRYPTION_STARTTLS);
+
+        if (encryption == ENCRYPTION_NONE) {
+            properties.put("mail." + protocol + ".ssl.enable", "false");
+            properties.put("mail." + protocol + ".socketFactory", new SocketFactoryService());
+        }
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
@@ -701,6 +707,40 @@ public class EmailService implements AutoCloseable {
                 iservice.close();
         } finally {
             context = null;
+        }
+    }
+
+    private static class SocketFactoryService extends SocketFactory {
+        private SocketFactory factory = SocketFactory.getDefault();
+
+        @Override
+        public Socket createSocket() throws IOException {
+            return configure(factory.createSocket());
+        }
+
+        @Override
+        public Socket createSocket(String host, int port) throws IOException, UnknownHostException {
+            return configure(factory.createSocket(host, port));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress host, int port) throws IOException {
+            return configure(factory.createSocket(host, port));
+        }
+
+        @Override
+        public Socket createSocket(String host, int port, InetAddress localHost, int localPort) throws IOException, UnknownHostException {
+            return configure(factory.createSocket(host, port, localHost, localPort));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress address, int port, InetAddress localAddress, int localPort) throws IOException {
+            return configure(factory.createSocket(address, port, localAddress, localPort));
+        }
+
+        private Socket configure(Socket socket) {
+            Log.i("Socket type=" + socket.getClass());
+            return socket;
         }
     }
 
