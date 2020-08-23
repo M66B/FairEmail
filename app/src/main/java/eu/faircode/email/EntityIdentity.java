@@ -121,7 +121,7 @@ public class EntityIdentity {
     public Long max_size;
 
     String getProtocol() {
-        return (encrypt == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
+        return (encryption == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
     }
 
     boolean sameAddress(Address address) {
