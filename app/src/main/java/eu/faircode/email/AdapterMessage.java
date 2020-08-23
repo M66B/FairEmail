@@ -229,6 +229,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean pin;
     private boolean contacts;
     private float textSize;
+    private int dp60;
 
     private boolean date;
     private boolean threading;
@@ -1835,11 +1836,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             float size = properties.getSize(message.id, show_full ? 0 : textSize * message_zoom / 100f);
-            int height = properties.getHeight(message.id, 0);
+            int height = properties.getHeight(message.id, dp60);
             Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
-
-            final int dp60 = Helper.dp2pixels(context, 60);
 
             ibFull.setEnabled(hasWebView);
             ibFull.setImageResource(show_full ? R.drawable.baseline_fullscreen_exit_24 : R.drawable.baseline_fullscreen_24);
@@ -1886,7 +1885,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     wvBody = webView;
                 }
 
-                webView.setMinimumHeight(height == 0 ? dp60 : height);
+                webView.setMinimumHeight(height);
 
                 webView.init(
                         height, size, position,
@@ -1931,7 +1930,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setVisibility(View.GONE);
                 wvBody.setVisibility(View.VISIBLE);
             } else {
-                tvBody.setMinHeight(height == 0 ? dp60 : height);
+                tvBody.setMinHeight(height);
 
                 if (size != 0)
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
@@ -2784,8 +2783,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
             TupleMessageEx message = getMessage();
-            if (message != null)
-                properties.setHeight(message.id, bottom - top);
+            if (message != null) {
+                int h = bottom - top;
+                if (h > dp60)
+                    properties.setHeight(message.id, bottom - top);
+            }
         }
 
         @Override
@@ -5027,6 +5029,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.textSize = Helper.getTextSize(context, zoom);
+        this.dp60 = Helper.dp2pixels(context, 60);
 
         boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         boolean avatars = prefs.getBoolean("avatars", true);
