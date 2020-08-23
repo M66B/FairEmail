@@ -1839,6 +1839,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
 
+            final int dp60 = Helper.dp2pixels(context, 60);
+
             ibFull.setEnabled(hasWebView);
             ibFull.setImageResource(show_full ? R.drawable.baseline_fullscreen_exit_24 : R.drawable.baseline_fullscreen_24);
             ibImages.setImageResource(show_images ? R.drawable.baseline_format_align_justify_24 : R.drawable.baseline_image_24);
@@ -1884,7 +1886,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     wvBody = webView;
                 }
 
-                final int dp60 = Helper.dp2pixels(context, 60);
                 webView.setMinimumHeight(height == 0 ? dp60 : height);
 
                 webView.init(
@@ -1930,7 +1931,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setVisibility(View.GONE);
                 wvBody.setVisibility(View.VISIBLE);
             } else {
-                tvBody.setMinHeight(height);
+                tvBody.setMinHeight(height == 0 ? dp60 : height);
 
                 if (size != 0)
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
