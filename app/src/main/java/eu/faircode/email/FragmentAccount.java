@@ -1398,6 +1398,7 @@ public class FragmentAccount extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
+        outState.putString("fair:certificate", certificate);
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
@@ -1537,6 +1538,9 @@ public class FragmentAccount extends FragmentBase {
                     int p = savedInstanceState.getInt("fair:provider");
                     spProvider.setTag(p);
                     spProvider.setSelection(p);
+
+                    certificate = savedInstanceState.getString("fair:certificate");
+                    tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
 
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));

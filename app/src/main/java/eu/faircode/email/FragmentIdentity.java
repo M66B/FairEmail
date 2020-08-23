@@ -1047,6 +1047,7 @@ public class FragmentIdentity extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("fair:account", spAccount.getSelectedItemPosition());
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
+        outState.putString("fair:certificate", certificate);
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
@@ -1153,6 +1154,9 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
+                    certificate = savedInstanceState.getString("fair:certificate");
+                    tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
+
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     auth = savedInstanceState.getInt("fair:auth");
