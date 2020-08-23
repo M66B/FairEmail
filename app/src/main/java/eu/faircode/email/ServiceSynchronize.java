@@ -909,7 +909,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
                 final EmailService iservice = new EmailService(
-                        this, account.getProtocol(), account.realm, account.insecure, debug);
+                        this, account.getProtocol(), account.realm, account.encryption, account.insecure, debug);
                 iservice.setPartialFetch(account.partial_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.protocol != EntityAccount.TYPE_IMAP)

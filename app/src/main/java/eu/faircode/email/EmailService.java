@@ -107,6 +107,10 @@ public class EmailService implements AutoCloseable {
     static final int PURPOSE_USE = 2;
     static final int PURPOSE_SEARCH = 3;
 
+    static final int ENCRYPTION_SSL = 0;
+    static final int ENCRYPTION_STARTTLS = 1;
+    static final int ENCRYPTION_NONE = 2;
+
     final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
 
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
@@ -131,11 +135,11 @@ public class EmailService implements AutoCloseable {
         // Prevent instantiation
     }
 
-    EmailService(Context context, String protocol, String realm, boolean insecure, boolean debug) throws NoSuchProviderException {
-        this(context, protocol, realm, insecure, PURPOSE_USE, debug);
+    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean debug) throws NoSuchProviderException {
+        this(context, protocol, realm, encryption, insecure, PURPOSE_USE, debug);
     }
 
-    EmailService(Context context, String protocol, String realm, boolean insecure, int purpose, boolean debug) throws NoSuchProviderException {
+    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, int purpose, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;
@@ -183,19 +187,21 @@ public class EmailService implements AutoCloseable {
         if (debug && BuildConfig.DEBUG)
             properties.put("mail.debug.auth", "true");
 
+        boolean starttls = (encryption == ENCRYPTION_STARTTLS);
+
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
             properties.put("mail.pop3s.starttls.enable", "false");
 
-            properties.put("mail.pop3.starttls.enable", "true");
-            properties.put("mail.pop3.starttls.required", Boolean.toString(!insecure));
+            properties.put("mail.pop3.starttls.enable", Boolean.toString(starttls));
+            properties.put("mail.pop3.starttls.required", Boolean.toString(starttls && !insecure));
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
             properties.put("mail.imaps.starttls.enable", "false");
 
-            properties.put("mail.imap.starttls.enable", "true");
-            properties.put("mail.imap.starttls.required", Boolean.toString(!insecure));
+            properties.put("mail.imap.starttls.enable", Boolean.toString(starttls));
+            properties.put("mail.imap.starttls.required", Boolean.toString(starttls && !insecure));
 
             properties.put("mail." + protocol + ".separatestoreconnection", "true");
             properties.put("mail." + protocol + ".connectionpool.debug", "true");
@@ -220,8 +226,8 @@ public class EmailService implements AutoCloseable {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
             properties.put("mail.smtps.starttls.enable", "false");
 
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.starttls.required", Boolean.toString(!insecure));
+            properties.put("mail.smtp.starttls.enable", Boolean.toString(starttls));
+            properties.put("mail.smtp.starttls.required", Boolean.toString(starttls && !insecure));
 
             properties.put("mail." + protocol + ".auth", "true");
 
@@ -510,18 +516,7 @@ public class EmailService implements AutoCloseable {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            try {
-                iservice.connect(address.getHostAddress(), port, user, password);
-            } catch (MessagingException ex) {
-                if (startTlsFailure(ex)) {
-                    // Workaround servers with non working STARTTLS capability
-                    Log.i("Disabling STARTTLS");
-                    properties.put("mail.imap.starttls.enable", "false");
-                    iservice = isession.getStore(protocol);
-                    iservice.connect(address.getHostAddress(), port, user, password);
-                } else
-                    throw ex;
-            }
+            iservice.connect(address.getHostAddress(), port, user, password);
 
             // https://www.ietf.org/rfc/rfc2971.txt
             IMAPStore istore = (IMAPStore) getStore();
@@ -562,13 +557,7 @@ public class EmailService implements AutoCloseable {
             try {
                 iservice.connect(address.getHostAddress(), port, user, password);
             } catch (MessagingException ex) {
-                if (startTlsFailure(ex)) {
-                    // Workaround servers with non working STARTTLS capability
-                    Log.i("Disabling STARTTLS");
-                    properties.put("mail.smtp.starttls.enable", "false");
-                    iservice = isession.getStore(protocol);
-                    iservice.connect(address.getHostAddress(), port, user, password);
-                } else if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
+                if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
                     properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
                     Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
                     try {
@@ -583,20 +572,6 @@ public class EmailService implements AutoCloseable {
             }
         } else
             throw new NoSuchProviderException(protocol);
-    }
-
-    private boolean startTlsFailure(MessagingException ex) {
-        if (!"STARTTLS failure".equals(ex.getMessage()))
-            return false;
-
-        Throwable cause = ex.getCause();
-        while (cause != null && cause.getCause() != null)
-            cause = cause.getCause();
-
-        if (cause == null)
-            return false;
-
-        return "Unable to parse TLS packet header".equals(cause.getMessage());
     }
 
     private static class ErrorHolder {

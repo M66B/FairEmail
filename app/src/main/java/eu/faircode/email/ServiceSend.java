@@ -582,7 +582,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         // Create transport
         try (EmailService iservice = new EmailService(
-                this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
+                this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, debug)) {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
             iservice.setUnicode(ident.unicode);
 

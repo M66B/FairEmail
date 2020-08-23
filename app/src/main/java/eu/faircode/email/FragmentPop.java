@@ -162,6 +162,13 @@ public class FragmentPop extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
 
+        rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int id) {
+                etPort.setHint(id == R.id.radio_ssl ? "995" : "110");
+            }
+        });
+
         tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -247,8 +254,16 @@ public class FragmentPop extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
+        int encryption;
+        if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
+            encryption = EmailService.ENCRYPTION_STARTTLS;
+        else if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_none)
+            encryption = EmailService.ENCRYPTION_NONE;
+        else
+            encryption = EmailService.ENCRYPTION_SSL;
+
         args.putString("host", etHost.getText().toString().trim());
-        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
+        args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putString("user", etUser.getText().toString());
@@ -278,6 +293,7 @@ public class FragmentPop extends FragmentBase {
                 saving = true;
                 getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
+                pbSave.setVisibility(View.VISIBLE);
                 grpError.setVisibility(View.GONE);
             }
 
@@ -294,7 +310,7 @@ public class FragmentPop extends FragmentBase {
                 long id = args.getLong("id");
 
                 String host = args.getString("host");
-                boolean starttls = args.getBoolean("starttls");
+                int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 String user = args.getString("user").trim();
@@ -327,7 +343,7 @@ public class FragmentPop extends FragmentBase {
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = "995";
+                    port = (encryption == EmailService.ENCRYPTION_SSL ? "995" : "110");
                 if (TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure)
@@ -349,7 +365,7 @@ public class FragmentPop extends FragmentBase {
                         !account.synchronize ||
                         account.error != null ||
                         !account.host.equals(host) ||
-                        !account.starttls.equals(starttls) ||
+                        !account.encryption.equals(encryption) ||
                         !account.insecure.equals(insecure) ||
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
@@ -362,9 +378,10 @@ public class FragmentPop extends FragmentBase {
 
                 // Check POP3 server
                 if (check) {
-                    String protocol = "pop3" + (starttls ? "" : "s");
+                    String protocol = "pop3" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, null, insecure, EmailService.PURPOSE_CHECK, true)) {
+                            context, protocol, null, encryption, insecure,
+                            EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
                                 EmailService.AUTH_TYPE_PASSWORD, null,
@@ -389,7 +406,7 @@ public class FragmentPop extends FragmentBase {
 
                     account.protocol = EntityAccount.TYPE_POP;
                     account.host = host;
-                    account.starttls = starttls;
+                    account.encryption = encryption;
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
                     account.auth_type = EmailService.AUTH_TYPE_PASSWORD;
@@ -571,7 +588,13 @@ public class FragmentPop extends FragmentBase {
                     etHost.setText(account == null ? null : account.host);
                     etPort.setText(account == null ? null : Long.toString(account.port));
 
-                    rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                    if (account != null && account.encryption == EmailService.ENCRYPTION_STARTTLS)
+                        rgEncryption.check(R.id.radio_starttls);
+                    else if (account != null && account.encryption == EmailService.ENCRYPTION_NONE)
+                        rgEncryption.check(R.id.radio_none);
+                    else
+                        rgEncryption.check(R.id.radio_ssl);
+
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
                     etUser.setText(account == null ? null : account.user);

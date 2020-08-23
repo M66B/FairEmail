@@ -253,7 +253,7 @@ public class FragmentIdentity extends FragmentBase {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
                         if (provider.imap.host.equals(account.host) &&
                                 provider.imap.port == account.port &&
-                                provider.imap.starttls == account.starttls) {
+                                provider.imap.starttls == (account.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                             found = true;
 
                             spProvider.setSelection(pos);
@@ -418,17 +418,6 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Object tag = cbInsecure.getTag();
-                if (tag != null && tag.equals(isChecked))
-                    return;
-                if (isChecked)
-                    rgEncryption.check(R.id.radio_starttls);
-            }
-        });
-
         btnCertificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -590,6 +579,14 @@ public class FragmentIdentity extends FragmentBase {
                 name = hint.toString();
         }
 
+        int encryption;
+        if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
+            encryption = EmailService.ENCRYPTION_STARTTLS;
+        else if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_none)
+            encryption = EmailService.ENCRYPTION_NONE;
+        else
+            encryption = EmailService.ENCRYPTION_SSL;
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", name);
@@ -605,7 +602,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("max_size", etMaxSize.getText().toString());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString().trim());
-        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
+        args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
@@ -657,7 +654,7 @@ public class FragmentIdentity extends FragmentBase {
                 String signature = args.getString("signature");
 
                 String host = args.getString("host");
-                boolean starttls = args.getBoolean("starttls");
+                int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
@@ -697,7 +694,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (starttls ? "587" : "465");
+                    port = (encryption == EmailService.ENCRYPTION_SSL ? "465" : "587");
                 if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
@@ -779,7 +776,7 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.host, host))
                         return true;
-                    if (!Objects.equals(identity.starttls, starttls))
+                    if (!Objects.equals(identity.encryption, encryption))
                         return true;
                     if (!Objects.equals(identity.insecure, insecure))
                         return true;
@@ -830,7 +827,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean check = (synchronize && (identity == null ||
                         !identity.synchronize || identity.error != null ||
                         !host.equals(identity.host) ||
-                        starttls != identity.starttls ||
+                        encryption != identity.encryption ||
                         insecure != identity.insecure ||
                         Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) ||
@@ -852,9 +849,10 @@ public class FragmentIdentity extends FragmentBase {
                 Long server_max_size = null;
                 if (check) {
                     // Create transport
-                    String protocol = (starttls ? "smtp" : "smtps");
+                    String protocol = (encryption == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
+                            context, protocol, realm, encryption, insecure,
+                            EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip, ehlo);
                         iservice.connect(
                                 host, Integer.parseInt(port),
@@ -887,7 +885,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.signature = signature;
 
                     identity.host = host;
-                    identity.starttls = starttls;
+                    identity.encryption = encryption;
                     identity.insecure = insecure;
                     identity.port = Integer.parseInt(port);
                     identity.auth_type = auth;
@@ -1094,8 +1092,14 @@ public class FragmentIdentity extends FragmentBase {
                         signature = (identity == null ? null : identity.signature);
 
                     etHost.setText(identity == null ? null : identity.host);
-                    rgEncryption.check(identity != null && identity.starttls ? R.id.radio_starttls : R.id.radio_ssl);
-                    cbInsecure.setTag(identity == null ? false : identity.insecure);
+
+                    if (identity != null && identity.encryption == EmailService.ENCRYPTION_STARTTLS)
+                        rgEncryption.check(R.id.radio_starttls);
+                    else if (identity != null && identity.encryption == EmailService.ENCRYPTION_NONE)
+                        rgEncryption.check(R.id.radio_none);
+                    else
+                        rgEncryption.check(R.id.radio_ssl);
+
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
@@ -1210,7 +1214,7 @@ public class FragmentIdentity extends FragmentBase {
                                     EmailProvider provider = providers.get(pos);
                                     if (provider.smtp.host.equals(identity.host) &&
                                             provider.smtp.port == identity.port &&
-                                            provider.smtp.starttls == identity.starttls) {
+                                            provider.smtp.starttls == (identity.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                                         spProvider.setTag(pos);
                                         spProvider.setSelection(pos);
                                         break;

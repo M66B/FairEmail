@@ -31,7 +31,7 @@ public class TupleAccountState extends EntityAccount {
         if (obj instanceof TupleAccountState) {
             TupleAccountState other = (TupleAccountState) obj;
             return (this.host.equals(other.host) &&
-                    this.starttls.equals(other.starttls) &&
+                    this.encryption.equals(other.encryption) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&

@@ -73,8 +73,6 @@ import java.util.Objects;
 import javax.mail.Folder;
 
 import static android.app.Activity.RESULT_OK;
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
@@ -265,7 +263,7 @@ public class FragmentAccount extends FragmentBase {
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
                 tvGmailHint.setVisibility(
                         auth == EmailService.AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
-                                ? VISIBLE : GONE);
+                                ? View.VISIBLE : View.GONE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
@@ -319,18 +317,7 @@ public class FragmentAccount extends FragmentBase {
         rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
-                etPort.setHint(id == R.id.radio_starttls ? "143" : "993");
-            }
-        });
-
-        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Object tag = cbInsecure.getTag();
-                if (tag != null && tag.equals(isChecked))
-                    return;
-                if (isChecked)
-                    rgEncryption.check(R.id.radio_starttls);
+                etPort.setHint(id == R.id.radio_ssl ? "993" : "143");
             }
         });
 
@@ -522,7 +509,7 @@ public class FragmentAccount extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
 
-        tvGmailHint.setVisibility(GONE);
+        tvGmailHint.setVisibility(View.GONE);
 
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
@@ -556,7 +543,7 @@ public class FragmentAccount extends FragmentBase {
         grpFolders.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
-        pbWait.setVisibility(VISIBLE);
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -605,10 +592,18 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void onCheck() {
+        int encryption;
+        if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
+            encryption = EmailService.ENCRYPTION_STARTTLS;
+        else if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_none)
+            encryption = EmailService.ENCRYPTION_NONE;
+        else
+            encryption = EmailService.ENCRYPTION_SSL;
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("host", etHost.getText().toString().trim());
-        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
+        args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
@@ -647,7 +642,7 @@ public class FragmentAccount extends FragmentBase {
             protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 String host = args.getString("host");
-                boolean starttls = args.getBoolean("starttls");
+                int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
@@ -666,7 +661,7 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (starttls ? "143" : "993");
+                    port = (encryption == EmailService.ENCRYPTION_SSL ? "993" : "143");
                 if (TextUtils.isEmpty(user))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (TextUtils.isEmpty(password) && !insecure && certificate == null)
@@ -682,9 +677,10 @@ public class FragmentAccount extends FragmentBase {
                 result.folders = new ArrayList<>();
 
                 // Check IMAP server / get folders
-                String protocol = "imap" + (starttls ? "" : "s");
+                String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                 try (EmailService iservice = new EmailService(
-                        context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
+                        context, protocol, realm, encryption, insecure,
+                        EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             host, Integer.parseInt(port),
                             auth, provider,
@@ -809,8 +805,16 @@ public class FragmentAccount extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
+        int encryption;
+        if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
+            encryption = EmailService.ENCRYPTION_STARTTLS;
+        else if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_none)
+            encryption = EmailService.ENCRYPTION_NONE;
+        else
+            encryption = EmailService.ENCRYPTION_SSL;
+
         args.putString("host", etHost.getText().toString().trim());
-        args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
+        args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
@@ -873,7 +877,7 @@ public class FragmentAccount extends FragmentBase {
                 long id = args.getLong("id");
 
                 String host = args.getString("host");
-                boolean starttls = args.getBoolean("starttls");
+                int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
@@ -919,7 +923,7 @@ public class FragmentAccount extends FragmentBase {
                 if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (starttls ? "143" : "993");
+                    port = (encryption == EmailService.ENCRYPTION_SSL ? "993" : "143");
                 if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
@@ -947,7 +951,7 @@ public class FragmentAccount extends FragmentBase {
 
                     if (!Objects.equals(account.host, host))
                         return true;
-                    if (!Objects.equals(account.starttls, starttls))
+                    if (!Objects.equals(account.encryption, encryption))
                         return true;
                     if (!Objects.equals(account.insecure, insecure))
                         return true;
@@ -1029,7 +1033,7 @@ public class FragmentAccount extends FragmentBase {
                         !account.synchronize ||
                         account.error != null ||
                         !account.host.equals(host) ||
-                        !account.starttls.equals(starttls) ||
+                        !account.encryption.equals(encryption) ||
                         !account.insecure.equals(insecure) ||
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
@@ -1047,9 +1051,10 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server
                 EntityFolder inbox = null;
                 if (check) {
-                    String protocol = "imap" + (starttls ? "" : "s");
+                    String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
                     try (EmailService iservice = new EmailService(
-                            context, protocol, realm, insecure, EmailService.PURPOSE_CHECK, true)) {
+                            context, protocol, realm, encryption, insecure,
+                            EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
                                 auth, provider,
@@ -1092,7 +1097,7 @@ public class FragmentAccount extends FragmentBase {
                         account = new EntityAccount();
 
                     account.host = host;
-                    account.starttls = starttls;
+                    account.encryption = encryption;
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
                     account.auth_type = auth;
@@ -1446,7 +1451,7 @@ public class FragmentAccount extends FragmentBase {
                             EmailProvider provider = providers.get(pos);
                             if (provider.imap.host.equals(account.host) &&
                                     provider.imap.port == account.port &&
-                                    provider.imap.starttls == account.starttls) {
+                                    provider.imap.starttls == (account.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                                 found = true;
                                 spProvider.setTag(pos);
                                 spProvider.setSelection(pos);
@@ -1461,8 +1466,13 @@ public class FragmentAccount extends FragmentBase {
                         etPort.setText(Long.toString(account.port));
                     }
 
-                    rgEncryption.check(account != null && account.starttls ? R.id.radio_starttls : R.id.radio_ssl);
-                    cbInsecure.setTag(account == null ? false : account.insecure);
+                    if (account != null && account.encryption == EmailService.ENCRYPTION_STARTTLS)
+                        rgEncryption.check(R.id.radio_starttls);
+                    else if (account != null && account.encryption == EmailService.ENCRYPTION_NONE)
+                        rgEncryption.check(R.id.radio_none);
+                    else
+                        rgEncryption.check(R.id.radio_ssl);
+
                     cbInsecure.setChecked(account == null ? false : account.insecure);
 
                     etUser.setText(account == null ? null : account.user);

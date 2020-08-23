@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -65,7 +66,8 @@ public class EntityIdentity {
     @NonNull
     public String host; // SMTP
     @NonNull
-    public Boolean starttls;
+    @ColumnInfo(name = "starttls")
+    public Integer encryption;
     @NonNull
     public Boolean insecure = false;
     @NonNull
@@ -119,7 +121,7 @@ public class EntityIdentity {
     public Long max_size;
 
     String getProtocol() {
-        return (starttls ? "smtp" : "smtps");
+        return (encrypt == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
     }
 
     boolean sameAddress(Address address) {
@@ -178,7 +180,7 @@ public class EntityIdentity {
         // not account
 
         json.put("host", host);
-        json.put("starttls", starttls);
+        json.put("encryption", encryption);
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("auth_type", auth_type);
@@ -226,7 +228,11 @@ public class EntityIdentity {
             identity.signature = json.getString("signature");
 
         identity.host = json.getString("host");
-        identity.starttls = json.getBoolean("starttls");
+        if (json.has("starttls"))
+            identity.encryption = (json.getBoolean("starttls")
+                    ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+        else
+            identity.encryption = json.getInt("encryption");
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.port = json.getInt("port");
         identity.auth_type = json.getInt("auth_type");
@@ -275,7 +281,7 @@ public class EntityIdentity {
                     Objects.equals(this.color, other.color) &&
                     Objects.equals(this.signature, other.signature) &&
                     this.host.equals(other.host) &&
-                    this.starttls.equals(other.starttls) &&
+                    this.encryption.equals(other.encryption) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.auth_type.equals(other.auth_type) &&

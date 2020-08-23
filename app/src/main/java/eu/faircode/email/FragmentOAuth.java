@@ -403,6 +403,7 @@ public class FragmentOAuth extends FragmentBase {
 
                 EmailProvider provider = EmailProvider.getProvider(context, id);
                 String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
+                int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
 
                 if (accessToken != null) {
                     String[] segments = accessToken.split("\\.");
@@ -428,7 +429,8 @@ public class FragmentOAuth extends FragmentBase {
                                 String email = jpayload.getString("email");
                                 if (!TextUtils.isEmpty(email) && !email.equals(address)) {
                                     try (EmailService iservice = new EmailService(
-                                            context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                                            context, aprotocol, null, aencryption, false,
+                                            EmailService.PURPOSE_CHECK, true)) {
                                         iservice.connect(
                                                 provider.imap.host, provider.imap.port,
                                                 EmailService.AUTH_TYPE_OAUTH, provider.id,
@@ -477,7 +479,8 @@ public class FragmentOAuth extends FragmentBase {
 
                 Log.i("OAuth checking IMAP provider=" + provider.id);
                 try (EmailService iservice = new EmailService(
-                        context, aprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                        context, aprotocol, null, aencryption, false,
+                        EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.imap.host, provider.imap.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
@@ -490,8 +493,11 @@ public class FragmentOAuth extends FragmentBase {
                 Log.i("OAuth checking SMTP provider=" + provider.id);
                 Long max_size;
                 String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
+                int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+
                 try (EmailService iservice = new EmailService(
-                        context, iprotocol, null, false, EmailService.PURPOSE_CHECK, true)) {
+                        context, iprotocol, null, iencryption, false,
+                        EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
                             EmailService.AUTH_TYPE_OAUTH, provider.id,
@@ -512,7 +518,7 @@ public class FragmentOAuth extends FragmentBase {
                     EntityAccount account = new EntityAccount();
 
                     account.host = provider.imap.host;
-                    account.starttls = provider.imap.starttls;
+                    account.encryption = aencryption;
                     account.port = provider.imap.port;
                     account.auth_type = EmailService.AUTH_TYPE_OAUTH;
                     account.provider = provider.id;
@@ -565,7 +571,7 @@ public class FragmentOAuth extends FragmentBase {
                         ident.account = account.id;
 
                         ident.host = provider.smtp.host;
-                        ident.starttls = provider.smtp.starttls;
+                        ident.encryption = iencryption;
                         ident.port = provider.smtp.port;
                         ident.auth_type = EmailService.AUTH_TYPE_OAUTH;
                         ident.provider = provider.id;

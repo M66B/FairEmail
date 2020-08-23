@@ -66,7 +66,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public String host; // POP3/IMAP
     @NonNull
-    public Boolean starttls;
+    @ColumnInfo(name = "starttls")
+    public Integer encryption;
     @NonNull
     public Boolean insecure = false;
     @NonNull
@@ -153,9 +154,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 if (isGmail())
                     return "gimaps";
                 else
-                    return "imap" + (starttls ? "" : "s");
+                    return "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
             case TYPE_POP:
-                return "pop3" + (starttls ? "" : "s");
+                return "pop3" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
             default:
                 throw new IllegalArgumentException("Unknown protocol=" + protocol);
         }
@@ -203,7 +204,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("order", order);
         json.put("protocol", protocol);
         json.put("host", host);
-        json.put("starttls", starttls);
+        json.put("encryption", encryption);
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("auth_type", auth_type);
@@ -264,7 +265,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.protocol = (json.getBoolean("pop") ? TYPE_POP : TYPE_IMAP);
 
         account.host = json.getString("host");
-        account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
+        if (json.has("starttls"))
+            account.encryption = (json.getBoolean("starttls")
+                    ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+        else
+            account.encryption = json.getInt("encryption");
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.auth_type = json.getInt("auth_type");
@@ -330,7 +335,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
             return (Objects.equals(this.order, other.order) &&
                     this.protocol.equals(other.protocol) &&
                     this.host.equals(other.host) &&
-                    this.starttls == other.starttls &&
+                    this.encryption.equals(other.encryption) &&
                     this.insecure == other.insecure &&
                     this.port.equals(other.port) &&
                     this.auth_type.equals(other.auth_type) &&
