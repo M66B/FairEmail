@@ -24,7 +24,6 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,7 +106,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         ivExternal.setVisibility(Helper.isPlayStoreInstall() ? View.GONE : View.VISIBLE);
 
-        tvPriceHint.setMovementMethod(LinkMovementMethod.getInstance());
+        tvPriceHint.setPaintFlags(tvPriceHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPriceHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 19);
+            }
+        });
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -902,7 +902,7 @@ Note that only some convenience and advanced features need to be purchased which
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-I have been working on FairEmail almost every day for more than one and a half a year, so I think the price is more than reasonable.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable.
 For this reason there won't be discounts either.
 
 <br />
