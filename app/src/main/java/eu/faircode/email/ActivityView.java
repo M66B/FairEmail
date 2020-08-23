@@ -643,7 +643,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ServiceSynchronize.state(this, false);
     }
 
-
     @Override
     protected void onDestroy() {
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);

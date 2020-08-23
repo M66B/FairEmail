@@ -136,7 +136,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     data = onExecute(context, args);
                     elapsed = new Date().getTime() - start;
                     if (log)
-                        Log.i("Executed task=" + name + " elapsed=" + elapsed);
+                        Log.i("Executed task=" + name + " elapsed=" + elapsed + " ms");
                 } catch (Throwable ex) {
                     if (!(ex instanceof IllegalArgumentException))
                         Log.e(ex);
@@ -156,7 +156,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             Log.i("Deliver task " + name + " state=" + state + " elapse=" + elapsed + " ms");
                             deliver();
                             cleanup(context);
-                        } else
+                        } else {
+                            Log.i("Deferring task " + name + " state=" + state);
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
                                 @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
                                 public void onAny() {
@@ -174,6 +175,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                         Log.i("Deferring task " + name + " state=" + state);
                                 }
                             });
+                        }
                     }
 
                     private void deliver() {
