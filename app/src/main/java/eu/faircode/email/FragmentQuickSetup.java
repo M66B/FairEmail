@@ -25,7 +25,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -486,7 +485,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvError.setText(ex.getMessage());
                     grpError.setVisibility(View.VISIBLE);
 
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             scroll.smoothScrollTo(0, tvErrorHint.getBottom());
@@ -509,7 +508,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         tvInstructions.setVisibility(View.VISIBLE);
                     }
 
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             if (args.containsKey("documentation"))

@@ -27,7 +27,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -445,14 +444,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 }
             });
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etPin.requestFocus();
-                }
-            });
-
-            new Handler().post(new Runnable() {
+            ApplicationEx.getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     etPin.requestFocus();

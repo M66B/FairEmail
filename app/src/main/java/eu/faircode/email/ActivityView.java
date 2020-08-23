@@ -35,7 +35,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -332,7 +331,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
                 rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
                 if (!minimal)
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             drawerContainer.fullScroll(View.FOCUS_DOWN);
@@ -676,7 +675,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 else {
                     exit = true;
                     ToastEx.makeText(this, R.string.app_exit, Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(new Runnable() {
+                    getMainHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             exit = false;
@@ -773,7 +772,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         snackbar.show();
 
         // Wait
-        new Handler().postDelayed(new Runnable() {
+        getMainHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Log.i("Undo timeout");

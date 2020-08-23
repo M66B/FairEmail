@@ -23,8 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -94,8 +92,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
-        final Handler handler = new Handler(Looper.getMainLooper());
-
         this.name = name;
 
         if (owner instanceof TwoStateOwner)
@@ -148,7 +144,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 }
 
                 // Run on UI thread
-                handler.post(new Runnable() {
+                ApplicationEx.getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         Lifecycle.State state = owner.getLifecycle().getCurrentState();

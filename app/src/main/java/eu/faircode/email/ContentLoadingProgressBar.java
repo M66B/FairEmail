@@ -20,8 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
@@ -30,42 +28,33 @@ import androidx.annotation.Nullable;
 
 public class ContentLoadingProgressBar extends ProgressBar {
     private int visibility;
-    private Handler handler;
 
     private static final int VISIBILITY_DELAY = 500; // milliseconds
 
     public ContentLoadingProgressBar(@NonNull Context context) {
         this(context, null);
-        init();
     }
 
     public ContentLoadingProgressBar(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs, 0);
-        init();
     }
 
     public ContentLoadingProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
     public ContentLoadingProgressBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
-    private void init() {
-        handler = new Handler(Looper.getMainLooper());
     }
 
     @Override
     public void setVisibility(int visibility) {
         this.visibility = visibility;
 
-        handler.removeCallbacks(delayedShow);
+        ApplicationEx.getMainHandler().removeCallbacks(delayedShow);
         if (visibility == VISIBLE) {
             super.setVisibility(INVISIBLE);
-            handler.postDelayed(delayedShow, VISIBILITY_DELAY);
+            ApplicationEx.getMainHandler().postDelayed(delayedShow, VISIBILITY_DELAY);
         } else
             super.setVisibility(visibility);
     }

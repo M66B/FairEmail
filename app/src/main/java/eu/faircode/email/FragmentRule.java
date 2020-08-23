@@ -27,7 +27,6 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.ContactsContract;
 import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
@@ -419,7 +418,7 @@ public class FragmentRule extends FragmentBase {
             private void onActionSelected(int type) {
                 showActionParameters(type);
 
-                new Handler().post(new Runnable() {
+                getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         scroll.smoothScrollTo(0, content.getBottom());

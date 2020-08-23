@@ -26,7 +26,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -361,7 +360,7 @@ public class FragmentIdentity extends FragmentBase {
                 grpAdvanced.setVisibility(visibility);
                 checkPassword(tilPassword.getEditText().getText().toString());
                 if (visibility == View.VISIBLE)
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             scroll.smoothScrollTo(0, btnAdvanced.getTop());
@@ -1042,7 +1041,7 @@ public class FragmentIdentity extends FragmentBase {
             tvInstructions.setVisibility(View.VISIBLE);
         }
 
-        new Handler().post(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (provider != null && provider.documentation != null)
@@ -1321,7 +1320,7 @@ public class FragmentIdentity extends FragmentBase {
                     break;
                 case REQUEST_SAVE:
                     if (resultCode == RESULT_OK) {
-                        new Handler().post(new Runnable() {
+                        getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 scroll.smoothScrollTo(0, btnSave.getBottom());

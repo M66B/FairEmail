@@ -49,7 +49,6 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -1417,7 +1416,7 @@ public class FragmentCompose extends FragmentBase {
     private void onMenuAddresses() {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
 
-        new Handler().post(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (grpAddresses.getVisibility() == View.GONE)
@@ -4102,8 +4101,7 @@ public class FragmentCompose extends FragmentBase {
                         EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
                     }
 
-                    Handler handler = new Handler(context.getMainLooper());
-                    handler.post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         public void run() {
                             ToastEx.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
                         }
@@ -4475,8 +4473,7 @@ public class FragmentCompose extends FragmentBase {
                             final String msg = context.getString(mid) +
                                     (BuildConfig.DEBUG ? ":" + draft.revision : "");
 
-                            Handler handler = new Handler(context.getMainLooper());
-                            handler.post(new Runnable() {
+                            getMainHandler().post(new Runnable() {
                                 public void run() {
                                     ToastEx.makeText(context, msg, Toast.LENGTH_LONG).show();
                                 }
@@ -4555,8 +4552,7 @@ public class FragmentCompose extends FragmentBase {
                             feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
                         }
 
-                        Handler handler = new Handler(context.getMainLooper());
-                        handler.post(new Runnable() {
+                        getMainHandler().post(new Runnable() {
                             public void run() {
                                 ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
                             }
@@ -4894,7 +4890,7 @@ public class FragmentCompose extends FragmentBase {
                 else
                     target = etBody;
 
-                new Handler().post(new Runnable() {
+                getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         target.requestFocus();

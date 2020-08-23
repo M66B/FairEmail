@@ -50,8 +50,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
@@ -1766,7 +1764,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvHeaders.setText(null);
 
             if (scroll)
-                new Handler().post(new Runnable() {
+                ApplicationEx.getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         View inHeaders = itemView.findViewById(R.id.inHeaders);
@@ -2969,7 +2967,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     firstClick = !firstClick;
                     if (firstClick) {
-                        new Handler().postDelayed(new Runnable() {
+                        ApplicationEx.getMainHandler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 if (firstClick) {
@@ -5491,13 +5489,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         try {
             // https://issuetracker.google.com/issues/135628748
-            Handler handler = new Handler(Looper.getMainLooper());
             Field mMainThreadExecutor = this.differ.getClass().getDeclaredField("mMainThreadExecutor");
             mMainThreadExecutor.setAccessible(true);
             mMainThreadExecutor.set(this.differ, new Executor() {
                 @Override
                 public void execute(final Runnable command) {
-                    handler.post(new Runnable() {
+                    ApplicationEx.getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -5967,7 +5964,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         protected void onExecuted(Bundle args, Pair<String, IPInfo.Organization> data) {
                             tvHost.setText(data.first);
                             tvOwner.setText(data.second.name == null ? "?" : data.second.name);
-                            new Handler().post(new Runnable() {
+                            ApplicationEx.getMainHandler().post(new Runnable() {
                                 @Override
                                 public void run() {
                                     dview.scrollTo(0, tvOwner.getBottom());

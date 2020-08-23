@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -339,7 +338,7 @@ public class FragmentFolder extends FragmentBase {
                     break;
                 case REQUEST_SAVE_CHANGES:
                     if (resultCode == RESULT_OK) {
-                        new Handler().post(new Runnable() {
+                        getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 scroll.smoothScrollTo(0, btnSave.getBottom());

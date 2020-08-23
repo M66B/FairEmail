@@ -32,7 +32,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -972,7 +971,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         set(all);
 
         // Delay search until after expanding
-        new Handler().post(new Runnable() {
+        ApplicationEx.getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 int pos = -1;

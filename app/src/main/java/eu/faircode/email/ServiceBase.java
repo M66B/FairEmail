@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.lifecycle.LifecycleService;
 
@@ -61,5 +62,9 @@ abstract class ServiceBase extends LifecycleService {
         Log.breadcrumb(this.getClass().getSimpleName(), crumb);
 
         super.onDestroy();
+    }
+
+    Handler getMainHandler() {
+        return ApplicationEx.getMainHandler();
     }
 }

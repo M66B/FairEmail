@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -62,7 +61,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             final SimpleTask boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
-                    new Handler().postDelayed(new Runnable() {
+                    getMainHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             getWindow().setBackgroundDrawableResource(R.drawable.splash);
@@ -102,7 +101,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 startActivity(view);
                             }
 
-                        new Handler().postDelayed(new Runnable() {
+                        getMainHandler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 ServiceSynchronize.eval(ActivityMain.this, "main");

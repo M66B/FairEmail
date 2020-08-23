@@ -21,8 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -87,8 +85,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private IBoundaryCallbackMessages intf;
 
-    private Handler handler;
-
     private State state;
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
@@ -113,7 +109,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     void setCallback(IBoundaryCallbackMessages intf) {
-        this.handler = new Handler(Looper.getMainLooper());
         this.intf = intf;
         this.state = new State();
     }
@@ -149,7 +144,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         return;
 
                     if (intf != null)
-                        handler.post(new Runnable() {
+                        ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 intf.onLoading();
@@ -174,7 +169,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     state.error = true;
                     Log.e("Boundary", ex);
                     if (intf != null)
-                        handler.post(new Runnable() {
+                        ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 intf.onException(ex);
@@ -182,7 +177,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
                 } finally {
                     if (intf != null)
-                        handler.post(new Runnable() {
+                        ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 intf.onLoaded();

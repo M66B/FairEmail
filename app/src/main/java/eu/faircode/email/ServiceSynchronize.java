@@ -35,7 +35,6 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
@@ -901,7 +900,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 state.reset();
                 Log.i(account.name + " run thread=" + currentThread);
 
-                Handler handler = new Handler(getMainLooper());
                 final List<TwoStateOwner> cowners = new ArrayList<>();
 
                 // Debug
@@ -1210,7 +1208,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             mapFolders.put(folder, null);
 
                         Log.d(folder.name + " observing");
-                        handler.post(new Runnable() {
+                        getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 TwoStateOwner cowner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
@@ -1576,7 +1574,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     db.account().setAccountState(account.id, "closing");
 
                     // Stop watching for operations
-                    handler.post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             for (TwoStateOwner owner : cowners)

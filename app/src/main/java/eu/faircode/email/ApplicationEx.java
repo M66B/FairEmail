@@ -32,6 +32,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
@@ -393,4 +395,12 @@ public class ApplicationEx extends Application {
             Helper.clearAuthentication(ApplicationEx.this);
         }
     };
+
+    private static Handler handler = null;
+
+    synchronized static Handler getMainHandler() {
+        if (handler == null)
+            handler = new Handler(Looper.getMainLooper());
+        return handler;
+    }
 }

@@ -28,7 +28,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
@@ -641,7 +640,7 @@ public class FragmentOAuth extends FragmentBase {
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
 
-        new Handler().post(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 scroll.smoothScrollTo(0, tvError.getBottom());

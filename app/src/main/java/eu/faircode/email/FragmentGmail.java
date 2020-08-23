@@ -33,7 +33,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -235,7 +234,7 @@ public class FragmentGmail extends FragmentBase {
         etName.setEnabled(granted);
         btnSelect.setEnabled(granted);
 
-        new Handler().post(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 etName.requestFocus();
@@ -289,7 +288,7 @@ public class FragmentGmail extends FragmentBase {
                                     tvError.setText(Log.formatThrowable(ex));
                                     grpError.setVisibility(View.VISIBLE);
 
-                                    new Handler().post(new Runnable() {
+                                    getMainHandler().post(new Runnable() {
                                         @Override
                                         public void run() {
                                             scroll.smoothScrollTo(0, tvError.getBottom());
@@ -490,7 +489,7 @@ public class FragmentGmail extends FragmentBase {
                     tvError.setText(Log.formatThrowable(ex));
                 grpError.setVisibility(View.VISIBLE);
 
-                new Handler().post(new Runnable() {
+                getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         scroll.smoothScrollTo(0, tvError.getBottom());

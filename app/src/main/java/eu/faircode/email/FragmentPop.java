@@ -26,7 +26,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -549,7 +548,7 @@ public class FragmentPop extends FragmentBase {
                     tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
 
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             scroll.smoothScrollTo(0, tvError.getBottom());

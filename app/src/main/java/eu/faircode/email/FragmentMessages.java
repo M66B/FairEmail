@@ -46,7 +46,6 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
@@ -1689,7 +1688,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void scrollTo(final int pos, final int y) {
-            new Handler().post(new Runnable() {
+            getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
@@ -1702,7 +1701,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void scrollBy(int x, int y) {
-            new Handler().post(new Runnable() {
+            getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     rvMessage.scrollBy(x, y);
@@ -1778,8 +1777,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     };
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
-        private Handler handler = new Handler();
-
         private Runnable enableSelection = new Runnable() {
             @Override
             public void run() {
@@ -1841,11 +1838,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 
             if (selectionPredicate != null) {
-                handler.removeCallbacks(enableSelection);
+                getMainHandler().removeCallbacks(enableSelection);
                 if (isCurrentlyActive)
                     selectionPredicate.setEnabled(false);
                 else
-                    handler.postDelayed(enableSelection, SWIPE_DISABLE_SELECT_DURATION);
+                    getMainHandler().postDelayed(enableSelection, SWIPE_DISABLE_SELECT_DURATION);
             }
 
             int pos = viewHolder.getAdapterPosition();
@@ -4147,7 +4144,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
             @Override
             public void onChanged(List<Long> ids) {
-                new Handler().post(new Runnable() {
+                getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         selectionTracker.clearSelection();

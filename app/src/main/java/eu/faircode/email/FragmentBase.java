@@ -32,6 +32,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -569,5 +570,9 @@ public class FragmentBase extends Fragment {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    Handler getMainHandler() {
+        return ApplicationEx.getMainHandler();
     }
 }

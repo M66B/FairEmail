@@ -28,7 +28,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -393,7 +392,7 @@ public class FragmentAccount extends FragmentBase {
                 int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
                 grpAdvanced.setVisibility(visibility);
                 if (visibility == View.VISIBLE)
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             scroll.smoothScrollTo(0, btnAdvanced.getTop());
@@ -750,7 +749,7 @@ public class FragmentAccount extends FragmentBase {
                 if (!cbTrust.isChecked())
                     cbTrust.setVisibility(View.GONE);
 
-                new Handler().post(new Runnable() {
+                getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         scroll.smoothScrollTo(0, cbIdentity.getBottom());
@@ -1384,7 +1383,7 @@ public class FragmentAccount extends FragmentBase {
             tvInstructions.setVisibility(View.VISIBLE);
         }
 
-        new Handler().post(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (provider != null && provider.documentation != null)
@@ -1593,7 +1592,7 @@ public class FragmentAccount extends FragmentBase {
                     };
 
                     // Load after provider has been selected
-                    new Handler().post(new Runnable() {
+                    getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             task.execute(FragmentAccount.this, args, "account:folders");
@@ -1660,7 +1659,7 @@ public class FragmentAccount extends FragmentBase {
                 case REQUEST_SAVE:
                     if (resultCode == RESULT_OK) {
                         final boolean save = (btnSave.getVisibility() == View.VISIBLE);
-                        new Handler().post(new Runnable() {
+                        getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
                                 scroll.smoothScrollTo(0, (save ? btnSave : btnCheck).getBottom());

@@ -31,7 +31,6 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
-import android.os.Handler;
 import android.os.PowerManager;
 import android.text.TextUtils;
 
@@ -70,7 +69,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private Network lastActive = null;
     private boolean lastSuitable = false;
 
-    private Handler handler;
     private PowerManager.WakeLock wlOutbox;
     private TwoStateOwner owner = new TwoStateOwner("send");
     private List<Long> handling = new ArrayList<>();
@@ -87,8 +85,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         EntityLog.log(this, "Service send create");
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
-
-        handler = new Handler();
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
@@ -175,7 +171,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
 
-        handler.removeCallbacks(_checkConnectivity);
+        getMainHandler().removeCallbacks(_checkConnectivity);
 
         owner.stop();
         handling.clear();
@@ -284,7 +280,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     };
 
     private void checkConnectivity() {
-        handler.postDelayed(_checkConnectivity, CONNECTIVITY_DELAY);
+        getMainHandler().postDelayed(_checkConnectivity, CONNECTIVITY_DELAY);
     }
 
     private Runnable _checkConnectivity = new Runnable() {

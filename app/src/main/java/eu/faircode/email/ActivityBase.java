@@ -28,6 +28,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -511,6 +512,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 return false;
         }
         return super.shouldUpRecreateTask(targetIntent);
+    }
+
+    Handler getMainHandler() {
+        return ApplicationEx.getMainHandler();
     }
 
     public interface IKeyPressedListener {
