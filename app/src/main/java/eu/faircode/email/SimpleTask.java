@@ -126,16 +126,20 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
         future = executor.submit(new Runnable() {
             private Object data;
-            private long elapse;
+            private long elapsed;
             private Throwable ex;
 
             @Override
             public void run() {
                 // Run in background thread
                 try {
+                    if (log)
+                        Log.i("Executing task=" + name);
                     long start = new Date().getTime();
                     data = onExecute(context, args);
-                    elapse = new Date().getTime() - start;
+                    elapsed = new Date().getTime() - start;
+                    if (log)
+                        Log.i("Executed task=" + name + " elapsed=" + elapsed);
                 } catch (Throwable ex) {
                     if (!(ex instanceof IllegalArgumentException))
                         Log.e(ex);
@@ -152,7 +156,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             cleanup(context);
                         } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             // Inline delivery
-                            Log.i("Deliver task " + name + " state=" + state + " elapse=" + elapse + " ms");
+                            Log.i("Deliver task " + name + " state=" + state + " elapse=" + elapsed + " ms");
                             deliver();
                             cleanup(context);
                         } else
