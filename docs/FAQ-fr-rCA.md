@@ -26,7 +26,7 @@ Pour l'autorisation :
 
 * Gmail / G suite, voir [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, voir [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
+* Office365, voir [question 14](#user-content-faq156)
 * Microsoft Echange, voir [question 8](#user-content-faq8)
 * Yahoo, AOL et Sky, voir [question 88](#user-content-faq88)
 * Apple iCloud, voir [question 148](#user-content-faq148)
@@ -271,7 +271,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(153) Pourquoi la suppression définitive du message Gmail ne fonctionne-t-elle pas ?](#user-content-faq153)
 * [~~(154) Peut-on ajouter des favicons comme photos de contact?~~](#user-content-faq154)
 * [(155) Qu'est-ce qu'un fichier winmail.dat ?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
+* [(156) Comment puis-je configurer un compte Office365 ?](#user-content-faq156)
 * [(157) Comment puis-je créer un compte gratuit ?](#user-content-faq157)
 * [(158) Quelle caméra / enregistreur audio recommandez-vous?](#user-content-faq158)
 * [(159) Qu'est ce que deconnecter les listes de protection du tracker ?](#user-content-faq159)
@@ -419,9 +419,9 @@ Dans les trois points du menu à débordement, vous pouvez activer ou désactive
 Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver :
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Show contact photos*: to hide contact photos
+* *Grouper par date*: Affiche la date en en-tête au dessus des messages ayant la même date
+* *Afficher en mode conversation*: Pour désactiver l'affichage en mode conversation et afficher à la place les messages de manière individuelle
+* *Afficher la photo des contacts*: pour masquer la photo des contacts
 * *Show identicons*: to show generated contact avatars
 * *Show names and email addresses*: to show names or to show names and email addresses
 * *Show subject italic*: to show the message subject as normal text
