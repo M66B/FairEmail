@@ -221,7 +221,8 @@ dependencies {
     def lbm_version = "1.0.0"
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.0.1"
-    def lifecycle_version = "2.2.0" // 2.3.0-alpha07
+    def lifecycle_version = "2.3.0-alpha07"
+    def lifecycle_extensions_version = "2.2.0"
     def sqlite_version = "2.1.0"
     def room_version = "2.2.5" // 2.3.0-alpha02
     def paging_version = "2.1.2" // 3.0.0-alpha03
@@ -292,8 +293,14 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata-core
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-core:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-extensions
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
 
     // https://mvnrepository.com/artifact/androidx.room/room-runtime
     implementation "androidx.room:room-runtime:$room_version"
