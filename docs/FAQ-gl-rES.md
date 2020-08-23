@@ -1,77 +1,77 @@
-# FairEmail support
+# Soporte de FairEmail
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Se ten algunha pregunta, por favor mire primeiro na lista de preguntas frecuentes que está abaixo. Ao fondo poderá ver como facer outras preguntas, pedir novas características e reportar erros.
 
-## Index
+## Índice
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
+* [Autorizando contas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Como facer...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Problemas coñecidos](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Características planeadas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Características frecuentemente pedidas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Preguntas frecuentes](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Asistencia Técnica](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Autorizando contas
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Na maioría dos casos, a configuración rápida é capaz de identificar a configuración correcta automaticamente.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Se a configuración rápida fallara, terá que configurar unha conta manualmente (para recibir correo) e unha identidade (para enviar correo). Para iso, precisará coñecer os enderezos e os números de porto dos servidores IMAP e SMTP, se hai que usar SSL/TLS ou STARTTLS, ou seu nome de usuario (a maioría das veces é o seu enderezo de correo, pero non sempre) e o seu contrasinal.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Soe chegar facer unha procura de *IMAP* e o nome do provedor para atopar a documentación axeitada.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Nalgúns casos será preciso habilitar o acceso externo á súa conta e/ou usar un contrasinal especial da aplicación, por exemplo cando a autenticación de dos factores está activa.
 
-For authorizing:
+Para autorizar:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, vexa a [pregunta 6](#user-content-faq6)
+* Outlook / Live / Hotmail, vexa a [pregunta 14](#user-content-faq14)
+* Office 365, vexa a [pregunta 14](#user-content-faq156)
+* Microsoft Exchange, vexa a [pregunta 8](#user-content-faq8)
+* Yahoo, AOL e Sky, vexa a [pregunta 88](#user-content-faq88)
+* Apple iCloud, vexa a [pregunta 148](#user-content-faq148)
+* Free.fr, vexa a [pregunta 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Lea [aquí](#user-content-faq22) para mensaxes de erro comúns e solucións.
 
-Related questions:
+Preguntas relacionadas:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Está OAuth soportado?](#user-content-faq111)
+* [Por que non está ActiveSync soportado?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Como facer...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Mudar o nome da conta: Configuración, paso 1, Xestionar, toque a conta
+* Mudar as accións ao esvarar á esquerda/dereita: Configuración, Comportamento, Axustar accións de esvarar
+* Mudar o contrasinal: Configuración, paso 1, Xestionar, toque na conta, mude o contrasinal
+* Configurar sinatura: Configuración, paso 2, Xestionar, toque na identidade, Editar sinatura.
+* Engadir enderezos CC e BCC: toque nas iconas da xente ao final do asunto
+* Ir á seguinte/anterior mensaxe ao arquivar/borrar: nos axustes de comportamento, desactive *Pechar conversas automaticamente* e seleccione *Ir a conversa seguinte/anterior* en *Cando se pecha unha conversa*
+* Engadir un cartafol á caixa de entrada unificada: toque durante un tempo o cartafol na lista de cartafoles e marque *Mostrar na caixa unificada de entrada*
+* Engadir un cartafol ao menú de navegación: toque durante un tempo o cartafol na lista de cartafoles e marque *Mostrar no menú de navegación*
+* Cargar máis mensaxes: toque durante un tempo o cartafol na lista de cartafoles e seleccione *Sincronizar máis mensaxes*
+* Borrar unha mensaxe se pasar polo cartafol de Lixo: no menú de 3 puntos xusto enriba do texto da mensaxe *Borrar* ou tamén desactivando o cartafol de Lixo na configuración da conta
+* Borrar unha conta/identidade: Pasos 1/2 da configuración, Xestionar, tocar na conta/identidade, menú de 3 puntos, Borrar
+* Borrar un cartafol: toque durante un tempo o cartafol na lista de cartafoles, Editar propiedades, menú de 3 puntos, Borrar
+* Desfacer envío: Caixa de saída, toque na mensaxe, toque na icona de desfacer
+* Gardar as mensaxes enviadas na caixa de entrada: [vexa estas preguntas frecuentes](#user-content-faq142)
+* Mudar os cartafoles de sistema: Configuración, paso 1, Xestionar, toque na conta, está ao final
+* Exportar/importar a configuración: Configuración, menú de navegación ou botón de 3 raias
 
-## Known problems
+## Problemas coñecidos
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
+* ~~Un [erro en Android 5.1 e 6](https://issuetracker.google.com/issues/37054851) fai que as aplicacións mostren un formato de tempo incorrecto. Marcar a configuración *Usar formato de 24 horas* en Android podería resolver o problema temporalmente. Engadiuse un amaño.~~
+* ~~Un [erro en Google Drive](https://issuetracker.google.com/issues/126362828) fai que os ficheiros exportados a Google Drive estean baleiros. Google xa o arranxou.~~
+* ~~Un [erro en AndroidX](https://issuetracker.google.com/issues/78495471) fai que FairEmail deixe de funcionar cando se fan pulsacións longas ou se esvara. Google xa o arranxou.~~
+* ~~Un [erro con AndroidX ROOM](https://issuetracker.google.com/issues/138441698) fai que haxa erros como "*... Exception while computing database live data ... Couldn't read row ...*". Engadiuse un amaño.~~
+* Un [erro de Android](https://issuetracker.google.com/issues/119872129) fai que haxa erros como "*... Bad notification posted ...*" en algúns dispositivos tras actualizar FairEmail e tocar unha notificación.
+* Un [erro de Android](https://issuetracker.google.com/issues/62427912) fai que algunhas veces haxa erros como "*... ActivityRecord not found for ...*" despois de actualizar FairEmail. Reinstalar ([fonte](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) podería arranxar o problema.
+* Un [erro de Android](https://issuetracker.google.com/issues/37018931) fai que algunhas veces haxa erros como *... InputChannel is not initialized ...* en algúns dispositivos.
+* ~~Un [fallo en LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) fai parar o programa con *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Un erro de Nova Launcher con Android 5.x fai que FairEmail se deteña con *java.lang.StackOverflowError* cando Nova Launcher ten acceso ao servizo de accesibilidade.
+* ~~O selector de cartafoles algunhas veces non mostra os cartafoles por razóns aínda descoñecidas. Semella estar arranxado.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
@@ -779,7 +779,7 @@ Note that only some convenience and advanced features need to be purchased which
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-I have been working on FairEmail almost every day for more than one and a half a year, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Estiven a traballar en FairEmail case cada día durante máis de dous anos, polo que penso que o prezo e máis que razoable. For this reason there won't be discounts either.
 
 <br />
 
@@ -812,7 +812,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. É sabido que algúns xestores de contrasinais tamén o fan incorrectamente. O nome de usuario podería ten en conta as maiúsculas/minúsculas, polo que é aconsellable probar unicamente con minúsculas. Os contrasinais case sempre distinguen as maiúsculas e minúsculas. Algúns provedores requiren un contrasinal de aplicación no canto do contrasinal de conta; por favor, comprobe as instrucións do seu provedor de correo. Algunhas veces é preciso activar o acceso externo (IMAP/SMTP) na páxina web do provedor previamente. Outras causas poderían ser que a conta estea bloqueada ou que o acceso estea restrinxido de algunha maneira pola administración, por exemplo unicamente permitindo o acceso desde certas redes ou enderezos IP.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -1470,7 +1470,7 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+O prezo de FairEmail é moi baixo, más pequeno que o de aplicacións similares, e hai [moitas taxas e comisións](#user-content-faq19); Google directamente xa colle o 30 %, para xustificar que FairEmail estea dispoñible na [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Teña en conta que Google fomenta a Family library, pero deixa que os desenvolvedores paguen por ela en non contribúe con nada.
 
 <br />
 
@@ -2105,7 +2105,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+Algúns provedores, coma ProtonMail ou Tutanota usan protocolos de correo propietarios, o que fai imposible usar aplicacións de correo de terceiros. Vexa [esta pregunta frecuente](#user-content-faq129) para máis información.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2263,7 +2263,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
+Se está conforme con isto, pode activar a opción de notificación *Só amosar notificacións con previsualización de mensaxes a reloxos*, e se isto non funciona, pode activar a opción de notificación *Amosar notificacións só con un texto de previsualización*.
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2415,8 +2415,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
-* The account password was changed: changing it in FairEmail too should fix the problem
+* A detección de novas mensaxes (push) está activada para demasiados cartafoles: vexa [esta pregunta frecuente](#user-content-faq23) para máis información é unha solución
+* O contrasinal da conta foi cambiado: cambialo tamén en FairEmail debería solucionar este problema
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
@@ -2534,7 +2534,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+Só hai **soporte** para a última versión no Play Store, a última versión de GitHub e a compilación de F-Droid, pero **unicamente** se a versión de F-Droid é a mesma que o último número da versión publicada de GitHub.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 

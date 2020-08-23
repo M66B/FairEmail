@@ -154,6 +154,7 @@
     <string name="title_setup_no_settings_hint">Încercați să configurați un cont și o identitate în etapele 1 și 2 de configurare utilizând setările furnizate de furnizorul de e-mail</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
+    <string name="title_setup_no_inbox">Dosarul Primite nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
     <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
@@ -325,6 +326,7 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
     <string name="title_advanced_message_text_zoom">Mărime implicită text</string>
+    <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_text_color">Folosește culori text</string>
@@ -471,6 +473,7 @@
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
+    <string name="title_advanced_overview_mode_hint">Acest lucru poate duce la fonturi foarte mici</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
@@ -535,6 +538,8 @@
     <string name="title_provider">Furnizor</string>
     <string name="title_custom">Personalizat</string>
     <string name="title_host">Nume gazdă</string>
+    <string name="title_encryption">Criptare</string>
+    <string name="title_encryption_none">Fără</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
     <string name="title_insecure_remark">Conexiunile nesigure trebuie permise numai pe rețele de încredere și niciodată pe cele publice</string>
     <string name="title_port">Număr port</string>
@@ -570,12 +575,17 @@
     <string name="title_no_user">Lipsește numele de utilizator</string>
     <string name="title_no_password">Lipsește parola</string>
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
+    <string name="title_no_drafts">Nici un dosar de ciorne</string>
     <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
+    <string name="title_no_composable">Trimiterea de e-mailuri necesită o identitate configurată și un dosar pentru ciorne selectat în setările contului</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_reply_domain">Expeditorul (%1$s) și domeniul de răspuns (%2$s) diferă</string>
+    <string name="title_identity_required">O identitate este necesară pentru a trimite e-mailuri</string>
+    <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite e-mailuri</string>
+    <string name="title_drafts_select">Trimiterea de e-mailuri necesită un dosar ciorne selectat în setările contului</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -667,6 +677,7 @@
     <string name="title_buttons">Butoane</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
+    <string name="title_toggle_seen">Comutare citire</string>
     <string name="title_hide">Ascunde</string>
     <string name="title_unhide">Arată</string>
     <string name="title_flag">Adaugă stea</string>
@@ -1198,7 +1209,8 @@
     </string>
     <string name="title_pro_hide">Ascunde micul mesaj timp de %1$d săptămâni</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
-    <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">acestă pagină</a> pentru a afla despre prețurile caracteristicilor Pro</string>
+    <string name="title_pro_price">De ce sunt caracteristicile Pro sunt atât de scumpe?</string>
+    <string name="title_pro_restore">Cum pot restaura o achiziție?</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>
     <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
     <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>

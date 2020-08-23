@@ -1089,7 +1089,6 @@
     </string>
     <string name="title_pro_hide">Ezkutatu mezu txikia %1$d astez</string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>
-    <string name="title_pro_price">Begiratu <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">maiz egindako galderak</a> ordainpeko ezaugarrien salneurriari buruz</string>
     <string name="title_pro_pending">Erosketa egiteke</string>
     <string name="title_pro_activated">Ordainpeko ezaugarri guztiak aktibatuta</string>
     <string name="title_pro_valid">Ordainpeko ezaugarri guztiak aktibatuta</string>

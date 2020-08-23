@@ -527,6 +527,8 @@
     <string name="title_provider">Provider</string>
     <string name="title_custom">Aangepast</string>
     <string name="title_host">Hostnaam</string>
+    <string name="title_encryption">Versleuteling</string>
+    <string name="title_encryption_none">Geen</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_insecure_remark">Onveilige verbindingen mogen alleen worden toegestaan op vertrouwde netwerken en nooit op openbare netwerken</string>
     <string name="title_port">Poortnummer</string>
@@ -583,7 +585,7 @@
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
-    <string name="title_service_auth">De e-mailserver zei: %1$s\'</string>
+    <string name="title_service_auth">De e-mailserver zei: \'%1$s\'</string>
     <string name="title_service_vpn">Dit kan worden veroorzaakt door de VPN die in gebruik is</string>
     <string name="title_service_port">Controleer het poortnummer a.u.b.</string>
     <string name="title_service_protocol">Controleer a.u.b. het protocol (SSL/TLS of STARTTLS)</string>
@@ -1195,7 +1197,7 @@
          FairEmail toont een klein bericht om u hieraan te herinneren, dat wordt verwijderd als u de pro-functies koopt.</string>
     <string name="title_pro_hide">Verberg het kleine bericht voor %1$d weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
-    <string name="title_pro_price">Zie <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">deze FAQ</a> over de prijs van de pro-functies</string>
+    <string name="title_pro_price">Waarom zijn de pro functies zo duur?</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>
     <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>
     <string name="title_pro_valid">Alle pro-functies geactiveerd</string>

@@ -527,6 +527,8 @@
     <string name="title_provider">Leverantör</string>
     <string name="title_custom">Anpassad</string>
     <string name="title_host">Värdnamn</string>
+    <string name="title_encryption">Kryptering</string>
+    <string name="title_encryption_none">Ingen</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
     <string name="title_port">Portnummer</string>
@@ -1196,7 +1198,8 @@
     </string>
     <string name="title_pro_hide">Dölj små meddelanden i %1$d veckor</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
-    <string name="title_pro_price">Se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">dessa vanliga frågor</a> om pris på pro-funktionerna</string>
+    <string name="title_pro_price">Varför är pro-funktionerna så dyra?</string>
+    <string name="title_pro_restore">Hur kan jag återställa ett tidigare köp?</string>
     <string name="title_pro_pending">Väntande köp</string>
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>

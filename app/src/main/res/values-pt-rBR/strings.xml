@@ -1189,7 +1189,6 @@
     </string>
     <string name="title_pro_hide">Ocultar mensagens pequenas por %1$d semanas</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
-    <string name="title_pro_price">Por favor, veja <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">este FAQ</a> sobre o preço dos recursos Pro</string>
     <string name="title_pro_pending">Compra pendente</string>
     <string name="title_pro_activated">Todos os recursos Pro estão ativados</string>
     <string name="title_pro_valid">Todos os recursos Pro ativados</string>

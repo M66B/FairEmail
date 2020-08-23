@@ -549,6 +549,8 @@
     <string name="title_provider">Dostawca</string>
     <string name="title_custom">Własne</string>
     <string name="title_host">Nazwa hosta</string>
+    <string name="title_encryption">Szyfrowanie</string>
+    <string name="title_encryption_none">Żaden</string>
     <string name="title_allow_insecure">Zezwól na niezabezpieczone połączenia</string>
     <string name="title_insecure_remark">Niebezpieczne połączenia powinny być dozwolone tylko w zaufanych sieciach, a nigdy w sieciach publicznych</string>
     <string name="title_port">Numer portu</string>
@@ -592,6 +594,9 @@
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
     <string name="title_no_sync">Błędy synchronizacji od %1$s</string>
     <string name="title_reply_domain">Nadawca (%1$s) i domena odpowiedzi (%2$s) różnią się</string>
+    <string name="title_identity_required">Tożsamość jest wymagana do wysyłania wiadomości e-mail</string>
+    <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości e-mail</string>
+    <string name="title_drafts_select">Wysyłanie wiadomości e-mail wymaga wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
@@ -1214,7 +1219,8 @@
         FairEmail wyświetla małą wiadomość przypominającą o tym, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
     <string name="title_pro_hide">Ukryj małą wiadomość na %1$d tygodnie</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
-    <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
+    <string name="title_pro_price">Dlaczego funkcje pro są tak drogie?</string>
+    <string name="title_pro_restore">Jak mogę przywrócić zakup?</string>
     <string name="title_pro_pending">Zakup w toku</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>

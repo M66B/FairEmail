@@ -888,7 +888,6 @@
     <string name="title_pro_purchase">Купи</string>
     <string name="title_pro_once">Само једном</string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>
-    <string name="title_pro_price">Видите ова <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">често постављана питања</a> о цени премијум функционалности</string>
     <string name="title_pro_pending">Куповина на чекању</string>
     <string name="title_pro_activated">Све премијум функционалности су активиране</string>
     <string name="title_pro_valid">Све премијум функционалности активиране</string>

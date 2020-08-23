@@ -105,33 +105,33 @@
 * ~~Виджет для выбранной учётной записи~~
 * ~~Напоминать о прикреплении файлов~~
 * ~~Выбор доменов для отображения изображений~~ (это будет слишком сложно использовать)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Единые просмотр помеченных сообщений~~ (уже есть специальный поиск для этого)
+* ~~Действие перемещения в уведомлении~~
+* ~~Поддержка S/MIME~~
+* ~~Поиск настроек~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Что угодно из этого списка в случайном порядке *может быть* добавлено в ближайшем будущем.
 
-## Frequently requested features
+## Часто запрашиваемые возможности
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Дизайн основан на долгих обсуждениях, и, если хотите, вы тоже можете обсудить его [на этом форуме](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Цель дизайна – быть минималистичным (без лишних меню, кнопок и т.п.) и не отвлекающим (без причудливых цветов, анимаций и т.п.). Все отображаемые элементы должны быть полезны тем или иным способом и должны быть разумно размещены для удобного использования. Шрифты, размеры, цвета и т.п. должны по возможности следовать материальному дизайну.
 
-## Frequently Asked Questions
+## Часто задаваемые вопросы
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
+* [(1) Какие разрешения необходимы и почему?](#user-content-faq1)
+* [(2) Почему показывается постоянное уведомление?](#user-content-faq2)
+* [(3) Что такое операции и почему они в ожидании?](#user-content-faq3)
+* [(4) Как я могу использовать неверный сертификат безопасности / пустой пароль / обычное текстовое соединение?](#user-content-faq4)
+* [(5) Как я могу настроить вид сообщения?](#user-content-faq5)
+* [(6) Как войти в Gmail / G suite?](#user-content-faq6)
+* [(7) Почему сообщения не появляются (непосредственно) в папке отправленных?](#user-content-faq7)
+* [(8) Можно ли использовать учетную запись Microsoft Exchange?](#user-content-faq8)
+* [(9) Что такое идентификаторы / как добавить псевдоним?](#user-content-faq9)
+* [~~(11) Почему POP не поддерживается?~~](#user-content-faq11)
+* [~~(10) Что означает 'UIDPLUS не поддерживается'?~~](#user-content-faq10)
+* [(12) Как работает шифрование/расшифрование?](#user-content-faq12)
+* [(13) Как работает поиск на устройстве/сервере?](#user-content-faq13)
+* [(14) Как я могу настроить учётную запись для Outlook / Live / Hotmail?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
@@ -396,9 +396,9 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*Не указан пароль*
 
-Your username is likely easily guessed, so this is insecure.
+Вероятно, ваше имя пользователя легкое, так что это небезопасно.
 
 *Plain text connection*
 
@@ -779,7 +779,7 @@ Note that only some convenience and advanced features need to be purchased which
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-I have been working on FairEmail almost every day for more than one and a half a year, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Я работаю над FairEmail почти каждый день более двух лет, поэтому я думаю, что цена более чем разумна. For this reason there won't be discounts either.
 
 <br />
 
@@ -812,7 +812,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Некоторые менеджеры паролей также делают это неправильно. Имя пользователя может быть чувствительным к регистру, поэтому попробуйте использовать только строчные буквы. Пароль почти всегда чувствителен к регистру. Некоторые провайдеры требуют использования пароля приложения вместо пароля учетной записи, поэтому проверьте документацию провайдера. Иногда необходимо сначала включить внешний доступ (IMAP/SMTP) на сайте провайдера. Другими возможными причинами являются то, что учетная запись заблокирована или вход был заблокирован в административном порядке, например, позволяя входить только с определенных сетей / IP адресов.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -1470,7 +1470,7 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+Цена FairEmail слишком низкая, ниже большинства подобных приложений (также существует [слишком много комиссий и налогов](#user-content-faq19), один только Google берёт 30 %) чтобы оправдать доступность FairEmail в [Семейной Библиотеке Google Play](https://support.google.com/googleone/answer/7007852). Заметим, что Google продвигает Семейную библиотеку, но заставляет разработчиков платить за неё, ничего не внося от себя.
 
 <br />
 
@@ -2263,7 +2263,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
+Если вы думаете, что это достаточно хорошо, вы можете включить опцию уведомления *Отправлять уведомления только с предпросмотром сообщений на носимые устройства* и если это не работает, вы можете включить опцию уведомлений *Показывать уведомления только с текстом предварительного просмотра*.
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 

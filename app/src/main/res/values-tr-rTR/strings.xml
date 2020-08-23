@@ -981,7 +981,6 @@
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_once">Sadece bir kez</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
-    <string name="title_pro_price">Lütfen pro özelliklerin fiyatı için <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">bu SSS sayfasını</a> görün</string>
     <string name="title_pro_pending">Satın alma beklemede</string>
     <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>

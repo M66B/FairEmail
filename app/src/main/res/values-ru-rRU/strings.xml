@@ -550,6 +550,8 @@
     <string name="title_provider">Провайдер</string>
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
+    <string name="title_encryption">Шифрование</string>
+    <string name="title_encryption_none">Нет</string>
     <string name="title_allow_insecure">Разрешить небезопасные соединения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_port">Номер порта</string>
@@ -587,7 +589,7 @@
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_drafts">Нет папки черновиков</string>
     <string name="title_no_junk_folder">Для этой учётной записи не выбрана папка со спамом</string>
-    <string name="title_no_composable">Отправка писем требует настройки идентификатора, также должна быть выбрана папка черновиков в настройках учетной записи</string>
+    <string name="title_no_composable">Отправка писем требует настройки идентификатора, также должна быть выбрана папка черновиков в настройках учётной записи</string>
     <string name="title_no_standard">Этот провайдер использует проприетарный протокол электронной почты, что не позволяет использовать сторонние почтовые клиенты</string>
     <string name="title_no_idle">Данный провайдер не поддерживает push-сообщения. Это задержит получение новых сообщений и увеличит расход заряда батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
@@ -595,7 +597,7 @@
     <string name="title_reply_domain">Домены адресов отправителя (%1$s) и для ответа (%2$s) отличаются</string>
     <string name="title_identity_required">Для отправки электронной почты требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки электронной почты требуется папка черновиков</string>
-    <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учетной записи</string>
+    <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
@@ -1219,7 +1221,8 @@
     </string>
     <string name="title_pro_hide">Скрыть маленькое сообщение на %1$d недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
-    <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">​​этим часто задаваемым вопросом</a> о цене функций Pro.</string>
+    <string name="title_pro_price">Почему Pro функции так дороги?</string>
+    <string name="title_pro_restore">Как восстановить покупку?</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>
     <string name="title_pro_valid">Все функции Pro активированы</string>

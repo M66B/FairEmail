@@ -1109,7 +1109,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_once">Només un cop</string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>
-    <string name="title_pro_price">Dona un cop d\'ull <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">a les preguntes freqüents</a> per saber el preu de les característiques Pro</string>
     <string name="title_pro_pending">Compra pendent</string>
     <string name="title_pro_activated">Totes les característiques Pro estan activades</string>
     <string name="title_pro_valid">Totes les característiques Pro estan activades</string>

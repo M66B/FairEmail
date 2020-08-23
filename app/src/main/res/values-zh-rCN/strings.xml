@@ -516,6 +516,8 @@
     <string name="title_provider">服务提供商</string>
     <string name="title_custom">自定义</string>
     <string name="title_host">主机名</string>
+    <string name="title_encryption">加密</string>
+    <string name="title_encryption_none">无</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
     <string name="title_insecure_remark">只应在受信任网络中允许不安全连接，请勿允许公共网络</string>
     <string name="title_port">端口号</string>
@@ -1184,7 +1186,8 @@
         FairEmail 会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将会移除</string>
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
-    <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
+    <string name="title_pro_price">为什么高级功能如此昂贵？</string>
+    <string name="title_pro_restore">如何恢复购买？</string>
     <string name="title_pro_pending">购买待处理</string>
     <string name="title_pro_activated">全部专业版功能已激活</string>
     <string name="title_pro_valid">全部专业版功能已激活</string>

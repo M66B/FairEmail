@@ -1049,7 +1049,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_pro_purchase">購入</string>
     <string name="title_pro_once">一度だけです</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
-    <string name="title_pro_price"><a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">このFAQ</a>をご覧ください。プロ機能の価格や購入法も有ります</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
     <string name="title_pro_valid">全てのプロ機能が有効化されました</string>

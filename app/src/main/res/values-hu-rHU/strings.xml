@@ -54,6 +54,10 @@
         <item quantity="one">%1$d beszélgetés kiválasztva</item>
         <item quantity="other">%1$d beszélgetés kiválasztva</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Áthelyezed a(z) %1$d üzenetet?</item>
+        <item quantity="other">Áthelyezi a(z) %1$d üzenetet?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Véglegesen töröl %1$d üzenetet?</item>
         <item quantity="other">Biztosan töröl %1$d üzenetet véglegesen?</item>
@@ -140,6 +144,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
     <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
+    <string name="title_setup_no_inbox">Bejövő mappa nem található</string>
     <string name="title_setup_advanced_protection">Az \"Advanced Protection\" programban részt vevők fiókjaihoz való hozzáférést a Google letiltotta minden harmadik féltől származó app számára.</string>
     <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
     <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
@@ -195,6 +200,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_theme_red_green">Piros/zöld</string>
     <string name="title_setup_theme_grey">Szürke</string>
     <string name="title_setup_theme_black">Fekete</string>
+    <string name="title_setup_theme_black_and_white">Fekete és fehér</string>
     <string name="title_setup_theme_reverse">Színek felcserélése</string>
     <string name="title_setup_theme_dark">Sötét</string>
     <string name="title_setup_theme_black_background">Fekete háttér</string>
@@ -310,6 +316,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_attachments_alt">Csatolmányok megjelenítése a szöveg után</string>
     <string name="title_advanced_thumbnails">A csatolmányok a szöveg után jelenjenek meg</string>
     <string name="title_advanced_message_text_zoom">A szöveg nagyításának alapértelmezett értéke</string>
+    <string name="title_advanced_overview_mode">Eredeti üzenetek kinagyítására teljes képernyőre</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
     <string name="title_advanced_monospaced">Fix szélességű betűtípus használata az üzenetek szövegéhez</string>
     <string name="title_advanced_text_color">Színek használata a szövegben</string>
@@ -332,6 +339,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_volumenav">Következő/előző üzenetre valtás a hangerő fel/le gombokkal</string>
     <string name="title_advanced_reversed">Navigációs irány megfordítása</string>
     <string name="title_advanced_swipe_close">A beszélgetés bezárásához húzd le</string>
+    <string name="title_advanced_swipe_move">Pöccintsen fel a beszélgetés áthelyezéséhez</string>
     <string name="title_advanced_autoexpand">Üzenetek automatikus kibontása</string>
     <string name="title_advanced_expand_all">Összes olvasott üzenet automatikus kibontása</string>
     <string name="title_advanced_expand_one">Egyszerre csak egy üzenet kibontása</string>
@@ -454,6 +462,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_advanced_name_email_hint">Ha ki van kapcsolva csak nevek fognak megjelenni, ha elérhető</string>
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
     <string name="title_advanced_preview_issue">A görgetés bizonyos Android verziók hibája miatt lassú lehet, egynél több sor esetén</string>
+    <string name="title_advanced_overview_mode_hint">Ez nagyon kis betűméretet eredményezhet</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>
     <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
@@ -553,12 +562,17 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_no_user">Hiányzó felhasználónév</string>
     <string name="title_no_password">Hiányzó jelszó</string>
     <string name="title_no_inbox">Bejövő mappa nem található</string>
+    <string name="title_no_drafts">Nem található a piszkozatok mappája</string>
     <string name="title_no_junk_folder">Ehhez a fiókhoz nincs Spam mappa kijelölve</string>
+    <string name="title_no_composable">Email küldéséhez konfiguráljon egy fiókot és egy piszkozatmappát, majd válasszon identitást a beállításokban</string>
     <string name="title_no_standard">Ez a szolgáltató zárt email protokollt használ, ezért nem lehetséges harmadik féltől származó email kliens használata</string>
     <string name="title_no_idle">Ez a szolgáltató nem támogatja a push üzenetek kuldését. Ez a bejövő üzenetek késlekedésével és megnövekedett akkumulátorhasználattal jár.</string>
     <string name="title_no_utf8">A szolgáltató nem támogatja az UTF-8-at</string>
     <string name="title_no_sync">Szinkronizálási hibák %1$s óta</string>
     <string name="title_reply_domain">A küldő (%1$s) és a válaszoló domain (%2$s) különbözik egymástól</string>
+    <string name="title_identity_required">Identitás szükséges az üzenetek küldéséhez</string>
+    <string name="title_drafts_required">Az üzenetek küldéséhez piszkozat mappa szükséges</string>
+    <string name="title_drafts_select">Emailek küldéséhez egy piszkozat mappa kiválasztása szükséges a fiókbeállításokban</string>
     <string name="title_account_delete">Véglegesen törli a fiókot?</string>
     <string name="title_identity_delete">Véglegesen törli az identitást?</string>
     <string name="title_edit_html">Szerkesztés HTML-ként</string>
@@ -569,6 +583,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_oauth_support">Az OAuth nem támogatott</string>
     <string name="title_review">Áttekintés</string>
     <string name="title_hint_alias">Nyomja hosszan az opciók megjelenítéséhez, mint pl.: másolás új identitás létrehozásához</string>
+    <string name="title_service_auth">Az email szerver a következő üzenetet küldi: \'%1$s\'</string>
     <string name="title_service_vpn">Ezt okozhatja egy használatban lévő VPN</string>
     <string name="title_service_port">Kérlek duplán ellenőrizd a portszámot</string>
     <string name="title_service_protocol">Kérlek ellenőrizd mégegyszer a protokolt (SSL/TLS vagy STARTTLS)</string>
@@ -649,6 +664,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_buttons">Gombok</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
+    <string name="title_toggle_seen">Megjelölés olvasottként</string>
     <string name="title_hide">Elrejtés</string>
     <string name="title_unhide">Megjelenítés</string>
     <string name="title_flag">Csillagozás</string>
@@ -752,6 +768,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_third_party">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
+    <string name="title_reformatted">Ez az újraformált üzenetmegtekintés. Az eredeti üzenet megtekintéséhez kattintson a &#x26F6; ikonra.</string>
     <string name="title_compose">Levélírás</string>
     <string name="title_submitter">Feladó:</string>
     <string name="title_delivered_to">Kézbesítve ide:</string>
@@ -787,6 +804,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_style_size_medium">Közepes</string>
     <string name="title_style_size_large">Nagy</string>
     <string name="title_style_color">Szín &#8230;</string>
+    <string name="title_style_list">Lista</string>
+    <string name="title_style_list_bullets">Felsorolás</string>
+    <string name="title_style_list_numbered">Sorszám</string>
     <string name="title_style_font">Betűtípus</string>
     <string name="title_style_font_default">Alapértelmezett</string>
     <string name="title_style_clear">Formázás törlése</string>
@@ -1176,7 +1196,6 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
     <string name="title_pro_hide">A kicsi üzenet elrejtése %1$d hétre</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
-    <string name="title_pro_price">Kérlek lásd <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">EZt a GYIK-et</a> a pro funkciók áráért</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
     <string name="title_pro_activated">Minden pro szolgáltatás aktiválva van</string>
     <string name="title_pro_valid">Minden pro szolgáltatás aktiválva</string>

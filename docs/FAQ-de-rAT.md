@@ -123,7 +123,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(3) Was sind Vorgänge und warum sind sie anhängig?](#user-content-faq3)
 * [(4) Wie kann ich ein ungültiges Sicherheitszertifikat / leeres Passwort / Klartextverbindung verwenden?](#user-content-faq4)
 * [(5) Wie kann ich die Nachrichtenansicht anpassen?](#user-content-faq5)
-* [(6) Wie kann ich mich bei Gmail / G suite anmelden?](#user-content-faq6)
+* [(6) Wie kann ich mich bei Gmail / G Suite anmelden?](#user-content-faq6)
 * [(7) Warum werden gesendete Nachrichten nicht (direkt) im Gesendet-Ordner angezeigt?](#user-content-faq7)
 * [(8) Kann ich ein Microsoft Exchange-Konto verwenden?](#user-content-faq8)
 * [(9) Was sind Identitäten / Wie füge ich einen Alias hinzu?](#user-content-faq9)
@@ -136,9 +136,9 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(16) Warum werden Nachrichten nicht synchronisiert?](#user-content-faq16)
 * [~~(17) Warum funktioniert die manuelle Synchronisation nicht?~~](#user-content-faq17)
 * [(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?](#user-content-faq18)
-* [(19) Warum sind die Profi-Funktionen so teuer?](#user-content-faq19)
+* [(19) Warum sind die Pro-Funktionen so teuer?](#user-content-faq19)
 * [(20) Kann ich eine Rückerstattung erhalten?](#user-content-faq20)
-* [(21) Wie aktiviere ich die Benachrichtigungsleuchte?](#user-content-faq21)
+* [(21) Wie aktiviere ich das Benachrichtigungslicht?](#user-content-faq21)
 * [(22) Was bedeutet ein Konto-/Ordnerfehler ... ?](#user-content-faq22)
 * [(23) Warum bekomme ich Warnhinweis .. ?](#user-content-faq23)
 * [(24) Was bedeutet das Anzeigen / Suchen von Nachrichten auf dem Server?](#user-content-faq24)
@@ -322,15 +322,15 @@ FairEmail will keep a list of addresses you receive messages from and send messa
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Warum wird eine permanente Benachrichtigung angezeigt?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Eine permanente Statusleiste mit niedriger Priorität mit der Anzahl der zu überwachenden Konten und der Anzahl der ausstehenden Operationen (siehe die nächste Frage) wird angezeigt, um zu verhindern, dass Android den Service beendet, der sich um den kontinuierlichen Empfang von E-Mails kümmert. Das war [immer notwendig](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), aber mit der Einführung des [Schlummermodus'](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow ist dies nun nicht mehr erforderlich. Der Schlummermodus beendet alle Apps, wenn der Bildschirm für einige Zeit ausgeschaltet ist, es sei denn, die App hat einen Vordergrund-Dienst gestartet, was die Anzeige einer Statusleisten-Benachrichtigung erfordert.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Die meisten, wenn nicht gar alle anderen E-Mail-Apps zeigen keine Benachrichtigungen an, was zu den "Nebeneffekten" führt, dass es keinen oder nur einen verspäteten Hinweis auf neu eingegangene Nachrichten gibt oder ausgehende Nachrichten nicht oder nur verzögert versandt werden.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android zeigt zuerst Symbole mit hoher Priorität in der Statusleiste an und wird das Symbol der FairEmail Benachrichtigung ausblenden, wenn kein Platz mehr vorhanden ist, um Icons mehr anzuzeigen. In der Praxis bedeutet dies, dass die Benachrichtigung keinen Platz in der Statusleiste belegt, es sei denn, es ist Platz vorhanden.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Die Statusleisten-Benachrichtigung kann über die Benachrichtigungseinstellungen von FairEmail deaktiviert werden:
 
 * Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
@@ -346,7 +346,7 @@ If you came here by clicking on the notification, you should know that the next 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Was sind Vorgänge und warum sind sie anhängig?**
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
@@ -376,91 +376,91 @@ Operations are processed only when there is a connection to the email server or 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Wie kann ich ein ungültiges Sicherheitszertifikat / leeres Passwort / Klartextverbindung verwenden?**
 
-*... Untrusted ... not in certificate ...*
+*... Nicht vertrauenswürdig ... nicht zertifiziert ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Ungültiges Sicherheitszertifikat (Kann die Identität des Servers nicht überprüfen) ...*
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Kontaktieren Sie Ihren Provider, um dieses Problem zu beheben oder besorgen Sie sich ein gültiges Sicherheitszertifikat, da ungültige und dadurch unsichere Sicherheitszertifikate [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ermöglichen. Falls Sie die Kosten hierfür scheuen, dann können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) beziehen.
 
 Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsbehörden wie Let’s Encrypt möglicherweise nicht akzeptieren, wodurch Internetverbindungen als unsicher eingestuft werden können, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Vertrauensanker für Zertifizierungspfad nicht gefunden*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Vertrauensanker für Zertifizierungspfad nicht gefunden ...* bedeutet, dass der standardmäßige Android Trust Manager die Server-Zertifikatskette nicht überprüfen konnte.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Sie sollten entweder die Serverkonfiguration korrigieren oder den unten angezeigten Fingerabdruck akzeptieren.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Beachten Sie, dass dieses Problem dadurch verursacht werden kann, dass der Server nicht alle Zwischenzertifikate sendet.
 
-*Empty password*
+*Leeres Passwort*
 
-Your username is likely easily guessed, so this is insecure.
+Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist dies unsicher.
 
-*Plain text connection*
+*Klartext-Verbindung*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Benutzername und Passwort, sowie alle Nachrichten, werden unverschlüsselt gesendet und empfangen, was im **höchsten Maße unsicher** ist, weil eine [Man-in-the-Middle-Attacke](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf einer unverschlüsselten Verbindung sehr einfach ist.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Wenn Sie dennoch ein ungültiges Sicherheitszertifikat, ein leeres Passwort oder eine Klartext-Verbindung verwenden möchten, dann müssen Sie unsichere Verbindungen in den Konto- und/oder Identitätseinstellungen aktivieren. STARTTLS sollte für Klartext-Verbindungen ausgewählt werden. Wenn Sie unsichere Verbindungen aktivieren, sollten Sie sich nur über private, vertrauenswürdige Netzwerke verbinden und niemals über öffentliche Netzwerke, wie sie in Hotels, Flughäfen usw. angeboten werden.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Wie kann ich die Nachrichtenansicht anpassen?**
 
-In the three dot overflow menu you can enable or disable or select:
+Im Drei-Punkte-Überlaufmenü können Sie die folgenden Optionen aktivieren/deaktivieren bzw. wählen:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *Textgröße*: für drei verschiedene Schriftgrößen
+* *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-In the display section of the settings you can enable or disable:
+Im Anzeigebereich der Einstellungen können Sie ein- oder ausschalten:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Show contact photos*: to hide contact photos
+* *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
+* *Nach Datum gruppieren*: Zeigt eine Kopfzeile für alle Nachrichten mit dem gleichen Datum anzeigen
+* *Unterhaltungsthread*: Fasst zusammengehörige Nachrichten zu einem Gesprächsfaden zusammen. Deaktivieren Sie die Option, um stattdessen einzelne Nachrichten anzuzeigen
+* *Kontaktfotos anzeigen*: Blendet Kontaktfotos ein oder aus
 * *Show identicons*: to show generated contact avatars
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
+* *Zeige Namen und E-Mail-Adressen*: Blendet Anzeigenamen und E-Mail-Adressen ein oder aus
+* *Kursiv anzeigen*: Lässt den Betreff der Nachricht als kursiven oder normalen Text anzeigen
 * *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Nachrichtenvorschau anzeigen*: Zeigt die ersten zwei Zeilen des Nachrichtentextes als Vorschau an
+* *Adressdetails als Standard*: Erweitert standardmäßig den Adressenbereich
+* *Monospace-Schriftart für Nachrichtentext*: Aktivieren Sie die Option, um eine Schriftart mit fester Breite für Nachrichtentexte zu verwenden
+* *Originalnachrichten von bekannten Kontakten anzeigen*: Wenn Sie Originalnachrichten von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
+* *Bilder von bekannten Kontakten anzeigen*: Wenn Sie Bilder von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
+* *Konversations-Aktionsleiste*: Blendet die untere Navigationsleiste ein oder aus
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Beachten Sie, dass Nachrichten nur angezeigt werden können, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. Sie können dies in den Einstellungen ändern.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Wenn die Liste der Adressaten sehr lang ist, dann können Sie den Adressbereich mit dem *Weniger* Symbol oben im Adressbereich einklappen.
 
-Some people ask:
+Einige Benutzer fragten:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
+* wie man den Betreff fett anzeigen lassen kann, obwohl eine fette Schrift bereits verwendet wird, um ungelesene Nachrichten hervorzuheben
+* wie man die Adresse oder den Betreff unabhängig von der Textgröße-Option in den Einstellungen größer/kleiner anzeigen lassen kann
 * to move the star to the left, but it is much easier to operate the star on the right side
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wären nicht nur verwirrend, sondern auch nie ausreichend.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Bitte lesen Sie diese [Häufig gestellte Fragen (FAQ)](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein app-spezifisches Passwort erforderlich ist.
 
 <br />
 
-*App specific password*
+*App-spezifisches Passwort*
 
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Wie ein app-spezifisches Passwort erstellt wird, sehen Sie [hier](https://support.google.com/accounts/answer/185833).
 
 <br />
 
@@ -484,18 +484,18 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 *Allgemeines*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Möglicherweise erhalten Sie die Warnung "*Bitte melden Sie sich über Ihren Webbrowser an*". Dies geschieht, wenn Google Ihre Netzwerk- bzw. Internetverbindung für unsicher hält (z. B. bei VPN). Mit der Verwendung des Gmail-Schnelleinrichtungsassistenten oder dem Einsatz eines App-spezifischen Passworts können Sie dies verhindern.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Siehe [hier](https://support.google.com/mail/answer/7126229) für eine Google-Anleitung und [hier](https://support.google.com/mail/accounts/answer/78754) für Problemlösungen.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Warum werden gesendete Nachrichten nicht (direkt) im Gesendet-Ordner angezeigt?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Gesendete Nachrichten werden normalerweise aus dem Postausgang in den Gesendet-Ordner verschoben, sobald Ihr Provider selbst diese Nachrichten in den Gesendet-Ordner verschiebt. Dies setzt voraus, dass in den Kontoeinstellungen ein Gesendet-Ordner festgelegt und auch dessen Synchronisation aktiviert wurde.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In diesen Fällen fügt FairEmail gesendete Nachrichten beim Synchronisieren des Ordners „Gesendet”, die nach dem Senden einer Nachricht erfolgt, automatisch dem Ordner „Gesendet” hinzu. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In diesen Fällen fügt FairEmail gesendete Nachrichten beim Synchronisieren des Ordners „Gesendet”, die nach dem Senden einer Nachricht erfolgt, automatisch dem Ordner „Gesendet” hinzu. Beachten Sie, dass dies zu zusätzlichem Internetverkehr führt.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -504,7 +504,7 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-**(8) Kann ich ein Microsoft-Exchange-Konto benutzen?**
+**(8) Kann ich ein Microsoft-Exchange-Konto verwenden?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
@@ -519,11 +519,11 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Was sind Identitäten / wie füge ich einen Alias hinzu?**
 
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Einige Anbieter gestatten die Verwendung mehrerer Aliasse. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
 Note that you can copy an identity by long pressing it.
 
@@ -536,14 +536,14 @@ Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Was bedeutet 'UIDPLUS nicht unterstützt'?~~**
 
 ~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Warum wird POP nicht unterstützt?~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -558,7 +558,7 @@ Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Wie funktioniert die Ver- und Entschlüsselung?**
 
 *Allgemein*
 
@@ -661,12 +661,12 @@ openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 
 You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+S/MIME signieren/verschlüsseln ist ein Pro-Funktion, aber alle anderen PGP- und S/MIME-Operationen sind frei nutzbar.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Wie funktioniert die Suche auf dem Gerät bzw. auf den Servern?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -692,14 +692,14 @@ Searching through a large number of messages on the device is not very fast beca
 
 This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Das Verwenden des Suchindex ist eine Pro-Funktion.
 
-Searching messages on the device is a free feature, searching messages on the server is a pro feature.
+Die Suche nach Nachrichten auf dem Gerät ist eine kostenlose Funktion, die Suche nach Nachrichten auf dem Server ist jedoch eine Pro-Funktion.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Wie kann ich ein Outlook-/Live-/Hotmail-Konto einrichten?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -712,7 +712,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Warum wird der Nachrichtentext immer noch geladen?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
 
@@ -725,7 +725,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Warum werden Nachrichten nicht synchronisiert?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -748,7 +748,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Warum funktioniert die manuelle Synchronisation nicht?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -757,39 +757,39 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [diese F&A](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Warum sind die Pro-Funktionen so teuer?**
 
-The right question is "*why are there so many taxes and fees?*":
+Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
 
-* VAT: 25 % (depending on your country)
-* Google fee: 30 %
-* Income tax: 50 %
-* <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
+* MwSt.: 25 % (je nach Land)
+* Google-Gebühr: 30 %
+* Einkommenssteuer: 50 %
+* <sub>PayPal-Gebühr: 5-10 % abhängig vom Land/Betrag</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Was also für den Entwickler übrig bleibt, ist nur ein Bruchteil dessen, was Sie bezahlen.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Beachten Sie, dass nur einige Vorteile und erweiterte Funktionen erworben werden müssen, was bedeutet, dass FairEmail grundsätzlich frei zu verwenden ist.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+Beachten Sie auch, dass die meisten kostenlosen Apps am Ende nicht langfristig einsetzbar sind, während FairEmail ordnungsgemäß gewartet und unterstützt wird, und dass kostenlose Anwendungen einen Haken haben können, wie z.B. das Senden vertraulicher Informationen ins Internet.
 
-I have been working on FairEmail almost every day for more than one and a half a year, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Ich arbeite seit mehr als zwei Jahren fast jeden Tag an FairEmail, daher halte ich den Preis für mehr als angemessen. Aus diesem Grund gibt es auch keine Rabatte.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Kann ich eine Rückerstattung erhalten?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Wenn eine gekaufte Pro-Funktion nicht wie vorgesehen funktioniert und dies wird nicht durch ein Problem in den kostenlosen Funktionen verursacht und ich das Problem nicht rechtzeitig beheben kann, können Sie eine Rückerstattung beantragen. In all other cases there is no refund possible. Unter keinen Umständen ist eine Rückerstattung für Probleme im Zusammenhang mit den kostenlosen Funktionen möglich, da diese nicht kostenpflichtig sind und diese uneingeschränkt genutzt werden können. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Wie aktiviere ich das Benachrichtigungslicht?**
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
@@ -812,7 +812,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. Beim Kopieren/Einfügen eines Benutzernamens oder Passworts können unsichtbare Zeichen kopiert werden, was auch zu diesem Problem führen kann. Einige Anbieter benötigen statt des regulären Passworts ein App-spezfisches Passwort. Bitte überprüfen Sie die Dokumentation des Anbieters. In einigen Fällen ist es erforderlich, den externen Zugang (IMAP/SMTP) auf der Website des Anbieters zuerst zu ermöglichen. Andere mögliche Ursachen können eine Kontensperrung sein oder eine Anmeldebeschränkung in sonstiger/administrativer Hinsicht. Eine Anmeldung kann z. B. auf bestimmte Netzwerke oder IP-Adressen beschränkt sein.
+The error *... Authentication failed ...* or *... „Authentifizierung fehlgeschlagen …”* bedeutet wahrscheinlich, dass Ihr Benutzername oder Passwort ungültig war. Einige Anbieter erwarten als Benutzername nur den *Benutzernamen* und andere jedoch Ihre vollständige E-Mail-Adresse *benutzername@beispiel.de*. Beim Kopieren/Einfügen eines Benutzernamens oder Passworts können unsichtbare Zeichen kopiert werden, was auch zu diesem Problem führen kann. Einige Passwortmanager sind dafür bekannt, dies ebenfalls fehlerhaft zu tun. Beim Benutzernamen wird möglicherweise die Groß- und Kleinschreibung berücksichtigt, versuchen Sie außerdem nur Kleinbuchstaben. Das Passwort unterscheidet fast immer zwischen Groß- und Kleinschreibung. Einige Anbieter benötigen statt des regulären Passworts ein App-spezfisches Passwort. Bitte überprüfen Sie die Dokumentation des Anbieters. In einigen Fällen ist es erforderlich, zuerst den externen Zugang (IMAP/SMTP) auf der Website des Anbieters zu erlauben. Andere mögliche Ursachen können eine Kontensperrung sein oder eine Anmeldebeschränkung in sonstiger/administrativer Hinsicht. Eine Anmeldung kann z. B. auf bestimmte Netzwerke oder IP-Adressen beschränkt sein.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -1066,7 +1066,7 @@ If you like to match the special purpose email addresses abc@example.com and xyx
 * Identity: xyz@example.com; regex: **(?i)xyz**
 * Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
+Matched identities can be used to color code messages. The identity color takes precedence over the account color. Das Festlegen von Identitätsfarben ist ein Pro-Funktion.
 
 <br />
 
@@ -1139,7 +1139,7 @@ In the receive settings you can enable to always synchronize starred messages, w
 
 Disabling the folder option *Automatically download message texts and attachments* will result in less network traffic and thus less battery usage. You could disable this option for example for the sent folder and the archive.
 
-Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In the settings you can select a schedule for message synchronization (this is a pro feature).
+Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In den Einstellungen können Sie einen Zeitplan für das Synchronisieren von Nachrichten auswählen (dies ist eine Pro-Funktion).
 
 FairEmail will by default synchronize the folder list on each connection. Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
 
@@ -1468,9 +1468,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) Ist FairMail in der Google Play-Familienmediathek verfügbar?**
 
-The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
+Der Preis für FairEmail ist dafür zu niedrig, niedriger als bei fast allen ähnlichen Apps, und es müssen [zu viele Gebühren und Steuern](#user-content-faq19) entrichtet werden. Google kassiert alleine schon 30% dafür, dass FairEmail in der [Google Play-Familienmediathek](https://support.google.com/googleone/answer/7007852) zur Verfügung gestellt wird. Beachten Sie, dass Google die Familienmediathek zwar anbietet, jedoch die Entwickler dafür bezahlen lässt und selbst nichts dazu beiträgt.
 
 <br />
 
@@ -1586,7 +1586,7 @@ In the three-dots *more* message menu there is an item to create a rule for a re
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
-Using rules is a pro feature.
+Das Verwenden von Regeln ist ein Pro-Funktion.
 
 <br />
 
@@ -1640,7 +1640,7 @@ Depending on the speed of your device (processor speed and maybe even more memor
 
 Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+When comparing the speed of FairEmail with similar apps this should be part of the comparison. Es ist einfach, eine ähnliche, schnellere Anwendung zu entwickeln, die nur eine lineare Liste von Nachrichten anzeigt, obwohl sie möglicherweise zu viel Speicherplatz verbraucht, aber es ist nicht so einfach, die Ressourcennutzung richtig zu verwalten und fortgeschrittenere Funktionen wie das Anzeigen von Themenbäumen anzubieten.
 
 FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
 
@@ -1705,7 +1705,7 @@ It is possible to install FairEmail in multiple user profiles, for example a per
 It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
 
 
-Scheduling is a pro feature.
+Terminplanung ist eine Pro-Funktion.
 
 <br />
 
@@ -2118,7 +2118,7 @@ If your device has a biometric sensor, for example a fingerprint sensor, you can
 
 Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
 
-Biometric authentication is a pro feature.
+Biometrische Authentifizierung ist ein Pro-Funktion.
 
 <br />
 
@@ -2161,7 +2161,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
+* Öffnen Sie FairEmail und wechseln Sie zum Bildschirm mit den Pro-Funktionen, damit FairEmail die Einkäufe überprüfen kann.
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2263,7 +2263,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
+Sofern das für Sie ausreichend ist, können Sie die Benachrichtigungsoption *Nur Benachrichtigungen mit einer Nachrichtenvorschau an Wearables senden* aktivieren, und falls dies nicht funktioniert, versuchen Sie die Benachrichtigungsoption *Benachrichtigungen nur mit einem Vorschautext anzeigen*.
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2403,7 +2403,7 @@ You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/
 
 Most providers support exporting your contacts. Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
 
-Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
+Beachten Sie, dass FairEmail die Beantwortung von Kalendereinladungen (eine Pro-Funktion) und das Hinzufügen von Kalendereinladungen zu Ihrem persönlichen Kalender unterstützt.
 
 <br />
 
@@ -2512,7 +2512,7 @@ Sender:
 
 The order of precendence is: sender sound, folder sound, account sound and default sound.
 
-Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+Das Festlegen einer akaustischen Benachrichtigung für ein Konto, einen Ordner oder Absender erfordert Android 8 Oreo oder höher und ist eine Pro-Funktion.
 
 <br />
 
@@ -2538,7 +2538,7 @@ Es gibt **nur Unterstützung** für die neueste PlayStore-Version, die neueste G
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one signature only.
+The F-Droid version is built from the same source code, but signed differently. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Google Mail, da Google nur eine Signatur erlaubt (und zulässt).
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 
@@ -2706,7 +2706,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport).
 
 GitHub issues are disabled due to frequent misusage.
 

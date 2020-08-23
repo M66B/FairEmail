@@ -1123,7 +1123,6 @@
     </string>
     <string name="title_pro_hide">Скриване на малко съобщение за %1$d седмици</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
-    <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>
     <string name="title_pro_activated">Всички pro функции са активирани</string>
     <string name="title_pro_valid">Активирай всички pro функции</string>

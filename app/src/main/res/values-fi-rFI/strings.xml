@@ -142,6 +142,7 @@
     <string name="title_setup_no_settings_hint">Yritä asettaa tili ja identiteetti asetusvaiheissa 1 ja 2 käyttäen sähköpostipalveluntarjoajasi antamia asetuksia</string>
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovellussalasanan tilin salasanan sijaan, ole hyvä ja tarkista palveluntarjoajan ohjeet</string>
+    <string name="title_setup_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
     <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
@@ -312,6 +313,7 @@
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
     <string name="title_advanced_message_text_zoom">Viestien tekstin oletuszoomaus</string>
+    <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
     <string name="title_advanced_text_color">Käytä tekstin värejä</string>
@@ -457,6 +459,7 @@
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
+    <string name="title_advanced_overview_mode_hint">Tämä voi johtaa hyvin pieniin fontteihin</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
@@ -556,12 +559,17 @@
     <string name="title_no_user">Käyttäjätunnus puuttuu</string>
     <string name="title_no_password">Salasana puuttuu</string>
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
+    <string name="title_no_drafts">Ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
+    <string name="title_no_composable">Sähköpostien lähettäminen edellyttää identiteetin määrittämistä ja luonnokset-kansion valintaa tilin asetuksissa</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
     <string name="title_reply_domain">Lähetys- (%1$s) ja vastausverkkotunnukset (%2$s) poikkeavat toisistaan</string>
+    <string name="title_identity_required">Sähköpostien lähettäminen vaatii identiteetin</string>
+    <string name="title_drafts_required">Viestien lähettäminen vaatii luonnokset-kansion</string>
+    <string name="title_drafts_select">Sähköpostien lähettäminen edellyttää, että luonnokset-kansio on valittu tilin asetuksista</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
@@ -653,6 +661,7 @@
     <string name="title_buttons">Painikkeet</string>
     <string name="title_seen">Merkitse luetuksi</string>
     <string name="title_unseen">Merkitse lukemattomaksi</string>
+    <string name="title_toggle_seen">Vaihda luettu</string>
     <string name="title_hide">Piilota</string>
     <string name="title_unhide">Näytä</string>
     <string name="title_flag">Lisää tähti</string>
@@ -756,7 +765,7 @@
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
-    <string name="title_reformatted">Tämä on uudelleenmuotoiltu viestinäkymä. Voit napauttamalla kuvaketta &#x26F6; katsoa alkuperäisen viestin ja piilottaa tämän viestin.</string>
+    <string name="title_reformatted">Tämä on uudelleenmuotoillun viestin näkymä. Voit napauttaa &#x26F6; nähdäksesi alkuperäisen viestin ja piilottaaksesi tämän ohjeen.</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_submitter">Lähettäjä:</string>
     <string name="title_delivered_to">Toimitettu osoitteeseen:</string>
@@ -1184,7 +1193,6 @@
     </string>
     <string name="title_pro_hide">Piilota pieni viesti %1$d viikoksi</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
-    <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_valid">Kaikki pro-ominaisuudet on aktivoitu</string>

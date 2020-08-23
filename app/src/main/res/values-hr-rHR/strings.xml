@@ -940,7 +940,6 @@
     <string name="title_pro_purchase">Kupi</string>
     <string name="title_pro_once">Samo jednom</string>
     <string name="title_pro_hint">Kupnja pro funkcija će vam omogućiti da koristite sve trenutne i buduće mogućnosti aplikacije i zadržat će ovu aplikaciju održavanu i podržanu</string>
-    <string name="title_pro_price">Pogledajte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19"> ovaj FAQ </a> za cijenu pro funkcija</string>
     <string name="title_pro_pending">Kupnja na čekanju</string>
     <string name="title_pro_activated">Sve pro funkcije su aktivirane</string>
     <string name="title_pro_valid">Sve pro funkcije aktivirane</string>

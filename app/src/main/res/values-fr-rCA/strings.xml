@@ -528,6 +528,8 @@
     <string name="title_provider">Fournisseur</string>
     <string name="title_custom">Personnalisé</string>
     <string name="title_host">Nom d’hôte</string>
+    <string name="title_encryption">Chiffrement</string>
+    <string name="title_encryption_none">Aucun</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_insecure_remark">Les connexions non sécurisées ne doivent être autorisées que sur des réseaux de confiance et jamais sur des réseaux publics</string>
     <string name="title_port">Numéro de port</string>
@@ -1197,7 +1199,8 @@
     </string>
     <string name="title_pro_hide">Masquer la bannière pendant %1$d semaines</string>
     <string name="title_pro_hint">L’achat des fonctionnalités pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
-    <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">cette FAQ</a> à propos du prix des fonctionnalités pro</string>
+    <string name="title_pro_price">Pourquoi les fonctionnalités Pro sont-elles si chères ?</string>
+    <string name="title_pro_restore">Comment puis-je me faire rembourser ?</string>
     <string name="title_pro_pending">Achat en attente</string>
     <string name="title_pro_activated">Toutes les fonctionnalités pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités pro activées</string>

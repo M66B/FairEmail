@@ -524,6 +524,8 @@
     <string name="title_provider">Πάροχος</string>
     <string name="title_custom">Προσαρμοσμένο</string>
     <string name="title_host">Όνομα εξυπηρετητή</string>
+    <string name="title_encryption">Κρυπτογράφηση</string>
+    <string name="title_encryption_none">Καμία</string>
     <string name="title_allow_insecure">Να επιτρέπονται μη ασφαλείς συνδέσεις</string>
     <string name="title_insecure_remark">Μη ασφαλείς συνδέσεις θα πρέπει να επιτρέπονται μόνο σε έμπιστα δίκτυα και ουδέποτε σε δημόσια δίκτυα</string>
     <string name="title_port">Αριθμός θύρας</string>
@@ -567,6 +569,9 @@
     <string name="title_no_utf8">Ο πάροχος αυτός δεν υποστηρίζει UTF-8</string>
     <string name="title_no_sync">Σφάλματα συγχρονισμού από %1$s</string>
     <string name="title_reply_domain">Ο τομέας αποστολέα (%1$s) και ο τομέας απάντησης (%2$s) διαφέρουν</string>
+    <string name="title_identity_required">Απαιτείται μια ταυτότητα για την αποστολή μηνυμάτων</string>
+    <string name="title_drafts_required">Ένας φάκελος \"Πρόχειρα\" απαιτείται για την αποστολή μηνυμάτων</string>
+    <string name="title_drafts_select">Για την αποστολή μηνυμάτων απαιτείται να επιλεγεί ένας φάκελος για πρόχειρα από τις ρυθμίσεις λογαριασμού</string>
     <string name="title_account_delete">Να διαγραφεί οριστικά αυτός ο λογαριασμός;</string>
     <string name="title_identity_delete">Να διαγραφεί οριστικά αυτή η ταυτότητα;</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
@@ -1187,7 +1192,7 @@
     </string>
     <string name="title_pro_hide">Απόκρυψη μικρής υπενθύμισης για %1$d εβδομάδες</string>
     <string name="title_pro_hint">Αγοράζοντας την έκδοση pro θα μπορείτε να χρησιμοποιείτε όλες τις τρέχουσες και μελλοντικές δυνατότητες pro, και θα βοηθήσετε να ενημερώνεται και να αναπτύσσεται περαιτέρω αυτή η εφαρμογή.</string>
-    <string name="title_pro_price">Παρακαλώ δείτε <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19"> το FAQ </a> σχετικά με το κόστος των δυνατοτήτων pro</string>
+    <string name="title_pro_price">Γιατί είναι οι δυνατότητες pro τόσο ακριβές;</string>
     <string name="title_pro_pending">Εκκρεμεί αγορά</string>
     <string name="title_pro_activated">Όλες οι δυνατότητες pro έχουν ενεργοποιηθεί</string>
     <string name="title_pro_valid">Ενεργοποιημένες όλες οι δυνατότητες pro</string>

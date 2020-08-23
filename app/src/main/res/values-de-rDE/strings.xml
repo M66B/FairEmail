@@ -96,7 +96,7 @@
     <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Symbolerklärung</string>
     <string name="menu_test">Testprogramm</string>
-    <string name="menu_faq">Unterstützung</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_translate">Übersetzen helfen</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagungen</string>
@@ -529,6 +529,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_provider">Anbieter</string>
     <string name="title_custom">Benutzerdefiniert</string>
     <string name="title_host">Hostname</string>
+    <string name="title_encryption">Verschlüsselung</string>
+    <string name="title_encryption_none">keine</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
     <string name="title_port">Portnummer</string>
@@ -566,14 +568,14 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
-    <string name="title_no_composable">Das Versenden von E-Mails erfordert eine konfigurierte Identität sowie einen Entwürfe-Ordner, der in den Kontoeinstellungen ausgewählt werden muss</string>
+    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe”</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
     <string name="title_reply_domain">Absender (%1$s) und Antwort-Domain (%2$s) unterscheiden sich</string>
-    <string name="title_identity_required">Für das Senden von Nachrichten ist das Erstellen einer Identität erforderlich</string>
-    <string name="title_drafts_required">Zum Senden von E-Mails ist ein Entwürfen Ordner erforderlich</string>
+    <string name="title_identity_required">Für das Versenden von Nachrichten ist eine Identität erforderlich</string>
+    <string name="title_drafts_required">Zum Senden von E-Mails wird ein Entwürfe-Ordner benötigt</string>
     <string name="title_drafts_select">Das Senden von E-Mails erfordert die Auswahl eines Entwürfe-Ordners in den Kontoeinstellungen</string>
     <string name="title_account_delete">Möchten Sie dieses Konto dauerhaft löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität dauerhaft löschen?</string>
@@ -1195,7 +1197,8 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     </string>
     <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
-    <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
+    <string name="title_pro_price">Warum sind die Pro-Funktionen so teuer?</string>
+    <string name="title_pro_restore">Wie kann ich einen Kauf wiederherstellen?</string>
     <string name="title_pro_pending">Kauf ausstehend</string>
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>

@@ -166,6 +166,7 @@
     <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
+    <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
     <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
@@ -548,6 +549,8 @@
     <string name="title_provider">Poskytovatel</string>
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
+    <string name="title_encryption">Šifrování</string>
+    <string name="title_encryption_none">Žádné</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
     <string name="title_port">Číslo portu</string>
@@ -583,12 +586,17 @@
     <string name="title_no_user">Chybí uživatelské jméno</string>
     <string name="title_no_password">Chybí heslo</string>
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
+    <string name="title_no_drafts">Žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
+    <string name="title_no_composable">Odesílání e-mailů vyžaduje nastavenou identitu a v nastavení účtu zvolit složku pro koncepty</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_reply_domain">Doména odesílatele (%1$s) a odpovědi (%2$s) se liší</string>
+    <string name="title_identity_required">Pro odesílání zpráv je vyžadována identita</string>
+    <string name="title_drafts_required">Pro odesílání zpráv je vyžadována složka konceptů</string>
+    <string name="title_drafts_select">Odesílání e-mailů vyžaduje nastavenou složku pro koncepty v nastavení účtu</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -1212,7 +1220,6 @@
     </string>
     <string name="title_pro_hide">Skrýt stručnou zprávu po dobu %1$d týdnů</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
-    <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
     <string name="title_pro_pending">Probíhá nákup</string>
     <string name="title_pro_activated">Všechny Pro funkce jsou aktivní</string>
     <string name="title_pro_valid">Všechny Pro funkce aktivovány</string>
