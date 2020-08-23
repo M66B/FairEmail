@@ -414,7 +414,12 @@ public class FragmentIdentity extends FragmentBase {
         rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
-                etPort.setHint(id == R.id.radio_starttls ? "587" : "465");
+                if (id == R.id.radio_starttls)
+                    etPort.setHint("587");
+                if (id == R.id.radio_none)
+                    etPort.setHint("25");
+                else
+                    etPort.setHint("465");
             }
         });
 
@@ -694,7 +699,12 @@ public class FragmentIdentity extends FragmentBase {
                 if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    port = (encryption == EmailService.ENCRYPTION_SSL ? "465" : "587");
+                    if (encryption == EmailService.ENCRYPTION_STARTTLS)
+                        port = "587";
+                    else if (encryption == EmailService.ENCRYPTION_NONE)
+                        port = "25";
+                    else
+                        port = "465";
                 if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
