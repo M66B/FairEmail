@@ -2438,15 +2438,15 @@ Displaying strange characters is almost always caused by specifying no or an inv
 <br />
 
 <a name="faq141"></a>
-**(141) How can I fix 'A drafts folder is required to send messages'?**
+**(141) 如何修复 "发送邮件需要一个草稿文件夹"?**
 
-To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
+要保存草稿则需要一个草稿文件夹。 大多数情况下，FairEmail 会在添加帐户时自动选择草稿文件夹 基于电子邮件服务器发送的[属性](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml)。 然而，某些电子邮件服务器配置不恰当，并且没有发送这些属性。 在这种情况下，FairEmail 会尝试通过名称来识别草稿文件夹，这样一来，如果草稿文件夹的名称不标准/不正确或根本不存在，则FairEmail 可能会处理失败。
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+解决办法：您可以通过在帐户设置中手动选择草稿文件夹 (设置 - 步骤1 - 点击对应帐户 - 在底部)。 如果根本没有草稿文件夹，则可以通过点击帐户的文件夹列表中的 "+" 按钮来创建一个草稿文件夹 (在导航菜单中点击帐户名)。
 
-Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
+某些提供商 (例如 Gmail) 允许为单个文件夹启用/禁用 IMAP。 因此如果看不到文件夹，则可能需要为该文件夹启用 IMAP
 
-Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Gmail 的快速链接：[https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 

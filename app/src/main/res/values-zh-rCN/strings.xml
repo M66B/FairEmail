@@ -304,7 +304,7 @@
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
     <string name="title_advanced_message_text_zoom">默认缩放消息文本</string>
-    <string name="title_advanced_overview_mode">缩放原始消息以适合屏幕</string>
+    <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
@@ -451,7 +451,7 @@
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
-    <string name="title_advanced_overview_mode_hint">这可能导致非常小的字体</string>
+    <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
@@ -553,17 +553,17 @@
     <string name="title_no_user">缺少用户名</string>
     <string name="title_no_password">缺少密码</string>
     <string name="title_no_inbox">未找到收件箱</string>
-    <string name="title_no_drafts">没有草稿文件夹</string>
+    <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_composable">发送电子邮件需要配置身份，并在帐户设置中选择草稿文件夹</string>
+    <string name="title_no_composable">发送邮件需要配置身份，并要在帐户设置中选择草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_reply_domain">发件人 (%1$s) 和回复对象 (%2$s) 地址不同</string>
-    <string name="title_identity_required">发送邮件需要身份信息</string>
-    <string name="title_drafts_required">发送电子邮件需要一个草稿文件夹</string>
-    <string name="title_drafts_select">发送电子邮件需要在帐户设置中选定草稿文件夹</string>
+    <string name="title_identity_required">发送邮件需要身份 (ID)</string>
+    <string name="title_drafts_required">发送邮件需要一个草稿文件夹</string>
+    <string name="title_drafts_select">需在帐户设置中选定草稿文件夹才能发送邮件</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以HTML格式编辑</string>
@@ -655,7 +655,7 @@
     <string name="title_buttons">按钮</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
-    <string name="title_toggle_seen">切换阅读状态</string>
+    <string name="title_toggle_seen">切换已读状态</string>
     <string name="title_hide">隐藏</string>
     <string name="title_unhide">显示</string>
     <string name="title_flag">加注星标</string>
@@ -1186,7 +1186,7 @@
         FairEmail 会显示一条小消息来提醒您这一点，如果您购买了专业功能，该消息将会移除</string>
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
-    <string name="title_pro_price">为什么高级功能如此昂贵？</string>
+    <string name="title_pro_price">为什么专业功能如此昂贵？</string>
     <string name="title_pro_restore">如何恢复购买？</string>
     <string name="title_pro_pending">购买待处理</string>
     <string name="title_pro_activated">全部专业版功能已激活</string>

@@ -1221,7 +1221,7 @@
     </string>
     <string name="title_pro_hide">Скрыть маленькое сообщение на %1$d недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
-    <string name="title_pro_price">Почему Pro функции так дороги?</string>
+    <string name="title_pro_price">Почему функции Pro так дороги?</string>
     <string name="title_pro_restore">Как восстановить покупку?</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>

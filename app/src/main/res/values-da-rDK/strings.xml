@@ -528,6 +528,8 @@
     <string name="title_provider">Udbyder</string>
     <string name="title_custom">Tilpasset</string>
     <string name="title_host">Værtsnavn</string>
+    <string name="title_encryption">Kryptering</string>
+    <string name="title_encryption_none">Ingen</string>
     <string name="title_allow_insecure">Tillad usikre forbindelser</string>
     <string name="title_insecure_remark">Usikre forbindelser bør kun tillades på betroede netværk og aldrig på offentlige netværk</string>
     <string name="title_port">Portnummer</string>
@@ -1197,6 +1199,8 @@
     </string>
     <string name="title_pro_hide">Skjul små meddelelser i %1$d uger</string>
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
+    <string name="title_pro_price">Hvorfor er Pro-funktionerne så dyre?</string>
+    <string name="title_pro_restore">Hvordan gendannes et køb?</string>
     <string name="title_pro_pending">Afventende køb</string>
     <string name="title_pro_activated">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_valid">Alle Pro-funktioner er aktiveret</string>
