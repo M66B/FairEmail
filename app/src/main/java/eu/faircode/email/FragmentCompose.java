@@ -3360,6 +3360,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         data.draft.subject = args.getString("subject", "");
+
                         String b = args.getString("body", "");
                         if (!TextUtils.isEmpty(b)) {
                             Document d = HtmlHelper.sanitizeCompose(context, b, false);
