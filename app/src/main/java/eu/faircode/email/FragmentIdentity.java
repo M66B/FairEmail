@@ -241,12 +241,9 @@ public class FragmentIdentity extends FragmentBase {
                     return;
                 adapterView.setTag(position);
 
-                EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
+                if (FragmentIdentity.this.id < 0) {
+                    EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
 
-                // Select associated provider
-                if (position == 0)
-                    spProvider.setSelection(0);
-                else {
                     boolean found = false;
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
@@ -254,38 +251,21 @@ public class FragmentIdentity extends FragmentBase {
                                 provider.imap.port == account.port &&
                                 provider.imap.starttls == (account.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                             found = true;
-
+                            spProvider.setTag(pos);
                             spProvider.setSelection(pos);
-
-                            // This is needed because the spinner might be invisible
-                            etHost.setText(provider.smtp.host);
-                            etPort.setText(Integer.toString(provider.smtp.port));
-                            rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
-                            cbUseIp.setChecked(provider.useip);
-                            etEhlo.setText(null);
-
+                            setProvider(provider);
                             break;
                         }
                     }
-                    if (!found)
+                    if (!found) {
+                        spProvider.setTag(0);
+                        spProvider.setSelection(0);
+                        setProvider((EmailProvider) spProvider.getItemAtPosition(0));
                         grpAdvanced.setVisibility(View.VISIBLE);
+                    }
+
+                    setAccount(account);
                 }
-
-                // Copy account credentials
-                auth = account.auth_type;
-                provider = account.provider;
-                etEmail.setText(account.user);
-                etUser.setText(account.user);
-                tilPassword.getEditText().setText(account.password);
-                tilPassword.setEndIconMode(Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
-                certificate = account.certificate_alias;
-                tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
-                etRealm.setText(account.realm);
-
-                etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-                tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-                btnCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-                cbTrust.setChecked(false);
             }
 
             @Override
@@ -378,24 +358,12 @@ public class FragmentIdentity extends FragmentBase {
                 adapterView.setTag(position);
 
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
-
-                // Set associated host/port/starttls
-                etHost.setText(provider.smtp.host);
-                etPort.setText(position == 0 ? null : Integer.toString(provider.smtp.port));
-                rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
-                cbUseIp.setChecked(provider.useip);
-                etEhlo.setText(null);
+                if (provider != null)
+                    setProvider(provider);
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
-                if (account == null ||
-                        provider.imap.host == null || !provider.imap.host.equals(account.host))
-                    auth = EmailService.AUTH_TYPE_PASSWORD;
-                else
-                    auth = account.auth_type;
-
-                etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-                tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-                btnCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+                if (account != null && Objects.equals(account.host, provider.imap.host))
+                    setAccount(account);
             }
 
             @Override
@@ -514,6 +482,31 @@ public class FragmentIdentity extends FragmentBase {
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
+    }
+
+    private void setAccount(EntityAccount account) {
+        auth = account.auth_type;
+        provider = account.provider;
+        etEmail.setText(account.user);
+        etUser.setText(account.user);
+        tilPassword.getEditText().setText(account.password);
+        tilPassword.setEndIconMode(Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
+        certificate = account.certificate_alias;
+        tvCertificate.setText(certificate == null ? getString(R.string.title_optional) : certificate);
+        etRealm.setText(account.realm);
+        cbTrust.setChecked(false);
+
+        etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+        tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+        btnCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+    }
+
+    private void setProvider(EmailProvider provider) {
+        etHost.setText(provider.smtp.host);
+        etPort.setText(provider.smtp.port == 0 ? null : Integer.toString(provider.smtp.port));
+        rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+        cbUseIp.setChecked(provider.useip);
+        etEhlo.setText(null);
     }
 
     private void onAutoConfig() {
