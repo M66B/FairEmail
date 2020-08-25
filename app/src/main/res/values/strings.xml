@@ -1351,6 +1351,7 @@
     <string name="title_pro_price">Why are the pro features so expensive?</string>
     <string name="title_pro_restore">How can I restore a purchase?</string>
     <string name="title_pro_pending">Purchase pending</string>
+    <string name="title_pro_response" translatable="false">Response</string>
     <string name="title_pro_activated">All pro features are activated</string>
     <string name="title_pro_valid">All pro features activated</string>
     <string name="title_pro_invalid">Invalid response</string>

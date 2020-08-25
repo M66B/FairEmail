@@ -165,12 +165,16 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     }
 
     private static String getResponse(Context context) throws NoSuchAlgorithmException {
-        return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge(context));
+        return Helper.sha256(BuildConfig.APPLICATION_ID.replace(".debug", "") + getChallenge(context));
     }
 
     static boolean activatePro(Context context, Uri data) throws NoSuchAlgorithmException {
-        String challenge = getChallenge(context);
         String response = data.getQueryParameter("response");
+        return activatePro(context, response);
+    }
+
+    static boolean activatePro(Context context, String response) throws NoSuchAlgorithmException {
+        String challenge = getChallenge(context);
         Log.i("IAB challenge=" + challenge);
         Log.i("IAB response=" + response);
         String expected = getResponse(context);
