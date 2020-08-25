@@ -1907,11 +1907,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                             @Override
-                            public void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-                                if (clampedY) {
-                                    int dy = context.getResources().getDisplayMetrics().heightPixels / 50;
-                                    properties.scrollBy(0, scrollY == 0 ? -dy : dy);
-                                }
+                            public void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY) {
+                                if (clampedY && ((WebViewEx) wvBody).isZoomed())
+                                    properties.scrollBy(0, dy);
                             }
 
                             @Override

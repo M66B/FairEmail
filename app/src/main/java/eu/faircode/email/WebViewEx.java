@@ -45,9 +45,9 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
-
         setVerticalScrollBarEnabled(false);
         setHorizontalScrollBarEnabled(false);
+        setOverScrollMode(View.OVER_SCROLL_NEVER);
 
         setDownloadListener(this);
         setOnLongClickListener(this);
@@ -146,10 +146,55 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     @Override
-    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
-        Log.i("Over scrolled=" + scrollX + "/" + scrollY + " clamped=" + clampedX + "/" + clampedY);
-        intf.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
+        final int overScrollMode = getOverScrollMode();
+        final boolean canScrollHorizontal =
+                computeHorizontalScrollRange() > computeHorizontalScrollExtent();
+        final boolean canScrollVertical =
+                computeVerticalScrollRange() > computeVerticalScrollExtent();
+        final boolean overScrollHorizontal = overScrollMode == OVER_SCROLL_ALWAYS ||
+                (overScrollMode == OVER_SCROLL_IF_CONTENT_SCROLLS && canScrollHorizontal);
+        final boolean overScrollVertical = overScrollMode == OVER_SCROLL_ALWAYS ||
+                (overScrollMode == OVER_SCROLL_IF_CONTENT_SCROLLS && canScrollVertical);
+
+        int newScrollX = scrollX + deltaX;
+        if (!overScrollHorizontal) {
+            maxOverScrollX = 0;
+        }
+
+        int newScrollY = scrollY + deltaY;
+        if (!overScrollVertical) {
+            maxOverScrollY = 0;
+        }
+
+        // Clamp values if at the limits and record
+        final int left = -maxOverScrollX;
+        final int right = maxOverScrollX + scrollRangeX;
+        final int top = -maxOverScrollY;
+        final int bottom = maxOverScrollY + scrollRangeY;
+
+        boolean clampedX = false;
+        if (newScrollX > right) {
+            newScrollX = right;
+            clampedX = true;
+        } else if (newScrollX < left) {
+            newScrollX = left;
+            clampedX = true;
+        }
+
+        boolean clampedY = false;
+        if (newScrollY > bottom) {
+            newScrollY = bottom;
+            clampedY = true;
+        } else if (newScrollY < top) {
+            newScrollY = top;
+            clampedY = true;
+        }
+
+        Log.i("MMM clamped=" + clampedY + " new=" + newScrollY + " dy=" + deltaY + " mode=" + overScrollMode);
+        intf.onOverScrolled(scrollX, scrollY, deltaX, deltaY, clampedX, clampedY);
+
+        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
     }
 
     @Override
@@ -215,7 +260,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         void onScrollChange(int scrollX, int scrollY);
 
-        void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY);
+        void onOverScrolled(int scrollX, int scrollY, int dx, int dy, boolean clampedX, boolean clampedY);
 
         boolean onOpenLink(String url);
     }
