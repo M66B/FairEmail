@@ -1187,6 +1187,36 @@ public class FragmentIdentity extends FragmentBase {
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
+                // Get providers
+                List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
+                providers.add(0, new EmailProvider(getString(R.string.title_custom)));
+
+                ArrayAdapter<EmailProvider> aaProfile =
+                        new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
+                aaProfile.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+                spProvider.setAdapter(aaProfile);
+
+                if (savedInstanceState == null) {
+                    spProvider.setTag(0);
+                    spProvider.setSelection(0);
+                    if (identity != null)
+                        for (int pos = 1; pos < providers.size(); pos++) {
+                            EmailProvider provider = providers.get(pos);
+                            if (provider.smtp.host.equals(identity.host) &&
+                                    provider.smtp.port == identity.port &&
+                                    provider.smtp.starttls == (identity.encryption == EmailService.ENCRYPTION_STARTTLS)) {
+                                spProvider.setTag(pos);
+                                spProvider.setSelection(pos);
+                                break;
+                            }
+                        }
+                } else {
+                    int provider = savedInstanceState.getInt("fair:provider");
+                    spProvider.setTag(provider);
+                    spProvider.setSelection(provider);
+                }
+
+                // Get accounts
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
                     protected List<EntityAccount> onExecute(Context context, Bundle args) {
@@ -1210,30 +1240,7 @@ public class FragmentIdentity extends FragmentBase {
                         aaAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                         spAccount.setAdapter(aaAccount);
 
-                        // Get providers
-                        List<EmailProvider> providers = EmailProvider.loadProfiles(getContext());
-                        providers.add(0, new EmailProvider(getString(R.string.title_custom)));
-
-                        ArrayAdapter<EmailProvider> aaProfile =
-                                new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
-                        aaProfile.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-                        spProvider.setAdapter(aaProfile);
-
                         if (savedInstanceState == null) {
-                            spProvider.setTag(0);
-                            spProvider.setSelection(0);
-                            if (identity != null)
-                                for (int pos = 1; pos < providers.size(); pos++) {
-                                    EmailProvider provider = providers.get(pos);
-                                    if (provider.smtp.host.equals(identity.host) &&
-                                            provider.smtp.port == identity.port &&
-                                            provider.smtp.starttls == (identity.encryption == EmailService.ENCRYPTION_STARTTLS)) {
-                                        spProvider.setTag(pos);
-                                        spProvider.setSelection(pos);
-                                        break;
-                                    }
-                                }
-
                             spAccount.setTag(0);
                             spAccount.setSelection(0);
                             for (int pos = 0; pos < accounts.size(); pos++) {
@@ -1246,10 +1253,6 @@ public class FragmentIdentity extends FragmentBase {
                                 }
                             }
                         } else {
-                            int provider = savedInstanceState.getInt("fair:provider");
-                            spProvider.setTag(provider);
-                            spProvider.setSelection(provider);
-
                             int account = savedInstanceState.getInt("fair:account");
                             spAccount.setTag(account);
                             spAccount.setSelection(account);
