@@ -19,9 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -229,6 +234,39 @@ public class FixedTextView extends AppCompatTextView {
                   at android.widget.TextView.setText (TextView.java:4424)
                   at android.widget.TextView.setText (TextView.java:4379)
              */
+        }
+    }
+
+    @Override
+    public boolean onTextContextMenuItem(int id) {
+        try {
+            if (id == android.R.id.copy) {
+                int start = getSelectionStart();
+                int end = getSelectionEnd();
+                if (start > end) {
+                    int s = start;
+                    start = end;
+                    end = s;
+                }
+
+                Context context = getContext();
+                ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                if (start != end && cbm != null) {
+                    CharSequence selected = getText().subSequence(start, end);
+                    if (selected instanceof Spanned) {
+                        String html = HtmlHelper.toHtml((Spanned) selected, context);
+                        cbm.setPrimaryClip(ClipData.newHtmlText(context.getString(R.string.app_name), selected, html));
+                        if (getText() instanceof Spannable)
+                            Selection.removeSelection((Spannable) getText());
+                        return false;
+                    }
+                }
+            }
+
+            return super.onTextContextMenuItem(id);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
         }
     }
 }

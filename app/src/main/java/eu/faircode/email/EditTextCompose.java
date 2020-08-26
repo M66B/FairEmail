@@ -180,7 +180,7 @@ public class EditTextCompose extends FixedEditText {
                         at android.widget.TextView.paste(TextView.java:8891)
                         at android.widget.TextView.onTextContextMenuItem(TextView.java:8706)
              */
-            Log.w(ex);
+            Log.e(ex);
             return false;
         }
     }

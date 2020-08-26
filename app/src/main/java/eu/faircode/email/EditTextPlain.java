@@ -56,7 +56,7 @@ public class EditTextPlain extends FixedEditText {
 
             return super.onTextContextMenuItem(id);
         } catch (Throwable ex) {
-            Log.w(ex);
+            Log.e(ex);
             return false;
         }
     }
