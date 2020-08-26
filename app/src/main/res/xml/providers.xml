@@ -33,15 +33,6 @@
             host="smtp.office365.com"
             port="587"
             starttls="true" />
-        <oauth
-            askAccount="true"
-            authorizationEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
-            clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
-            clientSecret="r=o4@SlzU:MA6MlXM6mPG[44i4gYPq[@"
-            enabled="false"
-            redirectUri="https://oauth.faircode.eu/"
-            scopes="offline_access,https://outlook.office365.com/IMAP.AccessAsUser.All,https://outlook.office365.com/SMTP.Send"
-            tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
     </provider>
     <provider
         name="Office365"
