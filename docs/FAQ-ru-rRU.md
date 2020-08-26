@@ -132,7 +132,7 @@
 * [(12) Как работает шифрование/расшифрование?](#user-content-faq12)
 * [(13) Как работает поиск на устройстве/сервере?](#user-content-faq13)
 * [(14) Как я могу настроить учётную запись для Outlook / Live / Hotmail?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
+* [(15) Почему текст сообщения продолжает загружаться?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
 * [(18) Why is the message preview not always shown?](#user-content-faq18)

@@ -422,8 +422,8 @@ Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver 
 * *Grouper par date*: Affiche la date en en-tête au dessus des messages ayant la même date
 * *Afficher en mode conversation*: Pour désactiver l'affichage en mode conversation et afficher à la place les messages de manière individuelle
 * *Afficher la photo des contacts*: pour masquer la photo des contacts
-* *Show identicons*: to show generated contact avatars
-* *Show names and email addresses*: to show names or to show names and email addresses
+* *Afficher les identicônes*: pour afficher les avatars de contact générés
+* *Afficher les noms et les adresses e-mail*: pour afficher les noms ou afficher les noms et les adresses e-mail
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show two lines of the message text
