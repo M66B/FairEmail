@@ -4144,7 +4144,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, File file) {
-                        Helper.share(context, file, "image/png", file.getName());
+                        if (file != null)
+                            Helper.share(context, file, "image/png", file.getName());
                     }
 
                     @Override
