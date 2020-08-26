@@ -955,7 +955,13 @@ class Core {
                 db.message().deleteMessage(message.id);
             }
 
-        boolean canMove = istore.hasCapability("MOVE");
+        // Some servers return different capabilities for different sessions
+        boolean canMove = (Boolean) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+            @Override
+            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                return protocol.hasCapability("MOVE");
+            }
+        });
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
