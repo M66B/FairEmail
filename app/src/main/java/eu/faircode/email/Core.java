@@ -136,6 +136,7 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
+    private static final long JOIN_WAIT = 90 * 1000L; // milliseconds
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 2;
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
@@ -4141,12 +4142,24 @@ class Core {
 
         void join(Thread thread) {
             boolean joined = false;
+            boolean interrupted = false;
             while (!joined)
                 try {
-                    Log.i("Joining " + thread.getName());
-                    thread.join();
-                    joined = true;
-                    Log.i("Joined " + thread.getName());
+                    Log.i("Joining " + thread.getName() +
+                            " state=" + thread.getState() + " alive=" + thread.isAlive());
+                    thread.join(JOIN_WAIT);
+                    if (thread.isAlive()) {
+                        Log.e("Join failed state=" + thread.getState() + " interrupted=" + interrupted);
+                        if (interrupted)
+                            joined = true; // give up
+                        else {
+                            thread.interrupt();
+                            interrupted = true;
+                        }
+                    } else {
+                        Log.i("Joined " + thread.getName() + " state=" + thread.getState());
+                        joined = true;
+                    }
                 } catch (InterruptedException ex) {
                     Log.w(thread.getName() + " join " + ex.toString());
                 }
