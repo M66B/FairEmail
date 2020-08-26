@@ -2086,7 +2086,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         HtmlHelper.setViewport(document, overview_mode);
                         if (inline || show_images)
-                            HtmlHelper.embedInlineImages(context, message.id, document, true);
+                            HtmlHelper.embedInlineImages(context, message.id, document, show_images);
 
                         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
                         if (disable_tracking)
@@ -3648,12 +3648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImagesConfirmed(TupleMessageEx message) {
-            boolean show_full = properties.getValue("full", message.id);
-            boolean show_images = properties.getValue("images", message.id);
-            if (show_full && show_images && wvBody != null)
-                ((WebViewEx) wvBody).setImages(show_images, inline);
-            else
-                bindBody(message, false);
+            bindBody(message, false);
         }
 
         private void onActionUnsubscribe(TupleMessageEx message) {
