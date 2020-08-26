@@ -374,7 +374,8 @@ public class ContactInfo {
                     if (isRecoverable(ex, context))
                         Log.i(ex);
                     else {
-                        Log.w(ex);
+                        if (!(ex instanceof FileNotFoundException))
+                            Log.w(ex);
                         try {
                             file.createNewFile();
                         } catch (IOException ex1) {
