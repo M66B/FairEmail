@@ -38,6 +38,7 @@ import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
@@ -738,8 +739,8 @@ public class EmailService implements AutoCloseable {
             return configure(factory.createSocket(address, port, localAddress, localPort));
         }
 
-        private Socket configure(Socket socket) {
-            Log.i("Socket type=" + socket.getClass());
+        private Socket configure(Socket socket) throws SocketException {
+            configureSocketOptions(socket);
             return socket;
         }
     }
@@ -878,7 +879,9 @@ public class EmailService implements AutoCloseable {
             throw new IOException("createSocket");
         }
 
-        private Socket configure(Socket socket) {
+        private Socket configure(Socket socket) throws SocketException {
+            configureSocketOptions(socket);
+
             if (socket instanceof SSLSocket) {
                 SSLSocket sslSocket = (SSLSocket) socket;
 
@@ -1018,6 +1021,18 @@ public class EmailService implements AutoCloseable {
                 Log.e(ex);
                 return null;
             }
+        }
+    }
+
+    private static void configureSocketOptions(Socket socket) throws SocketException {
+        Log.i("Socket type=" + socket.getClass() +
+                " timeout=" + socket.getSoTimeout() +
+                " linger=" + socket.getSoLinger() +
+                " keepalive=" + socket.getKeepAlive());
+
+        if (socket.getKeepAlive()) {
+            Log.e("Socket keep-alive");
+            socket.setKeepAlive(false);
         }
     }
 
