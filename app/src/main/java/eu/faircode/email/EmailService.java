@@ -1025,14 +1025,23 @@ public class EmailService implements AutoCloseable {
     }
 
     private static void configureSocketOptions(Socket socket) throws SocketException {
-        Log.i("Socket type=" + socket.getClass() +
-                " timeout=" + socket.getSoTimeout() +
-                " linger=" + socket.getSoLinger() +
-                " keepalive=" + socket.getKeepAlive());
+        int timeout = socket.getSoTimeout();
+        boolean keepAlive = socket.getKeepAlive();
+        int linger = socket.getSoLinger();
 
-        if (socket.getKeepAlive()) {
-            Log.e("Socket keep-alive");
+        Log.i("Socket type=" + socket.getClass() +
+                " timeout=" + timeout +
+                " keep-alive=" + keepAlive +
+                " linger=" + linger);
+
+        if (keepAlive) {
+            Log.e("Socket keep-alive=" + keepAlive);
             socket.setKeepAlive(false);
+        }
+
+        if (linger >= 0) {
+            Log.e("Socket linger=" + linger);
+            socket.setSoLinger(false, -1);
         }
     }
 
