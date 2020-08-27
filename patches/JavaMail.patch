@@ -265,10 +265,18 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.
  	    } catch (InterruptedException ex) {
  		// If someone is trying to interrupt us we can't keep going
  		// around the loop waiting for IDLE to complete, but we can't
-diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-14 11:44:05.406359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-10 18:05:30.293227224 +0200
-@@ -627,6 +627,59 @@ public class IMAPProtocol extends Protoc
++++ ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-27 09:28:55.701456371 +0200
+@@ -462,6 +462,8 @@ public class IMAPProtocol extends Protoc
+      */
+     public void logout() throws ProtocolException {
+ 	try {
++		if (!authenticated)
++			return;
+ 	    Response[] r = command("LOGOUT", null);
+ 
+ 	    authenticated = false;
+@@ -627,6 +629,59 @@ public class IMAPProtocol extends Protoc
  	authenticated = true;
      }
  
