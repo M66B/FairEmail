@@ -48,8 +48,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean fts = prefs.getBoolean("fts", false);
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
         boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
         boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
@@ -239,8 +237,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSubject.setChecked(last_search_subject);
         cbKeywords.setChecked(last_search_keywords);
         cbMessage.setChecked(last_search_message);
-        cbUnseen.setChecked(filter_seen);
-        cbFlagged.setChecked(filter_unflagged);
         tvAfter.setText(null);
         tvBefore.setText(null);
 
