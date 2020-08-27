@@ -1,6 +1,6 @@
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handler_base.java ./app/src/main/java/com/sun/mail/handlers/handler_base.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handler_base.java	2020-08-14 11:44:05.401359065 +0200
-+++ ./app/src/main/java/com/sun/mail/handlers/handler_base.java	2020-06-14 11:48:36.978868184 +0200
++++ ./app/src/main/java/com/sun/mail/handlers/handler_base.java	2020-08-26 15:38:37.903384284 +0200
 @@ -17,7 +17,6 @@
  package com.sun.mail.handlers;
  
@@ -36,9 +36,25 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handle
  			throws IOException {
  	ActivationDataFlavor[] adf = getDataFlavors();
  	for (int i = 0; i < adf.length; i++) {
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/iap/Protocol.java ./app/src/main/java/com/sun/mail/iap/Protocol.java
+--- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/iap/Protocol.java	2020-04-03 09:00:49.201313282 +0200
++++ ./app/src/main/java/com/sun/mail/iap/Protocol.java	2020-08-27 20:06:33.871245957 +0200
+@@ -347,6 +347,12 @@ public class Protocol {
+      * @return		array of Response objects returned by the server
+      */
+     public synchronized Response[] command(String command, Argument args) {
++	if ("LOGOUT".equals(command))
++		try {
++			socket.setSoTimeout(10 * 1000);
++		} catch (SocketException ex) {
++			eu.faircode.email.Log.e(ex);
++		}
+ 	commandStart(command);
+ 	List<Response> v = new ArrayList<>();
+ 	boolean done = false;
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-14 11:44:05.403359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-16 11:39:14.284425135 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPFolder.java	2020-08-27 09:24:28.051446453 +0200
 @@ -1659,6 +1659,28 @@ public class IMAPFolder extends Folder i
  	}
      }
@@ -101,7 +117,7 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPFolder
  		p = ((IMAPStore)store).getFolderStoreProtocol();
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPMessage.java ./app/src/main/java/com/sun/mail/imap/IMAPMessage.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPMessage.java	2020-08-14 11:44:05.403359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/IMAPMessage.java	2020-07-30 15:10:19.658663089 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPMessage.java	2020-08-26 15:38:37.906384284 +0200
 @@ -1697,4 +1697,28 @@ public class IMAPMessage extends MimeMes
      Session _getSession() {
  	return session;
@@ -133,7 +149,7 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPMessag
  }
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.java ./app/src/main/java/com/sun/mail/imap/IMAPStore.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.java	2020-08-14 11:44:05.404359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/IMAPStore.java	2020-08-14 10:19:48.076033041 +0200
++++ ./app/src/main/java/com/sun/mail/imap/IMAPStore.java	2020-08-26 15:38:37.907384284 +0200
 @@ -887,18 +887,26 @@ public class IMAPStore extends Store
  		continue;
  	    }
@@ -265,18 +281,10 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/IMAPStore.
  	    } catch (InterruptedException ex) {
  		// If someone is trying to interrupt us we can't keep going
  		// around the loop waiting for IDLE to complete, but we can't
+diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-14 11:44:05.406359065 +0200
-+++ ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-27 09:28:55.701456371 +0200
-@@ -462,6 +462,8 @@ public class IMAPProtocol extends Protoc
-      */
-     public void logout() throws ProtocolException {
- 	try {
-+		if (!authenticated)
-+			return;
- 	    Response[] r = command("LOGOUT", null);
- 
- 	    authenticated = false;
-@@ -627,6 +629,59 @@ public class IMAPProtocol extends Protoc
++++ ./app/src/main/java/com/sun/mail/imap/protocol/IMAPProtocol.java	2020-08-27 19:52:40.106269950 +0200
+@@ -627,6 +627,59 @@ public class IMAPProtocol extends Protoc
  	authenticated = true;
      }
  

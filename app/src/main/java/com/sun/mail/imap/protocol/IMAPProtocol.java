@@ -462,8 +462,6 @@ public class IMAPProtocol extends Protocol {
      */
     public void logout() throws ProtocolException {
 	try {
-		if (!authenticated)
-			return;
 	    Response[] r = command("LOGOUT", null);
 
 	    authenticated = false;
