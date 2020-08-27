@@ -984,6 +984,7 @@ public class MessageHelper {
 
         ensureMessage(false);
 
+        // https://tools.ietf.org/html/rfc2156
         // https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcmail/2bb19f1b-b35e-4966-b1cb-1afd044e83ab
         String header = imessage.getHeader("Importance", null);
         if (header == null)
@@ -1013,6 +1014,8 @@ public class MessageHelper {
         else if ("normal".equalsIgnoreCase(header) ||
                 "medium".equalsIgnoreCase(header) ||
                 "med".equalsIgnoreCase(header) ||
+                "a".equalsIgnoreCase(header) ||
+                "aplus".equalsIgnoreCase(header) ||
                 "none".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
