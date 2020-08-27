@@ -5631,6 +5631,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        try {
+            _onBindViewHolder(holder, position);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void _onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TupleMessageEx message = differ.getItem(position);
 
         if (message == null || context == null)
