@@ -3741,8 +3741,7 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.isEncryption() &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
-                                            (cid.contains(attachment.cid) ||
-                                                    (attachment.isInline() && attachment.isImage())))) {
+                                            cid.contains(attachment.cid))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 
