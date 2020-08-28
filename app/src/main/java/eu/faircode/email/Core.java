@@ -873,7 +873,7 @@ class Core {
 
         // Add message
         Long newuid = null;
-        if (istore.hasCapability("UIDPLUS")) {
+        if (MessageHelper.hasCapability(ifolder, "UIDPLUS")) {
             // https://tools.ietf.org/html/rfc4315
             AppendUID[] uids = ifolder.appendUIDMessages(new Message[]{imessage});
             if (uids != null && uids.length > 0 && uids[0] != null && uids[0].uid > 0) {
@@ -956,12 +956,7 @@ class Core {
             }
 
         // Some servers return different capabilities for different sessions
-        boolean canMove = (Boolean) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-            @Override
-            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                return protocol.hasCapability("MOVE");
-            }
-        });
+        boolean canMove = MessageHelper.hasCapability(ifolder, "MOVE");
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));

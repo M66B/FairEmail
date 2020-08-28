@@ -1097,6 +1097,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderState(folder.id, "connected");
                             db.folder().setFolderError(folder.id, null);
 
+                            if (capIdle != MessageHelper.hasCapability(ifolder, "IDLE"))
+                                Log.e("Conflicting IDLE=" + capIdle + " host=" + account.host);
+
                             int count = MessageHelper.getMessageCount(ifolder);
                             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
 

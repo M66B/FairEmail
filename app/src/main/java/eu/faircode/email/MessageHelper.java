@@ -29,8 +29,10 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailMessage;
+import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
+import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.util.ASCIIUtility;
 import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.FolderClosedIOException;
@@ -2311,6 +2313,16 @@ public class MessageHelper {
             Log.e(ex);
             return -1;
         }
+    }
+
+    static boolean hasCapability(IMAPFolder ifolder, final String capability) throws MessagingException {
+        // Folder can have different capabilities than the store
+        return (boolean) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+            @Override
+            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                return protocol.hasCapability(capability);
+            }
+        });
     }
 
     static String sanitizeKeyword(String keyword) {
