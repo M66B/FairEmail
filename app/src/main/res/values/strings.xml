@@ -1306,6 +1306,7 @@
     <string name="title_enabled">Enabled</string>
     <string name="title_executing">Executing</string>
     <string name="title_completed">Completed</string>
+    <string name="title_default_changed">Default changed</string>
     <string name="title_clipboard_copy">Copy to clipboard</string>
     <string name="title_clipboard_copied">Copied to clipboard</string>
     <string name="title_ask_what">Ask what to do</string>

@@ -425,6 +425,7 @@ public class FragmentCompose extends FragmentBase {
                 onMenuAddresses();
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 prefs.edit().putBoolean("cc_bcc", grpAddresses.getVisibility() == View.VISIBLE).apply();
+                ToastEx.makeText(v.getContext(), R.string.title_default_changed, Toast.LENGTH_LONG).show();
                 return true;
             }
         });
