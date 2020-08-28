@@ -38,17 +38,20 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/handlers/handle
  	for (int i = 0; i < adf.length; i++) {
 diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/iap/Protocol.java ./app/src/main/java/com/sun/mail/iap/Protocol.java
 --- /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/iap/Protocol.java	2020-04-03 09:00:49.201313282 +0200
-+++ ./app/src/main/java/com/sun/mail/iap/Protocol.java	2020-08-27 20:06:33.871245957 +0200
-@@ -347,6 +347,12 @@ public class Protocol {
++++ ./app/src/main/java/com/sun/mail/iap/Protocol.java	2020-08-28 08:09:12.005962733 +0200
+@@ -347,6 +347,15 @@ public class Protocol {
       * @return		array of Response objects returned by the server
       */
      public synchronized Response[] command(String command, Argument args) {
++	if (socket == null)
++		return new Response[]{Response.byeResponse(new SocketException("disconnected"))};
 +	if ("LOGOUT".equals(command))
 +		try {
 +			socket.setSoTimeout(10 * 1000);
 +		} catch (SocketException ex) {
 +			eu.faircode.email.Log.e(ex);
 +		}
++
  	commandStart(command);
  	List<Response> v = new ArrayList<>();
  	boolean done = false;

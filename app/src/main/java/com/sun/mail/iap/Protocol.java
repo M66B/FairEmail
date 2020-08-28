@@ -347,12 +347,15 @@ public class Protocol {
      * @return		array of Response objects returned by the server
      */
     public synchronized Response[] command(String command, Argument args) {
+	if (socket == null)
+		return new Response[]{Response.byeResponse(new SocketException("disconnected"))};
 	if ("LOGOUT".equals(command))
 		try {
 			socket.setSoTimeout(10 * 1000);
 		} catch (SocketException ex) {
 			eu.faircode.email.Log.e(ex);
 		}
+
 	commandStart(command);
 	List<Response> v = new ArrayList<>();
 	boolean done = false;
