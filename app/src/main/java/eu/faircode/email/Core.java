@@ -4149,13 +4149,19 @@ class Core {
         void join(Thread thread) {
             boolean joined = false;
             boolean interrupted = false;
+            String name = thread.getName();
             while (!joined)
                 try {
-                    Log.i("Joining " + thread.getName() +
-                            " state=" + thread.getState() + " alive=" + thread.isAlive());
+                    Log.i("Joining " + name +
+                            " alive=" + thread.isAlive() +
+                            " state=" + thread.getState());
+
                     thread.join(JOIN_WAIT);
+
+                    // https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.State.html
+                    Thread.State state = thread.getState();
                     if (thread.isAlive()) {
-                        Log.e("Join failed state=" + thread.getState() + " interrupted=" + interrupted);
+                        Log.e("Join " + name + " failed state=" + state + " interrupted=" + interrupted);
                         if (interrupted)
                             joined = true; // give up
                         else {
@@ -4163,7 +4169,7 @@ class Core {
                             interrupted = true;
                         }
                     } else {
-                        Log.i("Joined " + thread.getName() + " state=" + thread.getState());
+                        Log.i("Joined " + name + " " + " state=" + state);
                         joined = true;
                     }
                 } catch (InterruptedException ex) {
