@@ -1519,18 +1519,21 @@ public class HtmlHelper {
     static void setViewport(Document document, boolean overview) {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
         Elements meta = document.head().select("meta").select("[name=viewport]");
-        if (meta.size() == 1) {
-            String content = meta.attr("content")
-                    .toLowerCase()
-                    .replace(" ", "")
-                    .replace("user-scalable=no", "user-scalable=yes");
-            meta.attr("content", content);
-        } else {
+        if (overview) // fit width
             meta.remove();
-            if (!overview)
+        else {
+            if (meta.size() == 1) {
+                String content = meta.attr("content")
+                        .toLowerCase()
+                        .replace(" ", "")
+                        .replace("user-scalable=no", "user-scalable=yes");
+                meta.attr("content", content);
+            } else {
+                meta.remove();
                 document.head().prependElement("meta")
                         .attr("name", "viewport")
                         .attr("content", "width=device-width, initial-scale=1.0");
+            }
         }
 
         Log.d(document.head().html());
