@@ -46,7 +46,7 @@ This app starts a foreground service with a low priority status bar notification
 <b>Secure</b>
 
 * No data storage on third party servers
-* Using open standards (IMAP, SMTP, OpenPGP, S/MIME, etc)
+* Using open standards (IMAP, POP3, SMTP, OpenPGP, S/MIME, etc)
 * Safe message view (styling, scripting and unsafe HTML removed)
 * Confirm opening links, images and attachments
 * No special permissions required
