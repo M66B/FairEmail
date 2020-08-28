@@ -3886,7 +3886,9 @@ public class FragmentCompose extends FragmentBase {
             cbSignature.setTag(data.draft.signature);
 
             grpHeader.setVisibility(View.VISIBLE);
-            if ("reply_all".equals(action))
+            if ("reply_all".equals(action) ||
+                    (data.draft.cc != null && data.draft.cc.length > 0) ||
+                    (data.draft.bcc != null && data.draft.bcc.length > 0))
                 grpAddresses.setVisibility(View.VISIBLE);
             ibCcBcc.setVisibility(View.VISIBLE);
 
