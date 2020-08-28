@@ -2207,7 +2207,7 @@ public class FragmentCompose extends FragmentBase {
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
                     MimeMessage imessage = new MimeMessage(isession);
-                    MessageHelper.build(context, draft, attachments, identity, false, imessage);
+                    MessageHelper.build(context, draft, attachments, identity, true, imessage);
 
                     if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                         // Serialize content
@@ -2501,7 +2501,7 @@ public class FragmentCompose extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, draft, attachments, identity, false, imessage);
+                MessageHelper.build(context, draft, attachments, identity, true, imessage);
                 imessage.saveChanges();
                 BodyPart bpContent = new MimeBodyPart() {
                     @Override
