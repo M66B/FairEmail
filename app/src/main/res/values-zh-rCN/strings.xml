@@ -1149,6 +1149,7 @@
     <string name="title_enabled">已启用</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
+    <string name="title_default_changed">默认已更改</string>
     <string name="title_clipboard_copy">复制到剪切板</string>
     <string name="title_clipboard_copied">已复制到剪切板</string>
     <string name="title_ask_what">询问做什么</string>

@@ -1221,6 +1221,8 @@
     <string name="title_widget_unseen">Só mensaxes sen ler</string>
     <string name="title_widget_flagged">Só mensaxes con estrelas</string>
     <string name="title_widget_font_size">Tamaño do texto</string>
+    <string name="title_widget_padding">Tamaño de sangría</string>
+    <string name="title_widget_semi_transparent">Fondo semi-transparente</string>
     <string name="title_widget_background">Cor de fondo</string>
     <string name="title_accessibility_collapsed">Contraído</string>
     <string name="title_accessibility_expanded">Expandido</string>
@@ -1238,6 +1240,7 @@
     <string name="title_keyword_label5">Despois</string>
     <string name="title_accessibility_flagged">Destacadas</string>
     <string name="title_accessibility_unflagged">Sen destacar</string>
+    <string name="title_accessibility_collapse">Contraer</string>
     <string name="title_accessibility_expand">Expandir</string>
     <string name="title_accessibility_view_contact">Ver contacto</string>
     <string name="title_accessibility_show_authentication_result">Mostrar o resultado da autenticación</string>

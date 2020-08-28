@@ -1161,6 +1161,7 @@
     <string name="title_enabled">Activé</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
+    <string name="title_default_changed">Valeur par défaut modifiée</string>
     <string name="title_clipboard_copy">Copier dans le presse-papiers</string>
     <string name="title_clipboard_copied">Copié dans le presse-papiers</string>
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>

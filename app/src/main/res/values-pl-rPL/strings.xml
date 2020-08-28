@@ -1182,6 +1182,7 @@
     <string name="title_enabled">Włączone</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
+    <string name="title_default_changed">Zmieniono wartość domyślną</string>
     <string name="title_clipboard_copy">Kopiuj do schowka</string>
     <string name="title_clipboard_copied">Skopiowano do schowka</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>

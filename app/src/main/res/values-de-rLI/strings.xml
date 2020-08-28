@@ -1159,6 +1159,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_enabled">Aktiviert</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
+    <string name="title_default_changed">Standard geändert</string>
     <string name="title_clipboard_copy">In die Zwischenablage kopieren</string>
     <string name="title_clipboard_copied">In die Zwischenablage kopiert</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>

@@ -1183,6 +1183,7 @@
     <string name="title_enabled">Включено</string>
     <string name="title_executing">Выполнение</string>
     <string name="title_completed">Завершено</string>
+    <string name="title_default_changed">Значение \"по умолчанию\" изменено</string>
     <string name="title_clipboard_copy">Копировать в буфер</string>
     <string name="title_clipboard_copied">Скопировано в буфер</string>
     <string name="title_ask_what">Спросить о действии</string>

@@ -1,20 +1,20 @@
 # FairEmail support
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Heb je een vraag? Bekijk dan eerst de veelgestelde vragen! Staat jouw vraag er niet tussen? Scroll dan naar beneden om contact op te nemen. Je kan ook nieuwe functies voorstellen of bugs melden.
 
 ## Index
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Account autoriseren](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
 * [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Bekende problemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Geplande functies](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Ondersteuning](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Account autoriseren
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+In de meeste gevallen zal de snelle installatie automatisch de juiste configuratie identificeren.
 
 If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
@@ -34,14 +34,14 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Related questions:
+Gerelateerde vragen:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Wordt OAuth ondersteund?](#user-content-faq111)
+* [Waarom wordt ActiveSync niet ondersteund?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Hoe kan ik...?
 
 * Change the account name: Setup, step 1, Manage, tap account
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
