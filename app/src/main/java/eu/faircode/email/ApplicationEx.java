@@ -163,6 +163,9 @@ public class ApplicationEx extends Application {
 
         SharedPreferences.Editor editor = prefs.edit();
 
+        if (version < BuildConfig.VERSION_CODE)
+            editor.remove("crash_report_count");
+
         if (version < 468) {
             editor.remove("notify_trash");
             editor.remove("notify_archive");
