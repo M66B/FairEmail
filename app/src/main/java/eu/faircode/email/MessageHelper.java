@@ -561,17 +561,23 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null && send) {
+            boolean save = false;
+
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
                         TextUtils.isEmpty(child.attr("fairemail"))) {
+                    String old = child.attr("style");
                     String style = HtmlHelper.mergeStyles(
-                            "font-family:" + compose_font, child.attr("style"));
-                    child.attr("style", style);
+                            "font-family:" + compose_font, old);
+                    if (!old.equals(style)) {
+                        save = true;
+                        child.attr("style", style);
+                    }
                 }
+
             document.select("div[fairemail=signature]").removeAttr("fairemail");
             document.select("div[fairemail=reference]").removeAttr("fairemail");
 
-            boolean save = false;
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
