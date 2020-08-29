@@ -27,7 +27,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
 public class ViewTextDelayed extends AppCompatTextView {
-    private int visibility;
+    private int visibility = VISIBLE;
 
     private static final int VISIBILITY_DELAY = 500; // milliseconds
 
@@ -47,13 +47,13 @@ public class ViewTextDelayed extends AppCompatTextView {
     public void setVisibility(int visibility) {
         this.visibility = visibility;
 
-        removeCallbacks(delayedShow);
-        removeCallbacks(delayedHide);
+        ApplicationEx.getMainHandler().removeCallbacks(delayedShow);
+        ApplicationEx.getMainHandler().removeCallbacks(delayedHide);
 
         if (visibility == VISIBLE)
-            postDelayed(delayedShow, VISIBILITY_DELAY);
+            ApplicationEx.getMainHandler().postDelayed(delayedShow, VISIBILITY_DELAY);
         else if (visibility == GONE)
-            postDelayed(delayedHide, VISIBILITY_DELAY);
+            ApplicationEx.getMainHandler().postDelayed(delayedHide, VISIBILITY_DELAY);
         else
             super.setVisibility(visibility);
     }
