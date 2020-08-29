@@ -5,6 +5,9 @@
         alias="M66B"
         contribution="Dutch" />
     <contributor
+        name="Jorg K."
+        contribution="Charset handling" />
+    <contributor
         name="Zidan Pragata"
         alias="zidanpragata"
         contribution="Indonesian" />
