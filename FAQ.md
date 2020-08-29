@@ -350,7 +350,7 @@ In practice this means that the status bar notification doesn't take space in th
 
 The status bar notification can be disabled via the notification settings of FairEmail:
 
-* Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
+* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
