@@ -60,6 +60,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
             ApplicationEx.getMainHandler().postDelayed(delayedShow, VISIBILITY_DELAY);
         } else {
             ApplicationEx.getMainHandler().removeCallbacks(delayedShow);
+            delaying = false;
             super.setVisibility(visibility);
         }
     }
