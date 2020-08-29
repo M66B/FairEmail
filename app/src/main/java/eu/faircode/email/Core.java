@@ -136,7 +136,7 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long JOIN_WAIT = 90 * 1000L; // milliseconds
+    private static final long JOIN_WAIT = 180 * 1000L; // milliseconds
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 2;
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
