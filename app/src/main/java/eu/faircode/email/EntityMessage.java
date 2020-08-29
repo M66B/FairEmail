@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -301,11 +302,11 @@ public class EntityMessage implements Serializable {
                 p.appendText(DF.format(received));
                 p.appendElement("br");
             }
-            {
+            if (!TextUtils.isEmpty(subject)) {
                 Element strong = document.createElement("strong");
                 strong.text(Helper.getString(context, l, R.string.title_subject) + " ");
                 p.appendChild(strong);
-                p.appendText(subject == null ? "" : subject);
+                p.appendText(subject);
                 p.appendElement("br");
             }
         } else
