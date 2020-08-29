@@ -623,7 +623,7 @@ class ImageHelper {
                 break;
             }
 
-            bm = getScaledBitmap(urlConnection.getInputStream(), source, dm);
+            bm = getScaledBitmap(urlConnection.getInputStream(), source, dm.widthPixels);
         } finally {
             if (urlConnection != null)
                 urlConnection.disconnect();
@@ -646,7 +646,7 @@ class ImageHelper {
         return d;
     }
 
-    private static Bitmap getScaledBitmap(InputStream is, String source, DisplayMetrics dm) throws IOException {
+    static Bitmap getScaledBitmap(InputStream is, String source, int scaleToPixels) throws IOException {
         BufferedInputStream bis = new BufferedInputStream(is);
 
         Log.i("Probe " + source);
@@ -655,7 +655,6 @@ class ImageHelper {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(bis, null, options);
 
-        int scaleToPixels = dm.widthPixels;
         int factor = 1;
         while (options.outWidth / factor > scaleToPixels)
             factor *= 2;

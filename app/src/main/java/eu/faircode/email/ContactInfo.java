@@ -317,6 +317,7 @@ public class ContactInfo {
                         else
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
+                        final int scaleToPixels = Helper.dp2pixels(context, 48);
                         final URL base = new URL("https://" + domain);
                         final URL www = new URL("https://www." + domain);
 
@@ -325,28 +326,28 @@ public class ContactInfo {
                         futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                             @Override
                             public Bitmap call() throws Exception {
-                                return parseFavicon(base);
+                                return parseFavicon(base, scaleToPixels);
                             }
                         }));
 
                         futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                             @Override
                             public Bitmap call() throws Exception {
-                                return parseFavicon(www);
+                                return parseFavicon(www, scaleToPixels);
                             }
                         }));
 
                         futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                             @Override
                             public Bitmap call() throws Exception {
-                                return getFavicon(new URL(base, "favicon.ico"));
+                                return getFavicon(new URL(base, "favicon.ico"), scaleToPixels);
                             }
                         }));
 
                         futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                             @Override
                             public Bitmap call() throws Exception {
-                                return getFavicon(new URL(www, "favicon.ico"));
+                                return getFavicon(new URL(www, "favicon.ico"), scaleToPixels);
                             }
                         }));
 
@@ -421,7 +422,7 @@ public class ContactInfo {
         return info;
     }
 
-    private static Bitmap parseFavicon(URL base) throws IOException {
+    private static Bitmap parseFavicon(URL base, int scaleToPixels) throws IOException {
         Log.i("GET favicon " + base);
         HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
         connection.setRequestMethod("GET");
@@ -452,13 +453,13 @@ public class ContactInfo {
         }
 
         if (!TextUtils.isEmpty(favicon))
-            return getFavicon(new URL(base, favicon));
+            return getFavicon(new URL(base, favicon), scaleToPixels);
 
         return null;
     }
 
     @NonNull
-    private static Bitmap getFavicon(URL url) throws IOException {
+    private static Bitmap getFavicon(URL url, int scaleToPixels) throws IOException {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
@@ -472,7 +473,7 @@ public class ContactInfo {
         connection.connect();
 
         try {
-            Bitmap bitmap = BitmapFactory.decodeStream(connection.getInputStream());
+            Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
             else {
