@@ -1133,15 +1133,15 @@ please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
 External image:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1649,11 +1649,11 @@ so it is not worth a lot of effort to add support for this to FairEmail.
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -2100,7 +2100,7 @@ In short tracking images keep track if you opened a message.
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -3004,7 +3004,7 @@ Note that trashing a message will permanently remove it from the server and that
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
