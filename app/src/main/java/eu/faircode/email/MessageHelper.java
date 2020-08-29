@@ -1135,16 +1135,12 @@ public class MessageHelper {
             return header;
 
         if (Helper.isUTF8(header)) {
-            if (!Helper.isISO8859(header)) {
-                Log.w("Converting " + name + " to UTF-8");
-                return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-            }
+            Log.w("Converting " + name + " to UTF-8");
+            return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         } else {
-            Log.w("Converting " + name + " to ISO8859-1");
+            Log.i("Converting " + name + " to ISO8859-1");
             return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.ISO_8859_1);
         }
-
-        return header;
     }
 
     private Address[] getAddressHeader(String name) throws MessagingException {
