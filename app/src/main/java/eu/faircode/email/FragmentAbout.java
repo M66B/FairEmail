@@ -19,20 +19,26 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.TextViewCompat;
+
+import java.util.List;
 
 public class FragmentAbout extends FragmentBase {
     @Override
@@ -46,6 +52,7 @@ public class FragmentAbout extends FragmentBase {
         TextView tvVersion = view.findViewById(R.id.tvVersion);
         TextView tvRelease = view.findViewById(R.id.tvRelease);
         TextView tvGplV3 = view.findViewById(R.id.tvGplV3);
+        LinearLayout llContributors = view.findViewById(R.id.llContributors);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
@@ -57,6 +64,19 @@ public class FragmentAbout extends FragmentBase {
                 Helper.view(getContext(), Uri.parse(Helper.LICENSE_URI), true);
             }
         });
+
+        final Context context = getContext();
+
+        TypedValue style = new TypedValue();
+        context.getTheme().resolveAttribute(R.style.TextAppearance_AppCompat_Small, style, true);
+
+        List<Contributor> contributors = Contributor.loadContributors(context);
+        for (Contributor contributor : contributors) {
+            TextView tv = new TextView(context);
+            TextViewCompat.setTextAppearance(tv, style.data);
+            tv.setText(contributor.toString());
+            llContributors.addView(tv);
+        }
 
         return view;
     }

@@ -1144,7 +1144,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuTranslate() {
-        Helper.view(this, Uri.parse(Helper.CROWDIN_URI), true);
+        Helper.viewFAQ(this, 26);
     }
 
     private void onMenuIssue() {

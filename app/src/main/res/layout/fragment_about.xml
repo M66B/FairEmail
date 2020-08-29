@@ -62,6 +62,26 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvContributors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/title_contributors"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inEula" />
+
+            <LinearLayout
+                android:id="@+id/llContributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvContributors" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ScrollViewEx>
 </androidx.constraintlayout.widget.ConstraintLayout>

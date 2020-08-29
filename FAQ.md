@@ -1123,6 +1123,9 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
 Registration is free.
 
+If you would like your name or alias to be included in the list of contributors in *About* the app,
+please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 <br />
 
 <a name="faq27"></a>
