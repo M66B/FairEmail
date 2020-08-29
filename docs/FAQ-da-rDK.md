@@ -850,10 +850,11 @@ Mulige årsager:
 
 * Firewall eller router blokerer forbindelser til serveren
 * Værtsnavnet eller portnummeret er ugyldigt
-* Problemer med Internetforbindelsen
-* E-mailserveren nægeter at acceptere (eksterne) forbindelser
-* E-mai-serveren nægter at acceptere en besked, f.eks. fordi den er for stor eller indeholder uacceptable links
-* Der er for mange forbindelser til serveren, se også næste spørgsmål
+* There are problems with the internet connection
+* There are problems with resolving domain names (Yandex: try to disable private DNS in the Android settings)
+* The email server is refusing to accept (external) connections
+* The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
+* There are too many connections to the server, see also the next question
 
 Mange offentlige Wi-Fi netværk blokerer udgående e-mail for at forhindre spam. Dette kan af og til omgås ved brug af en anden SMTP-port. Se leverandørdokumentationen ang. anvendelige portnumre.
 
@@ -2172,7 +2173,7 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
+* Play Butik-køb kan ikke anvendes uden Play Butik, hvilket heller ikke er tilladt jf. Play Butik-reglerne
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 

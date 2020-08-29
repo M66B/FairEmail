@@ -105,6 +105,7 @@
     <string name="menu_rate">Beoordeel deze app</string>
     <string name="title_welcome">Welkom</string>
     <string name="title_eula">Licentieovereenkomst voor eindgebruikers</string>
+    <string name="title_contributors">Bijdragers</string>
     <string name="title_agree">Ik ga akkoord</string>
     <string name="title_disagree">Ik ga niet akkoord</string>
     <string name="title_version">Versie %1$s</string>

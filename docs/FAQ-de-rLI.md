@@ -140,7 +140,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(20) Kann ich eine Rückerstattung erhalten?](#user-content-faq20)
 * [(21) Wie aktiviere ich das Benachrichtigungslicht?](#user-content-faq21)
 * [(22) Was bedeutet ein Konto-/Ordnerfehler ... ?](#user-content-faq22)
-* [(23) Warum werde ich alarmiert .. ?](#user-content-faq23)
+* [(23) Warum bekomme ich einen Alarm? ?](#user-content-faq23)
 * [(24) Was bedeutet das Anzeigen / Suchen von Nachrichten auf dem Server?](#user-content-faq24)
 * [(25) Warum kann ich ein Bild, einen Anhang oder eine Datei nicht auswählen, öffnen oder speichern?](#user-content-faq25)
 * [(26) Kann ich bei der Übersetzung von FairEmail in meine Muttersprache helfen?](#user-content-faq26)
@@ -230,7 +230,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(112) Welchen E-Mail-Provider empfehlen Sie?](#user-content-faq112)
 * [(113) Wie funktioniert die biometrische Authentifizierung?](#user-content-faq113)
 * [(114) Kann man die Einstellungen anderer E-Mail-Apps importieren?](#user-content-faq114)
-* [(115) Kann man E-Mail "Adress Chips" hinzufügen?](#user-content-faq115)
+* [(115) Können E-Mail-Adressen-Chips hinzufügt werden?](#user-content-faq115)
 * [(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~](#user-content-faq116)
 * [Können Sie mir helfen, meinen Kauf wiederherzustellen?](#user-content-faq117)
 * [(118) Was bedeutet »Nachverfolgungsparameter entfernen« genau?](#user-content-faq118)
@@ -850,10 +850,11 @@ Possible causes are:
 
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
-* The are problems with the internet connection
-* Der E-Mail-Server weigert sich, (externe) Verbindungen zu akzeptieren
-* The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
-* There are too many connections to the server, see also the next question
+* Es gibt Probleme mit der Internetverbindung
+* Es gibt Probleme bei der Auflösung von Domainnamen (Yandex: versuchen Sie, privates DNS in den Android-Einstellungen zu deaktivieren)
+* Der E-Mail-Server lehnt die Annahme von (externen) Verbindungen ab
+* Der E-Mail-Server lehnt die Annahme einer Nachricht ab, zum Beispiel weil sie zu groß ist oder unzulässige Links enthält
+* Es gibt zu viele Verbindungen zum Server, siehe dazu auch die nächste Frage
 
 Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
@@ -887,9 +888,9 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Warum bekomme ich einen Alarm?**
 
-*General*
+*Allgemein*
 
 Alerts are warning messages sent by email servers.
 
@@ -2130,7 +2131,7 @@ The format of the settings files of most other email apps is not documented, so 
 <br />
 
 <a name="faq115"></a>
-**(115) Can you add email address chips?**
+**(115) Können E-Mail-Adressen-Chips hinzufügt werden?**
 
 Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited, which is quite inconvenient when you made a typo in an email address.
 
@@ -2172,7 +2173,7 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Käufe im Play Store können ohne den Play Store nicht verwendet werden, was nach den Play Store-Regeln ebenfalls nicht zulässig ist
+* Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play-Store-Regeln ebenfalls nicht zulässig ist.
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 

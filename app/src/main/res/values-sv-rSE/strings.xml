@@ -105,6 +105,7 @@
     <string name="menu_rate">Betygsätt denna app</string>
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
+    <string name="title_contributors">Bidragsgivare</string>
     <string name="title_agree">Jag samtycker</string>
     <string name="title_disagree">Jag samtycker inte</string>
     <string name="title_version">Version %1$s</string>

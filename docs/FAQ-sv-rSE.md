@@ -850,8 +850,9 @@ Possible causes are:
 
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
-* The are problems with the internet connection
-* E-postservern vägrar att acceptera (externa) anslutningar
+* Det är problem med internetanslutningen
+* Det är problem med att slå upp domännamn (Yandex: försök att inaktivera privata DNS i Android-inställningarna)
+* The email server is refusing to accept (external) connections
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 

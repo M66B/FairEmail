@@ -1161,6 +1161,7 @@
     <string name="title_enabled">Aktiveret</string>
     <string name="title_executing">Eksekverer</string>
     <string name="title_completed">Fuldført</string>
+    <string name="title_default_changed">Standard ændret</string>
     <string name="title_clipboard_copy">Kopiér til Udklipsholder</string>
     <string name="title_clipboard_copied">Kopieret til Udklipsholder</string>
     <string name="title_ask_what">Spørg, hvad der skal ske</string>

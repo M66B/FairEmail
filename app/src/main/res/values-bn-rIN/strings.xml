@@ -6,6 +6,8 @@
     <string name="app_limitations">উদাহরণস্বরূপ, অনিরাপদ অংশ অপসারণ করতে এবং পাঠযোগ্যতা উন্নত করতে এবং লিঙ্কগুলি নিশ্চিতকরণ করার বার্তাগুলি সর্বদা প্রদর্শিত হবে।</string>
     <string name="app_crash">ফেয়ার ইমেইল এই ডিভাইসে সমর্থিত নয় কারণ এই অ্যান্ড্রয়েডের বাগগুলি ক্রাশ হওয়ার কারণ</string>
     <string name="app_exit">বের হওয়ার জন্য \'ব্যাক\' করুন</string>
+    <string name="app_cake">অপর্যাপ্ত জায়গা খালি রয়েছে</string>
+    <string name="channel_service">প্রাপ্তি</string>
     <string name="channel_send">পাঠান</string>
     <string name="channel_notification">বিজ্ঞপ্তি</string>
     <string name="channel_update">আপডেট</string>
@@ -32,6 +34,86 @@
         <item quantity="one">%1$dটি নতুন বার্তা</item>
         <item quantity="other">%1$dটি নতুন বার্তা</item>
     </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d টি বার্তা পাঠাতে হবে</item>
+        <item quantity="other">%1$d গুলো বার্তা পাঠাতে হবে</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d নতুন</item>
+        <item quantity="other">%1$d নতুন</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d টি নির্বাচিত কথোপকথন</item>
+        <item quantity="other">%1$d গুলো নির্বাচিত কথোপকথন</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">%1$d টি কথোপকথন সরাতে চান?</item>
+        <item quantity="other">%1$d গুলো কথোপকথন সরাতে চান?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">%1$d টি বার্তা চিরতরে মুছে ফেলবেন?</item>
+        <item quantity="other">%1$d গুলো বার্তা চিরতরে মুছে ফেলবেন?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">%1$d টি বার্তা স্প্যাম হিসাবে গণ্য করবেন?</item>
+        <item quantity="other">%1$d গুলো বার্তা স্প্যাম হিসাবে গণ্য করবেন?</item>
+    </plurals>
+    <string name="title_ask_spam_who">%1$s টি বার্তা স্প্যাম হিসাবে অযোগ্য?</string>
+    <string name="title_junk_hint">স্প্যাম ফিল্টার করার জন্য আপনার ইমেইল সরবরাহকারী দায়ী। একটি ইমেইল অ্যাপের কাছে এটি নির্ভরযোগ্যভাবে করার জন্য সমস্ত তথ্য থাকে না।</string>
+    <string name="title_block">%1$s ব্লক করুন</string>
+    <string name="title_block_sender">ব্লক প্রেরক</string>
+    <string name="title_block_domain">প্রেরক ডোমেন ব্লক করুন</string>
+    <string name="title_block_sender_hint">        প্রেরককে ব্লক করলে ভবিষ্যতে তার বার্তা স্বয়ংক্রিয়ভাবে স্প্যাম ফোল্ডারে অপসারণ করার একটি নিয়ম তৈরি হবে।
+        নিয়ম তৈরি এবং করা একটি প্রিমিয়াম বৈশিষ্ট্য।</string>
+    <string name="title_notification_sending">বার্তাসমূহ প্রেরণ হচ্ছে</string>
+    <string name="title_notification_waiting">উপযুক্ত সংযোগের জন্য অপেক্ষা করা হচ্ছে</string>
+    <string name="title_notification_idle">নিষ্ক্রিয়</string>
+    <string name="title_notification_failed">\'%1$s\' ব্যর্থ</string>
+    <string name="title_notification_alert">\'%1$s\' সার্ভার সতর্কতা</string>
+    <string name="title_notification_sending_left">চেষ্টা বাকিঃ %1$d</string>
+    <string name="title_notification_sending_failed">%1$s এর কাছে প্রেরণ ব্যর্থ হয়েছে</string>
+    <string name="title_notification_redacted">পুনঃনির্মাণঃ বায়োমেট্রিক বা পিন প্রমাণীকরণ চালু</string>
+    <string name="title_of">%1$s/%2$s</string>
+    <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="title_name_plus">%1$s+%2$d</string>
+    <string name="title_from_to">%1$s ➤ %2$s</string>
+    <string name="title_title_description">%1$sঃ %2$s</string>
+    <string name="title_factor_minutes">%1$d মিনিট</string>
+    <string name="menu_exit">প্রস্থান</string>
+    <string name="menu_answers">টেম্পলেট</string>
+    <string name="menu_operations">ক্রিয়াকলাপ</string>
+    <string name="menu_contacts">স্থানীয় যোগাযোগ</string>
+    <string name="menu_setup">সেটিংস</string>
+    <string name="menu_legend">কিংবদন্তি</string>
+    <string name="menu_test">প্রোগ্রাম পরীক্ষা</string>
+    <string name="menu_faq">সমর্থন</string>
+    <string name="menu_translate">অনুবাদে সহায়তা</string>
+    <string name="menu_issue">সমস্যার প্রতিবেদন করুন</string>
+    <string name="menu_attribution">অ্যাট্ট্রিবিউট সমূহ</string>
+    <string name="menu_privacy">গোপনীয়তা</string>
+    <string name="menu_about">সম্পর্কে</string>
+    <string name="menu_pro">প্রিমিয়াম বৈশিষ্ট্য</string>
+    <string name="menu_rate">অ্যাপের রেটিং দিন</string>
+    <string name="title_welcome">স্বাগতম</string>
+    <string name="title_eula">ব্যবহারকারী লাইসেন্স চুক্তি</string>
+    <string name="title_contributors">অবদানকারী</string>
+    <string name="title_agree">আমি সম্মতি দিচ্ছি</string>
+    <string name="title_disagree">আমি সম্মতি দিচ্ছি না</string>
+    <string name="title_version">সংস্করণঃ %1$s</string>
+    <string name="title_list_accounts">অ্যাকাউন্ট</string>
+    <string name="title_setup_doze_battery">উচ্চ ব্যাটারির ব্যবহার করছে?</string>
+    <string name="title_setup_doze_stopped">সিঙ্ক বন্ধ হয়ে গিয়েছে?</string>
+    <string name="title_setup_data">ডেটা সেভার চালু রয়েছ</string>
+    <string name="title_setup_advanced_options">উন্নত বিকল্প দেখান</string>
+    <string name="title_setup_inbox">বার্তা সমূহে যান</string>
+    <string name="title_setup_go">যান</string>
+    <string name="title_setup_to_do">করণীয়</string>
+    <string name="title_setup_done">সম্পন্ন</string>
+    <string name="title_setup_still">এখনো করণীয়</string>
+    <string name="title_setup_error">ত্রুটি</string>
+    <string name="title_setup_configuring">&#8230; অ্যাকাউন্ট কনফিগার করা হচ্ছে</string>
+    <string name="title_setup_export">সেটিংস সংরক্ষণ</string>
+    <string name="title_setup_import">সেটিংস প্রেরণ</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

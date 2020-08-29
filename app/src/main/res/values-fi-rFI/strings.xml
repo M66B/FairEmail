@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">FairEmail-haku</string>
     <string name="app_changelog">Muutosloki</string>
-    <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla, kuin mihin olet tottunut.</string>
+    <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene ”takaisin” uudelleen poistuaksesi</string>
@@ -103,6 +103,7 @@
     <string name="menu_rate">Arvostele sovellus</string>
     <string name="title_welcome">Tervetuloa</string>
     <string name="title_eula">Loppukäyttäjän lisenssisopimus</string>
+    <string name="title_contributors">Avustajat</string>
     <string name="title_agree">Hyväksyn</string>
     <string name="title_disagree">En hyväksy</string>
     <string name="title_version">Versio %1$s</string>
@@ -1157,6 +1158,7 @@
     <string name="title_enabled">Käytössä</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
+    <string name="title_default_changed">Oletus muutettu</string>
     <string name="title_clipboard_copy">Kopioi leikepöydälle</string>
     <string name="title_clipboard_copied">Kopioitu leikepöydälle</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>

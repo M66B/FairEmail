@@ -104,6 +104,7 @@
     <string name="menu_rate">Αξιολογήστε αυτή την εφαρμογή</string>
     <string name="title_welcome">Καλώς ορίσατε</string>
     <string name="title_eula">Άδεια χρήσης τελικού χρήστη</string>
+    <string name="title_contributors">Συνεισέφεραν</string>
     <string name="title_agree">Συμφωνώ</string>
     <string name="title_disagree">Διαφωνώ</string>
     <string name="title_version">Έκδοση %1$s</string>
@@ -1154,6 +1155,7 @@
     <string name="title_enabled">Ενεργοποιημένο</string>
     <string name="title_executing">Εκτελείται</string>
     <string name="title_completed">Ολοκληρώθηκε</string>
+    <string name="title_default_changed">Η προεπιλογή έχει αλλάξει</string>
     <string name="title_clipboard_copy">Αντιγραφή στο πρόχειρο</string>
     <string name="title_clipboard_copied">Αντιγράφηκε στο πρόχειρο</string>
     <string name="title_ask_what">Ερώτηση για το τι πρέπει να γίνεται</string>
@@ -1193,6 +1195,7 @@
     <string name="title_pro_hide">Απόκρυψη μικρής υπενθύμισης για %1$d εβδομάδες</string>
     <string name="title_pro_hint">Αγοράζοντας την έκδοση pro θα μπορείτε να χρησιμοποιείτε όλες τις τρέχουσες και μελλοντικές δυνατότητες pro, και θα βοηθήσετε να ενημερώνεται και να αναπτύσσεται περαιτέρω αυτή η εφαρμογή.</string>
     <string name="title_pro_price">Γιατί είναι οι δυνατότητες pro τόσο ακριβές;</string>
+    <string name="title_pro_restore">Πώς μπορώ να επαναφέρω μια αγορά;</string>
     <string name="title_pro_pending">Εκκρεμεί αγορά</string>
     <string name="title_pro_activated">Όλες οι δυνατότητες pro έχουν ενεργοποιηθεί</string>
     <string name="title_pro_valid">Ενεργοποιημένες όλες οι δυνατότητες pro</string>

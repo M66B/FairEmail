@@ -127,6 +127,7 @@
     <string name="menu_rate">Оценить приложение</string>
     <string name="title_welcome">Добро пожаловать</string>
     <string name="title_eula">Пользовательское соглашение</string>
+    <string name="title_contributors">Имена разработчиков</string>
     <string name="title_agree">Принимаю</string>
     <string name="title_disagree">Не принимаю</string>
     <string name="title_version">Версия %1$s</string>

@@ -133,15 +133,15 @@
 * [(13) Как работает поиск на устройстве/сервере?](#user-content-faq13)
 * [(14) Как я могу настроить учётную запись для Outlook / Live / Hotmail?](#user-content-faq14)
 * [(15) Почему текст сообщения продолжает загружаться?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
+* [(16) Почему сообщения не синхронизируются?](#user-content-faq16)
+* [~~(17) Почему синхронизация вручную не работает?~~](#user-content-faq17)
+* [(18) Почему предварительный просмотр сообщения не всегда показывается?](#user-content-faq18)
+* [(19) Почему Pro функции такие дорогие?](#user-content-faq19)
+* [(20) Могу ли я получить возврат средств?](#user-content-faq20)
+* [(21) Как включить световой индикатор уведомлений?](#user-content-faq21)
+* [(22) Что означает ошибка учётной записи/папки ...?](#user-content-faq22)
+* [(23) Почему я получаю предупреждение .. ?](#user-content-faq23)
+* [(24) Что такое просмотр сообщений на сервере?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
 * [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
 * [(27) Как я могу различать встроенные и внешние изображения?](#user-content-faq27)
@@ -850,10 +850,11 @@ Possible causes are:
 
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
-* The are problems with the internet connection
+* Возникли проблемы с интернет-соединением
+* Возникли проблемы с разрешением доменных имен (Яндекс: попробуйте отключить приватный DNS в настройках Android)
 * Сервер электронной почты отказывается принимать (внешние) соединения
-* The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
-* There are too many connections to the server, see also the next question
+* Сервер электронной почты отказывается принимать сообщение, например, потому что оно слишком большое или содержит неприемлемые ссылки
+* Слишком много подключений к серверу, смотрите также следующий вопрос
 
 Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 

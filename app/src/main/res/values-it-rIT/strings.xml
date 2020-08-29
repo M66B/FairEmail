@@ -105,6 +105,7 @@
     <string name="menu_rate">Valuta questa app</string>
     <string name="title_welcome">Benvenuto</string>
     <string name="title_eula">Contratto di licenza con l\'utente finale</string>
+    <string name="title_contributors">Contributori</string>
     <string name="title_agree">Accetto</string>
     <string name="title_disagree">Non accetto</string>
     <string name="title_version">Versione %1$s</string>
@@ -144,6 +145,7 @@
     <string name="title_setup_no_settings_hint">Prova a configurare un account e un\'identità nei passaggi 1 e 2 del setup utilizzando le impostazioni fornite dal tuo provider di posta elettronica</string>
     <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece della password dell\'account, per favore controlla le istruzioni del tuo provider</string>
+    <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando sei iscritto/a al programma di protezione avanzata non è possibile utilizzare un\'applicazione di posta elettronica di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
@@ -315,6 +317,7 @@
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra le miniature dell\'immagine dopo il testo del messaggio</string>
     <string name="title_advanced_message_text_zoom">Ingrandimento del testo del messaggio predefinito</string>
+    <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa caratteri monospaziati per il testo del messaggio standard</string>
     <string name="title_advanced_text_color">Usa colori testo</string>
@@ -461,6 +464,7 @@
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può essere lento a causa di un bug in alcune versioni di Android quando il numero di righe è più di uno</string>
+    <string name="title_advanced_overview_mode_hint">Questo può portare a caratteri molto piccoli</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
     <string name="title_advanced_parse_classes_hint">Questo mostrerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
@@ -525,6 +529,8 @@
     <string name="title_provider">Fornitore</string>
     <string name="title_custom">Personalizzato</string>
     <string name="title_host">Nome host</string>
+    <string name="title_encryption">Crittografia</string>
+    <string name="title_encryption_none">Nessuno</string>
     <string name="title_allow_insecure">Permetti connessioni non sicure</string>
     <string name="title_insecure_remark">Le connessioni non sicure dovrebbero essere consentite solo su reti affidabili e mai su reti pubbliche</string>
     <string name="title_port">Numero porta</string>
@@ -560,12 +566,17 @@
     <string name="title_no_user">Nome utente mancante</string>
     <string name="title_no_password">Password mancante</string>
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
+    <string name="title_no_drafts">Nessuna cartella bozze</string>
     <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
+    <string name="title_no_composable">L\'invio di messaggi richiede la configurazione di un\'identità e la selezione di una cartella delle bozze nelle impostazioni dell\'account</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
     <string name="title_no_sync">Errori di sincronizzazione da %1$s</string>
     <string name="title_reply_domain">Il mittente (%1$s) e il dominio di risposta (%2$s) differiscono</string>
+    <string name="title_identity_required">È richiesta un\'identità per inviare messaggi</string>
+    <string name="title_drafts_required">Per inviare messaggi è necessaria una cartella delle bozze</string>
+    <string name="title_drafts_select">L\'invio di messaggi richiede la selezione di una cartella delle bozze nelle impostazioni dell\'account</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_edit_html">Modifica come HTML</string>
@@ -657,6 +668,7 @@
     <string name="title_buttons">Pulsanti</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
+    <string name="title_toggle_seen">Attiva/disattiva lettura</string>
     <string name="title_hide">Nascondi</string>
     <string name="title_unhide">Mostra</string>
     <string name="title_flag">Aggiungi stella</string>
@@ -1150,6 +1162,7 @@
     <string name="title_enabled">Abilitato</string>
     <string name="title_executing">Esecuzione</string>
     <string name="title_completed">Completato</string>
+    <string name="title_default_changed">Predefinito modificato</string>
     <string name="title_clipboard_copy">Copia negli appunti</string>
     <string name="title_clipboard_copied">Copiato negli appunti</string>
     <string name="title_ask_what">Chiedi cosa fare</string>
@@ -1188,6 +1201,8 @@
     </string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
+    <string name="title_pro_price">Perché le caratteristiche pro sono così costose?</string>
+    <string name="title_pro_restore">Come posso ripristinare un acquisto?</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>

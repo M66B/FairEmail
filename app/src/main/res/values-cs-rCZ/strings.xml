@@ -127,6 +127,7 @@
     <string name="menu_rate">Ohodnotit aplikaci</string>
     <string name="title_welcome">Vítejte</string>
     <string name="title_eula">Licenční ujednání s koncovým uživatelem</string>
+    <string name="title_contributors">Přispěvatelé</string>
     <string name="title_agree">Souhlasím</string>
     <string name="title_disagree">Nesouhlasím</string>
     <string name="title_version">Verze %1$s</string>
@@ -1183,6 +1184,7 @@
     <string name="title_enabled">Zapnuto</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>
+    <string name="title_default_changed">Výchozí hodnota změněna</string>
     <string name="title_clipboard_copy">Kopírovat do schránky</string>
     <string name="title_clipboard_copied">Zkopírováno do schránky</string>
     <string name="title_ask_what">Zeptej se, co dělat</string>

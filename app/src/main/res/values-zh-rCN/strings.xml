@@ -93,6 +93,7 @@
     <string name="menu_rate">给此应用评分</string>
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
+    <string name="title_contributors">贡献者</string>
     <string name="title_agree">同意</string>
     <string name="title_disagree">拒绝</string>
     <string name="title_version">版本 %1$s</string>

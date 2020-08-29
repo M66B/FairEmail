@@ -105,6 +105,7 @@
     <string name="menu_rate">Noter cette appli</string>
     <string name="title_welcome">Bienvenue</string>
     <string name="title_eula">Contrat de licence d’utilisateur final</string>
+    <string name="title_contributors">Contributeurs</string>
     <string name="title_agree">J’accepte</string>
     <string name="title_disagree">Je refuse</string>
     <string name="title_version">Version %1$s</string>
@@ -567,15 +568,15 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier pourriel sélectionné pour ce compte</string>
-    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte</string>
+    <string name="title_no_composable">L\'envoi de courriels nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception de nouveaux messages et augmentera l’utilisation de la pile.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l’UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_reply_domain">Le domaine de l\'expéditeur (%1$s) et celui de l\'adresse de réponse (%2$s) sont différents</string>
-    <string name="title_identity_required">Une identité est nécessaire pour envoyer des e-mails</string>
-    <string name="title_drafts_required">Un dossier « Brouillons » est nécessaire pour envoyer des e-mails</string>
-    <string name="title_drafts_select">L\'envoi d\'e-mails nécessite la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
+    <string name="title_identity_required">Une identité est nécessaire pour envoyer des courriels</string>
+    <string name="title_drafts_required">Un dossier « Brouillons » est nécessaire pour envoyer des courriels</string>
+    <string name="title_drafts_select">L\'envoi de courriels nécessite la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
     <string name="title_account_delete">Supprimer définitivement ce compte?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité?</string>
     <string name="title_edit_html">Modifier en HTML</string>
@@ -1200,8 +1201,8 @@
     </string>
     <string name="title_pro_hide">Masquer la bannière pendant %1$d semaines</string>
     <string name="title_pro_hint">L’achat des fonctionnalités pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de soutenir cette application.</string>
-    <string name="title_pro_price">Pourquoi les fonctionnalités Pro sont-elles si chères ?</string>
-    <string name="title_pro_restore">Comment puis-je me faire rembourser ?</string>
+    <string name="title_pro_price">Pourquoi les fonctionnalités Pro sont-elles si chères?</string>
+    <string name="title_pro_restore">Comment puis-je me faire rembourser?</string>
     <string name="title_pro_pending">Achat en attente</string>
     <string name="title_pro_activated">Toutes les fonctionnalités pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités pro activées</string>
