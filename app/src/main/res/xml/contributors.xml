@@ -5,6 +5,9 @@
         alias="M66B"
         contribution="Dutch" />
     <contributor
+        alias="pulser"
+        contribution="English corrections" />
+    <contributor
         name="Jorg K."
         contribution="Charset handling" />
     <contributor
