@@ -993,6 +993,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         throw ex;
                     }
 
+                    // https://tools.ietf.org/html/rfc2177
                     final boolean capIdle = iservice.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
                     if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
