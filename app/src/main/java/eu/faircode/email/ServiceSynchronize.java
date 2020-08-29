@@ -791,14 +791,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onAlarm(Intent intent) {
         Bundle command = new Bundle();
-        schedule(this);
+        schedule(this, true);
         command.putString("name", "eval");
         command.putBoolean("sync", true);
         liveAccountNetworkState.post(command);
     }
 
     private void onWatchdog(Intent intent) {
-        schedule(this);
+        schedule(this, false);
         networkCallback.onCapabilitiesChanged(null, null);
     }
 
@@ -2009,7 +2009,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     // Restore schedule
-                    schedule(context);
+                    schedule(context, true);
 
                     // Init service
                     int accounts = db.account().getSynchronizingAccounts().size();
@@ -2026,7 +2026,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         thread.start();
     }
 
-    private static void schedule(Context context) {
+    private static void schedule(Context context, boolean sync) {
         Intent intent = new Intent(context, ServiceSynchronize.class);
         intent.setAction("alarm");
         PendingIntent pi = PendingIntentCompat.getForegroundService(
@@ -2051,6 +2051,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Log.i("Schedule poll=" + poll);
 
             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
+
+            if (sync) {
+                long dt = Math.abs(schedule[0] - now) / 1000;
+                long threshold = (schedule[1] - schedule[0]) / 5 / 1000;
+                if (dt < threshold) {
+                    Log.i("Sync at schedule start dt=" + dt + " threshold=" + threshold);
+                    ServiceUI.sync(context, null);
+                }
+            }
         }
 
         ServiceUI.schedule(context, poll);
