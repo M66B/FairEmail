@@ -105,6 +105,7 @@
     <string name="menu_rate">Califique esta app</string>
     <string name="title_welcome">Bienvenido</string>
     <string name="title_eula">Acuerdo de licencia de usuario</string>
+    <string name="title_contributors">Colaboradores</string>
     <string name="title_agree">Acepto</string>
     <string name="title_disagree">Rechazo</string>
     <string name="title_version">Versión %1$s</string>

@@ -77,11 +77,11 @@ Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-f
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 
-## Planned features
+## Planlanan özellikler
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
-* ~~Copy message~~
+* ~~ Mesajı kopyala ~~
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
@@ -89,7 +89,7 @@ Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-f
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~ Arama önerileri ~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
@@ -98,17 +98,17 @@ Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-f
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~ GIF'leri Görüntüle ~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
+* ~~ Ek olarak gönder ~~
 * ~~Widget for selected account~~
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
 * ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~ Ayarları ara ~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
