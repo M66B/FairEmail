@@ -577,6 +577,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         // Create transport
+        long start, end;
+        Long max_size = null;
         try (EmailService iservice = new EmailService(
                 this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, debug)) {
             iservice.setUseIp(ident.use_ip, ident.ehlo);
@@ -589,11 +591,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 throw new IOException("Test");
             db.identity().setIdentityState(ident.id, "connected");
 
-            if (ident.max_size == null) {
-                Long max_size = iservice.getMaxSize();
-                if (max_size != null)
-                    db.identity().setIdentityMaxSize(ident.id, max_size);
-            }
+            if (ident.max_size == null)
+                max_size = iservice.getMaxSize();
 
             Address[] to = imessage.getAllRecipients();
             String via = "via " + ident.host + "/" + ident.user +
@@ -601,73 +600,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             // Send message
             EntityLog.log(this, "Sending " + via);
-            long start = new Date().getTime();
+            start = new Date().getTime();
             iservice.getTransport().sendMessage(imessage, to);
-            long end = new Date().getTime();
+            end = new Date().getTime();
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
-
-            try {
-                db.beginTransaction();
-
-                // Delete from outbox
-                db.message().deleteMessage(message.id);
-
-                // Show in sent folder
-                if (sid != null) {
-                    db.message().setMessageReceived(sid, start);
-                    db.message().setMessageSent(sid, end);
-                    db.message().setMessageUiHide(sid, false);
-                }
-
-                if (message.inreplyto != null) {
-                    List<EntityMessage> replieds = db.message().getMessagesByMsgId(message.account, message.inreplyto);
-                    for (EntityMessage replied : replieds)
-                        EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
-                }
-
-                if (message.wasforwardedfrom != null) {
-                    List<EntityMessage> forwardeds = db.message().getMessagesByMsgId(message.account, message.wasforwardedfrom);
-                    for (EntityMessage forwarded : forwardeds)
-                        EntityOperation.queue(this, forwarded, EntityOperation.KEYWORD, "$Forwarded", true);
-                }
-
-                // Reset identity
-                db.identity().setIdentityConnected(ident.id, new Date().getTime());
-                db.identity().setIdentityError(ident.id, null);
-
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
-            }
-
-            ServiceSynchronize.eval(this, "sent");
-
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.cancel("send:" + message.id, 1);
-
-            // Check sent message
-            if (sid != null) {
-                try {
-                    Thread.sleep(EXISTS_DELAY);
-                } catch (InterruptedException ex) {
-                    Log.e(ex);
-                }
-
-                try {
-                    db.beginTransaction();
-
-                    // Message could have been deleted
-                    EntityMessage orphan = db.message().getMessage(sid);
-                    if (orphan != null)
-                        EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                ServiceSynchronize.eval(this, "orphan");
-            }
         } catch (MessagingException ex) {
             Log.e(ex);
 
@@ -679,6 +615,73 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             throw ex;
         } finally {
             db.identity().setIdentityState(ident.id, null);
+        }
+
+        try {
+            db.beginTransaction();
+
+            // Delete from outbox
+            db.message().deleteMessage(message.id);
+
+            // Show in sent folder
+            if (sid != null) {
+                db.message().setMessageReceived(sid, start);
+                db.message().setMessageSent(sid, end);
+                db.message().setMessageUiHide(sid, false);
+            }
+
+            // Mark replied
+            if (message.inreplyto != null) {
+                List<EntityMessage> replieds = db.message().getMessagesByMsgId(message.account, message.inreplyto);
+                for (EntityMessage replied : replieds)
+                    EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
+            }
+
+            // Mark forwarded
+            if (message.wasforwardedfrom != null) {
+                List<EntityMessage> forwardeds = db.message().getMessagesByMsgId(message.account, message.wasforwardedfrom);
+                for (EntityMessage forwarded : forwardeds)
+                    EntityOperation.queue(this, forwarded, EntityOperation.KEYWORD, "$Forwarded", true);
+            }
+
+            // Update identity
+            if (max_size != null)
+                db.identity().setIdentityMaxSize(ident.id, max_size);
+            db.identity().setIdentityConnected(ident.id, new Date().getTime());
+            db.identity().setIdentityError(ident.id, null);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        ServiceSynchronize.eval(this, "sent");
+
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel("send:" + message.id, 1);
+
+        // Check sent message
+        if (sid != null) {
+            try {
+                Thread.sleep(EXISTS_DELAY);
+            } catch (InterruptedException ex) {
+                Log.e(ex);
+            }
+
+            try {
+                db.beginTransaction();
+
+                // Message could have been deleted
+                EntityMessage orphan = db.message().getMessage(sid);
+                if (orphan != null)
+                    EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+
+            ServiceSynchronize.eval(this, "orphan");
         }
     }
 
