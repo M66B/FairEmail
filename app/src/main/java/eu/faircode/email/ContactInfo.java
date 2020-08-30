@@ -317,7 +317,7 @@ public class ContactInfo {
                         else
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
-                        final int scaleToPixels = Helper.dp2pixels(context, 48);
+                        final int scaleToPixels = Helper.dp2pixels(context, 64);
                         final URL base = new URL("https://" + domain);
                         final URL www = new URL("https://www." + domain);
 
