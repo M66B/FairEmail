@@ -548,7 +548,7 @@ public class ServiceUI extends IntentService {
             long now = new Date().getTime();
             long[] schedule = ServiceSynchronize.getSchedule(this);
             boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
-            schedule(this, poll);
+            schedule(this, poll, null);
         }
     }
 
@@ -562,7 +562,7 @@ public class ServiceUI extends IntentService {
                 .setAction(account == null ? "sync" : "sync:" + account));
     }
 
-    static void schedule(Context context, boolean poll) {
+    static void schedule(Context context, boolean poll, Long at) {
         Intent intent = new Intent(context, ServiceUI.class);
         intent.setAction("sync");
         intent.putExtra("reschedule", true);
@@ -572,20 +572,23 @@ public class ServiceUI extends IntentService {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(piSync);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
-        if (poll && enabled && pollInterval > 0) {
-            long now = new Date().getTime();
-            long interval = pollInterval * 60 * 1000L;
-            long next = now + interval - now % interval + 30 * 1000L;
-            if (next < now + interval / 5)
-                next += interval;
+        if (at == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+            if (poll && enabled && pollInterval > 0) {
+                long now = new Date().getTime();
+                long interval = pollInterval * 60 * 1000L;
+                long next = now + interval - now % interval + 30 * 1000L;
+                if (next < now + interval / 5)
+                    next += interval;
 
-            EntityLog.log(context, "Poll next=" + new Date(next));
+                EntityLog.log(context, "Poll next=" + new Date(next));
 
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
-        }
+                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
+            }
+        } else
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync);
     }
 
     private static PendingIntent getBannerIntent(Context context) {

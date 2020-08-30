@@ -2010,7 +2010,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     // Restore schedule
-                    schedule(context, true);
+                    schedule(context, false);
 
                     // Init service
                     int accounts = db.account().getSynchronizingAccounts().size();
@@ -2037,6 +2037,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         am.cancel(pi);
 
         boolean poll;
+        Long at = null;
         long[] schedule = getSchedule(context);
         if (schedule == null)
             poll = true;
@@ -2053,17 +2054,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
 
-            if (sync) {
-                long dt = Math.abs(schedule[0] - now) / 1000;
-                long threshold = (schedule[1] - schedule[0]) / 5 / 1000;
-                if (dt < threshold) {
-                    Log.i("Sync at schedule start dt=" + dt + " threshold=" + threshold);
-                    ServiceUI.sync(context, null);
-                }
+            if (sync & poll) {
+                at = now + 30 * 1000L;
+                Log.i("Sync at schedule start=" + new Date(at));
             }
         }
 
-        ServiceUI.schedule(context, poll);
+        ServiceUI.schedule(context, poll, at);
     }
 
     static long[] getSchedule(Context context) {
