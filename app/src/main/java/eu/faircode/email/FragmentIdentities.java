@@ -77,7 +77,7 @@ public class FragmentIdentities extends FragmentBase {
 
         // Wire controls
 
-        rvIdentity.setHasFixedSize(false);
+        rvIdentity.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvIdentity.setLayoutManager(llm);
 

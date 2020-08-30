@@ -66,7 +66,7 @@ public class FragmentOperations extends FragmentBase {
 
         // Wire controls
 
-        rvOperation.setHasFixedSize(false);
+        rvOperation.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvOperation.setLayoutManager(llm);
 

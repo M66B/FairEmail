@@ -90,7 +90,7 @@ public class FragmentRules extends FragmentBase {
 
         // Wire controls
 
-        rvRule.setHasFixedSize(false);
+        rvRule.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvRule.setLayoutManager(llm);
 

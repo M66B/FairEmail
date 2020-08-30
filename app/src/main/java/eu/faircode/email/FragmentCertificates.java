@@ -63,7 +63,7 @@ public class FragmentCertificates extends FragmentBase {
 
         // Wire controls
 
-        rvCertificate.setHasFixedSize(false);
+        rvCertificate.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvCertificate.setLayoutManager(llm);
 

@@ -68,7 +68,7 @@ public class FragmentContacts extends FragmentBase {
 
         // Wire controls
 
-        rvContacts.setHasFixedSize(false);
+        rvContacts.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvContacts.setLayoutManager(llm);
 

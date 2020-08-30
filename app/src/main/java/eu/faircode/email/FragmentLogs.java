@@ -62,7 +62,7 @@ public class FragmentLogs extends FragmentBase {
 
         // Wire controls
 
-        rvLog.setHasFixedSize(false);
+        rvLog.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvLog.setLayoutManager(llm);
 

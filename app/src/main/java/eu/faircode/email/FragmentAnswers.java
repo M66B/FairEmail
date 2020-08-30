@@ -75,7 +75,7 @@ public class FragmentAnswers extends FragmentBase {
 
         // Wire controls
 
-        rvAnswer.setHasFixedSize(false);
+        rvAnswer.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAnswer.setLayoutManager(llm);
 
