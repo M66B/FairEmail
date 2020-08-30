@@ -4850,6 +4850,10 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             },
                             null);
+
+                    // Strip newline of reply header
+                    if (spannedRef.length() > 0 && spannedRef.charAt(0) == '\n')
+                        spannedRef = (Spanned) spannedRef.subSequence(1, spannedRef.length());
                 }
 
                 args.putBoolean("ref_has_images", spannedRef != null &&
