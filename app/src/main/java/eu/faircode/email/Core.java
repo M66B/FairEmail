@@ -1938,10 +1938,12 @@ class Core {
                         }
                     }
 
-                    if (TextUtils.isEmpty(msgid)) {
-                        Log.w(folder.name + " POP no msgid");
-                        continue;
-                    }
+                    if (TextUtils.isEmpty(msgid))
+                        if (uidl == null) {
+                            Log.w(folder.name + " POP no msgid");
+                            continue;
+                        } else
+                            msgid = uidl;
 
                     try {
                         Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
