@@ -85,6 +85,7 @@ import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.security.cert.CertPathValidatorException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1311,11 +1312,42 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        DateFormat dtf = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+
         long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             List<EntityAccount> accounts = db.account().getAccounts();
-            size += write(os, "accounts=" + accounts.size() + "\r\n");
+            size += write(os, "accounts=" + accounts.size() + "\r\n\r\n");
+
+            for (EntityAccount account : accounts) {
+                if (account.synchronize) {
+                    size += write(os, account.name +
+                            " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
+                            " " + account.host + ":" + account.port + "/" + account.encryption +
+                            " sync=" + account.synchronize +
+                            " exempted=" + account.poll_exempted +
+                            " poll=" + account.poll_interval +
+                            " " + account.state +
+                            (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
+                            "\r\n");
+
+                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                    if (folders.size() > 0)
+                        Collections.sort(folders, folders.get(0).getComparator(context));
+                    for (EntityFolder folder : folders)
+                        if (folder.synchronize)
+                            size += write(os, "- " + folder.name + " " + folder.type +
+                                    " poll=" + folder.poll + "/" + folder.poll_factor +
+                                    " days=" + folder.sync_days + "/" + folder.keep_days +
+                                    " " + folder.state +
+                                    (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
+                                    "\r\n");
+
+                    size += write(os, "\r\n");
+                }
+            }
+
             for (EntityAccount account : accounts)
                 try {
                     JSONObject jaccount = account.toJSON();
