@@ -1725,7 +1725,8 @@ public class MessageHelper {
                     warnings.add(context.getString(R.string.title_no_charset, charset));
 
                 if (part.isMimeType("text/plain")) {
-                    if (TextUtils.isEmpty(charset) && Helper.isUTF8(result)) {
+                    if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())) &&
+                            Helper.isUTF8(result)) {
                         Log.i("Charset plain=UTF8");
                         result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                     }
