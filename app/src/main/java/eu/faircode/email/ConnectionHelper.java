@@ -187,8 +187,10 @@ public class ConnectionHelper {
 
     private static Boolean isMetered(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm == null)
+        if (cm == null) {
+            Log.i("isMetered: no connectivity manager");
             return null;
+        }
 
         Network active = null;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
@@ -196,16 +198,20 @@ public class ConnectionHelper {
         if (active == null) {
             NetworkInfo ani = cm.getActiveNetworkInfo();
             if (ani == null || !ani.isConnected()) {
-                Log.i("isMetered: no active network info=" + ani);
+                Log.i("isMetered: no/connected active network info=" + ani);
                 return null;
             }
-            return cm.isActiveNetworkMetered();
+            boolean metered = cm.isActiveNetworkMetered();
+            Log.i("isMetered: active network metered=" + metered);
+            return metered;
         }
 
         // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
         NetworkInfo ani = cm.getNetworkInfo(active);
-        if (ani == null || !ani.isConnected())
+        if (ani == null || !ani.isConnected()) {
+            Log.i("isMetered: no active info ani=" + ani);
             return null;
+        }
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
