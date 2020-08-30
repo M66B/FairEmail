@@ -1396,7 +1396,12 @@ public class Log {
 
             NetworkInfo ani = cm.getActiveNetworkInfo();
             if (ani != null)
-                size += write(os, ani.toString() + " metered=" + cm.isActiveNetworkMetered() + "\r\n\r\n");
+                size += write(os, ani.toString() +
+                        " connected=" + ani.isConnected() +
+                        " metered=" + cm.isActiveNetworkMetered() +
+                        " roaming=" + ani.isRoaming() +
+                        " type=" + ani.getType() + "/" + ani.getTypeName() +
+                        "\r\n\r\n");
 
             Network active = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -1404,7 +1409,8 @@ public class Log {
 
             for (Network network : cm.getAllNetworks()) {
                 NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                size += write(os, (network.equals(active) ? "active=" : "network=") + network + " capabilities=" + caps + "\r\n\r\n");
+                size += write(os, (network.equals(active) ? "active=" : "network=") + network +
+                        " capabilities=" + caps + "\r\n\r\n");
             }
 
             size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
