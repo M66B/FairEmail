@@ -484,15 +484,26 @@ public class Helper {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             // Get targets
-            PackageManager pm = context.getPackageManager();
-            List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-            for (ResolveInfo ri : ris) {
-                Log.i("Target=" + ri);
-                context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            List<ResolveInfo> ris = null;
+            try {
+                PackageManager pm = context.getPackageManager();
+                ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                for (ResolveInfo ri : ris) {
+                    Log.i("Target=" + ri);
+                    context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    java.lang.RuntimeException: Package manager has died
+                      at android.app.ApplicationPackageManager.queryIntentActivitiesAsUser(ApplicationPackageManager.java:571)
+                      at android.app.ApplicationPackageManager.queryIntentActivities(ApplicationPackageManager.java:557)
+                      at eu.faircode.email.Helper.share(SourceFile:489)
+                 */
             }
 
             // Check if viewer available
-            if (ris.size() == 0) {
+            if (ris == null || ris.size() == 0) {
                 if ("application/ms-tnef".equals(type))
                     viewFAQ(context, 155);
                 else {
