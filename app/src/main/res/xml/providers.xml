@@ -64,6 +64,19 @@
             starttls="true" />
     </provider>
     <provider
+        name="MSN"
+        domain="\\.msn\\..*"
+        partial="false">
+        <imap
+            host="imap-mail.outlook.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp-mail.outlook.com"
+            port="587"
+            starttls="true" />
+    </provider>
+    <provider
         name="Office365"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
