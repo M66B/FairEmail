@@ -1922,9 +1922,11 @@ class Core {
                         }
 
                         msgid = uidlMsgId.get(uidl);
-                        if (msgid == null)
+                        if (msgid == null) {
                             msgid = helper.getMessageID();
-                        else {
+                            if (TextUtils.isEmpty(msgid))
+                                msgid = uidl;
+                        } else {
                             Log.i(folder.name + " POP having uidl=" + uidl);
                             continue;
                         }
@@ -1932,18 +1934,24 @@ class Core {
                         uidl = null;
                         msgid = helper.getMessageID();
 
+                        if (TextUtils.isEmpty(msgid)) {
+                            Long time = helper.getReceived();
+                            if (time == null)
+                                time = helper.getSent();
+                            if (time != null)
+                                msgid = Long.toString(time);
+                        }
+
                         if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
                             Log.i(folder.name + " POP having msgid=" + msgid);
                             continue;
                         }
                     }
 
-                    if (TextUtils.isEmpty(msgid))
-                        if (uidl == null) {
-                            Log.w(folder.name + " POP no msgid");
-                            continue;
-                        } else
-                            msgid = uidl;
+                    if (TextUtils.isEmpty(msgid)) {
+                        Log.w(folder.name + " POP no msgid");
+                        continue;
+                    }
 
                     try {
                         Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
