@@ -833,6 +833,7 @@
     </provider>
     <provider
         name="Arcor.de"
+        appPassword="true"
         link="https://www.vodafone.de/hilfe/email/abrufen-senden.html">
         <imap
             host="imap.arcor.de"
