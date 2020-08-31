@@ -57,6 +57,7 @@ import javax.mail.Address;
 import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -294,7 +295,7 @@ public class EntityRule {
         return matched;
     }
 
-    boolean execute(Context context, EntityMessage message) throws JSONException, IOException {
+    boolean execute(Context context, EntityMessage message) throws JSONException, IOException, AddressException {
         boolean executed = _execute(context, message);
         if (id != null && executed) {
             DB db = DB.getInstance(context);
@@ -303,7 +304,7 @@ public class EntityRule {
         return executed;
     }
 
-    private boolean _execute(Context context, EntityMessage message) throws JSONException, IOException {
+    private boolean _execute(Context context, EntityMessage message) throws JSONException, IOException, AddressException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
         Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
@@ -408,18 +409,30 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
-        if (!message.content) {
-            EntityOperation.queue(context, message, EntityOperation.BODY);
-            EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
-            return true;
-        }
+    private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException, AddressException {
+        DB db = DB.getInstance(context);
 
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
-        boolean cc = (jargs.has("cc") && jargs.getBoolean("cc"));
+        String to = jargs.optString("to");
+        boolean cc = jargs.optBoolean("cc");
+        boolean attachments = jargs.optBoolean("attachments");
 
-        DB db = DB.getInstance(context);
+        if (!message.content)
+            EntityOperation.queue(context, message, EntityOperation.BODY);
+
+        boolean complete = true;
+        if (attachments)
+            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+                if (!attachment.available) {
+                    complete = false;
+                    EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
+                }
+
+        if (!message.content || !complete) {
+            EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
+            return true;
+        }
 
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
@@ -448,15 +461,25 @@ public class EntityRule {
         reply.folder = db.folder().getOutbox().id;
         reply.identity = identity.id;
         reply.msgid = EntityMessage.generateMessageId();
-        reply.references = (message.references == null ? "" : message.references + " ") + message.msgid;
-        reply.inreplyto = message.msgid;
-        reply.thread = message.thread;
-        reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+
+        if (TextUtils.isEmpty(to)) {
+            reply.references = (message.references == null ? "" : message.references + " ") + message.msgid;
+            reply.inreplyto = message.msgid;
+            reply.thread = message.thread;
+            reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+        } else {
+            reply.wasforwardedfrom = message.msgid;
+            reply.thread = reply.msgid; // new thread
+            reply.to = InternetAddress.parseHeader(to, false);
+        }
+
         reply.from = from;
         if (cc)
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
-        reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
+        reply.subject = context.getString(
+                TextUtils.isEmpty(to) ? R.string.title_subject_reply : R.string.title_subject_forward,
+                message.subject == null ? "" : message.subject);
         reply.received = new Date().getTime();
 
         reply.sender = MessageHelper.getSortKey(reply.from);
@@ -468,6 +491,7 @@ public class EntityRule {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean extended_reply = prefs.getBoolean("extended_reply", false);
         boolean quote_reply = prefs.getBoolean("quote_reply", true);
+        boolean quote = (quote_reply && TextUtils.isEmpty(to));
 
         String body = answer.getText(message.from);
         Document msg = JsoupEx.parse(body);
@@ -478,7 +502,7 @@ public class EntityRule {
         div.appendChild(p);
 
         Document answering = JsoupEx.parse(message.getFile(context));
-        div.appendChild(answering.body().tagName(quote_reply ? "blockquote" : "p"));
+        div.appendChild(answering.body().tagName(quote ? "blockquote" : "p"));
 
         msg.body().appendChild(div);
 
@@ -492,6 +516,9 @@ public class EntityRule {
                 false,
                 HtmlHelper.getPreview(body),
                 null);
+
+        if (attachments)
+            EntityAttachment.copy(context, message.id, reply.id);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
 

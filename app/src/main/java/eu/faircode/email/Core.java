@@ -1802,7 +1802,7 @@ class Core {
         }
     }
 
-    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, IOException {
+    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, IOException, AddressException {
         // Download message body
         DB db = DB.getInstance(context);
 

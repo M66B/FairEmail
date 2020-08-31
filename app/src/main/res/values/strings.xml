@@ -1103,7 +1103,7 @@
     <string name="title_rule_keyword">Add keyword</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
-    <string name="title_rule_answer">Reply</string>
+    <string name="title_rule_answer">Reply/forward</string>
     <string name="title_rule_tts">Text to speech</string>
     <string name="title_rule_automation">Automation</string>
 
@@ -1131,7 +1131,9 @@
     <string name="title_rule_thread">All messages in same conversation and folder</string>
     <string name="title_rule_identity">Identity</string>
     <string name="title_rule_template">Reply template</string>
+    <string name="title_rule_forward_to">Forward to</string>
     <string name="title_rule_cc">Reply to CC addresses</string>
+    <string name="title_rule_with_attachments">With attachments</string>
     <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>
     <string name="title_rule_name_missing">Rule name missing</string>
     <string name="title_rule_condition_missing">Condition missing</string>

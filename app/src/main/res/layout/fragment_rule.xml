@@ -669,6 +669,40 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAnswerTemplate" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/title_optional"
+                    android:text="@string/title_rule_forward_to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spAnswer" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etTo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toStartOf="@+id/ibTo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+                <ImageButton
+                    android:id="@+id/ibTo"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/title_legend_pick"
+                    app:layout_constraintBottom_toBottomOf="@id/etTo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/etTo"
+                    app:srcCompat="@drawable/baseline_person_add_24" />
+
                 <CheckBox
                     android:id="@+id/cbCc"
                     android:layout_width="wrap_content"
@@ -676,7 +710,16 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_cc"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswer" />
+                    app:layout_constraintTop_toBottomOf="@id/etTo" />
+
+                <CheckBox
+                    android:id="@+id/cbWithAttachments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_with_attachments"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbCc" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAnswerRemark"
@@ -687,7 +730,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbCc" />
+                    app:layout_constraintTop_toBottomOf="@id/cbWithAttachments" />
 
                 <Button
                     android:id="@+id/btnTtsSetup"
@@ -773,7 +816,7 @@
                     android:id="@+id/grpAnswer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc,tvAnswerRemark" />
+                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,tvTo,etTo,ibTo,cbCc,cbWithAttachments,tvAnswerRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpTts"

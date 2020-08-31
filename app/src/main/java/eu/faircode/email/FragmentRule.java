@@ -43,7 +43,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -88,12 +88,12 @@ public class FragmentRule extends FragmentBase {
 
     private EditText etSender;
     private CheckBox cbSender;
-    private ImageView ibSender;
+    private ImageButton ibSender;
     private CheckBox cbKnownSender;
 
     private EditText etRecipient;
     private CheckBox cbRecipient;
-    private ImageView ibRecipient;
+    private ImageButton ibRecipient;
 
     private EditText etSubject;
     private CheckBox cbSubject;
@@ -129,7 +129,10 @@ public class FragmentRule extends FragmentBase {
     private Spinner spIdent;
 
     private Spinner spAnswer;
+    private EditText etTo;
+    private ImageButton ibTo;
     private CheckBox cbCc;
+    private CheckBox cbWithAttachments;
 
     private Button btnTtsSetup;
     private Button btnTtsData;
@@ -170,8 +173,9 @@ public class FragmentRule extends FragmentBase {
     private final static int REQUEST_DELETE = 4;
     private final static int REQUEST_SCHEDULE_START = 5;
     private final static int REQUEST_SCHEDULE_END = 6;
-    private final static int REQUEST_TTS_CHECK = 7;
-    private final static int REQUEST_TTS_DATA = 8;
+    private static final int REQUEST_TO = 7;
+    private final static int REQUEST_TTS_CHECK = 8;
+    private final static int REQUEST_TTS_DATA = 9;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -249,7 +253,10 @@ public class FragmentRule extends FragmentBase {
         spIdent = view.findViewById(R.id.spIdent);
 
         spAnswer = view.findViewById(R.id.spAnswer);
+        etTo = view.findViewById(R.id.etTo);
+        ibTo = view.findViewById(R.id.ibTo);
         cbCc = view.findViewById(R.id.cbCc);
+        cbWithAttachments = view.findViewById(R.id.cbWithAttachments);
 
         btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
         btnTtsData = view.findViewById(R.id.btnTtsData);
@@ -452,6 +459,14 @@ public class FragmentRule extends FragmentBase {
         spIdent.setOnItemSelectedListener(onItemSelectedListener);
         spAnswer.setOnItemSelectedListener(onItemSelectedListener);
 
+        ibTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_TO);
+            }
+        });
+
         btnTtsSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -623,11 +638,11 @@ public class FragmentRule extends FragmentBase {
             switch (requestCode) {
                 case REQUEST_SENDER:
                     if (resultCode == RESULT_OK && data != null)
-                        onPickContact(data, true);
+                        onPickContact(data, etSender);
                     break;
                 case REQUEST_RECIPIENT:
                     if (resultCode == RESULT_OK && data != null)
-                        onPickContact(data, true);
+                        onPickContact(data, etRecipient);
                     break;
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
@@ -652,6 +667,10 @@ public class FragmentRule extends FragmentBase {
                     if (resultCode == RESULT_OK)
                         onScheduleEnd(data.getBundleExtra("args"));
                     break;
+                case REQUEST_TO:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPickContact(data, etTo);
+                    break;
                 case REQUEST_TTS_CHECK:
                     if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS)
                         ToastEx.makeText(getContext(), R.string.title_rule_tts_ok, Toast.LENGTH_LONG).show();
@@ -669,7 +688,7 @@ public class FragmentRule extends FragmentBase {
         }
     }
 
-    private void onPickContact(Intent data, boolean sender) {
+    private void onPickContact(Intent data, final EditText et) {
         Uri uri = data.getData();
         if (uri == null) return;
         try (Cursor cursor = getContext().getContentResolver().query(uri,
@@ -678,10 +697,7 @@ public class FragmentRule extends FragmentBase {
                 },
                 null, null, null)) {
             if (cursor != null && cursor.moveToFirst())
-                if (sender)
-                    etSender.setText(cursor.getString(0));
-                else
-                    etRecipient.setText(cursor.getString(0));
+                et.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
             Log.unexpectedError(getParentFragmentManager(), ex);
@@ -871,7 +887,9 @@ public class FragmentRule extends FragmentBase {
                                             break;
                                         }
 
+                                    etTo.setText(jaction.optString("to"));
                                     cbCc.setChecked(jaction.optBoolean("cc"));
+                                    cbWithAttachments.setChecked(jaction.optBoolean("attachments"));
                                     break;
                             }
 
@@ -1173,7 +1191,9 @@ public class FragmentRule extends FragmentBase {
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
                     jaction.put("identity", identity == null ? -1 : identity.id);
                     jaction.put("answer", answer == null ? -1 : answer.id);
+                    jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("cc", cbCc.isChecked());
+                    jaction.put("attachments", cbWithAttachments.isChecked());
                     break;
             }
         }
