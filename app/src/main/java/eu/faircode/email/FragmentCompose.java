@@ -3790,10 +3790,13 @@ public class FragmentCompose extends FragmentBase {
                         db.message().setMessageRevisions(data.draft.id, data.draft.revisions);
                     }
 
-                    if (data.draft.content) {
+                    if (data.draft.content || data.draft.uid == null) {
+                        if (data.draft.uid == null)
+                            Log.e("Draft without uid");
+
                         File file = data.draft.getFile(context);
 
-                        Document doc = JsoupEx.parse(file);
+                        Document doc = (data.draft.uid == null ? Document.createShell("") : JsoupEx.parse(file));
                         doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
@@ -3825,11 +3828,8 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.plain_only,
                                 HtmlHelper.getPreview(html),
                                 null);
-                    } else {
-                        if (data.draft.uid == null)
-                            throw new IllegalStateException("Draft without uid");
+                    } else
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
-                    }
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
