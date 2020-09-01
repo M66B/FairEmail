@@ -6939,6 +6939,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 HtmlHelper.truncate(document, false);
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
+                // Prevent multiple pages for Microsoft Office
+                Element section = document.select(".WordSection1").first();
+                if (section == null)
+                    section = document.body();
+
                 Element header = document.createElement("p");
 
                 if (message.from != null && message.from.length > 0) {
@@ -6971,7 +6976,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     header.appendChild(span);
                 }
 
-                {
+                if (message.received != null) {
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
                     Element span = document.createElement("span");
@@ -6999,7 +7004,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 header.appendElement("hr").appendElement("br");
 
-                document.prependChild(header);
+                section.prependChild(header);
 
                 boolean hasAttachments = false;
                 Element footer = document.createElement("p");
@@ -7018,7 +7023,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                 if (hasAttachments)
-                    document.appendChild(footer);
+                    section.appendChild(footer);
 
                 return new String[]{message.subject, document.html()};
             }
