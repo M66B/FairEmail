@@ -2326,7 +2326,7 @@ public class FragmentCompose extends FragmentBase {
                                 // Sign/encrypt
                                 pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
                                 Log.i("Keys=" + pgpKeyIds.length);
-                                if (pgpKeyIds.length != pgpUserIds.length)
+                                if (pgpKeyIds.length == 0) // One key can be for multiple users
                                     throw new IllegalArgumentException(context.getString(R.string.title_key_missing,
                                             TextUtils.join(", ", pgpUserIds)));
 
