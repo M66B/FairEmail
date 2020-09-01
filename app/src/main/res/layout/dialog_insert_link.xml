@@ -6,7 +6,7 @@
     android:padding="24dp">
 
     <eu.faircode.email.FixedTextView
-        android:id="@+id/tvOpenLink"
+        android:id="@+id/tvInsertLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@+id/etLink"
@@ -26,7 +26,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvOpenLink">
+        app:layout_constraintTop_toBottomOf="@id/tvInsertLink">
 
         <requestFocus />
     </eu.faircode.email.EditTextPlain>
