@@ -89,6 +89,8 @@ public class WidgetUnified extends AppWidgetProvider {
 
             Intent thread = new Intent(context, ActivityView.class);
             thread.setAction("widget");
+            thread.putExtra("account", account);
+            thread.putExtra("folder", folder);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent piItem = PendingIntent.getActivity(
