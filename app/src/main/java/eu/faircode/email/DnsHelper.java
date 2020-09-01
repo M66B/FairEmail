@@ -28,6 +28,7 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 
+import org.xbill.DNS.CNAMERecord;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Record;
@@ -102,6 +103,11 @@ public class DnsHelper {
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) throws UnknownHostException {
+        return _lookup(context, name, type, 0);
+    }
+
+    @NonNull
+    static DnsRecord[] _lookup(Context context, String name, String type, int redirects) throws UnknownHostException {
         int rtype;
         switch (type) {
             case "mx":
@@ -139,6 +145,11 @@ public class DnsHelper {
                     } else if (record instanceof SRVRecord) {
                         SRVRecord srv = (SRVRecord) record;
                         result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
+                    } else if (record instanceof CNAMERecord) {
+                        if (++redirects > 3)
+                            throw new UnknownHostException("Too many cname records");
+                        CNAMERecord cname = (CNAMERecord) record;
+                        return _lookup(context, cname.getTarget().toString(true), type, redirects);
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }
