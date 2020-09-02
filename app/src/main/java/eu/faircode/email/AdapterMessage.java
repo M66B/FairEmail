@@ -4129,7 +4129,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (bm == null)
                             return null;
 
-                        File file = ImageHelper.getCacheFile(context, id, source);
+                        File file = ImageHelper.getCacheFile(context, id, source, ".png");
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                             bm.compress(Bitmap.CompressFormat.PNG, 90, os);
                         }

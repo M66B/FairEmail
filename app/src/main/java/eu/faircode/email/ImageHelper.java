@@ -549,7 +549,7 @@ class ImageHelper {
         if (id < 0)
             return null;
 
-        File file = getCacheFile(context, id, source);
+        File file = getCacheFile(context, id, source, ".png");
         if (file.exists()) {
             Log.i("Using cached " + file);
             file.setLastModified(new Date().getTime());
@@ -635,7 +635,7 @@ class ImageHelper {
         Log.i("Downloaded image source=" + source);
 
         if (id >= 0) {
-            File file = getCacheFile(context, id, source);
+            File file = getCacheFile(context, id, source, ".png");
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 bm.compress(Bitmap.CompressFormat.PNG, 90, os);
             }
@@ -670,11 +670,11 @@ class ImageHelper {
     }
 
     @NonNull
-    static File getCacheFile(Context context, long id, String source) {
+    static File getCacheFile(Context context, long id, String source, String extension) {
         File dir = new File(context.getCacheDir(), "images");
         if (!dir.exists())
             dir.mkdir();
-        return new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
+        return new File(dir, id + "_" + Math.abs(source.hashCode()) + extension);
     }
 
     static Bitmap decodeImage(File file, int scaleToPixels) {
