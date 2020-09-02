@@ -117,3 +117,6 @@
 #Color picker
 -keepnames class com.flask.colorpicker.** {*;}
 
+#overscroll-decor
+-keepnames class me.everything.android.ui.overscroll.** {*;}
+
