@@ -621,7 +621,10 @@ class ImageHelper {
                 return getScaledDrawable(file, dm.widthPixels);
             }
 
-            bm = getScaledBitmap(urlConnection.getInputStream(), source, dm.widthPixels);
+            bm = getScaledBitmap(
+                    urlConnection.getInputStream(),
+                    source,
+                    Math.max(dm.widthPixels, dm.heightPixels));
         } finally {
             if (urlConnection != null)
                 urlConnection.disconnect();
