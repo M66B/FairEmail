@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 
@@ -108,8 +109,12 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     args.putString("subject", subject);
 
                 String body = mailto.getBody();
-                if (body != null)
-                    args.putString("body", body);
+                if (body != null) {
+                    StringBuilder sb = new StringBuilder();
+                    for (String line : body.split("\\r?\\n"))
+                        sb.append("<span>").append(Html.escapeHtml(line)).append("<span><br>");
+                    args.putString("body", sb.toString());
+                }
             }
 
             if (intent.hasExtra(Intent.EXTRA_SHORTCUT_ID)) {
