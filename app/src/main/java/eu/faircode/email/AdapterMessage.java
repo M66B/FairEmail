@@ -3418,6 +3418,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onInsertContact(String name, String email) {
+            if (TextUtils.isEmpty(name)) {
+                int at = email.indexOf('@');
+                if (at > 0)
+                    name = email.substring(0, at);
+            }
+
             // https://developer.android.com/training/contacts-provider/modify-data
             Intent insert = new Intent();
             insert.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
@@ -3432,8 +3438,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // https://developer.android.com/training/contacts-provider/modify-data
             Intent edit = new Intent();
             edit.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
-            if (!TextUtils.isEmpty(name))
-                edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
             edit.setAction(Intent.ACTION_EDIT);
             edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
             context.startActivity(edit);

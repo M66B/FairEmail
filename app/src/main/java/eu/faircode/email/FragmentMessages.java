@@ -7155,7 +7155,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onPickContact(Uri contactUri) {
-        String name = kv.get("name");
         String email = kv.get("email");
 
         // This requires contacts permission
@@ -7164,8 +7163,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         Intent edit = new Intent();
         edit.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
-        if (!TextUtils.isEmpty(name))
-            edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
         edit.setAction(Intent.ACTION_EDIT);
         edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
         startActivity(edit);
