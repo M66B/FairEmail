@@ -2475,13 +2475,14 @@ class Core {
 
                     for (int j = isub.length - 1; j >= 0 && state.isRunning() && state.isRecoverable(); j--)
                         try {
-                            if (ids[from + j] != null)
-                                if (downloadMessage(
+                            if (ids[from + j] != null) {
+                                boolean fetched = downloadMessage(
                                         context,
                                         account, folder,
                                         istore, ifolder,
                                         (MimeMessage) isub[j], ids[from + j],
-                                        state, stats))
+                                        state, stats);
+                                if (fetched)
                                     if ((++downloaded % DOWNLOAD_YIELD_COUNT) == 0)
                                         try {
                                             Log.i(folder.name + " yield downloaded=" + downloaded);
@@ -2489,6 +2490,7 @@ class Core {
                                         } catch (InterruptedException ex) {
                                             Log.w(ex);
                                         }
+                            }
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (Throwable ex) {
