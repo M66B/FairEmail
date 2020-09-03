@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:imeOptions="actionDone"
-            android:inputType="textUri|textMultiLine"
+            android:inputType="textUri"
             android:text="https://email.faircode.eu/"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"

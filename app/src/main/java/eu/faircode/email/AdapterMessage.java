@@ -90,6 +90,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
@@ -5873,6 +5874,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
                     cbSecure.setVisibility(hyperlink ? View.VISIBLE : View.GONE);
+                }
+            });
+
+            etLink.setHorizontallyScrolling(false);
+            etLink.setMaxLines(10);
+            etLink.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                        return true;
+                    } else
+                        return false;
                 }
             });
 
