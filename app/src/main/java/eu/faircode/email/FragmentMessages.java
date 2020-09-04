@@ -300,6 +300,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private SelectionPredicateMessage selectionPredicate = null;
     private SelectionTracker<Long> selectionTracker = null;
 
+    private Integer scroll = null;
     private Long prev = null;
     private Long next = null;
     private Long closeId = null;
@@ -3373,6 +3374,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
+
+            LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
+            outState.putInt("fair:scroll", llm.findFirstVisibleItemPosition());
         }
 
         if (selectionTracker != null)
@@ -3401,6 +3405,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Parcelable rv = savedInstanceState.getParcelable("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
             }
+
+            adapter.gotoPos(savedInstanceState.getInt("fair:scroll"));
 
             if (selectionTracker != null)
                 selectionTracker.onRestoreInstanceState(savedInstanceState);

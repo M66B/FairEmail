@@ -264,6 +264,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static boolean debug;
 
     private boolean gotoTop = false;
+    private Integer gotoPos = null;
     private boolean firstClick = false;
     private int searchResult = 0;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
@@ -5441,6 +5442,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }
 
+                if (gotoPos != null && currentList != null && currentList.size() > 0) {
+                    properties.scrollTo(gotoPos, 0);
+                    gotoPos = null;
+                }
+
                 if (selectionTracker != null && selectionTracker.hasSelection()) {
                     Selection<Long> selection = selectionTracker.getSelection();
 
@@ -5528,6 +5534,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         } else
             properties.scrollTo(0, 0);
         this.gotoTop = true;
+    }
+
+    void gotoPos(int pos) {
+        if (pos != RecyclerView.NO_POSITION)
+            gotoPos = pos;
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
