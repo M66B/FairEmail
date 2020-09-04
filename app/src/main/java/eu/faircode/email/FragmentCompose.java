@@ -3796,7 +3796,7 @@ public class FragmentCompose extends FragmentBase {
 
                         File file = data.draft.getFile(context);
 
-                        Document doc = (data.draft.uid == null ? Document.createShell("") : JsoupEx.parse(file));
+                        Document doc = (data.draft.content ? JsoupEx.parse(file) : Document.createShell(""));
                         doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
