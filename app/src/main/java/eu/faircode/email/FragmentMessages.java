@@ -2180,7 +2180,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
             aargs.putLong("account", message.account);
+            aargs.putInt("protocol", message.accountProtocol);
             aargs.putLong("folder", message.folder);
+            aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
 
             AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();

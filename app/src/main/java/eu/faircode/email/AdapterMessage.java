@@ -3798,6 +3798,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putLong("account", message.account);
             aargs.putInt("protocol", message.accountProtocol);
             aargs.putLong("folder", message.folder);
+            aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
@@ -6182,8 +6183,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Bundle args = getArguments();
             final long account = args.getLong("account");
-            final long folder = args.getLong("folder");
             final int protocol = args.getInt("protocol");
+            final long folder = args.getLong("folder");
+            final String type = args.getString("type");
             final String from = args.getString("from");
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
@@ -6219,8 +6221,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", account)
+                                    .putExtra("protocol", protocol)
                                     .putExtra("folder", folder)
-                                    .putExtra("protocol", protocol));
+                                    .putExtra("type", type));
                     dismiss();
                 }
             });

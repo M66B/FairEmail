@@ -162,8 +162,8 @@ public class FragmentRule extends FragmentBase {
     private long id = -1;
     private long copy = -1;
     private long account = -1;
-    private long folder = -1;
     private int protocol = -1;
+    private long folder = -1;
 
     private final static int MAX_CHECK = 10;
 
@@ -188,8 +188,8 @@ public class FragmentRule extends FragmentBase {
         else
             id = args.getLong("id", -1);
         account = args.getLong("account", -1);
-        folder = args.getLong("folder", -1);
         protocol = args.getInt("protocol", EntityAccount.TYPE_IMAP);
+        folder = args.getLong("folder", -1);
     }
 
     @Override

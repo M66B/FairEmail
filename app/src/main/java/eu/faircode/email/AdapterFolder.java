@@ -728,8 +728,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", folder.account)
+                                    .putExtra("protocol", folder.accountProtocol)
                                     .putExtra("folder", folder.id)
-                                    .putExtra("protocol", folder.accountProtocol));
+                                    .putExtra("type", folder.type));
                 }
 
                 private void onActionEditProperties() {

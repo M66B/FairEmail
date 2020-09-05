@@ -24,6 +24,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -40,15 +43,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.EntityRule.TYPE_MOVE;
 
 public class FragmentRules extends FragmentBase {
     private long account;
-    private long folder;
     private int protocol;
+    private long folder;
+    private String type;
 
     private boolean cards;
 
@@ -60,6 +67,7 @@ public class FragmentRules extends FragmentBase {
     private AdapterRule adapter;
 
     static final int REQUEST_MOVE = 1;
+    private static final int REQUEST_CLEAR = 2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,8 +76,9 @@ public class FragmentRules extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         account = args.getLong("account", -1);
-        folder = args.getLong("folder", -1);
         protocol = args.getInt("protocol", -1);
+        folder = args.getLong("folder", -1);
+        type = args.getString("type");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
@@ -79,6 +88,7 @@ public class FragmentRules extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_rules);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
 
@@ -108,8 +118,8 @@ public class FragmentRules extends FragmentBase {
             public void onClick(View view) {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
-                args.putLong("folder", folder);
                 args.putInt("protocol", protocol);
+                args.putLong("folder", folder);
 
                 FragmentRule fragment = new FragmentRule();
                 fragment.setArguments(args);
@@ -160,10 +170,49 @@ public class FragmentRules extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onMove(data.getBundleExtra("args"));
                     break;
+                case REQUEST_CLEAR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onClear(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_rules, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.menu_clear).setVisible(!EntityFolder.JUNK.equals(type));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_clear:
+                onMenuClear();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuClear() {
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getString(R.string.title_rules_clear_confirm));
+        aargs.putLong("folder", folder);
+
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(this, REQUEST_CLEAR);
+        ask.show(getParentFragmentManager(), "rules:clear");
     }
 
     private void onMove(Bundle args) {
@@ -180,8 +229,44 @@ public class FragmentRules extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:move");
+    }
+
+    private void onClear(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long fid = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder == null)
+                    return null;
+
+                EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
+                if (junk == null)
+                    return null;
+
+                List<EntityRule> rules = db.rule().getRules(fid);
+                if (rules == null)
+                    return null;
+
+                for (EntityRule rule : rules) {
+                    JSONObject jaction = new JSONObject(rule.action);
+                    if (jaction.optInt("type", -1) == TYPE_MOVE &&
+                            jaction.optInt("target", -1) == junk.id)
+                        db.rule().deleteRule(rule.id);
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "rules:clear");
     }
 }
