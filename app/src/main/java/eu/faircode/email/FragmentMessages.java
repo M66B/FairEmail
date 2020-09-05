@@ -309,6 +309,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     final private Map<String, String> kv = new HashMap<>();
     final private Map<String, List<Long>> values = new HashMap<>();
+    final private LongSparseArray<Float> scales = new LongSparseArray<>();
     final private LongSparseArray<Float> sizes = new LongSparseArray<>();
     final private LongSparseArray<Integer> heights = new LongSparseArray<>();
     final private LongSparseArray<Pair<Integer, Integer>> positions = new LongSparseArray<>();
@@ -1643,6 +1644,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             updateExpanded();
             if (value)
                 handleExpand(message.id);
+        }
+
+        @Override
+        public void setScale(long id, Float size) {
+            if (size == null)
+                scales.remove(id);
+            else
+                scales.put(id, size);
+        }
+
+        @Override
+        public float getScale(long id, float defaultSize) {
+            return scales.get(id, defaultSize);
         }
 
         @Override
@@ -3513,6 +3527,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.i("Hidden id=" + id);
                                 for (String key : values.keySet())
                                     values.get(key).remove(id);
+                                scales.remove(id);
                                 sizes.remove(id);
                                 heights.remove(id);
                                 positions.remove(id);
