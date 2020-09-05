@@ -584,6 +584,12 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             iservice.setUseIp(ident.use_ip, ident.ehlo);
             iservice.setUnicode(ident.unicode);
 
+            if (message.receipt_request != null && message.receipt_request) {
+                int receipt_type = prefs.getInt("receipt_type", 2);
+                if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
+                    iservice.setDsnNotify("SUCCESS,FAILURE,DELAY");
+            }
+
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
             iservice.connect(ident);

@@ -263,6 +263,11 @@ public class EmailService implements AutoCloseable {
         properties.put("mail.mime.allowutf8", Boolean.toString(value));
     }
 
+    // https://tools.ietf.org/html/rfc3461
+    void setDsnNotify(String what) {
+        properties.put("mail." + protocol + ".dsn.notify", what);
+    }
+
     void setListener(StoreListener listener) {
         this.listener = listener;
     }
