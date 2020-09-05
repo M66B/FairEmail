@@ -62,6 +62,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private TextView tvName;
+        private TextView tvGroup;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
@@ -70,6 +71,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
             view = itemView.findViewById(R.id.clItem);
             tvName = itemView.findViewById(R.id.tvName);
+            tvGroup = itemView.findViewById(R.id.tvGroup);
         }
 
         private void wire() {
@@ -85,6 +87,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private void bindTo(EntityAnswer answer) {
             view.setAlpha(answer.hide ? Helper.LOW_LIGHT : 1.0f);
             tvName.setText(answer.toString());
+            tvGroup.setText(answer.group);
         }
 
         @Override
