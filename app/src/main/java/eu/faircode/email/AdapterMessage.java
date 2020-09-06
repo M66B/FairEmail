@@ -971,7 +971,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
-            vwColor.setAlpha(message.ui_seen ? Helper.LOW_LIGHT : 1.0f);
             vwColor.setVisibility(color_stripe ? View.VISIBLE : View.GONE);
 
             // Expander
