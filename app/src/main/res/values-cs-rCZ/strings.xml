@@ -1238,6 +1238,7 @@
     <string name="title_log">Záznam</string>
     <string name="title_auto_scroll">Automatické posouvání</string>
     <string name="title_log_clear">Vyčistit</string>
+    <string name="title_rules_search_hint">Hledat název nebo podmínku</string>
     <string name="title_rules_clear">Vymazat pravidla nevyžádané pošty</string>
     <string name="title_rules_clear_confirm">Smazat všechna pravidla pro přesun zpráv do složky nevyžádané pošty?</string>
     <string name="title_debug_info">Ladící informace</string>

@@ -1210,6 +1210,9 @@
     <string name="title_log">Αρχείο καταγραφής</string>
     <string name="title_auto_scroll">Αυτόματη κύλιση</string>
     <string name="title_log_clear">Καθαρισμός</string>
+    <string name="title_rules_search_hint">Αναζήτηση με όνομα ή συνθήκη</string>
+    <string name="title_rules_clear">Διαγραφή κανόνων ανεπιθ. αλληλογραφίας</string>
+    <string name="title_rules_clear_confirm">Να διαγραφούν όλοι οι κανόνες μετακίνησης μηνυμάτων στην ανεπιθ. αλληλογραφία;</string>
     <string name="title_debug_info">Πληροφορίες απασφαλμάτωσης</string>
     <string name="title_debug_info_remark">Παρακαλούμε, περιγράψτε το πρόβλημα καθώς και τον χρόνο εμφάνισής του:</string>
     <string name="title_crash_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε τη στιγμή που η εφαρμογή σταμάτησε να λειτουργεί:</string>

@@ -1216,6 +1216,7 @@
     <string name="title_log">Logg</string>
     <string name="title_auto_scroll">Automatisk rullning</string>
     <string name="title_log_clear">Rensa</string>
+    <string name="title_rules_search_hint">Sök namn eller villkor</string>
     <string name="title_rules_clear">Rensa skräppostregler</string>
     <string name="title_rules_clear_confirm">Ta bort alla regler som flyttar meddelanden till skräppostmappen?</string>
     <string name="title_debug_info">Felsökningsinformation</string>

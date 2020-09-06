@@ -865,6 +865,57 @@
     <string name="title_signature_invalid">消息簽名無效</string>
     <string name="title_signature_invalid_reason">郵件簽名無效：%1$s</string>
     <string name="title_signature_key_missing">簽名驗證密鑰丟失</string>
+    <string name="title_signature_certificate_invalid">證書鏈無效</string>
+    <string name="title_signature_sender">寄件人地址</string>
+    <string name="title_signature_email">簽名地址</string>
+    <string name="title_signature_mismatch">發件人的電子郵件地址和簽名不匹配</string>
+    <string name="title_signature_subject">標題</string>
+    <string name="title_signature_validity">有效期</string>
+    <string name="title_signature_outdated">該公鑰當前無效</string>
+    <string name="title_signature_store">商店</string>
+    <string name="title_search">搜索</string>
+    <string name="title_search_for_hint">輸入文字</string>
+    <string name="title_search_hint">搜索將首先查看存儲在設備上的消息。
+         如需搜索服務器，請點擊“再次搜索”按鈕。    </string>
+    <string name="title_search_index_hint">通過搜索索引進行搜索的速度很快，但只會找到整個單詞</string>
+    <string name="title_search_text_hint">當郵件數量很多時，在郵件中搜索文本可能無法在某些服務器上進行</string>
+    <string name="title_search_size_hint">當郵件數量很多時，按大小搜索郵件可能在某些服務器上不起作用</string>
+    <string name="title_search_more">更多選項</string>
+    <string name="title_search_use_index">使用搜索索引</string>
+    <string name="title_search_in_senders">在發件人中（來自）</string>
+    <string name="title_search_in_recipients">在收件人（收件人，抄送）中</string>
+    <string name="title_search_in_subject">主題</string>
+    <string name="title_search_in_keywords">在關鍵字中（如果支持）</string>
+    <string name="title_search_in_message">在訊息文字中</string>
+    <string name="title_search_with">將搜索限制為</string>
+    <string name="title_search_with_unseen">未讀</string>
+    <string name="title_search_with_flagged">已加星標</string>
+    <string name="title_search_with_hidden">隱藏（僅在設備上）</string>
+    <string name="title_search_with_encrypted">加密（僅在設備上）</string>
+    <string name="title_search_with_attachments">帶有附件（僅在設備上）</string>
+    <string name="title_search_with_size">郵件大小大於</string>
+    <string name="title_search_with_before">之前</string>
+    <string name="title_search_with_after">之後</string>
+    <string name="title_search_flag_unseen">未讀</string>
+    <string name="title_search_flag_flagged">已加星標</string>
+    <string name="title_search_flag_hidden">隱藏</string>
+    <string name="title_search_flag_encrypted">已加密</string>
+    <string name="title_search_flag_attachments">附件</string>
+    <string name="title_search_flag_invite">邀請函</string>
+    <string name="title_search_flag_size">尺寸 &gt; %1$s</string>
+    <string name="title_search_device">在設備上搜索</string>
+    <string name="title_search_server">在服務器上搜索</string>
+    <string name="title_search_in">搜尋</string>
+    <string name="title_sort_on">排序</string>
+    <string name="title_sort_on_time">時間</string>
+    <string name="title_sort_on_unread">未讀</string>
+    <string name="title_sort_on_starred">已加星標</string>
+    <string name="title_sort_on_priority">優先</string>
+    <string name="title_sort_on_sender">發件人</string>
+    <string name="title_sort_on_subject">主題</string>
+    <string name="title_sort_on_size">尺寸</string>
+    <string name="title_sort_on_attachments">附件</string>
+    <string name="title_sort_on_hidden">隱藏</string>
     <string name="title_sort_ascending">最舊的優先</string>
     <string name="title_filter">過濾掉</string>
     <string name="title_filter_seen">讀</string>
@@ -890,16 +941,285 @@
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名稱</string>
     <string name="title_answer_group">模板組（可選）</string>
+    <string name="title_answer_favorite">喜愛</string>
+    <string name="title_answer_hide">從菜單隱藏</string>
+    <string name="title_answer_text">範本文字</string>
+    <string name="title_answer_template_name">$name$ 將由發件人全名替換</string>
+    <string name="title_answer_template_email">$email$ 將由發件人的電子郵件地址代替</string>
+    <string name="title_rule_noop">沒有行動</string>
+    <string name="title_rule_seen">標記為已讀</string>
+    <string name="title_rule_unseen">標記為未讀</string>
+    <string name="title_rule_hide">隱藏</string>
+    <string name="title_rule_ignore">禁止通知</string>
+    <string name="title_rule_snooze">打盹</string>
+    <string name="title_rule_flag">加星號</string>
+    <string name="title_rule_importance">設定重要性</string>
+    <string name="title_rule_keyword">添加關鍵字</string>
+    <string name="title_rule_move">移動</string>
+    <string name="title_rule_copy">複製（標籤）</string>
+    <string name="title_rule_answer">回復/轉發</string>
+    <string name="title_rule_tts">文字轉語音</string>
+    <string name="title_rule_automation">自動化</string>
+    <string name="title_rule_caption">修改規則</string>
+    <string name="title_rule_title">規則適用於</string>
+    <string name="title_rule_name">名稱</string>
+    <string name="title_rule_order">訂購</string>
+    <string name="title_rule_enabled">已啟用</string>
+    <string name="title_rule_stop">執行此規則後停止處理規則</string>
+    <string name="title_rule_sender">發件人包含</string>
+    <string name="title_rule_sender_known">發件人是聯繫人</string>
+    <string name="title_rule_recipient">收件者包含</string>
+    <string name="title_rule_subject">主題包含</string>
+    <string name="title_rule_attachments">有附件</string>
+    <string name="title_rule_header">標頭包含</string>
+    <string name="title_rule_time">間隔時間</string>
+    <string name="title_rule_regex">正則表達式</string>
+    <string name="title_rule_and">和</string>
+    <string name="title_rule_action">行動</string>
+    <string name="title_rule_action_remark">此操作將應用於到達文件夾的新郵件%1$s</string>
+    <string name="title_rule_hours">小時</string>
+    <string name="title_rule_schedule_end">從時間結束條件</string>
+    <string name="title_rule_folder">資料夾</string>
+    <string name="title_rule_thread">同一對話和文件夾中的所有郵件</string>
+    <string name="title_rule_identity">身分識別</string>
+    <string name="title_rule_template">回复模板</string>
+    <string name="title_rule_forward_to">轉發</string>
+    <string name="title_rule_cc">回复抄送地址</string>
+    <string name="title_rule_with_attachments">帶附件</string>
+    <string name="title_rule_answer_remark">對於任何會話，只會發送一個回复，以避免回复循環</string>
+    <string name="title_rule_name_missing">規則名稱缺失</string>
+    <string name="title_rule_condition_missing">條件缺失</string>
+    <string name="title_rule_automation_hint">這將發送意圖%1$s和額外的%2$s</string>
+    <string name="title_rule_execute">立即執行</string>
+    <string name="title_rule_applied">受影響的消息：%1$d</string>
+    <string name="title_rule_check">檢查</string>
+    <string name="title_rule_no_headers">標頭條件無法檢查</string>
+    <string name="title_rule_matched">匹配消息</string>
+    <string name="title_rule_no_matches">沒有匹配的消息</string>
+    <string name="title_rule_tts_ok">設置好</string>
+    <string name="title_rule_tts_setup">檢查設置</string>
+    <string name="title_rule_tts_data">安裝語音數據</string>
+    <string name="title_rule_tts_prefix">新消息</string>
+    <string name="title_rule_tts_from">從</string>
+    <string name="title_rule_tts_subject">主題</string>
+    <string name="title_rule_tts_content">文字</string>
+    <string name="title_legend_section_synchronize">同步化</string>
+    <string name="title_legend_section_folders">資料夾</string>
+    <string name="title_legend_section_messages">留言內容</string>
+    <string name="title_legend_section_compose">撰寫</string>
+    <string name="title_legend_section_keyboard">鍵盤</string>
+    <string name="title_legend_oauth">OAuth授權</string>
+    <string name="title_legend_primary_connected">帳戶已連接</string>
+    <string name="title_legend_primary_disconnected">帳戶已斷開</string>
+    <string name="title_legend_download_on">自動下載郵件內容</string>
+    <string name="title_legend_download_off">按需下載消息內容</string>
+    <string name="title_legend_synchronize_on">同步</string>
+    <string name="title_legend_synchronize_off">同步關閉</string>
+    <string name="title_legend_disconnected">斷線</string>
+    <string name="title_legend_connecting">連接中</string>
+    <string name="title_legend_connected">已連接</string>
+    <string name="title_legend_executing">執行操作</string>
+    <string name="title_legend_synchronizing">正在同步</string>
+    <string name="title_legend_downloading">正在下載</string>
+    <string name="title_legend_closing">關閉中</string>
+    <string name="title_legend_waiting">等待下一次同步</string>
+    <string name="title_legend_unified">統一的收件箱/主要帳戶</string>
+    <string name="title_legend_inbox">收件箱</string>
+    <string name="title_legend_drafts">草稿</string>
+    <string name="title_legend_sent">已發送</string>
+    <string name="title_legend_archive">封存</string>
+    <string name="title_legend_trash">垃圾箱</string>
+    <string name="title_legend_junk">垃圾郵件</string>
+    <string name="title_legend_primary">主要的</string>
+    <string name="title_legend_subscribed">已訂閱</string>
+    <string name="title_legend_rule">有規則</string>
+    <string name="title_legend_similar">搜索類似消息</string>
+    <string name="title_legend_notify">通知新消息</string>
+    <string name="title_legend_sync_keep">同步/保留消息的天數</string>
+    <string name="title_legend_download_fetch">下載的郵件數/獲取的標題</string>
+    <string name="title_legend_stop">停止處理規則</string>
+    <string name="title_legend_thread">會話</string>
+    <string name="title_legend_bookmark">上次開啟的對話</string>
+    <string name="title_legend_zoom">更改文字大小</string>
+    <string name="title_legend_draft">有草稿</string>
+    <string name="title_legend_priority">優先級高</string>
+    <string name="title_legend_priority_low">優先級低</string>
+    <string name="title_legend_importance">重要</string>
+    <string name="title_legend_importance_low">並不重要</string>
+    <string name="title_legend_signed">已簽名</string>
+    <string name="title_legend_encrypted">已加密</string>
+    <string name="title_legend_auth">驗證失敗</string>
+    <string name="title_legend_found">被找到</string>
+    <string name="title_legend_snoozed">被延後</string>
+    <string name="title_legend_browsed">瀏覽或搜索</string>
+    <string name="title_legend_answered">已被回答</string>
+    <string name="title_legend_forwarded">已轉發</string>
+    <string name="title_legend_plain_only">僅純文本</string>
+    <string name="title_legend_receipt">已要求收據</string>
+    <string name="title_legend_attachment">有附件</string>
+    <string name="title_legend_flagged">最喜歡</string>
+    <string name="title_legend_contacts">管理聯絡人</string>
+    <string name="title_legend_search">搜索發件人</string>
+    <string name="title_legend_view">查看內容</string>
+    <string name="title_legend_hide">隱藏內容</string>
+    <string name="title_legend_download">下載內容</string>
+    <string name="title_legend_external_image">外部圖片佔位符</string>
+    <string name="title_legend_embedded_image">嵌入式圖像佔位符</string>
+    <string name="title_legend_tracking_pixel">追踪影像</string>
+    <string name="title_legend_broken_image">圖像破裂</string>
+    <string name="title_legend_pick">選擇聯絡人</string>
+    <string name="title_legend_cc">顯示CC / BCC</string>
+    <string name="title_legend_link">插入連結</string>
+    <string name="title_legend_file">附加檔案</string>
+    <string name="title_legend_picture">插入圖片</string>
+    <string name="title_legend_photo">拍照</string>
+    <string name="title_legend_audio">錄製音頻</string>
+    <string name="title_legend_bold">使文字加粗</string>
+    <string name="title_legend_italic">將文字設為​​斜體</string>
+    <string name="title_legend_underline">下劃線文字</string>
+    <string name="title_legend_text_style">設定文字樣式</string>
+    <string name="title_legend_metered">計量連接</string>
+    <string name="title_legend_unmetered">連接未計量</string>
+    <string name="title_legend_roaming">漫遊</string>
+    <string name="title_legend_expander">擴展器</string>
+    <string name="title_legend_avatar">頭像</string>
+    <string name="title_legend_show_quotes">顯示引用</string>
+    <string name="title_legend_show_junk">視為垃圾郵件</string>
+    <string name="title_legend_create_rule">建立規則</string>
+    <string name="title_legend_show_unsubscribe">退訂列表</string>
+    <string name="title_legend_show_images">顯示圖片</string>
+    <string name="title_legend_show_full">顯示原始訊息</string>
+    <string name="title_legend_edit">編輯</string>
+    <string name="title_legend_default_color">默認顏色</string>
+    <string name="title_legend_close_hint">關閉提示</string>
+    <string name="title_legend_connection_state">連接狀態</string>
+    <string name="title_legend_sync_state">同步狀態</string>
+    <string name="title_legend_download_state">下載狀態</string>
+    <string name="title_legend_save">保存</string>
+    <string name="title_legend_delete">刪除</string>
+    <string name="title_legend_count">計數</string>
+    <string name="title_legend_folder_type">資料夾類型</string>
+    <string name="title_legend_enter">打開</string>
+    <string name="title_legend_a">封存</string>
+    <string name="title_legend_c">撰寫</string>
+    <string name="title_legend_d">垃圾桶（刪除）</string>
+    <string name="title_legend_m">菜單（多選）</string>
+    <string name="title_legend_n">下一個</string>
+    <string name="title_legend_p">以前</string>
+    <string name="title_legend_r">回复</string>
+    <string name="title_legend_s">選擇/取消選擇</string>
+    <string name="title_legend_t">焦點文字</string>
+    <string name="title_hint_folder_actions">長按文件夾中的選項，例如將文件夾添加到導航菜單以快速訪問</string>
+    <string name="title_hint_folder_sync">為了限制電池和網絡使用，默認情況下，並非所有文件夾和所有郵件都會同步</string>
+    <string name="title_hint_support">如果您有任何疑問或問題，請使用支持菜單獲取幫助</string>
+    <string name="title_hint_message_actions">向左滑動即可清除垃圾桶； 向右滑動即可存檔（如果有）； 可以在帳戶設置中配置滑動操作</string>
+    <string name="title_hint_message_selection">長按一條消息以開始選擇多條消息； 按住並向上或向下滑動以選擇更多消息</string>
+    <string name="title_hint_important">重要</string>
+    <string name="title_hint_sync">下載消息可能需要一些時間，具體取決於提供商的速度，互聯網連接，設備和消息的數量。 在下載消息時，該應用程序的響應速度可能會變慢。</string>
+    <string name="title_hint_battery">由於默認情況下FairEmail始終接收消息，因此Android會將FairEmail報告為始終處於活動狀態。 因此，儘管實際上並非如此，但FairEmail似乎總是在消耗電池電量。</string>
+    <string name="title_hint_reformat">默認情況下，出於隱私和安全原因，FairEmail重新格式化郵件。 要查看原始消息，請點擊消息文本上方的“全屏”圖標。</string>
+    <string name="title_hint_contact_actions">長按選項</string>
+    <string name="title_hint_eml">這是原始消息文件內容的摘要。 使用操作欄中的保存圖標保存原始消息，以查看所有內容。</string>
+    <string name="title_open_link">打開鏈接</string>
+    <string name="title_different_link">標題和鏈接地址不同</string>
+    <string name="title_tracking_link">該網站可能會跟踪您</string>
+    <string name="title_link_http">流量不會被加密</string>
+    <string name="title_link_https">流量將被加密</string>
+    <string name="title_sanitize_link">刪除跟踪參數</string>
+    <string name="title_insecure_link">此鏈接不安全</string>
+    <string name="title_check_owner">檢查所有者</string>
+    <string name="title_remark_owner">信息將從 <a href="https://ipinfo.io/">ipinfo.io</a> 獲取</string>
+    <string name="title_ip_owner">所有者IP地址</string>
+    <string name="title_select_app">選擇應用</string>
+    <string name="title_updated">現有版本 %1$s 的更新</string>
+    <string name="title_issue">您有問題嗎？</string>
+    <string name="title_yes">是</string>
+    <string name="title_no">否</string>
+    <string name="title_later">以後再說</string>
+    <string name="title_undo">撤消</string>
+    <string name="title_redo">重做</string>
+    <string name="title_add">添加</string>
+    <string name="title_browse">打開用</string>
+    <string name="title_info">資訊</string>
+    <string name="title_download">下載</string>
+    <string name="title_report">報告</string>
+    <string name="title_fix">修復</string>
+    <string name="title_enable">啟用</string>
+    <string name="title_enabled">已啟用</string>
+    <string name="title_executing">執行中</string>
+    <string name="title_completed">已完成</string>
+    <string name="title_default_changed">默認值已更改</string>
+    <string name="title_clipboard_copy">複製到剪貼板</string>
+    <string name="title_clipboard_copied">複製到剪貼板</string>
+    <string name="title_ask_what">詢問該怎麼辦</string>
+    <string name="title_no_ask_again">不要再問這個</string>
+    <string name="title_no_ask_for_again">不要再問這個%1$s</string>
+    <string name="title_no_body">找不到訊息文字</string>
+    <string name="title_no_charset">不支持的編碼：%1$s</string>
+    <string name="title_via">通過：%1$s</string>
+    <string name="title_1hour">1小時</string>
+    <string name="title_1day">1天</string>
+    <string name="title_1week">1週</string>
+    <string name="title_now">現在</string>
+    <string name="title_after">在%1$s之後</string>
+    <string name="title_reset">重置</string>
+    <string name="title_hours">小時</string>
+    <string name="title_minutes">分鐘</string>
+    <string name="title_dismiss">解僱</string>
+    <string name="title_snooze_now">打盹</string>
+    <string name="title_loading">載入中 &#8230;</string>
+    <string name="title_fetching_again">再次從服務器獲取消息</string>
+    <string name="title_conversation_actions">動作</string>
+    <string name="title_conversation_action_reply">回复：%1$s</string>
+    <string name="title_conversation_action_copy">複製%1$s</string>
+    <string name="title_icalendar_accept">接受</string>
+    <string name="title_icalendar_decline">下降</string>
+    <string name="title_icalendar_maybe">也許</string>
+    <string name="title_icalendar_calendar">日曆</string>
+    <string name="title_pro_feature">這是一個專業版功能</string>
+    <string name="title_pro_list">專業版功能列表</string>
+    <string name="title_pro_purchase">購買</string>
+    <string name="title_pro_once">只有一次</string>
+    <string name="title_pro_info">開發FairEmail實際上花費了數千個小時，儘管如此，大多數功能還是可以免費使用。
+         FairEmail會認真對待您的隱私，不會顯示廣告，也不會使用跟踪或分析來賺錢。
+         為了長期維護和支持FairEmail，一些便利和高級功能不是免費使用的。
+         FairEmail會顯示一條小消息提醒您，如果您購買專業功能，該消息將被刪除。    </string>
+    <string name="title_pro_hide">隱藏%1$d週的小消息</string>
+    <string name="title_pro_hint">購買專業功能將使您能夠使用所有當前和將來的專業功能，並保持該應用程序的維護和支持。</string>
+    <string name="title_pro_price">為什麼專業功能如此昂貴？</string>
+    <string name="title_pro_restore">如何恢復購買？</string>
+    <string name="title_pro_pending">購買待處理</string>
+    <string name="title_pro_activated">所有專業功能均已激活</string>
+    <string name="title_pro_valid">所有專業功能已激活</string>
+    <string name="title_pro_invalid">無效的回應</string>
+    <string name="title_pro_support">FairEmail需要您的幫助。 點按即可購買專業功能，以使項目繼續進行。</string>
+    <string name="title_boundary_error">從郵件服務器下載消息時出錯</string>
+    <string name="title_boundary_retry">再試一次</string>
+    <string name="title_unexpected_error">意外的錯誤</string>
     <string name="title_log">記錄檔</string>
     <string name="title_auto_scroll">自動滾動</string>
     <string name="title_log_clear">清除</string>
+    <string name="title_rules_search_hint">搜索名稱或條件</string>
+    <string name="title_rules_clear">清除垃圾郵件規則</string>
+    <string name="title_rules_clear_confirm">刪除所有將郵件移動到垃圾郵件文件夾的規則？</string>
     <string name="title_debug_info">除錯資訊</string>
+    <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
+    <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>
+    <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
+    <string name="title_widget_title_count">新郵件數</string>
+    <string name="title_widget_title_list">留言清單</string>
+    <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
     <string name="title_widget_folder">資料夾</string>
     <string name="title_widget_folder_unified">全域收件匣</string>
     <string name="title_widget_unseen">只有未讀訊息</string>
     <string name="title_widget_flagged">只有加星號訊息</string>
+    <string name="title_widget_font_size">字體大小</string>
     <string name="title_widget_padding">填充大小</string>
+    <string name="title_widget_semi_transparent">半透明背景</string>
+    <string name="title_widget_background">背景顏色</string>
+    <string name="title_accessibility_collapsed">倒塌</string>
+    <string name="title_accessibility_expanded">展開式</string>
     <string name="title_accessibility_seen">已讀</string>
     <string name="title_accessibility_unseen">未讀</string>
     <plurals name="title_accessibility_messages">
@@ -909,9 +1229,29 @@
     <string name="title_keyword_label1">重要</string>
     <string name="title_keyword_label2">公司</string>
     <string name="title_keyword_label3">個人</string>
+    <string name="title_keyword_label4">代辦</string>
+    <string name="title_keyword_label5">以後再說</string>
+    <string name="title_accessibility_flagged">已加星標</string>
+    <string name="title_accessibility_unflagged">未加星標</string>
+    <string name="title_accessibility_collapse">收縮</string>
+    <string name="title_accessibility_expand">展開</string>
+    <string name="title_accessibility_view_contact">查看聯絡人</string>
+    <string name="title_accessibility_show_authentication_result">顯示認證結果</string>
+    <string name="title_accessibility_show_snooze_time">顯示貪睡時間</string>
+    <string name="title_accessibility_view_help">查看幫助</string>
+    <string name="title_accessibility_selected">已選</string>
+    <string name="title_accessibility_answered">已回复</string>
+    <string name="title_accessibility_scroll_down">向下滾動</string>
+    <string name="title_accessibility_scroll_up">向上滾動</string>
+    <string name="title_accessibility_filter_out_seen">切換閱讀郵件過濾器</string>
+    <string name="title_accessibility_filter_out_unflagged">切換已加星標的郵件過濾器</string>
+    <string name="title_accessibility_filter_out_snoozed">切換延後的郵件過濾器</string>
     <string name="title_accessibility_edit">編輯</string>
+    <string name="title_accessibility_show_addresses">顯示地址</string>
+    <string name="title_accessibility_hide_addresses">隱藏地址</string>
     <string name="title_accessibility_attachment">附件</string>
     <string name="title_accessibility_from">寄件人</string>
+    <string name="title_accessibility_to">接受者</string>
     <string-array name="pollIntervalNames">
         <item>一直</item>
         <item>每 15 分鐘</item>
@@ -977,7 +1317,7 @@
         <item>前段</item>
         <item>中段</item>
         <item>尾段</item>
-        <item>Show untruncated</item>
+        <item>顯示不被截斷</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>
@@ -996,6 +1336,23 @@
         <item>中</item>
         <item>大</item>
     </string-array>
+    <string-array name="receiptNames">
+        <item>僅閱讀收據</item>
+        <item>僅交貨收據</item>
+        <item>閱讀+送貨收據</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>文字上方</item>
+        <item>文字下方</item>
+        <item>在底部</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>沒有</item>
+        <item>PGP僅簽名</item>
+        <item>PGP簽名+加密</item>
+        <item>S / MIME僅簽名</item>
+        <item>S / MIME簽名+加密</item>
+    </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
         <item>256 KB</item>
@@ -1006,5 +1363,18 @@
         <item>10 MB</item>
         <item>20 MB</item>
         <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>關</item>
+        <item>2.5秒</item>
+        <item>5秒</item>
+        <item>7.5秒</item>
+        <item>10秒</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>草書</item>
+        <item>襯線</item>
+        <item>無襯線字體</item>
+        <item>等寬字體</item>
     </string-array>
 </resources>

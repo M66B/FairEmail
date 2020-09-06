@@ -1239,6 +1239,7 @@
     <string name="title_log">Журнал</string>
     <string name="title_auto_scroll">Автопрокрутка</string>
     <string name="title_log_clear">Очистить</string>
+    <string name="title_rules_search_hint">Поиск имени или условия</string>
     <string name="title_rules_clear">Очистить правила спама</string>
     <string name="title_rules_clear_confirm">Удалить все правила, согласно которым сообщения перемещаются в папку спама?</string>
     <string name="title_debug_info">Отладочная информация</string>

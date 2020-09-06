@@ -1215,6 +1215,7 @@
     <string name="title_log">Logboek</string>
     <string name="title_auto_scroll">Automatisch scrollen</string>
     <string name="title_log_clear">Wissen</string>
+    <string name="title_rules_search_hint">Zoek naam of voorwaarde</string>
     <string name="title_rules_clear">Spamregels wissen</string>
     <string name="title_rules_clear_confirm">Alle regels die berichten verplaatsen naar de spam-map verwijderen?</string>
     <string name="title_debug_info">Foutopsporing</string>

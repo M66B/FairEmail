@@ -978,6 +978,7 @@
     <string name="title_answer_caption">Edytuj szablon</string>
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
+    <string name="title_answer_group">Grupa szablonów (opcjonalnie)</string>
     <string name="title_answer_favorite">Ulubione</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>
@@ -1236,6 +1237,8 @@
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Autoprzewijanie</string>
     <string name="title_log_clear">Wyczyść</string>
+    <string name="title_rules_clear">Wyczyść reguły folderu spam</string>
+    <string name="title_rules_clear_confirm">Usunąć wszystkie reguły przenoszenia wiadomości do folderu spam?</string>
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>

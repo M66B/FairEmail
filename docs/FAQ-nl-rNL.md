@@ -5,11 +5,11 @@ Heb je een vraag? Bekijk dan eerst de veelgestelde vragen! Staat jouw vraag er n
 ## Index
 
 * [Account autoriseren](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Hoe moet je...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Bekende problemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Geplande functies](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Veelgevraagde functies](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Veelgestelde vragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Ondersteuning](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
 ## Account autoriseren

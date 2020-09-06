@@ -1215,6 +1215,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_log">Protokoll</string>
     <string name="title_auto_scroll">Automatisches Blättern</string>
     <string name="title_log_clear">Protokoll leeren</string>
+    <string name="title_rules_search_hint">Nach Name oder Bedingung suchen</string>
     <string name="title_rules_clear">Spam-Regeln löschen</string>
     <string name="title_rules_clear_confirm">Alle Regeln löschen, die Nachrichten in den Spam-Ordner verschieben?</string>
     <string name="title_debug_info">Fehlersuchinformationen</string>
