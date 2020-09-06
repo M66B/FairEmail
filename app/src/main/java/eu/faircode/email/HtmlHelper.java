@@ -2055,6 +2055,8 @@ public class HtmlHelper {
                             case "blockquote":
                                 if (start == 0 || ssb.charAt(start - 1) != '\n')
                                     ssb.insert(start++, "\n");
+                                if (start == ssb.length())
+                                    ssb.append(' ');
                                 if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
                                     ssb.append("\n");
 
