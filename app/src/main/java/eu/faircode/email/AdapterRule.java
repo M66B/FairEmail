@@ -56,6 +56,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -67,7 +68,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private LayoutInflater inflater;
 
     private int protocol = -1;
-    private List<TupleRuleEx> items = new ArrayList<>();
+    private String search = null;
+    private List<TupleRuleEx> all = new ArrayList<>();
+    private List<TupleRuleEx> selected = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -189,7 +192,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleRuleEx rule = items.get(pos);
+            TupleRuleEx rule = selected.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -206,7 +209,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            final TupleRuleEx rule = items.get(pos);
+            final TupleRuleEx rule = selected.get(pos);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
@@ -417,9 +420,37 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         this.protocol = protocol;
         Log.i("Set protocol=" + protocol + " rules=" + rules.size());
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, rules), false);
+        all = rules;
 
-        items = rules;
+        List<TupleRuleEx> items;
+        if (TextUtils.isEmpty(search))
+            items = all;
+        else {
+            items = new ArrayList<>();
+            String query = search.toLowerCase().trim();
+            for (TupleRuleEx rule : rules) {
+                if (rule.name.toLowerCase().contains(query))
+                    items.add(rule);
+                else
+                    try {
+                        JSONObject jcondition = new JSONObject(rule.condition);
+                        Iterator<String> keys = jcondition.keys();
+                        while (keys.hasNext()) {
+                            String key = keys.next();
+                            if (jcondition.get(key).toString().toLowerCase().contains(query)) {
+                                items.add(rule);
+                                break;
+                            }
+                        }
+                    } catch (JSONException ex) {
+                        Log.e(ex);
+                    }
+            }
+        }
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+        selected = items;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -443,6 +474,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void search(String query) {
+        search = query;
+        set(protocol, all);
     }
 
     private class DiffCallback extends DiffUtil.Callback {
@@ -481,12 +517,12 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).id;
+        return selected.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return selected.size();
     }
 
     @Override
@@ -498,7 +534,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        TupleRuleEx rule = items.get(position);
+        TupleRuleEx rule = selected.get(position);
         holder.bindTo(rule);
         holder.wire();
     }

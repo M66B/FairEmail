@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -64,6 +66,7 @@ public class FragmentRules extends FragmentBase {
     private Group grpReady;
     private FloatingActionButton fab;
 
+    private String searching = null;
     private AdapterRule adapter;
 
     static final int REQUEST_MOVE = 1;
@@ -142,8 +145,19 @@ public class FragmentRules extends FragmentBase {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString("fair:searching", searching);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            searching = savedInstanceState.getString("fair:searching");
+            adapter.search(searching);
+        }
 
         DB db = DB.getInstance(getContext());
         db.rule().liveRules(folder).observe(getViewLifecycleOwner(), new Observer<List<TupleRuleEx>>() {
@@ -183,6 +197,32 @@ public class FragmentRules extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_rules, menu);
+
+        MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        SearchView searchView = (SearchView) menuSearch.getActionView();
+        searchView.setQueryHint(getString(R.string.title_search));
+
+        if (!TextUtils.isEmpty(searching)) {
+            menuSearch.expandActionView();
+            searchView.setQuery(searching, true);
+        }
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searching = newText;
+                adapter.search(newText);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searching = query;
+                adapter.search(query);
+                return true;
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
