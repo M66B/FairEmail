@@ -3791,7 +3791,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if (data.draft.content || data.draft.uid == null) {
-                        if (data.draft.uid == null)
+                        if (data.draft.uid == null && !data.draft.content)
                             Log.e("Draft without uid");
 
                         File file = data.draft.getFile(context);
