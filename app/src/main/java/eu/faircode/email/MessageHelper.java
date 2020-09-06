@@ -818,7 +818,7 @@ public class MessageHelper {
     }
 
     String getMessageID() throws MessagingException {
-        ensureMessage(false);
+        ensureMessage(false, false);
 
         // Outlook outbox -> sent
         String header = imessage.getHeader(HEADER_CORRELATION_ID, null);
@@ -2233,6 +2233,10 @@ public class MessageHelper {
     }
 
     private void ensureMessage(boolean body) throws MessagingException {
+        ensureMessage(body, true);
+    }
+
+    private void ensureMessage(boolean body, boolean all) throws MessagingException {
         if (body ? ensuredBody : ensuredEnvelope)
             return;
 
@@ -2241,7 +2245,7 @@ public class MessageHelper {
         else
             ensuredEnvelope = true;
 
-        Log.i("Ensure body=" + body);
+        Log.i("Ensure body=" + body + " all=" + all);
 
         try {
             if (imessage instanceof IMAPMessage) {
@@ -2270,8 +2274,13 @@ public class MessageHelper {
                         Log.w("Protocol missing content-type=" + contentType);
                         throw new MessagingException("Failed to load IMAP envelope");
                     }
-                } else
-                    imessage.getMessageID(); // force loadEnvelope
+                } else {
+                    // force loadEnvelope
+                    if (all)
+                        imessage.getAllHeaders();
+                    else
+                        imessage.getMessageID();
+                }
             }
         } catch (MessagingException ex) {
             // https://javaee.github.io/javamail/FAQ#imapserverbug
