@@ -1369,6 +1369,7 @@
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Auto scroll</string>
     <string name="title_log_clear">Clear</string>
+    <string name="title_rules_search_hint">Search name or condition</string>
     <string name="title_rules_clear">Clear spam rules</string>
     <string name="title_rules_clear_confirm">Delete all rules moving messages to the spam folder?</string>
     <string name="title_debug_info">Debug info</string>

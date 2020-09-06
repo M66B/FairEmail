@@ -200,7 +200,7 @@ public class FragmentRules extends FragmentBase {
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_search));
+        searchView.setQueryHint(getString(R.string.title_rules_search_hint));
 
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
