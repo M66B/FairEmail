@@ -820,7 +820,7 @@ public class MimeMultipart extends Multipart {
 		     */
 
 		    // compute how many bytes we can skip
-		    int skip = Math.max(i + 1 - bcs[inbuf[i] & 0x7f], gss[i]);
+		    int skip = Math.max(i + 1 - bcs[inbuf[i] & 0xff], gss[i]);
 		    // want to keep at least two characters
 		    if (skip < 2) {
 			// only skipping one byte, save one byte
