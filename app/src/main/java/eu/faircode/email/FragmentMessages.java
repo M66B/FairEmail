@@ -4109,6 +4109,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         zoom = ++zoom % 3;
         prefs.edit().putInt("view_zoom", zoom).apply();
+        clearMeasurements();
         adapter.setZoom(zoom);
     }
 
@@ -4122,7 +4123,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
+        clearMeasurements();
         getActivity().invalidateOptionsMenu();
+    }
+
+    private void clearMeasurements() {
+        scales.clear();
+        sizes.clear();
+        heights.clear();
+        positions.clear();
     }
 
     private void onMenuSelectLanguage() {
