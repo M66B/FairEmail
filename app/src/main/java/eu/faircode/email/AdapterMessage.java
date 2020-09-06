@@ -792,7 +792,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
 
                             // Feedback
-                            String perc = Math.round(scale) + " %";
+                            String perc = Math.round(scale * 100) + " %";
                             if (toast != null)
                                 toast.cancel();
                             toast = ToastEx.makeText(context, perc, Toast.LENGTH_SHORT);
