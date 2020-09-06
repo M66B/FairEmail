@@ -185,7 +185,7 @@ public class FragmentAnswer extends FragmentBase {
                         etText.setText(HtmlHelper.fromHtml(answer.text, false, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
-                                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
+                                return ImageHelper.decodeImage(getContext(), -1, source, true, 0, 1.0f, etText);
                             }
                         }, null, getContext()));
                 }
@@ -351,7 +351,7 @@ public class FragmentAnswer extends FragmentBase {
             SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
             ssb.insert(start, " \uFFFC"); // Object replacement character
             String source = uri.toString();
-            Drawable d = ImageHelper.decodeImage(getContext(), -1, source, true, 0, etText);
+            Drawable d = ImageHelper.decodeImage(getContext(), -1, source, true, 0, 1.0f, etText);
             ImageSpan is = new ImageSpan(d, source);
             ssb.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             etText.setText(ssb);

@@ -72,6 +72,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.Map;
+import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 
 class ImageHelper {
@@ -226,7 +228,7 @@ class ImageHelper {
         return round;
     }
 
-    static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final TextView view) {
+    static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final float scale, final TextView view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean inline = prefs.getBoolean("inline_images", false);
 
@@ -270,7 +272,7 @@ class ImageHelper {
                         try {
                             Drawable d = getScaledDrawable(attachment.getFile(context), scaleToPixels);
                             if (view != null)
-                                fitDrawable(d, a, view);
+                                fitDrawable(d, a, scale, view);
                             return d;
                         } catch (IOException ex) {
                             Log.w(ex);
@@ -290,7 +292,7 @@ class ImageHelper {
                             DisplayMetrics dm = context.getResources().getDisplayMetrics();
                             d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
                             if (view != null)
-                                fitDrawable(d, a, view);
+                                fitDrawable(d, a, scale, view);
                             return d;
                         }
                     }
@@ -310,7 +312,7 @@ class ImageHelper {
                     d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
 
                     if (view != null)
-                        fitDrawable(d, a, view);
+                        fitDrawable(d, a, scale, view);
                     return d;
                 } catch (IllegalArgumentException ex) {
                     Log.w(ex);
@@ -355,7 +357,7 @@ class ImageHelper {
                     d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
 
                     if (view != null)
-                        fitDrawable(d, a, view);
+                        fitDrawable(d, a, scale, view);
                     return d;
                 } catch (Throwable ex) {
                     // FileNotFound, Security
@@ -384,7 +386,7 @@ class ImageHelper {
                     } else
                         return cached;
                 else
-                    fitDrawable(cached, a, view);
+                    fitDrawable(cached, a, scale, view);
                 return cached;
             }
 
@@ -425,14 +427,14 @@ class ImageHelper {
                         // Check cache again
                         Drawable cached = getCachedImage(context, id, a.source);
                         if (cached != null) {
-                            fitDrawable(cached, a, view);
+                            fitDrawable(cached, a, scale, view);
                             post(cached, a.source);
                             return;
                         }
 
                         // Download image
                         Drawable d = downloadImage(context, id, a.source);
-                        fitDrawable(d, a, view);
+                        fitDrawable(d, a, scale, view);
                         post(d, a.source);
                     } catch (Throwable ex) {
                         // Show broken icon
@@ -479,10 +481,19 @@ class ImageHelper {
         }
     }
 
-    private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
+    private static Map<Drawable, Rect> drawableBounds = new WeakHashMap<>();
+
+    static void fitDrawable(final Drawable d, final AnnotatedSource a, float scale, final View view) {
+        synchronized (drawableBounds) {
+            if (drawableBounds.containsKey(d))
+                d.setBounds(drawableBounds.get(d));
+            else
+                drawableBounds.put(d, d.copyBounds());
+        }
+
         Rect bounds = d.getBounds();
-        int w = bounds.width();
-        int h = bounds.height();
+        int w = Math.round(bounds.width() * scale);
+        int h = Math.round(bounds.height() * scale);
 
         if (a.width == 0 && a.height != 0)
             a.width = Math.round(a.height * w / (float) h);
@@ -490,9 +501,8 @@ class ImageHelper {
             a.height = Math.round(a.width * h / (float) w);
 
         if (a.width != 0 && a.height != 0) {
-            w = Helper.dp2pixels(view.getContext(), a.width);
-            h = Helper.dp2pixels(view.getContext(), a.height);
-            d.setBounds(0, 0, w, h);
+            w = Math.round(Helper.dp2pixels(view.getContext(), a.width) * scale);
+            h = Math.round(Helper.dp2pixels(view.getContext(), a.height) * scale);
         }
 
         float width = view.getContext().getResources().getDisplayMetrics().widthPixels;
@@ -509,11 +519,12 @@ class ImageHelper {
         }
 
         if (w > width) {
-            float scale = width / w;
-            w = Math.round(w * scale);
-            h = Math.round(h * scale);
-            d.setBounds(0, 0, w, h);
+            float s = width / w;
+            w = Math.round(w * s);
+            h = Math.round(h * s);
         }
+
+        d.setBounds(0, 0, w, h);
     }
 
     static Bitmap getDataBitmap(String source) {

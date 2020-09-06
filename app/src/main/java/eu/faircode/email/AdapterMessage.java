@@ -475,7 +475,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
 
         private ScaleGestureDetector gestureDetector;
-        private Map<Drawable, Pair<Integer, Integer>> drawableSize = new HashMap<>();
 
         private SimpleTask taskContactInfo;
 
@@ -775,21 +774,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             // Image size
                             Spanned spanned = (Spanned) tvBody.getText();
-                            int bw = tvBody.getWidth() - tvBody.getPaddingStart() - tvBody.getPaddingEnd();
-                            if (bw != 0)
-                                for (ImageSpan img : spanned.getSpans(0, spanned.length(), ImageSpan.class)) {
-                                    Drawable d = img.getDrawable();
-                                    Pair<Integer, Integer> p = drawableSize.get(d);
-                                    if (p == null || p.first == 0)
-                                        continue;
-
-                                    float s = Math.min(bw / (float) p.first, scale);
-                                    properties.setScale(message.id, s);
-
-                                    int w = Math.round(p.first * s);
-                                    int h = Math.round(p.second * s);
-                                    d.setBounds(0, 0, w, h);
-                                }
+                            for (ImageSpan img : spanned.getSpans(0, spanned.length(), ImageSpan.class)) {
+                                Drawable d = img.getDrawable();
+                                ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(img.getSource());
+                                ImageHelper.fitDrawable(d, a, scale, tvBody);
+                            }
 
                             // Feedback
                             String perc = Math.round(scale * 100) + " %";
@@ -1970,7 +1959,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putBoolean("show_quotes", show_quotes);
             args.putInt("zoom", zoom);
 
-            args.putFloat("scale", properties.getScale(message.id, 1.0f));
+            float scale = (size == 0 || textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
+            args.putFloat("scale", scale);
 
             new SimpleTask<Object>() {
                 @Override
@@ -2145,17 +2135,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         // Draw images
-                        Map<Drawable, Pair<Integer, Integer>> map = new HashMap<>();
                         SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, true, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
-                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, tvBody);
-                                Rect bounds = drawable.getBounds();
-                                map.put(drawable, new Pair<>(bounds.right, bounds.bottom));
-
-                                bounds.right = Math.round(bounds.right * scale);
-                                bounds.bottom = Math.round(bounds.bottom * scale);
-                                drawable.setBounds(bounds);
+                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, scale, tvBody);
 
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                                     if (drawable instanceof AnimatedImageDrawable)
@@ -2165,7 +2148,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return drawable;
                             }
                         }, null);
-                        drawableSize = map;
 
                         if (show_quotes)
                             return ssb;
@@ -5806,10 +5788,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         boolean getValue(String name, long id);
 
         void setExpanded(TupleMessageEx message, boolean expanded);
-
-        void setScale(long id, Float size);
-
-        float getScale(long id, float defaultSize);
 
         void setSize(long id, Float size);
 

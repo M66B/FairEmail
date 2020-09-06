@@ -121,7 +121,7 @@ public class EditTextCompose extends FixedEditText {
                             @Override
                             public Drawable getDrawable(String source) {
                                 return ImageHelper.decodeImage(getContext(),
-                                        -1, source, true, 0, EditTextCompose.this);
+                                        -1, source, true, 0, 1.0f, EditTextCompose.this);
                             }
                         }, null);
 
