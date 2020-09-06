@@ -332,7 +332,7 @@ Android shows icons of high priority status bar notifications first and will hid
 
 The status bar notification can be disabled via the notification settings of FairEmail:
 
-* Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
+* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
@@ -612,6 +612,7 @@ Signed-only messages are supported, encrypted-only messages are not supported.
 
 Common errors:
 
+* *No key*: there is no PGP key available for one of the listed email addresses
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
 
 *S/MIME*
@@ -946,6 +947,8 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
+If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 <br />
 
 <a name="faq27"></a>
@@ -953,15 +956,15 @@ Yes, you can translate the texts of FairEmail in your own language [on Crowdin](
 
 External image:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1369,11 +1372,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1471,7 +1474,7 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-Priset på FairEmail är för lågt, lägre än för de flesta liknande appar, och det finns [för många avgifter och skatter](#user-content-faq19), Google ensam tar redan 30 %, för att motivera att FairEmail finns i [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Observera att Google främjar Family Library, men låter utvecklarna betala för det och bidrar inte med någonting.
+The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it and doesn't contribute anything.
 
 <br />
 
@@ -1748,7 +1751,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2106,7 +2109,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Vissa leverantörer, som ProtonMail, Tutanota, använder egenutvecklade e-postprotokoll, vilket gör det omöjligt att använda tredje parts e-postappar. Se [denna FAQ](#user-content-faq129) för mer information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2483,7 +2486,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 

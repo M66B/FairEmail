@@ -379,7 +379,7 @@
     <string name="title_advanced_notify_action_reply">Responder</string>
     <string name="title_advanced_notify_action_reply_direct">Responder</string>
     <string name="title_advanced_notify_action_flag">Destacar</string>
-    <string name="title_advanced_notify_action_seen">Leer</string>
+    <string name="title_advanced_notify_action_seen">Leído</string>
     <string name="title_advanced_notify_action_snooze">Posponer</string>
     <string name="title_advanced_notify_remove">Eliminar notificación de nuevos mensajes al pulsar en la notificación</string>
     <string name="title_advanced_notify_clear">Eliminar notificaciones de mensajes nuevos al ver la lista de mensajes</string>
@@ -974,7 +974,7 @@
     <string name="title_rule_keyword">Añadir palabra clave</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
-    <string name="title_rule_answer">Responder</string>
+    <string name="title_rule_answer">Responder/reenviar</string>
     <string name="title_rule_tts">Texto a voz</string>
     <string name="title_rule_automation">Automatización</string>
     <string name="title_rule_caption">Editar regla</string>
@@ -1000,7 +1000,9 @@
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
     <string name="title_rule_template">Plantilla de respuesta</string>
+    <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_cc">Responder a direcciones en CC</string>
+    <string name="title_rule_with_attachments">Con adjuntos</string>
     <string name="title_rule_answer_remark">Sólo se enviará una respuesta por conversación, para evitar bucles de respuesta</string>
     <string name="title_rule_name_missing">Falta nombre de regla</string>
     <string name="title_rule_condition_missing">Falta condición</string>
@@ -1163,6 +1165,7 @@
     <string name="title_enabled">Activado</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
+    <string name="title_default_changed">Por defecto cambió</string>
     <string name="title_clipboard_copy">Copiar al portapapeles</string>
     <string name="title_clipboard_copied">Copiado al portapapeles</string>
     <string name="title_ask_what">Preguntar qué hacer</string>

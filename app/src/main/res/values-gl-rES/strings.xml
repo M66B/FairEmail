@@ -104,6 +104,7 @@
     <string name="menu_rate">Avalía esta aplicación</string>
     <string name="title_welcome">Benvido/a</string>
     <string name="title_eula">Contrato de licenza para o usuario final</string>
+    <string name="title_contributors">Colaboradores</string>
     <string name="title_agree">De acordo</string>
     <string name="title_disagree">Non acepto</string>
     <string name="title_version">Versión %1$s</string>
@@ -954,6 +955,7 @@
     <string name="title_answer_caption">Modificar patrón</string>
     <string name="title_answer_reply">Patrón de resposta</string>
     <string name="title_answer_name">Nome do patrón</string>
+    <string name="title_answer_group">Grupo de patróns (opcional)</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Agachar nos menús</string>
     <string name="title_answer_text">Texto do patrón</string>
@@ -970,7 +972,7 @@
     <string name="title_rule_keyword">Engadir palabras chave</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
-    <string name="title_rule_answer">Responder</string>
+    <string name="title_rule_answer">Responder/reenviar</string>
     <string name="title_rule_tts">Texto a fala</string>
     <string name="title_rule_automation">Automatización</string>
     <string name="title_rule_caption">Editar regra</string>
@@ -996,7 +998,9 @@
     <string name="title_rule_thread">Todas as mensaxes da mesma conversa e cartafol</string>
     <string name="title_rule_identity">Identidade</string>
     <string name="title_rule_template">Patrón de resposta</string>
+    <string name="title_rule_forward_to">Reenviar a</string>
     <string name="title_rule_cc">Responder a enderezos CC</string>
+    <string name="title_rule_with_attachments">Con anexos</string>
     <string name="title_rule_answer_remark">Enviarase só unha resposta para cada conversa, co fin de evitar bucles de respostas</string>
     <string name="title_rule_name_missing">Falta o nome da regra</string>
     <string name="title_rule_condition_missing">Falta a condición</string>

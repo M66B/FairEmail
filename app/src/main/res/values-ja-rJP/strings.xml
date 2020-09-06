@@ -841,7 +841,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_rule_keyword">キーワードの追加</string>
     <string name="title_rule_move">移動</string>
     <string name="title_rule_copy">コピー(ラベル)</string>
-    <string name="title_rule_answer">返信</string>
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールが適用されます</string>

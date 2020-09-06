@@ -957,6 +957,7 @@
     <string name="title_answer_caption">Redigér skabelon</string>
     <string name="title_answer_reply">Svarskabelon</string>
     <string name="title_answer_name">Skabelonnavn</string>
+    <string name="title_answer_group">Skabelongruppe (valgfrit)</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>
@@ -973,7 +974,7 @@
     <string name="title_rule_keyword">Tilføj nøgleord</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
-    <string name="title_rule_answer">Besvar</string>
+    <string name="title_rule_answer">Besvar/videresend</string>
     <string name="title_rule_tts">Tekst til tale</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigér regel</string>
@@ -999,7 +1000,9 @@
     <string name="title_rule_thread">Alle beskeder i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Besvarelsesskabelon</string>
+    <string name="title_rule_forward_to">Videresend til</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
+    <string name="title_rule_with_attachments">Med vedhæftninger</string>
     <string name="title_rule_answer_remark">For at undgå svarsløjfer, sendes kun ét svar til en given samtale</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Betingelse mangler</string>

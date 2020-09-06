@@ -956,6 +956,7 @@
     <string name="title_answer_caption">Redigera mall</string>
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>
+    <string name="title_answer_group">Mallgrupp (valfritt)</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>
@@ -972,7 +973,7 @@
     <string name="title_rule_keyword">Lägg till nyckelord</string>
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
-    <string name="title_rule_answer">Svara</string>
+    <string name="title_rule_answer">Svar/vidarebefordra</string>
     <string name="title_rule_tts">Text till tal</string>
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_caption">Redigera regel</string>
@@ -998,7 +999,9 @@
     <string name="title_rule_thread">Alla meddelanden i samma konversation och mapp</string>
     <string name="title_rule_identity">Identitet</string>
     <string name="title_rule_template">Svarsmall</string>
+    <string name="title_rule_forward_to">Vidarebefordra till</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
+    <string name="title_rule_with_attachments">Med bilagor</string>
     <string name="title_rule_answer_remark">Endast ett svar kommer att skickas för någon konversation, för att undvika svarsloopar</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
@@ -1213,6 +1216,8 @@
     <string name="title_log">Logg</string>
     <string name="title_auto_scroll">Automatisk rullning</string>
     <string name="title_log_clear">Rensa</string>
+    <string name="title_rules_clear">Rensa skräppostregler</string>
+    <string name="title_rules_clear_confirm">Ta bort alla regler som flyttar meddelanden till skräppostmappen?</string>
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>

@@ -961,7 +961,7 @@
     <string name="title_rule_keyword">添加关键字</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
-    <string name="title_rule_answer">回复</string>
+    <string name="title_rule_answer">回复/转发</string>
     <string name="title_rule_tts">文字转语音</string>
     <string name="title_rule_automation">自动化</string>
     <string name="title_rule_caption">编辑规则</string>
@@ -987,7 +987,9 @@
     <string name="title_rule_thread">在同一会话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
+    <string name="title_rule_forward_to">转发给</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
+    <string name="title_rule_with_attachments">含附件</string>
     <string name="title_rule_answer_remark">(设置自动回复后)任何会话将仅发送一个回复，以避免回复循环</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>

@@ -897,7 +897,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_rule_keyword">Afegeix paraula clau</string>
     <string name="title_rule_move">Mou</string>
     <string name="title_rule_copy">Copia (etiqueta)</string>
-    <string name="title_rule_answer">Respon</string>
     <string name="title_rule_tts">Text a veu</string>
     <string name="title_rule_automation">Automatització</string>
     <string name="title_rule_caption">Edita la regla</string>

@@ -962,7 +962,6 @@
     <string name="title_rule_keyword">Adicionar palavra-chave</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
-    <string name="title_rule_answer">Responder</string>
     <string name="title_rule_tts">Texto para voz</string>
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_caption">Editar regra</string>

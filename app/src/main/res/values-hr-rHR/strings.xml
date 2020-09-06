@@ -750,7 +750,6 @@
     <string name="title_rule_keyword">Dodaj ključnu riječ</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaka)</string>
-    <string name="title_rule_answer">Odgovor</string>
     <string name="title_rule_automation">Automatizacija</string>
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>

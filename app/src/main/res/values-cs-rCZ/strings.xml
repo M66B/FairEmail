@@ -77,10 +77,10 @@
         <item quantity="other">Přesunout %1$d zpráv?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Trvale odstranit %1$d zprávu?</item>
-        <item quantity="few">Trvale odstranit %1$d zprávy?</item>
-        <item quantity="many">Trvale odstranit %1$d zpráv?</item>
-        <item quantity="other">Trvale odstranit %1$d zpráv?</item>
+        <item quantity="one">Trvale smazat %1$d zprávu?</item>
+        <item quantity="few">Trvale smazat %1$d zprávy?</item>
+        <item quantity="many">Trvale smazat %1$d zpráv?</item>
+        <item quantity="other">Trvale smazat %1$d zpráv?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Považovat %1$d zprávu za nevyžádanou?</item>
@@ -141,7 +141,7 @@
     <string name="title_setup_welcome">        Příjem a odesílání zpráv vyžaduje nastavení účtu a identity, stejně jako jakákoli jiná e-mailová aplikace.
         Rychlé nastavení vytvoří současně účet i identitu, pouhým dotazem na Vaše jméno, e-mailovou adresu a heslo.
         Účty a identity (aliasy) lze v případě potřeby nastavit i ručně.
-        Nestandardní protokoly, jako jsou webové služby systému Microsoft Exchange a Microsoft ActiveSync, nejsou podporovány, viz. i popis této aplikace.
+        Nestandardní protokoly, jako jsou webové služby systému Microsoft Exchange a Microsoft ActiveSync, nejsou podporovány, viz i popis této aplikace.
     </string>
     <string name="title_setup_quick">Rychlé nastavení</string>
     <string name="title_setup_quick_remark">Pro rychlé nastavení účtu a identity pro většinu poskytovatelů</string>
@@ -630,10 +630,10 @@
     <string name="title_insert_contact">Přidat kontakt</string>
     <string name="title_edit_contact">Upravit kontakt</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
-    <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
-    <string name="title_empty_spam_ask">Trvale odstranit všechny nevyžádané zprávy?</string>
-    <string name="title_empty_trash_all_ask">Trvale odstranit všechny zprávy v koši ze všech účtů?</string>
-    <string name="title_empty_spam_all_ask">Trvale odstranit všechny nevyžádané zprávy ze všech účtů?</string>
+    <string name="title_empty_trash_ask">Trvale smazat všechny zprávy v koši?</string>
+    <string name="title_empty_spam_ask">Trvale smazat všechny nevyžádané zprávy?</string>
+    <string name="title_empty_trash_all_ask">Trvale smazat všechny zprávy v koši ze všech účtů?</string>
+    <string name="title_empty_spam_all_ask">Trvale smazat všechny nevyžádané zprávy ze všech účtů?</string>
     <string name="title_empty_all">Tímto smažete všechny zprávy jak ze zařízení, tak i ze serveru</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
@@ -665,7 +665,7 @@
     </string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
-    <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>
+    <string name="title_folder_delete">Trvale smazat tuto složku a všechny její zprávy?</string>
     <string name="title_months">Měsíce</string>
     <string name="title_months_all">Všechny</string>
     <string name="title_folder_unified">Sjednocené doručené</string>
@@ -735,7 +735,7 @@
     <string name="title_move_to_folder">Přesunout do &#8230;</string>
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_report_spam">Považovat za nevyžádané</string>
-    <string name="title_delete_permanently">Trvale odstranit</string>
+    <string name="title_delete_permanently">Trvale smazat</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
@@ -773,9 +773,9 @@
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_attachments_incomplete">Některé přílohy nebo obrázky nebyly staženy a nemohly být proto přidány</string>
     <string name="title_ask_save">Uložit změny?</string>
-    <string name="title_ask_delete">Trvale odstranit zprávu?</string>
-    <string name="title_ask_delete_answer">Trvale odstranit šablonu odpovědi?</string>
-    <string name="title_ask_delete_rule">Trvale odstranit pravidlo?</string>
+    <string name="title_ask_delete">Trvale smazat zprávu?</string>
+    <string name="title_ask_delete_answer">Trvale smazat šablonu odpovědi?</string>
+    <string name="title_ask_delete_rule">Trvale smazat pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy na tmavém pozadí není možné, neboť může způsobit zneviditelnění tmavých textů a obrázků</string>
@@ -995,7 +995,7 @@
     <string name="title_rule_keyword">Přidat klíčové slovo</string>
     <string name="title_rule_move">Přesunout</string>
     <string name="title_rule_copy">Kopírovat (štítek)</string>
-    <string name="title_rule_answer">Odpovědět</string>
+    <string name="title_rule_answer">Odpovědět/přeposlat</string>
     <string name="title_rule_tts">Převod textu na řeč</string>
     <string name="title_rule_automation">Automatizace</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
@@ -1021,7 +1021,9 @@
     <string name="title_rule_thread">Všechny zprávy ve stejné konverzaci a složce</string>
     <string name="title_rule_identity">Identita</string>
     <string name="title_rule_template">Šablona odpovědi</string>
+    <string name="title_rule_forward_to">Přeposlat na</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
+    <string name="title_rule_with_attachments">S přílohami</string>
     <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>
     <string name="title_rule_name_missing">Chybí název pravidla</string>
     <string name="title_rule_condition_missing">Chybí podmínka</string>
@@ -1236,6 +1238,8 @@
     <string name="title_log">Záznam</string>
     <string name="title_auto_scroll">Automatické posouvání</string>
     <string name="title_log_clear">Vyčistit</string>
+    <string name="title_rules_clear">Vymazat pravidla nevyžádané pošty</string>
+    <string name="title_rules_clear_confirm">Smazat všechna pravidla pro přesun zpráv do složky nevyžádané pošty?</string>
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>

@@ -907,7 +907,6 @@
     <string name="title_rule_keyword">Добави ключова дума</string>
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирай (етикет)</string>
-    <string name="title_rule_answer">Отговори</string>
     <string name="title_rule_automation">Автоматично</string>
     <string name="title_rule_caption">Редакция правило</string>
     <string name="title_rule_title">Правилото важи за</string>

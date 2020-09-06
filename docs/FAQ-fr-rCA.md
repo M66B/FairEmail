@@ -332,7 +332,7 @@ Android affiche d'abord les icônes des notifications de la barre d'état de hau
 
 La notification de la barre d'état peut être désactivée via les paramètres de notification de FairEmail:
 
-* Android 8 Oreo et plus tard : appuyez sur le bouton *Canal de service* et désactivez le canal de notification via les paramètres Android
+* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat et avant : activé *Utiliser le service d'arrière-plan pour synchroniser les messages*, mais n'oubliez pas de lire la remarque en dessous du paramètre
 
 Vous pouvez basculer vers la synchronisation périodique des messages dans les paramètres de réception pour supprimer la notification, mais sachez que cela peut consommer plus de batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
@@ -424,26 +424,26 @@ Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver 
 * *Afficher la photo des contacts*: pour masquer la photo des contacts
 * *Afficher les identicônes*: pour afficher les avatars de contact générés
 * *Afficher les noms et les adresses e-mail*: pour afficher les noms ou afficher les noms et les adresses e-mail
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Afficher l’objet en italique*: pour afficher l'objet du message en texte normal
+* *Afficher les étoiles de suivi*: pour masquer les étoiles de suivi (favoris)
+* *Afficher l'aperçu du message*: pour afficher deux lignes du corps du message
+* *Afficher par défaut les détails de l'adresse*: pour développer par défaut la section d'adresses
+* *Utiliser une police à espacement fixe pour le texte du message*: pour utiliser une fonte à largeur fixe pour les textes des messages
+* *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
+* *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
+* *Barre d'action de conversation*: pour désactiver la barre de navigation du bas
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. Vous pouvez changer cela dans les paramètres.
+Notez que les messages ne peuvent être prévisualisés que quand le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez changer cela dans les paramètres.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Si la liste des adresses est longue, vous pouvez réduire la section Adresses avec l'icône *moins* en haut de la section Adresses.
 
-Some people ask:
+Certaines personnes demandent :
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
-* to move the star to the left, but it is much easier to operate the star on the right side
+* d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
+* d'afficher l'adresse ou l'objet en plus grand/plus petit, mais cela interférerait avec l'option de taille de texte
+* de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Malheureusement, il est impossible de contenter tout le monde et ajouter tout un lot de réglages serait non seulement déroutant, mais également jamais suffisant.
 
 <br />
 
@@ -612,7 +612,8 @@ Signed-only messages are supported, encrypted-only messages are not supported.
 
 Common errors:
 
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Aucune clé*: il n'y a pas de clé PGP disponible pour l'une des adresses e-mail listées
+* *Clé manquante pour le chiffrement*: il y a probablement une clé sélectionnée dans FairEmail qui n'existe plus dans l'application OpenKeychain. La réinitialisation de la clé (voir ci-dessus) résoudra probablement ce problème.
 
 *S/MIME*
 
@@ -946,6 +947,8 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
+If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 <br />
 
 <a name="faq27"></a>
@@ -953,15 +956,15 @@ Yes, you can translate the texts of FairEmail in your own language [on Crowdin](
 
 External image:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1369,11 +1372,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1748,7 +1751,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2483,7 +2486,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 

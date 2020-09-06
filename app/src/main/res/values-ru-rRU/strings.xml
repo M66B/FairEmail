@@ -979,6 +979,7 @@
     <string name="title_answer_caption">Изменить шаблон</string>
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
+    <string name="title_answer_group">Группа шаблонов (необязательно)</string>
     <string name="title_answer_favorite">Избранное</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
@@ -995,7 +996,7 @@
     <string name="title_rule_keyword">Добавить ключ (слово)</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
-    <string name="title_rule_answer">Ответить</string>
+    <string name="title_rule_answer">Ответить/переслать</string>
     <string name="title_rule_tts">Синтез речи</string>
     <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_caption">Изменить правило</string>
@@ -1021,7 +1022,9 @@
     <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
     <string name="title_rule_template">Шаблон ответа</string>
+    <string name="title_rule_forward_to">Переслать</string>
     <string name="title_rule_cc">Ответить на адреса копий (CC)</string>
+    <string name="title_rule_with_attachments">С вложениями</string>
     <string name="title_rule_answer_remark">Только один ответ будет отправлен в каждый диалог, чтобы избежать петель ответов</string>
     <string name="title_rule_name_missing">Отсутствует название правила</string>
     <string name="title_rule_condition_missing">Отсутствует условие</string>
@@ -1236,6 +1239,8 @@
     <string name="title_log">Журнал</string>
     <string name="title_auto_scroll">Автопрокрутка</string>
     <string name="title_log_clear">Очистить</string>
+    <string name="title_rules_clear">Очистить правила спама</string>
+    <string name="title_rules_clear_confirm">Удалить все правила, согласно которым сообщения перемещаются в папку спама?</string>
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>

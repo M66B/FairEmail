@@ -957,6 +957,7 @@
     <string name="title_answer_caption">Modifica modello</string>
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
+    <string name="title_answer_group">Gruppo di modelli (opzionale)</string>
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
@@ -973,7 +974,7 @@
     <string name="title_rule_keyword">Aggiungi parola chiave</string>
     <string name="title_rule_move">Muovi</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
-    <string name="title_rule_answer">Rispondi</string>
+    <string name="title_rule_answer">Rispondi/inoltra</string>
     <string name="title_rule_tts">Sintesi vocale</string>
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_caption">Modifica regola</string>
@@ -999,7 +1000,9 @@
     <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
+    <string name="title_rule_forward_to">Inoltra a</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
+    <string name="title_rule_with_attachments">Con allegati</string>
     <string name="title_rule_answer_remark">Verrà inviata una sola risposta per qualsiasi conversazione, per evitare ripetizioni di risposta</string>
     <string name="title_rule_name_missing">Nome Regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>

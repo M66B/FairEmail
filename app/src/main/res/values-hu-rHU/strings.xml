@@ -71,8 +71,8 @@
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
     <string name="title_block_domain">Feladó domain tiltása</string>
-    <string name="title_block_sender_hint">Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
-A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
+    <string name="title_block_sender_hint">        Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
+        A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
     <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
@@ -105,6 +105,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="menu_rate">Alkalmazás értékelése</string>
     <string name="title_welcome">Üdvözöljük</string>
     <string name="title_eula">Végfelhasználói licencszerződés</string>
+    <string name="title_contributors">Közreműködők</string>
     <string name="title_agree">Elfogadom</string>
     <string name="title_disagree">Nem fogadom el</string>
     <string name="title_version">Verzió: %1$s</string>
@@ -211,7 +212,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
-    <string name="title_advanced_hint_message">        A további haladó opciókat modositja
+    <string name="title_advanced_hint_message">        A további haladó opciókat módosítja.
         Minden beállításnak általános alapértékei vannak, amelyeket személyre szabhat.
     </string>
     <string name="title_advanced_section_main">Alapvető</string>
@@ -527,6 +528,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_provider">Szolgáltató</string>
     <string name="title_custom">Egyéni</string>
     <string name="title_host">Kiszolgálónév</string>
+    <string name="title_encryption">Titkosítás</string>
+    <string name="title_encryption_none">Egyik sem</string>
     <string name="title_allow_insecure">Nem biztonságos mért kapcsolatok engedélyezése</string>
     <string name="title_insecure_remark">Nem biztonságos kapcsolatokat csak megbízható hálózatokon ajánlott használni és soha publikus hálózatokon</string>
     <string name="title_port">Port szám</string>
@@ -969,7 +972,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_keyword">Kulcsszó hozzáadása</string>
     <string name="title_rule_move">Áthelyezés</string>
     <string name="title_rule_copy">Másolás (cím)</string>
-    <string name="title_rule_answer">Válasz</string>
+    <string name="title_rule_answer">Válasz/Továbbítás</string>
     <string name="title_rule_tts">Szövegfelolvasás</string>
     <string name="title_rule_automation">Automatizálás</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
@@ -995,7 +998,9 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_rule_thread">Az összes beszélgetéshez és mappához tartozó üzenet</string>
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
+    <string name="title_rule_forward_to">Továbbítás neki...</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
+    <string name="title_rule_with_attachments">Mellékletekkel</string>
     <string name="title_rule_answer_remark">A válaszhurkok elkerülése érdekében minden beszélgetéshez csak egy válasz lesz elküldve</string>
     <string name="title_rule_name_missing">Hiányzó szabálynév</string>
     <string name="title_rule_condition_missing">Kondíció hianyzik</string>
@@ -1158,6 +1163,7 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     <string name="title_enabled">Bekapcsolva</string>
     <string name="title_executing">Végrehajtás</string>
     <string name="title_completed">Befejezve</string>
+    <string name="title_default_changed">Alapértelmezett megváltozott</string>
     <string name="title_clipboard_copy">Másolás vágólapra</string>
     <string name="title_clipboard_copied">Másolva vágólapra</string>
     <string name="title_ask_what">Kérdezze meg mit tegyen</string>
@@ -1196,6 +1202,8 @@ A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
     <string name="title_pro_hide">A kicsi üzenet elrejtése %1$d hétre</string>
     <string name="title_pro_hint">A pro funkciók megvásárlása engedélyezi neked hogy használd az összes jelenlegi és jövőbeli pro funkciót amellett hogy fenntartva és támogatva tartja az alkalmazást.</string>
+    <string name="title_pro_price">A pro funkciók miért ennyire drágák?</string>
+    <string name="title_pro_restore">Hogyan állíthatok vissza egy vásárlást?</string>
     <string name="title_pro_pending">A vásárlás folyamatban van</string>
     <string name="title_pro_activated">Minden pro szolgáltatás aktiválva van</string>
     <string name="title_pro_valid">Minden pro szolgáltatás aktiválva</string>

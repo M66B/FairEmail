@@ -957,6 +957,7 @@
     <string name="title_answer_caption">Modifier le modèle</string>
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
+    <string name="title_answer_group">Groupe de modèles (optionnel)</string>
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
@@ -973,7 +974,7 @@
     <string name="title_rule_keyword">Ajouter un mot-clé</string>
     <string name="title_rule_move">Déplacer</string>
     <string name="title_rule_copy">Copier (étiquette)</string>
-    <string name="title_rule_answer">Répondre</string>
+    <string name="title_rule_answer">Répondre/transférer</string>
     <string name="title_rule_tts">Synthèse vocale</string>
     <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_caption">Modifier la règle</string>
@@ -999,7 +1000,9 @@
     <string name="title_rule_thread">Tous les messages dans la même conversation et le même dossier</string>
     <string name="title_rule_identity">Identité</string>
     <string name="title_rule_template">Répondre avec un modèle</string>
+    <string name="title_rule_forward_to">Transférer à</string>
     <string name="title_rule_cc">Répondre aux adresses CC</string>
+    <string name="title_rule_with_attachments">Avec pièces jointes</string>
     <string name="title_rule_answer_remark">Une seule réponse par conversation sera envoyée afin d\'éviter les réponses en boucle</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>

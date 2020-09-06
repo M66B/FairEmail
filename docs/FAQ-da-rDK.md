@@ -332,7 +332,7 @@ Android viser ikoner for højprioritets statusnotifikationer først og skjuler F
 
 Statusnjælkenotifikationen kan deaktiveres via FairEmails notifikationsindstillinger:
 
-* Android 8 Oreo og senere: Tryk på knappen *Tjenestekanal* og deaktivér notifikationskanalen via Android-indstillingerne
+* Android 8 Oreo og senere: Tryk på *Modtagekanal*-knappen og deaktivér kanalen via Android-indstillingerne (dette deaktiverer ikke notifikationer for nye besked)
 * Android 7 Nougat og tidligere: Aktivér *Benyt baggrundstjenester til synkronisering af beskeder*, men husk at læse bemærkningen under indstillingen
 
 For at fjerne notifikationen kan du kan skifte til periodisk beskedsynkronisering i modtagelsesindstillingerne, dog vil dette muligvis forbruger mere strøm. Se [hér](#user-content-faq39) for flere detailjer vedr. batteriforbrug.
@@ -612,6 +612,7 @@ Kun signarede beskeder understøttes, kun krypterede beskeder understøttes ikke
 
 Almindelige fejl:
 
+* *Ingen nøgle*: Ingen PGP-nøgle tilgængelig for en af de angivne e-mailadresser
 * *Manglende krypteringsnøgle*: Der er sandsynligvis valgt en nøgle i FairEmail, der ikke længere forefindes i OpenKeychain-appen. Nulstilling af nøglen (se ovenfor) løser sandsynligvis dette problem.
 
 *S/MIME*
@@ -946,31 +947,33 @@ Alternativt kan du muligvis aktivere *Filer*-appen igen vha. Android app-indstil
 
 Ja, du kan oversætte FairEmail-teksterne til dit sprog [via Crowdin](https://crowdin.com/project/open-source-email). Tilmelding er gratis.
 
+Ønsker du dit navn/alias inkluderet på listen over bidragsydere i appens *Om*-afsnit, så [kontakt mig](https://contact.faircode.eu/?product=fairemailsupport) venligst.
+
 <br />
 
 <a name="faq27"></a>
-**(27) Hvordan skelnes mellem indlejrede og eksterne billeder?**
+**(27) Hvordan skelnes mellem indlejrede eller eksterne billeder?**
 
 Eksternt billede:
 
-![Eksternt billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Indlejret billede:
 
-![Indlejret billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Indlejret billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Ødelagt billede:
 
-![Defekt billede](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Ødelagt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Bemærk, at download af eksterne billeder fra en fjernserver kan bruges til at registrere, at du har set en besked, hvilket du sandsynligvis ikke ønsker, hvis beskeden er spam eller ondsindet.
+Bemærk, at download af eksterne billeder fra en fjernserver kan bruges til at registrere, at du har set en besked, hvilket du sandsynligvis ikke ønsker, såfremt beskeden er spam eller ondsindet.
 
 <br />
 
 <a name="faq28"></a>
 **(28) Hvordan håndteres statusbjælkenotifikationer?**
 
-I opsætningen findes knappen *Håndtér notifikationer * til at navigere direkte til Android-notifikationsindstillingerne for FairEmail.
+I opsætningen findes knappen *Håndtér notifikationer *til at gå direkte til Android-notifikationsindstillingerne for FairEmail.
 
 I Android 8.0 Oreo og senere kan du håndtere egenskaberne for de individuelle notifikationskanaler, f.eks. indstilling af en bestemt notifikationslyd eller visning af notifikationer på låseskærmen.
 
@@ -982,9 +985,9 @@ FairEmail har flg. notifikationskanaler:
 * Advarsel: Benyttes til advarselsnotifikationer
 * Fejl: Benyttes til notifikationer om fejl
 
-Tjek [hér](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for detaljer om notifikationskanaler. Kort sagt: Tryk på notifikationskanalnavnet for at tilgå kanalindstillingerne.
+Tjek [hér](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for detaljer om notifikationskanaler. Kort sagt: Tryk på notifikationskanalens navn for at tilgå kanalindstillingerne.
 
-I versioner før Android 8 Oreo kan du opsætte notifikationslyden i indstillingerne.
+På Android før Android 8 Oreo kan du opsætte notifikationslyden i indstillingerne.
 
 Tjek [denne FAQ](#user-content-faq21), hvis din enhed har et notifikationslys.
 
@@ -993,14 +996,14 @@ Tjek [denne FAQ](#user-content-faq21), hvis din enhed har et notifikationslys.
 <a name="faq29"></a>
 **(29) Hvordan fås notifikationer om nye beskeder for andre mapper?**
 
-Foretag blot et langt tryk på en mappe, vælg *Redigér egenskaber*, og aktivér enten *Vis i den fælles indbakke* eller *Notificér om nye beskeder* (kun tilgængelig i Android 7 Nougat og senere) og tryk på *Gem*.
+Benyt blot et langt tryk på en mappe, vælg *Redigér egenskaber*, og aktivér enten *Vis i den fælles indbakke* eller *Notificér om nye beskeder* (kun tilgængelig på Android 7 Nougat og senere) og tryk på *Gem*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) Hvordan benyttes de medfølgende hurtige indstillinger?**
+**(30) Hvordan kan de medfølgende hurtige indstillinger benyttes?**
 
-Der er hurtige indstillinger (indstillingsfliser) tilgængelig for at:
+Der findes hurtige indstillinger (indstillingsfliser) for:
 
 * globalt aktivere/deaktivere synkronisering
 * vise antallet af nye beskeder og markér dem som set (ikke læst)
@@ -1012,12 +1015,12 @@ Hurtige indstillinger kræver Android 7.0 Nougat eller senere. Brug af indstilli
 <a name="faq31"></a>
 **(31) Hvordan kan de medfølgende genveje benyttes?**
 
-Der er genveje tilgængelig for at:
+Der findes genveje til:
 
 * skrive en ny besked til en favoritkontakt
 * opsætte konti, identiteter mv.
 
-Genveje kræver Android 7.1 Nougat eller senere. Brugen af genveje forklares [hér](https://support.google.com/android/answer/2781850).
+Genveje kræver Android 7.1 Nougat eller senere. Brug af genveje forklares [hér](https://support.google.com/android/answer/2781850).
 
 <br />
 
@@ -1031,9 +1034,9 @@ Man kan benytte [E-mail Fortrolighedstester](https://www.emailprivacytester.com/
 <a name="faq33"></a>
 **(33) Hvorfor fungerer redigerede afsenderadresser ikke?**
 
-For at forhindre spam accepterer de fleste udbydere kun bekræftede adresser ifm. afsendelser.
+For at forhindre spam accepterer de fleste udbydere kun bekræftede adresser ved afsendelser.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+F.eks. ændrer Google beskedhoveder for *ikke-bekræftede* adresser på flg. vis:
 
 ```
 Fra: Nogen <somebody@example.org>
@@ -1042,62 +1045,62 @@ X-Google-Originale-Fra: Nogen <somebody+extra@example.org>
 
 Dette betyder, at den redigerede afsenderadresse automatisk erstattes af en bekræftet adresse inden bekedafsendelsen.
 
-Bemærk, at dette er uafhængigt af at beskedmodtagelse.
+Note that this is independent of receiving messages.
 
 <br />
 
 <a name="faq34"></a>
-**(34) Hvordan matches identiteter?**
+**(34) How are identities matched?**
 
-Identiteter matches som forventet efter konto. For indgående beskeder bliver adresserne *til*, *cc*, *bcc*, *fra* og *(X-)leverede/konvolut/originale-til* tjekket (i denne rækkefølge) og for udgående beskeder (kladder, udbakke og sendt) tjekkes kun *fra*-adresserne.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-Den matchede adresse vises som *via* i adresseafsnittet.
+The matched address will be shown as *via* in the addresses section.
 
-Bemærk, at identiteter skal aktiveres for at kunne matches, samt at andre kontoidentiteter ikke tages i betragtning.
+Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
-Matchning udføres kun én gang efter modtagelse af en besked, så ændring af opsætningen ændrer ikke eksisterende beskeder. Du kan dog rydde lokale beskeder vha. langt tryk på en mappe i mappelisten og synkronisere beskederne igen.
+Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-Det er muligt at opsætte en [regex](https://en.wikipedia.org/wiki/Regular_expression) i identitetsindstillingerne for at få en e-mailadresses matchende brugernavn (delen før @-tegnet).
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match the username of an email address (the part before the @ sign).
 
-Bemærk, at domænenavnet (delene efter @) altid skal være identisk med identitetens domænenavn.
+Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
-Vil du matche e-mailadresserne til specielle formål, abc@eksemepel.dk og xyx@eksemepel.dk og også gerne have en fallback e-mailadresse, hoved@eksemepel.dk, kan du gøre noget ala dette:
+If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
 * Identity: abc@eksempel.dk; regex: **(?i)abc**
 * Identity: xyz@eksempel.dk; regex: **(?i)xyz**
 * Identity: hoved@eskempel.dk; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matchede identiteter kan benyttes til beskedfarvekodning. Identitetsfarven har forrang over kontofarven. Brug af identitetsfarver er en Pro-funktion.
+Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
 <br />
 
 <a name="faq35"></a>
-**(35) Hvorfor bør man være forsigtig med at få vist billeder, vedhæftninger og den oprindelige besked?**
+**(35) Why should I be careful with viewing images, attachments, and the original message?**
 
-Visning af fjernlagrede billeder (se også [denne FAQ](#user-content-faq27)) fortæller muligvis ikke kun afsenderen, at du har set beskeden, men lækker også din IP-adresse.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 
-Åbning af vedhæftninger eller visning af en original besked kan muligvis indlæse eksternt indhold og eksekvere scripts, hvilket ikke alene kan forårsage læk af fortrolige informationer, men tillige udgøre en sikkerhedsrisiko.
+Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
-Bemærk, at dine kontakter, uden deres vidende, kan sende ondsindede beskeder, hvis de er blevet inficeret med malware.
+Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
-FairEmail omformaterer beskeder, hvilket får dem til at se anderledes ud end originalen, men afslører også phishing-links.
+FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
 
-Bemærk, at omformaterede beskeder ofte er mere læsbare end originalerne, da margerne er fjernet, og skrifttypefarver og -størrelser er standardiseret.
+Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
-Som standard viser Gmail-appen billeder ved at downloade disse via en Google-proxyserver. Da billederne downloades fra kildeserveren [i realtid](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), er dette endnu mindre sikkert, da Google uden nogen større fordel også er involveret.
+The Gmail app shows images by default by downloading the images through a Google proxy server. Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), this is even less secure because Google is involved too without providing much benefit.
 
-Du kan som standard få vist billeder og originale beskeder for betroede afsendere fra gang til gang ved at markere *Spørg ikke igen om ...*.
+You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-Vil du nulstille *Åbn med* standard-apps, så tjek [hér](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
 <a name="faq36"></a>
-**(36) Hvordan krypteres indstillingsfiler?**
+**(36) How are settings files encrypted?**
 
-Kort version: AES 256 bit
+Short version: AES 256 bit
 
-Lang version:
+Long version:
 
 * 256 bit-nøglen genereres med *PBKDF2WithHmacSHA1* vha. en 128 bit, sikker tilfældigt salt samt 65.536 iterationer
 * Cipher'en er *AES/CBC/PKCS5Padding*
@@ -1105,54 +1108,54 @@ Lang version:
 <br />
 
 <a name="faq37"></a>
-**(37) Hvordan lagres adgangskoderr?**
+**(37) How are passwords stored?**
 
-Alle understøttede Android-versioner [krypterer alle brugerdata](https://source.android.com/security/encryption), så alle data, inkl. brugernavne, adgangskoder, beskeder mv., lagres krypteret.
+All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
-Er enheden sikret med PIN-kode, mønster eller adgangskode, kan konto- og identitetsadgangskoder gøres synlige. Er dette er et problem, f.eks. fordi enheden deles med andre, så overvej brug af [brugerprofiler](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
 <a name="faq39"></a>
-**(39) Hvordan kan FairEmails batteriforbrug reduceres?**
+**(39) How can I reduce the battery usage of FairEmail?**
 
-Som standard rapporterer nyere Android-versioner *app-brug* som en procentdel på Android-batteriindstillingssiden. **Forvirrende nok er *app-brug* ikke det samme som *batteriforbrug* og er ikke engang direkte relateret til batteriforbrug!** App-brugen (under i brug) vil være meget høj, da FairEmail bruger en forgrundstjeneste, der af Android betragtes som konstant app-brug. Dette betyder dog ikke, at FairEmail konstant forbruger strøm. Det reelle stømforbrug kan ses ved at gå til denne side:
+Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
-*Android-indstillinger*, *Batteri*, trepriksmenu *Batteriforbrug*, trepriksmenu *Vis fuld enhedsforbrug*
+*Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-Som en tommelfingerregel skal strømforbruget være under eller i hvert fald ikke meget højere end for *Mobilnetværks-standby*. Er det ikke tilfældet, så lad mig det venligst vide.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
 
-Det er uundgåeligt, at beskedsynkronisering forbruger strøm, da det kræver adgang til både netværk og beskeddatabase.
+It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
-Sammenlignes batteriforbruget for FairEmail med en anden e-mailklient, skal den anden e-mailklient være opsat på samme vis. Det er f.eks. ikke retvisende at sammenligne kontinuerlig synk (push-beskeder) og periodisk (ikke-regelmæssig) kontrol for nye beskeder.
+If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
-Gentilslutninger til e-mailserver forbruger ekstra strøm, hvilket f.eks. en ustabil Internetforbindelse vil forårsage. I så tilfælde vil du måske kun synkronisere periodisk, f.eks. hver time, i stedet for kontinuerligt. Bemærk, at hyppig polling (mere end hvert 30.-60. minut) sandsynligvis vil forbruge mere strøm end kontinuerlig synkronisering, da det er ressourcekrævende at oprette forbindelse til serveren og sammenligne lokale og fjernbeskeder.
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. In this case you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remotes messages are expensive operations.
 
-[På visse enheder](https://dontkillmyapp.com/) er det nødvendigt at *deaktivere* batterioptimeringer (opsætningstrin 4) for at holde e-mailserverforbindelser åbne.
+[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open.
 
-Størstedelen af strømforbruget, ikke medregnet at se beskeder, skyldes beskedesynkroniseringer (modtagelse/afsendelse). For at reducere strømforbruget, så indstil antallet af synkroniseringsdage til en lavere værdi, især hvis der er en masse nylige beskeder i en mappe. Langt tryk på et mappenavn i mappelisten, og vælg *Redigér egenskaber* for at tilgå denne indstilling.
+Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
-Har du mindst én gang om dagen Internetforbindelse, er det tilstrækkeligt at synkronisere beskeder blot for én dag.
+If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Bemærk, at det antal dage, hvori beskeder *beholdes* kan sættes højere end det antal dage, hvori beskeder *synkroniseres*. Du kan f.eks. indledningsvis synkronisere beskeder i et stort antal dage, og efter at dette er afsluttet reducer antallet af beskedsynkroniseringsdage, men bevare antallet af dage, hvori beskeder skal beholdes.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
 
-I modtagelsesindstillingerne kan du aktivere altid at synkronisere stjernemarkerede beskeder, hvilket lader dig beholde ældre beskeder, selvom du synkroniserer beskeder i et begrænset antal dage.
+In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
-Deaktivering af mappeindstillingen *Download automatisk beskedtekster og vedhæftninger* vil betyde mindre netværkstrafik og dermed lavere strømforbrug. Du kan deaktivere denne indstilling for f.eks. Sendt-mappen og arkivet.
+Disabling the folder option *Automatically download message texts and attachments* will result in less network traffic and thus less battery usage. You could disable this option for example for the sent folder and the archive.
 
-Synkronisering af beskeder om natten er for det meste unødvendigt, så du kan spare strøm ved at undlade dette. Du kan i indstillingerne vælge en tidsplan for beskedsynkronisering (dette er en Pro-funktion).
+Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In the settings you can select a schedule for message synchronization (this is a pro feature).
 
-FairEmail vil som standard synkronisere mappelisten ved hver tilslutning. Da mapper stort set ikke oprettes, omdøbes og slettes særligt ofte, kan du reducere netværks- og strømforbrug ved at deaktivere dette i modtagelsesindstillingerne.
+FairEmail will by default synchronize the folder list on each connection. Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
 
-Som standard vil FairEmail ved hver tilslutning tjekke, om gamle beskeder er blevet slettet fra serveren. Hvis du ikke har noget imod, at gamle beskederr, som er blevet slettet fra serveren stadig er synlige i FairEmail, kan du reducere netværks- og strømforbrug ved at deaktivere dette i modtagelsesindstillingerne.
+FairEmail will by default check if old messages were deleted from the server on each connection. If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
 
-Visse udbydere følger ikke IMAP-standarden og holder ikke forbindelserne åbne længe nok. Dette tvinger FairEmail til ofte at oprette forbindelse igen, hvilket medfører ekstra strømforbrug. Du kan tjekke *Loggen* via hovednavigeringsmenuen for at se, om der er hyppige forbindelsesgenoprettelser (forbindelse lukket/nulstillet, læse-/skrivefejl/timeout mv.). Du kan omgå dette ved i de avancerede kontoindstillinger at sænke keep-alive intervallet til f.eks. 9 eller 15 min. Bemærk, at batterioptimeringer skal deaktiveres i opsætningstrin 4 for pålideligt at holde forbindelserne i live.
+Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 4 to reliably keep connections alive.
 
-Visse udbydere sender hvert 2. minut noget i retning af et '*Stadig her*'. Dette resulterer i netværkstrafik samt vækning af din enhed, hvilket igen forårsager unødigt ekstra strømforbrug. Du kan tjekke *Loggen* via hovednavigeringsmenuen for at se, hvorvidt din udbyder gør dette. Benytter din udbyder [Dovecot](https://www.dovecot.org/) som IMAP-server, kan du anmode om, at indstillingen [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) ændres til en højere værdi eller endnu bedre, deaktivere denne. Er din udbyder ikke er i stand eller villig til at ændre/deaktivere denne, så overvej at skifte til periodisk i stedet for kontinuerlig synkronisering. Du kan ændre dette i modtagelsesindstillingerne.
+Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
 
-Ser du under opsætningen af en konto meddelelsen *Denne udbyder understøtter ikke push-beskeder*, så overvej at skifte til en moderne udbyder, der understøtter push-beskeder (IMAP IDLE) for at reducere strømforbruget.
+If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
-Har din enhed en [AMOLED](https://en.wikipedia.org/wiki/AMOLED)-skærm, kan du ved at skifte til det sorte tema spare strøm, mens du ser beskeder.
+If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
 
 By default auto optimize in the receive settings is enabled, which will switch an account to periodically checking for new messages when the email server:
 
@@ -1369,11 +1372,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1748,7 +1751,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2106,7 +2109,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-VIsse udbydere, såsom ProtonMail, Tutanota, anvender proprietære e-mailprotokoller, som umuliggør brug af tredjeparts e-mail apps. Se [denne FAQ](#user-content-faq129) for yderligere information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2483,7 +2486,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2536,7 +2539,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-Der er **kun support** i den seneste Play Butik-version, den seneste GitHub-udgivelse og F-Droid-build, men **kun**, hvis versionsnummeret for F-Droid-build er det samme som versionsnummeret for den seneste GitHub-udgivelse.
+There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 

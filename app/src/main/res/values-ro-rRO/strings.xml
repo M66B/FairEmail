@@ -116,6 +116,7 @@
     <string name="menu_rate">Evaluează această aplicație</string>
     <string name="title_welcome">Bine ați venit</string>
     <string name="title_eula">Licența de utilizare</string>
+    <string name="title_contributors">Colaboratori</string>
     <string name="title_agree">Sunt de acord</string>
     <string name="title_disagree">Nu sunt de acord</string>
     <string name="title_version">Versiunea %1$s</string>
@@ -982,7 +983,7 @@
     <string name="title_rule_keyword">Adăugă cuvânt cheie</string>
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>
-    <string name="title_rule_answer">Răspunde</string>
+    <string name="title_rule_answer">Răspunde/redirecționare</string>
     <string name="title_rule_tts">Text în vorbire</string>
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_caption">Editare regulă</string>
@@ -1008,7 +1009,9 @@
     <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
     <string name="title_rule_template">Șablon răspuns</string>
+    <string name="title_rule_forward_to">Redirecţionează către</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
+    <string name="title_rule_with_attachments">Cu atașamente</string>
     <string name="title_rule_answer_remark">Doar un singur răspuns va fi trimis pentru orice conversație, pentru a evita bucle de răspuns</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
@@ -1171,6 +1174,7 @@
     <string name="title_enabled">Activat</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
+    <string name="title_default_changed">Implicit modificat</string>
     <string name="title_clipboard_copy">Copiază în memorie</string>
     <string name="title_clipboard_copied">Copiat în memorie</string>
     <string name="title_ask_what">Întreabă ce să faci</string>

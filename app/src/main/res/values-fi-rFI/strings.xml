@@ -969,7 +969,6 @@
     <string name="title_rule_keyword">Lisää avainsana</string>
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
-    <string name="title_rule_answer">Vastaa</string>
     <string name="title_rule_tts">Teksti puheeksi</string>
     <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>

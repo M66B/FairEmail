@@ -994,7 +994,7 @@
     <string name="title_rule_keyword">Dodaj słowo kluczowe</string>
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_copy">Kopiuj (etykieta)</string>
-    <string name="title_rule_answer">Odpowiedz</string>
+    <string name="title_rule_answer">Odpowiedz/prześlij dalej</string>
     <string name="title_rule_tts">Przetwarzanie tekstu na mowę</string>
     <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_rule_caption">Edytuj regułę</string>
@@ -1020,7 +1020,9 @@
     <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
+    <string name="title_rule_forward_to">Przekaż do</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
+    <string name="title_rule_with_attachments">Z załącznikami</string>
     <string name="title_rule_answer_remark">Dla każdej rozmowy zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>

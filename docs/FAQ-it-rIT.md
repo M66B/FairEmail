@@ -332,7 +332,7 @@ Android shows icons of high priority status bar notifications first and will hid
 
 The status bar notification can be disabled via the notification settings of FairEmail:
 
-* Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
+* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
@@ -612,7 +612,8 @@ Signed-only messages are supported, encrypted-only messages are not supported.
 
 Common errors:
 
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Nessuna chiave*: non c'è nessuna chiave PGP disponibile per uno degli indirizzi e-mail elencati
+* *Chiave mancante per la crittografia*: c'è probabilmente una chiave selezionata in FairEmail che non esiste più nell'applicazione OpenKeychain. Resettare la chiave (vedi sopra) probabilmente risolverà questo problema.
 
 *S/MIME*
 
@@ -946,6 +947,8 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
+If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 <br />
 
 <a name="faq27"></a>
@@ -953,15 +956,15 @@ Yes, you can translate the texts of FairEmail in your own language [on Crowdin](
 
 External image:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1369,11 +1372,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1748,7 +1751,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2483,7 +2486,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2697,19 +2700,19 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 ## Supporto
 
-Sono supportate solo l'ultima versione del Play Store e l'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-Le funzionalità richieste dovrebbero:
+Requested features should:
 
 * essere utili alla maggior parte delle persone
 * non complicare l'utilizzo di FairEmail
 * inserirsi nella filosofia di FairEmail (rispettoso della privacy, con un occhio alla sicurezza)
 * essere conformi agli standard comuni (IMAP, SMTP, ecc.)
 
-È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò significa anche rendere gestibile la manutenzione e il supporto a lungo termine.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
+GitHub issues are disabled due to frequent misusage.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

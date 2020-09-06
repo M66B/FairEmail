@@ -952,6 +952,7 @@
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>
+    <string name="title_answer_group">Ομάδα προτύπων (προαιρετικό)</string>
     <string name="title_answer_favorite">Αγαπημένα</string>
     <string name="title_answer_hide">Απόκρυψη από τα μενού</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>
@@ -968,7 +969,7 @@
     <string name="title_rule_keyword">Προσθήκη λέξης-κλειδιού</string>
     <string name="title_rule_move">Μετακίνηση</string>
     <string name="title_rule_copy">Αντιγραφή (ετικέτα)</string>
-    <string name="title_rule_answer">Απάντηση</string>
+    <string name="title_rule_answer">Απάντηση/Προώθηση</string>
     <string name="title_rule_tts">Μετατροπή κειμένου σε φωνή</string>
     <string name="title_rule_automation">Αυτοματοποίηση</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
@@ -994,7 +995,9 @@
     <string name="title_rule_thread">Όλα τα μηνύματα στην ίδια συζήτηση και τον ίδιο φάκελο</string>
     <string name="title_rule_identity">Ταυτότητα</string>
     <string name="title_rule_template">Πρότυπο απάντησης</string>
+    <string name="title_rule_forward_to">Προώθηση σε</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
+    <string name="title_rule_with_attachments">Με συνημμένα</string>
     <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>
     <string name="title_rule_name_missing">Λείπει το όνομα του κανόνα</string>
     <string name="title_rule_condition_missing">Λείπει συνθήκη</string>

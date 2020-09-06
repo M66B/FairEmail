@@ -332,7 +332,7 @@ Android shows icons of high priority status bar notifications first and will hid
 
 The status bar notification can be disabled via the notification settings of FairEmail:
 
-* Android 8 Oreo and later: tap the *Service channel* button and disable the notification channel via the Android settings
+* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
@@ -612,7 +612,8 @@ Signed-only messages are supported, encrypted-only messages are not supported.
 
 Common errors:
 
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Sen chave*: non hai unha chave PGP para algún dos enderezos que se mostran
+* *Falta a chave de cifrado*: é probable que a chave seleccionada en FairEmail xa non exista na aplicación OpenKeychain. Pode que o problema se amañe reiniciando a chave (vexa arriba).
 
 *S/MIME*
 
@@ -850,11 +851,11 @@ Possible causes are:
 
 * A firewall or router is blocking connections to the server
 * The host name or port number is invalid
-* There are problems with the internet connection
-* There are problems with resolving domain names (Yandex: try to disable private DNS in the Android settings)
-* The email server is refusing to accept (external) connections
-* The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
-* There are too many connections to the server, see also the next question
+* Hai problemas ca conexión a internet
+* Hai problemas ao resolver os nomes de dominio (Yandex: tente desactivar a DNS privada na configuración de Android)
+* O servidor de email está a rexeitar conexións (externas)
+* O servidor de email está rexeitando aceptar a mensaxe, por exemplo porque é moi longo ou porque contén ligazóns que non son aceptables
+* Hai demasiadas conexións ao servidor, vexa tamén a seguinte pregunta
 
 Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
@@ -946,22 +947,24 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
+If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 <br />
 
 <a name="faq27"></a>
 **(27) How can I distinguish between embedded and external images?**
 
-External image:
+Imaxe externa:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
+![Imaxe externa](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Imaxe incorporada:
 
-![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+![Imaxe incorporada](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Imaxe corrupta:
 
-![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+![Imaxe corrupta](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1012,7 +1015,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
-There are shortcuts available to:
+Hai atallos dispoñibles para:
 
 * compose a new message to a favorite contact
 * setup accounts, identities, etc
@@ -1369,11 +1372,11 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1471,7 +1474,7 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-O prezo de FairEmail é moi baixo, más pequeno que o de aplicacións similares, e hai [moitas taxas e comisións](#user-content-faq19); Google directamente xa colle o 30 %, para xustificar que FairEmail estea dispoñible na [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Teña en conta que Google fomenta a Family library, pero deixa que os desenvolvedores paguen por ela en non contribúe con nada.
+The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it and doesn't contribute anything.
 
 <br />
 
@@ -1748,7 +1751,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2106,7 +2109,7 @@ FairEmail is an email client only, so you need to bring your own email address.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Algúns provedores, coma ProtonMail ou Tutanota usan protocolos de correo propietarios, o que fai imposible usar aplicacións de correo de terceiros. Vexa [esta pregunta frecuente](#user-content-faq129) para máis información.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2265,7 +2268,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-Se está conforme con isto, pode activar a opción de notificación *Só amosar notificacións con previsualización de mensaxes a reloxos*, e se isto non funciona, pode activar a opción de notificación *Amosar notificacións só con un texto de previsualización*.
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*.
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2483,7 +2486,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://raw.githubusercontent.com/google/material-design-icons/master/action/1x_web/ic_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2536,7 +2539,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 You likely came here because you are using a third party build of FairEmail.
 
-Só hai **soporte** para a última versión no Play Store, a última versión de GitHub e a compilación de F-Droid, pero **unicamente** se a versión de F-Droid é a mesma que o último número da versión publicada de GitHub.
+There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
