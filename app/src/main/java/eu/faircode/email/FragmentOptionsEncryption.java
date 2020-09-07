@@ -121,9 +121,10 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
         List<ResolveInfo> ris = pm.queryIntentServices(intent, 0); // package whitelisted
-        for (ResolveInfo ri : ris)
-            if (ri.serviceInfo != null)
-                openPgpProvider.add(ri.serviceInfo.packageName);
+        if (ris != null)
+            for (ResolveInfo ri : ris)
+                if (ri.serviceInfo != null)
+                    openPgpProvider.add(ri.serviceInfo.packageName);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

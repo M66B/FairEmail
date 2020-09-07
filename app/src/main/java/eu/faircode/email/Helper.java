@@ -453,7 +453,7 @@ public class Helper {
         intent.setPackage(provider);
         List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
 
-        return (ris.size() > 0);
+        return (ris != null && ris.size() > 0);
     }
 
     // View
