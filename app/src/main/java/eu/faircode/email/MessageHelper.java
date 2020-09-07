@@ -107,6 +107,7 @@ import biweekly.ICalendar;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
+    private boolean ensuredEnvelopeAll = false;
     private boolean ensuredBody = false;
     private MimeMessage imessage;
 
@@ -2237,13 +2238,17 @@ public class MessageHelper {
     }
 
     private void ensureMessage(boolean body, boolean all) throws MessagingException {
-        if (body ? ensuredBody : ensuredEnvelope)
+        if (body ? ensuredBody : ensuredEnvelopeAll || (ensuredEnvelope && !all))
             return;
 
         if (body)
             ensuredBody = true;
-        else
-            ensuredEnvelope = true;
+        else {
+            if (all)
+                ensuredEnvelopeAll = true;
+            else
+                ensuredEnvelope = true;
+        }
 
         Log.i("Ensure body=" + body + " all=" + all);
 
