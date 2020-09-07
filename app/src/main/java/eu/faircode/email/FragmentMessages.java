@@ -509,7 +509,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        rvMessage.setHasFixedSize(true);
+        rvMessage.setHasFixedSize(false);
 
         int threads = prefs.getInt("query_threads", 4);
         if (threads >= 4)

@@ -160,7 +160,7 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
-        rvFolder.setHasFixedSize(true);
+        rvFolder.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 

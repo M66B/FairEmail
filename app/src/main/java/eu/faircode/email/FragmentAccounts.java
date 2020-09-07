@@ -123,7 +123,7 @@ public class FragmentAccounts extends FragmentBase {
             }
         });
 
-        rvAccount.setHasFixedSize(true);
+        rvAccount.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
 
