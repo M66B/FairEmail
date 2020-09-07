@@ -327,6 +327,7 @@ public class ApplicationEx extends Application {
             NotificationChannel service = new NotificationChannel(
                     "service", getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
+            service.setDescription(getString(R.string.channel_service_description));
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             service.setShowBadge(false);
             service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
@@ -336,6 +337,7 @@ public class ApplicationEx extends Application {
             NotificationChannel send = new NotificationChannel(
                     "send", getString(R.string.channel_send),
                     NotificationManager.IMPORTANCE_DEFAULT);
+            send.setDescription(getString(R.string.channel_send_description));
             send.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             send.setShowBadge(false);
             send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
@@ -345,6 +347,7 @@ public class ApplicationEx extends Application {
             NotificationChannel notification = new NotificationChannel(
                     "notification", getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_HIGH);
+            notification.setDescription(getString(R.string.channel_notification_description));
             notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             notification.enableLights(true);
             notification.setLightColor(Color.YELLOW);

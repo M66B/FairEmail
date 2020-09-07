@@ -19,6 +19,10 @@
     <string name="channel_alert">Server alerts</string>
     <string name="channel_group_contacts">Contacts</string>
 
+    <string name="channel_service_description">Synchronizing and monitoring of accounts</string>
+    <string name="channel_send_description">Sending of messages</string>
+    <string name="channel_notification_description">New message notifications</string>
+
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>
         <item quantity="other">Conversations</item>
