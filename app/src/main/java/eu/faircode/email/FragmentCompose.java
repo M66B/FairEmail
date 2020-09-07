@@ -1600,12 +1600,16 @@ public class FragmentCompose extends FragmentBase {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
+                        Intent intent = target.getIntent();
+                        if (intent == null)
+                            return false;
+
                         if (!ActivityBilling.isPro(getContext())) {
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                             return true;
                         }
 
-                        long id = target.getIntent().getLongExtra("id", -1);
+                        long id = intent.getLongExtra("id", -1);
                         for (EntityAnswer answer : answers)
                             if (answer.id.equals(id)) {
                                 if (etSubject.getText().length() == 0)

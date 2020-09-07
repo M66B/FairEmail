@@ -2450,6 +2450,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem target) {
+                            Intent intent = target.getIntent();
+                            if (intent == null)
+                                return false;
+
                             if (!ActivityBilling.isPro(getContext())) {
                                 startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return true;
@@ -2458,7 +2462,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             startActivity(new Intent(getContext(), ActivityCompose.class)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
-                                    .putExtra("answer", target.getIntent().getLongExtra("id", -1)));
+                                    .putExtra("answer", intent.getLongExtra("id", -1)));
                             return true;
                         }
                     });
