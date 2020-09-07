@@ -4,7 +4,7 @@
     <string name="app_changelog">Zoznam zmien</string>
     <string name="app_welcome">FairEmail je opensource aplikácia zameraná na súkromie a bezpečnosť. Z toho dôvodu môžu niektoré vlastnosti fungovať inak, ako ste zvyknutí.</string>
     <string name="app_limitations">Napríklad, správy budú vždy preformátované na odstránenie nebezpečných prvkov, vylepšenia čitateľnosti a otvárané odkazy je potrebné potvrdzovať pre maximálnu bezpečnosť.</string>
-    <string name="app_crash">FairEmail nie je týmto zariadením podporovaný, pretože chyby v systéme spôsobujú pády</string>
+    <string name="app_crash">FairEmail nie je podporovaný na tomto zariadení, pretože chyby v systéme spôsobujú pády</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
     <string name="channel_service">Prijímanie</string>
@@ -65,14 +65,14 @@
         <item quantity="other">%1$d nových</item>
     </plurals>
     <plurals name="title_selected_conversations">
-        <item quantity="one">Zvolená %1$d konverzácia</item>
-        <item quantity="few">Zvolené %1$d konverzácie</item>
-        <item quantity="many">Zvolených %1$d konverzácií</item>
-        <item quantity="other">Zvolených %1$d konverzácií</item>
+        <item quantity="one">Vybratá %1$d konverzácia</item>
+        <item quantity="few">Vybraté%1$d konverzácie</item>
+        <item quantity="many">Vybratých %1$d konverzácií</item>
+        <item quantity="other">Vybratých %1$d konverzácií</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Presunúť %1$d správu?</item>
-        <item quantity="few">Presunúť %1$d správ?</item>
+        <item quantity="few">Presunúť %1$d správy?</item>
         <item quantity="many">Presunúť %1$d správ?</item>
         <item quantity="other">Presunúť %1$d správ?</item>
     </plurals>
@@ -985,8 +985,45 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_unseen">Označiť ako neprečítané</string>
     <string name="title_rule_hide">Skryť</string>
     <string name="title_rule_ignore">Potlačiť oznámenie</string>
+    <string name="title_rule_snooze">Odložiť</string>
+    <string name="title_rule_flag">Pridať hviezdičku</string>
+    <string name="title_rule_importance">Nastaviť dôležitosť</string>
+    <string name="title_rule_keyword">Pridať kľúčové slovo</string>
+    <string name="title_rule_move">Presunúť</string>
+    <string name="title_rule_copy">Kopírovať (štítok)</string>
+    <string name="title_rule_answer">Odpovedať/preposlať</string>
+    <string name="title_rule_tts">Prevod textu na reč</string>
+    <string name="title_rule_automation">Automatizácia</string>
+    <string name="title_rule_caption">Upraviť pravidlo</string>
+    <string name="title_rule_title">Pravidlo sa vzťahuje na</string>
+    <string name="title_rule_name">Meno</string>
+    <string name="title_rule_order">Poradie</string>
+    <string name="title_rule_enabled">Zapnuté</string>
+    <string name="title_rule_stop">Zastaviť spracovávanie pravidiel po spustení tohto pravidla</string>
+    <string name="title_rule_sender">Odosielateľ obsahuje</string>
+    <string name="title_rule_sender_known">Odosielateľ je v zozname kontaktov</string>
+    <string name="title_rule_recipient">Adresát obsahuje</string>
+    <string name="title_rule_subject">Predmet obsahuje</string>
+    <string name="title_rule_attachments">Má prílohy</string>
+    <string name="title_rule_header">Hlavička obsahuje</string>
+    <string name="title_rule_time">Čas medzi</string>
+    <string name="title_rule_regex">Regulárny výraz</string>
+    <string name="title_rule_and">A</string>
+    <string name="title_rule_action">Akcia</string>
+    <string name="title_rule_action_remark">Táto akcia sa vykoná na nových správach v priečinku %1$s</string>
+    <string name="title_rule_hours">Hodiny</string>
+    <string name="title_rule_schedule_end">Od konca časovej podmienky</string>
+    <string name="title_rule_folder">Priečinok</string>
+    <string name="title_rule_thread">Všetky správy v rovnakej konverzácii a priečinku</string>
+    <string name="title_rule_identity">Identita</string>
+    <string name="title_rule_template">Šablóna odpovede</string>
+    <string name="title_rule_forward_to">Preposlať na</string>
+    <string name="title_rule_cc">Odpovedať na CC adresy</string>
+    <string name="title_rule_with_attachments">S prílohami</string>
+    <string name="title_rule_answer_remark">Len jedna odpoveď bude odoslaná pre ľubovoľnú konverzáciu aby sa zamedzilo odpovedacím slučkám</string>
     <string name="title_rule_name_missing">Chýbajúci názov pravidla</string>
     <string name="title_rule_condition_missing">Chýbajúca podmienka</string>
+    <string name="title_rule_automation_hint">Týmto odošlete intent \'%1$s\' s údajmi extras \'%2$s\'</string>
     <string name="title_rule_execute">Spustiť teraz</string>
     <string name="title_rule_applied">Ovplyvnené správy: %1$d</string>
     <string name="title_rule_check">Skontrolovať</string>
@@ -1053,6 +1090,19 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_forwarded">Preposlané</string>
     <string name="title_legend_plain_only">Len obyčajný text</string>
     <string name="title_legend_receipt">Žiadosť o potvrdenie</string>
+    <string name="title_legend_attachment">Má prílohy</string>
+    <string name="title_legend_flagged">S hviezdičkou</string>
+    <string name="title_legend_contacts">Spravovať kontakty</string>
+    <string name="title_legend_search">Hľadať odosielateľa</string>
+    <string name="title_legend_view">Zobraziť obsah</string>
+    <string name="title_legend_hide">Skryť obsah</string>
+    <string name="title_legend_download">Stiahnuť obsah</string>
+    <string name="title_legend_external_image">Náhrada za externý obrázok</string>
+    <string name="title_legend_embedded_image">Náhrada za zahrnutý obrázok</string>
+    <string name="title_legend_tracking_pixel">Sledovací obrázok</string>
+    <string name="title_legend_broken_image">Porušený obrázok</string>
+    <string name="title_legend_pick">Vybrať kontakt</string>
+    <string name="title_legend_cc">Zobraziť CC/BCC</string>
     <string name="title_legend_link">Vložiť odkaz</string>
     <string name="title_legend_file">Priložiť súbor</string>
     <string name="title_legend_picture">Vložiť obrázok</string>
@@ -1156,7 +1206,67 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_conversation_actions">Akcie</string>
     <string name="title_conversation_action_reply">Odpovedať s: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopírovať: \'%1$s\'</string>
+    <string name="title_icalendar_accept">Prijať</string>
+    <string name="title_icalendar_decline">Odmietnuť</string>
+    <string name="title_icalendar_maybe">Možno</string>
+    <string name="title_icalendar_calendar">Kalendár</string>
+    <string name="title_pro_feature">Toto je pro funkcia</string>
+    <string name="title_pro_list">Zoznam pro funkcií</string>
+    <string name="title_pro_purchase">Kúpiť</string>
+    <string name="title_pro_once">Len raz</string>
+    <string name="title_pro_info">        Vývoj FairEmail zaberá tisícky hodín práce a aj napriek tomu je väčšina funkcií k dispozícii zdarma.
+        FairEmail berie vaše súkromie vážne, nezobrazuje žiadne reklamy, ani nezískava prostriedky sledovaním a analyzovaním údajov o vás.
+        S cieľom pre FairEmail zabezpečiť ďalší vývoj a dlhodobú podporu, niektoré unikátne a rozšírené vlastnosti nie sú zdarma.
+        FairEmail toto pripomína zobrazovaním stručnej správy, ktorá zmizne, keď zaplatíte za pro vlastnosti.
+    </string>
+    <string name="title_pro_hide">Skryť túto správu na %1$d týždne</string>
+    <string name="title_pro_hint">Zaplatením za pro vlastnosti získate všetky terajšie aj budúce pro vlastnosti a prispejete na vývoj a podporu FairEmail.</string>
+    <string name="title_pro_price">Prečo sú pro vlastnosti také drahé?</string>
+    <string name="title_pro_restore">Ako obnovím nákup?</string>
+    <string name="title_pro_pending">Prebieha nákup</string>
+    <string name="title_pro_activated">Všetky pro vlastnosti sú aktivované</string>
+    <string name="title_pro_valid">Všetky pro vlastnosti aktívne</string>
+    <string name="title_pro_invalid">Neplatná odpoveď</string>
+    <string name="title_pro_support">Projekt FairEmail potrebuje vašu pomoc. Klepnite a kúpte si pro vlastnosti, aby ste projektu umožnili napredovať.</string>
+    <string name="title_boundary_error">Chyba pri preberaní správ z poštového servera</string>
+    <string name="title_boundary_retry">Skúsiť znovu</string>
+    <string name="title_unexpected_error">Neočakávaná chyba</string>
+    <string name="title_log">Záznam</string>
+    <string name="title_auto_scroll">Automatické posúvanie</string>
+    <string name="title_log_clear">Vymazať</string>
+    <string name="title_rules_search_hint">Hľadať názov alebo podmienku</string>
+    <string name="title_rules_clear">Vymazať pravidlá nevyžiadanej pošty</string>
+    <string name="title_rules_clear_confirm">Vymazať všetky pravidlá, ktoré premiestňujú správy do priečinka spam?</string>
+    <string name="title_debug_info">Ladiace informácie</string>
+    <string name="title_debug_info_remark">Prosím popíšte problém a uveďte čas výskytu:</string>
+    <string name="title_crash_info_remark">Prosím vysvetlite, čo ste robili pred pádom aplikácie:</string>
+    <string name="title_unexpected_info_remark">Prosím vysvetlite, čo ste robili pred zobrazením chyby:</string>
+    <string name="title_widget_title_count">Počet nových správ</string>
+    <string name="title_widget_title_list">Zoznam správ</string>
+    <string name="title_widget_account">Účet</string>
+    <string name="title_widget_account_all">Všetko</string>
+    <string name="title_widget_folder">Priečinok</string>
+    <string name="title_widget_folder_unified">Priečinky spoločnej doručenej pošty</string>
+    <string name="title_widget_unseen">Len neprečítané správy</string>
+    <string name="title_widget_flagged">Len správy s hviezdičkou</string>
+    <string name="title_widget_font_size">Veľkosť textu</string>
+    <string name="title_widget_padding">Veľkosť odsadenia</string>
+    <string name="title_widget_semi_transparent">Takmer priehľadné pozadie</string>
+    <string name="title_widget_background">Farba pozadia</string>
+    <string name="title_accessibility_collapsed">Zbalené</string>
+    <string name="title_accessibility_expanded">Rozbalené</string>
+    <string name="title_accessibility_seen">Prečítané</string>
+    <string name="title_accessibility_unseen">Neprečítané</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d správa</item>
+        <item quantity="few">%1$d správy</item>
+        <item quantity="many">%1$d správ</item>
+        <item quantity="other">%1$d správ</item>
+    </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Dôležité</string>
+    <string name="title_keyword_label2">Práca</string>
+    <string name="title_keyword_label3">Osobný</string>
     <string name="title_keyword_label4">Názov a adresa odkazu sú rôzne</string>
     <string name="title_keyword_label5">Neskôr</string>
     <string name="title_accessibility_flagged">S hviezdičkou</string>
@@ -1294,7 +1404,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     </string-array>
     <string-array name="undoNames">
         <item>Vypnuté</item>
-        <item>2.5 s</item>
+        <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>

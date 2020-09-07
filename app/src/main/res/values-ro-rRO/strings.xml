@@ -967,6 +967,7 @@
     <string name="title_answer_caption">Editare șablon</string>
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
+    <string name="title_answer_group">Grup șablon (opțional)</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
@@ -1226,6 +1227,9 @@
     <string name="title_log">Raport</string>
     <string name="title_auto_scroll">Auto derulare</string>
     <string name="title_log_clear">Curăță</string>
+    <string name="title_rules_search_hint">Căutare nume sau condiție</string>
+    <string name="title_rules_clear">Curățare reguli spam</string>
+    <string name="title_rules_clear_confirm">Ştergeţi toate regulile care mută mesajele în folderul spam?</string>
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
