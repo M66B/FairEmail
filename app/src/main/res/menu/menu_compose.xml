@@ -50,12 +50,16 @@
     <item
         android:id="@+id/menu_contact_group"
         android:title="@string/title_insert_contact_group"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+        <menu />
+    </item>
 
     <item
         android:id="@+id/menu_answer"
         android:title="@string/title_insert_template"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+        <menu />
+    </item>
 
     <item
         android:id="@+id/menu_clear"

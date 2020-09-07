@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
+        <View
+            android:id="@+id/vwAnchorMenu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <eu.faircode.email.ScrollViewEx
             android:layout_width="match_parent"
             android:layout_height="0dp"
