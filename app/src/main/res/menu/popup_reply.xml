@@ -30,5 +30,7 @@
 
     <item
         android:id="@+id/menu_reply_answer"
-        android:title="@string/title_reply_template" />
+        android:title="@string/title_reply_template">
+        <menu />
+    </item>
 </menu>
