@@ -29,11 +29,14 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 
+import org.xbill.DNS.Flags;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Message;
+import org.xbill.DNS.OPTRecord;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
+import org.xbill.DNS.Section;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
@@ -132,6 +135,10 @@ public class DnsHelper {
                         Log.i("Using Android DNS resolver");
                         Semaphore sem = new Semaphore(0);
                         DnsResolver resolver = DnsResolver.getInstance();
+                        OPTRecord optRecord = new OPTRecord(4096, 0, 0, Flags.DO, null);
+                        query.addRecord(optRecord, Section.ADDITIONAL);
+                        query.getHeader().setFlag(Flags.AD);
+                        Log.i("DNS query=" + query.toString());
                         resolver.rawQuery(
                                 null,
                                 query.toWire(),
@@ -167,9 +174,14 @@ public class DnsHelper {
                             ex = new IOException("interrupted");
                         }
 
-                        if (ex == null)
+                        if (ex == null) {
+                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            Network active = (cm == null ? null : cm.getActiveNetwork());
+                            LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
+                            Log.i("DNS private=" + (props == null ? null : props.isPrivateDnsActive()));
+                            Log.i("DNS answer=" + result.toString() + " flags=" + result.getHeader().printFlags());
                             return result;
-                        else
+                        } else
                             throw ex;
                     }
                 }
