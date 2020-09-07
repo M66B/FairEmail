@@ -1195,7 +1195,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (identity != null)
                         for (int pos = 1; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
-                            if (provider.smtp.host.equals(identity.host) &&
+                            if ((provider.oauth != null) == (identity.auth_type == EmailService.AUTH_TYPE_OAUTH) &&
+                                    provider.smtp.host.equals(identity.host) &&
                                     provider.smtp.port == identity.port &&
                                     provider.smtp.starttls == (identity.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                                 spProvider.setTag(pos);

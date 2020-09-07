@@ -1449,7 +1449,8 @@ public class FragmentAccount extends FragmentBase {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
-                            if (provider.imap.host.equals(account.host) &&
+                            if ((provider.oauth != null) == (account.auth_type == EmailService.AUTH_TYPE_OAUTH) &&
+                                    provider.imap.host.equals(account.host) &&
                                     provider.imap.port == account.port &&
                                     provider.imap.starttls == (account.encryption == EmailService.ENCRYPTION_STARTTLS)) {
                                 found = true;
