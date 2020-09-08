@@ -9,6 +9,16 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
+        android:id="@+id/menu_export"
+        android:title="@string/title_rules_export"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_import"
+        android:title="@string/title_rules_import"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_delete_all"
         android:title="@string/title_rules_delete_all"
         app:showAsAction="never" />

@@ -1374,6 +1374,8 @@
     <string name="title_auto_scroll">Auto scroll</string>
     <string name="title_log_clear">Clear</string>
     <string name="title_rules_search_hint">Search name or condition</string>
+    <string name="title_rules_export">Export rules</string>
+    <string name="title_rules_import">Import rules</string>
     <string name="title_rules_delete_all">Delete all rules</string>
     <string name="title_rules_delete_junk">Delete spam rules</string>
     <string name="title_rules_delete_all_confirm">Delete all rules?</string>
