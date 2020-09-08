@@ -15,6 +15,9 @@
     <string name="channel_error">Σφάλματα</string>
     <string name="channel_alert">Ειδοποιήσεις διακομιστή</string>
     <string name="channel_group_contacts">Επαφές</string>
+    <string name="channel_service_description">Συγχρονισμός και παρακολούθηση λογαριασμών</string>
+    <string name="channel_send_description">Αποστολή μηνυμάτων</string>
+    <string name="channel_notification_description">Ειδοποιήσεις νέων μηνυμάτων</string>
     <plurals name="page_conversation">
         <item quantity="one">Συζήτηση</item>
         <item quantity="other">Συζητήσεις</item>

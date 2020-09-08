@@ -222,7 +222,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(104) Was muss ich über die Fehlermeldung wissen?](#user-content-faq104)
 * [(105) Wie funktioniert die 'Roam-Like-At-Home'-Option?](#user-content-faq105)
 * [(106) Welche Launcher können die Anzahl der ungelesenen Nachrichten als Abzeichen anzeigen?](#user-content-faq106)
-* [(107) Wie verwende ich farbige Sterne?](#user-content-faq107)
+* [(107) How do I use colored stars?](#user-content-faq107)
 * [(108) Kann man Nachrichten aus beliebigen Ordnern dauerhaft löschen?](#user-content-faq108)
 * [~~(109) Warum ist 'Konto auswählen' nur in offiziellen Versionen verfügbar?~~](#user-content-faq109)
 * [(110) Warum sind (einige) Nachrichten leer und/oder Anhänge beschädigt?](#user-content-faq110)

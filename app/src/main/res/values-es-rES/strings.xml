@@ -15,6 +15,9 @@
     <string name="channel_error">Errores</string>
     <string name="channel_alert">Alertas del servidor</string>
     <string name="channel_group_contacts">Contactos</string>
+    <string name="channel_service_description">Sincronización y monitoreo de cuentas</string>
+    <string name="channel_send_description">Envío de mensajes</string>
+    <string name="channel_notification_description">Notificaciones de mensajes nuevos</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversación</item>
         <item quantity="other">Conversaciones</item>
@@ -958,6 +961,7 @@
     <string name="title_answer_caption">Editar plantilla</string>
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
+    <string name="title_answer_group">Grupo de plantillas (opcional)</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
@@ -1217,6 +1221,9 @@
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Desplazamiento automático</string>
     <string name="title_log_clear">Limpiar</string>
+    <string name="title_rules_search_hint">Buscar nombre o condición</string>
+    <string name="title_rules_clear">Borrar reglas de spam</string>
+    <string name="title_rules_clear_confirm">¿Borrar todas las reglas que mueven mensajes a la carpeta de spam?</string>
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>

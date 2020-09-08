@@ -15,6 +15,9 @@
     <string name="channel_error">Ошибки</string>
     <string name="channel_alert">Предупреждения сервера</string>
     <string name="channel_group_contacts">Контакты</string>
+    <string name="channel_service_description">Синхронизация и отслеживание учётных записей</string>
+    <string name="channel_send_description">Отправка сообщений</string>
+    <string name="channel_notification_description">Уведомления о новых сообщениях</string>
     <plurals name="page_conversation">
         <item quantity="one">Диалог</item>
         <item quantity="few">Диалоги</item>

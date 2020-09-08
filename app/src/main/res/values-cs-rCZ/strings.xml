@@ -15,6 +15,9 @@
     <string name="channel_error">Chyby</string>
     <string name="channel_alert">Upozornění serveru</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <string name="channel_service_description">Synchronizace a monitorování účtů</string>
+    <string name="channel_send_description">Odesílání zpráv</string>
+    <string name="channel_notification_description">Oznámení nových zpráv</string>
     <plurals name="page_conversation">
         <item quantity="one">Konverzace</item>
         <item quantity="few">Konverzace</item>

@@ -222,7 +222,7 @@ Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutowa
 * [(104) Co muszę wiedzieć o zgłaszaniu błędów?](#user-content-faq104)
 * [(105) Jak działa opcja Roaming jak w domu?](#user-content-faq105)
 * [(106) Które launchery mogą pokazać licznik z liczbą nieprzeczytanych wiadomości?](#user-content-faq106)
-* [(107) Jak stosować kolorowe gwiazdki?](#user-content-faq107)
+* [(107) How do I use colored stars?](#user-content-faq107)
 * [(108) Czy można trwale usunąć wiadomości z dowolnego folderu?](#user-content-faq108)
 * [~~ (109) Dlaczego funkcja „wybierz konto” jest dostępna tylko w oficjalnych wersjach? ~~](#user-content-faq109)
 * [(110) Dlaczego (niektóre) wiadomości są puste i / lub załączniki są uszkodzone?](#user-content-faq110)

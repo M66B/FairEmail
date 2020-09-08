@@ -222,7 +222,7 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(104) O que preciso saber sobre relato de erros?](#user-content-faq104)
 * [(105) Como a opção roam-like-at-home funciona?](#user-content-faq105)
 * [(106) Quais launcher (inicializadores) podem mostrar um contador com o número de mensagens não lidas?](#user-content-faq106)
-* [(107) Como eu utilizo estrelas coloridas?](#user-content-faq107)
+* [(107) How do I use colored stars?](#user-content-faq107)
 * [(108) Você pode configurar para apagar mensagens permanentemente de qualquer pasta?](#user-content-faq108)
 * [~~(109) Porque 'selecionar conta' está disponível apenas nas versões oficiais?~~](#user-content-faq109)
 * [(110) Por que (algumas) mensagems estão vazias e/ou com anexos corrompidos?](#user-content-faq110)

@@ -222,7 +222,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(104) Que dois-je savoir au sujet du signalement d'erreur?](#user-content-faq104)
 * [(105) Comment fonctionne l’option itinérance à domicile?](#user-content-faq105)
 * [(106) Quels lanceurs peuvent afficher un nombre de badges avec le nombre de messages non lus ?](#user-content-faq106)
-* [(107) Comment utiliser des étoiles colorées ?](#user-content-faq107)
+* [(107) Comment utiliser les étoiles colorées ?](#user-content-faq107)
 * [(108) Pouvez-vous ajouter des messages de façon permanente à partir de n'importe quel dossier ?](#user-content-faq108)
 * [~~(109) Pourquoi 'sélectionner le compte' est-il uniquement disponible dans les versions officielles ?~~](#user-content-faq109)
 * [(110) Pourquoi (certains) les messages sont-ils vides et/ou les pièces jointes corrompues?](#user-content-faq110)
@@ -332,7 +332,7 @@ Android affiche d'abord les icônes des notifications de la barre d'état de hau
 
 La notification de la barre d'état peut être désactivée via les paramètres de notification de FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
+* Android 8 Oreo et supérieur : appuyez sur le bouton *Canal de réception* et désactivez le canal via les paramètres Android (cela ne désactivera pas les notifications de nouveaux messages)
 * Android 7 Nougat et avant : activé *Utiliser le service d'arrière-plan pour synchroniser les messages*, mais n'oubliez pas de lire la remarque en dessous du paramètre
 
 Vous pouvez basculer vers la synchronisation périodique des messages dans les paramètres de réception pour supprimer la notification, mais sachez que cela peut consommer plus de batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
@@ -448,7 +448,7 @@ Malheureusement, il est impossible de contenter tout le monde et ajouter tout un
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 

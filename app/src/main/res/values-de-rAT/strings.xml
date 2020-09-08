@@ -15,6 +15,9 @@
     <string name="channel_error">Fehler</string>
     <string name="channel_alert">Serverbenachrichtigungen</string>
     <string name="channel_group_contacts">Kontakte</string>
+    <string name="channel_service_description">Synchronisation und Überwachung von Konten</string>
+    <string name="channel_send_description">Benachrichtigungen für den Versand</string>
+    <string name="channel_notification_description">Benachrichtigungen für neue Nachrichten</string>
     <plurals name="page_conversation">
         <item quantity="one">Unterhaltung</item>
         <item quantity="other">Unterhaltungen</item>

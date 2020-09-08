@@ -15,6 +15,9 @@
     <string name="channel_error">Błędy</string>
     <string name="channel_alert">Alerty serwera</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <string name="channel_service_description">Synchronizacja i monitorowanie kont</string>
+    <string name="channel_send_description">Wysyłanie wiadomości</string>
+    <string name="channel_notification_description">Powiadomienia o nowych wiadomościach</string>
     <plurals name="page_conversation">
         <item quantity="one">Wątek</item>
         <item quantity="few">Wątki</item>
@@ -1237,6 +1240,7 @@
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Autoprzewijanie</string>
     <string name="title_log_clear">Wyczyść</string>
+    <string name="title_rules_search_hint">Szukaj nazwy lub warunku</string>
     <string name="title_rules_clear">Wyczyść reguły folderu spam</string>
     <string name="title_rules_clear_confirm">Usunąć wszystkie reguły przenoszenia wiadomości do folderu spam?</string>
     <string name="title_debug_info">Info debugowania</string>

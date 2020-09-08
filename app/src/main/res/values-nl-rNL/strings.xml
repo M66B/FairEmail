@@ -15,6 +15,9 @@
     <string name="channel_error">Foutmeldingen</string>
     <string name="channel_alert">Servermeldingen</string>
     <string name="channel_group_contacts">Contacten</string>
+    <string name="channel_service_description">Synchroniseren en bewaken van accounts</string>
+    <string name="channel_send_description">Verzenden van berichten</string>
+    <string name="channel_notification_description">Meldingen voor nieuwe berichten</string>
     <plurals name="page_conversation">
         <item quantity="one">Gesprek</item>
         <item quantity="other">Gesprekken</item>

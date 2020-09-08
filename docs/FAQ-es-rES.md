@@ -222,7 +222,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(104) ¿Qué necesito saber sobre los informes de errores?](#user-content-faq104)
 * [(105) ¿Cómo funciona la opción de roam-como-en-casa?](#user-content-faq105)
 * [(106) ¿Qué lanzadores pueden mostrar un contador con el número de mensajes no leídos?](#user-content-faq106)
-* [(107) ¿Cómo utilizo estrellas de colores?](#user-content-faq107)
+* [(107) How do I use colored stars?](#user-content-faq107)
 * [(108) ¿Puedes añadir eliminar mensajes permanentemente desde cualquier carpeta?](#user-content-faq108)
 * [~~(109) ¿Por qué 'seleccionar cuenta' está disponible sólo en versiones oficiales?~~](#user-content-faq109)
 * [(110) ¿Por qué hay (algunos) mensajes vacíos y/o adjuntos corruptos?](#user-content-faq110)

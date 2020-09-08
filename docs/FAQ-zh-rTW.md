@@ -18,7 +18,7 @@
 
 如果快速設置失敗了，你將需要手動添加一個帳號(以接受郵件) 以及一個身份(以發送郵件) 為此，您需要使用IMAP和SMTP服務器地址和端口號，而無論使用SSL / TLS還是STARTTLS 以及您的用戶名（大多數但並非總是您的電子郵件地址）和密碼。
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+用IMAP 以及供應商名稱進行搜尋，通常可以找到正確的文件
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
@@ -222,7 +222,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I used colored stars?](#user-content-faq107)
+* [(107) How do I use colored stars?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)

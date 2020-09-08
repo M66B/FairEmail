@@ -15,6 +15,9 @@
     <string name="channel_error">Errori</string>
     <string name="channel_alert">Avvisi server</string>
     <string name="channel_group_contacts">Contatti</string>
+    <string name="channel_service_description">Sincronizzazione e monitoraggio degli account</string>
+    <string name="channel_send_description">Invio dei messaggi</string>
+    <string name="channel_notification_description">Notifiche dei nuovi messaggi</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversazione</item>
         <item quantity="other">Conversazioni</item>
@@ -1217,6 +1220,9 @@
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Scorrimento automatico</string>
     <string name="title_log_clear">Svuota</string>
+    <string name="title_rules_search_hint">Ricerca un nome o una condizione</string>
+    <string name="title_rules_clear">Cancella regole spam</string>
+    <string name="title_rules_clear_confirm">Eliminare tutte le regole che spostano i messaggi nella cartella spam?</string>
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
