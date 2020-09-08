@@ -456,30 +456,36 @@ public class FragmentRules extends FragmentBase {
                 boolean all = args.getBoolean("all");
 
                 DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
 
-                if (all) {
-                    db.rule().deleteRules(fid);
-                    return null;
-                }
+                    if (all)
+                        db.rule().deleteRules(fid);
+                    else {
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder == null)
+                            return null;
 
-                EntityFolder folder = db.folder().getFolder(fid);
-                if (folder == null)
-                    return null;
+                        EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
+                        if (junk == null)
+                            return null;
 
-                EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
-                if (junk == null)
-                    return null;
+                        List<EntityRule> rules = db.rule().getRules(fid);
+                        if (rules == null)
+                            return null;
 
-                List<EntityRule> rules = db.rule().getRules(fid);
-                if (rules == null)
-                    return null;
+                        for (EntityRule rule : rules) {
+                            JSONObject jaction = new JSONObject(rule.action);
+                            int type = jaction.optInt("type", -1);
+                            long target = jaction.optLong("target", -1);
+                            if (type == TYPE_MOVE && target == junk.id)
+                                db.rule().deleteRule(rule.id);
+                        }
+                    }
 
-                for (EntityRule rule : rules) {
-                    JSONObject jaction = new JSONObject(rule.action);
-                    int type = jaction.optInt("type", -1);
-                    long target = jaction.optLong("target", -1);
-                    if (type == TYPE_MOVE && target == junk.id)
-                        db.rule().deleteRule(rule.id);
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
 
                 return null;
