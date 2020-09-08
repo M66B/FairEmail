@@ -747,7 +747,7 @@ public class EntityRule {
         JSONObject jaction = new JSONObject(action);
         if (jaction.optInt("type", -1) != TYPE_MOVE)
             return false;
-        if (jaction.optInt("target", -1) != junk.id)
+        if (jaction.optLong("target", -1) != junk.id)
             return false;
 
         return true;
