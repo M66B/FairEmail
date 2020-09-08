@@ -1238,8 +1238,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_auto_scroll">Automatické posúvanie</string>
     <string name="title_log_clear">Vymazať</string>
     <string name="title_rules_search_hint">Hľadať názov alebo podmienku</string>
-    <string name="title_rules_clear">Vymazať pravidlá nevyžiadanej pošty</string>
-    <string name="title_rules_clear_confirm">Vymazať všetky pravidlá, ktoré premiestňujú správy do priečinka spam?</string>
+    <string name="title_rules_export">Exportovať pravidlá</string>
+    <string name="title_rules_import">Importovať pravidlá</string>
+    <string name="title_rules_delete_all">Vymazať všetky pravidlá</string>
+    <string name="title_rules_delete_junk">Vymazať pravidlá nevyžiadanej pošty</string>
+    <string name="title_rules_delete_all_confirm">Vymazať všetky pravidlá?</string>
+    <string name="title_rules_delete_junk_confirm">Vymazať všetky pravidlá, ktoré premiestňujú správy do priečinka s nevyžiadanou poštou?</string>
     <string name="title_debug_info">Ladiace informácie</string>
     <string name="title_debug_info_remark">Prosím popíšte problém a uveďte čas výskytu:</string>
     <string name="title_crash_info_remark">Prosím vysvetlite, čo ste robili pred pádom aplikácie:</string>

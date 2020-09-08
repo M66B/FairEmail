@@ -1243,8 +1243,12 @@
     <string name="title_auto_scroll">Автопрокрутка</string>
     <string name="title_log_clear">Очистить</string>
     <string name="title_rules_search_hint">Поиск имени или условия</string>
-    <string name="title_rules_clear">Очистить правила спама</string>
-    <string name="title_rules_clear_confirm">Удалить все правила, согласно которым сообщения перемещаются в папку спама?</string>
+    <string name="title_rules_export">Экспорт правил</string>
+    <string name="title_rules_import">Импорт правил</string>
+    <string name="title_rules_delete_all">Удалить все правила</string>
+    <string name="title_rules_delete_junk">Удалить правила спама</string>
+    <string name="title_rules_delete_all_confirm">Удалить все правила?</string>
+    <string name="title_rules_delete_junk_confirm">Удалить все правила, перемещающие сообщения в папку спама?</string>
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>

@@ -1219,8 +1219,12 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_auto_scroll">Automatisches Blättern</string>
     <string name="title_log_clear">Protokoll leeren</string>
     <string name="title_rules_search_hint">Nach Name oder Bedingung suchen</string>
-    <string name="title_rules_clear">Spam-Regeln löschen</string>
-    <string name="title_rules_clear_confirm">Alle Regeln löschen, die Nachrichten in den Spam-Ordner verschieben?</string>
+    <string name="title_rules_export">Regeln exportieren</string>
+    <string name="title_rules_import">Regeln importieren</string>
+    <string name="title_rules_delete_all">Alle Regeln löschen</string>
+    <string name="title_rules_delete_junk">Spam-Regeln löschen</string>
+    <string name="title_rules_delete_all_confirm">Alle Regeln löschen?</string>
+    <string name="title_rules_delete_junk_confirm">Alle Regeln löschen, die Nachrichten in den Spam-Ordner verschieben?</string>
     <string name="title_debug_info">Fehlersuchinformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>

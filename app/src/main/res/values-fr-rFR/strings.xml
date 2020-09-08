@@ -1221,8 +1221,12 @@
     <string name="title_auto_scroll">Défilement automatique</string>
     <string name="title_log_clear">Effacer</string>
     <string name="title_rules_search_hint">Rechercher un nom ou une condition</string>
-    <string name="title_rules_clear">Effacer les règles de spam</string>
-    <string name="title_rules_clear_confirm">Supprimer toutes les règles qui déplacent les messages dans le dossier spam ?</string>
+    <string name="title_rules_export">Exporter les règles</string>
+    <string name="title_rules_import">Importer les règles</string>
+    <string name="title_rules_delete_all">Supprimer toutes les règles</string>
+    <string name="title_rules_delete_junk">Supprimer les règles de spam</string>
+    <string name="title_rules_delete_all_confirm">Supprimer toutes les règles ?</string>
+    <string name="title_rules_delete_junk_confirm">Supprimer toutes les règles qui déplacent les messages dans le dossier spam ?</string>
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>

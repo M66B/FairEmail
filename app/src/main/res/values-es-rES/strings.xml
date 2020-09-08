@@ -1222,8 +1222,12 @@
     <string name="title_auto_scroll">Desplazamiento automático</string>
     <string name="title_log_clear">Limpiar</string>
     <string name="title_rules_search_hint">Buscar nombre o condición</string>
-    <string name="title_rules_clear">Borrar reglas de spam</string>
-    <string name="title_rules_clear_confirm">¿Borrar todas las reglas que mueven mensajes a la carpeta de spam?</string>
+    <string name="title_rules_export">Exportar reglas</string>
+    <string name="title_rules_import">Importar reglas</string>
+    <string name="title_rules_delete_all">Eliminar todas las reglas</string>
+    <string name="title_rules_delete_junk">Eliminar reglas de spam</string>
+    <string name="title_rules_delete_all_confirm">¿Eliminar todas las reglas?</string>
+    <string name="title_rules_delete_junk_confirm">¿Elimiar todas las reglas que mueven mensajes a la carpeta de spam?</string>
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>

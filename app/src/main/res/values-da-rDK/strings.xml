@@ -1221,8 +1221,6 @@
     <string name="title_auto_scroll">Auto-rulning</string>
     <string name="title_log_clear">Ryd</string>
     <string name="title_rules_search_hint">Søg efter navn eller betingelse</string>
-    <string name="title_rules_clear">Ryd spamregler</string>
-    <string name="title_rules_clear_confirm">Slet alle regler for flytning af beskeder til spam-mappen?</string>
     <string name="title_debug_info">Fejlretningsinfo</string>
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>

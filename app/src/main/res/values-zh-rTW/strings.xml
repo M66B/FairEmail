@@ -1200,8 +1200,6 @@
     <string name="title_auto_scroll">自動滾動</string>
     <string name="title_log_clear">清除</string>
     <string name="title_rules_search_hint">搜索名稱或條件</string>
-    <string name="title_rules_clear">清除垃圾郵件規則</string>
-    <string name="title_rules_clear_confirm">刪除所有將郵件移動到垃圾郵件文件夾的規則？</string>
     <string name="title_debug_info">除錯資訊</string>
     <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>

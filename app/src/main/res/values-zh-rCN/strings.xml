@@ -1208,8 +1208,6 @@
     <string name="title_auto_scroll">自动滚动</string>
     <string name="title_log_clear">清除</string>
     <string name="title_rules_search_hint">搜索名称或条件</string>
-    <string name="title_rules_clear">清除垃圾邮件规则</string>
-    <string name="title_rules_clear_confirm">要删除所有将邮件移动到垃圾文件夹的规则吗?</string>
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>

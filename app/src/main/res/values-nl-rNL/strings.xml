@@ -1219,8 +1219,12 @@
     <string name="title_auto_scroll">Automatisch scrollen</string>
     <string name="title_log_clear">Wissen</string>
     <string name="title_rules_search_hint">Zoek naam of voorwaarde</string>
-    <string name="title_rules_clear">Spamregels wissen</string>
-    <string name="title_rules_clear_confirm">Alle regels die berichten verplaatsen naar de spam-map verwijderen?</string>
+    <string name="title_rules_export">Exporteer regels</string>
+    <string name="title_rules_import">Importeer regels</string>
+    <string name="title_rules_delete_all">Verwijder alle regels</string>
+    <string name="title_rules_delete_junk">Verwijder spam-regels</string>
+    <string name="title_rules_delete_all_confirm">Alle regels verwijderen?</string>
+    <string name="title_rules_delete_junk_confirm">Alle regels die berichten verplaatsen naar de spam-map verwijderen?</string>
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
