@@ -9,7 +9,12 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
-        android:id="@+id/menu_clear_spam"
-        android:title="@string/title_rules_clear"
+        android:id="@+id/menu_delete_all"
+        android:title="@string/title_rules_delete_all"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_delete_junk"
+        android:title="@string/title_rules_delete_junk"
         app:showAsAction="never" />
 </menu>

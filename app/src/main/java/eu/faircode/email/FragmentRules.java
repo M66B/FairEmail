@@ -229,25 +229,30 @@ public class FragmentRules extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_clear_spam).setVisible(!EntityFolder.JUNK.equals(type));
+        menu.findItem(R.id.menu_delete_junk).setVisible(!EntityFolder.JUNK.equals(type));
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_clear_spam:
-                onMenuClearSpam();
+            case R.id.menu_delete_all:
+                onMenuDelete(true);
                 return true;
-
+            case R.id.menu_delete_junk:
+                onMenuDelete(false);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuClearSpam() {
+    private void onMenuDelete(boolean all) {
         Bundle aargs = new Bundle();
-        aargs.putString("question", getString(R.string.title_rules_clear_confirm));
+        aargs.putString("question", getString(all
+                ? R.string.title_rules_delete_all_confirm
+                : R.string.title_rules_delete_junk_confirm));
         aargs.putLong("folder", folder);
+        aargs.putBoolean("all", all);
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
@@ -279,8 +284,15 @@ public class FragmentRules extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long fid = args.getLong("folder");
+                boolean all = args.getBoolean("all");
 
                 DB db = DB.getInstance(context);
+
+                if (all) {
+                    db.rule().deleteRules(fid);
+                    return null;
+                }
+
                 EntityFolder folder = db.folder().getFolder(fid);
                 if (folder == null)
                     return null;
@@ -295,8 +307,9 @@ public class FragmentRules extends FragmentBase {
 
                 for (EntityRule rule : rules) {
                     JSONObject jaction = new JSONObject(rule.action);
-                    if (jaction.optInt("type", -1) == TYPE_MOVE &&
-                            jaction.optInt("target", -1) == junk.id)
+                    int type = jaction.optInt("type", -1);
+                    long target = jaction.optLong("target", -1);
+                    if (type == TYPE_MOVE && target == junk.id)
                         db.rule().deleteRule(rule.id);
                 }
 

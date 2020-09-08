@@ -73,4 +73,7 @@ public interface DaoRule {
 
     @Query("DELETE FROM rule WHERE id = :id")
     void deleteRule(long id);
+
+    @Query("DELETE FROM rule WHERE folder = :folder")
+    void deleteRules(long folder);
 }
