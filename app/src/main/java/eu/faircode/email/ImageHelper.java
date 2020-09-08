@@ -270,7 +270,7 @@ class ImageHelper {
                     int scaleToPixels = res.getDisplayMetrics().widthPixels;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                         try {
-                            Drawable d = getScaledDrawable(attachment.getFile(context), scaleToPixels);
+                            Drawable d = getScaledDrawable(context, attachment.getFile(context), scaleToPixels);
                             if (view != null)
                                 fitDrawable(d, a, scale, view);
                             return d;
@@ -556,7 +556,7 @@ class ImageHelper {
             DisplayMetrics dm = context.getResources().getDisplayMetrics();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                return getScaledDrawable(file, dm.widthPixels);
+                return getScaledDrawable(context, file, dm.widthPixels);
 
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (bm != null) {
@@ -629,7 +629,7 @@ class ImageHelper {
                 try (FileOutputStream fos = new FileOutputStream(file)) {
                     Helper.copy(urlConnection.getInputStream(), fos);
                 }
-                return getScaledDrawable(file, dm.widthPixels);
+                return getScaledDrawable(context, file, dm.widthPixels);
             }
 
             bm = getScaledBitmap(
@@ -659,21 +659,39 @@ class ImageHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
-    static Drawable getScaledDrawable(File file, int scaleToPixels) throws IOException {
-        ImageDecoder.Source isource = ImageDecoder.createSource(file);
-        Drawable d = ImageDecoder.decodeDrawable(isource, new ImageDecoder.OnHeaderDecodedListener() {
-            @Override
-            public void onHeaderDecoded(
-                    @NonNull ImageDecoder decoder,
-                    @NonNull ImageDecoder.ImageInfo info,
-                    @NonNull ImageDecoder.Source source) {
-                int factor = 1;
-                while (info.getSize().getWidth() / factor > scaleToPixels)
-                    factor *= 2;
+    static Drawable getScaledDrawable(Context context, File file, int scaleToPixels) throws IOException {
+        Drawable d;
 
-                decoder.setTargetSampleSize(factor);
-            }
-        });
+        try {
+            ImageDecoder.Source isource = ImageDecoder.createSource(file);
+            d = ImageDecoder.decodeDrawable(isource, new ImageDecoder.OnHeaderDecodedListener() {
+                @Override
+                public void onHeaderDecoded(
+                        @NonNull ImageDecoder decoder,
+                        @NonNull ImageDecoder.ImageInfo info,
+                        @NonNull ImageDecoder.Source source) {
+                    int factor = 1;
+                    while (info.getSize().getWidth() / factor > scaleToPixels)
+                        factor *= 2;
+
+                    decoder.setTargetSampleSize(factor);
+                }
+            });
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                Samsung:
+                android.graphics.ImageDecoder$DecodeException: Failed to create image decoder with message 'unimplemented'Input contained an error.
+                        at android.graphics.ImageDecoder.nCreate(ImageDecoder.java:-2)
+                        at android.graphics.ImageDecoder.createFromFile(ImageDecoder.java:311)
+                        at android.graphics.ImageDecoder.access$600(ImageDecoder.java:173)
+                        at android.graphics.ImageDecoder$FileSource.createImageDecoder(ImageDecoder.java:543)
+                        at android.graphics.ImageDecoder.decodeDrawableImpl(ImageDecoder.java:1758)
+                        at android.graphics.ImageDecoder.decodeDrawable(ImageDecoder.java:1751)
+             */
+            d = new BitmapDrawable(context.getResources(), file.getAbsolutePath());
+        }
+
         d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
         return d;
     }
