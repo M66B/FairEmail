@@ -229,14 +229,14 @@ public class FragmentRules extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_clear).setVisible(!EntityFolder.JUNK.equals(type));
+        menu.findItem(R.id.menu_clear_spam).setVisible(!EntityFolder.JUNK.equals(type));
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_clear:
-                onMenuClear();
+            case R.id.menu_clear_spam:
+                onMenuClearSpam();
                 return true;
 
             default:
@@ -244,7 +244,7 @@ public class FragmentRules extends FragmentBase {
         }
     }
 
-    private void onMenuClear() {
+    private void onMenuClearSpam() {
         Bundle aargs = new Bundle();
         aargs.putString("question", getString(R.string.title_rules_clear_confirm));
         aargs.putLong("folder", folder);
