@@ -295,7 +295,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         if (criteria.query != null && criteria.query.startsWith("raw:"))
                             new SimpleTask<EntityFolder>() {
                                 @Override
-                                protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                                protected EntityFolder onExecute(Context context, Bundle args) {
                                     long aid = args.getLong("account", -1);
 
                                     DB db = DB.getInstance(context);
@@ -334,6 +334,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getViewLifecycleOwner(), getArguments(), "search:raw");
+                        else if (criteria.isExpression() && folder > 0)
+                            FragmentMessages.search(
+                                    getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                    account, folder, true, criteria);
                         else
                             FragmentMessages.search(
                                     getContext(), getViewLifecycleOwner(), getParentFragmentManager(),

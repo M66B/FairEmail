@@ -42,6 +42,7 @@ import com.sun.mail.imap.protocol.SearchSequence;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.lang.reflect.Constructor;
 import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -66,6 +67,7 @@ import javax.mail.search.BodyTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
+import javax.mail.search.NotTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.RecipientStringTerm;
@@ -192,6 +194,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         DB db = DB.getInstance(context);
 
         int found = 0;
+        if (criteria.isExpression())
+            return found;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
@@ -677,6 +681,17 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     with_size != null);
         }
 
+        boolean isExpression() {
+            if (this.query == null)
+                return false;
+
+            for (String w : this.query.trim().split("\\s+"))
+                if (w.length() > 1 && "+-?".indexOf(w.charAt(0)) >= 0)
+                    return true;
+
+            return false;
+        }
+
         SearchTerm getTerms(boolean utf8, Flags flags, String[] keywords) {
             List<SearchTerm> or = new ArrayList<>();
             List<SearchTerm> and = new ArrayList<>();
@@ -687,6 +702,39 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     search = search.replace("ß", "ss"); // Eszett
                     search = Normalizer.normalize(search, Normalizer.Form.NFKD)
                             .replaceAll("[^\\p{ASCII}]", "");
+                }
+
+                List<String> word = new ArrayList<>();
+                List<String> plus = new ArrayList<>();
+                List<String> minus = new ArrayList<>();
+                List<String> opt = new ArrayList<>();
+                StringBuilder sb = new StringBuilder();
+                for (String w : search.trim().split("\\s+")) {
+                    if (sb.length() > 0)
+                        sb.append(' ');
+
+                    if (w.length() > 1 && w.startsWith("+")) {
+                        plus.add(w.substring(1));
+                        sb.append(w.substring(1));
+                    } else if (w.length() > 1 && w.startsWith("-")) {
+                        minus.add(w.substring(1));
+                        sb.append(w.substring(1));
+                    } else if (w.length() > 1 && w.startsWith("?")) {
+                        opt.add(w.substring(1));
+                        sb.append(w.substring(1));
+                    } else {
+                        word.add(w);
+                        sb.append(w);
+                    }
+                }
+
+                if (plus.size() + minus.size() + opt.size() > 0) {
+                    search = sb.toString();
+                    Log.i("SEARCH word=" + TextUtils.join(",", word));
+                    Log.i("SEARCH plus=" + TextUtils.join(",", plus));
+                    Log.i("SEARCH minus=" + TextUtils.join(",", minus));
+                    Log.i("SEARCH opt=" + TextUtils.join(",", opt));
+                    Log.i("SEARCH full=" + search);
                 }
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -704,12 +752,31 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     or.add(new RecipientStringTerm(Message.RecipientType.CC, search));
                     or.add(new RecipientStringTerm(Message.RecipientType.BCC, search));
                 }
+
                 if (in_subject)
-                    or.add(new SubjectTerm(search));
+                    if (plus.size() + minus.size() + opt.size() == 0)
+                        or.add(new SubjectTerm(search));
+                    else
+                        try {
+                            or.add(construct(word, plus, minus, opt, SubjectTerm.class));
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            or.add(new SubjectTerm(search));
+                        }
+
                 if (in_keywords && hasKeywords)
                     or.add(new FlagTerm(new Flags(MessageHelper.sanitizeKeyword(search)), true));
+
                 if (in_message)
-                    or.add(new BodyTerm(search));
+                    if (plus.size() + minus.size() + opt.size() == 0)
+                        or.add(new BodyTerm(search));
+                    else
+                        try {
+                            or.add(construct(word, plus, minus, opt, BodyTerm.class));
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            or.add(new BodyTerm(search));
+                        }
             }
 
             if (with_unseen && flags.contains(Flags.Flag.SEEN))
@@ -735,6 +802,39 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     term = new AndTerm(and.toArray(new SearchTerm[0]));
                 else
                     term = new AndTerm(term, new AndTerm(and.toArray(new SearchTerm[0])));
+
+            return term;
+        }
+
+        private SearchTerm construct(
+                List<String> word,
+                List<String> plus,
+                List<String> minus,
+                List<String> opt,
+                Class<?> clazz) throws ReflectiveOperationException {
+            SearchTerm term = null;
+            Constructor<?> ctor = clazz.getConstructor(String.class);
+
+            if (word.size() > 0)
+                term = (SearchTerm) ctor.newInstance(TextUtils.join(" ", word));
+
+            for (String p : plus)
+                if (term == null)
+                    term = (SearchTerm) ctor.newInstance(p);
+                else
+                    term = new AndTerm(term, (SearchTerm) ctor.newInstance(p));
+
+            for (String m : minus)
+                if (term == null)
+                    term = new NotTerm((SearchTerm) ctor.newInstance(m));
+                else
+                    term = new AndTerm(term, new NotTerm((SearchTerm) ctor.newInstance(m)));
+
+            for (String o : opt)
+                if (term == null)
+                    term = (SearchTerm) ctor.newInstance(o);
+                else
+                    term = new OrTerm(term, (SearchTerm) ctor.newInstance(o));
 
             return term;
         }
