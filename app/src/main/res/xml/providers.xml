@@ -920,6 +920,7 @@
     </provider>
     <provider
         name="OnMail"
+        enabled="false"
         link="https://support.onmail.com/hc/en-us/articles/360048987651-Connecting-My-Custom-Domain-to-Edison-Mail">
         <imap
             host="imap.onmail.com"

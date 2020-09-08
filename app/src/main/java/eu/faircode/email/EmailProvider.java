@@ -53,6 +53,7 @@ import java.util.concurrent.Future;
 public class EmailProvider {
     public String id;
     public String name;
+    public boolean enabled;
     public List<String> domain;
     public int order;
     public String type;
@@ -130,6 +131,7 @@ public class EmailProvider {
                         provider = new EmailProvider();
                         provider.id = xml.getAttributeValue(null, "id");
                         provider.name = xml.getAttributeValue(null, "name");
+                        provider.enabled = xml.getAttributeBooleanValue(null, "enabled", true);
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
                             provider.domain = Arrays.asList(domain.split(","));
@@ -167,7 +169,7 @@ public class EmailProvider {
                     } else
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
-                    if ("provider".equals(xml.getName())) {
+                    if ("provider".equals(xml.getName()) && provider.enabled) {
                         result.add(provider);
                         provider = null;
                     }
