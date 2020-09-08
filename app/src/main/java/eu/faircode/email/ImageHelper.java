@@ -493,8 +493,8 @@ class ImageHelper {
         }
 
         Rect bounds = d.getBounds();
-        int w = Math.round(bounds.width() * scale);
-        int h = Math.round(bounds.height() * scale);
+        int w = Math.round(Helper.dp2pixels(view.getContext(), bounds.width()) * scale);
+        int h = Math.round(Helper.dp2pixels(view.getContext(), bounds.height()) * scale);
 
         if (a.width == 0 && a.height != 0)
             a.width = Math.round(a.height * w / (float) h);
