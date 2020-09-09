@@ -194,8 +194,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         DB db = DB.getInstance(context);
 
         int found = 0;
-        if (criteria.isExpression())
-            return found;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
@@ -226,6 +224,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
             return found;
         }
+
+        if (criteria.isExpression())
+            return found;
 
         try {
             db.beginTransaction();
@@ -708,34 +709,28 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 List<String> plus = new ArrayList<>();
                 List<String> minus = new ArrayList<>();
                 List<String> opt = new ArrayList<>();
-                StringBuilder sb = new StringBuilder();
+                StringBuilder all = new StringBuilder();
                 for (String w : search.trim().split("\\s+")) {
-                    if (sb.length() > 0)
-                        sb.append(' ');
+                    if (all.length() > 0)
+                        all.append(' ');
 
                     if (w.length() > 1 && w.startsWith("+")) {
                         plus.add(w.substring(1));
-                        sb.append(w.substring(1));
+                        all.append(w.substring(1));
                     } else if (w.length() > 1 && w.startsWith("-")) {
                         minus.add(w.substring(1));
-                        sb.append(w.substring(1));
+                        all.append(w.substring(1));
                     } else if (w.length() > 1 && w.startsWith("?")) {
                         opt.add(w.substring(1));
-                        sb.append(w.substring(1));
+                        all.append(w.substring(1));
                     } else {
                         word.add(w);
-                        sb.append(w);
+                        all.append(w);
                     }
                 }
 
-                if (plus.size() + minus.size() + opt.size() > 0) {
-                    search = sb.toString();
-                    Log.i("SEARCH word=" + TextUtils.join(",", word));
-                    Log.i("SEARCH plus=" + TextUtils.join(",", plus));
-                    Log.i("SEARCH minus=" + TextUtils.join(",", minus));
-                    Log.i("SEARCH opt=" + TextUtils.join(",", opt));
-                    Log.i("SEARCH full=" + search);
-                }
+                if (plus.size() + minus.size() + opt.size() > 0)
+                    search = all.toString();
 
                 // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
                 boolean hasKeywords = false;

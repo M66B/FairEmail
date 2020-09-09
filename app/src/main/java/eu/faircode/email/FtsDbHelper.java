@@ -111,29 +111,61 @@ public class FtsDbHelper extends SQLiteOpenHelper {
             SQLiteDatabase db,
             Long account, Long folder,
             BoundaryCallbackMessages.SearchCriteria criteria) {
-        StringBuilder sb = new StringBuilder();
-        for (String or : criteria.query.split(",")) {
-            if (sb.length() > 0)
-                sb.append(" OR ");
 
-            boolean first = true;
-            sb.append("(");
-            for (String and : or.trim().split("\\s+")) {
-                if (first)
-                    first = false;
-                else
-                    sb.append(" AND ");
+        List<String> word = new ArrayList<>();
+        List<String> plus = new ArrayList<>();
+        List<String> minus = new ArrayList<>();
+        List<String> opt = new ArrayList<>();
+        StringBuilder all = new StringBuilder();
+        for (String w : criteria.query.trim().split("\\s+")) {
+            if (all.length() > 0)
+                all.append(' ');
 
-                // Escape quotes
-                String term = and.replaceAll("\"", "\"\"");
-
-                // Quote search term
-                sb.append("\"").append(term).append("\"");
+            if (w.length() > 1 && w.startsWith("+")) {
+                plus.add(w.substring(1));
+                all.append(w.substring(1));
+            } else if (w.length() > 1 && w.startsWith("-")) {
+                minus.add(w.substring(1));
+                all.append(w.substring(1));
+            } else if (w.length() > 1 && w.startsWith("?")) {
+                opt.add(w.substring(1));
+                all.append(w.substring(1));
+            } else {
+                word.add(w);
+                all.append(w);
             }
-            sb.append(")");
         }
 
-        String search = sb.toString();
+        StringBuilder sb = new StringBuilder();
+        if (plus.size() + minus.size() + opt.size() > 0) {
+            if (word.size() > 0)
+                sb.append(escape(TextUtils.join(" ", word)));
+
+            for (String p : plus) {
+                if (sb.length() > 0)
+                    sb.append(" AND ");
+                sb.append(escape(p));
+            }
+
+            for (String m : minus) {
+                if (sb.length() > 0)
+                    sb.append(" NOT ");
+                sb.append(escape(m));
+            }
+
+            if (sb.length() > 0) {
+                sb.insert(0, '(');
+                sb.append(')');
+            }
+
+            for (String o : opt) {
+                if (sb.length() > 0)
+                    sb.append(" OR ");
+                sb.append(escape(o));
+            }
+        }
+
+        String search = (sb.length() > 0 ? sb.toString() : escape(criteria.query));
 
         String select = "";
         if (account != null)
@@ -157,6 +189,10 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         }
         Log.i("FTS result=" + result.size());
         return result;
+    }
+
+    private static String escape(String word) {
+        return "\"" + word.replaceAll("\"", "\"\"") + "\"";
     }
 
     static Cursor getIds(SQLiteDatabase db) {

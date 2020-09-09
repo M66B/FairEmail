@@ -334,10 +334,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getViewLifecycleOwner(), getArguments(), "search:raw");
-                        else if (criteria.isExpression() && folder > 0)
-                            FragmentMessages.search(
-                                    getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                    account, folder, true, criteria);
                         else
                             FragmentMessages.search(
                                     getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
