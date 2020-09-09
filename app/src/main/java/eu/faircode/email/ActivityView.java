@@ -1037,9 +1037,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 onViewThread(intent);
 
             } else if (action.equals("widget")) {
-                long account = intent.getLongExtra("account", -1);
-                long folder = intent.getLongExtra("folder", -1);
-                String type = intent.getStringExtra("type");
+                long account = intent.getLongExtra("widget_account", -1);
+                long folder = intent.getLongExtra("widget_folder", -1);
+                String type = intent.getStringExtra("widget_type");
                 if (account > 0 && folder > 0 && !TextUtils.isEmpty(type)) {
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
