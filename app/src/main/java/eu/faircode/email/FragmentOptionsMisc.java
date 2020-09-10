@@ -170,13 +170,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                PackageManager pm = getContext().getPackageManager();
-                pm.setComponentEnabledSetting(
-                        new ComponentName(getContext(), ActivitySearch.class),
-                        checked
-                                ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
-                                : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                        PackageManager.DONT_KILL_APP);
+                Helper.enableComponent(getContext(), ActivitySearch.class, checked);
             }
         });
 

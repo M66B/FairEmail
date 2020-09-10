@@ -455,6 +455,20 @@ public class Helper {
         return (ris != null && ris.size() > 0);
     }
 
+    static void enableComponent(Context context, Class<?> clazz, boolean wether) {
+        enableComponent(context, clazz.getName(), wether);
+    }
+
+    static void enableComponent(Context context, String name, boolean wether) {
+        PackageManager pm = context.getPackageManager();
+        pm.setComponentEnabledSetting(
+                new ComponentName(context, name),
+                wether
+                        ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+
     // View
 
     static Intent getChooser(Context context, Intent intent) {
