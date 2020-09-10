@@ -225,9 +225,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             return found;
         }
 
-        if (criteria.isExpression())
-            return found;
-
         try {
             db.beginTransaction();
 
