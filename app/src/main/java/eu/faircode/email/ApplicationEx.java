@@ -25,10 +25,12 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
@@ -103,14 +105,13 @@ public class ApplicationEx extends Application {
             }
         });
 
-        Helper.enableComponent(this, ActivityMain.class, !BuildConfig.DEBUG);
-        Helper.enableComponent(this, ActivityMain.class.getName() + ".Debug", BuildConfig.DEBUG);
-
         Log.setup(this);
 
         upgrade(this);
 
         createNotificationChannels();
+
+        setLauncherIcon(this);
 
         DB.setupViewInvalidation(this);
 
@@ -395,6 +396,69 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_group_contacts));
             nm.createNotificationChannelGroup(group);
         }
+    }
+
+    static void setLauncherIcon(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = prefs.getString("theme", "light");
+        boolean theme_icon = prefs.getBoolean("theme_icon", false);
+
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Blue", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Amber", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Yellow", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Purple", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Red", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Green", false);
+        Helper.enableComponent(context, ActivityMain.class.getName() + ".Debug", false);
+
+        if (!theme_icon) {
+            Helper.enableComponent(context, ActivityMain.class.getName() + ".Blue", true);
+            return;
+        }
+
+        switch (theme) {
+            case "orange_blue_light":
+            case "orange_blue_dark":
+            case "orange_blue_black":
+            case "orange_blue_system":
+                Helper.enableComponent(context, ActivityMain.class.getName() + ".Amber", true);
+                break;
+
+            case "yellow_purple_light":
+            case "yellow_purple_dark":
+            case "yellow_purple_black":
+            case "yellow_purple_system":
+                Helper.enableComponent(context, ActivityMain.class.getName() + ".Yellow", true);
+                break;
+
+            case "purple_yellow_light":
+            case "purple_yellow_dark":
+            case "purple_yellow_black":
+            case "purple_yellow_system":
+                Helper.enableComponent(context, ActivityMain.class.getName() + ".Purple", true);
+                break;
+
+            case "red_green_light":
+            case "red_green_dark":
+            case "red_green_black":
+            case "red_green_system":
+                Helper.enableComponent(context, ActivityMain.class.getName() + ".Red", true);
+                break;
+
+            case "green_red_light":
+            case "green_red_dark":
+            case "green_red_black":
+            case "green_red_system":
+                Helper.enableComponent(context, ActivityMain.class.getName() + ".Green", true);
+                break;
+
+            default:
+                Helper.enableComponent(context, ActivityMain.class.getName(), true);
+                break;
+        }
+
+        if (BuildConfig.DEBUG && false)
+            Helper.enableComponent(context, ActivityMain.class.getName() + ".Debug", BuildConfig.DEBUG);
     }
 
     private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
