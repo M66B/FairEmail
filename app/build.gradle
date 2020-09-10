@@ -88,21 +88,15 @@ android {
         exclude 'META-INF/LICENSE.commercial.txt'
     }
 
+    // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
     signingConfigs {
         release {
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-        }
-        v1 {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
             v1SigningEnabled true
-            v2SigningEnabled false
-            v2SigningEnabled false
+            v2SigningEnabled true
         }
     }
 
