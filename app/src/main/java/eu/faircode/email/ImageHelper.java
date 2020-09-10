@@ -544,7 +544,7 @@ class ImageHelper {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
-    private static Drawable getCachedImage(Context context, long id, String source) throws IOException {
+    private static Drawable getCachedImage(Context context, long id, String source) {
         if (id < 0)
             return null;
 
@@ -557,7 +557,12 @@ class ImageHelper {
             DisplayMetrics dm = context.getResources().getDisplayMetrics();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                return getScaledDrawable(context, file, dm.widthPixels);
+                try {
+                    return getScaledDrawable(context, file, dm.widthPixels);
+                } catch (IOException ex) {
+                    Log.i(ex);
+                    return null;
+                }
 
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (bm != null) {
@@ -660,7 +665,7 @@ class ImageHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
-    static Drawable getScaledDrawable(Context context, File file, int scaleToPixels) {
+    static Drawable getScaledDrawable(Context context, File file, int scaleToPixels) throws IOException {
         Drawable d;
 
         try {
@@ -680,6 +685,8 @@ class ImageHelper {
             });
         } catch (Throwable ex) {
             Log.i(ex);
+            if (ex instanceof IOException)
+                throw ex;
             /*
                 Samsung:
                 android.graphics.ImageDecoder$DecodeException: Failed to create image decoder with message 'unimplemented'Input contained an error.
