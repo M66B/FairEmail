@@ -1630,6 +1630,7 @@ public class HtmlHelper {
         return preview + "…";
     }
 
+    @NonNull
     static String getText(Context context, String html) {
         final StringBuilder sb = new StringBuilder();
 

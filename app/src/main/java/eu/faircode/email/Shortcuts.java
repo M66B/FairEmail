@@ -36,14 +36,13 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.Person;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -118,7 +117,7 @@ class Shortcuts {
         }.execute(context, owner, new Bundle(), "shortcuts:update");
     }
 
-    @NotNull
+    @NonNull
     static ShortcutInfoCompat.Builder getShortcut(Context context, InternetAddress address) {
         String name = address.getPersonal();
         String email = address.getAddress();
@@ -154,17 +153,17 @@ class Shortcuts {
         return getShortcut(context, email, name, lookupUri);
     }
 
-    @NotNull
+    @NonNull
     static ShortcutInfoCompat.Builder getShortcut(Context context, EntityContact contact) {
         return getShortcut(context, contact.email, contact.name, contact.avatar);
     }
 
-    @NotNull
+    @NonNull
     private static ShortcutInfoCompat.Builder getShortcut(Context context, String email, String name, String avatar) {
         return getShortcut(context, email, name, avatar == null ? null : Uri.parse(avatar));
     }
 
-    @NotNull
+    @NonNull
     private static ShortcutInfoCompat.Builder getShortcut(Context context, String email, String name, Uri avatar) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean identicons = prefs.getBoolean("identicons", false);
