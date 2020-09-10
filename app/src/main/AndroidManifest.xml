@@ -118,7 +118,6 @@
 
         <activity
             android:name=".ActivityMain"
-            android:enabled="true"
             android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
@@ -143,24 +142,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity-alias
-            android:name=".ActivityMain.Debug"
-            android:enabled="true"
-            android:icon="@mipmap/ic_launcher_debug"
-            android:roundIcon="@mipmap/ic_launcher_debug_round"
-            android:targetActivity=".ActivityMain">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="${applicationId}.REFRESH" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity-alias>
 
         <activity
             android:name=".ActivitySetup"

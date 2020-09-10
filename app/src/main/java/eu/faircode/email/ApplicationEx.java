@@ -103,9 +103,6 @@ public class ApplicationEx extends Application {
             }
         });
 
-        Helper.enableComponent(this, ActivityMain.class, !BuildConfig.DEBUG);
-        Helper.enableComponent(this, ActivityMain.class.getName() + ".Debug", BuildConfig.DEBUG);
-
         Log.setup(this);
 
         upgrade(this);
