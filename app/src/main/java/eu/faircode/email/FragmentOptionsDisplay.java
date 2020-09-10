@@ -947,7 +947,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         private SwitchCompat swBlack;
         private SwitchCompat swSystem;
         private TextView tvSystem;
-        private SwitchCompat swLauncherIcon;
 
         private void eval() {
             int checkedId = rgTheme.getCheckedRadioButtonId();
@@ -975,11 +974,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swBlack = dview.findViewById(R.id.swBlack);
             swSystem = dview.findViewById(R.id.swSystem);
             tvSystem = dview.findViewById(R.id.tvSystem);
-            swLauncherIcon = dview.findViewById(R.id.swLauncherIcon);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
-            boolean theme_icon = prefs.getBoolean("theme_icon", false);
 
             itten.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1036,7 +1033,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swDark.setChecked(dark || black);
             swBlack.setChecked(black);
             swSystem.setChecked(system);
-            swLauncherIcon.setChecked(theme_icon);
 
             switch (theme) {
                 case "light":
@@ -1100,8 +1096,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             boolean black = (swBlack.isEnabled() && swBlack.isChecked());
                             boolean system = (swSystem.isEnabled() && swSystem.isChecked());
 
-                            prefs.edit().putBoolean("theme_icon", swLauncherIcon.isChecked()).apply();
-
                             switch (rgTheme.getCheckedRadioButtonId()) {
                                 case R.id.rbThemeBlueOrange:
                                     if (system)
@@ -1144,8 +1138,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                                     prefs.edit().putString("theme", "black_and_white").apply();
                                     break;
                             }
-
-                            ApplicationEx.setLauncherIcon(getContext());
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

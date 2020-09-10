@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_launcher_grey" />
+            app:srcCompat="@mipmap/ic_launcher" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaption"
