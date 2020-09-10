@@ -660,7 +660,7 @@ class ImageHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
-    static Drawable getScaledDrawable(Context context, File file, int scaleToPixels) throws IOException {
+    static Drawable getScaledDrawable(Context context, File file, int scaleToPixels) {
         Drawable d;
 
         try {
@@ -679,7 +679,7 @@ class ImageHelper {
                 }
             });
         } catch (Throwable ex) {
-            Log.w(ex);
+            Log.i(ex);
             /*
                 Samsung:
                 android.graphics.ImageDecoder$DecodeException: Failed to create image decoder with message 'unimplemented'Input contained an error.
