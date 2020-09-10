@@ -373,7 +373,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     return;
 
                 TupleFolderEx folder = items.get(pos);
-                if (folder.tbd != null)
+                if (folder.tbd != null || !folder.selectable)
                     return;
 
                 switch (view.getId()) {
