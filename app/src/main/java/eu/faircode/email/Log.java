@@ -44,6 +44,7 @@ import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
 import android.text.TextUtils;
 import android.view.Display;
+import android.view.InflateException;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -914,6 +915,23 @@ public class Log {
                   at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2741)
                   at android.widget.PopupWindow$PopupDecorView.dispatchTouchEvent(PopupWindow.java:2407)
                   at android.view.View.dispatchPointerEvent(View.java:12789)
+             */
+            return false;
+
+        if (ex instanceof InflateException)
+            /*
+                android.view.InflateException: Binary XML file line #7: Binary XML file line #7: Error inflating class <unknown>
+                Caused by: android.view.InflateException: Binary XML file line #7: Error inflating class <unknown>
+                Caused by: java.lang.reflect.InvocationTargetException
+                  at java.lang.reflect.Constructor.newInstance0(Native Method)
+                  at java.lang.reflect.Constructor.newInstance(Constructor.java:343)
+                  at android.view.LayoutInflater.createView(LayoutInflater.java:686)
+                  at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:829)
+                  at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:769)
+                  at android.view.LayoutInflater.rInflate(LayoutInflater.java:902)
+                  at android.view.LayoutInflater.rInflateChildren(LayoutInflater.java:863)
+                  at android.view.LayoutInflater.inflate(LayoutInflater.java:554)
+                  at android.view.LayoutInflater.inflate(LayoutInflater.java:461)
              */
             return false;
 
