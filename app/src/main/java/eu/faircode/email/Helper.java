@@ -455,15 +455,15 @@ public class Helper {
         return (ris != null && ris.size() > 0);
     }
 
-    static void enableComponent(Context context, Class<?> clazz, boolean wether) {
-        enableComponent(context, clazz.getName(), wether);
+    static void enableComponent(Context context, Class<?> clazz, boolean whether) {
+        enableComponent(context, clazz.getName(), whether);
     }
 
-    static void enableComponent(Context context, String name, boolean wether) {
+    static void enableComponent(Context context, String name, boolean whether) {
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(
                 new ComponentName(context, name),
-                wether
+                whether
                         ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
