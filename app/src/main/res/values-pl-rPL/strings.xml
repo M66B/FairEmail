@@ -1241,6 +1241,12 @@
     <string name="title_auto_scroll">Autoprzewijanie</string>
     <string name="title_log_clear">Wyczyść</string>
     <string name="title_rules_search_hint">Szukaj nazwy lub warunku</string>
+    <string name="title_rules_export">Eksportuj reguły</string>
+    <string name="title_rules_import">Importuj reguły</string>
+    <string name="title_rules_delete_all">Usuń wszystkie reguły</string>
+    <string name="title_rules_delete_junk">Usuń reguły folderu spam</string>
+    <string name="title_rules_delete_all_confirm">Usunąć wszystkie reguły?</string>
+    <string name="title_rules_delete_junk_confirm">Usunąć wszystkie reguły przenoszenia wiadomości do folderu spam?</string>
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>

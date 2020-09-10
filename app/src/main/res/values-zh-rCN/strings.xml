@@ -15,7 +15,7 @@
     <string name="channel_error">错误</string>
     <string name="channel_alert">服务器警告</string>
     <string name="channel_group_contacts">联系人</string>
-    <string name="channel_service_description">账户的同步和监测</string>
+    <string name="channel_service_description">账户的同步与监测</string>
     <string name="channel_send_description">消息的发送</string>
     <string name="channel_notification_description">新消息通知</string>
     <plurals name="page_conversation">
@@ -1208,6 +1208,12 @@
     <string name="title_auto_scroll">自动滚动</string>
     <string name="title_log_clear">清除</string>
     <string name="title_rules_search_hint">搜索名称或条件</string>
+    <string name="title_rules_export">导出规则</string>
+    <string name="title_rules_import">导入规则</string>
+    <string name="title_rules_delete_all">删除所有规则</string>
+    <string name="title_rules_delete_junk">删除垃圾邮件规则</string>
+    <string name="title_rules_delete_all_confirm">确定要删除所有规则吗？</string>
+    <string name="title_rules_delete_junk_confirm">确定要删除所有将邮件移动到垃圾文件夹的规则吗?</string>
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>

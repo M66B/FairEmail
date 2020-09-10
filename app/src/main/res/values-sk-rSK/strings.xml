@@ -590,7 +590,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_inbox">Priečinok doručenej pošty nebol nájdený</string>
     <string name="title_no_drafts">Žiadny priečinok s konceptmi</string>
     <string name="title_no_junk_folder">Tento účet nemá priradený spamový priečinok</string>
-    <string name="title_no_composable">Posielanie emailov vyžaduje nastavenú identitu a priradený priečinok konceptov pre daný účet</string>
+    <string name="title_no_composable">Posielanie emailov vyžaduje nastavenú totožnosť a priradený priečinok konceptov pre daný účet</string>
     <string name="title_no_standard">Tento poskytovateľ používa vlastný emailový protokol, a preto nie je možné použiť emailových klientov tretích strán</string>
     <string name="title_no_idle">Tento poskytovateľ nepodporuje push správy. To pozdrží prijímanie správ a zvýši spotrebu batérie.</string>
     <string name="title_no_utf8">Tento poskytovateľ nepodporuje UTF-8</string>
@@ -608,8 +608,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_pop_support">POP3 protokol podporuje len preberanie a odstraňovanie správ zo servera. POP3 nedokáže označovať správy za prečítané, presúvať ich a pod. POP3 má vyššiu spotrebu batérie a údajov. Zvážte preto použitie IMAP vždy, keď je to možné.</string>
     <string name="title_oauth_support">OAuth nie je podporovaný</string>
     <string name="title_review">Skontrolovať</string>
-    <string name="title_hint_alias">Kliknite a podržte identitu pre zobrazenie možností, akými sú napríklad kopírovať pre vytvorenie aliasov</string>
-    <string name="title_service_auth">Emailový server povedal: \'%1$s\'</string>
+    <string name="title_hint_alias">Kliknite a podržte totožnosť pre zobrazenie možností, akými sú napríklad kopírovať pre vytvorenie aliasov</string>
+    <string name="title_service_auth">Odpoveď z poštového servera: \'%1$s\'</string>
     <string name="title_service_vpn">Toto môže byť spôsobené použitou VPN</string>
     <string name="title_service_port">Prosím, dva krát skontrolujte nastavený port</string>
     <string name="title_service_protocol">Prosím, dva krát skontrolujte nastavený protokol (SSL/TLS alebo STARTTLS)</string>
@@ -668,7 +668,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_months_all">Všetky</string>
     <string name="title_folder_unified">Spoločná doručená pošta</string>
     <string name="title_folder_inbox">Doručená pošta</string>
-    <string name="title_folder_outbox">Odoslaná pošta</string>
+    <string name="title_folder_outbox">Pošta na odoslanie</string>
     <string name="title_folder_all">Archív</string>
     <string name="title_folder_drafts">Koncepty</string>
     <string name="title_folder_trash">Kôš</string>
@@ -723,7 +723,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_subscribe">Odoberať</string>
     <string name="title_delete">Odstrániť</string>
     <string name="title_more">Viac</string>
-    <string name="title_spam">Presunúť do spamu</string>
+    <string name="title_spam">Označiť za nevyžiadanú</string>
     <string name="title_move">Presunúť</string>
     <string name="title_copy_btn">Kopírovať</string>
     <string name="title_unsubscribe">Zrušiť odber</string>

@@ -1231,6 +1231,12 @@
     <string name="title_auto_scroll">Auto derulare</string>
     <string name="title_log_clear">Curăță</string>
     <string name="title_rules_search_hint">Căutare nume sau condiție</string>
+    <string name="title_rules_export">Exportă regulile</string>
+    <string name="title_rules_import">Importă regulile</string>
+    <string name="title_rules_delete_all">Șterge toate regulile</string>
+    <string name="title_rules_delete_junk">Ștergere reguli de spam</string>
+    <string name="title_rules_delete_all_confirm">Ștergeți toate regulile?</string>
+    <string name="title_rules_delete_junk_confirm">Ştergeţi toate regulile care mută mesajele în folderul spam?</string>
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>

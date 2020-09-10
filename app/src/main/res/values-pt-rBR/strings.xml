@@ -15,6 +15,9 @@
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contatos</string>
+    <string name="channel_service_description">Sincronização e monitoramento das contas</string>
+    <string name="channel_send_description">Envio de mensagens</string>
+    <string name="channel_notification_description">Notificações de novas mensagens</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
         <item quantity="other">Mensagens</item>
@@ -105,6 +108,7 @@
     <string name="menu_rate">Avalie este aplicativo</string>
     <string name="title_welcome">Bem-vindo(a)</string>
     <string name="title_eula">Contrato de Licença de Usuário Final</string>
+    <string name="title_contributors">Contribuintes</string>
     <string name="title_agree">Eu concordo</string>
     <string name="title_disagree">Eu discordo</string>
     <string name="title_version">Versão %1$s</string>
@@ -144,6 +148,7 @@
     <string name="title_setup_no_settings_hint">Tente criar uma conta e identidade nas etapas de configuração 1 e 2 utilizando as configurações fornecidas pelo seu fornecedor de e-mail</string>
     <string name="title_setup_no_auth_hint">Por favor, verifique o seu endereço de e-mail e senha e certifique-se de que o acesso externo (IMAP/SMTP) está ativado para sua conta</string>
     <string name="title_setup_app_password_hint">Este provedor requer uma senha do aplicativo ao invés da senha da conta, verifique as instruções do seu provedor</string>
+    <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar um aplicativo de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
@@ -316,6 +321,7 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
     <string name="title_advanced_message_text_zoom">Zoom padrão do texto da mensagem</string>
+    <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte mono-espaçada para o texto da mensagem por padrão</string>
     <string name="title_advanced_text_color">Usar cores de texto</string>
@@ -462,6 +468,7 @@
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_preview_issue">Rolagem pode ser lenta devido a um bug em algumas versões do Android quando o número de linhas é mais de uma</string>
+    <string name="title_advanced_overview_mode_hint">Isso pode resultar em fontes muito pequenas</string>
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
     <string name="title_advanced_parse_classes_hint">Isto irá exibir mensagens com mais precisão, mas possivelmente com um atraso</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
@@ -526,6 +533,8 @@
     <string name="title_provider">Provedor</string>
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nome do servidor</string>
+    <string name="title_encryption">Criptografia</string>
+    <string name="title_encryption_none">Nenhuma</string>
     <string name="title_allow_insecure">Permitir conexões inseguras</string>
     <string name="title_insecure_remark">Conexões inseguras só devem ser permitidas em redes confiáveis e nunca em redes públicas</string>
     <string name="title_port">Número da porta</string>
@@ -561,12 +570,17 @@
     <string name="title_no_user">Nome do usuário faltante</string>
     <string name="title_no_password">Senha faltante</string>
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
+    <string name="title_no_drafts">Nenhuma pasta de rascunhos</string>
     <string name="title_no_junk_folder">Não existe pasta de spam selecionada para essa conta</string>
+    <string name="title_no_composable">Enviar e-mails requer uma identidade para ser configurada e uma pasta de rascunhos para ser selecionada nas configurações da conta</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>
     <string name="title_no_idle">Este provedor não suporta mensagens push. Isso irá atrasar o recebimento de novas mensagens e aumentar o uso da bateria.</string>
     <string name="title_no_utf8">Este provedor de e-mail não suporta UTF-8</string>
     <string name="title_no_sync">Erros de sincronização desde %1$s</string>
     <string name="title_reply_domain">O remetente (%1$s) e o domínio de resposta (%2$s) são diferentes</string>
+    <string name="title_identity_required">Uma identidade é necessária para enviar e-mails</string>
+    <string name="title_drafts_required">É necessária uma pasta de rascunhos para enviar e-mails</string>
+    <string name="title_drafts_select">Para enviar e-mails uma pasta de rascunhos precisa ser selecionada nas configurações da conta</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -658,6 +672,7 @@
     <string name="title_buttons">Botões</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como não lida</string>
+    <string name="title_toggle_seen">Alternar status da leitura</string>
     <string name="title_hide">Ocultar</string>
     <string name="title_unhide">Mostrar</string>
     <string name="title_flag">Adicionar estrela</string>
@@ -946,6 +961,7 @@
     <string name="title_answer_caption">Editar template</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
+    <string name="title_answer_group">Grupo de modelo (opcional)</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar dos menus</string>
     <string name="title_answer_text">Texto do modelo</string>
@@ -962,6 +978,7 @@
     <string name="title_rule_keyword">Adicionar palavra-chave</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
+    <string name="title_rule_answer">Responder/encaminhar</string>
     <string name="title_rule_tts">Texto para voz</string>
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_caption">Editar regra</string>
@@ -987,7 +1004,9 @@
     <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>
     <string name="title_rule_template">Modelo de resposta</string>
+    <string name="title_rule_forward_to">Encaminhar para</string>
     <string name="title_rule_cc">Resposta para endereços CC</string>
+    <string name="title_rule_with_attachments">Com anexos</string>
     <string name="title_rule_answer_remark">Apenas uma resposta será enviada para qualquer conversa, para evitar repetição de resposta</string>
     <string name="title_rule_name_missing">Nome da regra faltando</string>
     <string name="title_rule_condition_missing">Condição faltando</string>
@@ -1150,6 +1169,7 @@
     <string name="title_enabled">Habilitado</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Concluído</string>
+    <string name="title_default_changed">Padrão alterado</string>
     <string name="title_clipboard_copy">Copiar para área de transferência</string>
     <string name="title_clipboard_copied">Copiado para a área de transferência</string>
     <string name="title_ask_what">Perguntar o que fazer</string>
@@ -1188,6 +1208,8 @@
     </string>
     <string name="title_pro_hide">Ocultar mensagens pequenas por %1$d semanas</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
+    <string name="title_pro_price">Por que os recursos Pro são tão caros?</string>
+    <string name="title_pro_restore">Como posso restabelecer uma compra?</string>
     <string name="title_pro_pending">Compra pendente</string>
     <string name="title_pro_activated">Todos os recursos Pro estão ativados</string>
     <string name="title_pro_valid">Todos os recursos Pro ativados</string>
@@ -1199,6 +1221,13 @@
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Rolagem automática</string>
     <string name="title_log_clear">Limpar</string>
+    <string name="title_rules_search_hint">Pesquisar nome ou condição</string>
+    <string name="title_rules_export">Exportar regras</string>
+    <string name="title_rules_import">Importar regras</string>
+    <string name="title_rules_delete_all">Excluir todas as regras</string>
+    <string name="title_rules_delete_junk">Excluir regras de spam</string>
+    <string name="title_rules_delete_all_confirm">Excluir todas as regras?</string>
+    <string name="title_rules_delete_junk_confirm">Excluir todas as regras transferindo as mensagens para a pasta do Spam?</string>
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>

@@ -1242,6 +1242,12 @@
     <string name="title_auto_scroll">Automatické posouvání</string>
     <string name="title_log_clear">Vyčistit</string>
     <string name="title_rules_search_hint">Hledat název nebo podmínku</string>
+    <string name="title_rules_export">Exportovat pravidla</string>
+    <string name="title_rules_import">Importovat pravidla</string>
+    <string name="title_rules_delete_all">Smazat všechna pravidla</string>
+    <string name="title_rules_delete_junk">Smazat pravidla nevyžádané pošty</string>
+    <string name="title_rules_delete_all_confirm">Smazat všechna pravidla?</string>
+    <string name="title_rules_delete_junk_confirm">Smazat všechna pravidla, která přesouvají zprávy do složky nevyžádané pošty?</string>
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>

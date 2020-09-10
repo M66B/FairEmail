@@ -15,6 +15,9 @@
     <string name="channel_error">Kesalahan/Error</string>
     <string name="channel_alert">Peringatan Server</string>
     <string name="channel_group_contacts">Kontak</string>
+    <string name="channel_service_description">Menyinkronkan dan memantau akun</string>
+    <string name="channel_send_description">Mengirim pesan</string>
+    <string name="channel_notification_description">Pemberitahuan pesan baru</string>
     <plurals name="page_conversation">
         <item quantity="other">Percakapan</item>
     </plurals>
@@ -413,6 +416,42 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_app">Pengaturan aplikasi</string>
     <string name="title_advanced_more">Opsi lainnya</string>
     <string name="title_advanced_manual_hint">Bila penerimaan pesan dinonaktifkan, masih mungkin untuk menerima pesan secara manual dengan cara menarik daftar pesan</string>
+    <string name="title_advanced_poll_hint">Secara berkala memeriksa pesan baru yang akan membandingkan pesan lokal dan server setiap saat, operasi ini bisa memakai penggunaan baterai secara ekstra, terutama jika ada banyak pesan. Selalu menerima akan mencegah hal ini dengan terus mengikuti perubahan.</string>
+    <string name="title_advanced_optimize_hint">Ini mungkin mengubah frekuensi sinkronisasi untuk menghemat penggunaan baterai tergantung pada kemampuan dan perilaku server email</string>
+    <string name="title_advanced_schedule_hint">Ketuk waktu untuk pengaturan waktu</string>
+    <string name="title_advanced_no_date_hint">Beberapa penyedia email menyimpan pesan dengan tanggal yang tidak diketahui, tidak valid, atau pesan masa depan sebagai pesan tanpa tanggal</string>
+    <string name="title_advanced_unseen_hint">Beberapa penyedia email tidak mendukung ini dengan benar, yang bisa menyebabkan pesan tidak tersinkronisasi atau semua pesan tersinkronisasi</string>
+    <string name="title_advanced_deleted_unseen">Ketika dinonaktifkan, pesan yang belum dibaca disimpan pada perangkat untuk selamanya</string>
+    <string name="title_advanced_sync_kept_hint">Ini akan mentransfer data tambahan dan mengkonsumsi daya baterai ekstra, terutama jika banyak pesan disimpan pada perangkat</string>
+    <string name="title_advanced_sync_folders_hint">Menonaktifkan ini akan mengurangi penggunaan data dan sedikit baterai, tetapi juga akan menonaktifkan pembaruan daftar folder</string>
+    <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
+    <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
+    <string name="title_advanced_check_reply_hint">Ini akan memeriksa apakah nama domain dari alamat pengirim dan balasannya sama</string>
+    <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
+    <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
+    <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
+    <string name="title_advanced_metered_hint">Koneksi yang diukur umumnya koneksi data seluler atau hotspot Wi-Fi berbayar</string>
+    <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
+    <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
+    <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
+    <string name="title_advanced_ssl_harden_hint">Mengaktifkan ini akan menonaktifkan protokol dan cipher SSL yang lemah, yang biasanya menyebabkan masalah koneksi</string>
+    <string name="title_advanced_roaming_hint">Header pesan akan selalu diambil saat roaming. Anda dapat menggunakan pengaturan roaming perangkat untuk menonaktifkan Internet saat roaming.</string>
+    <string name="title_advanced_browse_hint">Ambil lebih banyak pesan saat menggulir ke bawah</string>
+    <string name="title_advanced_layout_hint">Beralih ke tata letak yang lebih kompak dan mengubah ukuran teks, ukuran teks bisa dirubah pada menu bilah aksi atas di tampilan pesan</string>
+    <string name="title_advanced_startup_hint">Tekan lama folder apa pun di daftar folder untuk menambah atau menghapusnya dari daftar folder terpadu</string>
+    <string name="title_advanced_date_hint">Pesan hanya dikelompokkan berdasarkan tanggal jika mereka diurutkan berdasarkan waktu</string>
+    <string name="title_advanced_navbar_colorize_hint">Apakah karya ini tergantung pada versi Android dan variannya</string>
+    <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
+    <string name="title_advanced_highlight_hint">Aksen warna tema akan digunakan untuk menyoroti pesan</string>
+    <string name="title_advanced_gravatars_hint">Mungkin ada risiko privasi</string>
+    <string name="title_advanced_name_email_hint">Ketika dinonaktifkan hanya akan menampilkan nama jika ada</string>
+    <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>
+    <string name="title_advanced_preview_issue">Scrolling/menggulir bisa terasa lambat karena bug dalam beberapa versi Android ketika jumlah garis lebih dari satu</string>
+    <string name="title_advanced_overview_mode_hint">Hal ini bisa membuat huruf yang sangat kecil</string>
+    <string name="title_advanced_inline_hint">Gambar inline akan menyisipkan gambar dalam pesan</string>
+    <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
+    <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
+    <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan terbaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun individu</string>
     <string name="title_default_changed">Judul Bawaan Diubah</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->

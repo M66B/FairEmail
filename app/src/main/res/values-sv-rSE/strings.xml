@@ -1220,6 +1220,12 @@
     <string name="title_auto_scroll">Automatisk rullning</string>
     <string name="title_log_clear">Rensa</string>
     <string name="title_rules_search_hint">Sök namn eller villkor</string>
+    <string name="title_rules_export">Exportera regler</string>
+    <string name="title_rules_import">Importera regler</string>
+    <string name="title_rules_delete_all">Ta bort alla regler</string>
+    <string name="title_rules_delete_junk">Ta bort skräppostregler</string>
+    <string name="title_rules_delete_all_confirm">Ta bort alla regler?</string>
+    <string name="title_rules_delete_junk_confirm">Ta bort alla regler som flyttar meddelanden till skräppostmappen?</string>
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
