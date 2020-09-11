@@ -2704,8 +2704,8 @@ public class FragmentCompose extends FragmentBase {
                     addresses.addAll(Arrays.asList(draft.bcc));
 
                 List<X509Certificate> certs = new ArrayList<>();
-                certs.add(chain[0]); // Allow sender to decrypt own message
 
+                boolean own = true;
                 for (Address address : addresses) {
                     boolean found = false;
                     Throwable cex = null;
@@ -2718,6 +2718,8 @@ public class FragmentCompose extends FragmentBase {
                                 cert.checkValidity();
                                 certs.add(cert);
                                 found = true;
+                                if (cert.equals(chain[0]))
+                                    own = false;
                             } catch (CertificateException ex) {
                                 Log.w(ex);
                                 cex = ex;
@@ -2732,6 +2734,10 @@ public class FragmentCompose extends FragmentBase {
                             throw new IllegalArgumentException(
                                     context.getString(R.string.title_certificate_invalid, email), cex);
                 }
+
+                // Allow sender to decrypt own message
+                if (own)
+                    certs.add(chain[0]);
 
                 // Build signature
                 BodyPart bpSignature = new MimeBodyPart();
