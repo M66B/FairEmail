@@ -4,6 +4,7 @@
     android:initialLayout="@layout/widget_new"
     android:minWidth="40dp"
     android:minHeight="40dp"
+    android:previewImage="@mipmap/ic_launcher"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="0"
     android:widgetCategory="home_screen" />
