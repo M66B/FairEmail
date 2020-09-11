@@ -2155,11 +2155,11 @@ public class FragmentCompose extends FragmentBase {
                     if (d == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_image));
 
-                    s.insert(start, " \uFFFC"); // Object replacement character
+                    s.insert(start, "\n\uFFFC\n"); // Object replacement character
                     ImageSpan is = new ImageSpan(context, cid);
                     s.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                    start += 2;
+                    start += 3;
                 }
 
                 if (!image)
