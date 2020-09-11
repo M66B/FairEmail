@@ -464,8 +464,7 @@ class Core {
                                 ex.getCause() instanceof MessageRemovedIOException ||
                                 ex.getCause() instanceof BadCommandException ||
                                 ex.getCause() instanceof CommandFailedException ||
-                                (ex instanceof FolderClosedException &&
-                                        ex.getCause() instanceof IOException &&
+                                (ConnectionHelper.isIoError(ex) &&
                                         EntityFolder.DRAFTS.equals(folder.type) &&
                                         EntityOperation.ADD.equals(op.name))) {
                             // com.sun.mail.iap.BadCommandException: B13 BAD [TOOBIG] Message too large
@@ -473,6 +472,7 @@ class Core {
                             // com.sun.mail.iap.CommandFailedException: B16 NO [ALERT] Cannot MOVE messages out of the Drafts folder
                             // Drafts: javax.mail.FolderClosedException: * BYE Jakarta Mail Exception:
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
+                            // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
                             Log.w("Unrecoverable");
 
                             try {
