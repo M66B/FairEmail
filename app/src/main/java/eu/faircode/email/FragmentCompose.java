@@ -4382,6 +4382,7 @@ public class FragmentCompose extends FragmentBase {
                     boolean autosave = extras.getBoolean("autosave");
                     if (needsEncryption && !autosave) {
                         args.putBoolean("needsEncryption", true);
+                        db.setTransactionSuccessful();
                         return draft;
                     }
 
