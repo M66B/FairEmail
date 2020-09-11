@@ -695,12 +695,26 @@ This means that searching for a message text requires that files containing the 
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Das Verwenden des Suchindex ist eine Pro-Funktion.
 
-Die Suche nach Nachrichten auf dem Gerät ist eine kostenlose Funktion, die Suche nach Nachrichten auf dem Server ist jedoch eine Pro-Funktion.
+Ab Version 1.1315 ist es möglich, Suchausdrücke wie folgt zu verwenden:
+
+```
+Apfel +Banane -Kirsche ?Nüsse
+```
+
+Dies führt zu dem folgenden Suchergebnis:
+
+```
+("Apfel" UND "Banane" UND NICHT "Kirsche") ODER "Nüsse"
+```
+
+Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
 <a name="faq14"></a>
-**(14) Wie kann ich ein Outlook-/Live-/Hotmail-Konto einrichten?**
+**(14) How can I set up an Outlook / Live / Hotmail account?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -713,7 +727,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Warum wird der Nachrichtentext immer noch geladen?**
+**(15) Why does the message text keep loading?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
 
@@ -726,7 +740,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Warum werden Nachrichten nicht synchronisiert?**
+**(16) Why are messages not being synchronized?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -749,7 +763,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Warum funktioniert die manuelle Synchronisation nicht?~~**
+**~~(17) Why does manual synchronize not work?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -758,39 +772,39 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?**
+**(18) Why is the message preview not always shown?**
 
-Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [diese F&A](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Warum sind die Pro-Funktionen so teuer?**
+**(19) Why are the pro features so expensive?**
 
-Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
+The right question is "*why are there so many taxes and fees?*":
 
 * MwSt.: 25 % (je nach Land)
 * Google-Gebühr: 30 %
 * Einkommenssteuer: 50 %
 * <sub>PayPal-Gebühr: 5-10 % abhängig vom Land/Betrag</sub>
 
-Was also für den Entwickler übrig bleibt, ist nur ein Bruchteil dessen, was Sie bezahlen.
+So, what is left for the developer is just a fraction of what you pay.
 
-Beachten Sie, dass nur einige Vorteile und erweiterte Funktionen erworben werden müssen, was bedeutet, dass FairEmail grundsätzlich frei zu verwenden ist.
+Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
 
-Beachten Sie auch, dass die meisten kostenlosen Apps am Ende nicht langfristig einsetzbar sind, während FairEmail ordnungsgemäß gewartet und unterstützt wird, und dass kostenlose Anwendungen einen Haken haben können, wie z.B. das Senden vertraulicher Informationen ins Internet.
+Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-Ich arbeite seit mehr als zwei Jahren fast jeden Tag an FairEmail, daher halte ich den Preis für mehr als angemessen. Aus diesem Grund gibt es auch keine Rabatte.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Kann ich eine Rückerstattung erhalten?**
+**(20) Can I get a refund?**
 
-Wenn eine gekaufte Pro-Funktion nicht wie vorgesehen funktioniert und dies wird nicht durch ein Problem in den kostenlosen Funktionen verursacht und ich das Problem nicht rechtzeitig beheben kann, können Sie eine Rückerstattung beantragen. In all other cases there is no refund possible. Unter keinen Umständen ist eine Rückerstattung für Probleme im Zusammenhang mit den kostenlosen Funktionen möglich, da diese nicht kostenpflichtig sind und diese uneingeschränkt genutzt werden können. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) Wie aktiviere ich das Benachrichtigungslicht?**
+**(21) How do I enable the notification light?**
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
@@ -813,7 +827,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... „Authentifizierung fehlgeschlagen …”* bedeutet wahrscheinlich, dass Ihr Benutzername oder Passwort ungültig war. Einige Anbieter erwarten als Benutzername nur den *Benutzernamen* und andere jedoch Ihre vollständige E-Mail-Adresse *benutzername@beispiel.de*. Beim Kopieren/Einfügen eines Benutzernamens oder Passworts können unsichtbare Zeichen kopiert werden, was auch zu diesem Problem führen kann. Einige Passwortmanager sind dafür bekannt, dies ebenfalls fehlerhaft zu tun. Beim Benutzernamen wird möglicherweise die Groß- und Kleinschreibung berücksichtigt, versuchen Sie außerdem nur Kleinbuchstaben. Das Passwort unterscheidet fast immer zwischen Groß- und Kleinschreibung. Einige Anbieter benötigen statt des regulären Passworts ein App-spezfisches Passwort. Bitte überprüfen Sie die Dokumentation des Anbieters. In einigen Fällen ist es erforderlich, zuerst den externen Zugang (IMAP/SMTP) auf der Website des Anbieters zu erlauben. Andere mögliche Ursachen können eine Kontensperrung sein oder eine Anmeldebeschränkung in sonstiger/administrativer Hinsicht. Eine Anmeldung kann z. B. auf bestimmte Netzwerke oder IP-Adressen beschränkt sein.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -889,9 +903,9 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Warum bekomme ich einen Alarm?**
+**(23) Why do I get alert ... ?**
 
-*Allgemein*
+*General*
 
 Alerts are warning messages sent by email servers.
 

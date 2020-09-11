@@ -15,6 +15,9 @@
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contactos</string>
+    <string name="channel_service_description">Sincronizando e monitorizando as contas</string>
+    <string name="channel_send_description">Envío de mensaxes</string>
+    <string name="channel_notification_description">Notificación de novas mensaxes</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
         <item quantity="other">Conversas</item>
@@ -1004,6 +1007,7 @@
     <string name="title_rule_answer_remark">Enviarase só unha resposta para cada conversa, co fin de evitar bucles de respostas</string>
     <string name="title_rule_name_missing">Falta o nome da regra</string>
     <string name="title_rule_condition_missing">Falta a condición</string>
+    <string name="title_rule_automation_hint">Esto enviará o intento \'%1$s\' cos extras \'%2$s\'</string>
     <string name="title_rule_execute">Executar agora</string>
     <string name="title_rule_applied">Mensaxes afectadas: %1$d</string>
     <string name="title_rule_check">Comprobar</string>
@@ -1162,6 +1166,7 @@
     <string name="title_enabled">Activado</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Finalizado</string>
+    <string name="title_default_changed">Cambiados axustes por omisión</string>
     <string name="title_clipboard_copy">Copiar o portapapeis</string>
     <string name="title_clipboard_copied">Copiado ao portapapeis</string>
     <string name="title_ask_what">Preguntar que facer</string>
@@ -1211,7 +1216,15 @@
     <string name="title_boundary_retry">Tentar de novo</string>
     <string name="title_unexpected_error">Erro imprevisto</string>
     <string name="title_log">Rexistro</string>
+    <string name="title_auto_scroll">Desprazamento automático</string>
     <string name="title_log_clear">Limpar</string>
+    <string name="title_rules_search_hint">Buscar nome ou condición</string>
+    <string name="title_rules_export">Exportar regras</string>
+    <string name="title_rules_import">Importar regras</string>
+    <string name="title_rules_delete_all">Eliminar todas as regras</string>
+    <string name="title_rules_delete_junk">Eliminar regras de spam</string>
+    <string name="title_rules_delete_all_confirm">Eliminar todas?</string>
+    <string name="title_rules_delete_junk_confirm">Eliminar todas as regras movendo as mensaxes ó cartafol spam?</string>
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor, describa o problema e indique o tempo do problema:</string>
     <string name="title_crash_info_remark">Por favor, describa que estaba a facer cando a aplicación se detivo:</string>

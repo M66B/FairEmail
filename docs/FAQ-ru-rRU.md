@@ -695,7 +695,21 @@ This means that searching for a message text requires that files containing the 
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
 
-Searching messages on the device is a free feature, searching messages on the server is a pro feature.
+From version 1.1315 it is possible to use search expressions like this:
+
+```
+apple +banana -cherry ?nuts
+```
+
+This will result in searching like this:
+
+```
+("apple" AND "banana" AND NOT "cherry") OR "nuts"
+```
+
+Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -780,7 +794,7 @@ Note that only some convenience and advanced features need to be purchased which
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-Я работаю над FairEmail почти каждый день более двух лет, поэтому я думаю, что цена более чем разумна. For this reason there won't be discounts either.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
 <br />
 
@@ -813,7 +827,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Некоторые менеджеры паролей также делают это неправильно. Имя пользователя может быть чувствительным к регистру, поэтому попробуйте использовать только строчные буквы. Пароль почти всегда чувствителен к регистру. Некоторые провайдеры требуют использования пароля приложения вместо пароля учетной записи, поэтому проверьте документацию провайдера. Иногда необходимо сначала включить внешний доступ (IMAP/SMTP) на сайте провайдера. Другими возможными причинами являются то, что учетная запись заблокирована или вход был заблокирован в административном порядке, например, позволяя входить только с определенных сетей / IP адресов.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 

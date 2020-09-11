@@ -695,7 +695,21 @@ This means that searching for a message text requires that files containing the 
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
 
-Searching messages on the device is a free feature, searching messages on the server is a pro feature.
+From version 1.1315 it is possible to use search expressions like this:
+
+```
+apple +banana -cherry ?nuts
+```
+
+This will result in searching like this:
+
+```
+("apple" AND "banana" AND NOT "cherry") OR "nuts"
+```
+
+Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -780,7 +794,7 @@ Note that only some convenience and advanced features need to be purchased which
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-Estiven a traballar en FairEmail case cada día durante máis de dous anos, polo que penso que o prezo e máis que razoable. For this reason there won't be discounts either.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
 <br />
 
@@ -813,7 +827,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. É sabido que algúns xestores de contrasinais tamén o fan incorrectamente. O nome de usuario podería ten en conta as maiúsculas/minúsculas, polo que é aconsellable probar unicamente con minúsculas. Os contrasinais case sempre distinguen as maiúsculas e minúsculas. Algúns provedores requiren un contrasinal de aplicación no canto do contrasinal de conta; por favor, comprobe as instrucións do seu provedor de correo. Algunhas veces é preciso activar o acceso externo (IMAP/SMTP) na páxina web do provedor previamente. Outras causas poderían ser que a conta estea bloqueada ou que o acceso estea restrinxido de algunha maneira pola administración, por exemplo unicamente permitindo o acceso desde certas redes ou enderezos IP.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
@@ -954,17 +968,17 @@ If you would like your name or alias to be included in the list of contributors 
 <a name="faq27"></a>
 **(27) How can I distinguish between embedded and external images?**
 
-Imaxe externa:
+External image:
 
-![Imaxe externa](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Imaxe incorporada:
+Embedded image:
 
-![Imaxe incorporada](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Imaxe corrupta:
+Broken image:
 
-![Imaxe corrupta](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1015,7 +1029,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
-Hai atallos dispoñibles para:
+There are shortcuts available to:
 
 * compose a new message to a favorite contact
 * setup accounts, identities, etc

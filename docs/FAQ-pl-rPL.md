@@ -695,7 +695,21 @@ This means that searching for a message text requires that files containing the 
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
 
-Searching messages on the device is a free feature, searching messages on the server is a pro feature.
+From version 1.1315 it is possible to use search expressions like this:
+
+```
+apple +banana -cherry ?nuts
+```
+
+This will result in searching like this:
+
+```
+("apple" AND "banana" AND NOT "cherry") OR "nuts"
+```
+
+Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -1210,7 +1224,7 @@ The following information is needed:
 <provider
     name="Gmail"
     link="https://support.google.com/mail/answer/7126229" // link to the instructions of the provider
-    type="com.google"> // to nie jest potrzebne
+    type="com.google"> // this is not needed
     <imap
         host="imap.gmail.com"
         port="993"
@@ -1688,16 +1702,16 @@ Note that disabling an account will hide the account and all associated folders 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
-Nowe zadanie: Coś rozpoznawalnego
-Kategoria akcji: Różne / Wyślij zamiar
-Działanie: eu.faircode.email.ENABLE
-Cel: usługa
+New task: Something recognizable
+Action Category: Misc/Send Intent
+Action: eu.faircode.email.ENABLE
+Target: Service
 ```
 
 To enable/disable an account with the name *Gmail*:
 
 ```
-Dodatki: konto:Gmail
+Extras: account:Gmail
 ```
 
 Account names are case sensitive.
@@ -1955,10 +1969,10 @@ You can synchronize Gmail categories by creating filters to label categorized me
 Possible categories:
 
 ```
-kategoria: społeczna
-kategoria: aktualizacje
-kategoria: fora
-kategoria: promocje
+category:social
+category:updates
+category:forums
+category:promotions
 ```
 
 Unfortunately, this is not possible for snoozed messages folder.
