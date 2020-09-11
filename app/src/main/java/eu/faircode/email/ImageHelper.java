@@ -685,7 +685,7 @@ class ImageHelper {
             });
         } catch (Throwable ex) {
             Log.i(ex);
-            if (ex instanceof IOException)
+            if (!"android.graphics.ImageDecoder$DecodeException".equals(ex.getClass().getName()))
                 throw ex;
             /*
                 Samsung:
