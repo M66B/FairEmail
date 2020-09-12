@@ -1310,11 +1310,15 @@ public class HtmlHelper {
                 return true;
             else if (node instanceof Element) {
                 Element element = (Element) node;
-                if (!element.isBlock() &&
-                        (element.hasText() ||
-                                element.selectFirst("a[href~=.+]") != null ||
-                                element.selectFirst("img[src~=.+]") != null))
+                if (element.isBlock())
+                    return false;
+                if (element.hasText())
                     return true;
+                if (element.selectFirst("img[src~=.+]") != null)
+                    return true;
+                for (Element a : element.select("a[href~=.+]"))
+                    if (a.childNodes().size() > 0)
+                        return true;
             }
         return false;
     }
