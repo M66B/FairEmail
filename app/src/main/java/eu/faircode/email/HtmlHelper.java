@@ -442,6 +442,10 @@ public class HtmlHelper {
 
         boolean dark = Helper.isDarkTheme(context);
 
+        // Remove tracking pixels
+        if (disable_tracking)
+            removeTrackingPixels(context, document, false);
+
         // Font
         for (Element font : document.select("font")) {
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
@@ -801,10 +805,6 @@ public class HtmlHelper {
                 table.tagName("div");
         for (Element hf : document.select("thead,tfoot"))
             hf.tagName("span");
-
-        // Remove tracking pixels
-        if (disable_tracking)
-            removeTrackingPixels(context, document, false);
 
         // Images
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
