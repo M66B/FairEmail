@@ -792,7 +792,7 @@ public class HtmlHelper {
             if (hasVisibleContent(row.childNodes())) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
-                    row.appendElement("br");
+                    row.appendElement("hr");
             }
         }
 
@@ -2099,6 +2099,27 @@ public class HtmlHelper {
                                 newline(ssb.length());
                                 break;
                             case "hr":
+                                int lhr = 0;
+                                for (LineSpan ls : ssb.getSpans(0, ssb.length(), LineSpan.class)) {
+                                    int end = ssb.getSpanEnd(ls);
+                                    if (end > lhr)
+                                        lhr = end;
+                                }
+
+                                boolean nls = true;
+                                for (int i = lhr; i < ssb.length(); i++)
+                                    if (ssb.charAt(i) != '\n') {
+                                        nls = false;
+                                        break;
+                                    }
+                                if (nls)
+                                    break;
+
+                                while (ssb.length() > 1 &&
+                                        ssb.charAt(ssb.length() - 2) == '\n' &&
+                                        ssb.charAt(ssb.length() - 1) == '\n')
+                                    ssb.delete(ssb.length() - 1, ssb.length());
+
                                 ssb.append("\n" + LINE + "\n");
                                 float stroke = context.getResources().getDisplayMetrics().density;
                                 ssb.setSpan(new LineSpan(colorSeparator, stroke),
