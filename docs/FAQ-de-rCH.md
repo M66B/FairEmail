@@ -81,7 +81,7 @@ Verwandte Fragen:
 
 * ~~Synchronisieren bei Bedarf (manuell)~~
 * ~~Halbautomatische Verschlüsselung~~
-* ~~Nachricht kopieren~
+* ~~Nachricht kopieren~~
 * ~~Farbige Sterne~~
 * ~~Benachrichtigungseinstellungen pro Ordner~~
 * ~~~Das Wählen von lokalen Bildern für Signaturen~~ (dies wird nicht hinzugefügt, weil es eine Bildverwaltung erfordert und weil Bilder in den meisten E-Mail-Clients ohnehin nicht standardmäßig angezeigt werden)
@@ -161,7 +161,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
 * [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
-* [(45) Wie kann ich "Dieser Schlüssel ist nicht verfügbar, um ihn verwenden zu können, müssen Sie ihn als einen Ihrer eigenen importieren" beheben ? ~ ?](#user-content-faq45)
+* [(45) Wie kann ich "Dieser Schlüssel ist nicht verfügbar, um ihn verwenden zu können, müssen Sie ihn als einen Ihrer eigenen importieren" beheben? ~ ?](#user-content-faq45)
 * [(46) Warum wird die Nachrichtenliste immer wieder aktualisiert?](#user-content-faq46)
 * [(47) Wie löse ich den Fehler 'Kein primäres Konto oder kein Ordner für Entwürfe' ?](#user-content-faq47)
 * [(48) Wie löse ich den Fehler 'Kein primäres Konto oder kein Archivordner' ?](#user-content-faq48)
@@ -237,7 +237,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(119) Können Sie dem Sammeleingang-Widget für Post Farben hinzufügen?](#user-content-faq119)
 * [(120) Warum werden neue Nachrichten beim Öffnen der App nicht entfernt?](#user-content-faq120)
 * [(121) Wie werden Nachrichten zu einer Konversation gruppiert?](#user-content-faq121)
-* [~~~(122) Warum wird der Empfängername/E-Mail-Adresse mit einer Warnfarbe angezeigt?~~](#user-content-faq122)
+* [~~(122) Warum wird der Empfängername/E-Mail-Adresse mit einer Warnfarbe angezeigt?~~](#user-content-faq122)
 * [(123) Was geschieht, wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann?](#user-content-faq123)
 * [(124) Warum erhalte ich den Hinweis 'Nachricht zu groß oder zu komplex, um sie anzuzeigen'?](#user-content-faq124)
 * [(125) Was sind die aktuellen experimentellen Eigenschaften?](#user-content-faq125)
@@ -258,7 +258,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(140) Warum enthält der Nachrichtentext seltsame Zeichen?](#user-content-faq140)
 * [(141) Wie kann ich 'Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden' beheben?](#user-content-faq141)
 * [(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?](#user-content-faq142)
-* [~~~(143) Gibt es einen Papierkorb für POP3-Konten? ~~](#user-content-faq143)
+* [~~(143) Gibt es einen Papierkorb für POP3-Konten? ~~](#user-content-faq143)
 * [(144) Wie kann ich Sprachnotizen aufnehmen?](#user-content-faq144)
 * [(145) Wie kann ich einen Benachrichtigungston für ein Konto, einen Ordner oder einen Absender festlegen?](#user-content-faq145)
 * [(146) Wie kann ich falsche Zeiten von Nachrichten beheben?](#user-content-faq146)
