@@ -918,6 +918,27 @@ public class Log {
              */
             return false;
 
+        if (stack.length > 0 &&
+                "android.text.method.WordIterator".equals(stack[0].getClassName()))
+            /*
+                https://issuetracker.google.com/issues/37068143
+                java.lang.IllegalArgumentException: Invalid offset: -1. Valid range is [0, 146]
+                at android.text.method.WordIterator.checkOffsetIsValid(WordIterator.java:380)
+                at android.text.method.WordIterator.isBoundary(WordIterator.java:101)
+                at android.widget.Editor$SelectionStartHandleView.positionAtCursorOffset(Editor.java:4287)
+                at android.widget.Editor$HandleView.updatePosition(Editor.java:3735)
+                at android.widget.Editor$PositionListener.onPreDraw(Editor.java:2512)
+                at android.view.ViewTreeObserver.dispatchOnPreDraw(ViewTreeObserver.java:944)
+                at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:2412)
+                at android.view.ViewRootImpl.doTraversal(ViewRootImpl.java:1321)
+                at android.view.ViewRootImpl$TraversalRunnable.run(ViewRootImpl.java:6763)
+                at android.view.Choreographer$CallbackRecord.run(Choreographer.java:894)
+                at android.view.Choreographer.doCallbacks(Choreographer.java:696)
+                at android.view.Choreographer.doFrame(Choreographer.java:631)
+                at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:880)
+             */
+            return false;
+
         if (ex instanceof InflateException)
             /*
                 android.view.InflateException: Binary XML file line #7: Binary XML file line #7: Error inflating class <unknown>
