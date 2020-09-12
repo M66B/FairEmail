@@ -24,7 +24,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.PathEffect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -793,7 +795,11 @@ public class HtmlHelper {
             if (hasVisibleContent(row.childNodes())) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
-                    row.appendElement(experiments ? "hr" : "br");
+                    if (experiments)
+                        row.appendElement("hr")
+                                .attr("x-dashed", "true");
+                    else
+                        row.appendElement("br");
             }
         }
 
@@ -2126,7 +2132,8 @@ public class HtmlHelper {
 
                                 ssb.append("\n" + LINE + "\n");
                                 float stroke = context.getResources().getDisplayMetrics().density;
-                                ssb.setSpan(new LineSpan(colorSeparator, stroke),
+                                float dash = ("true".equals(element.attr("x-dashed")) ? dp3 : 0f);
+                                ssb.setSpan(new LineSpan(colorSeparator, stroke, dash),
                                         ssb.length() - 1 - LINE.length(), ssb.length() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 break;
                             case "img":
@@ -2322,10 +2329,12 @@ public class HtmlHelper {
     public static class LineSpan extends ReplacementSpan {
         private int lineColor;
         private float strokeWidth;
+        private float dashLength;
 
-        LineSpan(int lineColor, float strokeWidth) {
+        LineSpan(int lineColor, float strokeWidth, float dashLength) {
             this.lineColor = lineColor;
             this.strokeWidth = strokeWidth;
+            this.dashLength = dashLength;
         }
 
         @Override
@@ -2338,11 +2347,15 @@ public class HtmlHelper {
             int ypos = (top + bottom) / 2;
             int c = paint.getColor();
             float s = paint.getStrokeWidth();
+            PathEffect p = paint.getPathEffect();
             paint.setColor(lineColor);
             paint.setStrokeWidth(strokeWidth);
+            if (dashLength != 0)
+                paint.setPathEffect(new DashPathEffect(new float[]{dashLength, dashLength}, 0));
             canvas.drawLine(0, ypos, canvas.getWidth(), ypos, paint);
             paint.setColor(c);
             paint.setStrokeWidth(s);
+            paint.setPathEffect(p);
         }
     }
 
