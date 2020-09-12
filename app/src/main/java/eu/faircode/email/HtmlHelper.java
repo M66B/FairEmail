@@ -1312,8 +1312,8 @@ public class HtmlHelper {
                 Element element = (Element) node;
                 if (!element.isBlock() &&
                         (element.hasText() ||
-                                element.selectFirst("a") != null ||
-                                element.selectFirst("img") != null))
+                                element.selectFirst("a[href~=.+]") != null ||
+                                element.selectFirst("img[src~=.+]") != null))
                     return true;
             }
         return false;
