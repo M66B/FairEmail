@@ -24,6 +24,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Build;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.Spanned;
@@ -105,6 +106,20 @@ public class FixedTextView extends AppCompatTextView {
                 at android.view.View.draw(View.java:19380)
 */
         }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        // https://issuetracker.google.com/issues/37068143
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M &&
+                hasSelection() &&
+                event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            CharSequence text = getText();
+            setText(null);
+            setText(text);
+        }
+
+        return super.dispatchTouchEvent(event);
     }
 
     @Override
