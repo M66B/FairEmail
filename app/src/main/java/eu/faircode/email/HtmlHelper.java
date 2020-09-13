@@ -329,7 +329,7 @@ public class HtmlHelper {
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", false);
         boolean inline_images = prefs.getBoolean("inline_images", false);
-        boolean experiments = prefs.getBoolean("experiments", false);
+        boolean text_separators = prefs.getBoolean("text_separators", true);
 
         int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
@@ -795,7 +795,7 @@ public class HtmlHelper {
             if (hasVisibleContent(row.childNodes())) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
-                    if (experiments)
+                    if (text_separators)
                         row.appendElement("hr")
                                 .attr("x-dashed", "true");
                     else
@@ -1816,7 +1816,7 @@ public class HtmlHelper {
             @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
-        boolean experiments = prefs.getBoolean("experiments", false);
+        boolean text_separators = prefs.getBoolean("text_separators", true);
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
@@ -2107,7 +2107,7 @@ public class HtmlHelper {
                                 newline(ssb.length());
                                 break;
                             case "hr":
-                                if (experiments) {
+                                if (text_separators) {
                                     int lhr = 0;
                                     for (LineSpan ls : ssb.getSpans(0, ssb.length(), LineSpan.class)) {
                                         int end = ssb.getSpanEnd(ls);
