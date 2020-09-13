@@ -596,7 +596,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail sendet den [Autocrypt](https://autocrypt.org/)-Header zur Verwendung durch andere E-Mail-Clients, aber nur für signierte und verschlüsselte Nachrichten, da zu viele E-Mail-Server Probleme mit dem oft langen Autocrypt-Header haben. Beachten Sie, dass die sicherste Art, einen verschlüsselten E-Mail-Austausch zu beginnen, darin besteht, dass zuerst signierte Nachrichten gesendet werden. Empfangene Autocrypt-Header werden an die OpenKeychain-App gesendet, um sie beim Verifizieren einer Signatur oder Entschlüsseln einer Nachricht zu speichern.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
@@ -606,7 +606,7 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
-* [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+* [OpenPGP-Überlegungen Teil III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 

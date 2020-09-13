@@ -325,6 +325,7 @@
     <string name="title_advanced_text_size">Χρήση των μεγεθών του κειμένου</string>
     <string name="title_advanced_text_font">Χρήση των γραμματοσειρών</string>
     <string name="title_advanced_text_align">Χρήση της στοίχισης του κειμένου</string>
+    <string name="title_advanced_text_separators">Χρήση γραμμών διαχωρισμού</string>
     <string name="title_advanced_collapse_quotes">Σύμπτυξη του παρατιθέμενου κειμένου</string>
     <string name="title_advanced_images_inline">Να προβάλλονται αυτόματα οι ένθετες εικόνες</string>
     <string name="title_advanced_seekbar">Επισήμανση της σχετικής θέσης στη συζήτηση με μία τελεία</string>

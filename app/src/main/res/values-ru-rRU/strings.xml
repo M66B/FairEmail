@@ -349,6 +349,7 @@
     <string name="title_advanced_text_size">Использовать размер текста</string>
     <string name="title_advanced_text_font">Использовать шрифты</string>
     <string name="title_advanced_text_align">Использовать выравнивание текста</string>
+    <string name="title_advanced_text_separators">Использовать разделитель строк</string>
     <string name="title_advanced_collapse_quotes">Сворачивать цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
