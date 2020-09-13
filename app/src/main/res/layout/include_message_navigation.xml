@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
-        app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibLabels,ibAnswer,ibSeen,ibEvent,ibPrint,ibUnsubscribe,ibRule,ibUndo"
+        app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibAnswer,ibSeen,ibEvent,ibPrint,ibUnsubscribe,ibRule,ibUndo"
         app:flow_horizontalBias="0"
         app:flow_horizontalGap="3dp"
         app:flow_horizontalStyle="packed"
@@ -132,6 +132,16 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_copy"
         app:srcCompat="@drawable/baseline_file_copy_24"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ibKeywords"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/baseline_label_important_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton

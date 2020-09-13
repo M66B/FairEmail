@@ -424,6 +424,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSeen;
         private ImageButton ibAnswer;
         private ImageButton ibLabels;
+        private ImageButton ibKeywords;
         private ImageButton ibCopy;
         private ImageButton ibMove;
         private ImageButton ibArchive;
@@ -634,6 +635,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeen = vsBody.findViewById(R.id.ibSeen);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
             ibLabels = vsBody.findViewById(R.id.ibLabels);
+            ibKeywords = vsBody.findViewById(R.id.ibKeywords);
             ibCopy = vsBody.findViewById(R.id.ibCopy);
             ibMove = vsBody.findViewById(R.id.ibMove);
             ibArchive = vsBody.findViewById(R.id.ibArchive);
@@ -730,6 +732,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
                 ibLabels.setOnClickListener(this);
+                ibKeywords.setOnClickListener(this);
                 ibCopy.setOnClickListener(this);
                 ibMove.setOnClickListener(this);
                 ibArchive.setOnClickListener(this);
@@ -833,6 +836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
                 ibLabels.setOnClickListener(null);
+                ibKeywords.setOnClickListener(null);
                 ibCopy.setOnClickListener(null);
                 ibMove.setOnClickListener(null);
                 ibArchive.setOnClickListener(null);
@@ -1311,6 +1315,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
+            ibKeywords.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
             ibArchive.setVisibility(View.GONE);
@@ -1447,6 +1452,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
+            ibKeywords.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
             ibArchive.setVisibility(View.GONE);
@@ -1576,6 +1582,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && (hasJunk && !inJunk));
                     boolean inbox = (move && (inArchive || inTrash || inJunk));
+                    boolean keywords = (!(message.folderReadOnly || message.uid == null) &&
+                            message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (gmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (!(message.folderReadOnly || message.uid == null) ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
@@ -1592,6 +1600,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_archive = prefs.getBoolean("button_archive", true);
                     boolean button_move = prefs.getBoolean("button_move", true);
                     boolean button_copy = prefs.getBoolean("button_copy", false);
+                    boolean button_keywords = prefs.getBoolean("button_keywords", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
                     boolean button_print = prefs.getBoolean("button_print", false);
@@ -1609,6 +1618,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
                     ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
+                    ibKeywords.setVisibility(tools && button_keywords && keywords ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
                     ibArchive.setVisibility(tools && button_archive && archive ? View.VISIBLE : View.GONE);
@@ -2888,6 +2898,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibLabels:
                         onActionLabels(message);
                         break;
+                    case R.id.ibKeywords:
+                        onMenuManageKeywords(message);
+                        break;
                     case R.id.ibCopy:
                         onActionMove(message, true);
                         break;
@@ -3809,6 +3822,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean button_archive = prefs.getBoolean("button_archive", true);
             boolean button_move = prefs.getBoolean("button_move", true);
             boolean button_copy = prefs.getBoolean("button_copy", false);
+            boolean button_keywords = prefs.getBoolean("button_keywords", false);
             boolean button_seen = prefs.getBoolean("button_seen", false);
             boolean button_event = prefs.getBoolean("button_event", false);
             boolean button_print = prefs.getBoolean("button_print", false);
@@ -3823,6 +3837,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
             popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
             popupMenu.getMenu().findItem(R.id.menu_button_copy).setChecked(button_copy);
+            popupMenu.getMenu().findItem(R.id.menu_button_keywords).setChecked(button_keywords);
             popupMenu.getMenu().findItem(R.id.menu_button_seen).setChecked(button_seen);
             popupMenu.getMenu().findItem(R.id.menu_button_event).setChecked(button_event);
             popupMenu.getMenu().findItem(R.id.menu_button_print).setChecked(button_print);
@@ -3895,6 +3910,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_button_copy:
                             onMenuButton(message, "copy", target.isChecked());
+                            return true;
+                        case R.id.menu_button_keywords:
+                            onMenuButton(message, "keywords", target.isChecked());
                             return true;
                         case R.id.menu_button_seen:
                             onMenuButton(message, "seen", target.isChecked());
