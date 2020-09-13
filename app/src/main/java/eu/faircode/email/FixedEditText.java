@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
@@ -96,20 +95,6 @@ public class FixedEditText extends AppCompatEditText {
             Log.w(ex);
             return false;
         }
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        // https://issuetracker.google.com/issues/37068143
-        if ((BuildConfig.DEBUG || Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) &&
-                hasSelection() &&
-                event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-            CharSequence text = getText();
-            setText(null);
-            setText(text);
-        }
-
-        return super.dispatchTouchEvent(event);
     }
 
     @Override
