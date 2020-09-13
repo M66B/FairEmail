@@ -29,6 +29,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/ibInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+            app:srcCompat="@drawable/baseline_info_24" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSign"
             android:layout_width="0dp"
@@ -37,7 +49,7 @@
             android:text="@string/title_advanced_sign_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+            app:layout_constraintTop_toBottomOf="@id/ibInfo"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
