@@ -3416,13 +3416,13 @@ public class FragmentCompose extends FragmentBase {
                             document.body().appendChild(e);
                         }
 
-                        if (answer > 0) {
-                            EntityAnswer a = db.answer().getAnswer(answer);
-                            if (a != null) {
-                                data.draft.subject = a.name;
-                                Document d = JsoupEx.parse(a.getText(null));
-                                document.body().append(d.body().html());
-                            }
+                        EntityAnswer a = (answer < 0
+                                ? db.answer().getStandardAnswer()
+                                : db.answer().getAnswer(answer));
+                        if (a != null) {
+                            data.draft.subject = a.name;
+                            Document d = JsoupEx.parse(a.getText(null));
+                            document.body().append(d.body().html());
                         }
 
                         addSignature(context, document, data.draft, selected);
@@ -3581,12 +3581,12 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         // Reply template
-                        if (answer > 0) {
-                            EntityAnswer a = db.answer().getAnswer(answer);
-                            if (a != null) {
-                                Document d = JsoupEx.parse(a.getText(data.draft.to));
-                                document.body().append(d.body().html());
-                            }
+                        EntityAnswer a = (answer < 0
+                                ? db.answer().getStandardAnswer()
+                                : db.answer().getAnswer(answer));
+                        if (a != null) {
+                            Document d = JsoupEx.parse(a.getText(data.draft.to));
+                            document.body().append(d.body().html());
                         }
 
                         // Signature

@@ -57,6 +57,7 @@ public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
     private EditText etGroup;
+    private CheckBox cbStandard;
     private CheckBox cbFavorite;
     private CheckBox cbHide;
     private EditTextCompose etText;
@@ -96,6 +97,7 @@ public class FragmentAnswer extends FragmentBase {
         // Get controls
         etName = view.findViewById(R.id.etName);
         etGroup = view.findViewById(R.id.etGroup);
+        cbStandard = view.findViewById(R.id.cbStandard);
         cbFavorite = view.findViewById(R.id.cbFavorite);
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
@@ -177,6 +179,7 @@ public class FragmentAnswer extends FragmentBase {
                 if (savedInstanceState == null) {
                     etName.setText(answer == null ? null : answer.name);
                     etGroup.setText(answer == null ? null : answer.group);
+                    cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
                     cbHide.setChecked(answer == null ? false : answer.hide);
                     if (answer == null)
@@ -250,6 +253,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putLong("id", id);
         args.putString("name", etName.getText().toString().trim());
         args.putString("group", etGroup.getText().toString().trim());
+        args.putBoolean("standard", cbStandard.isChecked());
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putString("html", HtmlHelper.toHtml(etText.getText(), getContext()));
@@ -270,6 +274,7 @@ public class FragmentAnswer extends FragmentBase {
                 long id = args.getLong("id");
                 String name = args.getString("name");
                 String group = args.getString("group");
+                boolean standard = args.getBoolean("standard");
                 boolean favorite = args.getBoolean("favorite");
                 boolean hide = args.getBoolean("hide");
                 String html = args.getString("html");
@@ -282,22 +287,35 @@ public class FragmentAnswer extends FragmentBase {
                 Document document = JsoupEx.parse(html);
 
                 DB db = DB.getInstance(context);
-                if (id < 0) {
-                    EntityAnswer answer = new EntityAnswer();
-                    answer.name = name;
-                    answer.group = group;
-                    answer.favorite = favorite;
-                    answer.hide = hide;
-                    answer.text = document.body().html();
-                    answer.id = db.answer().insertAnswer(answer);
-                } else {
-                    EntityAnswer answer = db.answer().getAnswer(id);
-                    answer.name = name;
-                    answer.group = group;
-                    answer.favorite = favorite;
-                    answer.hide = hide;
-                    answer.text = document.body().html();
-                    db.answer().updateAnswer(answer);
+                try {
+                    db.beginTransaction();
+
+                    if (standard)
+                        db.answer().resetStandard();
+
+                    if (id < 0) {
+                        EntityAnswer answer = new EntityAnswer();
+                        answer.name = name;
+                        answer.group = group;
+                        answer.standard = standard;
+                        answer.favorite = favorite;
+                        answer.hide = hide;
+                        answer.text = document.body().html();
+                        answer.id = db.answer().insertAnswer(answer);
+                    } else {
+                        EntityAnswer answer = db.answer().getAnswer(id);
+                        answer.name = name;
+                        answer.group = group;
+                        answer.standard = standard;
+                        answer.favorite = favorite;
+                        answer.hide = hide;
+                        answer.text = document.body().html();
+                        db.answer().updateAnswer(answer);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
 
                 return null;

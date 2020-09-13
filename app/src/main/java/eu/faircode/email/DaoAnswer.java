@@ -44,6 +44,10 @@ public interface DaoAnswer {
     EntityAnswer getAnswer(long id);
 
     @Query("SELECT * FROM answer" +
+            " WHERE standard AND NOT hide")
+    EntityAnswer getStandardAnswer();
+
+    @Query("SELECT * FROM answer" +
             " ORDER BY -favorite, name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
@@ -59,6 +63,9 @@ public interface DaoAnswer {
 
     @Query("UPDATE answer SET hide = :hide WHERE id = :id")
     int setAnswerHidden(long id, boolean hide);
+
+    @Query("UPDATE answer SET standard = 0")
+    void resetStandard();
 
     @Query("DELETE FROM answer WHERE id = :id")
     void deleteAnswer(long id);

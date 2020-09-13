@@ -50,6 +50,8 @@ public class EntityAnswer implements Serializable {
     public String name;
     public String group;
     @NonNull
+    public Boolean standard;
+    @NonNull
     public Boolean favorite;
     @NonNull
     public Boolean hide;
@@ -105,6 +107,7 @@ public class EntityAnswer implements Serializable {
         json.put("id", id);
         json.put("name", name);
         json.put("group", group);
+        json.put("standard", standard);
         json.put("favorite", favorite);
         json.put("hide", hide);
         json.put("text", text);
@@ -116,6 +119,7 @@ public class EntityAnswer implements Serializable {
         answer.id = json.getLong("id");
         answer.name = json.getString("name");
         answer.group = json.optString("group");
+        answer.standard = json.optBoolean("standard");
         answer.favorite = json.optBoolean("favorite");
         answer.hide = json.optBoolean("hide");
         answer.text = json.getString("text");
@@ -128,6 +132,7 @@ public class EntityAnswer implements Serializable {
             EntityAnswer other = (EntityAnswer) obj;
             return (this.name.equals(other.name) &&
                     Objects.equals(this.group, other.group) &&
+                    this.standard.equals(other.standard) &&
                     this.favorite.equals(other.favorite) &&
                     this.hide.equals(other.hide) &&
                     this.text.equals(other.text)
