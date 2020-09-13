@@ -526,6 +526,8 @@ class ImageHelper {
         }
 
         d.setBounds(0, 0, w, h);
+
+        //d.setColorFilter(Color.GRAY, PorterDuff.Mode.DST_OVER);
     }
 
     static Bitmap getDataBitmap(String source) {
