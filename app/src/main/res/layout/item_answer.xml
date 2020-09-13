@@ -22,9 +22,10 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:minHeight="24dp"
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivStandard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +37,29 @@
                 android:maxLines="1"
                 android:text="Group"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivStandard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <ImageView
+                android:id="@+id/ivStandard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivFavorite"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_quickreply_24" />
+
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_star_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>
