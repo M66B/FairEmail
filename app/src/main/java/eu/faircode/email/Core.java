@@ -2845,11 +2845,11 @@ class Core {
             if (download && message.size != null && !message.ui_hide) {
                 long maxSize;
                 if (state == null || state.networkState.isUnmetered())
-                    maxSize = MessageHelper.DEFAULT_DOWNLOAD_SIZE;
+                    maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                 else {
                     maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
-                    if (maxSize == 0)
-                        maxSize = MessageHelper.DEFAULT_DOWNLOAD_SIZE;
+                    if (maxSize == 0 || maxSize > MessageHelper.SMALL_MESSAGE_SIZE)
+                        maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                 }
 
                 if (message.size < maxSize) {
