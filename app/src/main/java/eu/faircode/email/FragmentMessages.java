@@ -478,6 +478,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        grpSupport.setVisibility(View.GONE);
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
