@@ -496,7 +496,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionFlag.setEnabled(pro && !summary);
         cbNotifyActionSeen.setEnabled(pro && !summary);
         cbNotifyActionSnooze.setEnabled(pro && !summary);
-        swNotifyPreview.setEnabled(!summary);
         swNotifyPreviewAll.setEnabled(!summary && swNotifyPreview.isChecked());
         swNotifyPreviewOnly.setEnabled(!summary && swNotifyPreview.isChecked());
         swWearablePreview.setEnabled(!summary && swNotifyPreview.isChecked());
