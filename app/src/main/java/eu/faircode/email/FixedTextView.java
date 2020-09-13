@@ -111,7 +111,7 @@ public class FixedTextView extends AppCompatTextView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         // https://issuetracker.google.com/issues/37068143
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M &&
+        if ((BuildConfig.DEBUG || Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) &&
                 hasSelection() &&
                 event.getActionMasked() == MotionEvent.ACTION_DOWN) {
             CharSequence text = getText();
