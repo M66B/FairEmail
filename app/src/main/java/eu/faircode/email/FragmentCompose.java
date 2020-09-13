@@ -1571,7 +1571,7 @@ public class FragmentCompose extends FragmentBase {
         new SimpleTask<List<EntityAnswer>>() {
             @Override
             protected List<EntityAnswer> onExecute(Context context, Bundle args) {
-                return DB.getInstance(context).answer().getAnswersByFavorite(false);
+                return DB.getInstance(context).answer().getAnswers(false);
             }
 
             @Override
