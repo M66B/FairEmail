@@ -88,6 +88,12 @@
             <action android:name="org.openintents.openpgp.IOpenPgpService2" />
         </intent>
 
+        <!-- https://android-developers.googleblog.com/2015/10/in-app-translations-in-android.html -->
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT" />
+            <data android:mimeType="text/plain" />
+        </intent>
+
         <package android:name="com.google.android.tts" />
     </queries>
 
