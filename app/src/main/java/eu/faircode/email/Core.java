@@ -588,10 +588,7 @@ class Core {
                         try {
                             Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
                             iexisting.setFlag(Flags.Flag.DELETED, true);
-                            if (MessageHelper.hasCapability(ifolder, "UIDPLUS"))
-                                ifolder.expunge(new Message[]{iexisting});
-                            else
-                                purged = true;
+                            purged = true;
                         } catch (MessageRemovedException ignored) {
                             Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
                         }
@@ -763,10 +760,7 @@ class Core {
                     if (imessage == null)
                         throw new MessageRemovedException();
                     imessage.setFlag(Flags.Flag.DELETED, true);
-                    if (MessageHelper.hasCapability(ifolder, "UIDPLUS"))
-                        ifolder.expunge(new Message[]{imessage});
-                    else
-                        ifolder.expunge();
+                    ifolder.expunge();
                 } catch (MessagingException ex) {
                     Log.w(ex);
                 }
@@ -904,13 +898,10 @@ class Core {
                 try {
                     Log.i(folder.name + " deleting uid=" + message.uid);
                     iexisting.setFlag(Flags.Flag.DELETED, true);
-                    if (MessageHelper.hasCapability(ifolder, "UIDPLUS"))
-                        ifolder.expunge(new Message[]{iexisting});
-                    else
-                        ifolder.expunge();
                 } catch (MessageRemovedException ignored) {
                     Log.w(folder.name + " existing gone uid=" + message.uid);
                 }
+                ifolder.expunge();
             }
         }
 
@@ -1027,13 +1018,9 @@ class Core {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
-                if (MessageHelper.hasCapability(ifolder, "UIDPLUS"))
-                    ifolder.expunge(map.keySet().toArray(new Message[0]));
-                else
-                    ifolder.expunge();
-            } catch (MessageRemovedException ex) {
-                Log.w(ex);
+            } catch (MessageRemovedException ignored) {
             }
+            ifolder.expunge();
         } else {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
@@ -1240,7 +1227,7 @@ class Core {
                 Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
                 if (imessages == null)
                     Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
-                else {
+                else
                     for (Message iexisting : imessages) {
                         long muid = ifolder.getUID(iexisting);
                         Log.i(folder.name + " deleting uid=" + muid);
@@ -1250,12 +1237,9 @@ class Core {
                             Log.w(folder.name + " existing gone uid=" + muid);
                         }
                     }
-                    if (MessageHelper.hasCapability(ifolder, "UIDPLUS"))
-                        ifolder.expunge(imessages);
-                    else
-                        ifolder.expunge();
-                }
             }
+
+            ifolder.expunge();
 
             db.message().deleteMessage(message.id);
         } finally {
