@@ -14,9 +14,9 @@ Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysyty
 
 ## Tilien valtuutus
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Useimmissa tapauksissa pika-asennus pystyy automaattisesti tunnistamaan oikeat asetukset.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Jos nopea asennus epäonnistuu, sinun on määritettävä tili manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
@@ -77,13 +77,13 @@ Aiheeseen liittyvät kysymykset:
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
 
-## Planned features
+## Suunnitellut ominaisuudet
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
+* ~~Synkronoi pyydettäessä (manuaalinen)~~
+* ~~Puoliautomaattinen salaus~~
+* ~~Kopioi viesti~~
+* ~~Värilliset tähdet~~
+* ~~~Ilmoitusasetukset kansioittain~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
@@ -116,10 +116,10 @@ Anything on this list is in random order and *might* be added in the near future
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Frequently Asked Questions
+## Usein kysytyt kysymykset
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
+* [(1) Mitä käyttöoikeuksia tarvitaan ja miksi?](#user-content-faq1)
+* [(2) Miksi näytetään pysyvä ilmoitus?](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
@@ -129,9 +129,9 @@ The design is based on many discussions and if you like you can discuss about it
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
 * [~~(11) Why is POP not supported?~~](#user-content-faq11)
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
+* [(12) Miten salaus/salauksen purku toimii?](#user-content-faq12)
+* [(13) Miten laitteesta/palvelimelta haku toimii?](#user-content-faq13)
+* [(14) Miten voin asettaa Outlook- / Live- / Hotmail-tilin?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
@@ -296,7 +296,7 @@ The following Android permissions are needed:
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. Aikaisemmissa Android-versioissa sinua pyydetään myöntämään valinnaiset käyttöoikeudet FairEmailin asentamisen yhteydessä.
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -335,9 +335,9 @@ The status bar notification can be disabled via the notification settings of Fai
 * Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. Katso täältä [](#user-content-faq39) lisätietoja akun käytöstä.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo saattaa myös näyttää tilapalkin ilmoituksessa tekstin *Sovellukset ovat käynnissä taustalla*. Katso [täältä](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) miten voit poistaa tämän ilmoituksen.
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
@@ -596,7 +596,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients and send received Autocrypt headers to the OpenKeychain app for storage.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
@@ -617,9 +617,9 @@ Common errors:
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Encrypting a message requires the public key(s) of the recipient(s). Viestin allekirjoittaminen vaatii yksityisen avaimesi.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android pyytää sinua asettamaan PIN-koodin, kuvion tai salasanan, jos et ole aiemmin niin tehnyt. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 

@@ -596,7 +596,7 @@ Najpierw musisz zainstalować i skonfigurować [OpenKeychain](https://f-droid.or
 
 ** Ważne **: w niektórych wersjach/urządzeniach z Androidem konieczne jest włączenie * Pokaż wyskakujące okna podczas pracy w tle * w dodatkowych uprawnieniach ustawień aplikacji na Androida aplikacji OpenKeychain. Bez tego pozwolenia szkic zostanie zapisany, ale wyskakujące okno OpenKeychain w celu potwierdzenia/wyboru może się nie pojawić.
 
-FairEmail wyśle ​​nagłówki [ Autocrypt ](https://autocrypt.org/) do wykorzystania przez innych klientów poczty e-mail i wyśle otrzymane nagłówki Autocrypt do aplikacji OpenKeychain w celu przechowywania.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 Ze względów bezpieczeństwa cała obsługa klucza jest delegowana do aplikacji OpenKey chain. Oznacza to również, że FairEmail nie przechowuje kluczy PGP.
 

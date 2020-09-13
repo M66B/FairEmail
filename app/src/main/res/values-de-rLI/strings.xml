@@ -328,6 +328,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_text_size">Textgrößen verwenden</string>
     <string name="title_advanced_text_font">Schriftarten verwenden</string>
     <string name="title_advanced_text_align">Textausrichtung verwenden</string>
+    <string name="title_advanced_text_separators">Trennlinien verwenden</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>

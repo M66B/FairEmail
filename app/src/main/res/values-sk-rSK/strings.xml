@@ -346,6 +346,7 @@
     <string name="title_advanced_text_size">Veľkosti textu</string>
     <string name="title_advanced_text_font">Písma</string>
     <string name="title_advanced_text_align">Zarovnanie textu</string>
+    <string name="title_advanced_text_separators">Používať oddelovacie čiary</string>
     <string name="title_advanced_collapse_quotes">Zbaliť citovaný text</string>
     <string name="title_advanced_images_inline">Automaticky zobrazovať vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobraziť relatívnu pozíciu v konverzácii bodkou</string>

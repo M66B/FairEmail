@@ -327,6 +327,7 @@
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
+    <string name="title_advanced_text_separators">Utiliser des lignes de séparation</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>

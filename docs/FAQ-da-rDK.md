@@ -596,7 +596,7 @@ Du skal først installere og opsætte [OpenKeychain](https://f-droid.org/en/pack
 
 **Vigtigt**: På visse Android-versioner/-enheder er det nødvendigt at aktivere *Vis popups i baggrundstilstand * i de udvidede tilladelser til Android-app indstillingerne i OpenKeychain-appen. Uden denne tilladelse, gemmes udkastet, men OpenKeychain-popup'en til bekræftelse/valg vises muligvis ikke.
 
-FairEmail sender [Autokrypt](https://autocrypt.org/)-headere til brug for andre e-mailklienter og sender modtagne Autocrypt-headere til OpenKeychain-appen for opbevaring.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 Al nøglehåndtering uddelegeres af sikkerhedsårsager til OpenKey-kæde appen. Dette betyder også, at FairEmail ikke gemmer PGP-nøgler.
 
@@ -808,46 +808,46 @@ Hvis en (købt) Pro-funktion ikke fungerer som tilsigtet, og dette ikke skyldes 
 
 Før Android 8 Oreo: Der findes en avanceret indstilling i opsætningen til dette.
 
-Android 8 Oreo og senere: Tjek [hér](https://developer.android.com/training/notify-user/channels), hvordan du opsætter notifikationskanaler. Du kan benytte knappen *Håndtér notifikationer* i opsætningen for at gå direkte til Android-notifikationsindstillingerne. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
+Android 8 Oreo og senere: Tjek [hér](https://developer.android.com/training/notify-user/channels), hvordan du opsætter notifikationskanaler. Du kan benytte knappen *Håndtér notifikationer* i opsætningen for at gå direkte til Android-notifikationsindstillingerne. Bemærk, at apps ikke længere kan ændre notifikationsindstillinger, herunder indstillinger for notifikationslys, i Android 8 Oreo og senere. Apps designet og målrettet ældre Android-versioner kan muligvis stadig styre indholdet af notifikationer, men sådanne apps kan ikke længere opdatere, og nyere Android-versioner viser en advarsel om, at sådanne apps er forældede.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
+Undertiden er det nødvendigt at deaktivere indstillingen *Vis beskedforhåndsvisning i notifikationer* eller at aktivere indstillingerne *Vis kun notifikationer med en forhåndsvisningstekst* for at omgå en fejl i Android. Dette gælder muligvis også notifikationslyde og vibrationer.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Indstilling af lys-farven før Android 8 understøttes ikke og er ikke mulig i Android 8 og senere.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) Hvad betyder konto-/mappefejl ...?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail skjuler ikke fejl (hvilket lignende apps ofte gør) for lettere at diagnosticere problemer.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+FairEmail forsøger automatisk at genoprette forbindelse efter en forsinkelse. Denne forsinkelse fordobles efter hvert mislykket forsøg for at forhindre batteridræning og at blive låst ude permanent.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Der er generelle såvel som specifikke fejl for Gmail-konti (se nedenfor).
 
-**General errors**
+**Generelle fejl**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+Fejlen *... Godkendelse mislykkedes ...* eller *... GODKENDELSE mislykkedes ...* skyldes sandsynligvis forkert brugernavn/adgangskode. Viss udbydere forventer som brugernavn blot *brugernavn* og andre en fuld e-mailadresse *brugernavn@eksempel.dk*. Benyttes kopiér/indsæt til angivelse af brugernavn/adgangskode, kan der muligvis medtages usynlige tegn, hvilket også kan forårsage denne fejl. Visse adgangskodehåndteringer er også kendt for at gøre dette forkert. Brugernavnet kan være minuskel/versal sensitivt, så prøv kun med minuskler. Adgangskoden er fortrinsvis minuskel/versal sensitiv. Visse udbydere kræver brug af en app-adgangskode i stedet for kontoadgangskoden, så tjek din leverandørs dokumentation. Det er nogle gange nødvendigt først at muliggøre ekstern adgang (IMAP/SMTP) via udbyderens websted. Øvrige mulige årsager er, at kontoen er blokeret, eller at indlogning er administrativt begrænset på en eller anden måde, f.eks. ved kun at tillade indlogning fra bestemte netværk/IP-adresser.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
+Fejlen *... For mange fejlede godkendelsesforsøg ... *betyder sandsynligvis, at du bruger en Yahoo-kontoadgangskode i stedet for en app ditto. Tjek [denne FAQ](#user-content-faq88) vedr. opsætning af en Yahoo-konto.
 
-The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+Meddelelsen *... + OK ...* betyder sandsynligvis, at en POP3-port (normalt portnummer 995) anvendes til en IMAP-konto (normalt ellers portnummer 993).
 
-The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Fejlene *... ugyldig hilsen ...*, *... kræver gyldig adresse ...* og *... Parameter til HELO overholder ikke RFC-syntaks ...* kan sandsynligvis løses ved at ændre den avancerede identitetsindstilling *Anvend lokal IP-adresse i stedet for værtsnavn*.
 
-Fejlene *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
+Fejlene *... Kunne ikke oprette forbindelse til vært ...*, *... Forbindelse nægtet ...* eller *... Netværk kan ikke nås ...* betyder, at FairEmail ude af stand til at forbinde til e-mailserveren.
 
-Fejlen *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+Fejlen *... Vært er uopløst ...* eller "*... Kan ikke opløse vært ...* betyder, at e-mailserverens værtsadressen ikke kunne opløses. Dette kan forårsages af annonceblokering, eller en utilgængelig eller ikke korrekt fungerende [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+Fejlen *... Software forårsagede forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og denne, aktivt afsluttede en eksisterende forbindelse. Dette kan f.eks. ske, når tilslutningen pludselig blev mistet. Et typisk eksempel er aktivering af Flytilstand.
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+Fejlene *... BYE, logger ud ...*, *... Forbindelse nulstillet af peer ... * betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
 
-The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Fejlen *... Forbindelse lukket af peer ...* kan forårsages af en ikke-opdateret Exchange-server, tjek [hér](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for yderligere oplysninger.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Fejlene *... Læsefejl ...*, *... Skrivefejl ...*, *... Læsning fik timeout ...*, *... Ødelagt pipe ...* betyder, at e-mailserveren ikke længere svarer, eller at Internetforbindelsen er ringe.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Fejlen *... Uventet afslutning af zlib-inputstrøm ...* betyder, at ikke alle data blev modtaget, muligvis grundet en dårlig/afbrudt forbindelse.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 

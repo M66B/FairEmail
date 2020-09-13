@@ -6,6 +6,7 @@
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, bem como a abertura de hiperligações terá de ser confirmada por razões de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
     <string name="app_exit"> Clique novamente em \'voltar\' para sair</string>
+    <string name="app_cake">Espaço insuficiente</string>
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificações</string>
@@ -14,6 +15,8 @@
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contactos</string>
+    <string name="channel_send_description">Envio de mensagens</string>
+    <string name="channel_notification_description">Notificações de novas mensagens</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
         <item quantity="other">Conversas</item>
@@ -52,6 +55,10 @@
     <plurals name="title_selected_conversations">
         <item quantity="one">%1$d conversa selecionada</item>
         <item quantity="other">%1$d conversas selecionadas</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Mover %1$d mensagem?</item>
+        <item quantity="other">Mover %1$d mensagens?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Excluir %1$d mensagem permanentemente?</item>
@@ -99,6 +106,7 @@
     <string name="menu_rate">Classifique esta aplicação</string>
     <string name="title_welcome">Bem-vindo</string>
     <string name="title_eula">Condições de Utilização</string>
+    <string name="title_contributors">Colaboradores</string>
     <string name="title_agree">Concordo</string>
     <string name="title_disagree">Discordo</string>
     <string name="title_version">Versão %1$s</string>
@@ -116,6 +124,7 @@
     </string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Para configurar rapidamente uma conta e uma identidade para a maioria dos provedores</string>
+    <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá obter informações de configuração a partir de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
@@ -128,6 +137,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e excluir permanentemente todos os teus e-mails. O FairEmail nunca apagará as tuas mensagens sem o teu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta de rascunhos não estiver acessível pelo IMAP, isso poderá ser corrigido nas configurações de etiquetas do Gmail</string>
+    <string name="title_setup_office_auth">O erro \'AUTHENTICATE falhou\' pode ser causado por IMAP/SMTP estar desativado pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Selecionar Conta</string>
@@ -136,6 +146,7 @@
     <string name="title_setup_no_settings_hint">Por favor, tente configurar uma conta e identidade nas etapas de configuração 1 e 2 usando as configurações fornecidas pelo seu provedor de e-mail</string>
     <string name="title_setup_no_auth_hint">Por favor, verifique o seu endereço de e-mail e senha e certifique-se que o acesso externo (IMAP/SMTP) está ativado para a sua conta</string>
     <string name="title_setup_app_password_hint">Este provedor requer uma senha de aplicação em vez da senha da conta, por favor verifique as instruções do seu provedor</string>
+    <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionadas com sucesso</string>
     <string name="title_setup_quick_failed">Também pode tentar configurar uma conta e uma identidade abaixo</string>
     <string name="title_setup_manage">Gerir</string>

@@ -15,6 +15,9 @@
     <string name="channel_error">Virheet</string>
     <string name="channel_alert">Palvelimen hälytykset</string>
     <string name="channel_group_contacts">Yhteystiedot</string>
+    <string name="channel_service_description">Tilien synkronointi ja seuranta</string>
+    <string name="channel_send_description">Viestien lähettäminen</string>
+    <string name="channel_notification_description">Uusien viestien ilmoitukset</string>
     <plurals name="page_conversation">
         <item quantity="one">Keskustelu</item>
         <item quantity="other">Keskustelut</item>
@@ -31,8 +34,8 @@
     <string name="shortcut_compose">Kirjoita viesti</string>
     <string name="shortcut_setup">Asetukset</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Monitoroidaan %1$d tiliä</item>
-        <item quantity="other">Monitoroidaan %1$d tiliä</item>
+        <item quantity="one">Seurataan %1$d tiliä</item>
+        <item quantity="other">Seurataan %1$d tiliä</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d toimenpide odottaa</item>
@@ -953,6 +956,7 @@
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>
+    <string name="title_answer_group">Viestipohjan ryhmä (valinnainen)</string>
     <string name="title_answer_favorite">Suosikki</string>
     <string name="title_answer_hide">Piilota valikoista</string>
     <string name="title_answer_text">Viestipohjan teksti</string>
@@ -969,6 +973,7 @@
     <string name="title_rule_keyword">Lisää avainsana</string>
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
+    <string name="title_rule_answer">Vastaa/lähetä edelleen</string>
     <string name="title_rule_tts">Teksti puheeksi</string>
     <string name="title_rule_automation">Automaatio</string>
     <string name="title_rule_caption">Muokkaa sääntöä</string>
@@ -994,7 +999,9 @@
     <string name="title_rule_thread">Kaikki viestit samassa keskustelussa ja kansiossa</string>
     <string name="title_rule_identity">Identiteetti</string>
     <string name="title_rule_template">Vastausviestipohja</string>
+    <string name="title_rule_forward_to">Lähetä edelleen vastaanottajalle</string>
     <string name="title_rule_cc">Vastaa kopio-osoitteisiin</string>
+    <string name="title_rule_with_attachments">Liitteiden kanssa</string>
     <string name="title_rule_answer_remark">Vain yksi vastaus lähetetään yhteen keskusteluun, jotta voidaan välttää vastausten loputon toistaminen</string>
     <string name="title_rule_name_missing">Säännön nimi puuttuu</string>
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
@@ -1209,6 +1216,13 @@
     <string name="title_log">Lokitiedot</string>
     <string name="title_auto_scroll">Automaattinen vieritys</string>
     <string name="title_log_clear">Tyhjennä</string>
+    <string name="title_rules_search_hint">Hae nimeä tai ehtoa</string>
+    <string name="title_rules_export">Vie säännöt</string>
+    <string name="title_rules_import">Tuo säännöt</string>
+    <string name="title_rules_delete_all">Poista kaikki säännöt</string>
+    <string name="title_rules_delete_junk">Poista roskapostisäännöt</string>
+    <string name="title_rules_delete_all_confirm">Poista kaikki säännöt?</string>
+    <string name="title_rules_delete_junk_confirm">Poistetaanko kaikki säännöt, jotka siirtävät viestejä roskapostikansioon?</string>
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>

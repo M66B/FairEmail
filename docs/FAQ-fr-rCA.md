@@ -596,7 +596,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients and send received Autocrypt headers to the OpenKeychain app for storage.
+FairEmail enverra l'en-tête [Autocrypt](https://autocrypt.org/) pour être utilisé par d'autres clients de messagerie, mais seulement pour les messages signés et chiffrés parce que trop de serveurs de messagerie ont des problèmes avec l'en-tête Autocrypt souvent long. Notez que le moyen le plus sûr de démarrer un échange de messages chiffrés est d'envoyer d'abord des messages signés. Les en-têtes Autocrypt reçus seront envoyés à l'application OpenKeychain pour être stockés lors de la vérification d'une signature ou du déchiffrement d'un message.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
