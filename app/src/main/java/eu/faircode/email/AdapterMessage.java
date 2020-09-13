@@ -1582,7 +1582,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && (hasJunk && !inJunk));
                     boolean inbox = (move && (inArchive || inTrash || inJunk));
-                    boolean keywords = (!(message.folderReadOnly || message.uid == null) &&
+                    boolean keywords = (!message.folderReadOnly && message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (gmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (!(message.folderReadOnly || message.uid == null) ||
