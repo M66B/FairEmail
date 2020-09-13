@@ -898,10 +898,10 @@ class Core {
                 try {
                     Log.i(folder.name + " deleting uid=" + message.uid);
                     iexisting.setFlag(Flags.Flag.DELETED, true);
+                    ifolder.expunge();
                 } catch (MessageRemovedException ignored) {
                     Log.w(folder.name + " existing gone uid=" + message.uid);
                 }
-                ifolder.expunge();
             }
         }
 
@@ -1018,9 +1018,10 @@ class Core {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
-            } catch (MessageRemovedException ignored) {
+                ifolder.expunge();
+            } catch (MessageRemovedException ex) {
+                Log.w(ex);
             }
-            ifolder.expunge();
         } else {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
