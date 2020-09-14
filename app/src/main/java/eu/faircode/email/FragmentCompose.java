@@ -1630,7 +1630,11 @@ public class FragmentCompose extends FragmentBase {
                                     }
                                 }, null, getContext());
 
-                                etBody.getText().insert(etBody.getSelectionStart(), spanned);
+                                int start = etBody.getSelectionStart();
+                                if (start < 0)
+                                    start = 0;
+
+                                etBody.getText().insert(start, spanned);
 
                                 return true;
                             }
