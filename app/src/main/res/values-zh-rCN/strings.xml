@@ -315,6 +315,7 @@
     <string name="title_advanced_text_size">使用文本大小</string>
     <string name="title_advanced_text_font">使用字体</string>
     <string name="title_advanced_text_align">使用文本对齐</string>
+    <string name="title_advanced_text_separators">使用分隔线</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
@@ -697,6 +698,7 @@
     <string name="title_spam">垃圾邮件</string>
     <string name="title_move">移动</string>
     <string name="title_copy_btn">复制</string>
+    <string name="title_keywords_btn">关键词</string>
     <string name="title_unsubscribe">取消订阅</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
@@ -949,6 +951,7 @@
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>
     <string name="title_answer_group">模板组 (可选)</string>
+    <string name="title_answer_standard">默认</string>
     <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>

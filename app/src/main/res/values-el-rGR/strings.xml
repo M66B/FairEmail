@@ -706,6 +706,7 @@
     <string name="title_spam">Ανεπιθύμητα</string>
     <string name="title_move">Μετακίνηση</string>
     <string name="title_copy_btn">Αντιγραφή</string>
+    <string name="title_keywords_btn">Λέξεις-κλειδιά</string>
     <string name="title_unsubscribe">Κατάργηση συνδρομής</string>
     <string name="title_message_rule">Δημιουργία κανόνα</string>
     <string name="title_no_junk">Όχι ανεπιθύμητο</string>
@@ -957,6 +958,7 @@
     <string name="title_answer_reply">Πρότυπο απάντησης</string>
     <string name="title_answer_name">Όνομα προτύπου</string>
     <string name="title_answer_group">Ομάδα προτύπων (προαιρετικό)</string>
+    <string name="title_answer_standard">Προεπιλογή</string>
     <string name="title_answer_favorite">Αγαπημένα</string>
     <string name="title_answer_hide">Απόκρυψη από τα μενού</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>

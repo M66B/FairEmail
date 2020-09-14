@@ -727,6 +727,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_spam">Označiť za nevyžiadanú</string>
     <string name="title_move">Presunúť</string>
     <string name="title_copy_btn">Kopírovať</string>
+    <string name="title_keywords_btn">Kľúčové slová</string>
     <string name="title_unsubscribe">Zrušiť odber</string>
     <string name="title_message_rule">Vytvoriť pravidlo</string>
     <string name="title_no_junk">Toto nie je spam</string>
@@ -979,6 +980,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_answer_reply">Šablóna odpovede</string>
     <string name="title_answer_name">Názov šablóny</string>
     <string name="title_answer_group">Skupina šablóny (voliteľné)</string>
+    <string name="title_answer_standard">Predvolené</string>
     <string name="title_answer_favorite">Obľúbená</string>
     <string name="title_answer_hide">Skryť z ponuky</string>
     <string name="title_answer_text">Text šablóny</string>

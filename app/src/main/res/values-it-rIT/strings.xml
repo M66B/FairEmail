@@ -327,6 +327,7 @@
     <string name="title_advanced_text_size">Usa dimensioni testo</string>
     <string name="title_advanced_text_font">Usa i tipi di caratteri</string>
     <string name="title_advanced_text_align">Usa l\'allineamento testo</string>
+    <string name="title_advanced_text_separators">Usa linee di separatore</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un punto</string>
@@ -709,6 +710,7 @@
     <string name="title_spam">Posta indesiderata</string>
     <string name="title_move">Sposta</string>
     <string name="title_copy_btn">Copia</string>
+    <string name="title_keywords_btn">Parole chiave</string>
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
@@ -961,6 +963,7 @@
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
     <string name="title_answer_group">Gruppo di modelli (opzionale)</string>
+    <string name="title_answer_standard">Predefinitio</string>
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
@@ -1221,6 +1224,12 @@
     <string name="title_auto_scroll">Scorrimento automatico</string>
     <string name="title_log_clear">Svuota</string>
     <string name="title_rules_search_hint">Ricerca un nome o una condizione</string>
+    <string name="title_rules_export">Esporta le regole</string>
+    <string name="title_rules_import">Importa le regole</string>
+    <string name="title_rules_delete_all">Elimina tutte le regole</string>
+    <string name="title_rules_delete_junk">Elimina le regole di spam</string>
+    <string name="title_rules_delete_all_confirm">Elimina tutte le regole?</string>
+    <string name="title_rules_delete_junk_confirm">Eliminare tutte le regole che spostano i messaggi nella cartella spam?</string>
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>

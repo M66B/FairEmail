@@ -326,6 +326,7 @@
     <string name="title_advanced_text_size">Använd textstorlekar</string>
     <string name="title_advanced_text_font">Använd typsnitt</string>
     <string name="title_advanced_text_align">Använd textjustering</string>
+    <string name="title_advanced_text_separators">Använd separata linjer</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>
@@ -708,6 +709,7 @@
     <string name="title_spam">Skräppost</string>
     <string name="title_move">Flytta</string>
     <string name="title_copy_btn">Kopiera</string>
+    <string name="title_keywords_btn">Nyckelord</string>
     <string name="title_unsubscribe">Avbryt prenumeration</string>
     <string name="title_message_rule">Skapa regel</string>
     <string name="title_no_junk">Inte skräppost</string>
@@ -960,6 +962,7 @@
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>
     <string name="title_answer_group">Mallgrupp (valfritt)</string>
+    <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>

@@ -348,6 +348,7 @@
     <string name="title_advanced_text_size">Użyj rozmiarów tekstu</string>
     <string name="title_advanced_text_font">Użyj czcionek</string>
     <string name="title_advanced_text_align">Użyj wyrównania tekstu</string>
+    <string name="title_advanced_text_separators">Użyj linii separatora</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
@@ -730,6 +731,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Przenieś</string>
     <string name="title_copy_btn">Kopiuj</string>
+    <string name="title_keywords_btn">Słowa kluczowe</string>
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>
@@ -982,6 +984,7 @@
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
     <string name="title_answer_group">Grupa szablonów (opcjonalnie)</string>
+    <string name="title_answer_standard">Domyślna</string>
     <string name="title_answer_favorite">Ulubione</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>

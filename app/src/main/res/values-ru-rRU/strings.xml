@@ -732,6 +732,7 @@
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
     <string name="title_copy_btn">Копировать</string>
+    <string name="title_keywords_btn">Ключевые слова</string>
     <string name="title_unsubscribe">Отписаться</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>
@@ -984,6 +985,7 @@
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
     <string name="title_answer_group">Группа шаблонов (необязательно)</string>
+    <string name="title_answer_standard">По умолчанию</string>
     <string name="title_answer_favorite">Избранное</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
