@@ -1581,9 +1581,8 @@ public class FragmentCompose extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
 
-                Map<String, SubMenu> map = new HashMap<>();
-
                 int order = 0;
+                Map<String, SubMenu> map = new HashMap<>();
                 for (EntityAnswer answer : answers) {
                     order++;
                     if (answer.group == null)
