@@ -931,4 +931,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="HCCnet"
+        domain="hcc\\.nl,hccnet\\.nl,kader\\.hcc\\.nl"
+        enabled="false"
+        link="https://www.hcc.nl/hccnet">
+        <imap
+            host="pop.hccnet.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.hccnet.nl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
