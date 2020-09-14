@@ -551,7 +551,11 @@ final class PagedStorage<T> extends AbstractList<T> {
                         " size=" + newPageSize + "/" + mPageSize +
                         " addingLastPage=" + addingLastPage +
                         " onlyEndPagePresent=" + onlyEndPagePresent);
-                return;
+                if (newPageSize > mPageSize)
+                    // tiling size=1222/50 addingLastPage=false onlyEndPagePresent=false
+                    page = page.subList(0, mPageSize);
+                else
+                    return;
             }
             if (onlyEndPagePresent) {
                 mPageSize = newPageSize;
