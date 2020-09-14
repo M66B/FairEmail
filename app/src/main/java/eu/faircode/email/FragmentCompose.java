@@ -1577,6 +1577,11 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final List<EntityAnswer> answers) {
+                if (answers.size() == 0) {
+                    ToastEx.makeText(getContext(), R.string.title_no_answers, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 View vwAnchorMenu = view.findViewById(R.id.vwAnchorMenu);
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
@@ -1638,6 +1643,8 @@ public class FragmentCompose extends FragmentBase {
 
                                 return true;
                             }
+
+                        Log.e("Answer=" + id + " count=" + answers.size() + " not found");
 
                         return false;
                     }
