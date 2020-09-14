@@ -5788,13 +5788,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                         if (addr == null)
-                            throw new IllegalArgumentException("addr not found");
+                            throw new IllegalArgumentException("Autocrypt: addr not found");
 
                         if (!addr.equalsIgnoreCase(peer))
-                            throw new IllegalArgumentException("addr different from peer");
+                            throw new IllegalArgumentException("Autocrypt: addr different from peer");
 
                         if (keydata == null)
-                            throw new IllegalArgumentException("keydata not found");
+                            throw new IllegalArgumentException("Autocrypt: keydata not found");
 
                         AutocryptPeerUpdate update = AutocryptPeerUpdate.create(
                                 keydata, new Date(message.received), mutual);
