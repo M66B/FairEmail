@@ -670,7 +670,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_buttons">Schaltflächen</string>
-    <string name="title_seen">Als gelesen kennzeichnen</string>
+    <string name="title_seen">Gelesen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_toggle_seen">Gelesen umschalten</string>
     <string name="title_hide">Ausblenden</string>
@@ -710,7 +710,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
     <string name="title_copy_btn">Kopieren</string>
-    <string name="title_keywords_btn">Schlüsselwörter</string>
+    <string name="title_keywords_btn">Stichwörter</string>
     <string name="title_unsubscribe">Abbestellen</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
@@ -968,7 +968,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
     <string name="title_rule_noop">Keine Aktion</string>
-    <string name="title_rule_seen">Als gelesen kennzeichnen</string>
+    <string name="title_rule_seen">Gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_rule_hide">Ausblenden</string>
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>

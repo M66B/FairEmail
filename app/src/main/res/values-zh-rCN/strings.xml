@@ -267,7 +267,7 @@
     <string name="title_advanced_caption_message">消息</string>
     <string name="title_advanced_caption_message_header">邮件标头</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
-    <string name="title_advanced_portrait2">在竖屏模式中使用两行</string>
+    <string name="title_advanced_portrait2">点击会话时分屏显示消息列表</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
