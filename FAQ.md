@@ -491,7 +491,7 @@ You can use the quick setup wizard to easily setup a Gmail account and identity.
 If you don't want to use an on-device Gmail account,
 you can either enable access for "less secure apps" and use your account password (not advised)
 or enable two factor authentication and use an app specific password.
-In this case you'll need to setup an account and identity manually via setup step 1 and 2.
+To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
