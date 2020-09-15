@@ -2716,7 +2716,7 @@ class Core {
             EntityIdentity identity = matchIdentity(context, folder, message);
             message.identity = (identity == null ? null : identity.id);
 
-            message.sender = MessageHelper.getSortKey(message.from);
+            message.sender = MessageHelper.getSortKey(EntityFolder.isOutgoing(folder.type) ? message.to : message.from);
             Uri lookupUri = ContactInfo.getLookupUri(message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
             if (message.avatar == null && notify_known && pro)
