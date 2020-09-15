@@ -37,7 +37,6 @@ import android.os.Looper;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
-import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
 import java.util.Date;
@@ -122,8 +121,6 @@ public class ApplicationEx extends Application {
 
         WorkerWatchdog.init(this);
         WorkerCleanup.queue(this);
-
-        FragmentManager.enableNewStateManager(false);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
