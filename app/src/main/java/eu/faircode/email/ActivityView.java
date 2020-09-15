@@ -969,10 +969,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         String action = intent.getAction();
+        Log.i("View intent=" + intent + " action=" + action);
         boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
         if (action != null) {
             intent.setAction(null);
-            setIntent(new Intent(intent));
+            setIntent(intent);
 
             if (action.startsWith("unified")) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
