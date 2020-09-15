@@ -1555,8 +1555,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         EntityLog.log(ServiceSynchronize.this,
                                 account.name + " fast errors=" + errors +
                                         " last connected: " + new Date(account.last_connected));
-                        if (errors >= FAST_ERROR_COUNT)
-                            state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
+                        if (errors >= FAST_ERROR_COUNT) {
+                            int scale = errors - FAST_ERROR_COUNT + 1;
+                            int backoff = Math.max(CONNECT_BACKOFF_AlARM_START * scale, CONNECT_BACKOFF_AlARM_MAX);
+                            EntityLog.log(ServiceSynchronize.this,
+                                    account.name + " fast error backoff=" + backoff);
+                            state.setBackoff(backoff * 60);
+                        }
                     }
 
                     // Report account connection error
