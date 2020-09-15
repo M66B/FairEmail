@@ -675,6 +675,8 @@ This can be done by long pressing an identity in the list of identities (Setup, 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
 
+**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background*
 in the additional permissions of the Android app settings of the OpenKeychain app.
 Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
