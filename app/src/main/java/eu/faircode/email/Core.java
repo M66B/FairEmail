@@ -4076,8 +4076,8 @@ class Core {
             return networkState;
         }
 
-        void setBackoff(int seconds) {
-            this.backoff = seconds;
+        void setBackoff(int value) {
+            this.backoff = value;
         }
 
         int getBackoff() {
