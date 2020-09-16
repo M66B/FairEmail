@@ -477,7 +477,6 @@
             android:id="@+id/style_bar"
             android:layout_width="0dp"
             android:layout_height="36dp"
-            android:layout_marginBottom="1dp"
             android:background="?attr/colorActionBackground"
             app:itemIconTint="@color/action_foreground"
             app:itemTextColor="@color/action_foreground"

@@ -466,9 +466,25 @@ public class FragmentCompose extends FragmentBase {
         });
 
         etBody.setSelectionListener(new EditTextCompose.ISelection() {
+            private boolean style = false;
+            private boolean styling = false;
+
             @Override
             public void onSelected(boolean selection) {
-                style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+                if (media) {
+                    style = selection;
+                    getMainHandler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (style != styling) {
+                                styling = style;
+                                media_bar.getMenu().clear();
+                                media_bar.inflateMenu(styling ? R.menu.action_compose_style : R.menu.action_compose_media);
+                            }
+                        }
+                    }, 20);
+                } else
+                    style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -726,7 +742,8 @@ public class FragmentCompose extends FragmentBase {
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return onActionStyle(item.getItemId());
+                int action = item.getItemId();
+                return onActionStyle(action, style_bar.findViewById(action));
             }
         });
 
@@ -751,7 +768,7 @@ public class FragmentCompose extends FragmentBase {
                         onActionLink();
                         return true;
                     default:
-                        return false;
+                        return onActionStyle(action, media_bar.findViewById(action));
                 }
             }
         });
@@ -1513,6 +1530,8 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
         media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        media_bar.getMenu().clear();
+        media_bar.inflateMenu(media && etBody.hasSelection() ? R.menu.action_compose_style : R.menu.action_compose_media);
     }
 
     private void onMenuCompact() {
@@ -1674,9 +1693,9 @@ public class FragmentCompose extends FragmentBase {
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
     }
 
-    private boolean onActionStyle(int action) {
+    private boolean onActionStyle(int action, View anchor) {
         Log.i("Style action=" + action);
-        return StyleHelper.apply(action, view.findViewById(action), etBody);
+        return StyleHelper.apply(action, anchor, etBody);
     }
 
     private void onActionRecordAudio() {
