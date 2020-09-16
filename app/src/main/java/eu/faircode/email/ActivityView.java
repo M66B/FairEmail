@@ -145,6 +145,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, false);
 
+        // Workaround stale intents from recent apps screen
+        boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+        if (recents) {
+            Intent intent = getIntent();
+            intent.setAction(null);
+            setIntent(intent);
+        }
+
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.registerReceiver(creceiver, new IntentFilter(ACTION_NEW_MESSAGE));
 
@@ -970,7 +978,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         String action = intent.getAction();
         Log.i("View intent=" + intent + " action=" + action);
-        //boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
         if (action != null) {
             intent.setAction(null);
             setIntent(intent);
@@ -1033,11 +1040,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 onMenuOutbox();
 
-            } else if (action.startsWith("thread") /*&& !recents*/) {
+            } else if (action.startsWith("thread")) {
                 intent.putExtra("thread", action.split(":", 2)[1]);
                 onViewThread(intent);
 
-            } else if (action.equals("widget") /*&& !recents*/) {
+            } else if (action.equals("widget")) {
                 long account = intent.getLongExtra("widget_account", -1);
                 long folder = intent.getLongExtra("widget_folder", -1);
                 String type = intent.getStringExtra("widget_type");
