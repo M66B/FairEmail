@@ -944,4 +944,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Interia"
+        link="https://pomoc.poczta.interia.pl/news-parametry-do-konfiguracji-programow-pocztowych,nId,2136275">
+        <imap
+            host="poczta.interia.pl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="poczta.interia.pl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
