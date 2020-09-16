@@ -970,7 +970,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         String action = intent.getAction();
         Log.i("View intent=" + intent + " action=" + action);
-        boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+        //boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
         if (action != null) {
             intent.setAction(null);
             setIntent(intent);
@@ -1033,11 +1033,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 onMenuOutbox();
 
-            } else if (action.startsWith("thread") && !recents) {
+            } else if (action.startsWith("thread") /*&& !recents*/) {
                 intent.putExtra("thread", action.split(":", 2)[1]);
                 onViewThread(intent);
 
-            } else if (action.equals("widget") && !recents) {
+            } else if (action.equals("widget") /*&& !recents*/) {
                 long account = intent.getLongExtra("widget_account", -1);
                 long folder = intent.getLongExtra("widget_folder", -1);
                 String type = intent.getStringExtra("widget_type");
