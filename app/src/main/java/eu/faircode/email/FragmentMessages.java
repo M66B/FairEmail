@@ -1634,7 +1634,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (pos == NO_POSITION)
                             continue;
 
-                        adapter.notifyItemChanged(pos);
+                        rvMessage.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    adapter.notifyItemChanged(pos);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    /*
+                                        java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling eu.faircode.email.FixedRecyclerView{8162ff9 VFED..... .......D 0,0-1080,1939 #7f0a03b3 app:id/rvMessage}, adapter:eu.faircode.email.AdapterMessage@7a67b3e, layout:eu.faircode.email.FragmentMessages$6@b638d9f, context:eu.faircode.email.ActivityView@6627433
+                                          at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(SourceFile:3153)
+                                          at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(SourceFile:5693)
+                                          at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(SourceFile:12645)
+                                          at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(SourceFile:12635)
+                                          at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemChanged(SourceFile:7570)
+                                     */
+                                }
+                            }
+                        });
                     }
             }
 
