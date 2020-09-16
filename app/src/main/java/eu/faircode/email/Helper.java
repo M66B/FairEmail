@@ -1124,6 +1124,16 @@ public class Helper {
         }
     }
 
+    public static void readBuffer(InputStream is, byte[] buffer) throws IOException {
+        int left = buffer.length;
+        while (left > 0) {
+            int count = is.read(buffer, buffer.length - left, left);
+            if (count < 0)
+                throw new IOException("EOF");
+            left -= count;
+        }
+    }
+
     static void copy(File src, File dst) throws IOException {
         try (InputStream in = new FileInputStream(src)) {
             try (FileOutputStream out = new FileOutputStream(dst)) {
