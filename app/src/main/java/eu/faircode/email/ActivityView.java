@@ -606,7 +606,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+        Intent clone = new Intent(intent);
+        clone.setAction(null);
+        super.onNewIntent(clone);
         setIntent(intent);
     }
 
