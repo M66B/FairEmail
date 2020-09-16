@@ -82,7 +82,7 @@ Domande correlate:
 * ~~Sicronizzazione su richiesta (manuale)~~
 * ~~Cifratura semi-automatica~~
 * ~~Copia messaggio~~
-* ~~Colored stars~~
+* ~~Stelle colorate~~
 * ~~Impostazioni di notifica per cartella~~
 * ~~Selezione immagini locali per le firme~~ (non verrà aggiunto perchè richiede la gestione dei file e quasi tutti i client email non mostrano le immagini per impostazione predefinita)
 * ~~Mostra messaggi che soddisfano un criterio~~
@@ -93,8 +93,8 @@ Domande correlate:
 * ~~[Messaggio di configurazione Autocrypt](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (Secondo me non è una buona idea permette ad un client di posta elettronica di gestire le chiavi di crittografia solo per casi d'uso rari se OpenKeychain può esportare anche le chiavi)
 * ~~Cartelle unificate generiche~~
 * ~~Programmazione notifiche nuovo messaggio per account~~ (implementato aggiungendo regole di orario in modo che i messaggi possano essere silenziati durante periodi scelti)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
+* ~~Copiare account e identità~~
+* ~~Zoom con selezione~~ (non è possibile in modo affidabile in una lista scorrevole; si può invece ingrandire l'intero messaggio)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
@@ -118,39 +118,39 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 
 ## Domande frequenti
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
+* [(1) Quali autorizzazioni sono necessarie e perché?](#user-content-faq1)
+* [(2) Perché viene mostrata una notifica permanente?](#user-content-faq2)
+* [(3) Cosa sono le operazioni e perché sono in sospeso?](#user-content-faq3)
+* [(4) Come posso usare un certificato di sicurezza non valido / password vuota / connessione di testo semplice?](#user-content-faq4)
+* [(5) Come posso personalizzare la visualizzazione dei messaggi?](#user-content-faq5)
+* [(6) Come posso accedere a Gmail / G suite?](#user-content-faq6)
+* [(7) Perché i messaggi inviati non appaiono (direttamente) nella cartella inviata?](#user-content-faq7)
+* [(8) Posso usare un account Microsoft Exchange?](#user-content-faq8)
+* [(9) Cosa sono le identità / come faccio ad aggiungere un alias?](#user-content-faq9)
+* [~~(11) Perché POP non è supportato?~~](#user-content-faq11)
+* [~~(10) Cosa significa 'UIDPLUS non supportato'?~~](#user-content-faq10)
+* [(12) Come funziona la crittografia/decifrazione?](#user-content-faq12)
+* [(13) Come funziona la ricerca su dispositivo/server?](#user-content-faq13)
+* [(14) Come posso impostare un account Outlook / Live / Hotmail?](#user-content-faq14)
+* [(15) Perché il testo del messaggio continua a caricare?](#user-content-faq15)
+* [(16) Perché i messaggi non vengono sincronizzati?](#user-content-faq16)
+* [~~(17) Perché la sincronizzazione manuale non funziona?~~](#user-content-faq17)
+* [(18) Perché l'anteprima del messaggio non viene sempre mostrata?](#user-content-faq18)
+* [(19) Perché le funzionalità pro sono così costose?](#user-content-faq19)
+* [(20) Posso ottenere un rimborso?](#user-content-faq20)
+* [(21) Come abilitare la luce delle notifiche?](#user-content-faq21)
+* [(22) Cosa significa errore dell' account/cartella ... ?](#user-content-faq22)
+* [(23) Perché mi arriva una segnalazione.. ?](#user-content-faq23)
+* [(24) Cos'è la navigazione dei messaggi sul server?](#user-content-faq24)
+* [(25) Perché non posso selezionare/aprire/salvare un'immagine, allegato o file?](#user-content-faq25)
+* [(26) Posso aiutarvi a tradurre FairEmail nella mia lingua?](#user-content-faq26)
+* [(27) Come posso distinguere le immagini integrate da quelle esterne?](#user-content-faq27)
+* [(28) Come posso gestire le notifiche della barra di stato?](#user-content-faq28)
+* [(29) Come posso ricevere notifiche di messaggi per altre cartelle?](#user-content-faq29)
+* [(30) Come posso usare le impostazioni rapide previste?](#user-content-faq30)
+* [(31) Come posso usare i collegamenti rapidi previsti?](#user-content-faq31)
+* [(32) Come posso controllare se leggere un'email è davvero sicuro?](#user-content-faq32)
+* [(33) Perché gli indirizzi modificati dei mittenti non funzionano?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
 * [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)

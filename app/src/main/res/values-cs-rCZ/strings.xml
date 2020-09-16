@@ -349,6 +349,7 @@
     <string name="title_advanced_text_size">Použít velikost textu</string>
     <string name="title_advanced_text_font">Použít fonty písma</string>
     <string name="title_advanced_text_align">Použít zarovnání textu</string>
+    <string name="title_advanced_text_separators">Použít oddělovací čáry</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
@@ -731,6 +732,7 @@
     <string name="title_spam">Nevyžádané</string>
     <string name="title_move">Přesunout</string>
     <string name="title_copy_btn">Kopírovat</string>
+    <string name="title_keywords_btn">Klíčová slova</string>
     <string name="title_unsubscribe">Odhlásit odběr</string>
     <string name="title_message_rule">Vytvořit pravidlo</string>
     <string name="title_no_junk">Není spam</string>
@@ -982,6 +984,8 @@
     <string name="title_answer_caption">Upravit šablonu</string>
     <string name="title_answer_reply">Šablona odpovědi</string>
     <string name="title_answer_name">Název šablony</string>
+    <string name="title_answer_group">Skupina šablon (nepovinné)</string>
+    <string name="title_answer_standard">Výchozí</string>
     <string name="title_answer_favorite">Oblíbená</string>
     <string name="title_answer_hide">Skrýt z nabídek</string>
     <string name="title_answer_text">Text šablony</string>
