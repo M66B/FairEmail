@@ -1636,13 +1636,24 @@ public class FragmentCompose extends FragmentBase {
                                 }, null, getContext());
 
                                 int start = etBody.getSelectionStart();
-                                if (start < 0) {
-                                    start = etBody.length() - 1;
-                                    if (start < 0)
-                                        start = 0;
+                                int end = etBody.getSelectionEnd();
+                                if (start > end) {
+                                    int tmp = start;
+                                    start = end;
+                                    end = tmp;
                                 }
 
-                                etBody.getText().insert(start, spanned);
+                                if (start >= 0 && start < end)
+                                    etBody.getText().replace(start, end, spanned);
+                                else {
+                                    if (start < 0) {
+                                        start = etBody.length() - 1;
+                                        if (start < 0)
+                                            start = 0;
+                                    }
+
+                                    etBody.getText().insert(start, spanned);
+                                }
 
                                 return true;
                             }
