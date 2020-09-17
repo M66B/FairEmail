@@ -146,7 +146,7 @@ public class FragmentDialogBase extends DialogFragment {
     @Override
     @SuppressWarnings("deprecation")
     public void setTargetFragment(@Nullable Fragment fragment, int requestCode) {
-        targetRequestKey = fragment.getClass().getName();
+        targetRequestKey = ((FragmentBase) fragment).getRequestKey();
         targetRequestCode = requestCode;
         Log.i("Set target " + this + " " + fragment + " request=" + requestCode);
     }
