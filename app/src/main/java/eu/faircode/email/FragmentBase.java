@@ -43,6 +43,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
@@ -50,6 +51,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -217,6 +219,19 @@ public class FragmentBase extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         Log.d("Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
+
+        getParentFragmentManager().setFragmentResultListener(getClass().getName(), getViewLifecycleOwner(), new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int requestCode = result.getInt("requestCode");
+                int resultCode = result.getInt("resultCode");
+
+                Intent data = new Intent();
+                data.putExtra("args", result);
+                onActivityResult(requestCode, resultCode, data);
+            }
+        });
+
         scrollTo();
     }
 
