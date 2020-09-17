@@ -113,6 +113,9 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE id = :id")
     EntityOperation getOperation(long id);
 
+    @Query("SELECT * FROM operation WHERE message = :message AND name = :name")
+    EntityOperation getOperation(long message, String name);
+
     @Query("SELECT * FROM operation WHERE error IS NOT NULL")
     List<EntityOperation> getOperationsError();
 
@@ -149,9 +152,4 @@ public interface DaoOperation {
 
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
-
-    @Query("DELETE FROM operation" +
-            " WHERE folder = :folder" +
-            " AND state <> 'executing'")
-    int deletePendingOperations(long folder);
 }

@@ -436,27 +436,34 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     private void onSync(EntityFolder outbox) {
-        DB db = DB.getInstance(this);
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
 
             db.folder().setFolderError(outbox.id, null);
 
-            // Delete pending operations
-            db.operation().deletePendingOperations(outbox.id);
-
-            // Requeue operations
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            // Requeue non executing operations
             for (long id : db.message().getMessageByFolder(outbox.id)) {
                 EntityMessage message = db.message().getMessage(id);
-                if (message != null) {
-                    nm.cancel("send:" + message.id, 1);
-                    if (message.ui_snoozed == null)
-                        EntityOperation.queue(this, message, EntityOperation.SEND);
-                    else
-                        EntityMessage.snooze(this, message.id, message.ui_snoozed);
+                if (message == null)
+                    continue;
+
+                EntityOperation op = db.operation().getOperation(message.id, EntityOperation.SEND);
+                if (op != null) {
+                    if ("executing".equals(op.state))
+                        continue;
+                    db.operation().deleteOperation(op.id);
                 }
+
+                db.message().setMessageError(message.id, null);
+                nm.cancel("send:" + message.id, 1);
+
+                if (message.ui_snoozed == null)
+                    EntityOperation.queue(this, message, EntityOperation.SEND);
+                else
+                    EntityMessage.snooze(this, message.id, message.ui_snoozed);
             }
 
             db.setTransactionSuccessful();
