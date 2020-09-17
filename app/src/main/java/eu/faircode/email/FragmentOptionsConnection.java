@@ -49,7 +49,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -295,11 +294,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     };
 
     private void showConnectionType() {
-        FragmentActivity activity = getActivity();
-        if (activity == null)
-            return;
-
-        activity.runOnUiThread(new Runnable() {
+        getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {

@@ -3658,16 +3658,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void check() {
-            Activity activity = getActivity();
-            if (activity != null)
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                            if (!rvMessage.isComputingLayout())
-                                adapter.checkInternet();
-                    }
-                });
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        if (!rvMessage.isComputingLayout())
+                            adapter.checkInternet();
+                }
+            });
         }
     };
 
