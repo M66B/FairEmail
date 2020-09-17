@@ -2877,8 +2877,10 @@ deleting a message from the device would result in fetching the message again wh
 However, FairEmail supports hiding messages,
 either via the three-dots menu in the action bar just above the message text
 or by multiple selecting messages in the message list.
+Basically this is the same as "leave on server" of the POP3 protocol
+with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 
