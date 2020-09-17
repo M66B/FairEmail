@@ -205,8 +205,22 @@ public class FragmentBase extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         Log.i("Create " + this + " saved=" + (savedInstanceState != null));
         super.onCreate(savedInstanceState);
+
         if (savedInstanceState != null)
             subtitle = savedInstanceState.getString("fair:subtitle");
+
+        // https://developer.android.com/training/basics/fragments/pass-data-between
+        getParentFragmentManager().setFragmentResultListener(getClass().getName(), this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int requestCode = result.getInt("requestCode");
+                int resultCode = result.getInt("resultCode");
+
+                Intent data = new Intent();
+                data.putExtra("args", result);
+                onActivityResult(requestCode, resultCode, data);
+            }
+        });
     }
 
     @Override
@@ -219,19 +233,6 @@ public class FragmentBase extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         Log.d("Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
-
-        getParentFragmentManager().setFragmentResultListener(getClass().getName(), getViewLifecycleOwner(), new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                int requestCode = result.getInt("requestCode");
-                int resultCode = result.getInt("resultCode");
-
-                Intent data = new Intent();
-                data.putExtra("args", result);
-                onActivityResult(requestCode, resultCode, data);
-            }
-        });
-
         scrollTo();
     }
 
