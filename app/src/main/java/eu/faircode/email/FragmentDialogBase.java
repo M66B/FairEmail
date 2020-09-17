@@ -157,6 +157,8 @@ public class FragmentDialogBase extends DialogFragment {
             Log.i("Dialog key=" + targetRequestKey + " result=" + resultCode);
             if (targetRequestKey != null) {
                 Bundle args = getArguments();
+                if (args == null) // onDismiss
+                    args = new Bundle();
                 args.putInt("requestCode", targetRequestCode);
                 args.putInt("resultCode", resultCode);
                 getParentFragmentManager().setFragmentResult(targetRequestKey, args);
