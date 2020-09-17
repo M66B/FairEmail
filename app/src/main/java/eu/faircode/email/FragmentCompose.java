@@ -2189,6 +2189,8 @@ public class FragmentCompose extends FragmentBase {
 
                 for (Uri uri : uris) {
                     EntityAttachment attachment = addAttachment(context, id, uri, image, resize, privacy);
+                    if (attachment == null)
+                        continue;
                     if (!image)
                         continue;
 
@@ -3089,6 +3091,9 @@ public class FragmentCompose extends FragmentBase {
             db.beginTransaction();
 
             EntityMessage draft = db.message().getMessage(id);
+            if (draft == null)
+                return null;
+
             Log.i("Attaching to id=" + id);
 
             attachment.message = draft.id;
