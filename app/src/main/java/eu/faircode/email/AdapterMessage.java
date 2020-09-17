@@ -303,7 +303,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
-            "$MDNSent".toLowerCase(Locale.ROOT),
+            "$MDNSent".toLowerCase(Locale.ROOT), // https://tools.ietf.org/html/rfc3503
             "$Forwarded".toLowerCase(Locale.ROOT),
             "$SubmitPending".toLowerCase(Locale.ROOT),
             "$Submitted".toLowerCase(Locale.ROOT),
