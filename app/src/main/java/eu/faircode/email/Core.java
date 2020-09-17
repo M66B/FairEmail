@@ -701,13 +701,11 @@ class Core {
         if (TextUtils.isEmpty(keyword))
             throw new IllegalArgumentException("keyword/empty");
 
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
-            db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
-            return;
-        }
-
         if (message.uid == null)
             throw new IllegalArgumentException("keyword/uid");
+
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
+            return;
 
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
@@ -2916,7 +2914,8 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flags=" + flags);
             }
 
-            if (!Helper.equal(message.keywords, keywords)) {
+            if (!Helper.equal(message.keywords, keywords) &&
+                    ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
                 update = true;
                 message.keywords = keywords;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
