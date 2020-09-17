@@ -1263,7 +1263,7 @@ Identities are as expected matched by account.
 For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order)
 and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-The matched address will be shown as *via* in the addresses section.
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
 Note that identities needs to be enabled to be able to be matched
 and that identities of other accounts will not be considered.
@@ -2877,8 +2877,10 @@ deleting a message from the device would result in fetching the message again wh
 However, FairEmail supports hiding messages,
 either via the three-dots menu in the action bar just above the message text
 or by multiple selecting messages in the message list.
+Basically this is the same as "leave on server" of the POP3 protocol
+with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 
