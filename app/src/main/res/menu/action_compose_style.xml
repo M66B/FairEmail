@@ -17,6 +17,6 @@
 
     <item
         android:id="@+id/menu_style"
-        android:icon="@drawable/baseline_text_format_24"
+        android:icon="@drawable/baseline_text_format_24_alt"
         android:title="@string/title_style" />
 </menu>
