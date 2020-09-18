@@ -30,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
@@ -40,8 +41,17 @@ public class FragmentDialogBase extends DialogFragment {
     private boolean once = false;
     private LifecycleOwner owner;
     private LifecycleRegistry registry;
+    private String requestKey = null;
     private String targetRequestKey;
     private int targetRequestCode;
+
+    private static int requestSequence = 0;
+
+    public String getRequestKey() {
+        if (requestKey == null)
+            requestKey = getClass().getName() + "_" + (++requestSequence);
+        return requestKey;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,15 +68,29 @@ public class FragmentDialogBase extends DialogFragment {
         registry.setCurrentState(Lifecycle.State.CREATED);
 
         if (savedInstanceState != null) {
+            requestKey = savedInstanceState.getString("fair:request");
             targetRequestKey = savedInstanceState.getString("fair:key");
             targetRequestCode = savedInstanceState.getInt("fair:code");
         }
+
+        getParentFragmentManager().setFragmentResultListener(getRequestKey(), this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int requestCode = result.getInt("requestCode");
+                int resultCode = result.getInt("resultCode");
+
+                Intent data = new Intent();
+                data.putExtra("args", result);
+                onActivityResult(requestCode, resultCode, data);
+            }
+        });
 
         Log.i("Create " + this);
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString("fair:request", requestKey);
         outState.putString("fair:key", targetRequestKey);
         outState.putInt("fair:code", targetRequestCode);
         super.onSaveInstanceState(outState);
@@ -146,7 +170,14 @@ public class FragmentDialogBase extends DialogFragment {
     @Override
     @SuppressWarnings("deprecation")
     public void setTargetFragment(@Nullable Fragment fragment, int requestCode) {
-        targetRequestKey = ((FragmentBase) fragment).getRequestKey();
+        if (fragment instanceof FragmentBase)
+            targetRequestKey = ((FragmentBase) fragment).getRequestKey();
+        else if (fragment instanceof FragmentDialogBase)
+            targetRequestKey = ((FragmentDialogBase) fragment).getRequestKey();
+        else {
+            Log.e("setTargetFragment=" + fragment.getClass().getName());
+            throw new IllegalArgumentException();
+        }
         targetRequestCode = requestCode;
         Log.i("Set target " + this + " " + fragment + " request=" + requestCode);
     }
