@@ -1516,7 +1516,7 @@ class Core {
                             itarget.setSubscribed(subscribed);
                             itarget.close();
                         } catch (MessagingException ex) {
-                            Log.e(ex);
+                            Log.w(ex);
                         }
 
                     db.folder().renameFolder(folder.account, folder.name, folder.rename);
