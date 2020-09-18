@@ -1530,16 +1530,23 @@ public class HtmlHelper {
 
     static void setViewport(Document document, boolean overview) {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
-        Elements meta = document.head().select("meta").select("[name=viewport]");
+        Elements meta = document.select("meta").select("[name=viewport]");
+        // Note that the browser will recognize meta elements in the body too
         if (overview) // fit width
             meta.remove();
         else {
             if (meta.size() == 1) {
-                String content = meta.attr("content")
-                        .toLowerCase()
-                        .replace(" ", "")
-                        .replace("user-scalable=no", "user-scalable=yes");
-                meta.attr("content", content);
+                String content = meta.attr("content");
+                String[] param = content.split("[;,]");
+                for (int i = 0; i < param.length; i++) {
+                    String[] kv = param[i].split("=");
+                    if (kv.length == 2 &&
+                            "user-scalable".equals(kv[0].replace(" ", ""))) {
+                        kv[1] = "yes";
+                        param[i] = TextUtils.join("=", kv);
+                    }
+                }
+                meta.attr("content", TextUtils.join(", ", param));
             } else {
                 meta.remove();
                 document.head().prependElement("meta")
