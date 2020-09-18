@@ -321,6 +321,7 @@ public class ApplicationEx extends Application {
 
     private void createNotificationChannels() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            // https://issuetracker.google.com/issues/65108694
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
             // Sync
@@ -328,7 +329,9 @@ public class ApplicationEx extends Application {
                     "service", getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
             service.setDescription(getString(R.string.channel_service_description));
-            service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            service.setSound(null, null);
+            service.enableVibration(false);
+            service.enableLights(false);
             service.setShowBadge(false);
             service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(service);
@@ -338,7 +341,9 @@ public class ApplicationEx extends Application {
                     "send", getString(R.string.channel_send),
                     NotificationManager.IMPORTANCE_DEFAULT);
             send.setDescription(getString(R.string.channel_send_description));
-            send.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            send.setSound(null, null);
+            send.enableVibration(false);
+            send.enableLights(false);
             send.setShowBadge(false);
             send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(send);
