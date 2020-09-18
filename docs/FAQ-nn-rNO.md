@@ -1,108 +1,108 @@
 # FairEmail support
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Hvis du har et spørsmål, vennligst kontroller de ofte stilte spørsmålene nedenfor først. Nederst kan du finne ut hvordan du kan stille andre spørsmål, be om funksjoner og rapportere feil.
 
-## Index
+## Indeks
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Godkjenning av kontoer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Hvordan ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Kjente problemer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Planlagte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Ofte etterspurte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Ofte stilte spørsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Støtte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## Godkjenning av kontoer
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+I de fleste tilfeller vil hurtigoppsettet kunne identifisere riktig konfigurasjon automatisk.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Hvis hurtigoppsettet mislykkes, må du opprette en konto manuelt (for å motta e-post) og en identitet (for å sende e-post). For dette trenger du IMAP og SMTP serveradressene og portnumrene, enten SSL/TLS eller STARTTLS skal brukes og brukernavnet ditt (mest, men ikke alltid, e-postadressen din) og passordet ditt.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Å søke etter *IMAP* og navnet på leverandøren er stort sett tilstrekkelig for å finne riktig dokumentasjon.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+I noen tilfeller må du aktivere ekstern tilgang til kontoen din og/eller bruke et spesielt (app) passord, for eksempel når tofaktorautentisering er aktivert.
 
-For authorizing:
+For godkjenning:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G-suite, se [spørsmål 6](#user-content-faq6)
+* Outlook / Live / Hotmail, se [spørsmål 14](#user-content-faq14)
+* Office 365, se [spørsmål 14](#user-content-faq156)
+* Microsoft Exchange, se [spørsmål 8](#user-content-faq8)
+* Yahoo, AOL og Sky, se [spørsmål 88](#user-content-faq88)
+* Apple iCloud, se [spørsmål 148](#user-content-faq148)
+* Free.fr, se [spørsmål 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Se [her](#user-content-faq22) for vanlige feilmeldinger og løsninger.
 
-Related questions:
+Relaterte spørsmål:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Støttes OAuth?](#user-content-faq111)
+* [Hvorfor støttes ikke ActiveSync?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Hvordan ...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Endre kontonavnet: Oppsett, trinn 1, Administrer, trykk på konto
+* Endre sveip mot venstre/høyre: Oppsett, Atferd, Angi sveiphandlinger
+* Endre passord: Oppsett, trinn 1, Administrer, trykk på konto, endre passord
+* Angi en signatur: Oppsett, trinn 2, Administrer, trykk på identitet, Rediger signatur.
+* Legg til CC og BCC adresser: trykk på personens ikon på slutten av emnet
+* Gå til neste/forrige melding om arkivering/slett: deaktiver *Automatisk lukk samtaler * i atferdsinnstillingene og velg*Gå til neste/forrige samtale*for*Ved avslutning av en samtale*
+* Legg til en mappe i den enhetlige innboksen: trykk lenge på mappen i mappelisten og merk av for*Vis i enhetlig innboks*
+* Legg til en mappe i navigasjonsmenyen: trykk lenge på mappen i mappelisten og merk av for*Vis i navigasjonsmenyen*
+* Last inn flere meldinger: trykk lenge på en mappe i mappelisten, velg*Synkroniser flere meldinger*
+* Slett en melding, hopp over søppel: i menyen med tre prikker rett over meldingsteksten*Slett*eller alternativt, fjern merket for papirkurven i kontoinnstillingene
+* Slett en konto/identitet: Oppsett trinn 1/2, Administrer, trykk på konto/identitet, meny med tre prikker, Slett
+* Slett en mappe: trykk lenge på mappen i mappelisten, Rediger egenskaper, meny med tre prikker, Slett
+* Angre sending: Utboks, trykk på melding, trykk på Angre ikon-knappen
+* Lagre sendte meldinger i innboksen: vennligst[se denne FAQ](#user-content-faq142)
+* Endre systemmapper: Oppsett, trinn 1, Administrer, trykk på konto nederst
+* Eksport/import-innstillinger: Oppsett, navigering/hamburger-meny
 
-## Known problems
+## Kjente problemer
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, and Mi band 3 wearables. See also [this FAQ](#user-content-faq126).
+* ~~En[feil i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851)fører til at apper noen ganger viser feil tidsformat. Bytting av Android-innstillingen*Bruk 24-timers format*kan løse problemet midlertidig. En løsning ble lagt til.~~
+* ~~En[feil i Google Disk](https://issuetracker.google.com/issues/126362828)fører til at filer som eksporteres til Google Disk, er tomme. Google har løst dette.~~
+* ~~En[feil i AndroidX](https://issuetracker.google.com/issues/78495471)får FairEmail til å krasje av og til ved å trykke lenge eller sveipe. Google har løst dette.~~
+* ~~En[feil i AndroidX ROOM](https://issuetracker.google.com/issues/138441698)forårsaker noen ganger et kræsj med "*... Unntak mens du beregner databaser med live data ... Kunne ikke lese rad ...*". En løsning ble lagt til.~~
+* En[feil i Android](https://issuetracker.google.com/issues/119872129)fører til at FairEmail krasjer med "*... Dårlig varsling lagt ut ...*" på noen enheter en gang etter oppdatering av FairEmail og trykk på et varsel.
+* En[feil i Android](https://issuetracker.google.com/issues/62427912)forårsaker noen ganger et kræsj med "*... ActivityRecord ikke funnet for ...*"etter oppdatering av FairEmail. Å installere på nytt ([kilde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) kan løse problemet.
+* En [feil i Android](https://issuetracker.google.com/issues/37018931) forårsaker noen ganger et krasj med *... InputChannel er ikke initialisert ...* på noen enheter.
+* ~~En [feil i LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) forårsaker noen ganger et kræsj med *... java.lang.ArrayIndexOutOfBoundsException: length=...; indeks=... ... *.~~
+* En feil i Nova Launcher på Android 5.x får FairEmail til å kræsje med en *java.lang.StackOverflowError* når Nova Launcher har tilgang til tilgjengelighetstjenesten.
+* ~~Mappevelgeren viser noen ganger ingen mapper av ennå ukjente årsaker. Dette ser ut til å være løst.~~
+* ~~En [feil i AndroidX](https://issuetracker.google.com/issues/64729576) gjør det vanskelig å ta tak i hurtigrulleren. En løsning ble lagt til.~~
+* ~~Kryptering med YubiKey resulterer i en uendelig loop. Dette ser ut til å være forårsaket av en [feil i OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Å rulle til et internt koblet sted i originale meldinger fungerer ikke. Dette kan ikke løses fordi den opprinnelige meldingsvisningen finnes i en rullende visning.
+* En forhåndsvisning av en meldingstekst vises ikke (alltid) på Samsung-klokker fordi [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) ser ut til å bli ignorert. Det er kjent at forhåndsvisningstekster for meldinger vises riktig på Pebble 2, Fitbit Charge 3 og Mi band 3 wearables. Se også [denne vanlige FAQ](#user-content-faq126).
 
-## Planned features
+## Planlagte funksjoner
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
+* ~~Synkroniser på forespørsel (Håndbok)~~
+* ~~Halvautomatisk kryptering~~
+* ~~Kopier melding~~
+* ~~Fargede stjerner~~
+* ~~Varslingsinnstillinger per mappe~~
+* ~~Velg lokale bilder for signaturer~~ (dette blir ikke lagt til fordi det krever bildefiladministrasjon og fordi bilder ikke vises som standard i de fleste e-postklienter uansett)
+* ~~Vis meldinger matchet av en regel~~
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (det er ingen vedlikeholdte Java-biblioteker med en passende lisens og uten avhengigheter, og i tillegg har FairEmail sine egne filterregler)
+* ~~Søk etter meldinger med/uten vedlegg~~ (dette kan ikke legges til fordi IMAP ikke støtter søk etter vedlegg)
+* ~~Søk etter en mappe~~ (filtrering av en hierarkisk mappeliste er problematisk)
+* ~~Søkeforslag~~
+* ~~[Autokrypter oppsettmelding](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (avsnitt 4.4)~~ (IMO det er ikke lurt å la en e-postklient håndtere sensitive krypteringsnøkler for en eksepsjonell brukstilfelle mens OpenKeychain også kan eksportere nøkler)
+* ~~Generiske enhetlige mapper~~
+* ~~Nye varslingsplaner per melding per konto~~ (implementert ved å legge til en tidsbetingelse i reglene slik at meldinger kan bli utsatt i løpet av utvalgte perioder)
+* ~~Kopier kontoer og identiteter~~
+* ~~Klemzoom~~ (ikke pålitelig mulig i en rulleliste; hele meldingsvisningen kan bli zoomet i stedet)
+* ~~Mer kompakt mappevisning~~
+* ~~Skriv lister og tabeller~~ (dette krever en rich text editor, se [denne FAQ](#user-content-faq99))
+* ~~Klype zoom tekststørrelse~~
+* ~~Vis GIFs~~
+* ~~Temaer~~ (et lyse grått og mørkt tema ble lagt til fordi dette er hva folk flest ønsker)
+* ~~Hvilken dagstid som helst~~ (hvilken som helst dag passer egentlig ikke inn i fra/til dato/klokkeslett)
+* ~~Send som vedlegg~~
+* ~~Widget for valgt konto~~
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
