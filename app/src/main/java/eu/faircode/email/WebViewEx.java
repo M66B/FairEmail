@@ -191,7 +191,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             clampedY = true;
         }
 
-        Log.i("MMM clamped=" + clampedY + " new=" + newScrollY + " dy=" + deltaY + " mode=" + overScrollMode);
+        Log.i("onOverScrolled clamped=" + clampedY + " new=" + newScrollY + " dy=" + deltaY);
         intf.onOverScrolled(scrollX, scrollY, deltaX, deltaY, clampedX, clampedY);
 
         return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, maxOverScrollY, isTouchEvent);
@@ -235,7 +235,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         return super.onGenericMotionEvent(event);
     }
 
-    public boolean isZoomed() {
+    public boolean isZoomedX() {
         int xtend = computeHorizontalScrollExtent();
         if (xtend != 0) {
             float xscale = computeHorizontalScrollRange() / (float) xtend;
@@ -243,6 +243,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 return true;
         }
 
+        return false;
+    }
+
+    public boolean isZoomedY() {
         int ytend = computeVerticalScrollExtent();
         if (ytend != 0) {
             float yscale = computeVerticalScrollRange() / (float) ytend;
