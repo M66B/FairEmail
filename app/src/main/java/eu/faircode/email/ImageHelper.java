@@ -502,8 +502,9 @@ class ImageHelper {
             a.height = Math.round(a.width * h / (float) w);
 
         if (a.width != 0 && a.height != 0) {
-            w = Math.round(Helper.dp2pixels(view.getContext(), a.width) * scale);
-            h = Math.round(Helper.dp2pixels(view.getContext(), a.height) * scale);
+            boolean swap = ((w > h) != (a.width > a.height)) && false;
+            w = Math.round(Helper.dp2pixels(view.getContext(), swap ? a.height : a.width) * scale);
+            h = Math.round(Helper.dp2pixels(view.getContext(), swap ? a.width : a.height) * scale);
         }
 
         float width = view.getContext().getResources().getDisplayMetrics().widthPixels;
