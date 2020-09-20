@@ -956,4 +956,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="MXroute"
+        link="https://mxroute.com/support/">
+        <imap
+            host="mail.mxlogin.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.mxlogin.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
