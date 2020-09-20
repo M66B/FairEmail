@@ -1325,16 +1325,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                                     db.folder().setFolderState(folder.id, "connecting");
 
-                                                                    // Handle store closed exception
-                                                                    try {
-                                                                        ifolder = iservice.getStore().getFolder(folder.name);
-                                                                    } catch (IllegalStateException ex) {
-                                                                        if ("Not connected".equals(ex.getMessage()))
-                                                                            return;
-                                                                        else
-                                                                            throw ex;
-                                                                    }
-
+                                                                    ifolder = iservice.getStore().getFolder(folder.name);
                                                                     try {
                                                                         ifolder.open(Folder.READ_WRITE);
                                                                     } catch (ReadOnlyFolderException ex) {
