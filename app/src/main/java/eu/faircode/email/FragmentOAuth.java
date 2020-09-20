@@ -295,7 +295,12 @@ public class FragmentOAuth extends FragmentBase {
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
             Log.i("OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
-            Intent authIntent = authService.getAuthorizationRequestIntent(authRequest);
+            Intent authIntent = null;
+            try {
+                authIntent = authService.getAuthorizationRequestIntent(authRequest);
+            } catch (ActivityNotFoundException ex) {
+                throw new ActivityNotFoundException("Browser not found");
+            }
             PackageManager pm = getContext().getPackageManager();
             if (authIntent.resolveActivity(pm) == null) // action whitelisted
                 throw new ActivityNotFoundException(authIntent.toString());
