@@ -1,4 +1,4 @@
-# FairEmail - Unterstützung
+# FairEmail - Support
 
 Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig gestellten Fragen. Im unteren Bereich finden Sie die Möglichkeit, weitere Fragen zu stellen, Funktionen anzufordern und Fehler zu melden.
 
@@ -293,8 +293,8 @@ Die folgenden Android-Berechtigungen werden benötigt:
 * Optional: *SD-Karteninhalte lesen* (READ_EXTERNAL_STORAGE): um Dateien von anderen, veralteten Apps anzunehmen, siehe auch [diese FAQ](#user-content-faq49)
 * Optional: *Fingerabdruckhardware nutzen* (USE_FINGERPRINT) und *biometrische Hardware nutzen* (USE_BIOMETRIC): um biometrische Authentifizierung zu verwenden
 * Optional: *Konten auf dem Gerät suchen* (GET_ACCOUNTS): Um ein Konto auszuwählen, wenn die Gmail Schnelleinrichtung verwendet wird
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Android 5. Lollipop und vorher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google Mail Schnelleinstellung (nicht für spätere Android-Versionen angefordert)
+* Android 5. Lollipop und vorher: *Profil lesen* (READ_PROFILE): um deinen Namen bei der Verwendung des Gmail Schnell-Setups zu lesen (nicht für spätere Android-Versionen angefordert)
 
 [Optionale Berechtigungen](https://developer.android.com/training/permissions/requesting) werden nur auf Android 6 Marshmallow und später unterstützt. Bei früheren Android-Versionen werden Sie aufgefordert, die optionalen Berechtigungen für die Installation von FairEmail zu erteilen.
 

@@ -103,49 +103,49 @@ Relaterte spørsmål:
 * ~~Hvilken dagstid som helst~~ (hvilken som helst dag passer egentlig ikke inn i fra/til dato/klokkeslett)
 * ~~Send som vedlegg~~
 * ~~Widget for valgt konto~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Påminn om å legge ved filer~~
+* ~~Velg domener for å vise bilder for~~ (dette vil være for komplisert å bruke)
+* ~~Enhetlige stjernemerkede meldings visning~~ (det er allerede et spesielt søk for dette)
+* ~~Flytt varselhandling~~
+* ~~S/MIME støtte~~
+* ~Søk etter innstillinger~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Alt på denne listen er i tilfeldig rekkefølge, og *kan* legges til i nær fremtid.
 
-## Frequently requested features
+## Ofte etterspurte funksjoner
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Designet er basert på mange diskusjoner, og hvis du vil, kan du diskutere om det [i dette forumet](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Målet med designet er å være minimalistisk (ingen unødvendige menyer, knapper osv.) Og ikke distraherende (ingen fancy farger, animasjoner osv.). Alle viste ting skal være nyttige på en eller annen måte og bør være nøye plassert for enkel bruk. Skrifttyper, størrelser, farger osv. Bør være material design når det er mulig.
 
-## Frequently Asked Questions
+## Ofte stilte spørsmål
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
+* [(1) Hvilke tillatelser er nødvendig og hvorfor?](#user-content-faq1)
+* [(2) Hvorfor vises det en permanent varsling?](#user-content-faq2)
+* [(3) Hva er operasjoner og hvorfor venter de?](#user-content-faq3)
+* [(4) Hvordan kan jeg bruke et ugyldig sikkerhetssertifikat / tomt passord / vanlig tekstforbindelse?](#user-content-faq4)
+* [(5) Hvordan kan jeg tilpasse meldingsvisningen?](#user-content-faq5)
+* [(6) Hvordan kan jeg logge på Gmail / G suite?](#user-content-faq6)
+* [(7) Hvorfor vises ikke sendte meldinger (direkte) i den sendte mappen?](#user-content-faq7)
+* [(8) Kan jeg bruke en Microsoft Exchange-konto?](#user-content-faq8)
+* [(9) Hva er identiteter / hvordan legger jeg til et alias?](#user-content-faq9)
+* [~~(11) Hvorfor støttes ikke POP?~~](#user-content-faq11)
+* [~~(10) Hva betyr 'UIDPLUS støttes ikke'?~~](#user-content-faq10)
+* [(12) Hvordan fungerer kryptering/dekryptering?](#user-content-faq12)
+* [(13) Hvordan fungerer søk på enhet/server?](#user-content-faq13)
+* [(14) Hvordan kan jeg sette opp en Outlook / Live / Hotmail-konto?](#user-content-faq14)
+* [(15) Hvorfor fortsetter meldingsteksten å lastes inn?](#user-content-faq15)
+* [(16) Hvorfor synkroniseres ikke meldinger?](#user-content-faq16)
+* [~~(17) Hvorfor fungerer ikke manuell synkronisering?~~](#user-content-faq17)
+* [(18) Hvorfor vises ikke altid forhåndsvisning av meldingen?](#user-content-faq18)
+* [(19) Hvorfor er pro-funksjonene så dyre?](#user-content-faq19)
+* [(20) Kan jeg få refusjon?](#user-content-faq20)
+* [(21) Hvordan aktiverer jeg varsellyset?](#user-content-faq21)
+* [(22) Hva betyr konto/mappefeil?](#user-content-faq22)
+* [(23) Hvorfor får jeg varsel.. ?](#user-content-faq23)
+* [(24) Hva er bla i meldinger på server?](#user-content-faq24)
+* [(25) Hvorfor kan jeg ikke velge/åpne/lagre et bilde, et vedlegg eller en fil?](#user-content-faq25)
+* [(26) Kan jeg hjelpe til med å oversette FairEmail på mitt eget språk?](#user-content-faq26)
+* [(27) Hvordan kan jeg skille mellom innebygde og eksterne bilder?](#user-content-faq27)
+* [(28) Hvordan kan jeg administrere statuslinjevarsler?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
 * [(30) How can I use the provided quick settings?](#user-content-faq30)
 * [(31) How can I use the provided shortcuts?](#user-content-faq31)

@@ -6,6 +6,8 @@
     <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
     <string name="app_exit">Ponovo pritisnite \'natrag\' za izlazak</string>
+    <string name="app_cake">Nedovoljno mjesta u memoriji</string>
+    <string name="channel_service">Primanje</string>
     <string name="channel_send">Pošalji</string>
     <string name="channel_notification">Obavijesti</string>
     <string name="channel_update">Ažuriranja</string>
@@ -13,6 +15,9 @@
     <string name="channel_error">Greške</string>
     <string name="channel_alert">Upozorenja poslužitelja</string>
     <string name="channel_group_contacts">Kontakti</string>
+    <string name="channel_service_description">Sinkroniziranje i praćenje računa</string>
+    <string name="channel_send_description">Poruka u slanju</string>
+    <string name="channel_notification_description">Obavijesti o novim porukama</string>
     <plurals name="page_conversation">
         <item quantity="one">Konverzacija</item>
         <item quantity="few">Konverzacije</item>
@@ -71,6 +76,7 @@
         <item quantity="other">Želite %1$d poruka tretirati kao neželjenu poštu?</item>
     </plurals>
     <string name="title_ask_spam_who">Tretirati poruku od korisnika %1$s kao neželjenu poštu?</string>
+    <string name="title_junk_hint">Tvoj pružatelj usluge je odgovoran za filtriranje spam poruka. Email klijent nema dovoljno podataka da radi ispravno.</string>
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljatelja</string>
     <string name="title_block_domain">Blokiraj domenu pošiljatelja</string>
@@ -78,8 +84,11 @@
         Stvaranje i korištenje pravila profesionalna je značajka.    </string>
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_waiting">Čeka se prikladna veza</string>
+    <string name="title_notification_idle">Nevažno</string>
     <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
     <string name="title_notification_alert">Upozorenje poslužitelja \'%1$s\'</string>
+    <string name="title_notification_sending_left">Preostali pokušaji: %1$d</string>
+    <string name="title_notification_sending_failed">Slanje prema %1$s nije uspjelo</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s + %2$d</string>
     <string name="title_factor_minutes">%1$d minuta</string>
@@ -117,12 +126,14 @@
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_multiple">Asistent za instalaciju može se koristiti više puta za postavljanje više računa</string>
+    <string name="title_setup_wizard_new">Trebam novu email adresu</string>
     <string name="title_setup_wizard_remark">Vrati se \'natrag\' da se otvori jedinstveni spremnik</string>
     <string name="title_setup_other">Drugi davatelj usluga</string>
     <string name="title_setup_gmail_support">Autoriziranje Google računa funkcionirati će u službenim verzijama samo zato što Android provjerava signaturu aplikacije</string>
     <string name="title_setup_gmail_rationale">Molimo dajte dopuštenje za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će tražiti dopuštenja za čitanje, sastavljanje, slanje i trajno brisanje sve vaše e-pošte. FairEmail nikada neće izbrisati vaše poruke bez vašeg izričitog pristanka.</string>
     <string name="title_setup_gmail_drafts">Ako preko IMAP mapa skica nije dostupna, to se može popraviti u postavkama Gmail oznake</string>
+    <string name="title_setup_office_auth">Greška \'AUTHENTICATE failed\' se može pojaviti ako je IMAP/SMTP isključen od strane administratora</string>
     <string name="title_setup_oauth_rationale">Autorizirajte pristup vašem %1$s računu</string>
     <string name="title_setup_oauth_authorize">Autoriziraj</string>
     <string name="title_setup_select_account">Odaberi račun</string>
@@ -130,6 +141,7 @@
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Pokušajte postaviti račun i identitet u koracima 1 i 2 za postavljanje pomoću postavki danih od vašeg davatelja usluga e-pošte</string>
     <string name="title_setup_no_auth_hint">Molimo da provjerite svoju adresu e-pošte i zaporku i provjerite je li omogućen vanjski pristup (IMAP / SMTP) za vaš račun</string>
+    <string name="title_setup_no_inbox">Ulazni spremnik nije pronađen</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
     <string name="title_setup_quick_failed">U nastavku možete pokušati konfigurirati račun i identitet</string>
     <string name="title_setup_manage">Upravljaj</string>
