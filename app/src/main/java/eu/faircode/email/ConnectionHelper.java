@@ -355,8 +355,7 @@ public class ConnectionHelper {
                         message.contains("Maximum number of connections") /* ... from user+IP exceeded */ /* Dovecot */ ||
                         message.contains("Too many concurrent connections") /* ... to this mailbox */ ||
                         message.contains("User is authenticated but not connected") /* Outlook */ ||
-                        message.contains("Account is temporarily unavailable") /* Arcor.de / TalkTalk.net */ ||
-                        message.contains("Connection dropped by server?")));
+                        message.contains("Account is temporarily unavailable") /* Arcor.de / TalkTalk.net */));
     }
 
     static Boolean isSyntacticallyInvalid(Throwable ex) {
