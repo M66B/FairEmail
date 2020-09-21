@@ -4055,6 +4055,7 @@ class Core {
 
     static class State {
         private int backoff;
+        private boolean keepalive = false;
         private ConnectionHelper.NetworkState networkState;
         private Thread thread = new Thread();
         private Semaphore semaphore = new Semaphore(0);
@@ -4099,8 +4100,13 @@ class Core {
             return true;
         }
 
-        boolean acquire(long milliseconds) throws InterruptedException {
-            return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
+        boolean acquire(long milliseconds, boolean keepalive) throws InterruptedException {
+            try {
+                this.keepalive = keepalive;
+                return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
+            } finally {
+                this.keepalive = false;
+            }
         }
 
         void error(Throwable ex) {
@@ -4130,8 +4136,10 @@ class Core {
             if (ex instanceof OperationCanceledException)
                 recoverable = false;
 
-            thread.interrupt();
-            yield();
+            if (keepalive) {
+                thread.interrupt();
+                yield();
+            }
         }
 
         void reset() {
