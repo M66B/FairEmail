@@ -162,7 +162,7 @@ class Core {
             Log.i(folder.name + " executing operations=" + ops.size());
             while (retry < LOCAL_RETRY_MAX && ops.size() > 0 &&
                     state.isRunning() &&
-                    state.batchCanRun(folder.id, priority, sequence)) {
+                    state.batchCanRun(session, folder.id, priority, sequence)) {
                 TupleOperationEx op = ops.get(0);
 
                 try {
@@ -500,7 +500,9 @@ class Core {
                             ops.remove(op);
                         } else {
                             retry++;
-                            if (retry < LOCAL_RETRY_MAX)
+                            if (retry < LOCAL_RETRY_MAX &&
+                                    state.isRunning() &&
+                                    state.batchCanRun(session, folder.id, priority, sequence))
                                 try {
                                     Thread.sleep(LOCAL_RETRY_DELAY);
                                 } catch (InterruptedException ex1) {
@@ -4251,7 +4253,10 @@ class Core {
             }
         }
 
-        boolean batchCanRun(long folder, int priority, long current) {
+        boolean batchCanRun(int session, long folder, int priority, long current) {
+            if (!this.active || session != this.session)
+                return false;
+
             synchronized (this) {
                 FolderPriority key = new FolderPriority(folder, priority);
                 boolean can = batch.get(key).equals(current);
