@@ -952,8 +952,8 @@ public class Log {
         return formatThrowable(ex, true);
     }
 
-    static String formatThrowable(Throwable ex, boolean santize) {
-        return formatThrowable(ex, " ", santize);
+    static String formatThrowable(Throwable ex, boolean sanitize) {
+        return formatThrowable(ex, " ", sanitize);
     }
 
     static String formatThrowable(Throwable ex, String separator, boolean sanitize) {
