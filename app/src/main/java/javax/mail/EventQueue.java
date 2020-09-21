@@ -154,6 +154,19 @@ class EventQueue implements Runnable {
 	    }
 	} catch (InterruptedException e) {
 	    // just die
+	} catch (Error ex) {
+		/*
+			java.lang.Error: java.lang.InterruptedException
+			  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1173)
+			  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+			  at java.lang.Thread.run(Thread.java:919)
+			Caused by: java.lang.InterruptedException
+			  at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1248)
+			  at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:344)
+			  at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:439)
+			  at javax.mail.EventQueue.run(SourceFile:140)
+			  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+		 */
 	}
     }
 }
