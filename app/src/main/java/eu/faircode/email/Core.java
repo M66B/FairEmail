@@ -147,7 +147,7 @@ class Core {
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 10;
 
     static void processOperations(
-            Context context,
+            Context context, int session,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
             State state, int priority, long sequence)
@@ -302,7 +302,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.DELETE:
-                                    onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
+                                    onDelete(context, session, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
                                 case EntityOperation.SYNC:
@@ -341,22 +341,22 @@ class Core {
                                     break;
 
                                 case EntityOperation.ADD:
-                                    onAdd(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onAdd(context, session, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.MOVE:
                                     List<EntityMessage> messages = new ArrayList<>();
                                     messages.add(message);
                                     messages.addAll(similar.values());
-                                    onMove(context, jargs, false, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, session, jargs, false, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.COPY:
-                                    onMove(context, jargs, true, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, session, jargs, true, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.FETCH:
-                                    onFetch(context, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onFetch(context, session, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -384,7 +384,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
-                                    onSynchronizeMessages(context, jargs, account, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onSynchronizeMessages(context, session, jargs, account, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.SUBSCRIBE:
@@ -797,7 +797,7 @@ class Core {
         }
     }
 
-    private static void onAdd(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
+    private static void onAdd(Context context, int session, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException {
         // Add message
         DB db = DB.getInstance(context);
 
@@ -911,7 +911,7 @@ class Core {
                 try {
                     JSONArray fargs = new JSONArray();
                     fargs.put(newuid);
-                    onFetch(context, fargs, folder, istore, ifolder, state);
+                    onFetch(context, session, fargs, folder, istore, ifolder, state);
                 } catch (JSONException ex) {
                     Log.e(ex);
                 }
@@ -925,7 +925,7 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, List<EntityMessage> messages, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, int session, JSONArray jargs, boolean copy, EntityFolder folder, List<EntityMessage> messages, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -1058,7 +1058,7 @@ class Core {
                                 if (fetch) {
                                     JSONArray fargs = new JSONArray();
                                     fargs.put(uid);
-                                    onFetch(context, fargs, target, istore, itarget, state);
+                                    onFetch(context, session, fargs, target, istore, itarget, state);
                                 }
                             }
                         } catch (Throwable ex) {
@@ -1114,7 +1114,7 @@ class Core {
         db.message().updateMessage(message);
     }
 
-    private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+    private static void onFetch(Context context, int session, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
         boolean removed = jargs.optBoolean(1);
 
@@ -1158,7 +1158,7 @@ class Core {
                 }
                 ifolder.fetch(new Message[]{imessage}, fp);
 
-                EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state, stats);
+                EntityMessage message = synchronizeMessage(context, session, account, folder, istore, ifolder, imessage, false, download, rules, state, stats);
                 if (message != null) {
                     if (account.isGmail() && EntityFolder.USER.equals(folder.type))
                         try {
@@ -1171,7 +1171,7 @@ class Core {
                         }
 
                     if (download)
-                        downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
+                        downloadMessage(context, session, account, folder, istore, ifolder, imessage, message.id, state, stats);
                 }
 
                 if (!stats.isEmpty())
@@ -1247,7 +1247,7 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
+    private static void onDelete(Context context, int session, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         // Delete message
         DB db = DB.getInstance(context);
 
@@ -1290,7 +1290,7 @@ class Core {
                         ifolder.open(Folder.READ_WRITE);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        state.error(new FolderClosedException(ifolder, "POP"));
+                        state.error(new FolderClosedException(ifolder, "POP"), session);
                     }
                 }
             }
@@ -2087,7 +2087,7 @@ class Core {
     }
 
     private static void onSynchronizeMessages(
-            Context context, JSONArray jargs,
+            Context context, int session, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
             IMAPStore istore, final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
@@ -2397,7 +2397,7 @@ class Core {
                             }
 
                         EntityMessage message = synchronizeMessage(
-                                context,
+                                context, session,
                                 account, folder,
                                 istore, ifolder, (MimeMessage) isub[j],
                                 false, download && initialize == 0,
@@ -2476,7 +2476,7 @@ class Core {
                         try {
                             if (ids[from + j] != null) {
                                 boolean fetched = downloadMessage(
-                                        context,
+                                        context, session,
                                         account, folder,
                                         istore, ifolder,
                                         (MimeMessage) isub[j], ids[from + j],
@@ -2532,7 +2532,7 @@ class Core {
     }
 
     static EntityMessage synchronizeMessage(
-            Context context,
+            Context context, int session,
             EntityAccount account, EntityFolder folder,
             IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage,
             boolean browsed, boolean download,
@@ -2867,7 +2867,7 @@ class Core {
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
                     if (TextUtils.isEmpty(body) && parts.hasBody())
-                        reportEmptyMessage(context, state, account, istore);
+                        reportEmptyMessage(context, session, state, account, istore);
                 }
             }
         } else {
@@ -3188,7 +3188,7 @@ class Core {
     }
 
     private static boolean downloadMessage(
-            Context context,
+            Context context, int session,
             EntityAccount account, EntityFolder folder,
             IMAPStore istore, IMAPFolder ifolder,
             MimeMessage imessage, long id, State state, SyncStats stats) throws MessagingException, IOException {
@@ -3261,7 +3261,7 @@ class Core {
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
                     if (TextUtils.isEmpty(body) && parts.hasBody())
-                        reportEmptyMessage(context, state, account, istore);
+                        reportEmptyMessage(context, session, state, account, istore);
                 }
             }
 
@@ -3282,7 +3282,7 @@ class Core {
         return fetch;
     }
 
-    private static void reportEmptyMessage(Context context, State state, EntityAccount account, IMAPStore istore) {
+    private static void reportEmptyMessage(Context context, int session, State state, EntityAccount account, IMAPStore istore) {
         try {
             if (istore.hasCapability("ID")) {
                 Map<String, String> id = new LinkedHashMap<>();
@@ -3309,7 +3309,7 @@ class Core {
             account.partial_fetch = false;
             DB db = DB.getInstance(context);
             db.account().setAccountPartialFetch(account.id, account.partial_fetch);
-            state.error(new StoreClosedException(istore));
+            state.error(new StoreClosedException(istore), session);
         }
     }
 
@@ -4052,6 +4052,7 @@ class Core {
     }
 
     static class State {
+        private int session;
         private int backoff;
         private ConnectionHelper.NetworkState networkState;
         private Thread thread = new Thread();
@@ -4101,7 +4102,12 @@ class Core {
             return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
         }
 
-        void error(Throwable ex) {
+        void error(Throwable ex, int session) {
+            if (session != this.session) {
+                Log.i("Ignoring session=" + session + "/" + this.session + " ex=" + ex);
+                return;
+            }
+
             if (ex instanceof MessagingException &&
                     ("connection failure".equals(ex.getMessage()) ||
                             "Not connected".equals(ex.getMessage()) || // POP3
@@ -4132,7 +4138,8 @@ class Core {
             yield();
         }
 
-        void reset() {
+        void reset(int run) {
+            session = run;
             recoverable = true;
             lastActivity = null;
             resetBatches();

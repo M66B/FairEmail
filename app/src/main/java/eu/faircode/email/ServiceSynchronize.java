@@ -904,11 +904,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.w(account.name + " backoff " + ex.toString());
                 }
 
+            int run = 0;
             int errors = 0;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
-                state.reset();
+                final int session = ++run;
+                state.reset(session);
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final List<TwoStateOwner> cowners = new ArrayList<>();
@@ -1131,7 +1133,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        state.error(ex, session);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1160,7 +1162,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        state.error(ex, session);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1184,7 +1186,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex);
+                                        state.error(ex, session);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1207,7 +1209,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(new FolderClosedException(ifolder, "IDLE"));
+                                        state.error(new FolderClosedException(ifolder, "IDLE"), session);
                                     } finally {
                                         Log.i(folder.name + " end idle");
                                     }
@@ -1343,7 +1345,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
                                                                 }
 
-                                                                Core.processOperations(ServiceSynchronize.this,
+                                                                Core.processOperations(
+                                                                        ServiceSynchronize.this, session,
                                                                         account, folder,
                                                                         partition,
                                                                         iservice.getStore(), ifolder,
@@ -1355,7 +1358,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         ServiceSynchronize.this,
                                                                         folder.name + " " + Log.formatThrowable(ex, false));
                                                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                                state.error(ex);
+                                                                state.error(ex, session);
                                                             } finally {
                                                                 if (shouldClose) {
                                                                     if (ifolder != null && ifolder.isOpen()) {
