@@ -1329,6 +1329,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     ifolder = iservice.getStore().getFolder(folder.name);
                                                                     try {
                                                                         ifolder.open(Folder.READ_WRITE);
+                                                                        if (ifolder instanceof IMAPFolder)
+                                                                            db.folder().setFolderReadOnly(folder.id, ((IMAPFolder) ifolder).getUIDNotSticky());
                                                                     } catch (ReadOnlyFolderException ex) {
                                                                         Log.w(folder.name + " read only");
                                                                         ifolder.open(Folder.READ_ONLY);
