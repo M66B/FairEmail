@@ -35,6 +35,7 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
@@ -1358,7 +1359,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         ServiceSynchronize.this,
                                                                         folder.name + " " + Log.formatThrowable(ex, false));
                                                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                                state.error(ex, session);
+                                                                state.error(new OperationCanceledException("Process"), session);
                                                             } finally {
                                                                 if (shouldClose) {
                                                                     if (ifolder != null && ifolder.isOpen()) {
