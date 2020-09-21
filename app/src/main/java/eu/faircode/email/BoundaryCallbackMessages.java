@@ -496,8 +496,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         Log.i("Boundary server sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
-                            message = Core.synchronizeMessage(
-                                    context, -1,
+                            message = Core.synchronizeMessage(context,
                                     account, browsable,
                                     (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                     true, true,

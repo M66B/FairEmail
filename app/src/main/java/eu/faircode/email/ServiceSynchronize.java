@@ -35,7 +35,6 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
@@ -905,13 +904,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.w(account.name + " backoff " + ex.toString());
                 }
 
-            int run = 0;
             int errors = 0;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
-                final int session = ++run;
-                state.reset(session);
+                state.reset();
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final List<TwoStateOwner> cowners = new ArrayList<>();
@@ -1134,7 +1131,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex, session);
+                                        state.error(ex);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1163,7 +1160,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex, session);
+                                        state.error(ex);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1187,7 +1184,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(ex, session);
+                                        state.error(ex);
                                     } finally {
                                         wlMessage.release();
                                     }
@@ -1210,7 +1207,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
                                                 folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(new FolderClosedException(ifolder, "IDLE"), session);
+                                        state.error(new FolderClosedException(ifolder, "IDLE"));
                                     } finally {
                                         Log.i(folder.name + " end idle");
                                     }
@@ -1346,8 +1343,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
                                                                 }
 
-                                                                Core.processOperations(
-                                                                        ServiceSynchronize.this, session,
+                                                                Core.processOperations(ServiceSynchronize.this,
                                                                         account, folder,
                                                                         partition,
                                                                         iservice.getStore(), ifolder,
@@ -1359,7 +1355,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         ServiceSynchronize.this,
                                                                         folder.name + " " + Log.formatThrowable(ex, false));
                                                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                                state.error(new OperationCanceledException("Process"), session);
+                                                                state.error(ex);
                                                             } finally {
                                                                 if (shouldClose) {
                                                                     if (ifolder != null && ifolder.isOpen()) {
@@ -1544,8 +1540,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
-                    state.setActive(false);
-
                     Log.e(account.name, ex);
                     EntityLog.log(
                             ServiceSynchronize.this,
@@ -1590,8 +1584,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     }
                 } finally {
-                    state.setActive(false);
-
                     // Update state
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
