@@ -4052,7 +4052,8 @@ class Core {
     }
 
     static class State {
-        private int session;
+        private int session = -1;
+        private boolean active = false;
         private int backoff;
         private ConnectionHelper.NetworkState networkState;
         private Thread thread = new Thread();
@@ -4103,10 +4104,15 @@ class Core {
         }
 
         void error(Throwable ex, int session) {
-            if (session != this.session) {
-                Log.i("Ignoring session=" + session + "/" + this.session + " ex=" + ex);
+            if (!this.active || session != this.session) {
+                Log.i("Ignoring" +
+                        " active=" + active +
+                        " session=" + session + "/" + this.session +
+                        " ex=" + ex);
                 return;
             }
+
+            active = false;
 
             if (ex instanceof MessagingException &&
                     ("connection failure".equals(ex.getMessage()) ||
@@ -4140,9 +4146,14 @@ class Core {
 
         void reset(int run) {
             session = run;
+            active = true;
             recoverable = true;
             lastActivity = null;
             resetBatches();
+        }
+
+        void setActive(boolean whether) {
+            this.active = whether;
         }
 
         void resetBatches() {

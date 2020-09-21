@@ -1543,6 +1543,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
+                    state.setActive(false);
+
                     Log.e(account.name, ex);
                     EntityLog.log(
                             ServiceSynchronize.this,
@@ -1587,6 +1589,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     }
                 } finally {
+                    state.setActive(false);
+
                     // Update state
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
