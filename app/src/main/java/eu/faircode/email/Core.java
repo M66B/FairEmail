@@ -4053,7 +4053,6 @@ class Core {
 
     static class State {
         private int backoff;
-        private boolean backingoff = false;
         private ConnectionHelper.NetworkState networkState;
         private Thread thread = new Thread();
         private Semaphore semaphore = new Semaphore(0);
@@ -4098,19 +4097,11 @@ class Core {
             return true;
         }
 
-        boolean acquire(long milliseconds, boolean backoff) throws InterruptedException {
-            try {
-                backingoff = backoff;
-                return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
-            } finally {
-                backingoff = false;
-            }
+        boolean acquire(long milliseconds) throws InterruptedException {
+            return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
         }
 
         void error(Throwable ex) {
-            if (backingoff)
-                return;
-
             if (ex instanceof MessagingException &&
                     ("connection failure".equals(ex.getMessage()) ||
                             "Not connected".equals(ex.getMessage()) || // POP3
