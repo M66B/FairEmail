@@ -337,6 +337,7 @@
     <string name="title_advanced_text_size">Folosește mărimi text</string>
     <string name="title_advanced_text_font">Folosește fonturi</string>
     <string name="title_advanced_text_align">Folosește alinierea textului</string>
+    <string name="title_advanced_text_separators">Folosește linii separatoare</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
@@ -719,6 +720,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Mută</string>
     <string name="title_copy_btn">Copiere</string>
+    <string name="title_keywords_btn">Cuvinte cheie</string>
     <string name="title_unsubscribe">Dezabonare</string>
     <string name="title_message_rule">Creare regulă</string>
     <string name="title_no_junk">Nu este spam</string>
@@ -971,6 +973,7 @@
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
     <string name="title_answer_group">Grup șablon (opțional)</string>
+    <string name="title_answer_standard">Implicit</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
