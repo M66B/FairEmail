@@ -728,21 +728,28 @@ public class EntityRule {
     boolean isBlockingSender(EntityMessage message, EntityFolder junk) throws JSONException {
         if (message.from == null || message.from.length == 0)
             return false;
+
         String sender = ((InternetAddress) message.from[0]).getAddress();
         if (sender == null)
             return false;
-        int at = sender.indexOf('@');
-        String domain = (at < 0 ? sender : sender.substring(at));
 
         JSONObject jcondition = new JSONObject(condition);
         if (!jcondition.has("sender"))
             return false;
         JSONObject jsender = jcondition.getJSONObject("sender");
-        if (jsender.optBoolean("regex"))
-            return false;
         String value = jsender.optString("value");
-        if (!sender.equals(value) && !domain.equals(value))
-            return false;
+        boolean regex = jsender.optBoolean("regex");
+
+        if (regex) {
+            Pattern pattern = Pattern.compile(value, Pattern.DOTALL);
+            if (!pattern.matcher(sender).matches())
+                return false;
+        } else {
+            int at = sender.indexOf('@');
+            String domain = (at < 0 ? sender : sender.substring(at));
+            if (!sender.equals(value) && !domain.equals(value))
+                return false;
+        }
 
         JSONObject jaction = new JSONObject(action);
         if (jaction.optInt("type", -1) != TYPE_MOVE)
