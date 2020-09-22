@@ -1601,7 +1601,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
 
-                    // Stop watching for operations
+                    // Stop watching operations
+                    Log.i(account.name + " stop watching operations");
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
@@ -1610,7 +1611,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     });
 
-                    // Cancel running operations
+                    // Stop executing operations
+                    Log.i(account.name + " stop executing operations");
                     ht.quit();
 
                     // Close folders
