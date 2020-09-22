@@ -373,7 +373,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     return;
 
                 TupleFolderEx folder = items.get(pos);
-                if (folder.tbd != null || !folder.selectable)
+                if (folder.tbd != null)
                     return;
 
                 switch (view.getId()) {
@@ -386,6 +386,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         break;
                     default:
                         if (listener == null) {
+                            if (!folder.selectable)
+                                return;
+
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
