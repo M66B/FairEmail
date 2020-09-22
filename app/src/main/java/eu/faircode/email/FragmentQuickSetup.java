@@ -317,6 +317,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         } else
                             throw ex;
                     } catch (Throwable ex) {
+                        Log.w(ex);
                         // Why not AuthenticationFailedException?
                         // Some providers terminate the connection with an invalid username
                         if (user.equals(username))
@@ -332,7 +333,11 @@ public class FragmentQuickSetup extends FragmentBase {
                                         null, null);
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
-                                throw ex;
+                                if (!(ex instanceof AuthenticationFailedException) &&
+                                        ex1 instanceof AuthenticationFailedException)
+                                    throw ex1;
+                                else
+                                    throw ex;
                             }
                     }
 
