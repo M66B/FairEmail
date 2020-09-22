@@ -150,7 +150,7 @@ class Core {
             Context context,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
             Store istore, Folder ifolder,
-            State state)
+            State state, int priority, long sequence)
             throws JSONException {
         try {
             Log.i(folder.name + " start process");
@@ -160,7 +160,9 @@ class Core {
             int retry = 0;
             boolean group = true;
             Log.i(folder.name + " executing operations=" + ops.size());
-            while (retry < LOCAL_RETRY_MAX && ops.size() > 0 && state.isRunning()) {
+            while (retry < LOCAL_RETRY_MAX && ops.size() > 0 &&
+                    state.isRunning() &&
+                    state.batchCanRun(folder.id, priority, sequence)) {
                 TupleOperationEx op = ops.get(0);
 
                 try {
@@ -498,7 +500,9 @@ class Core {
                             ops.remove(op);
                         } else {
                             retry++;
-                            if (retry < LOCAL_RETRY_MAX && state.isRunning())
+                            if (retry < LOCAL_RETRY_MAX &&
+                                    state.isRunning() &&
+                                    state.batchCanRun(folder.id, priority, sequence))
                                 try {
                                     Thread.sleep(LOCAL_RETRY_DELAY);
                                 } catch (InterruptedException ex1) {
@@ -524,7 +528,9 @@ class Core {
                 }
             }
 
-            if (ops.size() > 0)
+            if (ops.size() == 0)
+                state.batchCompleted(folder.id, priority, sequence);
+            else
                 state.error(new OperationCanceledException("Processing"));
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
@@ -4058,6 +4064,9 @@ class Core {
         private boolean recoverable = true;
         private Long lastActivity = null;
 
+        private Map<FolderPriority, Long> sequence = new HashMap<>();
+        private Map<FolderPriority, Long> batch = new HashMap<>();
+
         State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
         }
@@ -4137,6 +4146,17 @@ class Core {
         void reset() {
             recoverable = true;
             lastActivity = null;
+            resetBatches();
+        }
+
+        void resetBatches() {
+            synchronized (this) {
+                for (FolderPriority key : sequence.keySet()) {
+                    batch.put(key, sequence.get(key));
+                    if (BuildConfig.DEBUG)
+                        Log.i("=== Reset " + key.folder + ":" + key.priority + " batch=" + batch.get(key));
+                }
+            }
         }
 
         private void yield() {
@@ -4207,6 +4227,41 @@ class Core {
         long getIdleTime() {
             Long last = lastActivity;
             return (last == null ? 0 : SystemClock.elapsedRealtime() - last);
+        }
+
+        long getSequence(long folder, int priority) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                if (!sequence.containsKey(key)) {
+                    sequence.put(key, 0L);
+                    batch.put(key, 0L);
+                }
+                long result = sequence.get(key);
+                sequence.put(key, result + 1);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Get " + folder + ":" + priority + " sequence=" + result);
+                return result;
+            }
+        }
+
+        boolean batchCanRun(long folder, int priority, long current) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                boolean can = batch.get(key).equals(current);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Can " + folder + ":" + priority + " can=" + can);
+                return can;
+            }
+        }
+
+        void batchCompleted(long folder, int priority, long current) {
+            synchronized (this) {
+                FolderPriority key = new FolderPriority(folder, priority);
+                if (batch.get(key).equals(current))
+                    batch.put(key, batch.get(key) + 1);
+                if (BuildConfig.DEBUG)
+                    Log.i("=== Completed " + folder + ":" + priority + " next=" + batch.get(key));
+            }
         }
 
         @NonNull
