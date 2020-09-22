@@ -1377,7 +1377,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         db.folder().setFolderState(folder.id, "closing");
                                                                         try {
                                                                             ifolder.close(false);
-                                                                        } catch (MessagingException ex) {
+                                                                        } catch (Throwable ex) {
                                                                             Log.w(folder.name, ex);
                                                                         }
                                                                     }
