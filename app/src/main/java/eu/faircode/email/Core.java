@@ -144,7 +144,7 @@ class Core {
     private static final long FUTURE_RECEIVED = 30 * 24 * 3600 * 1000L; // milliseconds
     private static final int LOCAL_RETRY_MAX = 2;
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
-    private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 10;
+    private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
 
     static void processOperations(
             Context context,
