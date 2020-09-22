@@ -35,6 +35,8 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
@@ -881,8 +883,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             wlAccount.acquire();
 
             final DB db = DB.getInstance(this);
-            final ExecutorService executor =
-                    Helper.getBackgroundExecutor(1, "account_" + account.id);
 
             long thread = Thread.currentThread().getId();
             Long currentThread = thread;
@@ -913,6 +913,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final List<TwoStateOwner> cowners = new ArrayList<>();
+
+                HandlerThread ht = new HandlerThread("account_" + account.id, THREAD_PRIORITY_BACKGROUND);
+                ht.start();
+                final Handler handler = new Handler(ht.getLooper());
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -1294,7 +1298,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                 final long sequence = state.getSequence(folder.id, key.getPriority());
 
-                                                executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
+                                                handler.post(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                     @Override
                                                     public void run() {
                                                         super.run();
@@ -1610,6 +1614,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Cancel running operations
                     state.resetBatches();
+                    ht.quit();
 
                     // Close folders
                     for (EntityFolder folder : mapFolders.keySet())
