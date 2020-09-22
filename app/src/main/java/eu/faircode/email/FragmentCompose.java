@@ -68,6 +68,7 @@ import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1328,6 +1329,19 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View v) {
                 onMenuEncrypt();
+            }
+        });
+        ib.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int[] pos = new int[2];
+                ib.getLocationOnScreen(pos);
+                int dp24 = Helper.dp2pixels(v.getContext(), 24);
+
+                Toast toast = ToastEx.makeTextBw(getContext(), getString(R.string.title_encrypt), Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1] + dp24);
+                toast.show();
+                return true;
             }
         });
 

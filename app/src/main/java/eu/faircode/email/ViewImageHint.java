@@ -33,9 +33,10 @@ public class ViewImageHint extends AppCompatImageView implements View.OnClickLis
         if (!TextUtils.isEmpty(title)) {
             int[] pos = new int[2];
             getLocationOnScreen(pos);
+            int dp6 = Helper.dp2pixels(v.getContext(), 6);
 
-            Toast toast = ToastEx.makeText(getContext(), title, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);
+            Toast toast = ToastEx.makeTextBw(getContext(), title, Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1] + dp6);
             toast.show();
         }
     }
