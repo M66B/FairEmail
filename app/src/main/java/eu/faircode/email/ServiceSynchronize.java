@@ -1296,8 +1296,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             " operations=" + partitions.get(key).size());
                                                 }
 
-                                                final long sequence = state.getSequence(folder.id, key.getPriority());
-
                                                 handler.post(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                     @Override
                                                     public void run() {
@@ -1362,7 +1360,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         account, folder,
                                                                         partition,
                                                                         iservice.getStore(), ifolder,
-                                                                        state, key.getPriority(), sequence);
+                                                                        state);
 
                                                             } catch (Throwable ex) {
                                                                 Log.e(folder.name, ex);
@@ -1613,7 +1611,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     });
 
                     // Cancel running operations
-                    state.resetBatches();
                     ht.quit();
 
                     // Close folders
