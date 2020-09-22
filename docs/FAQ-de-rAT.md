@@ -317,7 +317,7 @@ Die folgenden Berechtigungen werden benötigt, um die Anzahl ungelesener Nachric
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail wird eine Liste der Adressen aufbewahren, von denen Sie Nachrichten erhalten und an die Sie Nachrichten gesendet haben und wird diese Liste für Kontaktvorschläge verwenden, wenn FairEmail keine Berechtigung zum Kontaktzugriff erteilt wurde. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
@@ -337,9 +337,9 @@ Die Statusleisten-Benachrichtigung kann über die Benachrichtigungseinstellungen
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Bitte sehen Sie [hier](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) nach, wie Sie diese Benachrichtigung deaktivieren können.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Einige Leute schlugen vor, [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) anstelle eines Android-Dienstes mit einer Statusleistenbenachrichtigung zu verwenden aber dies würde entweder von E-Mail-Providern erfordern, FCM-Nachrichten zu senden oder einen zentralen Server nötig machen, auf dem alle Nachrichten gesammelt werden, der dann die FCM-Nachrichten sendet. Ersteres wird nicht passieren, und letzteres hätte erhebliche Auswirkungen auf die Privatsphäre.
 
 If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
@@ -384,7 +384,7 @@ Operations are processed only when there is a connection to the email server or 
 
 Kontaktieren Sie Ihren Provider, um dieses Problem zu beheben oder besorgen Sie sich ein gültiges Sicherheitszertifikat, da ungültige und dadurch unsichere Sicherheitszertifikate [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ermöglichen. Falls Sie die Kosten hierfür scheuen, dann können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) beziehen.
 
-Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
+Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Beachten Sie, dass Sie sicherstellen sollten, dass die von Ihnen verwendete Internetverbindung sicher ist.
 
 Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsbehörden wie Let’s Encrypt möglicherweise nicht akzeptieren, wodurch Internetverbindungen als unsicher eingestuft werden können, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
 
@@ -450,9 +450,9 @@ Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wär
 <a name="faq6"></a>
 **(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Sie können den Schnelleinrichtungsassistenten verwenden, um einfach ein Gmail-Konto und eine Gmail-Identität einzurichten.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Bitte lesen Sie diese [Häufig gestellte Fragen (FAQ)](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
+Wenn Sie kein Gmail-Konto auf dem Gerät verwenden möchten, können Sie entweder den Zugriff für „weniger sichere Apps“ aktivieren und Ihr Kontopasswort verwenden oder die Zwei-Faktor-Authentifizierung aktivieren und ein appspezifisches Passwort verwenden. Bitte lesen Sie diese [Häufig gestellte Fragen (FAQ)](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
 
 Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein app-spezifisches Passwort erforderlich ist.
 
@@ -464,19 +464,19 @@ Wie ein app-spezifisches Passwort erstellt wird, sehen Sie [hier](https://suppor
 
 <br />
 
-*Enable "Less secure apps"*
+*„Weniger sichere Apps“ aktivieren*
 
-**Important**: using this method is not recommended because it is less reliable.
+**Wichtige**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
 
 **Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+Sehen Sie [hier](https://support.google.com/accounts/answer/6010255) wie man „weniger sichere Apps“ aktiviert oder gehen Sie [direkt zu der Einstellung](https://www.google.com/settings/security/lesssecureapps).
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung „weniger sichere Apps“ des / der richtigen Accounts ändern.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm verlassen müssen, indem Sie den Zurückpfeil verwenden, um die Einstellung anzuwenden.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was aber grundsätzlich immer eine gute Idee ist. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
 
 When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
 
@@ -506,13 +506,13 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <a name="faq8"></a>
 **(8) Kann ich ein Microsoft-Exchange-Konto verwenden?**
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP erreichbar ist, was meistens der Fall ist. Sehen Sie [hier](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) für weitere Informationen.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+[Hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) finden Sie Microsofts Dokumentation zur Konfiguration eines E-Mail-Clients. Es gibt auch einen Abschnitt über häufige Verbindungsfehler und -lösungen.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Einige ältere Exchange-Server-Versionen haben einen Fehler, der eine leere Nachricht und beschädigte Anhänge verursacht. Eine Problemumgehung finden Sie in [dieser FAQ](#user-content-faq110).
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Siehe [diese FAQ](#user-content-faq133) zur ActiveSync Unterstützung.
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -521,15 +521,15 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <a name="faq9"></a>
 **(9) Was sind Identitäten / wie füge ich einen Alias hinzu?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identitäten stellen E-Mail-Adressen dar, *von* denen Sie über einen E-Mail (SMTP) Server senden.
 
 Einige Anbieter gestatten die Verwendung mehrerer Aliasse. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
-Note that you can copy an identity by long pressing it.
+Beachten Sie, dass Sie eine Identität durch langes Drücken kopieren können.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Alternativ können Sie in den erweiterten Einstellungen einer existierenden Identität das *Bearbeiten der Absenderadresse erlauben*, um den Benutzernamen beim Erstellen einer Nachricht zu bearbeiten, wenn Ihr Provider dies zulässt.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail aktualisiert automatisch die Passwörter der jeweiligen Identitäten, wenn Sie das Passwort des zugehörigen Kontos oder einer damit verbundenen Identität aktualisieren.
 
 Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-Mail-Adressen beachten.
 
@@ -553,7 +553,7 @@ Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 
 ~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; erwägen Sie, auf IMAP umzusteigen.~~
 
 <br />
 
@@ -562,23 +562,23 @@ Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 
 *Allgemein*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+[Sehen Sie hier](https://en.wikipedia.org/wiki/Public-key_cryptography), wie die Verschlüsselung mit öffentlichen/privaten Schlüsseln funktioniert.
 
-Encryption in short:
+Verschlüsselung zusammengefasst:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Ausgehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Empfängers verschlüsselt
+* **Eingehende** Nachrichten werden mit dem **privaten Schlüssel** des Empfängers entschlüsselt
 
-Signing in short:
+Signieren zusammengefasst:
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* **Ausgehende** Nachrichten sind mit dem **privaten Schlüssel** des Absenders signiert
+* **Eingehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Absenders überprüft
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Um eine Nachricht zu signieren/verschlüsseln, wählen Sie einfach die entsprechende Methode im Sendedialog aus. Sie können den Sendedialog immer über das Drei-Punkte-Überlaufmenü öffnen, falls Sie zuvor *Nicht noch einmal fragen* ausgewählt haben.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Um eine Signatur zu überprüfen oder eine empfangene Nachricht zu entschlüsseln, öffnen Sie die Nachricht und tippen einfach auf das Paraphen- respektive Schlosssymbol unterhalb der Benachrichtigungsleiste.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Beim ersten Senden einer signierten/verschlüsselten Nachricht werden Sie möglicherweise nach einem Signaturschlüssel gefragt. FairEmail wird den ausgewählten Signaturschlüssel fürs nächste Mal automatisch in der verwendeten Identität speichern. Wenn Sie den Signalschlüssel zurücksetzen müssen, speichern Sie die Identität oder drücken Sie lange die Identität in der Liste der Identitäten und wählen Sie *Sign-Schlüssel zurücksetzen*. Der gewählte Schlüssel ist in der Liste der Identitäten sichtbar. Wenn ein Schlüssel von Fall zu Fall ausgewählt werden muss, können Sie mehrere Identitäten für dasselbe Konto mit der gleichen E-Mail-Adresse erstellen.
 
 In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
@@ -586,9 +586,9 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail wurde mit OpenKeychain in der Version 5.4 getestet. Spätere Versionen werden wahrscheinlich kompatibel sein, aber frühere Versionen sind es möglicherweise nicht.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Wichtige**: Die OpenKeychain-App ist dafür bekannt (unbemerkt) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen vorhandenen öffentlichen Schlüssel erhält. Sie können dies umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
