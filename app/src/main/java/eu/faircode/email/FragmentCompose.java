@@ -2198,6 +2198,10 @@ public class FragmentCompose extends FragmentBase {
                 int start = args.getInt("start");
 
                 SpannableStringBuilder s = new SpannableStringBuilder(body);
+                if (start < 0)
+                    start = 0;
+                if (start > s.length())
+                    start = s.length();
 
                 for (Uri uri : uris) {
                     EntityAttachment attachment = addAttachment(context, id, uri, image, resize, privacy);
