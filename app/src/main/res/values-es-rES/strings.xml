@@ -870,6 +870,7 @@
     <string name="title_queued">Enviando mensaje</string>
     <string name="title_queued_at">El mensaje será enviado alrededor de %1$s</string>
     <string name="title_sign">Firmar</string>
+    <string name="title_verify">Verificar</string>
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>

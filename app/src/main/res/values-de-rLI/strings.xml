@@ -869,6 +869,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_queued">Nachricht wird gesendet</string>
     <string name="title_queued_at">Nachricht wird ungefähr %1$s gesendet</string>
     <string name="title_sign">Signieren</string>
+    <string name="title_verify">Gegenprüfen</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
     <string name="title_resync">Neu synchronisieren</string>

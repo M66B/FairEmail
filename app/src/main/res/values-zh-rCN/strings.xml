@@ -857,6 +857,7 @@
     <string name="title_queued">正在发送邮件</string>
     <string name="title_queued_at">消息将在 %1$s 左右发送</string>
     <string name="title_sign">签名</string>
+    <string name="title_verify">验证</string>
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>

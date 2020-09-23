@@ -890,7 +890,7 @@
     <string name="title_queued">Wysyłanie wiadomości</string>
     <string name="title_queued_at">Wiadomość zostanie wysłana około %1$s</string>
     <string name="title_sign">Podpis</string>
-    <string name="title_verify">Potwiedź</string>
+    <string name="title_verify">Potwierdź</string>
     <string name="title_encrypt">Zaszyfruj</string>
     <string name="title_decrypt">Odszyfruj</string>
     <string name="title_resync">Resynchronizuj</string>

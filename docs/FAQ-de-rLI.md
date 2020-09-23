@@ -76,7 +76,7 @@ Verwandte Fragen:
 * ~~Die Verschlüsselung mit YubiKey führt zu einer Endlosschleife. Dies scheint durch einen [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507) verursacht zu werden.~~
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
 * Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3” und „Mi Band 3” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Dieser Fehler wurde in Android 6.0.1 behoben.
 
 ## Geplante Funktionen
 
@@ -453,33 +453,33 @@ Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wär
 
 Sie können den Schnelleinrichtungsassistenten verwenden, um einfach ein Gmail-Konto und eine Gmail-Identität einzurichten.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Wenn Sie kein Gmail-Konto auf dem Gerät verwenden möchten, können Sie entweder den Zugriff für „weniger sichere Apps“ aktivieren und Ihr Kontopasswort verwenden (nicht empfohlen) oder die Zwei-Faktor-Authentifizierung aktivieren und ein appspezifisches Passwort verwenden. Um ein Passwort zu verwenden, müssen Sie Konto und Identität über die Einrichtungsschritte 1 und 2 statt über den Schnelleinrichtungs-Assistenten einrichten.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Bitte lesen Sie in [dieser FAQ](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein app-spezifisches Passwort erforderlich ist.
 
 <br />
 
-*Enable "Less secure apps"*
+*Appspezifisches Passwort*
 
-**Important**: using this method is not recommended because it is less reliable.
+Wie ein appspezifisches Passwort erstellt wird, sehen Sie [hier](https://support.google.com/accounts/answer/185833).
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+<br />
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+*„Weniger sichere Apps“ aktivieren*
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+**Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert sind, funktionieren [in naher Zukunft](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) nicht mehr.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Sehen Sie [hier](https://support.google.com/accounts/answer/6010255) wie man „weniger sichere Apps“ aktiviert oder gehen Sie [direkt zu der Einstellung](https://www.google.com/settings/security/lesssecureapps).
+
+Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung „weniger sichere Apps“ des/der richtigen Accounts ändern.
+
+Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm über den Zurückpfeil verlassen müssen, um die Einstellung anzuwenden.
+
+Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was aber grundsätzlich immer eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501)-IMAP-Protokolls an sich nicht weniger sicher ist.
 
 When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
 

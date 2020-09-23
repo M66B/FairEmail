@@ -76,7 +76,7 @@ Preguntas relacionadas:
 * ~~El cifrado con YubiKey resulta en un bucle infinito. Esto parece ser causado por un [error en OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Desplazar a una ubicación vinculada internamente en mensajes originales no funciona. Esto no se puede arreglar porque la vista original del mensaje está contenida en una vista de desplazamiento.
 * La vista previa del texto de los mensajes no aparece (siempre) en los relojes de Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. El texto de vista previa de los mensajes se muestra correctamente en Pebble 2, Fitbit Charge 3 y Mi band 3. Ver también [estas Preguntas Frecuentes](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* Un [error en Android 6.0](https://issuetracker.google.com/issues/37068143) causa un error con *... Offset inválido: ... El rango válido es ...* cuando el texto está seleccionado y se toca fuera del texto seleccionado. Este error ha sido corregido en Android 6.0.1.
 
 ## Características planificadas
 
