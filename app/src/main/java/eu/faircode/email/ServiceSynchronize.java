@@ -1615,21 +1615,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     state.resetBatches();
                     ((ThreadPoolExecutor) executor).getQueue().clear();
 
-                    // Close folders
-                    for (EntityFolder folder : mapFolders.keySet())
-                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
-                            db.folder().setFolderState(folder.id, "closing");
-                            try {
-                                if (iservice.getStore().isConnected())
-                                    mapFolders.get(folder).close();
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            } finally {
-                                db.folder().setFolderState(folder.id, null);
-                            }
-                        }
-
-                    // Close store
+                    // Close store/folders
                     try {
                         EntityLog.log(this, account.name + " store closing");
                         iservice.close();
@@ -1638,6 +1624,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Log.w(account.name, ex);
                     } finally {
                         EntityLog.log(this, account.name + " closed");
+                        for (EntityFolder folder : mapFolders.keySet())
+                            db.folder().setFolderState(folder.id, null);
                         db.account().setAccountState(account.id, null);
                     }
 
