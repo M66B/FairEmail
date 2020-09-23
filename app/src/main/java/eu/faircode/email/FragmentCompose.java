@@ -579,13 +579,15 @@ public class FragmentCompose extends FragmentBase {
                             if (s > 0 &&
                                     added + 1 > s && e > added + 1 &&
                                     text.charAt(s - 1) == '\n' && text.charAt(e - 1) == '\n') {
-                                BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
-                                text.setSpan(b1, s, added + 1, f);
-                                Log.i("Span " + s + "..." + (added + 1));
+                                if (e - s > 2) {
+                                    BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
+                                    text.setSpan(b1, s, added + 1, f);
+                                    Log.i("Span " + s + "..." + (added + 1));
 
-                                BulletSpan b2 = clone(b1, span.getClass(), etBody.getContext());
-                                text.setSpan(b2, added + 1, e, f);
-                                Log.i("Span " + (added + 1) + "..." + e);
+                                    BulletSpan b2 = clone(b1, span.getClass(), etBody.getContext());
+                                    text.setSpan(b2, added + 1, e, f);
+                                    Log.i("Span " + (added + 1) + "..." + e);
+                                }
 
                                 renum = true;
                                 text.removeSpan(span);
