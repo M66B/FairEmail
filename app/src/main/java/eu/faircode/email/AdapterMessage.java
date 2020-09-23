@@ -516,11 +516,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             ibHelp = itemView.findViewById(R.id.ibHelp);
 
+            if (tvFrom != null) {
+                if (compact)
+                    tvFrom.setSingleLine(true);
+            }
+
             if (tvSubject != null) {
                 tvSubject.setTextColor(colorSubject);
 
                 if (compact) {
-                    tvSubject.setSingleLine(!"full".equals(subject_ellipsize));
+                    boolean full = "full".equals(subject_ellipsize);
+                    tvSubject.setSingleLine(!full);
+
                     if ("start".equals(subject_ellipsize))
                         tvSubject.setEllipsize(TextUtils.TruncateAt.START);
                     else if ("end".equals(subject_ellipsize))
