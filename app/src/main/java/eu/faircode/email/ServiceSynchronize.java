@@ -899,7 +899,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 try {
                     long backoff = RECONNECT_BACKOFF - ago;
                     EntityLog.log(ServiceSynchronize.this, account.name + " reconnect backoff=" + (backoff / 1000));
-                    state.acquire(backoff, false);
+                    state.acquire(backoff, true);
                 } catch (InterruptedException ex) {
                     Log.w(account.name + " backoff " + ex.toString());
                 }
@@ -1535,7 +1535,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             try {
                                 wlAccount.release();
-                                state.acquire(2 * duration, true);
+                                state.acquire(2 * duration, false);
                                 Log.i("### " + account.name + " keeping alive");
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, account.name + " waited state=" + state);
@@ -1653,7 +1653,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (cbackoff > backoff) {
                         try {
                             EntityLog.log(this, account.name + " reconnect backoff=" + cbackoff);
-                            state.acquire(cbackoff * 1000L, false);
+                            state.acquire(cbackoff * 1000L, true);
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " cbackoff " + ex.toString());
                         }
@@ -1663,7 +1663,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (backoff <= CONNECT_BACKOFF_MAX) {
                             // Short back-off period, keep device awake
                             try {
-                                state.acquire(backoff * 1000L, false);
+                                state.acquire(backoff * 1000L, true);
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
                             }
@@ -1696,7 +1696,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 try {
                                     wlAccount.release();
-                                    state.acquire(2 * backoff * 1000L, false);
+                                    state.acquire(2 * backoff * 1000L, true);
                                     Log.i("### " + account.name + " backoff done");
                                 } catch (InterruptedException ex) {
                                     Log.w(account.name + " backoff " + ex.toString());
