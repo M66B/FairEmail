@@ -35,8 +35,6 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
@@ -73,6 +71,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -913,10 +912,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final List<TwoStateOwner> cowners = new ArrayList<>();
-
-                HandlerThread ht = new HandlerThread("account_" + account.id, THREAD_PRIORITY_BACKGROUND);
-                ht.start();
-                final Handler handler = new Handler(ht.getLooper());
+                final ExecutorService executor =
+                        Helper.getBackgroundExecutor(1, "account_" + account.id);
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -1298,7 +1295,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                 final long sequence = state.getSequence(folder.id, key.getPriority());
 
-                                                handler.post(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
+                                                executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                     @Override
                                                     public void run() {
                                                         super.run();
@@ -1615,8 +1612,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Stop executing operations
                     Log.i(account.name + " stop executing operations");
-                    ht.quit();
                     state.resetBatches();
+                    ((ThreadPoolExecutor) executor).getQueue().clear();
 
                     // Close folders
                     for (EntityFolder folder : mapFolders.keySet())
