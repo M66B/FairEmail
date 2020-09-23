@@ -988,6 +988,7 @@
     <string name="title_queued_at">Message will be sent around %1$s</string>
 
     <string name="title_sign">Sign</string>
+    <string name="title_verify">Verify</string>
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
     <string name="title_resync">Resync</string>

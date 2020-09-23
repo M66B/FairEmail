@@ -244,10 +244,10 @@
         android:layout_height="36dp"
         android:layout_marginEnd="3dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_sign"
+        android:contentDescription="@string/title_verify"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_sign"
+        android:tooltipText="@string/title_verify"
         app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/baseline_gesture_24" />
