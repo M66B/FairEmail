@@ -263,7 +263,7 @@ class ImageHelper {
                     return d;
                 } else if (!attachment.available) {
                     Log.i("Image not available CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+                    Drawable d = res.getDrawable(R.drawable.baseline_photo_library_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else {
