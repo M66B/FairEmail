@@ -530,8 +530,10 @@ class Core {
 
             if (ops.size() == 0)
                 state.batchCompleted(folder.id, priority, sequence);
-            else
-                state.error(new OperationCanceledException("Processing"));
+            else {
+                if (state.batchCanRun(folder.id, priority, sequence))
+                    state.error(new OperationCanceledException("Processing"));
+            }
         } finally {
             Log.i(folder.name + " end process state=" + state + " pending=" + ops.size());
         }
