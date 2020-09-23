@@ -2413,7 +2413,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Show inline=" + show_inline);
 
             boolean has_inline = false;
-            boolean download = false;
+            int download = 0;
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
             boolean calendar = false;
@@ -2425,7 +2425,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (inline && attachment.available)
                     has_inline = true;
                 if (attachment.progress == null && !attachment.available)
-                    download = true;
+                    download++;
                 if (!attachment.available)
                     save = false;
                 if (attachment.progress != null)
@@ -2452,7 +2452,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
 
             ibSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
-            ibDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
+            ibDownloadAttachments.setVisibility(download > 1 && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
