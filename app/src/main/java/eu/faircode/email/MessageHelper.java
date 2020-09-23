@@ -563,18 +563,14 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null && send) {
-            boolean save = false;
-
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
                         TextUtils.isEmpty(child.attr("fairemail"))) {
                     String old = child.attr("style");
                     String style = HtmlHelper.mergeStyles(
                             "font-family:" + compose_font, old);
-                    if (!old.equals(style)) {
-                        save = true;
+                    if (!old.equals(style))
                         child.attr("style", style);
-                    }
                 }
 
             document.select("div[fairemail=signature]").removeAttr("fairemail");
@@ -602,30 +598,30 @@ public class MessageHelper {
                     if (TextUtils.isEmpty(type))
                         type = "image/*";
 
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = message.id;
-                    attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
-                    attachment.name = name;
-                    attachment.type = type;
-                    attachment.disposition = Part.INLINE;
-                    attachment.cid = null;
-                    attachment.size = null;
-                    attachment.progress = 0;
+                    String cid = BuildConfig.APPLICATION_ID + ".content." + Math.abs(source.hashCode());
+                    String acid = "<" + cid + ">";
 
-                    attachment.id = db.attachment().insertAttachment(attachment);
+                    if (db.attachment().getAttachment(message.id, acid) == null) {
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = message.id;
+                        attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
+                        attachment.name = name;
+                        attachment.type = type;
+                        attachment.disposition = Part.INLINE;
+                        attachment.cid = acid;
+                        attachment.size = null;
+                        attachment.progress = 0;
+                        attachment.id = db.attachment().insertAttachment(attachment);
 
-                    String cid = BuildConfig.APPLICATION_ID + "." + attachment.id;
-                    attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
-                    db.attachment().setCid(attachment.id, attachment.cid);
+                        attachment.size = Helper.copy(context, uri, attachment.getFile(context));
+                        attachment.progress = null;
+                        attachment.available = true;
+                        db.attachment().setDownloaded(attachment.id, attachment.size);
 
-                    attachment.size = Helper.copy(context, uri, attachment.getFile(context));
-                    attachment.progress = null;
-                    attachment.available = true;
-                    db.attachment().setDownloaded(attachment.id, attachment.size);
+                        attachments.add(attachment);
+                    }
 
-                    attachments.add(attachment);
                     img.attr("src", "cid:" + cid);
-                    save = true;
                 }
 
                 db.setTransactionSuccessful();
@@ -634,9 +630,6 @@ public class MessageHelper {
             } finally {
                 db.endTransaction();
             }
-
-            if (save)
-                Helper.writeText(message.getFile(context), document.html());
         }
 
         // multipart/mixed
