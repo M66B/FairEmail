@@ -76,6 +76,7 @@ Preguntas relacionadas:
 * ~~El cifrado con YubiKey resulta en un bucle infinito. Esto parece ser causado por un [error en OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Desplazar a una ubicación vinculada internamente en mensajes originales no funciona. Esto no se puede arreglar porque la vista original del mensaje está contenida en una vista de desplazamiento.
 * La vista previa del texto de los mensajes no aparece (siempre) en los relojes de Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. El texto de vista previa de los mensajes se muestra correctamente en Pebble 2, Fitbit Charge 3 y Mi band 3. Ver también [estas Preguntas Frecuentes](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 
 ## Características planificadas
 
@@ -452,7 +453,9 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -594,6 +597,8 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
+**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
@@ -681,12 +686,12 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Es posible usar operadores de búsqueda de Gmail prefijando un comando de búsqueda con *raw:*. Si ha configurado sólo una cuenta de Gmail, puede iniciar una búsqueda directa directamente en el servidor buscando desde la bandeja de entrada unificada. Si configuraste varias cuentas de Gmail, primero tendrás que navegar a la lista de carpetas o a la carpeta de archivos (todos los mensajes) de la cuenta de Gmail en la que quieres buscar. Por favor [vea aquí](https://support.google.com/mail/answer/7190) para los posibles operadores de búsqueda. Por ejemplo:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
 
 `
 raw:larger:10M`
 
-Buscar a través de un gran número de mensajes en el dispositivo no es muy rápido debido a dos limitaciones:
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
 * Android apps get only limited memory to work with, even if the device has plenty memory available
@@ -1068,7 +1073,7 @@ Note that this is independent of receiving messages.
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-The matched address will be shown as *via* in the addresses section.
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
 Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
@@ -1420,6 +1425,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the star icon in a conversation thread to set a colored star?
 * Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
+* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 
 <br />
@@ -2374,9 +2380,9 @@ In the account settings (Setup, step 1, Manage, tap account) you can enable *Lea
 
 Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list.
+However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 

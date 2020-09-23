@@ -76,6 +76,7 @@ Questions connexes :
 * ~~Le chiffrement avec YubiKey se traduit par une boucle infinie. Cela semble être causé par un [bug dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Le défilement vers un emplacement lié en interne dans les messages originaux ne fonctionne pas. Ceci ne peut pas être corrigé car la vue du message d'origine est contenue dans une vue déroulante.
 * Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation du message sont connus pour être affichés correctement sur Pebble 2, Fitbit Charge 3 et Mi band 3. Voir aussi [cette FAQ](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 
 ## Fonctionnalités prévues
 
@@ -452,7 +453,9 @@ Malheureusement, il est impossible de contenter tout le monde et ajouter tout un
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Veuillez consulter [cette FAQ](#user-content-faq111) pour savoir pourquoi seuls les comptes sur l'appareil peuvent être utilisés.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -482,7 +485,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*Général*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -491,7 +494,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 <br />
 
 <a name="faq7"></a>
-Pourquoi les messages n'apparaissent-ils pas (directement) dans le dossier  « envoyé  » ?
+**(7) Why are sent messages not appearing (directly) in the sent folder?**
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
@@ -504,7 +507,7 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-Est-il possible d'utiliser un compte Microsoft Exchange ?
+**(8) Can I use a Microsoft Exchange account?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
@@ -531,7 +534,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Voir [cette FAQ](#user-content-faq33) pour modifier le nom d'utilisateur des adresses e-mail.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
@@ -560,7 +563,7 @@ Voir [cette FAQ](#user-content-faq33) pour modifier le nom d'utilisateur des adr
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-*Général*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -594,9 +597,11 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
+**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail enverra l'en-tête [Autocrypt](https://autocrypt.org/) pour être utilisé par d'autres clients de messagerie, mais seulement pour les messages signés et chiffrés parce que trop de serveurs de messagerie ont des problèmes avec l'en-tête Autocrypt souvent long. Notez que le moyen le plus sûr de démarrer un échange de messages chiffrés est d'envoyer d'abord des messages signés. Les en-têtes Autocrypt reçus seront envoyés à l'application OpenKeychain pour être stockés lors de la vérification d'une signature ou du déchiffrement d'un message.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
@@ -1068,7 +1073,7 @@ Note that this is independent of receiving messages.
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-The matched address will be shown as *via* in the addresses section.
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
 Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
@@ -1420,6 +1425,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the star icon in a conversation thread to set a colored star?
 * Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
+* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 
 <br />
@@ -2374,9 +2380,9 @@ In the account settings (Setup, step 1, Manage, tap account) you can enable *Lea
 
 Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list.
+However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 

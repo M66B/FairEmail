@@ -868,6 +868,7 @@
     <string name="title_queued">Bericht wordt verzonden</string>
     <string name="title_queued_at">Bericht zal rond %1$s worden verzonden</string>
     <string name="title_sign">Ondertekenen</string>
+    <string name="title_verify">Verifiëren</string>
     <string name="title_encrypt">Versleutelen</string>
     <string name="title_decrypt">Ontsleutelen</string>
     <string name="title_resync">Resync</string>
@@ -962,6 +963,7 @@
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>
     <string name="title_answer_group">Sjabloongroep (optioneel)</string>
+    <string name="title_answer_standard">Standaard</string>
     <string name="title_answer_favorite">Favoriet</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>

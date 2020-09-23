@@ -97,7 +97,7 @@
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_contacts">Lokale Kontakte</string>
     <string name="menu_setup">Einstellungen</string>
-    <string name="menu_legend">Symbolerklärung</string>
+    <string name="menu_legend">Legende</string>
     <string name="menu_test">Testprogramm</string>
     <string name="menu_faq">Support</string>
     <string name="menu_translate">Übersetzen helfen</string>
@@ -175,7 +175,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_inbox">Zu Nachrichten wechseln</string>
     <string name="title_setup_go">Los</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
-    <string name="title_setup_done">Erledigt</string>
+    <string name="title_setup_done">Fertig</string>
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
@@ -207,9 +207,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_theme_black">Schwarz</string>
     <string name="title_setup_theme_black_and_white">Schwarzweiß</string>
     <string name="title_setup_theme_reverse">Farben umkehren</string>
-    <string name="title_setup_theme_dark">Dunkler Hintergrund</string>
+    <string name="title_setup_theme_dark">Dunkel</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
-    <string name="title_setup_theme_system">Wie System-Design</string>
+    <string name="title_setup_theme_system">System-Design</string>
     <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>

@@ -891,6 +891,7 @@
     <string name="title_queued">Отправка сообщения</string>
     <string name="title_queued_at">Сообщение будет отправлено около %1$s</string>
     <string name="title_sign">Подпись</string>
+    <string name="title_verify">Проверить</string>
     <string name="title_encrypt">Шифрование</string>
     <string name="title_decrypt">Расшифрование</string>
     <string name="title_resync">Синхронизировать заново</string>

@@ -76,6 +76,7 @@ Powiązane pytania:
 * ~~ Szyfrowanie za pomocą YubiKey skutkuje nieskończoną pętlą. Wydaje się, że jest to spowodowane błędem [w OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Przewijanie do wewnętrznie połączonej lokalizacji w oryginalnych wiadomościach nie działa. Nie można tego naprawić, ponieważ oryginalny widok wiadomości znajduje się w przewijanym widoku.
 * Podgląd tekstu wiadomości nie (zawsze) pojawia się na zegarku Samsung, ponieważ [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wydaje się być ignorowany. Wiadomo, że teksty podglądu wiadomości są wyświetlane poprawnie na Pebble 2, Fitbit Charge 3 i Mi band 3. Zobacz również [ten FAQ](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 
 ## Planowane funkcje
 
@@ -452,165 +453,169 @@ Niestety, nie można uszczęśliwić wszystkich, a dodanie wielu ustawień było
 
 Możesz użyć kreatora szybkiej konfiguracji, aby łatwo skonfigurować konto Gmail i tożsamość.
 
-Jeśli nie chcesz korzystać z konta Gmail znajdującego się na urządzeniu, możesz włączyć dostęp dla „mniej bezpiecznych aplikacji” i użyć hasła do konta lub włączyć uwierzytelnianie dwuskładnikowe i użyć hasła aplikacji. Zobacz [ten FAQ](#user-content-faq111), aby dowiedzieć się dlaczego można używać tylko kont na urządzeniu.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
-Pamiętaj, że hasło jest wymagane w przypadku włączenia uwierzytelniania dwuskładnikowego.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-<br />
-
-*Hasło specyficzne dla aplikacji*
-
-Zobacz [tutaj](https://support.google.com/accounts/answer/185833) jak wygenerować hasło dla danej aplikacji.
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*Włącz "Mniej bezpieczne aplikacje"*
+*App specific password*
 
-**Ważne**: użycie tej metody nie jest zalecane, ponieważ jest mniej wiarygodne.
-
-**Ważne**: Konta Gsuite autoryzowane z nazwą użytkownika/hasłem przestaną działać [w najbliższej przyszłości](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-Zobacz [tutaj](https://support.google.com/accounts/answer/6010255) jak włączyć "mniej bezpieczne aplikacje" lub przejdź [bezpośrednio do ustawienia](https://www.google.com/settings/security/lesssecureapps).
-
-Jeśli korzystasz z wielu kont Gmail, upewnij się, że zmieniłeś ustawienie „mniej bezpiecznych aplikacji” dla odpowiednich kont.
-
-Pamiętaj, że musisz opuścić ekran ustawień „mniej bezpiecznych aplikacji” za pomocą strzałki wstecz, aby zastosować ustawienie.
-
-Jeśli używasz tej metody, powinieneś użyć [silnego hasła](https://en.wikipedia.org/wiki/Password_strength) dla swojego konta Gmail, co i tak jest dobrym pomysłem. Zauważ, że samo użycie protokołu IMAP [ standardowego ](https://tools.ietf.org/html/rfc3501) nie jest mniej bezpieczne.
-
-Gdy „mniej bezpieczne aplikacje” nie są włączone, pojawi się błąd * Uwierzytelnianie nie powiodło się - nieprawidłowe dane logowania * dla kont (IMAP) i * Nazwa użytkownika i hasło nie są akceptowane * dla tożsamości (SMTP).
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
-*Ogólnie*
+*Enable "Less secure apps"*
 
-Możesz otrzymać ostrzeżenie "*Zaloguj się przez przeglądarkę internetową*". Dzieje się tak, gdy Google uzna, że sieć łącząca Cię z Internetem (może to być VPN) jest niebezpieczna. Można temu zapobiec za pomocą kreatora konfiguracji poczty Gmail lub określonego hasła aplikacji.
+**Important**: using this method is not recommended because it is less reliable.
 
-Instrukcje Google znajdują się [ tutaj ](https://support.google.com/mail/answer/7126229) i [ tutaj ](https://support.google.com/mail/accounts/answer/78754) w celu rozwiązania problemów.
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+
+When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+
+<br />
+
+*General*
+
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Dlaczego wysłane wiadomości nie pojawiają się (bezpośrednio) w folderze Wysłane?**
+**(7) Why are sent messages not appearing (directly) in the sent folder?**
 
-Wysłane wiadomości są zwykle przenoszone ze skrzynki nadawczej do folderu Wysłane, gdy tylko dostawca doda wysłane wiadomości do folderu. Wymaga to wybrania folderu Wysłane w ustawieniach konta i ustawienia synchronizacji folderu Wysłane.
+Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Niektórzy dostawcy nie śledzą wysłanych wiadomości lub używany serwer SMTP może nie być powiązany z dostawcą. W takich przypadkach FairEmail automatycznie doda wysłane wiadomości do folderu Wysłane podczas synchronizacji folderu, co nastąpi po wysłaniu wiadomości. Spowoduje to dodatkowy ruch internetowy.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
 
-~~ Jeśli tak się nie stanie, twój dostawca może nie śledzić wysłanych wiadomości lub możesz używać serwera SMTP niezwiązanego z dostawcą. ~~ ~~ W takich przypadkach możesz włączyć zaawansowane ustawienie tożsamości * Przechowuj wysłane wiadomości *, aby umożliwić FairEmail dodawanie wysłanych wiadomości do folderu Wysłane zaraz po wysłaniu wiadomości. ~~ ~~ Pamiętaj, że włączenie tego ustawienia może spowodować zduplikowanie wiadomości, jeśli Twój dostawca doda również wysłane wiadomości do folderu Wysłane. ~~ ~~ Uważaj również, ponieważ włączenie tego ustawienia spowoduje dodatkowe wykorzystanie danych, szczególnie podczas wysyłania wiadomości z dużymi załącznikami. ~~
+~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
-~~ Jeśli wysłane wiadomości w skrzynce nadawczej nie zostaną znalezione w folderze Wysłane podczas pełnej synchronizacji, zostaną również przeniesione ze skrzynki nadawczej do folderu Wysłane. ~~ ~~ Pełna synchronizacja ma miejsce przy ponownym połączeniu z serwerem lub podczas synchronizacji okresowej lub ręcznej. ~~ ~~ Prawdopodobnie będziesz chciał włączyć ustawienie zaawansowane * Przechowuj wysłane wiadomości *, aby szybciej przenieść wiadomości do wysłanego folderu. ~~
+~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Czy mogę korzystać z konta Microsoft Exchange?**
+**(8) Can I use a Microsoft Exchange account?**
 
-Możesz użyć konta Microsoft Exchange, jeśli jest ono dostępne za pośrednictwem protokołu IMAP, co w większości przypadków ma miejsce. Zobacz [tutaj](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) aby uzyskać więcej informacji.
+You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-Zobacz [tutaj](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040), aby uzyskać dokumentację Microsoft dotyczącą konfiguracji klienta e-mail. Istnieje również rozdział dotyczący wspólnych błędów i rozwiązań w zakresie połączeń.
+Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 
-Niektóre starsze wersje serwera Exchange zawierają błąd powodujący pustą wiadomość i uszkodzenie załączników. Obejście problemu znajduje się tutaj [FAQ](#user-content-faq110).
+Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
 
-Zobacz [FAQ](#user-content-faq133) o wsparciu ActiveSync.
+Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
-Zobacz tutaj [FAQ](#user-content-faq111) na temat wsparcia OAuth.
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
 <br />
 
 <a name="faq9"></a>
-**(9) Czym są tożsamości / jak dodać alias?**
+**(9) What are identities / how do I add an alias?**
 
-Tożsamości reprezentują adresy e-mail, z których wysyłasz * z * za pośrednictwem serwera e-mail (SMTP).
+Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
-Niektórzy dostawcy dopuszczają posiadanie wielu aliasów. Możesz je skonfigurować, ustawiając pole adresu e-mail dodatkowej tożsamości na adres aliasu i ustawienie pola nazwy użytkownika na główny adres e-mail.
+Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
-Pamiętaj, że możesz skopiować tożsamość przez długie przytrzymanie.
+Note that you can copy an identity by long pressing it.
 
-Alternatywnie możesz włączyć opcję * Zezwól na edycję adresu nadawcy * w ustawieniach zaawansowanych istniejącej tożsamości, aby edytować nazwę użytkownika podczas tworzenia nowej wiadomości, jeśli twój dostawca na to pozwala.
+Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
 
-FairEmail automatycznie zaktualizuje hasła powiązanych tożsamości podczas aktualizacji hasła powiązanego konta lub powiązanej tożsamości.
+FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Zobacz [ten FAQ](#user-content-faq33), jak edytować nazwy użytkownika adresów e-mail.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) Co oznacza „UIDPLUS nieobsługiwany”?~~**
+**~~(10) What does 'UIDPLUS not supported' mean?~~**
 
-~~ Komunikat o błędzie * UIDPLUS nieobsługiwany * oznacza, że ​​Twój dostawca poczty e-mail nie zapewnia rozszerzenia IMAP [ UIDPLUS ](https://tools.ietf.org/html/rfc4315). To rozszerzenie IMAP jest wymagane do wdrożenia dwukierunkowej synchronizacji, która nie jest funkcją opcjonalną. Dopóki Twój dostawca nie włączy tego rozszerzenia, nie możesz używać FairEmail dla tego dostawcy. ~~
+~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Dlaczego POP nie jest wspierany?~**
+**~~(11) Why is POP not supported?~~**
 
-~~Poza tym, każdy przyzwoity dostawca poczty elektronicznej obsługuje teraz [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol)~~ ~~używanie [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) spowoduje niepotrzebne dodatkowe zużycie baterii i opóźni powiadomienia o nowych wiadomościach.~~ ~~Co więcej, POP jest nieodpowiednie dla dwukierunkowej synchronizacji i częściej ludzie czytają i piszą wiadomości na różnych urządzeniach.~~
+~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
-~~Zasadniczo, POP obsługuje tylko pobieranie i usuwanie wiadomości z skrzynki odbiorczej.~~ ~~Więc, częste operacje takie jak ustawianie atrybutów wiadomości (przeczytana, oznaczona gwiazdką, odpowiedziana, itp.), dodawanie (kopia zapasowa) i przenoszenie wiadomości nie są możliwe.~~
+~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
 
-~~Zobacz również [co pisze o tym Google](https://support.google.com/mail/answer/7104828).~~
+~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
 
-~~Na przykład [Gmail może importować wiadomości](https://support.google.com/mail/answer/21289) z innego konta POP, ~~ ~~które może być użyte jako rozwiązanie dodatkowe, gdy dostawca nie obsługuje IMAP.~~
+~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
 
-~~tl;dr; rozważ przełączenie na IMAP.~~
+~~tl;dr; consider to switch to IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) Jak działa szyfrowanie/deszyfrowanie?**
+**(12) How does encryption/decryption work?**
 
-*Główne*
+*General*
 
-[Zobacz tutaj](https://en.wikipedia.org/wiki/Public-key_cryptography) jak działa szyfrowanie kluczami publicznymi/prywatnymi.
+Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
-Szyfrowanie w skrócie:
+Encryption in short:
 
 * **Wychodzące** wiadomości są zaszyfrowane przy użyciu **klucza publicznego** odbiorcy
 * **Przychodzące** wiadomości są odszyfrowane przy użyciu **klucza prywatnego** odbiorcy
 
-Podpisywanie w skrócie:
+Signing in short:
 
 * **Wychodzące** wiadomości są podpisane przy użyciu **klucza prywatnego** nadawcy
 * **Przychodzące** wiadomości są sprawdzane przy użyciu **klucza prywatnego** nadawcy
 
-Aby podpisać/zaszyfrować wiadomość, po prostu wybierz odpowiednią metodę w oknie dialogowym wysyłania. Zawsze możesz otworzyć okno dialogowe wysyłania za pomocą menu trzech kropek, na wypadek, gdybyś wybrał wcześniej opcję * Nie pokazuj ponownie *.
+To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
 
-Aby zweryfikować podpis lub odszyfrować otrzymaną wiadomość, otwórz wiadomość i dotknij ikony gestu lub kłódki tuż poniżej paska akcji wiadomości.
+To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
-Przy pierwszym wysłaniu podpisanej/zaszyfrowanej wiadomości możesz zostać poproszony o klucz do podpisu. Następnym razem FairEmail automatycznie zapisze wybrany klucz w użytej tożsamości. Jeśli musisz zresetować klucz, po prostu zapisz tożsamość lub naciśnij długo tożsamość na liście tożsamości i wybierz * Resetuj klucz *. Wybrany klucz jest widoczny na liście tożsamości. Jeśli konieczne jest wybranie klucza indywidualnie dla każdego przypadku, możesz tworzyć wiele tożsamości dla tego samego konta z tym samym adresem e-mail.
+The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
-W ustawieniach szyfrowania możesz wybrać domyślną metodę szyfrowania (PGP lub S/MIME), włącz * Domyślnie podpisuj *, * Domyślnie szyfruj * i * Automatycznie odszyfruj wiadomości *, ale pamiętaj, że automatyczne odszyfrowanie nie jest możliwe, jeśli wymagana jest interakcja użytkownika, na przykład wybranie klucza lub odczyt tokenu zabezpieczającego.
+In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
-Tekst wiadomości/załączniki do zaszyfrowania oraz tekst wiadomości/załączniki odszyfrowane są przechowywane tylko lokalnie i nigdy nie zostaną dodane do zdalnego serwera. Jeśli chcesz cofnąć deszyfrowanie, możesz użyć pozycji menu * Resynchronizuj * w menu z trzema kropkami na pasku akcji wiadomości.
+The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
 
 *PGP*
 
-Najpierw musisz zainstalować i skonfigurować [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/). FairEmail został przetestowany z OpenKeychain w wersji 5.4. Nowsze wersje będą kompatybilne, ale wcześniejsze wersje mogą nie być.
+You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
-** Ważne **: wiadomo, że aplikacja OpenKeychain (po cichu) ulega awarii, gdy aplikacja wywołująca (FairEmail) nie jest jeszcze autoryzowana i otrzymuje istniejący klucz publiczny. Można to obejść, próbując wysłać podpisaną/zaszyfrowaną wiadomość do nadawcy z nieznanym kluczem publicznym.
+**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-** Ważne **: jeśli aplikacja OpenKeychain nie może (już) znaleźć klucza, konieczne może być zresetowanie wcześniej wybranego klucza. Można to zrobić przez długie naciśnięcie tożsamości na liście tożsamości (Ustawienia, krok 2, Zarządzaj).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
-** Ważne **: aby aplikacje takie jak FairEmail niezawodnie łączyły się z usługą OpenKeychain w celu szyfrowania/deszyfrowania wiadomości, może być konieczne wyłączenie optymalizacji baterii w aplikacji OpenKeychain.
+**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
-** Ważne **: w niektórych wersjach/urządzeniach z Androidem konieczne jest włączenie * Pokaż wyskakujące okna podczas pracy w tle * w dodatkowych uprawnieniach ustawień aplikacji na Androida aplikacji OpenKeychain. Bez tego pozwolenia szkic zostanie zapisany, ale wyskakujące okno OpenKeychain w celu potwierdzenia/wyboru może się nie pojawić.
+**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+
+**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
-Ze względów bezpieczeństwa cała obsługa klucza jest delegowana do aplikacji OpenKey chain. Oznacza to również, że FairEmail nie przechowuje kluczy PGP.
+All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
-Obsługiwane są wbudowane PGP w odebranych wiadomościach, ale wbudowane podpisy PGP i wbudowane PGP w wiadomościach wychodzących nie są obsługiwane, zobacz [ tutaj ](https://josefsson.org/inline-openpgp-considered-harmful.html) o tym, dlaczego.
+Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
-Wiadomości tylko podpisane lub zaszyfrowane nie są dobrym pomysłem, zobacz tutaj, dlaczego:
+Signed-only or encrypted-only messages are not a good idea, please see here about why not:
 
 * [Rozważania OpenPGP Część I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [Rozważania OpenPGP Część II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [Rozważania OpenPGP Część III Auto-szyfrowanie](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Wiadomości 'tylko podpisane' są obsługiwane, wiadomości 'tylko szyfrowane' nie są obsługiwane.
+Signed-only messages are supported, encrypted-only messages are not supported.
 
-Częste błędy:
+Common errors:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
@@ -631,7 +636,7 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Częste błędy:
+Common errors:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
@@ -640,7 +645,7 @@ Częste błędy:
 
 In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
 
-Prawidłowy łańcuch wygląda tak:
+A valid chain looks like this:
 
 ```
 Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
@@ -1068,7 +1073,7 @@ Note that this is independent of receiving messages.
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-The matched address will be shown as *via* in the addresses section.
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
 Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
@@ -1420,6 +1425,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the star icon in a conversation thread to set a colored star?
 * Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
+* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 
 <br />
@@ -2374,9 +2380,9 @@ In the account settings (Setup, step 1, Manage, tap account) you can enable *Lea
 
 Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list.
+However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 

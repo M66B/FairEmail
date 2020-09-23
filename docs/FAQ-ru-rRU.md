@@ -76,6 +76,7 @@
 * ~~Шифрование с помощью YubiKey приводит к бесконечному циклу. Похоже, что это вызвано ошибкой [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. Это не может быть исправлено, потому что исходный вид сообщения содержится в прокрутке.
 * Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Известно, что текст предварительного просмотра сообщений правильно отображаются на экране Pebble 2, Fitbit Charge 3 и Mi band 3. См. также [этот FAQ](#user-content-faq126).
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 
 ## Запланированные возможности
 
@@ -452,7 +453,9 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password or enable two factor authentication and use an app specific password. Пожалуйста, посмотрите [этот FAQ](#user-content-faq111) о том, почему могут использоваться только учётные записи на устройстве.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -482,7 +485,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*Общее*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -495,7 +498,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. В этих случаях FairEmail, автоматически добавляет отправленные сообщения в папку отправленных при синхронизации этой папки, которая произойдёт после отправки сообщения. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -531,7 +534,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Смотрите [этот FAQ](#user-content-faq33), описывающий редактирование имени пользователя электронной почты.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
@@ -560,7 +563,7 @@ FairEmail will automatically update the passwords of related identities when you
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-*Общее*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -593,6 +596,8 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+
+**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
@@ -1068,7 +1073,7 @@ Note that this is independent of receiving messages.
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
 
-The matched address will be shown as *via* in the addresses section.
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
 Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
@@ -1420,6 +1425,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the star icon in a conversation thread to set a colored star?
 * Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
+* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 
 <br />
@@ -2374,9 +2380,9 @@ In the account settings (Setup, step 1, Manage, tap account) you can enable *Lea
 
 Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list.
+However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
 
-It is also possible to set the swipe left or right action to hide a message.
+Note that it is possible to set the swipe left or right action to hide a message.
 
 <br />
 

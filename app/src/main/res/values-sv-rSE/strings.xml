@@ -868,6 +868,7 @@
     <string name="title_queued">Skickar meddelande</string>
     <string name="title_queued_at">Meddelandet kommer att skickas runt %1$s</string>
     <string name="title_sign">Signera</string>
+    <string name="title_verify">Verifiera</string>
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
     <string name="title_resync">Synkronisera om</string>
