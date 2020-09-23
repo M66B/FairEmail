@@ -2666,8 +2666,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 if (end != null)
                                     intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end.getTime());
 
-                                if (attendee.size() > 0)
-                                    intent.putExtra(Intent.EXTRA_EMAIL, TextUtils.join(",", attendee));
+                                // This will result in sending unwanted invites
+                                //if (attendee.size() > 0)
+                                //    intent.putExtra(Intent.EXTRA_EMAIL, TextUtils.join(",", attendee));
 
                                 return intent;
                             }
