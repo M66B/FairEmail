@@ -868,6 +868,7 @@
     <string name="title_queued">Afsender besked</string>
     <string name="title_queued_at">Besked afsendes omkring kl. %1$s</string>
     <string name="title_sign">Signér</string>
+    <string name="title_verify">Bekræft</string>
     <string name="title_encrypt">Kryptér</string>
     <string name="title_decrypt">Dekryptér</string>
     <string name="title_resync">Synkronisér igen</string>

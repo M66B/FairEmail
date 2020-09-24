@@ -596,7 +596,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_idle">Tento poskytovateľ nepodporuje push správy. To pozdrží prijímanie správ a zvýši spotrebu batérie.</string>
     <string name="title_no_utf8">Tento poskytovateľ nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizácie od %1$s</string>
-    <string name="title_reply_domain">Odosielateľ (%1$s) a odpovedacia doména (%2$s) sa líšia</string>
+    <string name="title_reply_domain">Odosielateľ (%1$s) a doména adresy pre odpoveď (%2$s) sa líšia</string>
     <string name="title_identity_required">Totožnosť je vyžadovaná pre posielanie emailov</string>
     <string name="title_drafts_required">Priečinok konceptov je vyžadovaný pre posielanie emailov</string>
     <string name="title_drafts_select">Posielanie emailov vyžaduje priradený priečinok konceptov v nastaveniach účtu</string>
@@ -886,6 +886,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_queued">Odosiela sa správa</string>
     <string name="title_queued_at">Správa bude odoslaná okolo %1$s</string>
     <string name="title_sign">Podpísať</string>
+    <string name="title_verify">Overiť</string>
     <string name="title_encrypt">Zašifrovať</string>
     <string name="title_decrypt">Dešifrovať</string>
     <string name="title_resync">Znova synchronizovať</string>
@@ -1024,7 +1025,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_identity">Totožnosť</string>
     <string name="title_rule_template">Šablóna odpovede</string>
     <string name="title_rule_forward_to">Preposlať na</string>
-    <string name="title_rule_cc">Odpovedať na CC adresy</string>
+    <string name="title_rule_cc">Odpovedať na adresy v poli kópia</string>
     <string name="title_rule_with_attachments">S prílohami</string>
     <string name="title_rule_answer_remark">Len jedna odpoveď bude odoslaná pre ľubovoľnú konverzáciu aby sa zamedzilo odpovedacím slučkám</string>
     <string name="title_rule_name_missing">Chýbajúci názov pravidla</string>

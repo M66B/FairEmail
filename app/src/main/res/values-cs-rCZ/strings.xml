@@ -891,6 +891,7 @@
     <string name="title_queued">Odesílám zprávu</string>
     <string name="title_queued_at">Zpráva bude odeslána přibližně %1$s</string>
     <string name="title_sign">Podepsat</string>
+    <string name="title_verify">Ověřit</string>
     <string name="title_encrypt">Šifrovat</string>
     <string name="title_decrypt">Dešifrovat</string>
     <string name="title_resync">Znovu synchronizovat</string>

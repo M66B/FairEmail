@@ -864,6 +864,7 @@
     <string name="title_queued">Αποστολή μηνύματος</string>
     <string name="title_queued_at">Το μήνυμα θα αποσταλεί περί τη/τις %1$s</string>
     <string name="title_sign">Υπογραφή</string>
+    <string name="title_verify">Επιβεβαίωση</string>
     <string name="title_encrypt">Κρυπτογράφηση</string>
     <string name="title_decrypt">Αποκρυπτογράφηση</string>
     <string name="title_resync">Επανασυγχρονισμός</string>

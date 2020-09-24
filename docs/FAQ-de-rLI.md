@@ -1,4 +1,4 @@
-# FairEmail - Support
+# FairEmail – Unterstützung
 
 Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig gestellten Fragen. Im unteren Bereich finden Sie die Möglichkeit, weitere Fragen zu stellen, Funktionen anzufordern und Fehler zu melden.
 
@@ -76,7 +76,7 @@ Verwandte Fragen:
 * ~~Die Verschlüsselung mit YubiKey führt zu einer Endlosschleife. Dies scheint durch einen [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507) verursacht zu werden.~~
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
 * Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3” und „Mi Band 3” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Dieser Fehler wurde in Android 6.0.1 behoben.
+* Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Invalid offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
 
 ## Geplante Funktionen
 
@@ -481,24 +481,24 @@ Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm übe
 
 Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was aber grundsätzlich immer eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501)-IMAP-Protokolls an sich nicht weniger sicher ist.
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Wenn „weniger sichere Anwendungen” nicht aktiviert ist, erhalten Sie die Fehlermeldung *Authentifizierung fehlgeschlagen - ungültige Anmeldedaten* für Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für Identitäten (SMTP).
 
 <br />
 
-*General*
+*Allgemein*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Möglicherweise erhalten Sie die Meldung „*Bitte melden Sie sich über Ihren Webbrowser an*”. Dies geschieht, wenn Google das Netzwerk, das Sie mit dem Internet verbindet (dies könnte ein VPN sein), als unsicher einstuft. Dies kann verhindert werden, indem Sie den Assistenten zur schnellen Einrichtung von Google Mail oder ein app-spezifisches Passwort verwenden.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Siehe [hier](https://support.google.com/mail/answer/7126229) für eine Anleitung von Google und [hier](https://support.google.com/mail/accounts/answer/78754) für die Problemlösung.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Warum werden gesendete Nachrichten nicht (direkt) im gesendeten Ordner angezeigt?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Gesendete Nachrichten werden normalerweise aus dem Postausgang in den Ordner „Gesendet” verschoben, sobald Ihr Provider gesendete Nachrichten dem Ordner „Gesendet” hinzufügt. Dazu muss in den Kontoeinstellungen einen Ordner "Gesendet" ausgewählt werden, und dieser Ordner zum Synchronisieren festgelegt werden.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Einige Provider verfolgen die gesendeten Nachrichten nicht oder der verwendete SMTP-Server ist möglicherweise nicht mit dem Provider verbunden. In diesen Fällen fügt FairEmail gesendete Nachrichten automatisch bei der Synchronisation des Ordners „Gesendet” dem Ordner „Gesendet” hinzu. Beachten Sie, dass dies zu zusätzlichem Internetverkehr führt.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -507,9 +507,9 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Kann ich ein Microsoft Exchange-Konto verwenden?**
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP zugänglich ist, was meistens der Fall ist. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
 Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 
@@ -563,7 +563,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-*General*
+*Allgemein*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -893,7 +893,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-Der Fehler *... Authentifizierung fehlgeschlagen ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+Der Fehler *… Authentifizierung fehlgeschlagen ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentifizierung fehlgeschlagen ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -962,37 +962,37 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Kann ich helfen, FairEmail in meine eigene Sprache zu übersetzen?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Ja, Sie können die Texte von FairEmail in Ihre eigene Sprache [auf Crowdin](https://crowdin.com/project/open-source-email) übersetzen. Die Registrierung ist kostenlos.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Wenn Sie möchten, dass Ihr Name oder Ihr Alias in die Liste der Mitwirkenden in *über* der App aufgenommen werden soll, bitte [kontaktieren Sie mich](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Wie kann ich zwischen eingebetteten und externen Grafiken unterscheiden?**
 
-External image:
+Externes Bild:
 
 ![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Eingebettetes Bild:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Defektes Bild:
 
 ![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Beachten Sie, dass das Herunterladen externer Bilder von einem entfernten Server verwendet werden kann, um eine Nachricht zu speichern, was Sie wahrscheinlich nicht wollen, wenn die Nachricht Spam oder bösartig ist.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Wie kann ich Statusleisten-Benachrichtigungen verwalten?**
 
-In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+Im Setup finden sie einen Button *Benachrichtigungen verwalten*, um direkt zu den Android Benachrichtigungseinstellungen für FairEmail zu navigieren.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
@@ -1037,7 +1037,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 There are shortcuts available to:
 
 * eine neue Nachricht an einen Favoriten schreiben
-* erstelle Konten, Identitäten, usw.
+* Konten, Identitäten usw einrichten.
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
