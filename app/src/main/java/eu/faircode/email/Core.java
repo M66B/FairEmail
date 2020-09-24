@@ -4066,6 +4066,7 @@ class Core {
         private boolean recoverable = true;
         private Long lastActivity = null;
 
+        private boolean process = false;
         private Map<FolderPriority, Long> sequence = new HashMap<>();
         private Map<FolderPriority, Long> batch = new HashMap<>();
 
@@ -4149,9 +4150,11 @@ class Core {
             recoverable = true;
             lastActivity = null;
             resetBatches();
+            process = true;
         }
 
         void resetBatches() {
+            process = false;
             synchronized (this) {
                 for (FolderPriority key : sequence.keySet()) {
                     batch.put(key, sequence.get(key));
@@ -4247,6 +4250,11 @@ class Core {
         }
 
         boolean batchCanRun(long folder, int priority, long current) {
+            if (!process) {
+                Log.i("=== Can " + folder + ":" + priority + " process=" + process);
+                return false;
+            }
+
             synchronized (this) {
                 FolderPriority key = new FolderPriority(folder, priority);
                 boolean can = batch.get(key).equals(current);
