@@ -148,6 +148,7 @@ One line command to display certificate fingerprints:
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
 I do not hand over the signing keys of my apps to Google.
+However, in the second half of 2021 [I am required](https://commonsware.com/blog/2020/09/23/uncomfortable-questions-app-signing.html) to hand over my signing keys to Google.
 
 ## Compatibility
 
