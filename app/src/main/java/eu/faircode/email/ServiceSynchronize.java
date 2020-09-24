@@ -53,11 +53,6 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.NetworkInterface;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,6 +92,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private Network lastActive = null;
     private Boolean lastSuitable = null;
     private long lastLost = 0;
     private int lastAccounts = 0;
@@ -1777,7 +1773,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities caps) {
             updateNetworkState(network, caps);
-
+            /*
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -1801,10 +1797,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            */
         }
 
         @Override
         public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties props) {
+            /*
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -1857,10 +1855,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+             */
         }
 
         @Override
         public void onLost(@NonNull Network network) {
+            /*
             try {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ani = cm.getActiveNetworkInfo();
@@ -1869,6 +1869,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     lastLost = new Date().getTime();
             } catch (Throwable ex) {
                 Log.w(ex);
+            }
+             */
+
+            if (Objects.equals(lastActive, network)) {
+                EntityLog.log(ServiceSynchronize.this, "Lost active network=" + network);
+                lastLost = new Date().getTime();
             }
 
             updateNetworkState(network, null);
@@ -1911,6 +1917,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+        }
+
+        Network active = ConnectionHelper.getActiveNetwork(ServiceSynchronize.this);
+        if (!Objects.equals(lastActive, active)) {
+            lastActive = active;
+            EntityLog.log(ServiceSynchronize.this, "New active network=" + active);
+            reload(ServiceSynchronize.this, -1L, false, "Network changed active=" + active);
         }
     }
 
