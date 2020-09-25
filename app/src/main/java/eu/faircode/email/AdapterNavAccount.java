@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -50,6 +51,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private boolean beige;
 
     private int colorUnread;
     private int textColorSecondary;
@@ -174,10 +176,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         }
     }
 
-    AdapterNavAccount(Context context, LifecycleOwner owner) {
+    AdapterNavAccount(Context context, LifecycleOwner owner, boolean beige) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+        this.beige = beige;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
@@ -276,7 +279,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_nav, parent, false));
+        View view = inflater.inflate(R.layout.item_nav, parent, false);
+        if (beige)
+            view.setBackgroundColor(
+                    ContextCompat.getColor(context, R.color.lightColorBackground_cards_beige));
+        return new ViewHolder(view);
     }
 
     @Override

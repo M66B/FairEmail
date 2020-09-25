@@ -170,7 +170,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvMenu.setLayoutManager(llm);
-        final AdapterNavMenu adapter = new AdapterNavMenu(this, this);
+        final AdapterNavMenu adapter = new AdapterNavMenu(this, this, false);
         rvMenu.setAdapter(adapter);
 
         final Drawable d = getDrawable(R.drawable.divider);
