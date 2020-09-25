@@ -51,7 +51,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -232,14 +231,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         drawerContainer = findViewById(R.id.drawer_container);
 
-        boolean beige = prefs.getBoolean("cards", true) &&
-                prefs.getBoolean("beige", true) &&
-                !Helper.isDarkTheme(ActivityView.this);
-
-        if (beige)
-            drawerContainer.setBackgroundColor(
-                    ContextCompat.getColor(ActivityView.this, R.color.lightColorBackground_cards_beige));
-
         int drawerWidth;
         DisplayMetrics dm = getResources().getDisplayMetrics();
         if (portrait || !landscape3) {
@@ -265,7 +256,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
-        adapterNavAccount = new AdapterNavAccount(this, this, beige);
+        adapterNavAccount = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(adapterNavAccount);
 
         boolean nav_account = prefs.getBoolean("nav_account", true);
@@ -287,7 +278,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         rvUnified = drawerContainer.findViewById(R.id.rvUnified);
         rvUnified.setLayoutManager(new LinearLayoutManager(this));
-        adapterNavUnified = new AdapterNavUnified(this, this, beige);
+        adapterNavUnified = new AdapterNavUnified(this, this);
         rvUnified.setAdapter(adapterNavUnified);
 
         boolean unified_system = prefs.getBoolean("unified_system", true);
@@ -307,12 +298,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Navigation folders
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
-        adapterNavFolder = new AdapterNavFolder(this, this, beige);
+        adapterNavFolder = new AdapterNavFolder(this, this);
         rvFolder.setAdapter(adapterNavFolder);
 
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
-        adapterNavMenu = new AdapterNavMenu(this, this, beige);
+        adapterNavMenu = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(adapterNavMenu);
 
         // Extra menus
@@ -321,7 +312,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvMenuExtra.setLayoutManager(llm);
-        adapterNavMenuExtra = new AdapterNavMenu(this, this, beige);
+        adapterNavMenuExtra = new AdapterNavMenu(this, this);
         rvMenuExtra.setAdapter(adapterNavMenuExtra);
 
         final Drawable d = getDrawable(R.drawable.divider);

@@ -30,7 +30,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -49,7 +48,6 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
-    private boolean beige;
 
     private boolean debug;
     private int colorUnread;
@@ -155,11 +153,10 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         }
     }
 
-    AdapterNavFolder(Context context, LifecycleOwner owner, boolean beige) {
+    AdapterNavFolder(Context context, LifecycleOwner owner) {
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
-        this.beige = beige;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
@@ -253,11 +250,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_nav, parent, false);
-        if (beige)
-            view.setBackgroundColor(
-                    ContextCompat.getColor(context, R.color.lightColorBackground_cards_beige));
-        return new ViewHolder(view);
+        return new ViewHolder(inflater.inflate(R.layout.item_nav, parent, false));
     }
 
     @Override
