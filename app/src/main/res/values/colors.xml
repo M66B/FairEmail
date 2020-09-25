@@ -33,6 +33,8 @@
 
     <color name="lightColorCardBackground">#fff</color>
     <color name="lightColorBackground_cards">#eee</color>
+    <!-- Cosmic Latte -->
+    <color name="lightColorBackground_cards_beige">#fff8e7</color>
 
     <color name="lightActionForeground">#fff</color>
     <color name="lightActionForegroundDisabled">#ddd</color>

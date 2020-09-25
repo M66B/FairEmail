@@ -78,6 +78,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fabError;
 
     private boolean cards;
+    private boolean beige;
     private boolean compact;
 
     private long account;
@@ -104,6 +105,7 @@ public class FragmentFolders extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        beige = prefs.getBoolean("beige", false);
         compact = prefs.getBoolean("compact_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
 
@@ -266,7 +268,9 @@ public class FragmentFolders extends FragmentBase {
         // Initialize
 
         if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);

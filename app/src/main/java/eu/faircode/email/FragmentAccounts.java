@@ -60,6 +60,7 @@ public class FragmentAccounts extends FragmentBase {
     private boolean settings;
 
     private boolean cards;
+    private boolean beige;
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
@@ -84,6 +85,7 @@ public class FragmentAccounts extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        beige = prefs.getBoolean("beige", false);
     }
 
     @Override
@@ -230,7 +232,9 @@ public class FragmentAccounts extends FragmentBase {
         // Initialize
 
         if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
 
         if (settings) {
             fab.show();

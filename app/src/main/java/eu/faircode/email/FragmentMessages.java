@@ -271,6 +271,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private OpenPgpServiceConnection pgpService;
 
     private boolean cards;
+    private boolean beige;
     private boolean date;
     private boolean threading;
     private boolean swipenav;
@@ -392,6 +393,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
+        beige = prefs.getBoolean("beige", false);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
         seekbar = prefs.getBoolean("seekbar", false);
@@ -1131,8 +1133,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         addKeyPressedListener(onBackPressedListener);
 
         // Initialize
+
         if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
 
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);

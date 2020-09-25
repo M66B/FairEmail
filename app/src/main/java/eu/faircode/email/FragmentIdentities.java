@@ -45,6 +45,7 @@ import java.util.List;
 
 public class FragmentIdentities extends FragmentBase {
     private boolean cards;
+    private boolean beige;
 
     private RecyclerView rvIdentity;
     private ContentLoadingProgressBar pbWait;
@@ -60,6 +61,7 @@ public class FragmentIdentities extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        beige = prefs.getBoolean("beige", false);
     }
 
     @Override
@@ -115,7 +117,9 @@ public class FragmentIdentities extends FragmentBase {
         // Initialize
 
         if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
