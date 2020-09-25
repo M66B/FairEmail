@@ -117,8 +117,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long FAST_ERROR_TIME = 5 * 60 * 1000L; // milliseconds
+    private static final long FAST_ERROR_TIME = 6 * 60 * 1000L; // milliseconds
     private static final int FAST_ERROR_COUNT = 3;
+    private static final int FAST_ERROR_BACKOFF = CONNECT_BACKOFF_AlARM_START * 2;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -1566,7 +1567,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 account.name + " fast errors=" + errors +
                                         " last connected: " + new Date(account.last_connected));
                         if (errors >= FAST_ERROR_COUNT)
-                            state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
+                            state.setBackoff(FAST_ERROR_BACKOFF * 60);
                     }
 
                     // Report account connection error
