@@ -888,6 +888,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * Das Limit für die Größe von Anhängen für Outlook und Office 365 [beträgt 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
 * Das Limit für die Größe von Anhängen für Yahoo [beträgt 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service nicht verfügbar; Client Host xxx.xxx.xxx.xxx blockiert*, bitte [hier schauen](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
+* *501 Syntax error - line too long* is often caused by using a long Autocrypt header
 
 **Gmail errors**
 
@@ -992,7 +993,7 @@ Beachten Sie, dass das Herunterladen externer Bilder von einem entfernten Server
 <a name="faq28"></a>
 **(28) Wie kann ich Statusleisten-Benachrichtigungen verwalten?**
 
-Im Setup finden sie einen Button *Benachrichtigungen verwalten*, um direkt zu den Android Benachrichtigungseinstellungen für FairEmail zu navigieren.
+In der Einrichtung finden Sie den Knopf *Benachrichtigungen verwalten*, um direkt zu den Android-Benachrichtigungseinstellungen für FairEmail zu navigieren.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 

@@ -869,6 +869,7 @@
     <string name="title_queued">Invio messaggio in corso</string>
     <string name="title_queued_at">Il messaggio verrà inviato intorno a %1$s</string>
     <string name="title_sign">Firma</string>
+    <string name="title_verify">Verifica</string>
     <string name="title_encrypt">Crittografare</string>
     <string name="title_decrypt">Decifra</string>
     <string name="title_resync">Risincronizza</string>

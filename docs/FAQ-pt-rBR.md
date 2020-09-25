@@ -76,7 +76,7 @@ Perguntas relacionadas:
 * ~~Criptografia com YubiKey resulta em um loop (ciclo) infinito. Isso parece ser causado por um [problema no OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Rolar para um local com link interno nas mensagens originais não funciona. Não é possível corrigir porque a visualização de mensagem original é limitada na visualização de rolagem.
 * A pré-visualização do texto de uma mensagem não aparece (sempre) nos relógios Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. É sabido que a pré-visualização do texto de mensagens é exibida corretamente nos relógios Pebble 2, Fitbit Charge 3, e Mi band 3. Veja também [ esse FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* Um [problema no Android 6.0](https://issuetracker.google.com/issues/37068143) às vezes causa um travamento com a mensagem *... Invalid offset: ... Valid range is ...* ao selecionar o texto e depois tocar fora do texto selecionado. Esse erro foi corrigido no Android 6.0.1.
 
 ## Funcionalidades planejadas
 
@@ -223,7 +223,7 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(104) O que preciso saber sobre relato de erros?](#user-content-faq104)
 * [(105) Como a opção roam-like-at-home funciona?](#user-content-faq105)
 * [(106) Quais launcher (inicializadores) podem mostrar um contador com o número de mensagens não lidas?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
+* [(107) Como eu utilizo estrelas coloridas?](#user-content-faq107)
 * [(108) Você pode configurar para apagar mensagens permanentemente de qualquer pasta?](#user-content-faq108)
 * [~~(109) Porque 'selecionar conta' está disponível apenas nas versões oficiais?~~](#user-content-faq109)
 * [(110) Por que (algumas) mensagems estão vazias e/ou com anexos corrompidos?](#user-content-faq110)
@@ -333,7 +333,7 @@ O Android mostra os ícones de alta prioridade primeiro na barra de status e ir�
 
 A notificação na barra de status pode ser desabilitada através das configurações de notificação do FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
+* Android 8 Oreo e posterior: toque no botão *Canal de Recebimento* e desabilite o canal através das configurações do Android (isso não desativará notificações de novas mensagens)
 * Android 7 Nougat e anterior: toque em *Usar o serviço em segundo plano para sincronizar mensagens*, mas lembre-se de ler o comentário abaixo da configuração
 
 Você pode alternar para a sincronização periódica de mensagens nas configurações de recebimento para remover a notificação, mas esteja ciente de que isso pode usar mais bateria. Veja [aqui](#user-content-faq39) para mais detalhes sobre o uso de bateria.
@@ -453,11 +453,11 @@ Infelizmente, é impossível fazer todo mundo feliz e adicionar muitas configura
 
 Você pode usar o assistente de configuração rápida para configurar facilmente uma conta e uma identidade do Gmail.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Se você não quiser usar uma conta do Gmail salva em seu dispositivo, você pode ativar o acesso a "aplicativos menos seguros" e usar a senha de sua conta (não recomendado) ou habilitar a autenticação em duas etapas e usar uma senha específica de aplicativo. Para usar uma senha, você precisará configurar uma conta e identidade através das etapas 1 e 2, ao invés do assistente de configuração rápida.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Por favor, veja [este FAQ](#user-content-faq111) sobre porque apenas as contas salvas no dispositivo podem ser usadas.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Observe que uma senha de aplicativo específica é necessária quando a autenticação em duas etapas estiver habilitada.
 
 <br />
 
@@ -888,6 +888,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
+* *501 Syntax error - line too long* is often caused by using a long Autocrypt header
 
 **Gmail errors**
 

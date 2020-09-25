@@ -328,6 +328,7 @@
     <string name="title_advanced_text_size">Usar tamanho do texto</string>
     <string name="title_advanced_text_font">Usar fontes</string>
     <string name="title_advanced_text_align">Usar alinhamento de texto</string>
+    <string name="title_advanced_text_separators">Usar linhas de separador</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
@@ -710,6 +711,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>
+    <string name="title_keywords_btn">Palavras-chave</string>
     <string name="title_unsubscribe">Desinscrever</string>
     <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>
@@ -868,6 +870,7 @@
     <string name="title_queued">Enviando mensagem</string>
     <string name="title_queued_at">A mensagem será enviada por volta de %1$s</string>
     <string name="title_sign">Assinar</string>
+    <string name="title_verify">Verificar</string>
     <string name="title_encrypt">Criptografar</string>
     <string name="title_decrypt">Descriptografar</string>
     <string name="title_resync">Resincronizar</string>
@@ -962,6 +965,7 @@
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
     <string name="title_answer_group">Grupo de modelo (opcional)</string>
+    <string name="title_answer_standard">Padrão</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar dos menus</string>
     <string name="title_answer_text">Texto do modelo</string>

@@ -283,6 +283,7 @@
     <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
+    <string name="title_advanced_cards_beige">Gebruik een beige achtergrond voor kaarten</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
@@ -459,6 +460,7 @@
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
     <string name="title_advanced_layout_hint">Overschakelen naar een compactere layout en het wijzigen van de berichttekst grootte kan worden gedaan in het menu van de top actiebalk in het berichtweergave</string>
     <string name="title_advanced_startup_hint">Druk lang op een map in de mappenlijst om deze toe te voegen of te verwijderen uit de lijst van gecombineerde mappen</string>
+    <string name="title_advanced_beige_hint">Alleen lichte thema\'s</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
     <string name="title_advanced_navbar_colorize_hint">Of dit werkt hangt af van de Android-versie en -variant</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
@@ -1141,6 +1143,7 @@
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_battery">Aangezien FairEmail standaard altijd berichten ontvangt, meldt Android dat FairEmail altijd actief is. Daarom lijkt het erop dat FairEmail altijd batterijvermogen gebruikt, maar in feite is dit niet het geval.</string>
     <string name="title_hint_reformat">Standaard formatteert FairEmail berichten opnieuw om privacy- en veiligheidsredenen. Tik op het \'volledig scherm\' pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
+    <string name="title_hint_design">Het ontwerp is opzettelijk niet afleidend, maar zeer functioneel gehouden. Er zijn veel opties om het uiterlijk aan te passen, maar begrijp alsjeblieft dat het onmogelijk is om iedereen tegelijkertijd helemaal gelukkig te maken.</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
