@@ -164,14 +164,14 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
 * [(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar« beheben? ~ ?](#user-content-faq45)
 * [(46) Warum wird die Nachrichtenliste immer wieder aktualisiert?](#user-content-faq46)
-* [(47) Wie löse ich den Fehler 'Kein primäres Konto oder kein Ordner für Entwürfe' ?](#user-content-faq47)
-* [(48) Wie löse ich den Fehler 'Kein primäres Konto oder kein Archivordner' ?](#user-content-faq48)
-* [(49) Wie behebe ich 'Eine veraltete App hat einen Dateipfad anstelle eines Datei-Streams gesendet' ?](#user-content-faq49)
+* [(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe«?](#user-content-faq47)
+* [~~(48) Wie löse ich den Fehler »Kein primäres Konto oder kein Archivordner«?~~](#user-content-faq48)
+* [(49) Wie behebe ich »Eine veraltete App hat einen Dateipfad anstelle eines Datei-Streams gesendet«?](#user-content-faq49)
 * [(50) Kann man eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
 * [(51) Wie werden die Ordner sortiert?](#user-content-faq51)
 * [(52) Wieso dauert es so lange Zeit, um sich wieder mit einem Konto zu verbinden?](#user-content-faq52)
 * [(53) Kann ich die Aktionsleiste nach oben/unten verlagern?](#user-content-faq53)
-* [~~(54) Wie benutze ich ein Namensraum-Präfix?~~](#user-content-faq54)
+* [~~(54) Wie benutze ich ein Namensraumpräfix?~~](#user-content-faq54)
 * [(55) Wie kann ich alle Nachrichten als gelesen markieren, verschieben oder löschen?](#user-content-faq55)
 * [(56) Können Sie Unterstützung für JMAP hinzufügen?](#user-content-faq56)
 * [~~(57) Kann ich HTML in Signaturen verwenden?~~](#user-content-faq57)
@@ -182,11 +182,11 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(62) Welche Authentifizierungsmethoden werden unterstützt?](#user-content-faq62)
 * [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
 * [~~(64) Kann man benutzerdefinierte Aktionen zum Links/Rechts-Wischen hinzufügen?~~](#user-content-faq64)
-* [(65) Warum werden einige Anhänge verdunkelt angezeigt?](#user-content-faq65)
+* [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
 * [(66) Gibt es FairMail in der Google Play Familienmediathek?](#user-content-faq66)
 * [(67) Wie kann ich Konversationen stumm schalten?](#user-content-faq67)
 * [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
-* [(69) Gibt es eine Option 'Bei neuen Nachrichten automatisch nach oben scrollen'?](#user-content-faq69)
+* [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben scrollen«?](#user-content-faq69)
 * [(70) Wann werden Nachrichten automatisch erweitert?](#user-content-faq70)
 * [(71) Wie verwende ich Filterregeln?](#user-content-faq71)
 * [(72) Was sind Primärkonten/Identitäten?](#user-content-faq72)
@@ -197,12 +197,12 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(77) Warum werden Mitteilungen manchmal mit einer kleinen Verzögerung angezeigt?](#user-content-faq77)
 * [(78) Wie verwende ich Zeitpläne?](#user-content-faq78)
 * [(79) Wie verwende ich Synchronisieren auf Anfrage (manuell)?](#user-content-faq79)
-* [~~(80) Wie kann ich den Fehler 'Unable to load BODYSTRUCTURE' beheben?~~](#user-content-faq80)
+* [~~(80) Wie kann ich den Fehler »Unable to load BODYSTRUCTURE« beheben?~~](#user-content-faq80)
 * [~~(81) Könnt ihr den Nachrichtenhintergrund im dunklen Modus dunkel machen?~~](#user-content-faq81)
 * [(82) Was ist ein Nachverfolgungsbild?](#user-content-faq82)
 * [(84) Wozu gibt es lokale Kontakte?](#user-content-faq84)
 * [(85) Warum ist eine Identität nicht verfügbar?](#user-content-faq85)
-* [~~(86) Was sind 'zusätzliche Privatsphäre-Funktionen'?~~](#user-content-faq86)
+* [~~(86) Was sind »zusätzliche Privatsphärefunktionen«?~~](#user-content-faq86)
 * [(87) Was bedeutet »ungültige Anmeldedaten«?](#user-content-faq87)
 * [(88) Wie kann ich ein Yahoo-, AOL- oder Sky-Konto verwenden?](#user-content-faq88)
 * [(89) Wie kann ich Nur-Text-Nachrichten senden?](#user-content-faq89)
@@ -210,7 +210,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [~~(91) Gibt es eine periodische Synchronisierung, um Akkuleistung zu sparen?~~](#user-content-faq91)
 * [(92) Gibt es Spamfilter, Überprüfung der DKIM-Signatur und SPF-Autorisierung?](#user-content-faq92)
 * [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?](#user-content-faq93)
-* [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Kopfes?](#user-content-faq94)
+* [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Nachrichtenkopfes?](#user-content-faq94)
 * [(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?](#user-content-faq95)
 * [(96) Wo finde ich die IMAP- und SMTP-Einstellungen?](#user-content-faq96)
 * [(97) Was ist "Aufräumen" ?](#user-content-faq97)
@@ -221,8 +221,8 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(102) Wie kann ich die automatische Drehung von Bildern aktivieren?](#user-content-faq102)
 * [(103) Wie kann ich Audio aufnehmen?](#user-content-faq103)
 * [(104) Was muss ich über die Fehlermeldung wissen?](#user-content-faq104)
-* [(105) Wie funktioniert die 'Roam-Like-At-Home'-Option?](#user-content-faq105)
-* [(106) Welche Launcher können die Anzahl der ungelesenen Nachrichten als Abzeichen anzeigen?](#user-content-faq106)
+* [(105) Wie funktioniert die »Roaming wie zu Hause«-Option?](#user-content-faq105)
+* [(106) Welche Launcher können die Anzahl der ungelesenen Nachrichten als Plakette anzeigen?](#user-content-faq106)
 * [(107) Wie verwende ich farbige Sterne?](#user-content-faq107)
 * [(108) Kann man Nachrichten aus beliebigen Ordnern dauerhaft löschen?](#user-content-faq108)
 * [~~(109) Warum ist 'Konto auswählen' nur in offiziellen Versionen verfügbar?~~](#user-content-faq109)
@@ -509,30 +509,30 @@ Einige Provider verfolgen die gesendeten Nachrichten nicht oder der verwendete S
 <a name="faq8"></a>
 **(8) Kann ich ein Microsoft Exchange-Konto verwenden?**
 
-Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP zugänglich ist, was meistens der Fall ist. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP zugänglich ist, was meistens der Fall ist. Sehen Sie [hier](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) für weitere Informationen.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+[Hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) finden Sie Microsofts Dokumentation zur Konfiguration eines E-Mail-Clients. Es gibt auch einen Abschnitt über häufige Verbindungsfehler und -lösungen.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Einige ältere Exchange-Server-Versionen haben einen Fehler, der eine leere Nachricht und beschädigte Anhänge verursacht. Eine Problemumgehung finden Sie in [dieser FAQ](#user-content-faq110).
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Siehe [diese FAQ](#user-content-faq133) zur ActiveSync Unterstützung.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Siehe [diese FAQ](#user-content-faq111) zu OAuth Support.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Was sind Identitäten / wie füge ich einen Alias hinzu?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identitäten stellen E-Mail-Adressen dar, *von* denen Sie über einen E-Mail (SMTP) Server senden.
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Einige Anbieter gestatten die Verwendung mehrerer Aliasse. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
-Note that you can copy an identity by long pressing it.
+Beachten Sie, dass Sie eine Identität durch langes Drücken kopieren können.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Alternativ können Sie in den erweiterten Einstellungen einer existierenden Identität das *Bearbeiten der Absenderadresse erlauben*, um den Benutzernamen beim Erstellen einer Nachricht zu bearbeiten, wenn Ihr Provider dies zulässt.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail aktualisiert automatisch die Passwörter der jeweiligen Identitäten, wenn Sie das Passwort des zugehörigen Kontos oder einer damit verbundenen Identität aktualisieren.
 
 See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
@@ -888,7 +888,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * Das Limit für die Größe von Anhängen für Outlook und Office 365 [beträgt 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
 * Das Limit für die Größe von Anhängen für Yahoo [beträgt 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service nicht verfügbar; Client Host xxx.xxx.xxx.xxx blockiert*, bitte [hier schauen](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
-* *501 Syntax error - line too long* is often caused by using a long Autocrypt header
+* *501 Syntaxfehler — Zeile zu lang* wird oft durch die Verwendung von langen Autocrypt-Kopfzeilen verursacht
 
 **Gmail errors**
 

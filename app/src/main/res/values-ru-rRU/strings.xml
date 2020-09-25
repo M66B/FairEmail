@@ -306,6 +306,7 @@
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
+    <string name="title_advanced_cards_beige">Использовать бежевый фон при использовании карточного стиля</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
@@ -482,6 +483,7 @@
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
     <string name="title_advanced_startup_hint">Длительное нажатие на любую папку в списке позволит добавить или удалить её из списка единых папок</string>
+    <string name="title_advanced_beige_hint">Только светлые темы</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Это работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
@@ -1164,6 +1166,7 @@
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
     <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
+    <string name="title_hint_design">Дизайн преднамеренно не отвлекающий, но сохраняет высокую функциональность. Существует множество вариантов для настройки внешнего вида, но пожалуйста, поймите, что невозможно сделать всех полностью счастливыми одновременно.</string>
     <string name="title_hint_contact_actions">Длительное нажатие откроет другие действия.</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>

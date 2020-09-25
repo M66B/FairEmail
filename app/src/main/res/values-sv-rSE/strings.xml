@@ -283,6 +283,7 @@
     <string name="title_advanced_landscape3">Visa navigeringsmenyn i liggande läge som standard</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
+    <string name="title_advanced_cards_beige">Använd beige bakgrund när du använder kort stil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_threading_unread">Visa antal olästa meddelanden i konversationer</string>
@@ -459,6 +460,7 @@
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
     <string name="title_advanced_layout_hint">Växla till en mer kompakt layout och ändra meddelandetextstorleken kan göras i menyn högst upp i meddelandevyn</string>
     <string name="title_advanced_startup_hint">Långtryck på valfri mapp i mapplistan för att lägga till eller ta bort den från listan över enhetliga mappar</string>
+    <string name="title_advanced_beige_hint">Endast ljusa teman</string>
     <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
@@ -1141,6 +1143,7 @@
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_battery">Eftersom FairEmail som standard alltid tar emot meddelanden, kommer Android att rapportera FairEmail som alltid aktiv. Därför kan det se ut som om FairEmail alltid förbrukar batterikraft även om detta i själva verket inte är fallet.</string>
     <string name="title_hint_reformat">Som standard formaterar FairEmail meddelanden av sekretess- och säkerhetsskäl. För att visa det ursprungliga meddelandet trycker du på ikonen \"helskärm\" ovanför meddelandetexten.</string>
+    <string name="title_hint_design">Designen är avsiktligt inte distraherande, men hålls mycket funktionell. Det finns många alternativ för att anpassa utseendet, men vänligen förstå att det är omöjligt att göra alla helt glada på samma gång.</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>

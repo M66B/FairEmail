@@ -285,6 +285,7 @@
     <string name="title_advanced_landscape3">Mostrar el menú de navegación en modo apaisado por defecto</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
+    <string name="title_advanced_cards_beige">Usar fondo beige al usar el estilo de tarjeta</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
     <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>
     <string name="title_advanced_startup_hint">Mantenga pulsada una carpeta de la lista para agregarla o quitarla de la lista de carpetas unificadas</string>
+    <string name="title_advanced_beige_hint">Sólo temas claros</string>
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_navbar_colorize_hint">Que esto funcione dependerá de la versión y variante de Android</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
@@ -1143,6 +1145,7 @@
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_battery">Dado que por defecto FairEmail recibe mensajes permanentemente, Android reportará a FairEmail como siempre activo. Por lo tanto, puede parecer que FairEmail siempre está usando la batería, pero de hecho no es así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformatea los mensajes por razones de privacidad y seguridad. Para ver el mensaje original, pulse el icono \'pantalla completa\' sobre el texto del mensaje.</string>
+    <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensaje crudo. Guarde el mensaje raw con el icono guardar en la barra de acción para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>

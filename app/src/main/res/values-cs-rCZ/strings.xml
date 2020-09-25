@@ -482,6 +482,7 @@
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změnu velikosti textu lze provést v zobrazení zprávy skrze menu v horním panelu akcí</string>
     <string name="title_advanced_startup_hint">Podržením libovolné složky v seznamu složek ji přidáte nebo odeberete ze seznamu sjednocených složek</string>
+    <string name="title_advanced_beige_hint">Pouze světlé motivy</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>

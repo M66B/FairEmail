@@ -303,6 +303,7 @@
     <string name="title_advanced_landscape3">Predvolene zobrazovať navigačné menu v režime na šírku</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
+    <string name="title_advanced_cards_beige">Béžové pozadie keď je použitý štýl kariet</string>
     <string name="title_advanced_date_header">Zoradiť podľa dátumu</string>
     <string name="title_advanced_threading">Vlákna konverzácií</string>
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
@@ -479,6 +480,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_browse_hint">Načítať viac správ pri posúvaní dolu</string>
     <string name="title_advanced_layout_hint">Úspornejšie rozloženie a veľkosť textu si môžete nastaviť v hornej ponuke akcií zobrazenia správ</string>
     <string name="title_advanced_startup_hint">Ak chcete pridať/odstrániť priečinok zo zoznamu spoločných priečinkov, dlhšie pridržte položku v zozname priečinkov</string>
+    <string name="title_advanced_beige_hint">Len svetlé témy</string>
     <string name="title_advanced_date_hint">Správy sú zoskupené podľa dátumu len ak je zoznam zotriedený podľa času</string>
     <string name="title_advanced_navbar_colorize_hint">Či to bude fungovať záleží od verzie a variantu systému Android</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
@@ -1159,6 +1161,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
     <string name="title_hint_battery">Keďže FairEmail v predvolenej konfigurácii neustále prijíma správy, operačný systém bude aplikáciu považovať za vždy aktívnu. Môže sa zdať, že FairEmail neustále vybíja batériu, aj keď v skutočnosti to tak nie je.</string>
     <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodnú správu.</string>
+    <string name="title_hint_design">Dizajn je schválne navrhnutý, aby ostal čo možno najlepšie funkčný a bol najmenej vtieravý. Dostupných je množstvo volieb na prispôsobenie vzhľadu, ale pochopte prosím, že nie je možné úplne vyhovieť všetkým.</string>
     <string name="title_hint_contact_actions">Možnosti zobrazíte dlhým stlačením</string>
     <string name="title_hint_eml">Toto je náhľad obsahu surového súboru so správou. Ak chcete zobraziť celý obsah, klepnite na tlačidlo \'Uložiť\' v lište akcií.</string>
     <string name="title_open_link">Otvoriť odkaz</string>

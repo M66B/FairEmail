@@ -305,6 +305,7 @@
     <string name="title_advanced_landscape3">Domyślnie pokaż menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
+    <string name="title_advanced_cards_beige">Użyj beżowego tła, jeśli używasz stylu karty</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w wątkach</string>
@@ -481,6 +482,7 @@
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
     <string name="title_advanced_startup_hint">Naciśnij długo dowolny folder na liście folderów, aby dodać lub usunąć go z listy wspólnych folderów</string>
+    <string name="title_advanced_beige_hint">Tylko jasne motywy</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_navbar_colorize_hint">Czy to zadziała zależy od wersji i wariantu Androida</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
@@ -1163,6 +1165,7 @@
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_battery">Ponieważ FairEmail domyślnie zawsze odbiera wiadomości, Android zgłasza, że FairEmail jest zawsze aktywny. Dlatego może się wydawać, że FairEmail ciągle zużywa energię baterii, ale w rzeczywistości tak nie jest.</string>
     <string name="title_hint_reformat">Domyślnie FairEmail przeformatowuje wiadomości ze względu na prywatność i bezpieczeństwo. Aby wyświetlić oryginalną wiadomość, dotknij ikonę \"pełny ekran\" nad tekstem wiadomości.</string>
+    <string name="title_hint_design">Projekt celowo nie jest rozpraszający, ale jest bardzo funkcjonalny. Istnieje wiele opcji dostosowania wyglądu, ale proszę zrozumieć, że nie da się uszczęśliwić wszystkich jednocześnie.</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>
