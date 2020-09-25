@@ -1437,6 +1437,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
                                         }
                             }
+
+                            if (!first)
+                                errors = 0;
                         } catch (Throwable ex) {
                             if (tune) {
                                 account.keep_alive_failed++;
@@ -1542,7 +1545,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             am.cancel(pi);
                         }
 
-                        errors = 0;
                         first = false;
                     }
 
