@@ -819,7 +819,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         swCards.setChecked(prefs.getBoolean("cards", true));
-        swBeige.setChecked(prefs.getBoolean("beige", false));
+        swBeige.setChecked(prefs.getBoolean("beige", true));
         swBeige.setEnabled(swCards.isChecked());
         swDate.setChecked(prefs.getBoolean("date", true));
         swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));

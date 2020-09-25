@@ -101,7 +101,7 @@ public class FragmentRules extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", false);
+        beige = prefs.getBoolean("beige", true);
     }
 
     @Override

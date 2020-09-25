@@ -393,7 +393,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", false);
+        beige = prefs.getBoolean("beige", true);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
         seekbar = prefs.getBoolean("seekbar", false);

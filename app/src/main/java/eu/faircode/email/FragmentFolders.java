@@ -105,7 +105,7 @@ public class FragmentFolders extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", false);
+        beige = prefs.getBoolean("beige", true);
         compact = prefs.getBoolean("compact_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
 
