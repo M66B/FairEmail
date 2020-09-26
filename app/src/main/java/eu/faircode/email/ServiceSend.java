@@ -710,6 +710,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         int operations = db.operation().getOperations(outbox.id).size();
                         if (operations > 0)
                             start(context);
+                        else {
+                            db.folder().setFolderState(outbox.id, null);
+                            db.folder().setFolderSyncState(outbox.id, null);
+                        }
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
