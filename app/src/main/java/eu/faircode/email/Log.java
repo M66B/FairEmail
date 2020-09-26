@@ -923,6 +923,7 @@ public class Log {
                 "checkOffsetIsValid".equals(stack[0].getMethodName()))
             /*
                 https://issuetracker.google.com/issues/37068143
+                https://android.googlesource.com/platform/frameworks/base/+/refs/heads/marshmallow-release/core/java/android/text/method/WordIterator.java
                 java.lang.IllegalArgumentException: Invalid offset: -1. Valid range is [0, 1673]
                 at android.text.method.WordIterator.checkOffsetIsValid(WordIterator.java:380)
                 at android.text.method.WordIterator.isBoundary(WordIterator.java:101)
