@@ -284,6 +284,7 @@
     <string name="title_advanced_landscape3">Vis som standard navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
+    <string name="title_advanced_cards_beige">Benyt beige baggrund, når du bruger kortstil</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
@@ -460,6 +461,7 @@
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
     <string name="title_advanced_startup_hint">Langt tryk på en vilkårlig mappe på mappelisten for at tilføje/fjerne den fra listen over samlede mapper</string>
+    <string name="title_advanced_beige_hint">Kun lyse temaer</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
@@ -1141,6 +1143,7 @@
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_battery">Da FairEmail som standard altid modtager beskeder, rapporterer Android FairEmail som altid aktiv. Det kan derfor se ud som om FairEmail altid forbruger batteristrøm, selvom dette faktisk ikke er tilfældet.</string>
     <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
+    <string name="title_hint_design">Designet er bevidst ikke-distraherende, men holdt meget funktionel. Der er mange muligheder for at tilpasse udseende, men vær opmærksom på, at det er umuligt at gøre alle glade.</string>
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_search">फेयारमेल से ढुंडे</string>
+    <string name="app_changelog">परिवर्तन लॉग</string>
+    <string name="app_welcome">फेयारमेल एक खुला स्रोत आप है जो एकांत(प्राइभेसी) और सुरक्षा को ध्यान रखता है।इसी कारण से इसी के कुछ लक्षण आप के पूर्व परिचित रूप से अलग ब्यबहार कर सकता है।</string>
+    <!-- Thunderbird -->
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+</resources>

@@ -306,6 +306,7 @@
     <string name="title_advanced_landscape3">Automaticky zobrazit navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
+    <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
@@ -1165,6 +1166,7 @@
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
+    <string name="title_hint_design">Design záměrně není rozptylující, nýbrž je udržován vysoce funkčním. Pro přizpůsobení vzhledu je zde mnoho nastavení, avšak prosím pochopte, že není možné každého zároveň kompletně uspokojit.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Pro zobrazení celého obsahu uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí.</string>
     <string name="title_open_link">Otevřít odkaz</string>

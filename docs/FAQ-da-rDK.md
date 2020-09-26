@@ -888,7 +888,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * Outlooks og Office 365' størrelsesbegrænsning for vedhæftninger [udgør 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
 * Yahoos størrelsesbegrænsning for vedhæftninger [udgør 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * For *554 5.7.1 Tjeneste utilgængelig; Klient vært xxx.xxx.xxx.xxx blokeret*, tjek venligst [hér](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
-* *501 Syntax error - line too long* is often caused by using a long Autocrypt header
+* *501 Syntaksfejl - linje for lang* er ofte forårsaget af brug af en lang Autocrypt-header
 
 **Gmail errors**
 

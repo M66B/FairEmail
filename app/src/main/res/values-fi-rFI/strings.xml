@@ -5,7 +5,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
-    <string name="app_exit">Mene ”takaisin” uudelleen poistuaksesi</string>
+    <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
@@ -130,7 +130,7 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_wizard_multiple">Asetusvelhoa voidaan käyttää moneen kertaan useamman tilin asettamiseksi</string>
-    <string name="title_setup_wizard_new">Tarvitsen uuttaa sähköpostiosoitetta</string>
+    <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
     <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
@@ -281,6 +281,7 @@
     <string name="title_advanced_landscape3">Näytä navigointivalikko vaakatilassa oletusarvoisesti</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
+    <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
@@ -324,6 +325,7 @@
     <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
     <string name="title_advanced_text_font">Käytä kirjasimia</string>
     <string name="title_advanced_text_align">Käytä tekstin tasausta</string>
+    <string name="title_advanced_text_separators">Käytä erotinrivejä</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
@@ -455,6 +457,7 @@
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
     <string name="title_advanced_startup_hint">Paina pitkään mitä tahansa kansiota kansiolistauksessa lisätäksesi tai poistaaksesi sen yhdistettyjen kansioiden listasta</string>
+    <string name="title_advanced_beige_hint">Ainoastaan vaaleat teemat</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
@@ -705,6 +708,7 @@
     <string name="title_spam">Siirrä roskapostikansioon</string>
     <string name="title_move">Siirrä</string>
     <string name="title_copy_btn">Kopioi</string>
+    <string name="title_keywords_btn">Avainsanat</string>
     <string name="title_unsubscribe">Peru tilaus</string>
     <string name="title_message_rule">Luo sääntö</string>
     <string name="title_no_junk">Ei roskaposti</string>
@@ -863,6 +867,7 @@
     <string name="title_queued">Lähetetään viestiä</string>
     <string name="title_queued_at">Viesti lähetetään arviolta %1$s</string>
     <string name="title_sign">Allekirjoita</string>
+    <string name="title_verify">Todenna</string>
     <string name="title_encrypt">Salaa</string>
     <string name="title_decrypt">Pura salaus</string>
     <string name="title_resync">Synkronoi uudelleen</string>
@@ -957,6 +962,7 @@
     <string name="title_answer_reply">Vastausviestipohja</string>
     <string name="title_answer_name">Viestipohjan nimi</string>
     <string name="title_answer_group">Viestipohjan ryhmä (valinnainen)</string>
+    <string name="title_answer_standard">Oletus</string>
     <string name="title_answer_favorite">Suosikki</string>
     <string name="title_answer_hide">Piilota valikoista</string>
     <string name="title_answer_text">Viestipohjan teksti</string>
@@ -1134,6 +1140,7 @@
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
     <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
+    <string name="title_hint_design">Ulkoasu on tarkoituksella tehty sellaiseksi, ettei se vie huomiota, mutta on hyvin toiminnallinen. Ulkoasun muokkaamiseen on paljon asetuksia, mutta on mahdotonta tehdä kaikki onnelliseksi samaan aikaan.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>

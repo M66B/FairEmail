@@ -271,8 +271,8 @@
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
-    <string name="title_advanced_cards">使用卡片样式而不是表单样式</string>
-    <string name="title_advanced_cards_beige">使用卡片样式时，使用米色背景</string>
+    <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
+    <string name="title_advanced_cards_beige">开启卡片样式 (上面的选项) 时，使用米色背景</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
@@ -449,7 +449,7 @@
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
     <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹，可将其从添加到或移除出聚合文件夹列表</string>
-    <string name="title_advanced_beige_hint">仅浅色主题</string>
+    <string name="title_advanced_beige_hint">仅限浅色主题</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
@@ -1045,7 +1045,7 @@
     <string name="title_legend_trash">回收站</string>
     <string name="title_legend_junk">垃圾邮件</string>
     <string name="title_legend_primary">主邮件</string>
-    <string name="title_legend_subscribed">订阅到</string>
+    <string name="title_legend_subscribed">订阅</string>
     <string name="title_legend_rule">有规则</string>
     <string name="title_legend_similar">搜索类似消息</string>
     <string name="title_legend_notify">通知新邮件</string>
@@ -1132,7 +1132,7 @@
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
     <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
-    <string name="title_hint_design">设计是故意不分散注意力，而是保持高度实用。 有许多自定义外观的选项，但是请理解，使每个人同时都完全满意是不可能的。</string>
+    <string name="title_hint_design">FE 的设计理念旨在不让用户分散注意力，重在实用性。而且设置中已经有很多自定义外观的选项，请谅解，我很难同时让所有人都满意</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
