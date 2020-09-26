@@ -140,6 +140,8 @@ public class FragmentBase extends Fragment {
     @Override
     public void startActivity(Intent intent) {
         try {
+            Log.i("Start intent=" + intent);
+            Log.logExtras(intent);
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
@@ -153,6 +155,8 @@ public class FragmentBase extends Fragment {
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
+            Log.i("Start intent=" + intent + " request=" + requestCode);
+            Log.logExtras(intent);
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
@@ -382,26 +386,32 @@ public class FragmentBase extends Fragment {
 
     private void onStoreAttachment(Intent intent) {
         attachment = intent.getLongExtra("id", -1);
+        Log.i("Save attachment id=" + attachment);
+
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         Helper.openAdvanced(create);
         PackageManager pm = getContext().getPackageManager();
-        if (create.resolveActivity(pm) == null) // system whitelisted
+        if (create.resolveActivity(pm) == null) { // system whitelisted
+            Log.w("SAF missing");
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
+        } else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_ATTACHMENT);
     }
 
     private void onStoreAttachments(Intent intent) {
         message = intent.getLongExtra("id", -1);
+        Log.i("Save attachments message=" + message);
+
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         Helper.openAdvanced(tree);
         PackageManager pm = getContext().getPackageManager();
-        if (tree.resolveActivity(pm) == null) // system whitelisted
+        if (tree.resolveActivity(pm) == null) { // system whitelisted
+            Log.w("SAF missing");
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        else
+        } else
             startActivityForResult(Helper.getChooser(getContext(), tree), REQUEST_ATTACHMENTS);
     }
 

@@ -375,6 +375,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivity(Intent intent) {
         try {
+            Log.i("Start intent=" + intent);
+            Log.logExtras(intent);
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
@@ -388,6 +390,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
+            Log.i("Start intent=" + intent + " request=" + requestCode);
+            Log.logExtras(intent);
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
