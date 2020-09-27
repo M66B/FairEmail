@@ -138,12 +138,22 @@ public class ContactInfo {
     }
 
     static void clearCache(Context context) {
+        clearCache(context, true);
+    }
+
+    static void clearCache(Context context, boolean files) {
         synchronized (emailContactInfo) {
             emailContactInfo.clear();
         }
 
-        final File dir = new File(context.getCacheDir(), "favicons");
+        synchronized (emailGravatar) {
+            emailGravatar.clear();
+        }
 
+        if (!files)
+            return;
+
+        final File dir = new File(context.getCacheDir(), "favicons");
         executorFavicon.submit(new Runnable() {
             @Override
             public void run() {

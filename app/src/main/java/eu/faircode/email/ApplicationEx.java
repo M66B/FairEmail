@@ -152,6 +152,9 @@ public class ApplicationEx extends Application {
         Map<String, String> crumb = new HashMap<>();
         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("low", crumb);
+
+        ContactInfo.clearCache(this, false);
+
         super.onLowMemory();
     }
 
