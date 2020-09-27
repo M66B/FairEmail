@@ -67,6 +67,8 @@ import javax.net.ssl.SSLSocketFactory;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private boolean resumed = false;
+
     private SwitchCompat swExternalSearch;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
@@ -473,6 +475,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        resumed = true;
+
+        View view = getView();
+        if (view != null)
+            view.post(new Runnable() {
+                @Override
+                public void run() {
+                    updateUsage();
+                }
+            });
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        resumed = false;
+    }
+
+    @Override
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroyView();
@@ -587,21 +610,40 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
                 class_mb + " MB", Helper.humanReadableByteCount(mi.totalMem)));
 
-        Runtime rt = Runtime.getRuntime();
-        long hused = rt.totalMemory() - rt.freeMemory();
-        long hmax = rt.maxMemory();
-        long nheap = Debug.getNativeHeapAllocatedSize();
-        tvMemoryUsage.setText(getString(R.string.title_advanced_memory_usage,
-                Helper.humanReadableByteCount(hused),
-                Helper.humanReadableByteCount(hmax),
-                Helper.humanReadableByteCount(nheap)));
-
-        tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
-                Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
-                Helper.humanReadableByteCount(Helper.getTotalStorageSpace())));
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+    }
+
+    private void updateUsage() {
+        if (!resumed)
+            return;
+
+        try {
+            Log.i("Update usage");
+
+            Runtime rt = Runtime.getRuntime();
+            long hused = rt.totalMemory() - rt.freeMemory();
+            long hmax = rt.maxMemory();
+            long nheap = Debug.getNativeHeapAllocatedSize();
+            tvMemoryUsage.setText(getString(R.string.title_advanced_memory_usage,
+                    Helper.humanReadableByteCount(hused),
+                    Helper.humanReadableByteCount(hmax),
+                    Helper.humanReadableByteCount(nheap)));
+
+            tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
+                    Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
+                    Helper.humanReadableByteCount(Helper.getTotalStorageSpace())));
+
+            getView().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    updateUsage();
+                }
+            }, 2500);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private void setLastCleanup(long time) {
