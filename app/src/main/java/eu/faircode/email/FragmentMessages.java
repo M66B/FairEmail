@@ -3783,7 +3783,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
-        ib.setImageResource(R.drawable.baseline_folder_24);
+        ib.setImageResource(R.drawable.baseline_folder_open_24);
         ib.setContentDescription(getString(R.string.title_legend_section_folders));
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
