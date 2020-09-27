@@ -617,6 +617,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
 
         prefs.registerOnSharedPreferenceChangeListener(this);
+
+        JunkFilter.load(this);
     }
 
     @Override
@@ -685,6 +687,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel(Helper.NOTIFICATION_SYNCHRONIZE);
+
+        JunkFilter.save(this);
 
         super.onDestroy();
     }

@@ -1419,6 +1419,7 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
+        JunkFilter.classify(context, body, folder.type);
 
         if (body != null)
             EntityLog.log(context, "Operation body size=" + body.length());
@@ -2073,6 +2074,7 @@ class Core {
                                 parts.isPlainOnly(),
                                 HtmlHelper.getPreview(body),
                                 parts.getWarnings(message.warning));
+                        JunkFilter.classify(context, body, folder.type);
 
                         for (EntityAttachment attachment : parts.getAttachments())
                             parts.downloadAttachment(context, attachment);
@@ -2867,6 +2869,8 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
+                    JunkFilter.classify(context, body, folder.type);
+
                     if (stats != null && body != null)
                         stats.content += body.length();
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
@@ -3261,6 +3265,8 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
+                    JunkFilter.classify(context, body, folder.type);
+
                     if (stats != null && body != null)
                         stats.content += body.length();
                     Log.i(folder.name + " downloaded message id=" + message.id +
