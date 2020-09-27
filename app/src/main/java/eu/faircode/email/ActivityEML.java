@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -305,14 +304,10 @@ public class ActivityEML extends ActivityBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
-                ParcelFileDescriptor pfd = null;
                 OutputStream os = null;
                 InputStream is;
                 try {
-                    pfd = getContentResolver().openFileDescriptor(uri, "w");
-                    if (pfd == null)
-                        throw new FileNotFoundException(uri.toString());
-                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    os = getContentResolver().openOutputStream(uri);
                     is = apart.part.getInputStream();
 
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -320,12 +315,6 @@ public class ActivityEML extends ActivityBase {
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
                 } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
                     try {
                         if (os != null)
                             os.close();

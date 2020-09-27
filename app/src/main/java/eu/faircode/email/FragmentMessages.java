@@ -47,7 +47,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
-import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
@@ -5629,14 +5628,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 File file = message.getRawFile(context);
                 Log.i("Raw file=" + file);
 
-                ParcelFileDescriptor pfd = null;
                 OutputStream os = null;
                 InputStream is = null;
                 try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    if (pfd == null)
-                        throw new FileNotFoundException(uri.toString());
-                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    os = context.getContentResolver().openOutputStream(uri);
                     is = new FileInputStream(file);
 
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -5644,12 +5639,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
                 } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
                     try {
                         if (os != null)
                             os.close();

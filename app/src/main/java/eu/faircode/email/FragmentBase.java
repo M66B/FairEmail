@@ -33,7 +33,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +57,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -437,14 +435,10 @@ public class FragmentBase extends Fragment {
                     return null;
                 File file = attachment.getFile(context);
 
-                ParcelFileDescriptor pfd = null;
                 OutputStream os = null;
                 InputStream is = null;
                 try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    if (pfd == null)
-                        throw new FileNotFoundException(uri.toString());
-                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    os = context.getContentResolver().openOutputStream(uri);
                     is = new FileInputStream(file);
 
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -452,12 +446,6 @@ public class FragmentBase extends Fragment {
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
                 } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
                     try {
                         if (os != null)
                             os.close();
@@ -527,14 +515,10 @@ public class FragmentBase extends Fragment {
                     if (document == null)
                         throw new FileNotFoundException("Could not save " + uri + ":" + name);
 
-                    ParcelFileDescriptor pfd = null;
                     OutputStream os = null;
                     InputStream is = null;
                     try {
-                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
-                        if (pfd == null)
-                            throw new FileNotFoundException(name);
-                        os = new FileOutputStream(pfd.getFileDescriptor());
+                        os = context.getContentResolver().openOutputStream(uri);
                         is = new FileInputStream(file);
 
                         byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -542,12 +526,6 @@ public class FragmentBase extends Fragment {
                         while ((read = is.read(buffer)) != -1)
                             os.write(buffer, 0, read);
                     } finally {
-                        try {
-                            if (pfd != null)
-                                pfd.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
                         try {
                             if (os != null)
                                 os.close();
