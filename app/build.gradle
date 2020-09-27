@@ -389,7 +389,4 @@ dependencies {
     // http://www.freeutils.net/source/jcharset/
     // https://mvnrepository.com/artifact/net.freeutils/jcharset
     implementation "net.freeutils:jcharset:$jcharset_version"
-
-    // https://github.com/ptnplanet/Java-Naive-Bayes-Classifier
-    implementation "com.github.ptnplanet:Java-Naive-Bayes-Classifier:1.0.7"
 }
