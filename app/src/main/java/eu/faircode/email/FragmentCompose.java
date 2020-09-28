@@ -4429,7 +4429,11 @@ public class FragmentCompose extends FragmentBase {
 
                         // Restore revision
                         Log.i("Restoring revision=" + draft.revision);
-                        body = Helper.readText(draft.getFile(context, draft.revision));
+                        File file = draft.getFile(context, draft.revision);
+                        if (file.exists())
+                            body = Helper.readText(file);
+                        else
+                            Log.e("Missing revision=" + file);
 
                         dirty = true;
                     }
