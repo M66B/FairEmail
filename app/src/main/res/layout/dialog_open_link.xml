@@ -40,7 +40,7 @@
             android:contentDescription="@string/title_clipboard_copy"
             app:layout_constraintBottom_toBottomOf="@id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/baseline_insert_link_45_24" />
+            app:srcCompat="@drawable/twotone_insert_link_45_24" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etLink"

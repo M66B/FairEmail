@@ -331,7 +331,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAnswered"
-            app:srcCompat="@drawable/baseline_forwarded_24" />
+            app:srcCompat="@drawable/twotone_forwarded_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvForwarded"
@@ -551,7 +551,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownload"
-            app:srcCompat="@drawable/baseline_rule_24" />
+            app:srcCompat="@drawable/twotone_rule_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRule"

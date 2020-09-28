@@ -260,7 +260,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivAnswered"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_forwarded_24" />
+        app:srcCompat="@drawable/twotone_forwarded_24" />
 
     <ImageView
         android:id="@+id/ivAttachments"

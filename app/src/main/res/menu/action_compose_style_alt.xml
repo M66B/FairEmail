@@ -17,11 +17,11 @@
 
     <item
         android:id="@+id/menu_style"
-        android:icon="@drawable/baseline_text_format_24_alt"
+        android:icon="@drawable/twotone_text_format_24_alt"
         android:title="@string/title_style" />
 
     <item
         android:id="@+id/menu_link"
-        android:icon="@drawable/baseline_insert_link_45_24"
+        android:icon="@drawable/twotone_insert_link_45_24"
         android:title="@string/title_style_link" />
 </menu>
