@@ -127,9 +127,7 @@ import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder;
 import org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder;
-import org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -161,7 +159,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
-import java.security.Security;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
@@ -2835,15 +2832,8 @@ public class FragmentCompose extends FragmentBase {
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
                 if ("EC".equals(privkey.getAlgorithm())) {
-                    Security.addProvider(new BouncyCastleProvider());
-                    JceKeyAgreeRecipientInfoGenerator gen = new JceKeyAgreeRecipientInfoGenerator(
-                            CMSAlgorithm.ECDH_SHA256KDF,
-                            privkey,
-                            chain[0].getPublicKey(),
-                            CMSAlgorithm.AES128_WRAP);
-                    for (X509Certificate cert : certs)
-                        gen.addRecipient(cert);
-                    cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+                    // https://security.stackexchange.com/a/53960
+                    throw new IllegalArgumentException("ECDSA cannot be used for encryption");
                 } else {
                     for (X509Certificate cert : certs) {
                         RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
