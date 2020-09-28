@@ -322,6 +322,7 @@ public class Log {
         config.setDiscardClasses(ignore);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
         String no_internet = context.getString(R.string.title_no_internet);
 
@@ -329,6 +330,8 @@ public class Log {
         config.addMetadata("extra", "installer", installer == null ? "-" : installer);
         config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
         config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
+        config.addMetadata("extra", "memory_class", am.getMemoryClass());
+        config.addMetadata("extra", "memory_class_large", am.getLargeMemoryClass());
 
         config.addOnSession(new OnSessionCallback() {
             @Override
@@ -351,7 +354,8 @@ public class Log {
 
                 if (should) {
                     event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                    event.addMetadata("extra", "free", Log.getFreeMemMb());
+                    event.addMetadata("extra", "memory_free", getFreeMemMb());
+                    event.addMetadata("extra", "memory_available", getAvailableMb());
 
                     Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                     event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
@@ -1610,6 +1614,11 @@ public class Log {
 
     static int getFreeMemMb() {
         return (int) (getFreeMem() / 1024L / 1024L);
+    }
+
+    static int getAvailableMb() {
+        Runtime rt = Runtime.getRuntime();
+        return (int) (rt.maxMemory() / 1024L / 1024L);
     }
 
     static InternetAddress myAddress() throws UnsupportedEncodingException {
