@@ -5410,7 +5410,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
                 else if (ACTION_KEYWORDS.equals(action))
-                    adapter.notifyDataSetChanged();
+                    onKeywords(intent);
             }
         }
     };
@@ -5530,6 +5530,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 snackbar.show();
             }
         }
+    }
+
+    private void onKeywords(Intent intent) {
+        rvMessage.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    adapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     @Override
