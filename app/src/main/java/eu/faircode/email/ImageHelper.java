@@ -380,7 +380,7 @@ class ImageHelper {
             if (cached != null || view == null) {
                 if (view == null)
                     if (cached == null) {
-                        Drawable d = res.getDrawable(R.drawable.twotone_hourglass_empty_24, theme);
+                        Drawable d = res.getDrawable(R.drawable.twotone_hourglass_top_24, theme);
                         d.setBounds(0, 0, px, px);
                         return d;
                     } else
@@ -391,7 +391,7 @@ class ImageHelper {
             }
 
             final LevelListDrawable lld = new LevelListDrawable();
-            Drawable wait = res.getDrawable(R.drawable.twotone_hourglass_empty_24, theme);
+            Drawable wait = res.getDrawable(R.drawable.twotone_hourglass_top_24, theme);
             lld.addLevel(1, 1, wait);
             lld.setBounds(0, 0, px, px);
             lld.setLevel(1);

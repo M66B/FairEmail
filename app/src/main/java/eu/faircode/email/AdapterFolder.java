@@ -224,7 +224,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         ivState.setImageResource(R.drawable.twotone_dns_24);
                         ivState.setContentDescription(context.getString(R.string.title_legend_executing));
                     } else if ("waiting".equals(folder.state)) {
-                        ivState.setImageResource(R.drawable.twotone_hourglass_empty_24);
+                        ivState.setImageResource(R.drawable.twotone_hourglass_top_24);
                         ivState.setContentDescription(context.getString(R.string.title_legend_waiting));
                     } else if ("connected".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.baseline_cloud_24);

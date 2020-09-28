@@ -328,7 +328,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivClosing"
-            app:srcCompat="@drawable/twotone_hourglass_empty_24" />
+            app:srcCompat="@drawable/twotone_hourglass_top_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvWaiting"

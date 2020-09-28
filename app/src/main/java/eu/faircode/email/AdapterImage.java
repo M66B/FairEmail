@@ -87,7 +87,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                     ivImage.setImageBitmap(bm);
             } else
                 ivImage.setImageResource(attachment.progress == null
-                        ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_empty_24);
+                        ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_top_24);
 
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
 
