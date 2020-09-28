@@ -1133,6 +1133,7 @@
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
     <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
     <string name="title_hint_design">FE 的设计理念旨在不让用户分散注意力，重在实用性。而且设置中已经有很多自定义外观的选项，请谅解，我很难同时让所有人都满意</string>
+    <string name="title_hint_junk">垃圾邮件过滤应该由电子邮件服务器完成，不能可靠地在一个电池供电的能力有限的设备上完成。</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
