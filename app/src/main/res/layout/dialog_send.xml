@@ -238,7 +238,7 @@
             android:tooltipText="@string/title_send_at"
             app:layout_constraintBottom_toBottomOf="@id/spEncrypt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/baseline_info_24" />
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPriority"
@@ -298,7 +298,7 @@
             android:tooltipText="@string/title_send_at"
             app:layout_constraintBottom_toBottomOf="@id/tvSendAt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/baseline_timelapse_24" />
+            app:srcCompat="@drawable/twotone_timelapse_24" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"

@@ -41,7 +41,7 @@
             android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvJunkHint"
-            app:srcCompat="@drawable/baseline_info_24" />
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <CheckBox
             android:id="@+id/cbBlockSender"
