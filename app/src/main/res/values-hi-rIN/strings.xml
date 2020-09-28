@@ -3,6 +3,37 @@
     <string name="app_search">फेयारमेल से ढुंडे</string>
     <string name="app_changelog">परिवर्तन लॉग</string>
     <string name="app_welcome">फेयारमेल एक खुला स्रोत आप है जो एकांत(प्राइभेसी) और सुरक्षा को ध्यान रखता है।इसी कारण से इसी के कुछ लक्षण आप के पूर्व परिचित रूप से अलग ब्यबहार कर सकता है।</string>
+    <string name="app_exit">बाहर निकलने के लिए फिर से \'वापस\' पर क्लिक करें।</string>
+    <string name="app_cake">नाकाफी स्टोरेज 	जगह</string>
+    <string name="channel_service">प्राप्त करें</string>
+    <string name="channel_send">भेजें</string>
+    <string name="channel_notification">सूचनाएँ</string>
+    <string name="channel_update">अद्यतन</string>
+    <string name="channel_warning">चेतावनी</string>
+    <string name="channel_error">त्रुटियाँ</string>
+    <string name="channel_alert">सर्वर सुचना</string>
+    <string name="channel_group_contacts">Contact</string>
+    <string name="channel_send_description">बार्ता का भेजना</string>
+    <string name="channel_notification_description">संदेश सूचनाएँ</string>
+    <plurals name="page_conversation">
+        <item quantity="one">वार्तालाप</item>
+        <item quantity="other">वार्तालाप</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">संदेश</item>
+        <item quantity="other">संदेशों</item>
+    </plurals>
+    <string name="page_folders">फ़ोल्डर्स</string>
+    <string name="page_compose">लिखें</string>
+    <string name="tile_synchronize">तुल्यकालित करें</string>
+    <string name="tile_unseen">नया संदेश</string>
+    <string name="shortcut_refresh">रीफ्रेश करें</string>
+    <string name="shortcut_compose">लिखें</string>
+    <string name="shortcut_setup">सेटिंग</string>
+    <plurals name="title_notification_unseen">
+        <item quantity="one">%1$d नया संदेश</item>
+        <item quantity="other">%1$d नया संदेशें</item>
+    </plurals>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

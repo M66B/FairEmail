@@ -984,7 +984,7 @@
     <string name="title_rule_sender_known">发件人是联系人</string>
     <string name="title_rule_recipient">收件人包含</string>
     <string name="title_rule_subject">主题包含</string>
-    <string name="title_rule_attachments">有附件</string>
+    <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_time">时间间隔</string>
     <string name="title_rule_regex">正则表达式</string>
@@ -1070,7 +1070,7 @@
     <string name="title_legend_forwarded">已转发过的</string>
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求接收</string>
-    <string name="title_legend_attachment">有附件</string>
+    <string name="title_legend_attachment">含附件</string>
     <string name="title_legend_flagged">收藏</string>
     <string name="title_legend_contacts">管理联系人</string>
     <string name="title_legend_search">搜索发件人</string>

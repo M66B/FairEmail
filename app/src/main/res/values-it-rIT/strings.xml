@@ -284,6 +284,7 @@
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale per impostazione predefinita</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
+    <string name="title_advanced_cards_beige">Usa uno sfondo beige quando si usa lo stile carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
@@ -460,6 +461,7 @@
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
     <string name="title_advanced_layout_hint">Puoi passare ad un layout più compatto e modificare la dimensione del testo del messaggio nel menu della barra di azione in alto nella vista dei messaggi</string>
     <string name="title_advanced_startup_hint">Premi a lungo su qualsiasi cartella nell\'elenco di cartelle per aggiungerla o rimuoverla dall\'elenco di cartelle unificate</string>
+    <string name="title_advanced_beige_hint">Solo temi chiari</string>
     <string name="title_advanced_date_hint">I messaggi sono raggruppati per data solo se sono ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona dipende dalla versione e variante di Android</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
@@ -1142,6 +1144,7 @@
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_battery">Poiché FairEmail per impostazione predefinita riceve sempre messaggi, Android segnalerà FairEmail come sempre attivo. Potrebbe quindi sembrare che FairEmail utilizzi sempre la carica della batteria, ma in realtà non è così.</string>
     <string name="title_hint_reformat">Per impostazione predefinita, FairEmail formatta i messaggi per motivi di privacy e sicurezza. Per visualizzare il messaggio originale, tocca l\'icona \'schermo intero\' sopra il testo del messaggio.</string>
+    <string name="title_hint_design">Il design è intenzionalmente non distraente ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma si prega di capire che è impossibile rendere tutti completamente felici allo stesso tempo.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>
