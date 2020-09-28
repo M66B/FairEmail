@@ -1869,7 +1869,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull.setEnabled(hasWebView);
             ibFull.setImageResource(show_full ? R.drawable.twotone_fullscreen_exit_24 : R.drawable.twotone_fullscreen_24);
-            ibImages.setImageResource(show_images ? R.drawable.twotone_format_align_justify_24 : R.drawable.twotone_image_24);
+            ibImages.setImageResource(show_images ? R.drawable.twotone_article_24 : R.drawable.twotone_image_24);
 
             if (show_full) {
                 // Create web view
