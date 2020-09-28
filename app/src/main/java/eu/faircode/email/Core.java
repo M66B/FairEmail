@@ -1476,8 +1476,12 @@ class Core {
         if (imessages == null || imessages.length == 0)
             EntityOperation.queue(context, message, EntityOperation.ADD);
         else {
-            long uid = ifolder.getUID(imessages[0]);
-            EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
+            if (imessages.length > 1)
+                Log.w(folder.name + " exists messages=" + imessages.length);
+            for (int i = 0; i < imessages.length; i++) {
+                long uid = ifolder.getUID(imessages[i]);
+                EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
+            }
         }
     }
 
