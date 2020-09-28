@@ -213,6 +213,8 @@ public class EntityMessage implements Serializable {
     }
 
     static String generateMessageId(String domain) {
+        // https://www.jwz.org/doc/mid.html
+        // https://tools.ietf.org/html/rfc2822.html#section-3.6.4
         return "<" + UUID.randomUUID() + "@" + domain + '>';
     }
 
