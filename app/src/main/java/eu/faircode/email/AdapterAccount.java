@@ -171,7 +171,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvUser.setText(account.user);
 
             if ("connected".equals(account.state)) {
-                ivState.setImageResource(R.drawable.baseline_cloud_24);
+                ivState.setImageResource(R.drawable.twotone_cloud_done_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_connected));
             } else if ("connecting".equals(account.state)) {
                 ivState.setImageResource(R.drawable.twotone_cloud_queue_24);
