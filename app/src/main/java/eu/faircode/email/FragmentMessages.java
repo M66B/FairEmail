@@ -1919,7 +1919,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             int icon;
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
-                icon = R.drawable.twotone_list_24;
+                icon = R.drawable.twotone_help_24;
             else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 icon = (message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
