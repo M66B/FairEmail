@@ -100,6 +100,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -293,6 +294,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean loading = false;
     private boolean swiping = false;
     private boolean scrolling = false;
+    private boolean navigating = false;
 
     private AdapterMessage adapter;
 
@@ -424,6 +426,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             viewType = AdapterMessage.ViewType.SEARCH;
             setTitle(server ? R.string.title_search_server : R.string.title_search_device);
         }
+
+        if (viewType != AdapterMessage.ViewType.THREAD)
+            getParentFragmentManager().setFragmentResultListener("message.selected", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    long id = result.getLong("id", -1);
+                    iProperties.setValue("selected", id, true);
+                }
+            });
     }
 
     @Override
@@ -1587,9 +1598,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 values.get(name).remove(id);
 
             if ("selected".equals(name) && enabled) {
+                final List<Integer> changed = new ArrayList<>();
+
                 int pos = adapter.getPositionForKey(id);
                 if (pos != NO_POSITION)
-                    adapter.notifyItemChanged(pos);
+                    changed.add(pos);
 
                 for (Long other : new ArrayList<>(values.get("selected")))
                     if (!other.equals(id)) {
@@ -1597,8 +1610,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         pos = adapter.getPositionForKey(other);
                         if (pos != NO_POSITION)
-                            adapter.notifyItemChanged(pos);
+                            changed.add(pos);
                     }
+
+                rvMessage.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            for (Integer pos : changed)
+                                adapter.notifyItemChanged(pos);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
             }
         }
 
@@ -4870,6 +4895,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void navigate(long id, final boolean left) {
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
+        if (navigating)
+            return;
+        navigating = true;
+
+        Bundle result = new Bundle();
+        result.putLong("id", id);
+        getParentFragmentManager().setFragmentResult("message.selected", result);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
