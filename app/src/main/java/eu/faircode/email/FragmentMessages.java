@@ -5288,7 +5288,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (collapse_multiple && expanded > 0 && count > 1) {
                 values.get("expanded").clear();
                 updateExpanded();
-                adapter.notifyDataSetChanged();
+                rvMessage.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            adapter.notifyDataSetChanged();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
                 return true;
             }
 
