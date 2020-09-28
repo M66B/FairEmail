@@ -82,12 +82,12 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                 Bitmap bm = ImageHelper.decodeImage(attachment.getFile(context),
                         context.getResources().getDisplayMetrics().widthPixels);
                 if (bm == null)
-                    ivImage.setImageResource(R.drawable.baseline_broken_image_24);
+                    ivImage.setImageResource(R.drawable.twotone_broken_image_24);
                 else
                     ivImage.setImageBitmap(bm);
             } else
                 ivImage.setImageResource(attachment.progress == null
-                        ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
+                        ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_empty_24);
 
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
 

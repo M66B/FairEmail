@@ -36,7 +36,7 @@
         android:tooltipText="@string/title_download_all"
         app:layout_constraintEnd_toStartOf="@id/ibSaveAttachments"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
-        app:srcCompat="@drawable/baseline_cloud_download_24" />
+        app:srcCompat="@drawable/twotone_cloud_download_24" />
 
     <ImageButton
         android:id="@+id/ibSaveAttachments"
@@ -49,7 +49,7 @@
         android:tooltipText="@string/title_save_all"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
-        app:srcCompat="@drawable/baseline_save_24" />
+        app:srcCompat="@drawable/twotone_save_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_internet"

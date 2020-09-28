@@ -187,7 +187,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         final List<NavMenuItem> menus = new ArrayList<>();
 
-        menus.add(new NavMenuItem(R.drawable.baseline_exit_to_app_24, R.string.menu_exit, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_exit_to_app_24, R.string.menu_exit, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer, false);
@@ -195,7 +195,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setSeparated());
 
-        menus.add(new NavMenuItem(R.drawable.baseline_archive_24, R.string.title_setup_export, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_archive_24, R.string.title_setup_export, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -203,7 +203,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_unarchive_24, R.string.title_setup_import, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_unarchive_24, R.string.title_setup_import, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -211,7 +211,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setSeparated());
 
-        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_accounts, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_reorder_24, R.string.title_setup_reorder_accounts, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -219,7 +219,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -227,7 +227,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setSeparated());
 
-        menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_help_24, R.string.menu_legend, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -235,7 +235,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_question_answer_24, R.string.menu_faq, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -249,7 +249,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setExternal(true));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
@@ -257,7 +257,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_info_24, R.string.menu_about, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);

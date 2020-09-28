@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/etSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etSearch"
-        app:srcCompat="@drawable/baseline_fast_forward_24" />
+        app:srcCompat="@drawable/twotone_fast_forward_24" />
 
     <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvFolder"

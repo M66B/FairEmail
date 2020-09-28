@@ -74,7 +74,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/etTo"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/etTo"
-                    app:srcCompat="@drawable/baseline_person_24" />
+                    app:srcCompat="@drawable/twotone_person_24" />
 
                 <MultiAutoCompleteTextView
                     android:id="@+id/etTo"
@@ -102,7 +102,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etTo"
                     app:layout_constraintTop_toTopOf="@+id/etTo"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <ImageView
                     android:id="@+id/ivCcLegend"
@@ -113,7 +113,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/etCc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/etCc"
-                    app:srcCompat="@drawable/baseline_people_24" />
+                    app:srcCompat="@drawable/twotone_people_24" />
 
                 <MultiAutoCompleteTextView
                     android:id="@+id/etCc"
@@ -141,7 +141,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etCc"
                     app:layout_constraintTop_toTopOf="@+id/etCc"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <ImageView
                     android:id="@+id/ivBccLegend"
@@ -152,7 +152,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/etBcc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/etBcc"
-                    app:srcCompat="@drawable/baseline_people_outline_24" />
+                    app:srcCompat="@drawable/twotone_people_outline_24" />
 
                 <MultiAutoCompleteTextView
                     android:id="@+id/etBcc"
@@ -180,7 +180,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etBcc"
                     app:layout_constraintTop_toTopOf="@+id/etBcc"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etSubject"
@@ -208,7 +208,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/etSubject"
                     app:layout_constraintTop_toTopOf="@+id/etSubject"
-                    app:srcCompat="@drawable/baseline_people_24" />
+                    app:srcCompat="@drawable/twotone_people_24" />
 
                 <View
                     android:id="@+id/vSeparatorAttachments"
@@ -337,7 +337,7 @@
                     android:padding="3dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cbSignature"
-                    app:srcCompat="@drawable/baseline_file_copy_24" />
+                    app:srcCompat="@drawable/twotone_file_copy_24" />
 
                 <View
                     android:id="@+id/vSeparatorSignature"
@@ -358,7 +358,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/tvReferenceHint"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvReferenceHint"
-                    app:srcCompat="@drawable/baseline_close_24" />
+                    app:srcCompat="@drawable/twotone_close_24" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvReferenceHint"
@@ -385,7 +385,7 @@
                     android:padding="3dp"
                     app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
-                    app:srcCompat="@drawable/baseline_edit_24" />
+                    app:srcCompat="@drawable/twotone_edit_24" />
 
                 <ImageButton
                     android:id="@+id/ibReferenceImages"
@@ -398,7 +398,7 @@
                     android:padding="3dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
-                    app:srcCompat="@drawable/baseline_image_24" />
+                    app:srcCompat="@drawable/twotone_image_24" />
 
                 <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/barrier_reference"

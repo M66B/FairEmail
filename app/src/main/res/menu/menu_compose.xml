@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_encrypt"
-        android:icon="@drawable/baseline_lock_24"
+        android:icon="@drawable/twotone_lock_24"
         android:title="@string/title_encrypt"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_zoom"
-        android:icon="@drawable/baseline_format_size_24"
+        android:icon="@drawable/twotone_format_size_24"
         android:title="@string/title_zoom"
         app:showAsAction="ifRoom" />
 

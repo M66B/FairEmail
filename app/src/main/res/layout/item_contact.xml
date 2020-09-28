@@ -17,7 +17,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar"
-            app:srcCompat="@drawable/baseline_call_received_24" />
+            app:srcCompat="@drawable/twotone_call_received_24" />
 
         <ImageView
             android:id="@+id/ivAvatar"
@@ -28,7 +28,7 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/ivType"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_person_24" />
+            app:srcCompat="@drawable/twotone_person_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvName"
@@ -90,6 +90,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

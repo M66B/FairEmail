@@ -422,7 +422,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
 
-        final NavMenuItem navOperations = new NavMenuItem(R.drawable.baseline_dns_24, R.string.menu_operations, new Runnable() {
+        final NavMenuItem navOperations = new NavMenuItem(R.drawable.twotone_dns_24, R.string.menu_operations, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -433,7 +433,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         menus.add(navOperations);
 
-        menus.add(new NavMenuItem(R.drawable.baseline_list_24, R.string.title_log, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_list_24, R.string.title_log, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -442,7 +442,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_reply_24, R.string.menu_answers, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_reply_24, R.string.menu_answers, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -451,7 +451,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_settings_24, R.string.menu_setup, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_settings_24, R.string.menu_setup, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -466,7 +466,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         List<NavMenuItem> extra = new ArrayList<>();
 
-        extra.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_help_24, R.string.menu_legend, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -475,7 +475,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_question_answer_24, R.string.menu_faq, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -491,7 +491,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setExternal(true));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_feedback_24, R.string.menu_issue, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -500,7 +500,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setExternal(true));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_language_24, R.string.menu_translate, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_language_24, R.string.menu_translate, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -510,7 +510,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }).setExternal(true));
 
         if (Helper.isPlayStoreInstall() && false)
-            extra.add(new NavMenuItem(R.drawable.baseline_bug_report_24, R.string.menu_test, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.twotone_bug_report_24, R.string.menu_test, new Runnable() {
                 @Override
                 public void run() {
                     if (!drawerLayout.isLocked(drawerContainer))
@@ -519,7 +519,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -528,7 +528,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        extra.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_info_24, R.string.menu_about, new Runnable() {
             @Override
             public void run() {
                 onMenuAbout();
@@ -544,7 +544,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setSeparated());
 
-        extra.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
+        extra.add(new NavMenuItem(R.drawable.twotone_monetization_on_24, R.string.menu_pro, new Runnable() {
             @Override
             public void run() {
                 if (!drawerLayout.isLocked(drawerContainer))
@@ -554,7 +554,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }));
 
         if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG))
-            extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
+            extra.add(new NavMenuItem(R.drawable.twotone_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
                     if (!drawerLayout.isLocked(drawerContainer))
@@ -932,7 +932,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(ActivityView.this, "update")
-                                .setSmallIcon(R.drawable.baseline_get_app_24)
+                                .setSmallIcon(R.drawable.twotone_get_app_24)
                                 .setContentTitle(getString(R.string.title_updated, info.tag_name))
                                 .setAutoCancel(true)
                                 .setShowWhen(false)

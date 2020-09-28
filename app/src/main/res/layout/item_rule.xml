@@ -49,7 +49,7 @@
                 android:contentDescription="@string/title_legend_stop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_stop_24" />
+                app:srcCompat="@drawable/twotone_stop_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvCondition"

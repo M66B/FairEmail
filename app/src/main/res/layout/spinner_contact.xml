@@ -40,5 +40,5 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvName"
-        app:srcCompat="@drawable/baseline_person_24" />
+        app:srcCompat="@drawable/twotone_person_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

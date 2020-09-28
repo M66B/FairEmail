@@ -3,16 +3,16 @@
 
     <item
         android:id="@+id/action_delete"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_delete" />
 
     <item
         android:id="@+id/action_check"
-        android:icon="@drawable/baseline_check_24"
+        android:icon="@drawable/twotone_check_24"
         android:title="@string/title_rule_check" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/baseline_save_alt_24"
+        android:icon="@drawable/twotone_save_alt_24"
         android:title="@string/title_save" />
 </menu>

@@ -60,7 +60,7 @@ public class ServiceTileUnseen extends TileService {
                     try {
                         tile.setState(unseen > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
                         tile.setIcon(Icon.createWithResource(ServiceTileUnseen.this,
-                                unseen > 0 ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24));
+                                unseen > 0 ? R.drawable.twotone_mail_24 : R.drawable.twotone_mail_outline_24));
                         tile.setLabel(getResources().getQuantityString(
                                 R.plurals.title_tile_unseen, unseen, unseen));
                         tile.updateTile();

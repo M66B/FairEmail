@@ -3763,7 +3763,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piTrash = PendingIntent.getService(context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_delete_24,
+                        R.drawable.twotone_delete_24,
                         context.getString(R.string.title_advanced_notify_action_trash),
                         piTrash)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
@@ -3781,7 +3781,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piJunk = PendingIntent.getService(context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_report_problem_24,
+                        R.drawable.twotone_report_problem_24,
                         context.getString(R.string.title_advanced_notify_action_junk),
                         piJunk)
                         .setAllowGeneratedReplies(false);
@@ -3798,7 +3798,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piArchive = PendingIntent.getService(context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_archive_24,
+                        R.drawable.twotone_archive_24,
                         context.getString(R.string.title_advanced_notify_action_archive),
                         piArchive)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_ARCHIVE)
@@ -3819,7 +3819,7 @@ class Core {
                                 .putExtra("group", group);
                         PendingIntent piMove = PendingIntent.getService(context, ServiceUI.PI_MOVE, move, PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Action.Builder actionMove = new NotificationCompat.Action.Builder(
-                                R.drawable.baseline_folder_24,
+                                R.drawable.twotone_folder_24,
                                 folder.getDisplayName(context),
                                 piMove)
                                 .setAllowGeneratedReplies(false);
@@ -3839,7 +3839,7 @@ class Core {
                 reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_reply_24,
+                        R.drawable.twotone_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply),
                         piReply)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
@@ -3857,7 +3857,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_reply_24,
+                        R.drawable.twotone_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply_direct),
                         piReply)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
@@ -3875,7 +3875,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piFlag = PendingIntent.getService(context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_star_24,
+                        R.drawable.twotone_star_24,
                         context.getString(R.string.title_advanced_notify_action_flag),
                         piFlag)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_THUMBS_UP)
@@ -3891,7 +3891,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piSeen = PendingIntent.getService(context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_visibility_24,
+                        R.drawable.twotone_visibility_24,
                         context.getString(R.string.title_advanced_notify_action_seen),
                         piSeen)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MARK_AS_READ)
@@ -3907,7 +3907,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piSnooze = PendingIntent.getService(context, ServiceUI.PI_SNOOZE, snooze, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionSnooze = new NotificationCompat.Action.Builder(
-                        R.drawable.baseline_timelapse_24,
+                        R.drawable.twotone_timelapse_24,
                         context.getString(R.string.title_advanced_notify_action_snooze),
                         piSnooze)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)

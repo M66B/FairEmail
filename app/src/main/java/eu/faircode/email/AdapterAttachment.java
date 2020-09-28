@@ -140,11 +140,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
 
             if (attachment.available) {
-                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+                ivStatus.setImageResource(R.drawable.twotone_visibility_24);
                 ivStatus.setVisibility(View.VISIBLE);
             } else {
                 if (attachment.progress == null) {
-                    ivStatus.setImageResource(R.drawable.baseline_cloud_download_24);
+                    ivStatus.setImageResource(R.drawable.twotone_cloud_download_24);
                     ivStatus.setVisibility(View.VISIBLE);
                 } else
                     ivStatus.setVisibility(View.GONE);

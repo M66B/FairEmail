@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_bold"
-        android:icon="@drawable/baseline_format_bold_24"
+        android:icon="@drawable/twotone_format_bold_24"
         android:title="@string/title_style_bold" />
 
     <item
         android:id="@+id/menu_italic"
-        android:icon="@drawable/baseline_format_italic_24"
+        android:icon="@drawable/twotone_format_italic_24"
         android:title="@string/title_style_italic" />
 
     <item
         android:id="@+id/menu_underline"
-        android:icon="@drawable/baseline_format_underlined_24"
+        android:icon="@drawable/twotone_format_underlined_24"
         android:title="@string/title_style_underline" />
 
     <item

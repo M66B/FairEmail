@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_record_audio"
-        android:icon="@drawable/baseline_record_voice_over_24"
+        android:icon="@drawable/twotone_record_voice_over_24"
         android:title="@string/title_attachment_audio" />
 
     <item
         android:id="@+id/menu_take_photo"
-        android:icon="@drawable/baseline_photo_camera_24"
+        android:icon="@drawable/twotone_photo_camera_24"
         android:title="@string/title_attachment_photo" />
 
     <item
         android:id="@+id/menu_image"
-        android:icon="@drawable/baseline_image_24"
+        android:icon="@drawable/twotone_image_24"
         android:title="@string/title_add_image" />
 
     <item
         android:id="@+id/menu_attachment"
-        android:icon="@drawable/baseline_attachment_24"
+        android:icon="@drawable/twotone_attachment_24"
         android:title="@string/title_add_attachment" />
 
     <item

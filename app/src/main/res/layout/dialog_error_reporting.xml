@@ -49,6 +49,6 @@
             app:layout_constraintBottom_toBottomOf="@id/btnInfo"
             app:layout_constraintStart_toEndOf="@id/btnInfo"
             app:layout_constraintTop_toTopOf="@id/btnInfo"
-            app:srcCompat="@drawable/baseline_open_in_new_24" />
+            app:srcCompat="@drawable/twotone_open_in_new_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

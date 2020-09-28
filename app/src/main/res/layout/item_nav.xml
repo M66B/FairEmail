@@ -19,7 +19,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_mail_outline_24" />
+            app:srcCompat="@drawable/twotone_mail_outline_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvItem"
@@ -60,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivWarning"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_open_in_new_24" />
+            app:srcCompat="@drawable/twotone_open_in_new_24" />
 
         <ImageView
             android:id="@+id/ivWarning"
@@ -71,6 +71,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_warning_24" />
+            app:srcCompat="@drawable/twotone_warning_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

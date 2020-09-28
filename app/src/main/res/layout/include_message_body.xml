@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvDownloading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvDownloading"
-        app:srcCompat="@drawable/baseline_info_24" />
+        app:srcCompat="@drawable/twotone_info_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvBody"
@@ -123,7 +123,7 @@
         android:tint="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/baseline_delete_24" />
+        app:srcCompat="@drawable/twotone_delete_24" />
 
     <ImageButton
         android:id="@+id/ibArchiveBottom"
@@ -137,7 +137,7 @@
         android:tint="?attr/colorSeparator"
         app:layout_constraintStart_toEndOf="@id/ibTrashBottom"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/baseline_archive_24" />
+        app:srcCompat="@drawable/twotone_archive_24" />
 
     <ImageButton
         android:id="@+id/ibSeenBottom"
@@ -151,7 +151,7 @@
         android:tooltipText="@string/title_toggle_seen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/baseline_visibility_24" />
+        app:srcCompat="@drawable/twotone_visibility_24" />
 
     <include
         android:id="@+id/InAction"

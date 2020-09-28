@@ -38,7 +38,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvHintActions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvHintActions"
-                app:srcCompat="@drawable/baseline_close_24" />
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorActions"
@@ -72,7 +72,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSync"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvHintSync"
-                app:srcCompat="@drawable/baseline_close_24" />
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorSync"
@@ -143,7 +143,7 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_add"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_create_new_folder_24" />
+        app:srcCompat="@drawable/twotone_create_new_folder_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCompose"
@@ -155,7 +155,7 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_edit_24" />
+        app:srcCompat="@drawable/twotone_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabError"
@@ -167,5 +167,5 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorWarning"
-        app:srcCompat="@drawable/baseline_warning_24" />
+        app:srcCompat="@drawable/twotone_warning_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

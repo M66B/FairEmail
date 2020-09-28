@@ -84,7 +84,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         private void bindTo(TupleFolderUnified folder) {
             if (EntityFolder.INBOX.equals(folder.type))
-                ivItem.setImageResource(R.drawable.baseline_all_inbox_24);
+                ivItem.setImageResource(R.drawable.twotone_all_inbox_24);
             else
                 ivItem.setImageResource(EntityFolder.getIcon(folder.type));
 

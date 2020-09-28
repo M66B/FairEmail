@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_security_24" />
+            app:srcCompat="@drawable/twotone_security_24" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"

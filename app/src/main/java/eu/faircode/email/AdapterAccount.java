@@ -148,7 +148,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
-            ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+            ivSync.setImageResource(account.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
             ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
             ivOAuth.setVisibility(
@@ -174,13 +174,13 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_connected));
             } else if ("connecting".equals(account.state)) {
-                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+                ivState.setImageResource(R.drawable.twotone_cloud_queue_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
             } else if ("closing".equals(account.state)) {
-                ivState.setImageResource(R.drawable.baseline_close_24);
+                ivState.setImageResource(R.drawable.twotone_close_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_closing));
             } else {
-                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                ivState.setImageResource(R.drawable.twotone_cloud_off_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
             }
             ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);

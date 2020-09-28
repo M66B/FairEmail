@@ -27,7 +27,7 @@
         android:tooltipText="@string/title_icalendar_accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
-        app:srcCompat="@drawable/baseline_event_24" />
+        app:srcCompat="@drawable/twotone_event_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvCalendarSummary"

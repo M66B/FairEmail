@@ -21,7 +21,7 @@
             android:contentDescription="@string/title_legend_synchronizing"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            app:srcCompat="@drawable/twotone_compare_arrows_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvFolder"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_help"
-        android:icon="@drawable/baseline_help_24"
+        android:icon="@drawable/twotone_help_24"
         android:title=""
         app:showAsAction="always" />
 </menu>

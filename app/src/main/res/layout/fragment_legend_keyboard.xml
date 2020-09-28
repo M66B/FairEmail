@@ -22,7 +22,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_person_add_24" />
+            app:srcCompat="@drawable/twotone_person_add_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPick"

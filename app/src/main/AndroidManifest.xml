@@ -337,7 +337,7 @@
 
         <service
             android:name=".ServiceTileSynchronize"
-            android:icon="@drawable/baseline_sync_disabled_24"
+            android:icon="@drawable/twotone_sync_disabled_24"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
 
@@ -348,7 +348,7 @@
 
         <service
             android:name=".ServiceTileUnseen"
-            android:icon="@drawable/baseline_mail_outline_24"
+            android:icon="@drawable/twotone_mail_outline_24"
             android:label="@string/tile_unseen"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
 

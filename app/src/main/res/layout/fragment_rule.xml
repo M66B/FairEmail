@@ -164,7 +164,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/etSender"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/etSender"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <CheckBox
                     android:id="@+id/cbKnownSender"
@@ -237,7 +237,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/etRecipient"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/etRecipient"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvAndRecipient"
@@ -701,7 +701,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/etTo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/etTo"
-                    app:srcCompat="@drawable/baseline_person_add_24" />
+                    app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <CheckBox
                     android:id="@+id/cbCc"

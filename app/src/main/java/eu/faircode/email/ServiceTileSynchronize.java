@@ -53,7 +53,7 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
             try {
                 tile.setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
                 tile.setIcon(Icon.createWithResource(this,
-                        enabled ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24));
+                        enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24));
                 tile.updateTile();
             } catch (Throwable ex) {
                 Log.w(ex);

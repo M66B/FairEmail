@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <level-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@drawable/baseline_attachment_24"
+        android:drawable="@drawable/twotone_attachment_24"
         android:maxLevel="0" />
     <item
         android:drawable="@drawable/baseline_code_24"

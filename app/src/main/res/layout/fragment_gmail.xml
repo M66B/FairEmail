@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:drawableStart="@drawable/baseline_check_24"
+            android:drawableStart="@drawable/twotone_check_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"

@@ -49,7 +49,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/ivFavorite"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_quickreply_24" />
+                app:srcCompat="@drawable/twotone_quickreply_24" />
 
             <ImageView
                 android:id="@+id/ivFavorite"
@@ -59,7 +59,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_star_24" />
+                app:srcCompat="@drawable/twotone_star_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>

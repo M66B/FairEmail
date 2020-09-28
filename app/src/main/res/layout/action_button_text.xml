@@ -12,7 +12,7 @@
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_lock_24" />
+        app:srcCompat="@drawable/twotone_lock_24" />
 
     <TextView
         android:id="@+id/text"

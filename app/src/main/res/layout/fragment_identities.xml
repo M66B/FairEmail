@@ -61,5 +61,5 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_add"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_add_24" />
+        app:srcCompat="@drawable/twotone_add_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

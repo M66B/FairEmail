@@ -117,10 +117,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             view.setAlpha(contact.state == EntityContact.STATE_IGNORE ? Helper.LOW_LIGHT : 1.0f);
 
             if (contact.type == EntityContact.TYPE_FROM) {
-                ivType.setImageResource(R.drawable.baseline_call_received_24);
+                ivType.setImageResource(R.drawable.twotone_call_received_24);
                 ivType.setContentDescription(context.getString(R.string.title_accessibility_from));
             } else if (contact.type == EntityContact.TYPE_TO) {
-                ivType.setImageResource(R.drawable.baseline_call_made_24);
+                ivType.setImageResource(R.drawable.twotone_call_made_24);
                 ivType.setContentDescription(context.getString(R.string.title_accessibility_to));
             } else {
                 ivType.setImageDrawable(null);
@@ -147,7 +147,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     : Helper.getRelativeTimeSpanString(context, contact.last_contacted));
 
             ivFavorite.setImageResource(contact.state == EntityContact.STATE_FAVORITE
-                    ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+                    ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
             ivFavorite.setImageTintList(ColorStateList.valueOf(
                     contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
             ivFavorite.setContentDescription(contact.state == EntityContact.STATE_FAVORITE

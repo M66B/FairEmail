@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/action_delete"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_discard" />
 
     <item
         android:id="@+id/action_undo"
-        android:icon="@drawable/baseline_undo_24"
+        android:icon="@drawable/twotone_undo_24"
         android:title="@string/title_undo" />
 
     <item
         android:id="@+id/action_redo"
-        android:icon="@drawable/baseline_redo_24"
+        android:icon="@drawable/twotone_redo_24"
         android:title="@string/title_redo" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/baseline_save_alt_24"
+        android:icon="@drawable/twotone_save_alt_24"
         android:title="@string/title_save" />
 
     <item
         android:id="@+id/action_send"
-        android:icon="@drawable/baseline_send_24"
+        android:icon="@drawable/twotone_send_24"
         android:title="@string/title_send" />
 </menu>

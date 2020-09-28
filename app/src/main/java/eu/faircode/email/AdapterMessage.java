@@ -1043,7 +1043,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Line 3
             int icon = (message.drafts > 0
-                    ? R.drawable.baseline_edit_24
+                    ? R.drawable.twotone_edit_24
                     : EntityFolder.getIcon(outgoing ? EntityFolder.SENT : message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
                     (viewType == ViewType.UNIFIED && type == null && (!inbox || outgoing)) ||
@@ -1060,7 +1060,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSnoozed.setImageResource(
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
-                            ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_timelapse_24);
+                            ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_timelapse_24);
             if (message.ui_unsnoozed)
                 ibSnoozed.setColorFilter(colorAccent);
             else
@@ -1372,7 +1372,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int flagged = (message.count - message.unflagged);
             int color = (message.color == null || !pro ? colorAccent : message.color);
 
-            ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ibFlagged.setImageResource(flagged > 0 ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
@@ -1613,7 +1613,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
 
-                    ibSeen.setImageResource(message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+                    ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
                     ibTrash.setTag(delete);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
@@ -1812,7 +1812,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             clearActions();
 
             ibSeenBottom.setImageResource(message.ui_seen
-                    ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+                    ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
             ibSeenBottom.setVisibility(!(message.folderReadOnly || message.uid == null) ||
                     message.accountProtocol == EntityAccount.TYPE_POP
                     ? View.VISIBLE : View.GONE);
@@ -1868,8 +1868,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Bind size=" + size + " height=" + height);
 
             ibFull.setEnabled(hasWebView);
-            ibFull.setImageResource(show_full ? R.drawable.baseline_fullscreen_exit_24 : R.drawable.baseline_fullscreen_24);
-            ibImages.setImageResource(show_images ? R.drawable.baseline_format_align_justify_24 : R.drawable.baseline_image_24);
+            ibFull.setImageResource(show_full ? R.drawable.twotone_fullscreen_exit_24 : R.drawable.twotone_fullscreen_24);
+            ibImages.setImageResource(show_images ? R.drawable.twotone_format_align_justify_24 : R.drawable.twotone_image_24);
 
             if (show_full) {
                 // Create web view
@@ -2177,7 +2177,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     new DynamicDrawableSpan() {
                                         @Override
                                         public Drawable getDrawable() {
-                                            Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
+                                            Drawable d = context.getDrawable(R.drawable.twotone_format_quote_24);
                                             d.setTint(colorAccent);
                                             d.setBounds(0, 0, px, px);
                                             return d;
@@ -2219,7 +2219,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
                             (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
                                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
-                            ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24
+                            ? R.drawable.twotone_lock_24 : R.drawable.twotone_lock_open_24
                     );
                     ibDecrypt.setVisibility(!EntityFolder.OUTBOX.equals(message.folderType) &&
                             (args.getBoolean("inline_encrypted") ||

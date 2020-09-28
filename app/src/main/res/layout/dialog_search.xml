@@ -30,7 +30,7 @@
             android:tooltipText="@string/title_search_flag_attachments"
             app:layout_constraintEnd_toStartOf="@+id/ibInvite"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_attachment_24" />
+            app:srcCompat="@drawable/twotone_attachment_24" />
 
         <ImageButton
             android:id="@+id/ibInvite"
@@ -44,7 +44,7 @@
             android:tooltipText="@string/title_search_flag_invite"
             app:layout_constraintEnd_toStartOf="@+id/ibUnseen"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_event_24" />
+            app:srcCompat="@drawable/twotone_event_24" />
 
         <ImageButton
             android:id="@+id/ibUnseen"
@@ -58,7 +58,7 @@
             android:tooltipText="@string/title_search_flag_unseen"
             app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_mail_24" />
+            app:srcCompat="@drawable/twotone_mail_24" />
 
         <ImageButton
             android:id="@+id/ibFlagged"
@@ -72,7 +72,7 @@
             android:tooltipText="@string/title_search_flag_flagged"
             app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
 
         <ImageButton
             android:id="@+id/ibInfo"
@@ -85,7 +85,7 @@
             android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_info_24" />
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <AutoCompleteTextView
             android:id="@+id/etQuery"

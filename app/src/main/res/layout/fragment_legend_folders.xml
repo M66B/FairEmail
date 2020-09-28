@@ -20,7 +20,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_folder_special_24" />
+            app:srcCompat="@drawable/twotone_folder_special_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvUnified"
@@ -42,7 +42,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivType"
-            app:srcCompat="@drawable/baseline_inbox_24" />
+            app:srcCompat="@drawable/twotone_inbox_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvInbox"
@@ -64,7 +64,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivInbox"
-            app:srcCompat="@drawable/baseline_drafts_24" />
+            app:srcCompat="@drawable/twotone_drafts_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDrafts"
@@ -86,7 +86,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDrafts"
-            app:srcCompat="@drawable/baseline_forward_24" />
+            app:srcCompat="@drawable/twotone_forward_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSent"
@@ -108,7 +108,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSent"
-            app:srcCompat="@drawable/baseline_archive_24" />
+            app:srcCompat="@drawable/twotone_archive_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvArchive"
@@ -130,7 +130,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivArchive"
-            app:srcCompat="@drawable/baseline_delete_24" />
+            app:srcCompat="@drawable/twotone_delete_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTrash"
@@ -152,7 +152,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivTrash"
-            app:srcCompat="@drawable/baseline_report_problem_24" />
+            app:srcCompat="@drawable/twotone_report_problem_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvJunk"
@@ -174,7 +174,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivJunk"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimary"
@@ -196,7 +196,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimary"
-            app:srcCompat="@drawable/baseline_bookmark_24" />
+            app:srcCompat="@drawable/twotone_bookmark_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubscribed"
@@ -218,7 +218,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSubscribed"
-            app:srcCompat="@drawable/baseline_filter_list_24" />
+            app:srcCompat="@drawable/twotone_filter_list_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRule"
@@ -240,7 +240,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivRule"
-            app:srcCompat="@drawable/baseline_notifications_24" />
+            app:srcCompat="@drawable/twotone_notifications_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotify"
@@ -274,7 +274,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
             app:layout_constraintStart_toEndOf="@id/tvDownloadFetch"
             app:layout_constraintTop_toTopOf="@+id/tvDownloadFetchLegend"
-            app:srcCompat="@drawable/baseline_mail_outline_24" />
+            app:srcCompat="@drawable/twotone_mail_outline_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloadFetchLegend"
@@ -308,7 +308,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvSyncKeepLegend"
             app:layout_constraintStart_toEndOf="@id/tvSyncKeep"
             app:layout_constraintTop_toTopOf="@+id/tvSyncKeepLegend"
-            app:srcCompat="@drawable/baseline_sync_24" />
+            app:srcCompat="@drawable/twotone_sync_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncKeepLegend"
@@ -330,7 +330,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSyncKeepLegend"
-            app:srcCompat="@drawable/baseline_stop_24" />
+            app:srcCompat="@drawable/twotone_stop_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvStop"

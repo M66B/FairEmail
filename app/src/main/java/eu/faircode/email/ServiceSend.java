@@ -200,7 +200,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     NotificationCompat.Builder getNotificationService() {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
-                        .setSmallIcon(R.drawable.baseline_send_24)
+                        .setSmallIcon(R.drawable.twotone_send_24)
                         .setContentTitle(getString(R.string.title_notification_sending))
                         .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)

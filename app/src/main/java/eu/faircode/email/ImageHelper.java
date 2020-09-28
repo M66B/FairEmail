@@ -240,7 +240,7 @@ class ImageHelper {
             final AnnotatedSource a = new AnnotatedSource(source);
 
             if (TextUtils.isEmpty(a.source)) {
-                Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
             }
@@ -258,12 +258,12 @@ class ImageHelper {
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment == null) {
                     Log.i("Image not found CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                    Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else if (!attachment.available) {
                     Log.i("Image not available CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_photo_library_24, theme);
+                    Drawable d = res.getDrawable(R.drawable.twotone_photo_library_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else {
@@ -276,7 +276,7 @@ class ImageHelper {
                             return d;
                         } catch (IOException ex) {
                             Log.w(ex);
-                            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                            Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
                             d.setBounds(0, 0, px, px);
                             return d;
                         }
@@ -284,7 +284,7 @@ class ImageHelper {
                         Bitmap bm = decodeImage(attachment.getFile(context), scaleToPixels);
                         if (bm == null) {
                             Log.i("Image not decodable CID=" + cid);
-                            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                            Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
                             d.setBounds(0, 0, px, px);
                             return d;
                         } else {
@@ -316,7 +316,7 @@ class ImageHelper {
                     return d;
                 } catch (IllegalArgumentException ex) {
                     Log.w(ex);
-                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                    Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
                     d.setBounds(0, 0, px, px);
                     return d;
                 }
@@ -362,14 +362,14 @@ class ImageHelper {
                 } catch (Throwable ex) {
                     // FileNotFound, Security
                     Log.w(ex);
-                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24);
+                    Drawable d = context.getResources().getDrawable(R.drawable.twotone_broken_image_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 }
 
             if (!show) {
                 // Show placeholder icon
-                int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
+                int resid = (embedded || data ? R.drawable.twotone_photo_library_24 : R.drawable.twotone_image_24);
                 Drawable d = res.getDrawable(resid, theme);
                 d.setBounds(0, 0, px, px);
                 return d;
@@ -380,7 +380,7 @@ class ImageHelper {
             if (cached != null || view == null) {
                 if (view == null)
                     if (cached == null) {
-                        Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+                        Drawable d = res.getDrawable(R.drawable.twotone_hourglass_empty_24, theme);
                         d.setBounds(0, 0, px, px);
                         return d;
                     } else
@@ -391,7 +391,7 @@ class ImageHelper {
             }
 
             final LevelListDrawable lld = new LevelListDrawable();
-            Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+            Drawable wait = res.getDrawable(R.drawable.twotone_hourglass_empty_24, theme);
             lld.addLevel(1, 1, wait);
             lld.setBounds(0, 0, px, px);
             lld.setLevel(1);
@@ -440,8 +440,8 @@ class ImageHelper {
                         // Show broken icon
                         Log.w(ex);
                         int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
-                                ? R.drawable.baseline_cloud_off_24
-                                : R.drawable.baseline_broken_image_24);
+                                ? R.drawable.twotone_cloud_off_24
+                                : R.drawable.twotone_broken_image_24);
                         Drawable d = res.getDrawable(resid, theme);
                         d.setBounds(0, 0, px, px);
                         post(d, a.source);
@@ -476,7 +476,7 @@ class ImageHelper {
         } catch (Throwable ex) {
             Log.e(ex);
 
-            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+            Drawable d = res.getDrawable(R.drawable.twotone_broken_image_24, theme);
             d.setBounds(0, 0, px, px);
             return d;
         }

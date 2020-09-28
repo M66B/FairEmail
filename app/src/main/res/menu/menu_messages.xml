@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_search"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/twotone_search_24"
         android:title="@string/title_search"
         app:showAsAction="always" />
 
@@ -16,19 +16,19 @@
 
     <item
         android:id="@+id/menu_empty_trash"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_empty_trash"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_empty_spam"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_empty_spam"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_sort_on"
-        android:icon="@drawable/baseline_sort_24"
+        android:icon="@drawable/twotone_sort_24"
         android:title="@string/title_sort_on"
         app:showAsAction="ifRoom">
         <menu>
@@ -70,7 +70,7 @@
 
     <item
         android:id="@+id/menu_filter"
-        android:icon="@drawable/baseline_filter_list_24"
+        android:icon="@drawable/twotone_filter_list_24"
         android:title="@string/title_filter"
         app:showAsAction="ifRoom">
         <menu>
@@ -103,7 +103,7 @@
 
     <item
         android:id="@+id/menu_zoom"
-        android:icon="@drawable/baseline_format_size_24"
+        android:icon="@drawable/twotone_format_size_24"
         android:title="@string/title_zoom"
         app:showAsAction="ifRoom" />
 

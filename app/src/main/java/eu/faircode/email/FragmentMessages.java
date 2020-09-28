@@ -1919,25 +1919,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             int icon;
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
-                icon = R.drawable.baseline_list_24;
+                icon = R.drawable.twotone_list_24;
             else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                icon = (message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+                icon = (message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
-                icon = (message.ui_flagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
+                icon = (message.ui_flagged ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
-                icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
+                icon = (message.ui_snoozed == null ? R.drawable.twotone_timelapse_24 : R.drawable.twotone_timer_off_24);
             else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
-                icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 :
+                icon = (message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 :
                         (message.ui_snoozed == Long.MAX_VALUE
-                                ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
+                                ? R.drawable.twotone_visibility_24 : R.drawable.twotone_timer_off_24));
             else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action))
-                icon = R.drawable.baseline_folder_24;
+                icon = R.drawable.twotone_folder_24;
             else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action))
-                icon = R.drawable.baseline_report_problem_24;
+                icon = R.drawable.twotone_report_problem_24;
             else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                     (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                     (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
-                icon = R.drawable.baseline_delete_forever_24;
+                icon = R.drawable.twotone_delete_forever_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
 
@@ -3783,7 +3783,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
-        ib.setImageResource(R.drawable.baseline_folder_open_24);
+        ib.setImageResource(R.drawable.twotone_folder_open_24);
         ib.setContentDescription(getString(R.string.title_legend_section_folders));
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -3834,7 +3834,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
         ib.setImageResource(connected
-                ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_open_24);
+                ? R.drawable.baseline_folder_special_24 : R.drawable.twotone_folder_open_24);
 
         menu.findItem(R.id.menu_sort_on).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
 
@@ -3898,9 +3898,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
-        ibSeen.setImageResource(filter_seen ? R.drawable.baseline_drafts_24 : R.drawable.baseline_mail_24);
-        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
-        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+        ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
+        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
+        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
         ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
         ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);

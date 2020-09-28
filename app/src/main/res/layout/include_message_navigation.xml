@@ -59,7 +59,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_more"
-        app:srcCompat="@drawable/baseline_more_horiz_24"
+        app:srcCompat="@drawable/twotone_more_horiz_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -71,7 +71,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_folder_inbox"
-        app:srcCompat="@drawable/baseline_move_to_inbox_24"
+        app:srcCompat="@drawable/twotone_move_to_inbox_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -83,7 +83,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_spam"
-        app:srcCompat="@drawable/baseline_report_problem_24"
+        app:srcCompat="@drawable/twotone_report_problem_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -95,7 +95,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_delete"
-        app:srcCompat="@drawable/baseline_delete_24"
+        app:srcCompat="@drawable/twotone_delete_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -107,7 +107,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_archive"
-        app:srcCompat="@drawable/baseline_archive_24"
+        app:srcCompat="@drawable/twotone_archive_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -119,7 +119,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_move"
-        app:srcCompat="@drawable/baseline_folder_24"
+        app:srcCompat="@drawable/twotone_folder_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -131,7 +131,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_copy"
-        app:srcCompat="@drawable/baseline_file_copy_24"
+        app:srcCompat="@drawable/twotone_file_copy_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -141,7 +141,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/baseline_label_important_24"
+        app:srcCompat="@drawable/twotone_label_important_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -151,7 +151,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/baseline_label_24"
+        app:srcCompat="@drawable/twotone_label_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -163,7 +163,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_reply"
-        app:srcCompat="@drawable/baseline_reply_24"
+        app:srcCompat="@drawable/twotone_reply_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -175,7 +175,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_toggle_seen"
-        app:srcCompat="@drawable/baseline_visibility_24"
+        app:srcCompat="@drawable/twotone_visibility_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -187,7 +187,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_event"
-        app:srcCompat="@drawable/baseline_event_24"
+        app:srcCompat="@drawable/twotone_event_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -199,7 +199,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_print"
-        app:srcCompat="@drawable/baseline_print_24"
+        app:srcCompat="@drawable/twotone_print_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -211,7 +211,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_show_unsubscribe"
-        app:srcCompat="@drawable/baseline_unsubscribe_24"
+        app:srcCompat="@drawable/twotone_unsubscribe_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -235,7 +235,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_undo"
-        app:srcCompat="@drawable/baseline_undo_24"
+        app:srcCompat="@drawable/twotone_undo_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -250,7 +250,7 @@
         android:tooltipText="@string/title_verify"
         app:layout_constraintEnd_toStartOf="@+id/ibDecrypt"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_gesture_24" />
+        app:srcCompat="@drawable/twotone_gesture_24" />
 
     <ImageButton
         android:id="@+id/ibDecrypt"
@@ -264,7 +264,7 @@
         android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_lock_open_24" />
+        app:srcCompat="@drawable/twotone_lock_open_24" />
 
     <ImageButton
         android:id="@+id/ibImages"
@@ -278,7 +278,7 @@
         android:tooltipText="@string/title_legend_show_images"
         app:layout_constraintEnd_toStartOf="@+id/ibFull"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_image_24" />
+        app:srcCompat="@drawable/twotone_image_24" />
 
     <ImageButton
         android:id="@+id/ibFull"
@@ -291,7 +291,7 @@
         android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
-        app:srcCompat="@drawable/baseline_fullscreen_24" />
+        app:srcCompat="@drawable/twotone_fullscreen_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvReformatted"

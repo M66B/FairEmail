@@ -1416,7 +1416,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disconnect_images = prefs.getBoolean("disconnect_images", false);
 
-        Drawable d = ContextCompat.getDrawable(context, R.drawable.baseline_my_location_24);
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_my_location_24);
         d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
 
         Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
@@ -2147,7 +2147,7 @@ public class HtmlHelper {
                             case "img":
                                 String src = element.attr("src");
                                 Drawable d = (imageGetter == null
-                                        ? context.getDrawable(R.drawable.baseline_broken_image_24)
+                                        ? context.getDrawable(R.drawable.twotone_broken_image_24)
                                         : imageGetter.getDrawable(src));
                                 ssb.insert(start, "\uFFFC"); // Object replacement character
                                 setSpan(ssb, new ImageSpan(d, src), start, start + 1);

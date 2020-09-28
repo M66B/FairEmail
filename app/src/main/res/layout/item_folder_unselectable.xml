@@ -31,7 +31,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_cloud_off_24" />
+                app:srcCompat="@drawable/twotone_cloud_off_24" />
 
             <View
                 android:id="@+id/vwLevel"

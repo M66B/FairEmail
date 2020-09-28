@@ -59,7 +59,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSupport"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvHintSupport"
-                app:srcCompat="@drawable/baseline_close_24" />
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSupport"
@@ -92,7 +92,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSwipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvHintSwipe"
-                app:srcCompat="@drawable/baseline_close_24" />
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSwipe"
@@ -125,7 +125,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSelect"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvHintSelect"
-                app:srcCompat="@drawable/baseline_close_24" />
+                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSelect"
@@ -204,7 +204,7 @@
                 app:backgroundTint="?attr/colorFabBackground"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/baseline_reply_24" />
+                app:srcCompat="@drawable/twotone_reply_24" />
 
             <ImageButton
                 android:id="@+id/ibDown"
@@ -218,7 +218,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/ibUp"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/baseline_vertical_align_bottom_24" />
+                app:srcCompat="@drawable/twotone_vertical_align_bottom_24" />
 
             <ImageButton
                 android:id="@+id/ibUp"
@@ -232,7 +232,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/ibDown"
-                app:srcCompat="@drawable/baseline_vertical_align_top_24" />
+                app:srcCompat="@drawable/twotone_vertical_align_top_24" />
 
             <ImageButton
                 android:id="@+id/ibSeen"
@@ -246,7 +246,7 @@
                 app:layout_constraintEnd_toStartOf="@id/ibUnflagged"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/baseline_drafts_24" />
+                app:srcCompat="@drawable/twotone_drafts_24" />
 
             <ImageButton
                 android:id="@+id/ibUnflagged"
@@ -259,7 +259,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toStartOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
-                app:srcCompat="@drawable/baseline_star_24" />
+                app:srcCompat="@drawable/twotone_star_24" />
 
             <ImageButton
                 android:id="@+id/ibSnoozed"
@@ -272,7 +272,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ibUnflagged"
-                app:srcCompat="@drawable/baseline_timelapse_24" />
+                app:srcCompat="@drawable/twotone_timelapse_24" />
 
             <SeekBar
                 android:id="@+id/sbThread"
@@ -338,7 +338,7 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_more"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_more_vert_24" />
+        app:srcCompat="@drawable/twotone_more_vert_24" />
 
     <TextView
         android:id="@+id/tvSelectedCount"
@@ -364,7 +364,7 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_search_server"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_youtube_searched_for_24" />
+        app:srcCompat="@drawable/twotone_youtube_searched_for_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCompose"
@@ -376,7 +376,7 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/baseline_edit_24" />
+        app:srcCompat="@drawable/twotone_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabError"
@@ -388,5 +388,5 @@
         android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorWarning"
-        app:srcCompat="@drawable/baseline_warning_24" />
+        app:srcCompat="@drawable/twotone_warning_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

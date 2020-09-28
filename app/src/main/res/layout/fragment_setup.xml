@@ -59,7 +59,7 @@
             android:tint="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome"
-            app:srcCompat="@drawable/baseline_fast_forward_24" />
+            app:srcCompat="@drawable/twotone_fast_forward_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"
@@ -162,7 +162,7 @@
             android:contentDescription="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount"
-            app:srcCompat="@drawable/baseline_looks_one_24" />
+            app:srcCompat="@drawable/twotone_looks_one_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"
@@ -224,7 +224,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/baseline_check_24"
+            android:drawableStart="@drawable/twotone_check_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -260,7 +260,7 @@
             android:contentDescription="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity"
-            app:srcCompat="@drawable/baseline_looks_two_24" />
+            app:srcCompat="@drawable/twotone_looks_two_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"
@@ -322,7 +322,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/baseline_check_24"
+            android:drawableStart="@drawable/twotone_check_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -380,7 +380,7 @@
             android:contentDescription="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions"
-            app:srcCompat="@drawable/baseline_looks_3_24" />
+            app:srcCompat="@drawable/twotone_looks_3_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"
@@ -410,7 +410,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/baseline_check_24"
+            android:drawableStart="@drawable/twotone_check_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -446,7 +446,7 @@
             android:contentDescription="4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze"
-            app:srcCompat="@drawable/baseline_looks_4_24" />
+            app:srcCompat="@drawable/twotone_looks_4_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"
@@ -477,7 +477,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/baseline_check_24"
+            android:drawableStart="@drawable/twotone_check_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -555,7 +555,7 @@
             android:contentDescription="5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorInbox"
-            app:srcCompat="@drawable/baseline_looks_5_24" />
+            app:srcCompat="@drawable/twotone_looks_5_24" />
 
         <eu.faircode.email.FixedTextView
             android:layout_width="0dp"

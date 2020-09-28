@@ -34,7 +34,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_cloud_off_24" />
+                app:srcCompat="@drawable/twotone_cloud_off_24" />
 
             <ImageView
                 android:id="@+id/ivReadOnly"
@@ -43,7 +43,7 @@
                 android:layout_marginStart="6dp"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
-                app:srcCompat="@drawable/baseline_visibility_24" />
+                app:srcCompat="@drawable/twotone_visibility_24" />
 
             <View
                 android:id="@+id/vwLevel"
@@ -76,7 +76,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_folder_special_24" />
+                app:srcCompat="@drawable/twotone_folder_special_24" />
 
             <ImageView
                 android:id="@+id/ivSubscribed"
@@ -87,7 +87,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivUnified"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_bookmark_24" />
+                app:srcCompat="@drawable/twotone_bookmark_24" />
 
             <ImageView
                 android:id="@+id/ivRule"
@@ -98,7 +98,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivSubscribed"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_filter_list_24" />
+                app:srcCompat="@drawable/twotone_filter_list_24" />
 
             <ImageView
                 android:id="@+id/ivNotify"
@@ -109,7 +109,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivRule"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_notifications_24" />
+                app:srcCompat="@drawable/twotone_notifications_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvName"
@@ -146,7 +146,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/baseline_mail_outline_24" />
+                app:srcCompat="@drawable/twotone_mail_outline_24" />
 
             <ImageView
                 android:id="@+id/ivType"
@@ -156,7 +156,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvType"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
-                app:srcCompat="@drawable/baseline_inbox_24" />
+                app:srcCompat="@drawable/twotone_inbox_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvType"
@@ -208,7 +208,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
-                app:srcCompat="@drawable/baseline_sync_24" />
+                app:srcCompat="@drawable/twotone_sync_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvKeywords"
@@ -246,7 +246,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvKeywords"
-                app:srcCompat="@drawable/baseline_star_24" />
+                app:srcCompat="@drawable/twotone_star_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvError"

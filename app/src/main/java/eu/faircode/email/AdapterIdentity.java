@@ -120,7 +120,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
-            ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+            ivSync.setImageResource(identity.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
             ivSync.setContentDescription(context.getString(identity.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
             ivOAuth.setVisibility(identity.auth_type == EmailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
@@ -133,7 +133,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_connected));
             } else if ("connecting".equals(identity.state)) {
-                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+                ivState.setImageResource(R.drawable.twotone_cloud_queue_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
             } else {
                 ivState.setImageDrawable(null);

@@ -33,7 +33,7 @@
         android:contentDescription="@string/title_legend_plain_only"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_notes_24" />
+        app:srcCompat="@drawable/twotone_notes_24" />
 
     <eu.faircode.email.ViewImageHint
         android:id="@+id/ivReceipt"
@@ -43,7 +43,7 @@
         android:contentDescription="@string/title_legend_receipt"
         app:layout_constraintStart_toEndOf="@id/ivPlain"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_playlist_add_check_24" />
+        app:srcCompat="@drawable/twotone_playlist_add_check_24" />
 
     <eu.faircode.email.ViewImageHint
         android:id="@+id/ivBrowsed"
@@ -53,7 +53,7 @@
         android:contentDescription="@string/title_legend_browsed"
         app:layout_constraintStart_toEndOf="@id/ivReceipt"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_playlist_add_24" />
+        app:srcCompat="@drawable/twotone_playlist_add_24" />
 
     <ImageButton
         android:id="@+id/ibSearchContact"
@@ -65,7 +65,7 @@
         android:tooltipText="@string/title_legend_similar"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_search_24" />
+        app:srcCompat="@drawable/twotone_search_24" />
 
     <ImageButton
         android:id="@+id/ibNotifyContact"
@@ -77,7 +77,7 @@
         android:tooltipText="@string/title_legend_notify"
         app:layout_constraintEnd_toStartOf="@+id/ibPinContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_notifications_24" />
+        app:srcCompat="@drawable/twotone_notifications_24" />
 
     <ImageButton
         android:id="@+id/ibPinContact"
@@ -89,7 +89,7 @@
         android:tooltipText="@string/title_pin"
         app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_person_pin_circle_24" />
+        app:srcCompat="@drawable/twotone_person_pin_circle_24" />
 
     <ImageButton
         android:id="@+id/ibAddContact"
@@ -101,7 +101,7 @@
         android:tooltipText="@string/title_legend_contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/baseline_import_contacts_24" />
+        app:srcCompat="@drawable/twotone_import_contacts_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_action"

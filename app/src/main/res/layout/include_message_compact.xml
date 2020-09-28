@@ -55,7 +55,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
-        app:srcCompat="@drawable/baseline_person_24" />
+        app:srcCompat="@drawable/twotone_person_24" />
 
     <ImageButton
         android:id="@+id/ibAuth"
@@ -68,7 +68,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_flag_24" />
+        app:srcCompat="@drawable/twotone_flag_24" />
 
     <ImageView
         android:id="@+id/ivPriorityHigh"
@@ -80,7 +80,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_priority_high_24" />
+        app:srcCompat="@drawable/twotone_priority_high_24" />
 
     <ImageView
         android:id="@+id/ivPriorityLow"
@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ivPriorityHigh"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_low_priority_24" />
+        app:srcCompat="@drawable/twotone_low_priority_24" />
 
     <ImageView
         android:id="@+id/ivImportance"
@@ -113,7 +113,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ivImportance"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_gesture_24" />
+        app:srcCompat="@drawable/twotone_gesture_24" />
 
     <ImageView
         android:id="@+id/ivEncrypted"
@@ -124,7 +124,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ivSigned"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_lock_24" />
+        app:srcCompat="@drawable/twotone_lock_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvFrom"
@@ -176,7 +176,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_edit_24" />
+        app:srcCompat="@drawable/twotone_edit_24" />
 
     <ImageView
         android:id="@+id/ivFound"
@@ -187,7 +187,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivType"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_search_24" />
+        app:srcCompat="@drawable/twotone_search_24" />
 
     <ImageButton
         android:id="@+id/ibSnoozed"
@@ -199,7 +199,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivFound"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_timelapse_24" />
+        app:srcCompat="@drawable/twotone_timelapse_24" />
 
     <ImageView
         android:id="@+id/ivAnswered"
@@ -210,7 +210,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ibSnoozed"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_reply_24" />
+        app:srcCompat="@drawable/twotone_reply_24" />
 
     <ImageView
         android:id="@+id/ivForwarded"
@@ -232,7 +232,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivForwarded"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_attachment_24" />
+        app:srcCompat="@drawable/twotone_attachment_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubject"
@@ -271,7 +271,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/baseline_message_24" />
+        app:srcCompat="@drawable/twotone_message_24" />
 
     <ImageButton
         android:id="@+id/ibFlagged"
@@ -285,7 +285,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@id/paddingEnd"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
-        app:srcCompat="@drawable/baseline_star_24" />
+        app:srcCompat="@drawable/twotone_star_24" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvKeywords"
@@ -382,7 +382,7 @@
         android:tint="?attr/colorWarning"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
         app:layout_constraintTop_toTopOf="@id/tvError"
-        app:srcCompat="@drawable/baseline_info_24" />
+        app:srcCompat="@drawable/twotone_info_24" />
 
     <View
         android:id="@+id/paddingEnd"

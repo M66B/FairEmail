@@ -885,7 +885,7 @@ public class FragmentCompose extends FragmentBase {
                         else {
                             String uri = cursor.getString(columnIndex);
                             if (uri == null)
-                                photo.setImageResource(R.drawable.baseline_person_24);
+                                photo.setImageResource(R.drawable.twotone_person_24);
                             else
                                 photo.setImageURI(Uri.parse(uri));
                         }
@@ -1372,15 +1372,15 @@ public class FragmentCompose extends FragmentBase {
         TextView tv = v.findViewById(R.id.text);
         ib.setEnabled(state == State.LOADED);
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
-            ib.setImageResource(R.drawable.baseline_gesture_24);
+            ib.setImageResource(R.drawable.twotone_gesture_24);
             ib.setImageTintList(null);
             tv.setText(EntityMessage.PGP_SIGNONLY.equals(encrypt) ? "P" : "S");
         } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) || EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
-            ib.setImageResource(R.drawable.baseline_lock_24);
+            ib.setImageResource(R.drawable.twotone_lock_24);
             ib.setImageTintList(ColorStateList.valueOf(colorEncrypt));
             tv.setText(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ? "P" : "S");
         } else {
-            ib.setImageResource(R.drawable.baseline_lock_open_24);
+            ib.setImageResource(R.drawable.twotone_lock_open_24);
             ib.setImageTintList(null);
             tv.setText(null);
         }

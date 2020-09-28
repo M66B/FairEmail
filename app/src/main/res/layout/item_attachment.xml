@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_delete_24" />
+            app:srcCompat="@drawable/twotone_delete_24" />
 
         <ImageView
             android:id="@+id/ivType"
@@ -68,7 +68,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_cloud_download_24" />
+            app:srcCompat="@drawable/twotone_cloud_download_24" />
 
         <ImageButton
             android:id="@+id/ibSave"
@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_save_24" />
+            app:srcCompat="@drawable/twotone_save_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvType"

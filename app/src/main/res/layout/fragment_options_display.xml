@@ -451,7 +451,7 @@
             app:layout_constraintEnd_toStartOf="@+id/ivGreen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swCircular"
-            app:srcCompat="@drawable/baseline_person_24" />
+            app:srcCompat="@drawable/twotone_person_24" />
 
         <ImageView
             android:id="@+id/ivGreen"
@@ -461,7 +461,7 @@
             app:layout_constraintEnd_toStartOf="@+id/ivBlue"
             app:layout_constraintStart_toEndOf="@id/ivRed"
             app:layout_constraintTop_toBottomOf="@id/swCircular"
-            app:srcCompat="@drawable/baseline_person_24" />
+            app:srcCompat="@drawable/twotone_person_24" />
 
         <ImageView
             android:id="@+id/ivBlue"
@@ -471,7 +471,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivGreen"
             app:layout_constraintTop_toBottomOf="@id/swCircular"
-            app:srcCompat="@drawable/baseline_person_24" />
+            app:srcCompat="@drawable/twotone_person_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSaturation"
@@ -1087,7 +1087,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/swAuthentication"
-            app:srcCompat="@drawable/baseline_flag_24" />
+            app:srcCompat="@drawable/twotone_flag_24" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAuthentication"

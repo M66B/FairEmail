@@ -20,7 +20,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_security_24" />
+            app:srcCompat="@drawable/twotone_security_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvOauth"
@@ -64,7 +64,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected"
-            app:srcCompat="@drawable/baseline_folder_open_24" />
+            app:srcCompat="@drawable/twotone_folder_open_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimaryDisconnected"
@@ -86,7 +86,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected"
-            app:srcCompat="@drawable/baseline_mail_24" />
+            app:srcCompat="@drawable/twotone_mail_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloadOn"
@@ -108,7 +108,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloadOn"
-            app:srcCompat="@drawable/baseline_mail_outline_24" />
+            app:srcCompat="@drawable/twotone_mail_outline_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloadOff"
@@ -130,7 +130,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloadOff"
-            app:srcCompat="@drawable/baseline_sync_24" />
+            app:srcCompat="@drawable/twotone_sync_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSynchronize"
@@ -152,7 +152,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSynchronize"
-            app:srcCompat="@drawable/baseline_sync_disabled_24" />
+            app:srcCompat="@drawable/twotone_sync_disabled_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSynchronizeOff"
@@ -174,7 +174,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff"
-            app:srcCompat="@drawable/baseline_cloud_off_24" />
+            app:srcCompat="@drawable/twotone_cloud_off_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDisconnected"
@@ -196,7 +196,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDisconnected"
-            app:srcCompat="@drawable/baseline_cloud_queue_24" />
+            app:srcCompat="@drawable/twotone_cloud_queue_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvConnecting"
@@ -240,7 +240,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivConnected"
-            app:srcCompat="@drawable/baseline_dns_24" />
+            app:srcCompat="@drawable/twotone_dns_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvExecuting"
@@ -262,7 +262,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivExecuting"
-            app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            app:srcCompat="@drawable/twotone_compare_arrows_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSynchronizing"
@@ -284,7 +284,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSynchronizing"
-            app:srcCompat="@drawable/baseline_cloud_download_24" />
+            app:srcCompat="@drawable/twotone_cloud_download_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDownloading"
@@ -306,7 +306,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloading"
-            app:srcCompat="@drawable/baseline_close_24" />
+            app:srcCompat="@drawable/twotone_close_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvClosing"
@@ -328,7 +328,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivClosing"
-            app:srcCompat="@drawable/baseline_hourglass_empty_24" />
+            app:srcCompat="@drawable/twotone_hourglass_empty_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvWaiting"

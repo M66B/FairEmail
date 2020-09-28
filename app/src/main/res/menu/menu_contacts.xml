@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_search"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/twotone_search_24"
         android:title="@string/title_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
 
     <item
         android:id="@+id/menu_help"
-        android:icon="@drawable/baseline_help_24"
+        android:icon="@drawable/twotone_help_24"
         android:title="@string/title_setup_help"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_delete"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_delete"
         app:showAsAction="ifRoom" />
 </menu>

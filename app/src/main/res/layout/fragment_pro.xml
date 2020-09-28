@@ -91,7 +91,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/btnPurchase"
             app:layout_constraintStart_toEndOf="@+id/tvPrice"
             app:layout_constraintTop_toTopOf="@+id/btnPurchase"
-            app:srcCompat="@drawable/baseline_open_in_new_24" />
+            app:srcCompat="@drawable/twotone_open_in_new_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvOnce"

@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvTracking"
-            app:srcCompat="@drawable/baseline_my_location_24" />
+            app:srcCompat="@drawable/twotone_my_location_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTracking"
@@ -53,7 +53,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvTracking"
-            app:srcCompat="@drawable/baseline_info_24" />
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"

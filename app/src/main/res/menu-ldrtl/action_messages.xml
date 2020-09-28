@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/action_next"
-        android:icon="@drawable/baseline_navigate_next_24"
+        android:icon="@drawable/twotone_navigate_next_24"
         android:title="@string/title_next" />
 
     <item
         android:id="@+id/action_delete"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_trash" />
 
     <item
         android:id="@+id/action_snooze"
-        android:icon="@drawable/baseline_timelapse_24"
+        android:icon="@drawable/twotone_timelapse_24"
         android:title="@string/title_snooze" />
 
     <item
         android:id="@+id/action_archive"
-        android:icon="@drawable/baseline_archive_24"
+        android:icon="@drawable/twotone_archive_24"
         android:title="@string/title_archive" />
 
     <item
         android:id="@+id/action_prev"
-        android:icon="@drawable/baseline_navigate_before_24"
+        android:icon="@drawable/twotone_navigate_before_24"
         android:title="@string/title_previous" />
 </menu>

@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_insert_image"
-        android:icon="@drawable/baseline_image_24"
+        android:icon="@drawable/twotone_image_24"
         android:title="@string/title_edit_signature_image" />
 
     <item
         android:id="@+id/action_delete"
-        android:icon="@drawable/baseline_delete_24"
+        android:icon="@drawable/twotone_delete_24"
         android:title="@string/title_delete" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@drawable/baseline_save_alt_24"
+        android:icon="@drawable/twotone_save_alt_24"
         android:title="@string/title_save" />
 </menu>
