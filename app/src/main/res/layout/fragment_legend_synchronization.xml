@@ -38,18 +38,18 @@
             android:id="@+id/ivPrimaryConnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_primary_connected"
+            android:contentDescription="@string/title_legend_folder_connected"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivOAuth"
-            app:srcCompat="@drawable/baseline_folder_24" />
+            app:srcCompat="@drawable/twotone_folder_done_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimaryConnected"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_vertical"
-            android:text="@string/title_legend_primary_connected"
+            android:text="@string/title_legend_folder_connected"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@id/ivPrimaryConnected"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,18 +60,18 @@
             android:id="@+id/ivPrimaryDisconnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_primary_disconnected"
+            android:contentDescription="@string/title_legend_folder_disconnected"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected"
-            app:srcCompat="@drawable/twotone_folder_open_24" />
+            app:srcCompat="@drawable/twotone_folder_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimaryDisconnected"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_vertical"
-            android:text="@string/title_legend_primary_disconnected"
+            android:text="@string/title_legend_folder_disconnected"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@id/ivPrimaryDisconnected"
             app:layout_constraintEnd_toEndOf="parent"

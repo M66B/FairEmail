@@ -1173,8 +1173,8 @@
     <string name="title_legend_section_keyboard">Keyboard</string>
 
     <string name="title_legend_oauth">OAuth authorization</string>
-    <string name="title_legend_primary_connected">Account connected</string>
-    <string name="title_legend_primary_disconnected">Account disconnected</string>
+    <string name="title_legend_folder_connected">Folder connected</string>
+    <string name="title_legend_folder_disconnected">Folder disconnected</string>
     <string name="title_legend_download_on">Download message content automatically</string>
     <string name="title_legend_download_off">Download message content on demand</string>
     <string name="title_legend_synchronize_on">Synchronize on</string>

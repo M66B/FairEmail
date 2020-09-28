@@ -102,8 +102,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     ivItem.setImageResource(R.drawable.twotone_dns_24);
                 else
                     ivItem.setImageResource("connected".equals(folder.state)
-                            ? R.drawable.baseline_folder_24
-                            : R.drawable.twotone_folder_open_24);
+                            ? R.drawable.twotone_folder_done_24
+                            : R.drawable.twotone_folder_24);
 
                 if (folder.accountColor == null || !ActivityBilling.isPro(context))
                     ivItem.clearColorFilter();

@@ -3783,7 +3783,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
-        ib.setImageResource(R.drawable.twotone_folder_open_24);
+        ib.setImageResource(R.drawable.twotone_folder_24);
         ib.setContentDescription(getString(R.string.title_legend_section_folders));
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -3834,7 +3834,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_folders).setVisible(viewType == AdapterMessage.ViewType.UNIFIED && primary >= 0);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
         ib.setImageResource(connected
-                ? R.drawable.baseline_folder_special_24 : R.drawable.twotone_folder_open_24);
+                ? R.drawable.baseline_folder_special_24 : R.drawable.twotone_folder_24);
 
         menu.findItem(R.id.menu_sort_on).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
 
