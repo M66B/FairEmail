@@ -1540,10 +1540,18 @@ public class HtmlHelper {
                 String[] param = content.split("[;,]");
                 for (int i = 0; i < param.length; i++) {
                     String[] kv = param[i].split("=");
-                    if (kv.length == 2 &&
-                            "user-scalable".equals(kv[0].replace(" ", ""))) {
-                        kv[1] = "yes";
-                        param[i] = TextUtils.join("=", kv);
+                    if (kv.length == 2) {
+                        switch (kv[0].replace(" ", "").toLowerCase()) {
+                            case "user-scalable":
+                                kv[1] = "yes";
+                                param[i] = TextUtils.join("=", kv);
+                                break;
+                            case "minimum-scale":
+                            case "maximum-scale":
+                                kv[0] = "disabled-scaling";
+                                param[i] = TextUtils.join("=", kv);
+                                break;
+                        }
                     }
                 }
                 meta.attr("content", TextUtils.join(", ", param));
