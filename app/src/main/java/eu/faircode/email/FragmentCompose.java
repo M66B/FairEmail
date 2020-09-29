@@ -3718,6 +3718,11 @@ public class FragmentCompose extends FragmentBase {
                                                         remove = true;
                                                     else {
                                                         Node next = node.nextSibling();
+                                                        if (next == null) {
+                                                            Node parent = node.parent();
+                                                            if (parent != null)
+                                                                next = parent.nextSibling();
+                                                        }
                                                         if (next != null && "br".equals(next.nodeName()))
                                                             remove = true;
                                                     }
