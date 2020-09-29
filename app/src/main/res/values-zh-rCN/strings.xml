@@ -1023,6 +1023,8 @@
     <string name="title_legend_section_compose">撰写</string>
     <string name="title_legend_section_keyboard">键盘</string>
     <string name="title_legend_oauth">OAuth 授权</string>
+    <string name="title_legend_folder_connected">文件夹已连接</string>
+    <string name="title_legend_folder_disconnected">已断开和文件夹的连接</string>
     <string name="title_legend_download_on">自动下载邮件内容</string>
     <string name="title_legend_download_off">按需下载邮件内容 </string>
     <string name="title_legend_synchronize_on">同步开启</string>
