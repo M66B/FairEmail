@@ -948,8 +948,6 @@
     <string name="title_legend_section_compose">Съчиняване</string>
     <string name="title_legend_section_keyboard">Клавиатура</string>
     <string name="title_legend_oauth">OAuth оторизация</string>
-    <string name="title_legend_primary_connected">Профила е свързан</string>
-    <string name="title_legend_primary_disconnected">Профила не е свързан</string>
     <string name="title_legend_download_on">Изтеглеяне съдържанието на съобщенията автоматично</string>
     <string name="title_legend_download_off">Изтеглеяне съдържанието на съобщенията при поискване</string>
     <string name="title_legend_synchronize_on">Синхронизация включена</string>

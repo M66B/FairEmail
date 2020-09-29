@@ -736,8 +736,6 @@
     <string name="title_legend_section_compose">Састави</string>
     <string name="title_legend_section_keyboard">Тастатура</string>
     <string name="title_legend_oauth">OAuth конекција</string>
-    <string name="title_legend_primary_connected">Налог повезан</string>
-    <string name="title_legend_primary_disconnected">Налог раскачен</string>
     <string name="title_legend_download_on">Аутоматски преузимај садржај поруке</string>
     <string name="title_legend_download_off">Преузимај садржај поруке по захтеву</string>
     <string name="title_legend_synchronize_on">Синхронизуј на</string>

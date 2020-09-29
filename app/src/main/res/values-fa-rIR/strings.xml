@@ -858,8 +858,6 @@
     <string name="title_legend_section_compose">نوشتن</string>
     <string name="title_legend_section_keyboard">صفحه کلید</string>
     <string name="title_legend_oauth">احراز هویت OAuth</string>
-    <string name="title_legend_primary_connected">اتصال حساب برقرار شده است</string>
-    <string name="title_legend_primary_disconnected">اتصال حساب قطع شده است</string>
     <string name="title_legend_download_on">دریافت خودکار محتوای پیام</string>
     <string name="title_legend_download_off">دریافت محتوای پیام در صورت تقاضا </string>
     <string name="title_legend_synchronize_on">همگام سازی روشن</string>

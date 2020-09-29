@@ -1034,8 +1034,8 @@
     <string name="title_legend_section_compose">Skriv</string>
     <string name="title_legend_section_keyboard">Tangentbord</string>
     <string name="title_legend_oauth">OAuth auktorisering</string>
-    <string name="title_legend_primary_connected">Kontot anslutet</string>
-    <string name="title_legend_primary_disconnected">Kontot frånkopplat</string>
+    <string name="title_legend_folder_connected">Mapp ansluten</string>
+    <string name="title_legend_folder_disconnected">Mappen frånkopplad</string>
     <string name="title_legend_download_on">Hämta meddelandeinnehåll automatiskt</string>
     <string name="title_legend_download_off">Hämta meddelandeinnehåll på begäran </string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>

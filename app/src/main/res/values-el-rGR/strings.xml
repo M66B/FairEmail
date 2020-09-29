@@ -1029,8 +1029,8 @@
     <string name="title_legend_section_compose">Σύνταξη</string>
     <string name="title_legend_section_keyboard">Πληκτρολόγιο</string>
     <string name="title_legend_oauth">Εξουσιοδότηση OAuth</string>
-    <string name="title_legend_primary_connected">Λογαριασμός συνδεδεμένος</string>
-    <string name="title_legend_primary_disconnected">Λογαριασμός αποσυνδεδεμένος</string>
+    <string name="title_legend_folder_connected">Φάκελος συνδεδεμένος</string>
+    <string name="title_legend_folder_disconnected">Φάκελος αποσυνδεδεμένος</string>
     <string name="title_legend_download_on">Κατέβασμα του περιεχομένου του μηνύματος αυτόματα</string>
     <string name="title_legend_download_off">Κατέβασμα του περιεχομένου του μηνύματος κατόπιν αιτήματος</string>
     <string name="title_legend_synchronize_on">Συγχρονισμός ενεργός</string>

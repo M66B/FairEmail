@@ -1045,8 +1045,6 @@
     <string name="title_legend_section_compose">Compune</string>
     <string name="title_legend_section_keyboard">Tastatură</string>
     <string name="title_legend_oauth">Autorizare OAuth</string>
-    <string name="title_legend_primary_connected">Cont conectat</string>
-    <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_download_on">Descarcă mesajul complet, automat</string>
     <string name="title_legend_download_off">Descarcă mesajul complet, la cerere </string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>
@@ -1155,6 +1153,7 @@
     <string name="title_hint_battery">Deoarece FairEmail primește, în mod implicit, mereu mesaje, Android va raporta FairEmail ca fiind întotdeauna activ. Prin urmare, ar putea părea că FairEmail consumă bateria în mod continuu deși acest lucru nu este de fapt adevărat.</string>
     <string name="title_hint_reformat">În mod implicit, FairEmail reformatează mesajele din motive de confidenţialitate şi securitate. Pentru a vizualiza mesajul original, apăsaţi pictograma \"ecran complet\" deasupra textului mesajului.</string>
     <string name="title_hint_design">Designul este intenționat ca să nu distragă, ci este păstrat foarte funcțional. Există multe opțiuni pentru a personaliza aspectul, dar vă rugăm să înțelegeți că este imposibil să facem pe toată lumea fericită în același timp.</string>
+    <string name="title_hint_junk">Filtrarea spam-ului ar trebui să fie efectuată de către serverul de e-mail și nu poate fi efectuată în mod fiabil pe un dispozitiv alimentat cu baterie și cu capacități limitate.</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_eml">Acesta este sumarul conținutului unui fișier cu mesajul original. Salvați mesajul original folosind iconița de salvare din bara de acțiuni pentru a putea vizualiza tot conținutul.</string>
     <string name="title_open_link">Deschide legătura</string>

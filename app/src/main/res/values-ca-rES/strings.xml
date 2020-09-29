@@ -944,8 +944,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_legend_section_compose">Redactar</string>
     <string name="title_legend_section_keyboard">Teclat</string>
     <string name="title_legend_oauth">Autorització OAuth</string>
-    <string name="title_legend_primary_connected">Compte connectat</string>
-    <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_download_on">Baixa automàticament el contingut del missatge</string>
     <string name="title_legend_download_off">Baixa sota demanda el contingut del missatge</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>

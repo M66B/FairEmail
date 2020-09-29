@@ -430,8 +430,6 @@
     <string name="title_legend_section_messages">Berjochten</string>
     <string name="title_legend_section_compose">Gearstalle</string>
     <string name="title_legend_section_keyboard">Toetseboerd</string>
-    <string name="title_legend_primary_connected">Akkount ferbûn</string>
-    <string name="title_legend_primary_disconnected">Akkount net ferbûn</string>
     <string name="title_legend_disconnected">Verbroken ferbine</string>
     <string name="title_legend_connecting">Ferbining</string>
     <string name="title_legend_connected">Ferbûn</string>

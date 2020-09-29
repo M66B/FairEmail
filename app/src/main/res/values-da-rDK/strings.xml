@@ -1034,8 +1034,6 @@
     <string name="title_legend_section_compose">Skriv</string>
     <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth-godkendelse</string>
-    <string name="title_legend_primary_connected">Konto forbundet</string>
-    <string name="title_legend_primary_disconnected">Konto afbrudt</string>
     <string name="title_legend_download_on">Auto-download beskedindhold</string>
     <string name="title_legend_download_off">Download beskedindhold efter behov</string>
     <string name="title_legend_synchronize_on">Synkronisering slået til</string>
@@ -1144,6 +1142,7 @@
     <string name="title_hint_battery">Da FairEmail som standard altid modtager beskeder, rapporterer Android FairEmail som altid aktiv. Det kan derfor se ud som om FairEmail altid forbruger batteristrøm, selvom dette faktisk ikke er tilfældet.</string>
     <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
     <string name="title_hint_design">Designet er bevidst ikke-distraherende, men holdt meget funktionel. Der er mange muligheder for at tilpasse udseende, men vær opmærksom på, at det er umuligt at gøre alle glade.</string>
+    <string name="title_hint_junk">Spamfiltrering bør udføres på e-mailserveren, da dette ikke ske pålideligt på en batteridrevet enhed med begrænset kapacitet.</string>
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>

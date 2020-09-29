@@ -1,15 +1,15 @@
 # دعم فير ايميل
 
-إذا كان لديك تساؤل, يرجى التثبت من الأسئلة المتكررة أدناه أولا. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+إذا كان لديك تساؤل, يرجى التثبت من الأسئلة المتكررة أدناه أولا. في الجزء السفلي ، يمكنك معرفة كيفية طرح أسئلة أخرى وطلب الميزات والإبلاغ عن الأخطاء.
 
-## Index
+## فهرس
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [رخص الحسابات](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [كيفية ...؟](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [المشاكل المعروفة](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [الميزات المخطط لها](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [الميزات المطلوبة بتكرار](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [أسئلة مكررة](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [الدعم](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
 ## Authorizing accounts
@@ -627,6 +627,8 @@ Encrypting a message requires the public key(s) of the recipient(s). Signing a m
 Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+
+Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
 
 The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
 

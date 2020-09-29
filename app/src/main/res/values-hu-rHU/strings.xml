@@ -15,6 +15,9 @@
     <string name="channel_error">Hibák</string>
     <string name="channel_alert">Szerver riasztások</string>
     <string name="channel_group_contacts">Névjegyzék</string>
+    <string name="channel_service_description">Fiókok szinkronizálása és figyelése</string>
+    <string name="channel_send_description">Üzenetek küldése</string>
+    <string name="channel_notification_description">Értesítés új üzenetről</string>
     <plurals name="page_conversation">
         <item quantity="one">Beszélgetés</item>
         <item quantity="other">Beszélgetések</item>
@@ -281,6 +284,7 @@
     <string name="title_advanced_landscape3">Navigációs menü mutatósa fekvő módban alapértelmezésként</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
+    <string name="title_advanced_cards_beige">Beige háttér használata a névjegyekhez</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_threading">Beszélgetések összefűzése</string>
     <string name="title_advanced_threading_unread">Olvasatlan üzenetek számának mutatása beszélgetésekben</string>
@@ -324,6 +328,7 @@
     <string name="title_advanced_text_size">Betűméret használata</string>
     <string name="title_advanced_text_font">Betűtípusok használata</string>
     <string name="title_advanced_text_align">Szöveg igazítás</string>
+    <string name="title_advanced_text_separators">Elválasztó sorok használata</string>
     <string name="title_advanced_collapse_quotes">Idézett szöveg összecsukása</string>
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
@@ -455,6 +460,7 @@
     <string name="title_advanced_browse_hint">Több üzenet letöltése lefelé görgetéssel</string>
     <string name="title_advanced_layout_hint">Váltás egy kompaktabb elrendezésre és az üzenet szövegméret módosítása elvégezhető a felső műveletsáv menüjében az üzenet nézetben</string>
     <string name="title_advanced_startup_hint">Nyomja hosszan bármelyik mappát a mappalistában hogy hozzáadja vagy eltávolítsa az összesített mappák listájából</string>
+    <string name="title_advanced_beige_hint">Csak világos témák</string>
     <string name="title_advanced_date_hint">Az üzenetek dátum szerinti csoportosítása csak idő szerinti rendezéskor aktív</string>
     <string name="title_advanced_navbar_colorize_hint">Az hogy ez működik-e az Android verziótól és variánstól függ</string>
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
@@ -705,6 +711,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Áthelyezés</string>
     <string name="title_copy_btn">Másolás</string>
+    <string name="title_keywords_btn">Kulcsszavak</string>
     <string name="title_unsubscribe">Leiratkozás</string>
     <string name="title_message_rule">Szabály létrehozása</string>
     <string name="title_no_junk">Nem levélszemét</string>
@@ -863,6 +870,7 @@
     <string name="title_queued">Üzenet küldése</string>
     <string name="title_queued_at">Az üzenet el lesz küldve körülbelül %1$s -kor</string>
     <string name="title_sign">Aláírás</string>
+    <string name="title_verify">Hitelesítés</string>
     <string name="title_encrypt">Titkosítás</string>
     <string name="title_decrypt">Visszafejtés</string>
     <string name="title_resync">Újraszinkronizálás</string>
@@ -956,6 +964,8 @@
     <string name="title_answer_caption">Sablon szerkesztése</string>
     <string name="title_answer_reply">Válaszsablon</string>
     <string name="title_answer_name">Sablon neve</string>
+    <string name="title_answer_group">Üzenet sablon csoportja (opcionális)</string>
+    <string name="title_answer_standard">Alapértelmezett</string>
     <string name="title_answer_favorite">Kedvenc</string>
     <string name="title_answer_hide">Elrejtés a menüben</string>
     <string name="title_answer_text">Sablon szövege</string>
@@ -1024,8 +1034,8 @@
     <string name="title_legend_section_compose">Levélírás</string>
     <string name="title_legend_section_keyboard">Billentyűzet</string>
     <string name="title_legend_oauth">OAuth hitelesítés</string>
-    <string name="title_legend_primary_connected">Fiók csatlakoztatva</string>
-    <string name="title_legend_primary_disconnected">Fiók leválasztva</string>
+    <string name="title_legend_folder_connected">Mappa csatlakozva</string>
+    <string name="title_legend_folder_disconnected">Mappa lecsatlakozva</string>
     <string name="title_legend_download_on">Üzenetek tartalmának automatikus letöltése</string>
     <string name="title_legend_download_off">Üzenetek tartalmának letöltése amikor szükséges</string>
     <string name="title_legend_synchronize_on">Szinkronizálás bekpacsolva</string>
@@ -1133,6 +1143,8 @@
     <string name="title_hint_sync">Az üzenetek letöltése eltarthat egy ideig, és alapul a szolgáltató sebességén, az internetkapcsolaton, az eszközön és az üzenetek számán. Üzenetek letöltése alatt az alkalmazás lassabban válaszolhat.</string>
     <string name="title_hint_battery">Mivel a FairEmail alapértelmezésből mindig fogad leveleket, az Android mindig aktívként fogja jelenteni. Ezáltal úgy látszódhat hogy a FairEmail mindig fogyaszt energiát habár valójában ez nem így van.</string>
     <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \'Teljes képernyő\' ikonra az üzenetszöveg fölött.</string>
+    <string name="title_hint_design">A megjelenítés független a nyelvi beállításoktól. Számos testreszabási lehetőség áll rendelkezésre, viszont kérjük vegye figyelembe, hogy kivitelezhetetlen minden igényt maradéktalanul kielégíteni.</string>
+    <string name="title_hint_junk">A spam szűrés a levelező szervereken futó erőforrás igényes feladat. Képtelenség hatékonyan kivitelezni egy akkumlátorról üzemelő eszközön.</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
     <string name="title_hint_eml">Ez a nyers üzenetfájl tartalmának összefoglalása. Mentsd a nyers üzenetfájlt a műveletmenü mentés ikonjával a teljes tartalom megtekintéséhez.</string>
     <string name="title_open_link">Link megnyitása</string>
@@ -1215,6 +1227,13 @@
     <string name="title_log">Napló</string>
     <string name="title_auto_scroll">Automatikus görgetés</string>
     <string name="title_log_clear">Törlés</string>
+    <string name="title_rules_search_hint">Név vagy feltétel keresése</string>
+    <string name="title_rules_export">Szabályok exportálása</string>
+    <string name="title_rules_import">Szabályok importálása</string>
+    <string name="title_rules_delete_all">Szabályok törlése</string>
+    <string name="title_rules_delete_junk">Spam szűrő szabályok törlése</string>
+    <string name="title_rules_delete_all_confirm">Biztosan törli az összes szabályt?</string>
+    <string name="title_rules_delete_junk_confirm">Biztosan törli az összes spam szűrési szabályt?</string>
     <string name="title_debug_info">Hibakeresési információ</string>
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>

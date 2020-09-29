@@ -1010,8 +1010,6 @@
     <string name="title_legend_section_compose">撰寫</string>
     <string name="title_legend_section_keyboard">鍵盤</string>
     <string name="title_legend_oauth">OAuth授權</string>
-    <string name="title_legend_primary_connected">帳戶已連接</string>
-    <string name="title_legend_primary_disconnected">帳戶已斷開</string>
     <string name="title_legend_download_on">自動下載郵件內容</string>
     <string name="title_legend_download_off">按需下載消息內容</string>
     <string name="title_legend_synchronize_on">同步</string>

@@ -896,8 +896,6 @@
     <string name="title_legend_section_compose">Sestavi</string>
     <string name="title_legend_section_keyboard">Tipkovnica</string>
     <string name="title_legend_oauth">Overitev OAuth</string>
-    <string name="title_legend_primary_connected">Račun je povezan</string>
-    <string name="title_legend_primary_disconnected">Račun ni povezan</string>
     <string name="title_legend_download_on">Samodejno prejmi vsebino sporočila</string>
     <string name="title_legend_download_off">Vsebino sporočila prejmi na zahtevo</string>
     <string name="title_legend_synchronize_on">Sinhronizacija je vklopljena</string>

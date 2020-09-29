@@ -1034,8 +1034,8 @@
     <string name="title_legend_section_compose">Opstellen</string>
     <string name="title_legend_section_keyboard">Toetsenbord</string>
     <string name="title_legend_oauth">OAuth autorisatie</string>
-    <string name="title_legend_primary_connected">Account verbonden</string>
-    <string name="title_legend_primary_disconnected">Account niet verbonden</string>
+    <string name="title_legend_folder_connected">Map verbonden</string>
+    <string name="title_legend_folder_disconnected">Map losgekoppeld</string>
     <string name="title_legend_download_on">Inhoud van berichten automatisch downloaden</string>
     <string name="title_legend_download_off">Inhoud van berichten op aanvraag downloaden </string>
     <string name="title_legend_synchronize_on">Synchronisatie aan</string>
@@ -1043,7 +1043,7 @@
     <string name="title_legend_disconnected">Verbinding verbroken</string>
     <string name="title_legend_connecting">Verbinding maken</string>
     <string name="title_legend_connected">Verbonden</string>
-    <string name="title_legend_executing">Uitvoering van bewerkingen</string>
+    <string name="title_legend_executing">Bewerkingen uitvoeren</string>
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>
     <string name="title_legend_closing">Sluiten</string>
@@ -1080,7 +1080,7 @@
     <string name="title_legend_answered">Is beantwoord</string>
     <string name="title_legend_forwarded">Is doorgestuurd</string>
     <string name="title_legend_plain_only">Is alleen platte tekst</string>
-    <string name="title_legend_receipt">Ontvangstbevestiging werd gevraagd</string>
+    <string name="title_legend_receipt">Ontvangstbevestiging gevraagd</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>
     <string name="title_legend_flagged">Is favoriet</string>
     <string name="title_legend_contacts">Contacten beheren</string>

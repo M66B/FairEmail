@@ -801,8 +801,6 @@
     <string name="title_legend_section_messages">Poruke</string>
     <string name="title_legend_section_compose">Sastavi</string>
     <string name="title_legend_oauth">OAuth autorizacija</string>
-    <string name="title_legend_primary_connected">Račun povezan</string>
-    <string name="title_legend_primary_disconnected">Račun nepovezan</string>
     <string name="title_legend_download_on">Automatski preuzeti sadržaj poruke</string>
     <string name="title_legend_download_off">Preuzmite sadržaj poruke na zahtjev</string>
     <string name="title_legend_synchronize_on">Sinkronizacija aktivna</string>

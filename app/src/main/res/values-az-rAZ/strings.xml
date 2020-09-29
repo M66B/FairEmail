@@ -351,8 +351,6 @@
     <string name="title_rule_regex">Müntəzəm ifadə</string>
     <string name="title_rule_and">VƏ</string>
     <string name="title_rule_action">Hərəkət</string>
-    <string name="title_legend_primary_connected">Hesab bağlantısı quruldu</string>
-    <string name="title_legend_primary_disconnected">Hesab bağlantısı kəsildi</string>
     <string name="title_legend_download_on">Mesaj məzmununu avtomatik endir</string>
     <string name="title_legend_download_off">Tələb olunan mesaj məzmununu endirin </string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>

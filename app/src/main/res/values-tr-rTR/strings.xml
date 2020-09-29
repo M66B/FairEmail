@@ -932,8 +932,6 @@
     <string name="title_legend_section_compose">Eposta Oluştur</string>
     <string name="title_legend_section_keyboard">Klavye</string>
     <string name="title_legend_oauth">OAuth yetkilendirmesi</string>
-    <string name="title_legend_primary_connected">Hesap bağlantısı kuruldu</string>
-    <string name="title_legend_primary_disconnected">Hesap bağlantısı kesildi</string>
     <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>
     <string name="title_legend_download_off">İleti içeriğini istendiğinde indir</string>
     <string name="title_legend_synchronize_on">Eşzamanlama açık</string>

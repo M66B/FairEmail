@@ -1034,8 +1034,6 @@
     <string name="title_legend_section_compose">Escrever</string>
     <string name="title_legend_section_keyboard">Teclado</string>
     <string name="title_legend_oauth">Autorização OAuth</string>
-    <string name="title_legend_primary_connected">Conta conectada</string>
-    <string name="title_legend_primary_disconnected">Conta desconectada</string>
     <string name="title_legend_download_on">Baixar conteúdo de mensagem automaticamente</string>
     <string name="title_legend_download_off">Baixar conteúdo da mensagem sob demanda </string>
     <string name="title_legend_synchronize_on">Sincronização ligada</string>

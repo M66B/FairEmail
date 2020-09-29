@@ -628,7 +628,9 @@ Private keys are stored by Android and can be imported via the Android advanced 
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+Az alkalmazás támogat az RSA-n kívül számos más aláíráshoz használható algoritmust is, azonban kérjük vegye figyelembe, hogy ezeket nem minden Levelező kliens alkalmazás képes értelmezni. A titkosításhoz csak szimmertikus algoritmus használható, általában a legeelterjettebb ezek közül az RSA algoritmus.
+
+Az alapértelemzett titkosítási algoritmus a PGP. Amennyiben viszont mást választ, az lesz az alapértelmezett a kiválasztott levelezési fiókhoz. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 

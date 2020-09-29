@@ -1057,8 +1057,8 @@
     <string name="title_legend_section_compose">Написание</string>
     <string name="title_legend_section_keyboard">Клавиатура</string>
     <string name="title_legend_oauth">OAuth-авторизация</string>
-    <string name="title_legend_primary_connected">Учётная запись подключена</string>
-    <string name="title_legend_primary_disconnected">Учётная запись отключена</string>
+    <string name="title_legend_folder_connected">Папка подключена</string>
+    <string name="title_legend_folder_disconnected">Папка отключена</string>
     <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>
     <string name="title_legend_download_off">Загружать содержимое сообщения по требованию</string>
     <string name="title_legend_synchronize_on">Синхронизация включена</string>

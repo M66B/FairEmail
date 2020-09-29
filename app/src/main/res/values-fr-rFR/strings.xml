@@ -1035,8 +1035,6 @@
     <string name="title_legend_section_compose">Rédaction</string>
     <string name="title_legend_section_keyboard">Clavier</string>
     <string name="title_legend_oauth">Autorisation OAuth</string>
-    <string name="title_legend_primary_connected">Compte connecté</string>
-    <string name="title_legend_primary_disconnected">Compte déconnecté</string>
     <string name="title_legend_download_on">Télécharger le contenu des messages automatiquement</string>
     <string name="title_legend_download_off">Télécharger le contenu des messages sur demande</string>
     <string name="title_legend_synchronize_on">Synchronisation activée</string>

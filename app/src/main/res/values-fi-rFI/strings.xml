@@ -1031,8 +1031,6 @@
     <string name="title_legend_section_compose">Viestien kirjoitus</string>
     <string name="title_legend_section_keyboard">Näppäimistö</string>
     <string name="title_legend_oauth">OAuth-valtuutus</string>
-    <string name="title_legend_primary_connected">Tili yhdistetty</string>
-    <string name="title_legend_primary_disconnected">Yhteys tiliin katkaistu</string>
     <string name="title_legend_download_on">Lataa viestien sisältö automaattisesti</string>
     <string name="title_legend_download_off">Lataa viestien sisältö pyydettäessä </string>
     <string name="title_legend_synchronize_on">Synkronointi käytössä</string>

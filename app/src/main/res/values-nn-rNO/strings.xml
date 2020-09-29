@@ -863,8 +863,6 @@
     <string name="title_legend_section_compose">Skriv</string>
     <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth autorisasjon</string>
-    <string name="title_legend_primary_connected">Konto tilkoblet</string>
-    <string name="title_legend_primary_disconnected">Konto frakoblet</string>
     <string name="title_legend_download_on">Last ned meldingsinnhold automatisk</string>
     <string name="title_legend_download_off">Last ned meldingsinnhold på forespørsel </string>
     <string name="title_legend_synchronize_on">Synkroniser nå</string>

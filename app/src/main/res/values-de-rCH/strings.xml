@@ -1033,8 +1033,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_section_compose">Verfassen</string>
     <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth-Autorisierung</string>
-    <string name="title_legend_primary_connected">Konto verbunden</string>
-    <string name="title_legend_primary_disconnected">Konto getrennt</string>
+    <string name="title_legend_folder_connected">Ordner verbunden</string>
+    <string name="title_legend_folder_disconnected">Ordner getrennt</string>
     <string name="title_legend_download_on">Nachrichteninhalt automatisch herunterladen</string>
     <string name="title_legend_download_off">Nachrichteninhalt bei Bedarf herunterladen </string>
     <string name="title_legend_synchronize_on">Synchronisierung an</string>
@@ -1142,8 +1142,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie auf das Symbol „Original anzeigen“ über dem Nachrichtentext.</string>
-    <string name="title_hint_design">Das Design ist absichtlich nicht ablenkend, sondern sehr funktional gehalten. Es gibt viele Optionen, um das Aussehen individuell anzupassen, aber bitte verstehen Sie, dass es unmöglich ist, alle Nutzer gleichzeitig vollkommen glücklich zu machen.</string>
-    <string name="title_hint_junk">Spam-Filterung sollte vom E-Mail-Server durchgeführt werden und kann nicht zuverlässig auf einem batteriebetriebenen Gerät mit eingeschränkten Möglichkeiten durchgeführt werden.</string>
+    <string name="title_hint_design">Das Design ist absichtlich nicht ablenkend, sondern sehr funktional gehalten. Es gibt viele Optionen, um das Aussehen individuell anzupassen, aber bitte verstehen Sie, dass es unmöglich ist, alle Nutzer gleichermaßen vollkommen glücklich zu machen.</string>
+    <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem batteriebetriebenen Gerät mit begrenzten Fähigkeiten nicht zuverlässig durchgeführt werden.</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_eml">Das ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichernsymbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>

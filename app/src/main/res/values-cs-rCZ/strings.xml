@@ -1057,8 +1057,6 @@
     <string name="title_legend_section_compose">Psaní zprávy</string>
     <string name="title_legend_section_keyboard">Klávesnice</string>
     <string name="title_legend_oauth">OAuth autorizace</string>
-    <string name="title_legend_primary_connected">Účet připojen</string>
-    <string name="title_legend_primary_disconnected">Účet odpojen</string>
     <string name="title_legend_download_on">Stáhnout obsah zprávy automaticky</string>
     <string name="title_legend_download_off">Stáhnout obsah zprávy na vyžádání</string>
     <string name="title_legend_synchronize_on">Synchronizace zapnuta</string>

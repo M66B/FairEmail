@@ -1056,8 +1056,6 @@
     <string name="title_legend_section_compose">Napisz</string>
     <string name="title_legend_section_keyboard">Klawiatura</string>
     <string name="title_legend_oauth">Autoryzacja OAuth</string>
-    <string name="title_legend_primary_connected">Konto połączone</string>
-    <string name="title_legend_primary_disconnected">Konto rozłączone</string>
     <string name="title_legend_download_on">Automatycznie pobierz zawartość wiadomości</string>
     <string name="title_legend_download_off">Pobierz treść wiadomości na żądanie </string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
