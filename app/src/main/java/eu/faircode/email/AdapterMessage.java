@@ -1371,6 +1371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean pro = ActivityBilling.isPro(context);
             boolean flagged = (message.count - message.unflagged) > 0;
             int color = (message.color == null || !pro ? colorAccent : message.color);
+            int tint = (flagged ? color : textColorSecondary);
 
             if (!Objects.equals(ibFlagged.getTag(), flagged)) {
                 ibFlagged.setTag(flagged);
@@ -1378,8 +1379,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ColorStateList csl = ibFlagged.getImageTintList();
-            if (csl == null || csl.getColorForState(new int[0], 0) != color)
-                ibFlagged.setImageTintList(ColorStateList.valueOf(flagged ? color : textColorSecondary));
+            if (csl == null || csl.getColorForState(new int[0], 0) != tint)
+                ibFlagged.setImageTintList(ColorStateList.valueOf(tint));
 
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
