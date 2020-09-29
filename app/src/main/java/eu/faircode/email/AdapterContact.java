@@ -147,7 +147,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     : Helper.getRelativeTimeSpanString(context, contact.last_contacted));
 
             ivFavorite.setImageResource(contact.state == EntityContact.STATE_FAVORITE
-                    ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
+                    ? R.drawable.baseline_star_24 : R.drawable.twotone_star_border_24);
             ivFavorite.setImageTintList(ColorStateList.valueOf(
                     contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
             ivFavorite.setContentDescription(contact.state == EntityContact.STATE_FAVORITE

@@ -1948,7 +1948,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 icon = (message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
-                icon = (message.ui_flagged ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
+                icon = (message.ui_flagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.twotone_timelapse_24 : R.drawable.twotone_timer_off_24);
             else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
@@ -3924,7 +3924,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
         ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
-        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
+        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
         ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
         ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);

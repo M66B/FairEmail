@@ -205,7 +205,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@id/paddingEnd"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
-        app:srcCompat="@drawable/twotone_star_24" />
+        app:srcCompat="@drawable/baseline_star_24" />
 
     <ImageView
         android:id="@+id/ivType"

@@ -3879,7 +3879,7 @@ class Core {
                         .putExtra("group", group);
                 PendingIntent piFlag = PendingIntent.getService(context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_star_24,
+                        R.drawable.baseline_star_24,
                         context.getString(R.string.title_advanced_notify_action_flag),
                         piFlag)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_THUMBS_UP)

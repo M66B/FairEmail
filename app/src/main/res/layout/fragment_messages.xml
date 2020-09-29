@@ -259,7 +259,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
                 app:layout_constraintEnd_toStartOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
-                app:srcCompat="@drawable/twotone_star_24" />
+                app:srcCompat="@drawable/baseline_star_24" />
 
             <ImageButton
                 android:id="@+id/ibSnoozed"

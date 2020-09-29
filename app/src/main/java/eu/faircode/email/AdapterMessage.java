@@ -1374,7 +1374,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (!Objects.equals(ibFlagged.getTag(), flagged)) {
                 ibFlagged.setTag(flagged);
-                ibFlagged.setImageResource(flagged ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
+                ibFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.twotone_star_border_24);
             }
 
             ColorStateList csl = ibFlagged.getImageTintList();
