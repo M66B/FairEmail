@@ -1369,15 +1369,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindFlagged(TupleMessageEx message, boolean expanded) {
             boolean pro = ActivityBilling.isPro(context);
-            int flagged = (message.count - message.unflagged);
+            boolean flagged = (message.count - message.unflagged) > 0;
             int color = (message.color == null || !pro ? colorAccent : message.color);
 
-            ibFlagged.setImageResource(flagged > 0 ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
-            ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
+            if (!Objects.equals(ibFlagged.getTag(), flagged)) {
+                ibFlagged.setTag(flagged);
+                ibFlagged.setImageResource(flagged ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
+            }
+
+            ColorStateList csl = ibFlagged.getImageTintList();
+            if (csl == null || csl.getColorForState(new int[0], 0) != color)
+                ibFlagged.setImageTintList(ColorStateList.valueOf(flagged ? color : textColorSecondary));
+
             ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             card.setCardBackgroundColor(
-                    flags_background && flagged > 0 && !expanded
+                    flags_background && flagged && !expanded
                             ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
 
             if (flags)
