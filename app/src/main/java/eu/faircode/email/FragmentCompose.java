@@ -4029,7 +4029,7 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(data.draft.revision < data.draft.revisions);
 
             if (args.getBoolean("incomplete"))
-                Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG)
                         .setGestureInsetBottomIgnored(true).show();
 
             DB db = DB.getInstance(getContext());
