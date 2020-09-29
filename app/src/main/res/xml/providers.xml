@@ -236,6 +236,19 @@
             starttls="true" />
     </provider>
     <provider
+        name="Gandi"
+        domain="gandi.net"
+        link="https://docs.gandi.net/en/gandimail/standard_email_settings/"
+        <imap
+            host="mail.gandi.net"
+            port="993"
+            starttls="true" />
+        <smtp
+              host="mail.gandi.net"
+              port="587"
+              starttls="true" />
+    </provider>
+    <provider
         name="gmx.com"
         domain="gmx\\.com,gmx\\.us"
         keepalive="12"
