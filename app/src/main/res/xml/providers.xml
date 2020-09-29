@@ -968,4 +968,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Gandi"
+        link="https://docs.gandi.net/en/gandimail/standard_email_settings/">
+        <imap
+            host="mail.gandi.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.gandi.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
