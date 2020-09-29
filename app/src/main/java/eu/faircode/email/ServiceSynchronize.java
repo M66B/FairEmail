@@ -111,15 +111,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int OPTIMIZE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 32; // seconds (totally ~1 minutes)
-    private static final int CONNECT_BACKOFF_AlARM_START = 15; // minutes
-    private static final int CONNECT_BACKOFF_AlARM_MAX = 60; // minutes
+    private static final int CONNECT_BACKOFF_ALARM_START = 15; // minutes
+    private static final int CONNECT_BACKOFF_ALARM_MAX = 60; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long FAST_ERROR_TIME = 6 * 60 * 1000L; // milliseconds
     private static final int FAST_ERROR_COUNT = 3;
-    private static final int FAST_ERROR_BACKOFF = CONNECT_BACKOFF_AlARM_START * 2;
+    private static final int FAST_ERROR_BACKOFF = CONNECT_BACKOFF_ALARM_START;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -1710,8 +1710,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (backoff < CONNECT_BACKOFF_MAX)
                             state.setBackoff(backoff * 2);
                         else if (backoff == CONNECT_BACKOFF_MAX)
-                            state.setBackoff(CONNECT_BACKOFF_AlARM_START * 60);
-                        else if (backoff < CONNECT_BACKOFF_AlARM_MAX * 60)
+                            state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
+                        else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
                             state.setBackoff(backoff * 2);
                     }
                 }
