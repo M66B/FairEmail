@@ -174,7 +174,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivJunk"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimary"

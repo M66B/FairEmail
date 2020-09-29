@@ -90,6 +90,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivAvatar"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

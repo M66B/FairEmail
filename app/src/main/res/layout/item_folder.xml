@@ -246,7 +246,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/tvKeywords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvKeywords"
-                app:srcCompat="@drawable/baseline_star_24" />
+                app:srcCompat="@drawable/twotone_star_24" />
 
             <eu.faircode.email.FixedTextView
                 android:id="@+id/tvError"

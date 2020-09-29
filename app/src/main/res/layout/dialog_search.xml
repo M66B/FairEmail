@@ -72,7 +72,7 @@
             android:tooltipText="@string/title_search_flag_flagged"
             app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/baseline_star_24" />
+            app:srcCompat="@drawable/twotone_star_24" />
 
         <ImageButton
             android:id="@+id/ibInfo"
