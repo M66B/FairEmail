@@ -71,7 +71,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
+        EntityLog.log(this, "Activity create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
         Intent intent = getIntent();
         if (intent != null) {
             Log.i(intent.toString());
@@ -92,7 +92,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#configuration_changes
             int uiMode = getResources().getConfiguration().uiMode;
             boolean night = ((uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES);
-            Log.i("theme=" + theme + " UI mode=" + uiMode + " night=" + night);
+            EntityLog.log(this, "Activity theme=" + theme + " UI mode=" + uiMode + " night=" + night);
 
             switch (theme) {
                 // Light
