@@ -224,6 +224,13 @@ public class FragmentOAuth extends FragmentBase {
                     throw new IllegalArgumentException(getString(R.string.title_no_email));
                 if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
+
+                String e = email.toLowerCase();
+                if (e.contains("@outlook") ||
+                        e.contains("@live") ||
+                        e.contains("@hotmail") ||
+                        e.contains("@msn"))
+                    throw new IllegalArgumentException(getString(R.string.title_setup_office_remark));
             }
 
             etName.setEnabled(false);
