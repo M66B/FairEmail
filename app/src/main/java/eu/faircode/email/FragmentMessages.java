@@ -4835,24 +4835,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message.ui_unsnoozed)
                         db.message().setMessageUnsnoozed(message.id, false);
 
+                    if (!account.auto_seen && !message.ui_ignored) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean notify_remove = prefs.getBoolean("notify_remove", true);
+                        if (notify_remove)
+                            db.message().setMessageUiIgnored(message.id, true);
+                    }
+
                     if (account.protocol != EntityAccount.TYPE_IMAP) {
                         if (!message.ui_seen && account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
+                        if (!folder.read_only && account.auto_seen) {
+                            int ops = db.operation().getOperationCount(message.folder, message.id, EntityOperation.SEEN);
+                            if (!message.seen || ops > 0)
+                                EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                        }
+
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
-
-                        if (!folder.read_only)
-                            if (account.auto_seen) {
-                                int ops = db.operation().getOperationCount(message.folder, message.id, EntityOperation.SEEN);
-                                if (!message.seen || ops > 0)
-                                    EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                            } else {
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                boolean notify_remove = prefs.getBoolean("notify_remove", true);
-                                if (notify_remove && !message.ui_ignored)
-                                    db.message().setMessageUiIgnored(message.id, true);
-                            }
                     }
 
                     db.setTransactionSuccessful();
