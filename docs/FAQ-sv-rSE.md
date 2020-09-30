@@ -1,6 +1,6 @@
-# FairEmail support
+# FairEmail Support
 
-Om du har en fråga, vänligen kontrollera de vanliga frågorna nedan först. Längst ner kan du ta reda på hur du ställer andra frågor, begär funktioner och rapporterar buggar.
+Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. Längst ner kan du ta reda på hur du ställer andra frågor, begär funktioner och rapporterar buggar.
 
 ## Index
 
@@ -77,6 +77,7 @@ Relaterade frågor:
 * Att bläddra till en internt länkad plats i originalmeddelanden fungerar inte. Detta kan inte rättas till eftersom den ursprungliga meddelandevyn finns i en rullande vy.
 * En förhandsvisning av ett meddelande visas inte (alltid) på Samsung klockor eftersom [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) verkar ignoreras. Meddelanden är kända för att visas korrekt på Pebble 2, Fitbit Charge 3 och Mi band 3 wearables. Se även [denna FAQ](#user-content-faq126).
 * En [bugg i Android 6.0](https://issuetracker.google.com/issues/37068143) orsakar en krasch med *... Ogiltig offset: ... Giltigt intervall är ...* när text är markerad och knackar utanför den valda texten. Detta fel har rättats i Android 6.0.1.
+* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 
 ## Planerade funktioner
 
@@ -231,7 +232,7 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(112) Vilken e-postleverantör rekommenderar du?](#user-content-faq112)
 * [(113) Hur fungerar biometrisk autentisering?](#user-content-faq113)
 * [(114) Kan du lägga till en import för inställningarna för andra e-postappar?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
+* [(115) Kan du lägga till e-postadresschips?](#user-content-faq115)
 * [~~(116) Hur kan jag visa bilder i meddelanden från betrodda avsändare som standard?~~](#user-content-faq116)
 * [(117) Kan du hjälpa mig att återställa mitt köp?](#user-content-faq117)
 * [(118) Vad gör "Ta bort spårningsparametrar" exakt?](#user-content-faq118)
@@ -272,7 +273,7 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(153) Varför fungerar inte det att permanent radera Gmail-meddelandet?](#user-content-faq153)
 * [~~(154) Kan du lägga till favicons som kontaktbilder?~~](#user-content-faq154)
 * [(155) Vad är en winmail.dat fil?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
+* [(156) Hur kan jag ställa in ett Office 365-konto?](#user-content-faq156)
 * [(157) Hur kan jag sätta upp ett Free.fr-konto?](#user-content-faq157)
 * [(158) Vilken kamera / ljudinspelare rekommenderar du?](#user-content-faq158)
 * [(159) Vad är Disconnect's spårningsskyddslistor?](#user-content-faq159)
@@ -291,11 +292,11 @@ Följande Android-behörigheter behövs:
 * *förhindra enheten från att sova* (WAKE_LOCK): för att hålla enheten vaken vid synkronisering av meddelanden
 * *i-app fakturering* (BILLING): för att tillåta i-app köp
 * Valfritt: *läs dina kontakter* (READ_CONTACTS): för att automatiskt fylla på adresser och för att visa foton
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Valfritt: *läs innehållet på ditt SD-kort* (READ_EXTERNAL_STORAGE): för att acceptera filer från andra, ej uppdaterade appar, se även [denna FAQ](#user-content-faq49)
+* Valfritt: *använd maskinvara för fingeravtryck* (USE_FINGERPRINT) och använd *biometrisk hårdvara* (USE_BIOMETRIC): för att använda biometrisk autentisering
+* Valfritt: *hitta konton på enheten* (GET_ACCOUNTS): för att välja ett konto när du använder Gmail snabbinställning
+* Android 5. Lollipop och tidigare: *använda konton på enheten* (USE_CREDENTIALS): för att välja ett konto när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
+* Android 5. Lollipop och tidigare: *Läs profil* (READ_PROFILE): för att läsa ditt namn när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
 
 [Valfria behörigheter](https://developer.android.com/training/permissions/requesting) stöds endast på Android 6 Marshmallow och senare. På tidigare Android-versioner kommer du att bli ombedd att bevilja de valfria behörigheterna vid installation av FairEmail.
 
@@ -318,23 +319,23 @@ Följande behörigheter behövs för att visa antalet olästa meddelanden som et
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail kommer att skapa en lista över adresser som du tar emot meddelanden från och skickar meddelanden till och kommer att använda denna lista för kontaktförslag när inga kontaktbehörigheter beviljas till FairEmail. Detta innebär att du kan använda FairEmail utan tillgång till Android-kontakter (adressbok). Observera att du fortfarande kan välja kontakter utan att ge FairEmail tillåtelse att läsa kontakter, endast föreslå kontakter fungerar inte utan behörigheter för kontakter.
 
 <br />
 
 <a name="faq2"></a>
 **(2) Varför visas en permanent avisering?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+En avisering med låg prioritet permanent statusfält med antalet konton som övervakas och antalet pågående åtgärder (se nästa fråga) visas för att förhindra Android från att döda tjänsten som tar hand om kontinuerligt mottagande e-post. Detta var [redan nödvändigt](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), men med införandet av [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) i Android 6 Marshmallow är detta mer än någonsin nödvändigt. Doze mode kommer att stoppa alla appar när skärmen är avstängd under en tid, om inte appen startade en förgrundstjänst, vilket kräver att en statusfältsnotis visas.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+De flesta, om inte alla, andra e-postappar visar inte en avisering med "sidoeffekter" att nya meddelanden ofta inte eller är sena att rapporteras och att meddelanden inte eller är sena att skickas.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android visar ikoner med hög prioritet statusfältet meddelanden först och kommer att dölja ikonen för FairEmail's aviseringar om det inte finns något utrymme att visa ikoner längre. I praktiken innebär detta att aviseringen i statusfältet inte tar plats i statusfältet, om det inte finns utrymme tillgängligt.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Aviseringen i statusfältet kan inaktiveras via inställningarna för FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 8 Oreo och senare: tryck på *Receive channel* -knappen och inaktivera kanalen via Android-inställningarna (detta kommer inte att inaktivera nya meddelanden)
+* Android 7 Nougat och tidigare: aktiverat *Använd bakgrundstjänst för att synkronisera meddelanden*, men se till att läsa anmärkningen under inställningen
 
 You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
@@ -1213,7 +1214,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 

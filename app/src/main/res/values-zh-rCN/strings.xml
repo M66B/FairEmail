@@ -647,7 +647,7 @@
     <string name="title_folder_drafts">草稿箱</string>
     <string name="title_folder_trash">回收站</string>
     <string name="title_folder_junk">垃圾邮件</string>
-    <string name="title_folder_sent">已发送邮件</string>
+    <string name="title_folder_sent">已发送</string>
     <string name="title_folder_system">系统</string>
     <string name="title_folder_user">用户</string>
     <string name="title_folder_user_only">仅用户文件夹</string>

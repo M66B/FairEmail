@@ -77,6 +77,7 @@ Verwandte Fragen:
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
 * Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3” und „Mi Band 3” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
 * Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Ungültiger Offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
+* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 
 ## Geplante Funktionen
 
@@ -126,10 +127,10 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(5) Wie kann ich die Nachrichtenansicht anpassen?](#user-content-faq5)
 * [(6) Wie kann ich mich bei Gmail / G Suite anmelden?](#user-content-faq6)
 * [(7) Warum werden gesendete Nachrichten nicht (direkt) im Gesendet-Ordner angezeigt?](#user-content-faq7)
-* [(8) Kann ich ein Microsoft Exchange-Konto verwenden?](#user-content-faq8)
+* [(8) Kann ich ein Microsoft-Exchange-Konto verwenden?](#user-content-faq8)
 * [(9) Was sind Identitäten / Wie füge ich einen Alias hinzu?](#user-content-faq9)
 * [~~(11) Warum wird POP nicht unterstützt?~~](#user-content-faq11)
-* [~~(10) Was bedeutet "UIDPLUS nicht unterstützt"?~~](#user-content-faq10)
+* [~~(10) Was bedeutet »UIDPLUS nicht unterstützt«?~~](#user-content-faq10)
 * [(12) Wie funktioniert die Ver- und Entschlüsselung?](#user-content-faq12)
 * [(13) Wie funktioniert die Suche auf dem Gerät bzw. auf den Servern?](#user-content-faq13)
 * [(14) Wie kann ich ein Outlook-/Live-/Hotmail-Konto einrichten?](#user-content-faq14)
@@ -140,7 +141,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(19) Warum sind die Pro-Funktionen so teuer?](#user-content-faq19)
 * [(20) Kann ich eine Rückerstattung erhalten?](#user-content-faq20)
 * [(21) Wie aktiviere ich das Benachrichtigungslicht?](#user-content-faq21)
-* [(22) Was bedeutet ein Konto-/Ordnerfehler ... ?](#user-content-faq22)
+* [(22) Was bedeutet ein Konto-/Ordnerfehler …?](#user-content-faq22)
 * [(23) Warum bekomme ich einen Alarm? ?](#user-content-faq23)
 * [(24) Was bedeutet das Anzeigen / Suchen von Nachrichten auf dem Server?](#user-content-faq24)
 * [(25) Warum kann ich ein Bild, einen Anhang oder eine Datei nicht auswählen, öffnen oder speichern?](#user-content-faq25)
@@ -170,7 +171,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(50) Kann man eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
 * [(51) Wie werden die Ordner sortiert?](#user-content-faq51)
 * [(52) Wieso dauert es so lange Zeit, um sich wieder mit einem Konto zu verbinden?](#user-content-faq52)
-* [(53) Kann ich die Aktionsleiste nach oben/unten verlagern?](#user-content-faq53)
+* [(53) Können Sie die Aktionsleiste nach oben/unten verlagern?](#user-content-faq53)
 * [~~(54) Wie benutze ich ein Namensraumpräfix?~~](#user-content-faq54)
 * [(55) Wie kann ich alle Nachrichten als gelesen markieren, verschieben oder löschen?](#user-content-faq55)
 * [(56) Können Sie Unterstützung für JMAP hinzufügen?](#user-content-faq56)
@@ -181,15 +182,15 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(61) Warum werden einige Nachrichten verdunkelt angezeigt?](#user-content-faq61)
 * [(62) Welche Authentifizierungsmethoden werden unterstützt?](#user-content-faq62)
 * [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
-* [~~(64) Kann man benutzerdefinierte Aktionen zum Links/Rechts-Wischen hinzufügen?~~](#user-content-faq64)
+* [~~(64) Kann man benutzerdefinierte Aktionen zum Links-/Rechtswischen hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
 * [(66) Gibt es FairMail in der Google Play Familienmediathek?](#user-content-faq66)
 * [(67) Wie kann ich Konversationen stumm schalten?](#user-content-faq67)
 * [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
-* [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben scrollen«?](#user-content-faq69)
+* [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben rollen«?](#user-content-faq69)
 * [(70) Wann werden Nachrichten automatisch erweitert?](#user-content-faq70)
 * [(71) Wie verwende ich Filterregeln?](#user-content-faq71)
-* [(72) Was sind Primärkonten/Identitäten?](#user-content-faq72)
+* [(72) Was sind Hauptkonten/-identitäten?](#user-content-faq72)
 * [(73) Ist das Verschieben von Nachrichten zwischen verschiedenen Konten sicher/effizient?](#user-content-faq73)
 * [(74) Wieso sehe ich Nachrichten doppelt?](#user-content-faq74)
 * [(75) Können Sie eine iOS-, Windows-, Linux- usw. Version erstellen?](#user-content-faq75)
@@ -213,7 +214,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Nachrichtenkopfes?](#user-content-faq94)
 * [(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?](#user-content-faq95)
 * [(96) Wo finde ich die IMAP- und SMTP-Einstellungen?](#user-content-faq96)
-* [(97) Was ist "Aufräumen" ?](#user-content-faq97)
+* [(97) Was ist »Bereinigen« ?](#user-content-faq97)
 * [(98) Warum kann ich immer noch Kontakte auswählen, nachdem ich Kontaktberechtigungen entzogen habe?](#user-content-faq98)
 * [(99) Gibt es einen Rich-Text- oder Markdown-Editor?](#user-content-faq99)
 * [(100) Wie kann ich Google Mail-Kategorien synchronisieren?](#user-content-faq100)
@@ -225,57 +226,57 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(106) Welche Launcher können die Anzahl der ungelesenen Nachrichten als Plakette anzeigen?](#user-content-faq106)
 * [(107) Wie verwende ich farbige Sterne?](#user-content-faq107)
 * [(108) Kann man Nachrichten aus beliebigen Ordnern dauerhaft löschen?](#user-content-faq108)
-* [~~(109) Warum ist 'Konto auswählen' nur in offiziellen Versionen verfügbar?~~](#user-content-faq109)
+* [~~(109) Warum ist »Konto auswählen« nur in offiziellen Versionen verfügbar?~~](#user-content-faq109)
 * [(110) Warum sind (einige) Nachrichten leer und/oder Anhänge beschädigt?](#user-content-faq110)
 * [(111) Wird OAuth unterstützt?](#user-content-faq111)
 * [(112) Welchen E-Mail-Provider empfehlen Sie?](#user-content-faq112)
 * [(113) Wie funktioniert die biometrische Authentifizierung?](#user-content-faq113)
 * [(114) Kann man die Einstellungen anderer E-Mail-Apps importieren?](#user-content-faq114)
 * [(115) Können E-Mail-Adressen-Chips hinzufügt werden?](#user-content-faq115)
-* [(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~](#user-content-faq116)
+* [~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen? ~~](#user-content-faq116)
 * [Können Sie mir helfen, meinen Kauf wiederherzustellen?](#user-content-faq117)
 * [(118) Was bedeutet »Nachverfolgungsparameter entfernen« genau?](#user-content-faq118)
-* [(119) Können Sie dem Sammeleingang-Widget für Post Farben hinzufügen?](#user-content-faq119)
+* [~~(119) Können Sie Farben dem Sammeleingangs-Widget hinzufügen?~~](#user-content-faq119)
 * [(120) Warum werden neue Nachrichten beim Öffnen der App nicht entfernt?](#user-content-faq120)
 * [(121) Wie werden Nachrichten zu einer Konversation gruppiert?](#user-content-faq121)
 * [~~(122) Warum wird Empfängername/E-Mail-Adresse mit einer Warnfarbe angezeigt?~~](#user-content-faq122)
 * [(123) Was geschieht, wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann?](#user-content-faq123)
-* [(124) Warum erhalte ich den Hinweis 'Nachricht zu groß oder zu komplex, um sie anzuzeigen'?](#user-content-faq124)
+* [(124) Warum erhalte ich den Hinweis »Nachricht zu groß oder zu komplex, um sie anzuzeigen«?](#user-content-faq124)
 * [(125) Was sind die aktuellen experimentellen Eigenschaften?](#user-content-faq125)
 * [(126) Können Nachrichtenvorschauen an mein Wearable gesendet werden?](#user-content-faq126)
-* [(127) Wie kann ich den Fehler 'Syntaktisch ungültige HELO-Argumente(n)' beheben?](#user-content-faq127)
+* [(127) Wie kann ich den Fehler »Syntaktisch ungültige HELO-Argumente« beheben?](#user-content-faq127)
 * [(128) Wie kann ich die gestellten Fragen zurücksetzen, zum Beispiel um Bilder zu zeigen?](#user-content-faq128)
 * [(129) Wird ProtonMail, Tutanota unterstützt?](#user-content-faq129)
-* [(130) Was bedeutet die Meldung 'Fehler ...'?](#user-content-faq130)
+* [(130) Was bedeutet die Meldung »Fehler …«?](#user-content-faq130)
 * [(131) Kann man die Richtung für das Wischen für vorherige/nächste Nachricht ändern?](#user-content-faq131)
 * [(132) Warum sind Benachrichtigungen für neue Nachrichten stumm?](#user-content-faq132)
 * [(133) Warum wird ActiveSync nicht unterstützt?](#user-content-faq133)
 * [(134) Wie kann ich Nachrichten nur in der App löschen?](#user-content-faq134)
 * [(135) Warum werden gelöschte Nachrichten oder Entwürfe in Konversationen angezeigt?](#user-content-faq135)
 * [(136) Wie kann ich ein Konto/Identität/Ordner löschen?](#user-content-faq136)
-* [(137) Wie kann ich 'Nicht erneut fragen' zurücksetzen?](#user-content-faq137)
+* [(137) Wie kann ich »Nicht erneut fragen« zurücksetzen?](#user-content-faq137)
 * [(138) Gibt es die Funktionen Kalender/Kontaktmanagement/Synchronisation?](#user-content-faq138)
-* [(139) Wie behebe ich 'Benutzer ist angemeldet, aber nicht verbunden'?](#user-content-faq139)
+* [(139) Wie behebe ich »Benutzer ist angemeldet, aber nicht verbunden«?](#user-content-faq139)
 * [(140) Warum enthält der Nachrichtentext seltsame Zeichen?](#user-content-faq140)
-* [(141) Wie kann ich 'Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden' beheben?](#user-content-faq141)
+* [(141) Wie kann ich »Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden« beheben?](#user-content-faq141)
 * [(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?](#user-content-faq142)
 * [~~(143) Gibt es einen Papierkorb für POP3-Konten? ~~](#user-content-faq143)
 * [(144) Wie kann ich Sprachnotizen aufnehmen?](#user-content-faq144)
 * [(145) Wie kann ich einen Benachrichtigungston für ein Konto, einen Ordner oder einen Absender festlegen?](#user-content-faq145)
 * [(146) Wie kann ich falsche Zeiten von Nachrichten beheben?](#user-content-faq146)
 * [(147) Was sollte ich über Drittanbieter-Versionen wissen?](#user-content-faq147)
-* [(148) Wie kann ich ein Apple iCloud-Konto verwenden?](#user-content-faq148)
+* [(148) Wie kann ich ein Apple-iCloud-Konto verwenden?](#user-content-faq148)
 * [(149) Wie funktioniert das Widget für ungelesene Nachrichten?](#user-content-faq149)
 * [(150) Gibt es eine Möglichkeit zum Ablehnen von Kalendereinladungen?](#user-content-faq150)
 * [(151) Gibt es eine Datensicherung/Wiederherstellung von Nachrichten?](#user-content-faq151)
 * [(152) Wie kann ich eine Kontaktgruppe einfügen?](#user-content-faq152)
-* [(153) Warum funktioniert das dauerhafte Löschen von Google Mail-Nachrichten nicht?](#user-content-faq153)
+* [(153) Warum funktioniert das dauerhafte Löschen von Gmail-Nachrichten nicht?](#user-content-faq153)
 * [~~(154) Kann man Favicons als Kontaktfotos verwenden?~~](#user-content-faq154)
 * [(155) Was ist eine winmail.dat-Datei?](#user-content-faq155)
 * [(156) Wie kann ich ein Office365-Konto einrichten?](#user-content-faq156)
 * [(157) Wie kann ich ein Free.fr-Konto einrichten?](#user-content-faq157)
 * [(158) Welche/r Kamera/Audiorekorder ist empfehlenswert?](#user-content-faq158)
-* [(159) Was sind Disconnect Trackingschutz-Listen?](#user-content-faq159)
+* [(159) Was sind Disconnects Tracker-Schutzlisten?](#user-content-faq159)
 
 [Ich habe eine weitere Frage.](#user-content-support)
 
@@ -747,9 +748,9 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Warum werden Nachrichten nicht synchronisiert?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Mögliche Ursachen dafür, dass Nachrichten nicht synchronisiert (gesendet oder empfangen) werden, sind:
 
 * Konto oder Ordner(e) sind nicht zum Synchronisieren gesetzt
 * Die Anzahl der Tage, für die die Nachricht synchronisiert werden soll, ist zu niedrig gesetzt
@@ -757,13 +758,13 @@ Possible causes of messages not being synchronized (sent or received) are:
 * Der E-Mail-Server ist vorübergehend nicht verfügbar
 * Android hat die Synchronisation gestoppt
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Überprüfen Sie also Ihre Konto- und Ordnereinstellungen und überprüfen Sie, ob die Konten/Ordner verbunden sind (siehe die Legende in der Navigation zur Bedeutung der Symbole).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+Wenn es irgendwelche Fehlermeldungen gibt, lesen Sie bitte [diese FAQ](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+Auf einigen Geräten, wo es viele Anwendungen gibt, die um Speicher konkurrieren, kann Android den Synchronisierungsdienst als letzte Möglichkeit stoppen.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Einige Android-Versionen stoppen Apps und Dienste zu aggressiv. Siehe [diese spezielle Webseite](https://dontkillmyapp.com/) und [dieses Android-Problem](https://issuetracker.google.com/issues/122098785) für weitere Informationen.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
@@ -786,16 +787,16 @@ The preview of the message text cannot be shown if the message body has not been
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Warum sind die Pro-Funktionen so teuer?**
 
-The right question is "*why are there so many taxes and fees?*":
+Die richtige Frage ist: "*Warum gibt es so viele Steuern und Gebühren?*":
 
 * MwSt.: 25 % (je nach Land)
 * Google-Gebühr: 30 %
 * Einkommenssteuer: 50 %
 * <sub>PayPal-Gebühr: 5-10 % abhängig vom Land/Betrag</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Was also für den Entwickler übrig bleibt, ist nur ein Bruchteil dessen, was Sie bezahlen.
 
 Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
 
@@ -1213,7 +1214,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
