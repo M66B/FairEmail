@@ -987,7 +987,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             swBlack.setEnabled(colored && !grey && optionId != R.id.rbThemeLight);
 
-            tvSystem.setEnabled(rgThemeOptions.isEnabled() && optionId == R.id.rbThemeSystem);
+            tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
         }
 
         @NonNull
@@ -1122,9 +1122,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
                             ContactInfo.clearCache(getContext());
 
+                            int optionId = rgThemeOptions.getCheckedRadioButtonId();
                             boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
-                            boolean dark = (rgThemeOptions.isEnabled() && rgThemeOptions.getCheckedRadioButtonId() == R.id.rbThemeDark);
-                            boolean system = (rgThemeOptions.isEnabled() && rgThemeOptions.getCheckedRadioButtonId() == R.id.rbThemeSystem);
+                            boolean dark = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeDark);
+                            boolean system = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeSystem);
                             boolean black = (swBlack.isEnabled() && swBlack.isChecked());
 
                             switch (rgTheme.getCheckedRadioButtonId()) {
