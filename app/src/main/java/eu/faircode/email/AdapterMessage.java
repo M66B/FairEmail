@@ -966,7 +966,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCount.setTypeface(typeface);
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : colorRead);
-            if (tvFrom.getTag() == null || (int) tvFrom.getTag() != colorUnseen) {
+            if (!Objects.equals(tvFrom.getTag(), colorUnseen)) {
                 tvFrom.setTag(colorUnseen);
                 tvFrom.setTextColor(colorUnseen);
                 tvSize.setTextColor(colorUnseen);
@@ -977,14 +977,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int colorBackground =
                     (message.accountColor == null || !ActivityBilling.isPro(context)
                             ? colorSeparator : message.accountColor);
-            if (vwColor.getTag() == null || (int) vwColor.getTag() != colorBackground) {
+            if (!Objects.equals(vwColor.getTag() == null, colorBackground)) {
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
             vwColor.setVisibility(color_stripe ? View.VISIBLE : View.GONE);
 
             // Expander
-            if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
+            if (!Objects.equals(ibExpander.getTag(), expanded)) {
                 ibExpander.setTag(expanded);
                 ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
             }
@@ -1051,16 +1051,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType))) ||
                     viewType == ViewType.SEARCH
                     ? View.VISIBLE : View.GONE);
-            if (ivType.getTag() == null || (int) ivType.getTag() != icon) {
+            if (!Objects.equals(ivType.getTag(), icon)) {
                 ivType.setTag(icon);
                 ivType.setImageResource(icon);
             }
 
             ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
 
-            ibSnoozed.setImageResource(
-                    message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
-                            ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_timelapse_24);
+            int snoozy = (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
+                    ? R.drawable.twotone_visibility_off_24
+                    : R.drawable.twotone_timelapse_24);
+            if (!Objects.equals(ibSnoozed.getTag(), snoozy)) {
+                ibSnoozed.setTag(snoozy);
+                ibSnoozed.setImageResource(snoozy);
+            }
             if (message.ui_unsnoozed)
                 ibSnoozed.setColorFilter(colorAccent);
             else
@@ -1114,7 +1118,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Message text preview
             int textColor = (contrast ? textColorPrimary : textColorSecondary);
-            if (tvPreview.getTag() == null || (int) tvPreview.getTag() != textColor) {
+            if (!Objects.equals(tvPreview.getTag(), textColor)) {
                 tvPreview.setTag(textColor);
                 tvPreview.setTextColor(textColor);
                 if (preview_lines == 1)
