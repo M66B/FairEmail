@@ -966,24 +966,28 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         private ImageButton itten;
         private RadioGroup rgTheme;
         private SwitchCompat swReverse;
-        private SwitchCompat swDark;
+        private RadioGroup rgThemeOptions;
         private SwitchCompat swBlack;
-        private SwitchCompat swSystem;
         private TextView tvSystem;
 
         private void eval() {
             int checkedId = rgTheme.getCheckedRadioButtonId();
-
-            boolean colored = (checkedId == R.id.rbThemeBlueOrange ||
+            boolean grey = (checkedId == R.id.rbThemeGrey);
+            boolean colored = (grey ||
+                    checkedId == R.id.rbThemeBlueOrange ||
                     checkedId == R.id.rbThemeYellowPurple ||
                     checkedId == R.id.rbThemeRedGreen);
-            boolean dark = (colored || checkedId == R.id.rbThemeGrey);
+            int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
-            swReverse.setEnabled(colored);
-            swDark.setEnabled(dark);
-            swBlack.setEnabled(colored && swDark.isChecked());
-            swSystem.setEnabled(dark && (!swDark.isChecked() || (swBlack.isEnabled() && swBlack.isChecked())));
-            tvSystem.setEnabled(swSystem.isEnabled() && swSystem.isChecked());
+            swReverse.setEnabled(colored && !grey);
+
+            rgThemeOptions.setEnabled(colored);
+            for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
+                rgThemeOptions.getChildAt(i).setEnabled(colored);
+
+            swBlack.setEnabled(colored && !grey && optionId != R.id.rbThemeLight);
+
+            tvSystem.setEnabled(rgThemeOptions.isEnabled() && optionId == R.id.rbThemeSystem);
         }
 
         @NonNull
@@ -993,9 +997,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             itten = dview.findViewById(R.id.itten);
             rgTheme = dview.findViewById(R.id.rgTheme);
             swReverse = dview.findViewById(R.id.swReverse);
-            swDark = dview.findViewById(R.id.swDark);
+            rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
             swBlack = dview.findViewById(R.id.swBlack);
-            swSystem = dview.findViewById(R.id.swSystem);
             tvSystem = dview.findViewById(R.id.tvSystem);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -1009,6 +1012,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 }
             });
 
+            rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    eval();
+                }
+            });
+
             swReverse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -1016,9 +1026,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 }
             });
 
-            swDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            rgThemeOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
                     eval();
                 }
             });
@@ -1030,32 +1040,24 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 }
             });
 
-            swSystem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    eval();
-                }
-            });
-
-            rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    eval();
-                }
-            });
-
-            boolean colored =
+            boolean reversed =
                     (theme.startsWith("orange_blue") ||
                             theme.startsWith("purple_yellow") ||
                             theme.startsWith("green_red"));
             boolean dark = theme.endsWith("dark");
-            boolean black = (!"black".equals(theme) && theme.endsWith("black"));
             boolean system = (theme.endsWith("system") || theme.endsWith("system_black"));
+            boolean black = (!"black".equals(theme) && theme.endsWith("black"));
 
-            swReverse.setChecked(colored);
-            swDark.setChecked(dark || black);
+            swReverse.setChecked(reversed);
+
+            if (dark)
+                rgThemeOptions.check(R.id.rbThemeDark);
+            else if (system)
+                rgThemeOptions.check(R.id.rbThemeSystem);
+            else
+                rgThemeOptions.check(R.id.rbThemeLight);
+
             swBlack.setChecked(black);
-            swSystem.setChecked(system);
 
             switch (theme) {
                 case "light":
@@ -1121,9 +1123,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             ContactInfo.clearCache(getContext());
 
                             boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
-                            boolean dark = (swDark.isEnabled() && swDark.isChecked());
+                            boolean dark = (rgThemeOptions.isEnabled() && rgThemeOptions.getCheckedRadioButtonId() == R.id.rbThemeDark);
+                            boolean system = (rgThemeOptions.isEnabled() && rgThemeOptions.getCheckedRadioButtonId() == R.id.rbThemeSystem);
                             boolean black = (swBlack.isEnabled() && swBlack.isChecked());
-                            boolean system = (swSystem.isEnabled() && swSystem.isChecked());
 
                             switch (rgTheme.getCheckedRadioButtonId()) {
                                 case R.id.rbThemeBlueOrange:

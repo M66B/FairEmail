@@ -99,15 +99,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rgTheme" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swDark"
+        <RadioGroup
+            android:id="@+id/rgThemeOptions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_theme_dark"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swReverse" />
+            app:layout_constraintTop_toBottomOf="@id/swReverse">
+
+            <RadioButton
+                android:id="@+id/rbThemeLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_light"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_dark"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeSystem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_system"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </RadioGroup>
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBlack"
@@ -117,17 +142,7 @@
             android:text="@string/title_setup_theme_black_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDark" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSystem"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_setup_theme_system"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swBlack" />
+            app:layout_constraintTop_toBottomOf="@id/rgThemeOptions" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSystem"
@@ -138,6 +153,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSystem" />
+            app:layout_constraintTop_toBottomOf="@id/swBlack" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
