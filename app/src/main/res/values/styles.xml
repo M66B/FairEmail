@@ -131,8 +131,6 @@
 
         <item name="colorUnreadHighlight">@color/lightBlueAccent</item>
 
-        <item name="colorWarning">@color/lightBlueAccent</item>
-
         <item name="colorFabBackground">@color/lightBlueAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
@@ -210,8 +208,6 @@
 
         <item name="colorUnreadHighlight">@color/darkAmberAccent</item>
 
-        <item name="colorWarning">@color/darkAmberAccent</item>
-
         <item name="colorFabBackground">@color/darkAmberAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
@@ -224,8 +220,6 @@
         <item name="colorAccent">@color/darkBlueAccent</item>
 
         <item name="colorUnreadHighlight">@color/darkBlueAccent</item>
-
-        <item name="colorWarning">@color/darkBlueAccent</item>
 
         <item name="colorFabBackground">@color/darkBlueAccent</item>
 
