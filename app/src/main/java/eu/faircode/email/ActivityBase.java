@@ -33,6 +33,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -508,6 +509,33 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     at androidx.core.view.KeyEventDispatcher.dispatchKeyEvent(SourceFile:84)
                     at androidx.core.app.ComponentActivity.dispatchKeyEvent(SourceFile:140)
                     at androidx.appcompat.app.AppCompatActivity.dispatchKeyEvent(SourceFile:559)
+             */
+            return false;
+        }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        try {
+            return super.onTouchEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IllegalArgumentException: pointerIndex out of range
+                        at android.view.MotionEvent.nativeGetAxisValue(MotionEvent.java:-2)
+                        at android.view.MotionEvent.getX(MotionEvent.java:2379)
+                        at androidx.viewpager.widget.ViewPager.onTouchEvent(SourceFile:2259)
+                        at android.view.View.dispatchTouchEvent(View.java:14002)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3136)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2820)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3142)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2834)
+                        at com.android.internal.policy.DecorView.superDispatchTouchEvent(DecorView.java:495)
+                        at com.android.internal.policy.PhoneWindow.superDispatchTouchEvent(PhoneWindow.java:1868)
+                        at android.app.Activity.dispatchTouchEvent(Activity.java:4022)
+                        at androidx.appcompat.view.WindowCallbackWrapper.dispatchTouchEvent(SourceFile:69)
+                        at com.android.internal.policy.DecorView.dispatchTouchEvent(DecorView.java:453)
+                        at android.view.View.dispatchPointerEvent(View.java:14261)
              */
             return false;
         }
