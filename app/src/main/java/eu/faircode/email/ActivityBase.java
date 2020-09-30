@@ -71,12 +71,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        EntityLog.log(this, "Activity create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
+        EntityLog.log(this, "Activity create " + this.getClass().getName() +
+                " version=" + BuildConfig.VERSION_NAME);
         Intent intent = getIntent();
-        if (intent != null) {
-            Log.i(intent.toString());
-            Log.logBundle(intent.getExtras());
-        }
+        if (intent != null)
+            EntityLog.log(this, intent +
+                    " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
 
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
