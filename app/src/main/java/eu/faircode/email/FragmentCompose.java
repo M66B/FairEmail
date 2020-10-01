@@ -4993,7 +4993,7 @@ public class FragmentCompose extends FragmentBase {
                     bodyBuilder.setSpan(q,
                             bodyBuilder.getSpanStart(quoteSpan),
                             bodyBuilder.getSpanEnd(quoteSpan),
-                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            bodyBuilder.getSpanFlags(quoteSpan));
                     bodyBuilder.removeSpan(quoteSpan);
                 }
 
