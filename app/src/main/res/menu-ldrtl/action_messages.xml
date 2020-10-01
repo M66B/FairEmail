@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/action_next"
-        android:icon="@drawable/twotone_navigate_next_24"
+        android:icon="@drawable/twotone_play_arrow_24"
         android:title="@string/title_next" />
 
     <item
@@ -23,6 +23,6 @@
 
     <item
         android:id="@+id/action_prev"
-        android:icon="@drawable/twotone_navigate_before_24"
+        android:icon="@drawable/twotone_play_arrow_back_24"
         android:title="@string/title_previous" />
 </menu>
