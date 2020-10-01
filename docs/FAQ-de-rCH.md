@@ -77,7 +77,7 @@ Verwandte Fragen:
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
 * Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3” und „Mi Band 3” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
 * Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Ungültiger Offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Interne (Anker-)Links funktionieren nicht, da die Originalnachrichten in einer eingebetteten Web-Ansicht in einer scrollenden Ansicht (der Konversationsliste) angezeigt werden. Dies ist eine Einschränkung von Android, die nicht behoben oder umgangen werden kann.
 
 ## Geplante Funktionen
 
@@ -892,6 +892,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * Das Limit für die Größe von Anhängen für Yahoo [beträgt 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service nicht verfügbar; Client Host xxx.xxx.xxx.xxx blockiert*, bitte [hier schauen](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntaxfehler — Zeile zu lang* wird oft durch die Verwendung von langen Autocrypt-Kopfzeilen verursacht
+* *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 
 **Gmail errors**
 
@@ -1214,7 +1215,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL oder TLSV1_ALERT_PROTOCOL_VERSION ...*' kann durch das Aktivieren von abgehärteten Verbindungen in den Verbindungseinstellungen verursacht werden oder durch Android, das ältere Protokolle, wie SSLv3, nicht mehr unterstützt.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
@@ -1223,17 +1224,17 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <br />
 
 <a name="faq42"></a>
-**(42) Can you add a new provider to the list of providers?**
+**(42) Könne Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?**
 
-If the provider is used by more than a few people, yes, with pleasure.
+Wenn der Anbieter von mehr als ein paar Leuten benutzt wird, ja, mit Freude.
 
-The following information is needed:
+Folgende Informationen werden benötigt:
 
 ```
 <provider
     name="Gmail"
     link="https://support.google.com/mail/answer/7126229" // link to the instructions of the provider
-    type="com.google"> // this is not needed
+    type="com.google"> // das wird nicht benötigt
     <imap
         host="imap.gmail.com"
         port="993"
@@ -1245,13 +1246,13 @@ The following information is needed:
 </provider>
 ```
 
-The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
+Das EFF [schreibt](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Zusätzlich, auch wenn Sie STARTTLS perfekt konfigurieren und ein gültiges Zertifikat verwenden, gibt es noch keine Garantie dafür, dass Ihre Kommunikation verschlüsselt wird.*"
 
-So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
+Also sind reine SSL-Verbindungen sicherer als die Verwendung von [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) und daher bevorzugt.
 
-Please make sure receiving and sending messages works properly before contacting me to add a provider.
+Bitte stellen Sie sicher, dass das Empfangen und Senden von Nachrichten richtig funktioniert, bevor Sie mich kontaktieren, um einen Anbieter hinzuzufügen.
 
-See below about how to contact me.
+Sehen Sie weiter unten wie Sie mich kontaktieren können.
 
 <br />
 

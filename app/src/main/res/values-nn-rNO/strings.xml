@@ -207,8 +207,8 @@
     <string name="title_setup_theme_black_and_white">Svart og hvit</string>
     <string name="title_setup_theme_reverse">Omvendte farger</string>
     <string name="title_setup_theme_dark">Mørk</string>
-    <string name="title_setup_theme_black_background">Svart bakgrunn</string>
     <string name="title_setup_theme_system">Følg systemet</string>
+    <string name="title_setup_theme_black_background">Svart bakgrunn</string>
     <string name="title_setup_theme_system_hint">Følgende system temaer vil automatisk bytte til lys/mørk på dag/natt, hvis det støttes av Android</string>
     <string name="title_setup_advanced">Avansert</string>
     <string name="title_setup_options">Alternativer</string>

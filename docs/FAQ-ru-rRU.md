@@ -77,7 +77,7 @@
 * Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. Это не может быть исправлено, потому что исходный вид сообщения содержится в прокрутке.
 * Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Известно, что текст предварительного просмотра сообщений правильно отображаются на экране Pebble 2, Fitbit Charge 3 и Mi band 3. См. также [этот FAQ](#user-content-faq126).
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Внутренние (якорные) ссылки не будут работать, потому что оригинальные сообщения отображаются во встроенном WebView в виде прокрутки (список разговоров). Это ограничение Android, которое не может быть исправлено или обойдено.
 
 ## Запланированные возможности
 
@@ -892,6 +892,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Синтаксическая ошибка - строка слишком длинная* часто вызвана длинным заголовком Autocrypt
+* *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 
 **Gmail errors**
 
@@ -1214,7 +1215,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL или TLSV1_ALERT_PROTOCOL_VERSION ...*' может быть вызвано включением усиленных соединений в настройках подключения или тем, что Android больше не поддерживают устаревшие протоколы, например SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 

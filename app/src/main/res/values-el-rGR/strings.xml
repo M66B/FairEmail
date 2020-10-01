@@ -138,6 +138,7 @@
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>
     <string name="title_setup_gmail_drafts">Αν ο φάκελος με τα πρόχειρα δεν είναι διαθέσιμος μέσω IMAP, αυτό μπορεί να διορθωθεί στις ρυθμίσεις ετικετών του Gmail</string>
+    <string name="title_setup_office_remark">Η Microsoft δεν προσφέρει τέτοιου είδους ταυτοποίηση για λογαριασμούς Outlook, Live, Hotmail, κλπ.</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
     <string name="title_setup_oauth_authorize">Έγκριση</string>
@@ -205,9 +206,10 @@
     <string name="title_setup_theme_black">Μαύρο</string>
     <string name="title_setup_theme_black_and_white">Ασπρόμαυρο</string>
     <string name="title_setup_theme_reverse">Αντιστροφή χρωμάτων</string>
+    <string name="title_setup_theme_light">Φωτεινό</string>
     <string name="title_setup_theme_dark">Σκούρο</string>
-    <string name="title_setup_theme_black_background">Μαύρο φόντο</string>
     <string name="title_setup_theme_system">Σύμφωνα με το σύστημα</string>
+    <string name="title_setup_theme_black_background">Μαύρο φόντο</string>
     <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκοτεινό θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
     <string name="title_setup_advanced">Για προχωρημένους</string>
     <string name="title_setup_options">Επιλογές</string>

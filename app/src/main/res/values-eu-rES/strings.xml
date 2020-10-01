@@ -183,8 +183,8 @@
     <string name="title_setup_theme_black">Beltza</string>
     <string name="title_setup_theme_reverse">Alderantzizkatu koloreak</string>
     <string name="title_setup_theme_dark">Iluna</string>
-    <string name="title_setup_theme_black_background">Atzeko plano beltza</string>
     <string name="title_setup_theme_system">Jarraitu sistema</string>
+    <string name="title_setup_theme_black_background">Atzeko plano beltza</string>
     <string name="title_setup_theme_system_hint">Jarraitu sistemako azala automatikoki txandakatuko ditu argia eta iluna eguna eta gauaren arabera, Androidek onartzen duenean</string>
     <string name="title_setup_advanced">Aurreratua</string>
     <string name="title_setup_options">Aukerak</string>

@@ -192,8 +192,8 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_theme_black_and_white">Hitam dan Putih</string>
     <string name="title_setup_theme_reverse">Tukar warna</string>
     <string name="title_setup_theme_dark">Gelap</string>
-    <string name="title_setup_theme_black_background">Latar belakang hitam</string>
     <string name="title_setup_theme_system">Ikuti setelan sistem</string>
+    <string name="title_setup_theme_black_background">Latar belakang hitam</string>
     <string name="title_setup_theme_system_hint">Ini secara otomatis akan beralih ke tema terang/gelap pada siang/malam hari, jika didukung oleh Android.</string>
     <string name="title_setup_advanced">Tingkat Lanjut</string>
     <string name="title_setup_options">Opsi</string>

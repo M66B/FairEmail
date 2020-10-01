@@ -191,8 +191,8 @@
     <string name="title_setup_theme_black">سیاه</string>
     <string name="title_setup_theme_reverse">تعویض رنگ‌ها</string>
     <string name="title_setup_theme_dark">تیره</string>
-    <string name="title_setup_theme_black_background">زمینه سیاه</string>
     <string name="title_setup_theme_system">همسان سیستم</string>
+    <string name="title_setup_theme_black_background">زمینه سیاه</string>
     <string name="title_setup_theme_system_hint">به‌صورت خودکار در حالت روز/شب به پوسته روشن/تاریک تغییر خواهد یافت، اگر توسط اندورید پشتیبانی شود</string>
     <string name="title_setup_advanced">پیشرفته</string>
     <string name="title_setup_options">گزینه‌ها</string>

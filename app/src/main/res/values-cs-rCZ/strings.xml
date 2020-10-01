@@ -161,6 +161,7 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
+    <string name="title_setup_office_remark">Microsoft tento typ autorizace neposkytuje pro účty Outlook, Live, Hotmail, atd.</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
@@ -228,9 +229,10 @@
     <string name="title_setup_theme_black">Černý</string>
     <string name="title_setup_theme_black_and_white">Černobílý</string>
     <string name="title_setup_theme_reverse">Prohodit barvy</string>
+    <string name="title_setup_theme_light">Světlý</string>
     <string name="title_setup_theme_dark">Tmavý</string>
-    <string name="title_setup_theme_black_background">Černé pozadí</string>
     <string name="title_setup_theme_system">Podle systému</string>
+    <string name="title_setup_theme_black_background">Černé pozadí</string>
     <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv „podle systému“ se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
@@ -1057,6 +1059,8 @@
     <string name="title_legend_section_compose">Psaní zprávy</string>
     <string name="title_legend_section_keyboard">Klávesnice</string>
     <string name="title_legend_oauth">OAuth autorizace</string>
+    <string name="title_legend_folder_connected">Složka připojena</string>
+    <string name="title_legend_folder_disconnected">Složka odpojena</string>
     <string name="title_legend_download_on">Stáhnout obsah zprávy automaticky</string>
     <string name="title_legend_download_off">Stáhnout obsah zprávy na vyžádání</string>
     <string name="title_legend_synchronize_on">Synchronizace zapnuta</string>
@@ -1165,6 +1169,7 @@
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
     <string name="title_hint_design">Design záměrně není rozptylující, nýbrž je udržován vysoce funkčním. Pro přizpůsobení vzhledu je zde mnoho nastavení, avšak prosím pochopte, že není možné každého zároveň kompletně uspokojit.</string>
+    <string name="title_hint_junk">Filtrování nevyžádané pošty by měl zprostředkovávat e-mailový server, neb na baterií napájeném zařízení s omezenými prostředky jej nelze provádět spolehlivě.</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Pro zobrazení celého obsahu uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí.</string>
     <string name="title_open_link">Otevřít odkaz</string>

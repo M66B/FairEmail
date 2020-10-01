@@ -139,6 +139,7 @@
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_drafts">Er kladdermappen ikke er tilgængelig med IMAP, kan dette rettes i Gmail-etiketindstillingerne</string>
+    <string name="title_setup_office_remark">Microsoft tilbyder ikke denne type godkendelse til Outlook-/Live-/Hotmail-/øvrige konti</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_authorize">Godkend</string>
@@ -206,9 +207,10 @@
     <string name="title_setup_theme_black">Sort</string>
     <string name="title_setup_theme_black_and_white">Sort og hvid</string>
     <string name="title_setup_theme_reverse">Omvendte farver</string>
+    <string name="title_setup_theme_light">Lyst</string>
     <string name="title_setup_theme_dark">Mørkt</string>
-    <string name="title_setup_theme_black_background">Sort baggrund</string>
     <string name="title_setup_theme_system">Følg system</string>
+    <string name="title_setup_theme_black_background">Sort baggrund</string>
     <string name="title_setup_theme_system_hint">Følg system skifter automatisk til lyst/mørkt dag/nat, hvis understøttet af Android</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>

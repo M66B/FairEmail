@@ -187,8 +187,8 @@
     <string name="title_setup_theme_black">Черно</string>
     <string name="title_setup_theme_reverse">Обратни цветове</string>
     <string name="title_setup_theme_dark">Тъмна</string>
-    <string name="title_setup_theme_black_background">Черен фон</string>
     <string name="title_setup_theme_system">Използвай системните</string>
+    <string name="title_setup_theme_black_background">Черен фон</string>
     <string name="title_setup_theme_system_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
     <string name="title_setup_advanced">Разширени</string>
     <string name="title_setup_options">Опции</string>

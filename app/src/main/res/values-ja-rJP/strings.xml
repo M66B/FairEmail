@@ -171,8 +171,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_theme_black">ブラック</string>
     <string name="title_setup_theme_reverse">色を反転</string>
     <string name="title_setup_theme_dark">ダーク</string>
-    <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_system">システム設定に従う</string>
+    <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>

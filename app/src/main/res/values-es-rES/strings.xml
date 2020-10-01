@@ -208,8 +208,8 @@
     <string name="title_setup_theme_black_and_white">Blanco y Negro</string>
     <string name="title_setup_theme_reverse">Invertir colores</string>
     <string name="title_setup_theme_dark">Oscuro</string>
-    <string name="title_setup_theme_black_background">Fondo negro</string>
     <string name="title_setup_theme_system">Igual que el sistema</string>
+    <string name="title_setup_theme_black_background">Fondo negro</string>
     <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>

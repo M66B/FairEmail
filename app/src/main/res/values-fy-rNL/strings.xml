@@ -154,8 +154,8 @@
     <string name="title_setup_theme_black">Swart</string>
     <string name="title_setup_theme_reverse">Omkeare kleuren</string>
     <string name="title_setup_theme_dark">Tsjuster</string>
-    <string name="title_setup_theme_black_background">Swarte eftergrûn</string>
     <string name="title_setup_theme_system">Folgje systeem</string>
+    <string name="title_setup_theme_black_background">Swarte eftergrûn</string>
     <string name="title_setup_advanced">Avansearre</string>
     <string name="title_setup_options">Opsjes</string>
     <string name="title_setup_defaults">Standert weromsette</string>

@@ -199,8 +199,8 @@
     <string name="title_setup_theme_black">Črna</string>
     <string name="title_setup_theme_reverse">Obrni barve</string>
     <string name="title_setup_theme_dark">Temno</string>
-    <string name="title_setup_theme_black_background">Črno ozadje</string>
     <string name="title_setup_theme_system">Sledi sistemu</string>
+    <string name="title_setup_theme_black_background">Črno ozadje</string>
     <string name="title_setup_theme_system_hint">\'Sledi sistemu\' bo samodejno preklopilo med svetlo/temno temo podnevi/ponoči, če to podpira Android.</string>
     <string name="title_setup_advanced">Napredno</string>
     <string name="title_setup_options">Možnosti</string>

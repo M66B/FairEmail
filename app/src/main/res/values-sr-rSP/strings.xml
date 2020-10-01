@@ -162,8 +162,8 @@
     <string name="title_setup_biometrics_disable">Искључи</string>
     <string name="title_setup_biometrics_unlock">Откључај</string>
     <string name="title_setup_theme">Одабери тему</string>
-    <string name="title_setup_theme_black_background">Црна позадина</string>
     <string name="title_setup_theme_system">Прати систем</string>
+    <string name="title_setup_theme_black_background">Црна позадина</string>
     <string name="title_setup_advanced">Напредно</string>
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>

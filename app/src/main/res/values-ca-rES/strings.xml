@@ -189,8 +189,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_theme_black">Negre</string>
     <string name="title_setup_theme_reverse">Intercanvia colors</string>
     <string name="title_setup_theme_dark">Fosc</string>
-    <string name="title_setup_theme_black_background">Fons negre</string>
     <string name="title_setup_theme_system">Segueix el sistema</string>
+    <string name="title_setup_theme_black_background">Fons negre</string>
     <string name="title_setup_theme_system_hint">Això canviarà automàticament a un tema clar/fosc en mode dia/nit, si és compatible amb Android</string>
     <string name="title_setup_advanced">Avançat</string>
     <string name="title_setup_options">Opcions</string>

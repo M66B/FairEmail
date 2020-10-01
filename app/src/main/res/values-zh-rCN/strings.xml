@@ -127,6 +127,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
+    <string name="title_setup_office_remark">微软不为 Outlook, Live, Hotmail 等账户提供此类型授权</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_authorize">授权</string>
@@ -194,9 +195,10 @@
     <string name="title_setup_theme_black">黑色</string>
     <string name="title_setup_theme_black_and_white">黑色和白色</string>
     <string name="title_setup_theme_reverse">反色</string>
+    <string name="title_setup_theme_light">浅色</string>
     <string name="title_setup_theme_dark">深色</string>
-    <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_system">跟随系统</string>
+    <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
@@ -554,6 +556,7 @@
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
     <string name="title_email_invalid">电邮地址无效：\'%1$s\'</string>
+    <string name="title_address_duplicate">地址%1$s重复</string>
     <string name="title_address_parse_error">地址 \'%1$s\' 无效: %2$s</string>
     <string name="title_no_account">缺少账户</string>
     <string name="title_no_host">缺少主机名称</string>
@@ -808,6 +811,8 @@
     <string name="title_style_list_numbered">编号列表</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
+    <string name="title_style_blockquote">阻止引用</string>
+    <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_add_image">添加图片</string>
@@ -1024,7 +1029,7 @@
     <string name="title_legend_section_keyboard">键盘</string>
     <string name="title_legend_oauth">OAuth 授权</string>
     <string name="title_legend_folder_connected">文件夹已连接</string>
-    <string name="title_legend_folder_disconnected">已断开和文件夹的连接</string>
+    <string name="title_legend_folder_disconnected">文件夹已断开连接</string>
     <string name="title_legend_download_on">自动下载邮件内容</string>
     <string name="title_legend_download_off">按需下载邮件内容 </string>
     <string name="title_legend_synchronize_on">同步开启</string>

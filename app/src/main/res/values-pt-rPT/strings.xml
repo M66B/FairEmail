@@ -200,8 +200,8 @@
     <string name="title_setup_theme_black">Preto</string>
     <string name="title_setup_theme_reverse">Inverter cores</string>
     <string name="title_setup_theme_dark">Escuro</string>
-    <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_theme_system">Seguir o sistema</string>
+    <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_theme_system_hint">Isto mudará automaticamente para um tema claro/escuro no modo dia/noite, se suportado pelo Android</string>
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_setup_options">Opções</string>

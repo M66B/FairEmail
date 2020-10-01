@@ -160,6 +160,7 @@
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
+    <string name="title_setup_office_remark">Firma Microsoft nie zapewnia tego typu autoryzacji dla kont Outlook, Live, Hotmail itp</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
@@ -227,9 +228,10 @@
     <string name="title_setup_theme_black">Czarny</string>
     <string name="title_setup_theme_black_and_white">Czarno-biały</string>
     <string name="title_setup_theme_reverse">Odwróć kolory</string>
+    <string name="title_setup_theme_light">Jasny</string>
     <string name="title_setup_theme_dark">Ciemny</string>
-    <string name="title_setup_theme_black_background">Czarne tło</string>
     <string name="title_setup_theme_system">Zgodnie z systemem</string>
+    <string name="title_setup_theme_black_background">Czarne tło</string>
     <string name="title_setup_theme_system_hint">Zgodnie z motywem systemu automatycznie przełączy się na jasny/ciemny w dzień/noc, jeśli jest wspierane przez Androida</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
@@ -587,6 +589,7 @@
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
     <string name="title_email_invalid">Niepoprawny adres e-mail: \'%1$s\'</string>
+    <string name="title_address_duplicate">Duplikat adresu \'%1$s\'</string>
     <string name="title_address_parse_error">Adres \'%1$s\' nieprawidłowy: %2$s</string>
     <string name="title_no_account">Brak konta</string>
     <string name="title_no_host">Brak nazwy hosta</string>
@@ -841,6 +844,8 @@
     <string name="title_style_list_numbered">Numerowane</string>
     <string name="title_style_font">Czcionka</string>
     <string name="title_style_font_default">Domyślny</string>
+    <string name="title_style_blockquote">Zablokuj cytat</string>
+    <string name="title_style_strikethrough">Przekreślenie</string>
     <string name="title_style_clear">Wyczyść formatowanie</string>
     <string name="title_style_link">Wstaw link</string>
     <string name="title_add_image">Dodaj obraz</string>
@@ -1056,6 +1061,8 @@
     <string name="title_legend_section_compose">Napisz</string>
     <string name="title_legend_section_keyboard">Klawiatura</string>
     <string name="title_legend_oauth">Autoryzacja OAuth</string>
+    <string name="title_legend_folder_connected">Folder podłączony</string>
+    <string name="title_legend_folder_disconnected">Folder odłączony</string>
     <string name="title_legend_download_on">Automatycznie pobierz zawartość wiadomości</string>
     <string name="title_legend_download_off">Pobierz treść wiadomości na żądanie </string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
@@ -1163,7 +1170,7 @@
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_battery">Ponieważ FairEmail domyślnie zawsze odbiera wiadomości, Android zgłasza, że FairEmail jest zawsze aktywny. Dlatego może się wydawać, że FairEmail ciągle zużywa energię baterii, ale w rzeczywistości tak nie jest.</string>
     <string name="title_hint_reformat">Domyślnie FairEmail przeformatowuje wiadomości ze względu na prywatność i bezpieczeństwo. Aby wyświetlić oryginalną wiadomość, dotknij ikonę \"pełny ekran\" nad tekstem wiadomości.</string>
-    <string name="title_hint_design">Projekt celowo nie jest rozpraszający, ale jest bardzo funkcjonalny. Istnieje wiele opcji dostosowania wyglądu, ale proszę zrozumieć, że nie da się uszczęśliwić wszystkich jednocześnie.</string>
+    <string name="title_hint_design">Projekt celowo nie rozprasza, ale jest bardzo funkcjonalny. Istnieje wiele opcji dostosowania wyglądu, ale proszę zrozumieć, że nie da się uszczęśliwić wszystkich jednocześnie.</string>
     <string name="title_hint_junk">Filtrowanie spamu powinno być wykonywane przez serwer poczty e-mail i nie może być wykonywane niezawodnie na urządzeniu o ograniczonych możliwościach i zasilanym z baterii.</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>

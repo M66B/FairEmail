@@ -206,9 +206,10 @@
     <string name="title_setup_theme_black">Zwart</string>
     <string name="title_setup_theme_black_and_white">Zwart-wit</string>
     <string name="title_setup_theme_reverse">Kleuren omkeren</string>
+    <string name="title_setup_theme_light">Licht</string>
     <string name="title_setup_theme_dark">Donker</string>
-    <string name="title_setup_theme_black_background">Zwarte achtergrond</string>
     <string name="title_setup_theme_system">Volg systeem</string>
+    <string name="title_setup_theme_black_background">Zwarte achtergrond</string>
     <string name="title_setup_theme_system_hint">Systeemthema volgen zal automatisch overschakelen naar lichte/donker bij dag/nacht, indien ondersteund door Android</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>
@@ -566,6 +567,7 @@
     <string name="title_no_name">Naam ontbreekt</string>
     <string name="title_no_email">Email adres ontbreekt</string>
     <string name="title_email_invalid">E-mailadres ongeldig: \'%1$s\'</string>
+    <string name="title_address_duplicate">Adres \'%1$s\' dubbel</string>
     <string name="title_address_parse_error">Adres \'%1$s\' ongeldig: %2$s</string>
     <string name="title_no_account">Account ontbreekt</string>
     <string name="title_no_host">Hostnaam ontbreekt</string>
@@ -820,6 +822,8 @@
     <string name="title_style_list_numbered">Nummers</string>
     <string name="title_style_font">Lettertype</string>
     <string name="title_style_font_default">Standaard</string>
+    <string name="title_style_blockquote">Blokcitaat</string>
+    <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>
     <string name="title_add_image">Afbeelding toevoegen</string>

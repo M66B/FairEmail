@@ -161,6 +161,7 @@
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
+    <string name="title_setup_office_remark">Microsoft не предоставляет такого типа авторизации для Outlook, Live, Hotmail и т.п. аккаунтов</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
@@ -228,9 +229,10 @@
     <string name="title_setup_theme_black">Чёрная</string>
     <string name="title_setup_theme_black_and_white">Чёрно-белая</string>
     <string name="title_setup_theme_reverse">Инвертировать цвета</string>
+    <string name="title_setup_theme_light">Светлая</string>
     <string name="title_setup_theme_dark">Тёмная</string>
-    <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_system">Системная</string>
+    <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_system_hint">Системная тема автоматически переключится на светлую или тёмную в зависимости от времени суток, если поддерживается Android</string>
     <string name="title_setup_advanced">Дополнительные настройки</string>
     <string name="title_setup_options">Параметры</string>
@@ -588,6 +590,7 @@
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>
+    <string name="title_address_duplicate">Адрес \"%1$s\" дублируется</string>
     <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
     <string name="title_no_account">Отсутствует учётная запись</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
@@ -842,6 +845,8 @@
     <string name="title_style_list_numbered">Нумерованный</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">По умолчанию</string>
+    <string name="title_style_blockquote">Блок цитаты</string>
+    <string name="title_style_strikethrough">Зачёркнутый</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
     <string name="title_add_image">Добавить изображение</string>

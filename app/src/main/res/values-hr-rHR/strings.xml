@@ -193,8 +193,8 @@
     <string name="title_setup_theme_black">Crno</string>
     <string name="title_setup_theme_reverse">Preokreni boje</string>
     <string name="title_setup_theme_dark">Tamno</string>
-    <string name="title_setup_theme_black_background">Crna pozadina</string>
     <string name="title_setup_theme_system">Slijedi sustav</string>
+    <string name="title_setup_theme_black_background">Crna pozadina</string>
     <string name="title_setup_theme_system_hint">Slijediti temu sustava automatski će se prebacivati na svijetlo / tamno danju / noću, ako Android to podržava</string>
     <string name="title_setup_advanced">Napredno</string>
     <string name="title_setup_options">Opcije</string>

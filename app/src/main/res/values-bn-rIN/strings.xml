@@ -15,6 +15,7 @@
     <string name="channel_error">ত্রুটি</string>
     <string name="channel_alert">সার্ভার বিজ্ঞপ্তি</string>
     <string name="channel_group_contacts">যোগাযোগ</string>
+    <string name="channel_send_description">বার্তাসমূহ প্রেরণ হচ্ছে</string>
     <string name="page_folders">ফোল্ডার</string>
     <string name="page_compose">লেখুন</string>
     <string name="tile_synchronize">সিংক্রোনাইজ হয়েছে</string>

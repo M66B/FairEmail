@@ -139,6 +139,7 @@
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, comporre, inviare e eliminare definitivamente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo esplicito consenso.</string>
     <string name="title_setup_gmail_drafts">Se la cartella bozze non è accessibile da IMAP, questo può essere corretto nelle impostazioni dell\'etichetta Gmail</string>
+    <string name="title_setup_office_remark">Microsoft non fornisce questo tipo di autorizzazione per gli account Outlook, Live, Hotmail, ecc.</string>
     <string name="title_setup_office_auth">L\'errore «AUTENTICA fallita» può essere causato dalla disattivazione di IMAP/SMTP da parte dell\'amministratore di sistema</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
@@ -206,9 +207,10 @@
     <string name="title_setup_theme_black">Nero</string>
     <string name="title_setup_theme_black_and_white">Bianco e nero</string>
     <string name="title_setup_theme_reverse">Inverti colori</string>
+    <string name="title_setup_theme_light">Chiaro</string>
     <string name="title_setup_theme_dark">Scuro</string>
-    <string name="title_setup_theme_black_background">Sfondo nero</string>
     <string name="title_setup_theme_system">Segui il sistema</string>
+    <string name="title_setup_theme_black_background">Sfondo nero</string>
     <string name="title_setup_theme_system_hint">I temi di sistema passeranno automaticamente a chiaro/scuro a seconda sia giorno o notte, se supportato da Android</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_setup_options">Opzioni</string>
@@ -1035,6 +1037,8 @@
     <string name="title_legend_section_compose">Scrivi</string>
     <string name="title_legend_section_keyboard">Tastiera</string>
     <string name="title_legend_oauth">Autorizzazione OAuth</string>
+    <string name="title_legend_folder_connected">Cartella connessa</string>
+    <string name="title_legend_folder_disconnected">Cartella disconnessa</string>
     <string name="title_legend_download_on">Scarica il contenuto del messaggio automaticamente</string>
     <string name="title_legend_download_off">Scarica il contenuto del messaggio su richiesta </string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
@@ -1143,6 +1147,7 @@
     <string name="title_hint_battery">Poiché FairEmail per impostazione predefinita riceve sempre messaggi, Android segnalerà FairEmail come sempre attivo. Potrebbe quindi sembrare che FairEmail utilizzi sempre la carica della batteria, ma in realtà non è così.</string>
     <string name="title_hint_reformat">Per impostazione predefinita, FairEmail formatta i messaggi per motivi di privacy e sicurezza. Per visualizzare il messaggio originale, tocca l\'icona \'schermo intero\' sopra il testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma si prega di capire che è impossibile rendere tutti completamente felici allo stesso tempo.</string>
+    <string name="title_hint_junk">Il filtraggio dello spam dovrebbe essere fatto dal server di posta elettronica e non può essere fatto in modo affidabile su un dispositivo alimentato a batteria con capacità limitate.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>

@@ -200,8 +200,8 @@
     <string name="title_setup_theme_black_and_white">Siyah-beyaz</string>
     <string name="title_setup_theme_reverse">Renkleri ters çevir</string>
     <string name="title_setup_theme_dark">Koyu</string>
-    <string name="title_setup_theme_black_background">Siyah arka plan</string>
     <string name="title_setup_theme_system">Sistem ile aynı</string>
+    <string name="title_setup_theme_black_background">Siyah arka plan</string>
     <string name="title_setup_theme_system_hint">Eğer Android tarafından destekleniyorsa, sistem temasını izleme, gündüz/gece otomatik olarak açık/koyu olarak değişecektir</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>

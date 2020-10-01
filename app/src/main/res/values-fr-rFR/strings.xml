@@ -139,6 +139,7 @@
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier « Brouillons » n’est pas accessible via IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
+    <string name="title_setup_office_remark">Microsoft ne fournit pas ce type d\'autorisation pour les comptes Outlook, Live, Hotmail, etc.</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
@@ -206,9 +207,10 @@
     <string name="title_setup_theme_black">Noir</string>
     <string name="title_setup_theme_black_and_white">Noir et blanc</string>
     <string name="title_setup_theme_reverse">Permuter les couleurs</string>
+    <string name="title_setup_theme_light">Clair</string>
     <string name="title_setup_theme_dark">Sombre</string>
-    <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system">Suivre le mode système</string>
+    <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system_hint">Ceci basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
@@ -566,6 +568,7 @@
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
     <string name="title_email_invalid">Adresse e-mail non valide : \'%1$s\'</string>
+    <string name="title_address_duplicate">Duplication de l\'adresse \'%1$s\'</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' non valide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>
@@ -820,6 +823,8 @@
     <string name="title_style_list_numbered">Numéros</string>
     <string name="title_style_font">Police de caractères</string>
     <string name="title_style_font_default">Par défaut</string>
+    <string name="title_style_blockquote">Bloc de citation</string>
+    <string name="title_style_strikethrough">Barré</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_add_image">Ajouter une image</string>
@@ -1035,6 +1040,8 @@
     <string name="title_legend_section_compose">Rédaction</string>
     <string name="title_legend_section_keyboard">Clavier</string>
     <string name="title_legend_oauth">Autorisation OAuth</string>
+    <string name="title_legend_folder_connected">Dossier connecté</string>
+    <string name="title_legend_folder_disconnected">Dossier déconnecté</string>
     <string name="title_legend_download_on">Télécharger le contenu des messages automatiquement</string>
     <string name="title_legend_download_off">Télécharger le contenu des messages sur demande</string>
     <string name="title_legend_synchronize_on">Synchronisation activée</string>

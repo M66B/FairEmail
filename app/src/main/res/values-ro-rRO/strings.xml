@@ -149,6 +149,7 @@
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
+    <string name="title_setup_office_remark">Microsoft nu suportă acest tip de autorizare pentru conturile Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
@@ -216,9 +217,10 @@
     <string name="title_setup_theme_black">Negru</string>
     <string name="title_setup_theme_black_and_white">Alb și negru</string>
     <string name="title_setup_theme_reverse">Inversează culorile</string>
+    <string name="title_setup_theme_light">Luminoasă</string>
     <string name="title_setup_theme_dark">Întunecată</string>
-    <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_system">Setare sistem</string>
+    <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
@@ -576,6 +578,7 @@
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
     <string name="title_email_invalid">Adresa de e-mail nu este validă: \'%1$s\'</string>
+    <string name="title_address_duplicate">Adresă duplicat \'%1$s\'</string>
     <string name="title_address_parse_error">Adresa \'%1$s\' este invalidă: %2$s</string>
     <string name="title_no_account">Lipsește contul</string>
     <string name="title_no_host">Lipsește numele serverului</string>
@@ -830,6 +833,8 @@
     <string name="title_style_list_numbered">Numere</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Implicit</string>
+    <string name="title_style_blockquote">Bloc citat</string>
+    <string name="title_style_strikethrough">Tăiat</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_add_image">Adăugare imagine</string>
@@ -1045,6 +1050,8 @@
     <string name="title_legend_section_compose">Compune</string>
     <string name="title_legend_section_keyboard">Tastatură</string>
     <string name="title_legend_oauth">Autorizare OAuth</string>
+    <string name="title_legend_folder_connected">Dosar conectat</string>
+    <string name="title_legend_folder_disconnected">Dosar deconectat</string>
     <string name="title_legend_download_on">Descarcă mesajul complet, automat</string>
     <string name="title_legend_download_off">Descarcă mesajul complet, la cerere </string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>

@@ -207,8 +207,8 @@
     <string name="title_setup_theme_black_and_white">Fekete és fehér</string>
     <string name="title_setup_theme_reverse">Színek felcserélése</string>
     <string name="title_setup_theme_dark">Sötét</string>
-    <string name="title_setup_theme_black_background">Fekete háttér</string>
     <string name="title_setup_theme_system">Rendszertéma-követés</string>
+    <string name="title_setup_theme_black_background">Fekete háttér</string>
     <string name="title_setup_theme_system_hint">A rendszertéma-követés automatikusan vált a világos/sötét módok között napszak szerint, ha ezt az Android támogatja</string>
     <string name="title_setup_advanced">Haladó</string>
     <string name="title_setup_options">Opciók</string>

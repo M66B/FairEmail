@@ -892,6 +892,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntax error - line too long* jest często spowodowany użyciem długiego nagłówka Autocrypt
+* *503 5.5.0 Recipient already specified* przeważnie oznacza, że adres jest używany zarówno jako adres DO, jak i DW
 
 **Gmail errors**
 

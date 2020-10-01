@@ -140,7 +140,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner über IMAP nicht zugänglich ist, kann dies in den Gmail Label-Einstellungen korrigiert werden</string>
-    <string name="title_setup_office_remark">Microsoft bietet diese Art der Autorisierung nicht für Outlook, Live, Hotmail, etc.</string>
+    <string name="title_setup_office_remark">Microsoft stellt diese Art der Autorisierung für Outlook-, Live-, Hotmail-Konten usw. nicht zur Verfügung.</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
@@ -208,9 +208,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_theme_black">Schwarz</string>
     <string name="title_setup_theme_black_and_white">Schwarzweiß</string>
     <string name="title_setup_theme_reverse">Farben umkehren</string>
+    <string name="title_setup_theme_light">Hell</string>
     <string name="title_setup_theme_dark">Dunkel</string>
-    <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_system">System-Design</string>
+    <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>

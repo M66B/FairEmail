@@ -194,8 +194,8 @@
     <string name="title_setup_theme_black_and_white">黑與白</string>
     <string name="title_setup_theme_reverse">顏色互換</string>
     <string name="title_setup_theme_dark">深色</string>
-    <string name="title_setup_theme_black_background">全黑背景</string>
     <string name="title_setup_theme_system">依據系統設定</string>
+    <string name="title_setup_theme_black_background">全黑背景</string>
     <string name="title_setup_theme_system_hint">若 Android 支援時將會依據日/夜模式切換亮/暗主題</string>
     <string name="title_setup_advanced">進階</string>
     <string name="title_setup_options">選項</string>

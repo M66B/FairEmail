@@ -77,7 +77,7 @@ Relaterade frågor:
 * Att bläddra till en internt länkad plats i originalmeddelanden fungerar inte. Detta kan inte rättas till eftersom den ursprungliga meddelandevyn finns i en rullande vy.
 * En förhandsvisning av ett meddelande visas inte (alltid) på Samsung klockor eftersom [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) verkar ignoreras. Meddelanden är kända för att visas korrekt på Pebble 2, Fitbit Charge 3 och Mi band 3 wearables. Se även [denna FAQ](#user-content-faq126).
 * En [bugg i Android 6.0](https://issuetracker.google.com/issues/37068143) orsakar en krasch med *... Ogiltig offset: ... Giltigt intervall är ...* när text är markerad och knackar utanför den valda texten. Detta fel har rättats i Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Interna (ankare) länkar kommer inte att fungera eftersom ursprungliga meddelanden visas i en inbäddad WebView i en rullande vy (meddelandelistan). Detta är en Android-begränsning som inte kan lösas eller arbetas runt.
 
 ## Planerade funktioner
 
@@ -892,6 +892,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntax error - line too long* is often caused by using a long Autocrypt header
+* *503 5.5.0 Mottagare som redan angivits* innebär oftast att en adress används både som TO och CC-adress
 
 **Gmail errors**
 
@@ -1214,7 +1215,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL eller TLSV1_ALERT_PROTOCOL_VERSION ...*' kan orsakas av aktivering av härdning av anslutningar i anslutningsinställningarna eller av Android som inte stödjer äldre protokoll längre, som SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 

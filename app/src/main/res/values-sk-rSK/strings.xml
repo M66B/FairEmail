@@ -160,6 +160,7 @@
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
     <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>
     <string name="title_setup_gmail_drafts">Ak nie je priečinok s konceptami dostupný cez protokol IMAP, môžete to vyriešiť v nastaveniach štítkov Gmail</string>
+    <string name="title_setup_office_remark">Microsoft neposkytuje tento typ autorizácie pre účty Outlook, Live, Hotmail a ďalších</string>
     <string name="title_setup_office_auth">Chyba \"OVERENIE zlyhalo\" môže byť zapríčinená zakázanými IMAP/SMTP správcom systému</string>
     <string name="title_setup_oauth_rationale">Autorizovať prístup do vášho %1$s účtu</string>
     <string name="title_setup_oauth_authorize">Autorizovať</string>
@@ -227,9 +228,10 @@
     <string name="title_setup_theme_black">Čierna</string>
     <string name="title_setup_theme_black_and_white">Čierna a biela</string>
     <string name="title_setup_theme_reverse">Prehodiť farby</string>
+    <string name="title_setup_theme_light">Svetlá</string>
     <string name="title_setup_theme_dark">Tmavá</string>
-    <string name="title_setup_theme_black_background">Čierne pozadie</string>
     <string name="title_setup_theme_system">Prispôsobiť sa systému</string>
+    <string name="title_setup_theme_black_background">Čierne pozadie</string>
     <string name="title_setup_theme_system_hint">Táto možnosť automaticky prepne na svetlý alebo tmavý motív podľa toho, či je zariadenie v dennom alebo nočnom režime, ak sú podporované systémom</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
