@@ -115,7 +115,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int CONNECT_BACKOFF_ALARM_MAX = 60; // minutes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
-    private static final int ACCOUNT_ERROR_AFTER_POLL = 3; // times
+    private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long FAST_ERROR_TIME = 6 * 60 * 1000L; // milliseconds
     private static final int FAST_ERROR_COUNT = 3;
