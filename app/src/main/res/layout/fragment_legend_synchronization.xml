@@ -306,7 +306,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloading"
-            app:srcCompat="@drawable/twotone_close_24" />
+            app:srcCompat="@drawable/twotone_cancel_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvClosing"
