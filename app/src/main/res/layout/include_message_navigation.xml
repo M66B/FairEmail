@@ -223,7 +223,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_legend_create_rule"
-        app:srcCompat="@drawable/twotone_rule_24"
+        app:srcCompat="@drawable/twotone_filter_alt_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
