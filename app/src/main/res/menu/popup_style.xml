@@ -64,8 +64,16 @@
     </group>
 
     <group
-        android:id="@+id/group_style_clear"
+        android:id="@+id/group_style_strikethrough"
         android:orderInCategory="6">
+        <item
+            android:id="@+id/menu_style_strikethrough"
+            android:title="@string/title_style_strikethrough" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_clear"
+        android:orderInCategory="7">
         <item
             android:id="@+id/menu_style_clear"
             android:title="@string/title_style_clear" />

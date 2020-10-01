@@ -15,6 +15,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
@@ -122,6 +123,8 @@ public class StyleHelper {
                                         return setFont(item);
                                     case R.id.group_style_blockquote:
                                         return setBlockquote(item);
+                                    case R.id.group_style_strikethrough:
+                                        return setStrikethrough(item);
                                     case R.id.group_style_clear:
                                         return clear(item);
                                     default:
@@ -314,6 +317,22 @@ public class StyleHelper {
                             else
                                 q = new QuoteSpan(colorPrimary, dp3, dp6);
                             t.setSpan(q, s, e, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return true;
+                        }
+
+                        private boolean setStrikethrough(MenuItem item) {
+                            boolean has = false;
+                            for (StrikethroughSpan span : t.getSpans(s, e, StrikethroughSpan.class)) {
+                                has = true;
+                                t.removeSpan(span);
+                            }
+
+                            if (!has)
+                                t.setSpan(new StrikethroughSpan(), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                             etBody.setText(t);
                             etBody.setSelection(s, e);
