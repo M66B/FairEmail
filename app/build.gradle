@@ -194,16 +194,17 @@ dependencies {
 
     def core_version = "1.5.0-alpha03"
     def appcompat_version = "1.3.0-alpha02"
-    def fragment_version = "1.3.0-alpha08"
-    def recyclerview_version = "1.2.0-alpha05"
+    def activity_version = "1.2.0-beta01"
+    def fragment_version = "1.3.0-beta01"
+    def recyclerview_version = "1.2.0-alpha06"
     def coordinatorlayout_version = "1.1.0"
     def constraintlayout_version = "2.0.1" // 2.0.0-beta3
     def material_version = "1.3.0-alpha02" // 1.3.0-alpha01
-    def browser_version = "1.3.0-alpha05"
+    def browser_version = "1.3.0-alpha06"
     def lbm_version = "1.0.0"
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.0.1"
-    def lifecycle_version = "2.3.0-alpha07"
+    def lifecycle_version = "2.3.0-beta01"
     def lifecycle_extensions_version = "2.2.0"
     def sqlite_version = "2.1.0"
     def room_version = "2.2.5" // 2.3.0-alpha02
@@ -211,7 +212,7 @@ dependencies {
     def preference_version = "1.1.1"
     def work_version = "2.5.0-alpha02"
     def exif_version = "1.3.0"
-    def biometric_version = "1.1.0-alpha02" // https://issuetracker.google.com/issues/159983244
+    def biometric_version = "1.1.0-beta01"
     def textclassifier_version = "1.0.0-alpha03"
     def billingclient_version = "3.0.0"
     def javamail_version = "1.6.5"
@@ -238,8 +239,10 @@ dependencies {
     implementation "androidx.core:core:$core_version"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
+    // https://mvnrepository.com/artifact/androidx.activity/activity
     // https://mvnrepository.com/artifact/androidx.fragment/fragment
     implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.fragment:fragment:$fragment_version"
 
     // https://mvnrepository.com/artifact/androidx.viewpager2/viewpager2
