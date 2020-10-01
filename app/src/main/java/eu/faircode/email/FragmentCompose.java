@@ -806,6 +806,11 @@ public class FragmentCompose extends FragmentBase {
         // Initialize
         setHasOptionsMenu(true);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        //boolean beige = prefs.getBoolean("beige", true);
+        //if (beige && !Helper.isDarkTheme(getContext()))
+        //    view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+
         etExtra.setHint("");
         tvDomain.setText(null);
         tvPlainTextOnly.setVisibility(View.GONE);
@@ -832,7 +837,6 @@ public class FragmentCompose extends FragmentBase {
 
         final DB db = DB.getInstance(getContext());
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         final boolean suggest_received = prefs.getBoolean("suggest_received", false);
         final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
