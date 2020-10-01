@@ -823,6 +823,7 @@
     <string name="title_style_font">Typsnitt</string>
     <string name="title_style_font_default">Standard</string>
     <string name="title_style_blockquote">Block</string>
+    <string name="title_style_strikethrough">Genomstruken</string>
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_add_image">Lägg till bild</string>

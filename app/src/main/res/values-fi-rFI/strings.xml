@@ -137,6 +137,7 @@
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
+    <string name="title_setup_office_remark">Microsoft ei tarjoa tällaista valtuutusta Outlook-, Live-, ja Hotmail-tileille (eikä muille vastaaville)</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
@@ -204,6 +205,7 @@
     <string name="title_setup_theme_black">Musta</string>
     <string name="title_setup_theme_black_and_white">Musta ja valkoinen</string>
     <string name="title_setup_theme_reverse">Käänteiset värit</string>
+    <string name="title_setup_theme_light">Vaalea</string>
     <string name="title_setup_theme_dark">Tumma</string>
     <string name="title_setup_theme_system">Noudata järjestelmän teemaa</string>
     <string name="title_setup_theme_black_background">Musta tausta</string>
@@ -562,6 +564,7 @@
     <string name="title_no_name">Nimi puuttuu</string>
     <string name="title_no_email">Sähköpostiosoite puuttuu</string>
     <string name="title_email_invalid">Virheellinen sähköpostiosoite: \'%1$s\'</string>
+    <string name="title_address_duplicate">Osoitteen \'%1$s\' kaksoiskappale</string>
     <string name="title_address_parse_error">Osoite \'%1$s\' virheellinen: %2$s</string>
     <string name="title_no_account">Tili puuttuu</string>
     <string name="title_no_host">Verkko-osoite puuttuu</string>
@@ -816,6 +819,8 @@
     <string name="title_style_list_numbered">Numeroitu</string>
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
+    <string name="title_style_blockquote">Kappalelainaus</string>
+    <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_add_image">Lisää kuva</string>
@@ -1031,6 +1036,8 @@
     <string name="title_legend_section_compose">Viestien kirjoitus</string>
     <string name="title_legend_section_keyboard">Näppäimistö</string>
     <string name="title_legend_oauth">OAuth-valtuutus</string>
+    <string name="title_legend_folder_connected">Kansio yhdistetty</string>
+    <string name="title_legend_folder_disconnected">Yhteys kansioon katkaistu</string>
     <string name="title_legend_download_on">Lataa viestien sisältö automaattisesti</string>
     <string name="title_legend_download_off">Lataa viestien sisältö pyydettäessä </string>
     <string name="title_legend_synchronize_on">Synkronointi käytössä</string>
@@ -1139,6 +1146,7 @@
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
     <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näpäytä koko näytön kuvaketta viestin tekstin yläpuolella nähdäksesi alkuperäisen viestin.</string>
     <string name="title_hint_design">Ulkoasu on tarkoituksella tehty sellaiseksi, ettei se vie huomiota, mutta on hyvin toiminnallinen. Ulkoasun muokkaamiseen on paljon asetuksia, mutta on mahdotonta tehdä kaikki onnelliseksi samaan aikaan.</string>
+    <string name="title_hint_junk">Roskapostin suodatus pitäisi tehdä sähköpostipalvelimella, eikä sitä voi tehdä luotettavasti akkukäyttöisellä laitteella, jolla on rajalliset ominaisuudet.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
