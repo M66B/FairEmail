@@ -892,7 +892,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * Yahoos størrelsesbegrænsning for vedhæftninger [udgør 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * For *554 5.7.1 Tjeneste utilgængelig; Klient vært xxx.xxx.xxx.xxx blokeret*, tjek venligst [hér](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntaksfejl - linje for lang* er ofte forårsaget af brug af en lang Autocrypt-header
-* *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
+* *503 5.5.0 Modtager allerede angivet* betyder typisk, at en adresse bruges som både TO- og CC-adresse
 
 **Gmail errors**
 

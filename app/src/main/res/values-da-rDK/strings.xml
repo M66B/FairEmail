@@ -821,6 +821,7 @@
     <string name="title_style_list_numbered">Nummereret</string>
     <string name="title_style_font">Skrifttype</string>
     <string name="title_style_font_default">Standard</string>
+    <string name="title_style_strikethrough">Gennemstreget</string>
     <string name="title_style_clear">Ryd formatering</string>
     <string name="title_style_link">Indsæt link</string>
     <string name="title_add_image">Tilføj billede</string>

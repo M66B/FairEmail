@@ -568,7 +568,7 @@
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse courriel manquante</string>
     <string name="title_email_invalid">Adresse courriel non valide : \'%1$s\'</string>
-    <string name="title_address_duplicate">Duplication de l\'adresse \'%1$s\'</string>
+    <string name="title_address_duplicate">Duplication de l\'adresse « %1$s »</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' non valide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d’hôte manquant</string>

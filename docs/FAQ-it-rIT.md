@@ -77,7 +77,7 @@ Domande correlate:
 * Lo scorrimento verso una posizione collegata internamente nei messaggi originali non funziona. Ciò non può essere risolto perché la vista originale dei messaggi è contenuta in una vista a scorrimento.
 * Un'anteprima di un testo di un messaggio non (sempre) appare negli orologi Samsung perché [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sembra venga ignorato. Le anteprime dei messaggi sono note per essere visualizzate correttamente su Pebble 2, Fitbit Charge 3 e Mi band 3. Vedi anche [queste domande frequenti](#user-content-faq126).
 * Un [errore in Android](https://issuetracker.google.com/issues/37068143) a volte provoca un crash con *... Spostamento non valido: ... L'intervallo valido è ... quando il testo è selezionato e tocca all'esterno del testo selezionato. Questo bug è stato risolto in Android 6.0.1.</li>
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.</ul>
+* I collegamenti interni (ancoraggi) non funzioneranno perché i messaggi originali sono mostrati in una WebView incorporata in una vista a scorrimento (l'elenco delle conversazioni). Questa è una limitazione di Android che non può essere fissata o lavorata.</ul>
 
 ## Funzionalità pianificate
 
@@ -99,20 +99,20 @@ Domande correlate:
 * ~~Zoom con selezione~~ (non è possibile in modo affidabile in una lista scorrevole; si può invece ingrandire l'intero messaggio)
 * ~~Visualizzazione delle cartelle più compatta~~
 * ~~Creare liste e tabelle~~ (richiede un rich text editor, vedi [questa FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Pizzica ingrandimento della dimensione del testo~~
+* ~~Mostra GIF~~
+* ~~Temi~~ (un tema grigio chiaro e scuro è stato aggiunto perché questo è ciò che gran parte delle persone sembrano di volere)
+* ~~Ogni condizione dell'ora del giorno~~ (ogni giorno non si adatta davvero nella condizione da/alla data/orario)
+* ~~Invia come allegato~~
+* ~~Widget per il profilo selezionato~~
+* ~~Ricorda di allegare i file~~
+* ~~Seleziona i domini per cui mostrare le immagini~~ (questo sarà troppo complicato da usare)
+* ~~Visualizzazione messaggi preferiti unificati~~ (c'è già una ricerca speciale per questo)
+* ~~Sposta azione di notifica~~
+* ~~Supporto S/MIME~~
+* ~~Cerca impostazioni~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Qualsiasi cosa su questa lista è in ordine casuale e *potrebbe* essere aggiunto nel vicino futuro.
 
 ## Funzionalità richieste di frequente
 
@@ -171,136 +171,136 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(50) È possibile aggiungere un'opzione per sincronizzare tutti i messaggi?](#user-content-faq50)
 * [(51) Come vengono ordinate le cartelle?](#user-content-faq51)
 * [(52) Perché ci vuole tempo per riconnettersi a un account?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [~~(57) Can I use HTML in signatures?~~](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
+* [(53) Si può attaccare la barra d'azione del messaggio in alto/in basso?](#user-content-faq53)
+* [~~(54) Come uso un prefisso dello spazio del nome?~~](#user-content-faq54)
+* [(55) Come posso contrassegnare tutti i messaggi come letti / spostati o eliminare tutti i messaggi?](#user-content-faq55)
+* [(56) Puoi aggiungere il supporto per JMAP?](#user-content-faq56)
+* [~~(57) Posso usare HTML nelle firme?~~](#user-content-faq57)
+* [(58) Cosa significa un'icona dell'email aperta/chiusa?](#user-content-faq58)
+* [(59) I messaggi originali possono essere aperti nel browser?](#user-content-faq59)
+* [(60) Lo sapevi ...?](#user-content-faq60)
+* [(61) Perché alcuni messaggi sono mostrati oscurati?](#user-content-faq61)
+* [(62) Quali metodi di autenticazione sono supportati?](#user-content-faq62)
+* [(63) Come sono ridimensionate le immagini per la visualizzazione su schermi?](#user-content-faq63)
+* [~~(64) Puoi aggiungere azioni personalizzate per lo scorrimento a sinistra/destra?~~](#user-content-faq64)
+* [(65) Perché alcuni allegati sono mostrati oscurati?](#user-content-faq65)
+* [(66) FairEmail è disponibile nella Libreria di Google Play Family?](#user-content-faq66)
+* [(67) Come posso posticipare le conversazioni?](#user-content-faq67)
+* [~~(68) Perché Adobe Acrobat reader non apre gli allegati PDF / le app di Microsoft non aprono i documenti allegati?~~](#user-content-faq68)
+* [(69) Puoi aggiungere lo scorrimento in su su un messaggio nuovo?](#user-content-faq69)
+* [(70) Quando saranno auto-espansi i messaggi?](#user-content-faq70)
+* [(71) Come uso le regole del filtro?](#user-content-faq71)
+* [(72) Cosa sono le identità/i profili principali?](#user-content-faq72)
+* [(73) È sicuro/efficiente spostare i messaggi attraverso i profili?](#user-content-faq73)
+* [(74) Perché vedo messaggi duplicati?](#user-content-faq74)
+* [(75) Puoi creare una versione iOS, Windows, Linux, etc?](#user-content-faq75)
+* [(76) Cosa fa 'Cancella messaggi locali'?](#user-content-faq76)
+* [(77) Perché a volte i messaggi sono mostrati con un piccolo ritardo?](#user-content-faq77)
+* [(78) Come uso i programmi?](#user-content-faq78)
+* [(79) Come uso la sincronizzazione su richiesta (manuale)?](#user-content-faq79)
+* [~~(80) Come risolvo l'errore 'Impossibile caricare BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(81) Puoi rendere scuro lo sfondo del messaggio originale nel tema scuro?~~](#user-content-faq81)
+* [(82) Cos'è un'immagine di tracciamento?](#user-content-faq82)
+* [(84) A che servono i contatti locali?](#user-content-faq84)
+* [(85) Perché un'identità non è disponibile?](#user-content-faq85)
+* [~~(86) Cosa sono le 'caratteristiche di privacy extra'?~~](#user-content-faq86)
+* [(87) Cosa significa 'credenziali non valide'?](#user-content-faq87)
 * [(88) Come posso usare un account Yahoo, AOL o Sky?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq103)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
-* [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(89) Come invio messaggi di solo testo semplice?](#user-content-faq89)
+* [(90) Perché alcuni testi sono collegati senza essere un collegamento?](#user-content-faq90)
+* [~~(91) Puoi aggiungere la sincronizzazione periodica per risparmiare energia della batteria?~~](#user-content-faq91)
+* [(92) Puoi aggiungere il filtro dello spam, la verifica della firma DKIM e l'autorizzazione SPF?](#user-content-faq92)
+* [(93) Puoi consentire l'installazione/archiviazione dei dati su supporti di archiviazione esterna (sdcard)?](#user-content-faq93)
+* [(94) Cosa significa la striscia rossa/arancione alla fine dell'intestazione?](#user-content-faq94)
+* [(95) Perché non tutte le app sono mostrate durante la selezione di un allegato o immagine?](#user-content-faq95)
+* [(96) Dove posso trovare le impostazioni IMAP e SMTP?](#user-content-faq96)
+* [(97) Cos'è 'pulizia'?](#user-content-faq97)
+* [(98) Perché posso ancora scegliere i contatti dopo aver revocato i permessi dei contatti?](#user-content-faq98)
+* [(99) Puoi aggiungere un editor ricco di testo o markdown?](#user-content-faq99)
+* [(100) Come posso sincronizzare le categorie di Gmail?](#user-content-faq100)
+* [(101) Cosa significa il punto blu/arancione in fondo alle conversazioni?](#user-content-faq101)
+* [(102) Come posso abilitare la rotazione automatica delle immagini?](#user-content-faq102)
+* [(103) Come registro l'audio?](#user-content-faq103)
+* [(104) Cosa devo sapere sulla segnalazione degli errori?](#user-content-faq104)
+* [(105) Come funziona l'opzione roam-like-at-home?](#user-content-faq105)
+* [(106) Quali launcher possono mostrare un distintivo di conteggio con il numero di messaggi non letti?](#user-content-faq106)
+* [(107) Come uso le stelle colorate?](#user-content-faq107)
+* [(108) Puoi aggiungere permanentemente l'eliminazione dei messaggi da ogni cartella?](#user-content-faq108)
+* [~~(109) Perché 'seleziona profilo' è disponibile solo nelle versioni ufficiali?~~](#user-content-faq109)
+* [(110) Perché (alcuni) messaggi vuoti e/o allegati sono corrotti?](#user-content-faq110)
+* [(111) OAuth è supportato?](#user-content-faq111)
+* [(112) Quale provider di posta elettronica consigliate?](#user-content-faq112)
+* [(113) Come funziona l'autenticazione biometrica?](#user-content-faq113)
+* [(114) Puoi aggiungere un'importazione per le impostazioni di altre app d'email?](#user-content-faq114)
+* [(115) Puoi aggiungere i chip dell'indirizzo e-mail?](#user-content-faq115)
+* [~~(116) Come posso mostrare le immagini nei messaggi da mittenti fidati di default?~~](#user-content-faq116)
+* [(117) Puoi aiutarmi a ripristinare il mio acquisto?](#user-content-faq117)
+* [(118) Cosa fa 'Rimuovi parametri di tracciamento' esattamente?](#user-content-faq118)
+* [~~(119) Puoi aggiungere i colori al widget di posta in arrivo unificato?~~](#user-content-faq119)
+* [(120) Perché le notifiche dei nuovi messaggi non sono rimosse all'apertura dell'app?](#user-content-faq120)
+* [(121) Come sono raggruppati i messaggi in una conversazione?](#user-content-faq121)
+* [~~(122) Perché il nome/indirizzo email del destinatario viene mostrato come un colore d'avviso?~~](#user-content-faq122)
+* [(123) Cosa succederà quando FairEmail non potrà connettersi ad un server d'email?](#user-content-faq123)
+* [(124) Perché ricevo 'Messaggio troppo grande o troppo complesso da mostrare'?](#user-content-faq124)
+* [(125) Quali sono le caratteristiche sperimentali correnti?](#user-content-faq125)
+* [(126) Possono le anteprime del messaggio essere inviate al mio indossabile?](#user-content-faq126)
+* [(127) Come posso risolvere 'Argomento/i di HELO Sintatticamente non validi'? ](#user-content-faq127)
+* [(128) Come posso reimpostare le domande chieste, ad esempio per mostrare le immagini?](#user-content-faq128)
+* [(129) Sono ProtonMail e Tutanota supportati?](#user-content-faq129)
+* [(130) Cosa significa messaggio d'errore ?](#user-content-faq130)
+* [(131) Puoi modificare la direzione per lo scorrimento al messaggio precedente/successivo?](#user-content-faq131)
+* [(132) Perché le notifiche dei nuovi messaggi sono silenziate?](#user-content-faq132)
+* [(133) Perché ActiveSync non è supportato?](#user-content-faq133)
+* [(134) Puoi aggiungere l'eliminazione dei messaggi locali?](#user-content-faq134)
+* [(135) Perché i messaggi cestinati e le bozze sono mostrati nelle conversazioni?](#user-content-faq135)
+* [(135) Come posso eliminare un profilo/un'identità/una cartella?](#user-content-faq136)
+* [(137) Come posso reimpostare 'Non chiedere più'?](#user-content-faq137)
+* [(138) Puoi aggiungere la gestione/sincronizzazione del calendario/contatto?](#user-content-faq138)
+* [(139) Come risolvo 'L'utente è autenticato ma non connesso'?](#user-content-faq139)
+* [(140) Perché il testo del massaggio contiene caratteri strani?](#user-content-faq140)
+* [(141) Come posso correggere 'Una cartella delle bozze è necessaria per inviare i messaggi'?](#user-content-faq141)
+* [(142) Come posso memorizzare i messaggi inviati nella posta in arrivo?](#user-content-faq142)
+* [~~(143) Puoi aggiungere una cartella del cestino per i profili POP3?~~](#user-content-faq143)
+* [(144) Come posso registrare le note vocali?](#user-content-faq144)
+* [(145) Come posso impostare un suono di notifica per un profilo, una cartella o un mittente?](#user-content-faq145)
+* [(146) Come posso risolvere gli orari non corretti dei messaggi?](#user-content-faq146)
+* [(147) Cosa dovrei sapere delle versioni di terze parti?](#user-content-faq147)
+* [(148) Come posso usare un profilo di Apple iCloud?](#user-content-faq148)
+* [(149) Come funziona il widget di conteggio dei messaggi non letti?](#user-content-faq149)
+* [(150) Puoi aggiungere l'annullamento degli inviti al calendario?](#user-content-faq150)
+* [(151) Puoi aggiungere il backup/ripristino dei messaggi?](#user-content-faq151)
+* [(152) Come posso inserire un gruppo di contatto?](#user-content-faq152)
+* [(153) Perché non funziona l'eliminazione permanente dei messaggi di Gmail?](#user-content-faq153)
+* [~~(154) Puoi aggiungere i favicon come foto di contatto?~~](#user-content-faq154)
+* [(155) Cos'è un file winmail.dat?](#user-content-faq155)
+* [(156) Come posso configurare un profilo di Office 365?](#user-content-faq156)
+* [(157) Come posso configurare un profilo di Free.fr?](#user-content-faq157)
+* [(158) Quale registratore audio / videocamera consigliate?](#user-content-faq158)
+* [(159) Cosa sono gli elenchi di protezione del monitoraggio di Disconnect?](#user-content-faq159)
 
-[I have another question.](#user-content-support)
+[Ho un'altra domanda.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quali permessi sono necessari e perché?**
 
-The following Android permissions are needed:
+I permessi di Android seguenti sono necessari:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *avere accesso completo alla rete* (INTERNET): per inviare e ricevere le email
+* *visualizza le connessioni di rete* (ACCESS_NETWORK_STATE): per monitorare le modifiche alla connettività di internet
+* *esegui all'avvio* (RECEIVE_BOOT_COMPLETED): per avviare il monitoraggio all'avvio del dispositivo
+* *servizio in primo piano* (FOREGROUND_SERVICE): per eseguire un servizio in primo piano su Android 9 Pie e successive, vedi anche la prossima domanda
+* *prevenire che il dispositivo vada in riposo* (WAKE_LOCK): per mantenere attivo il dispositivo durante la sincronizzazione dei messaggi
+* *fatturazione in-app* (BILLING): per consentire gli acquisti in-app
+* Opzionale: *leggi i tuoi contatti* (READ_CONTACTS): per completare automaticamente gli indirizzi e mostrare le foto
+* Opzionale: *leggere i contenuti della tua scheda SD* (READ_EXTERNAL_STORAGE): per accettare i file da altre app obsolete, vedi anche [questa FAQ](#user-content-faq49)
+* Opzionale: *usa l'hardware delle impronte digitali* (USE_FINGERPRINT) e usa *l'hardware biometrico* (USE_BIOMETRIC): per usare l'autenticazione biometrica
+* Opzionale: *trova profili sul dispositivo* (GET_ACCOUNTS): per selezionare un profilo quando si utilizza la configurazione rapida di Gmail
+* Android 5.1 e precedenti: *usa profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
+* Android 5.1 Lollipop e precedenti: *Leggi profilo* (READ_PROFILE): per leggere il tuo nome quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[I permessi opzionali](https://developer.android.com/training/permissions/requesting) sono supportati solo su Android 6 Marshmallow e successive. Sulle versioni precedenti di Android ti sarà chiesto di garantire i permessi opzionali per l'installazione di FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+I permessi seguenti sono necessari per mostrare il conteggio dei messaggi non letti come un distintivo (vedi anche [questa FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -384,7 +384,7 @@ Operations are processed only when there is a connection to the email server or 
 <br />
 *... Invalid security certificate (Can't verify identity of server) ...*
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Dovresti provare a risolvere ciò contattando il tuo fornitore o ottenendo un certificato di sicurezza valido perché i certificati di sicurezza non validi non sono sicuri e consente gli [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere dei certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
 Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
 

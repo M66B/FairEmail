@@ -568,6 +568,7 @@
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
     <string name="title_email_invalid">Indirizzo email non valido: \'%1$s\'</string>
+    <string name="title_address_duplicate">Indirizzo «%1$s» duplicato</string>
     <string name="title_address_parse_error">Indirizzo \'%1$s\' non valido: %2$s</string>
     <string name="title_no_account">Account mancante</string>
     <string name="title_no_host">Nome dell\'host mancante</string>
@@ -822,6 +823,8 @@
     <string name="title_style_list_numbered">Numerata</string>
     <string name="title_style_font">Tipo di carattere</string>
     <string name="title_style_font_default">Predefinito</string>
+    <string name="title_style_blockquote">Blocco di citazione</string>
+    <string name="title_style_strikethrough">Barrato</string>
     <string name="title_style_clear">Cancella formattazione</string>
     <string name="title_style_link">Inserisci collegamento</string>
     <string name="title_add_image">Aggiungi immagine</string>

@@ -140,6 +140,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
+    <string name="title_setup_office_remark">Microsoft no proporciona este tipo de autorización para cuentas de Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
@@ -207,6 +208,7 @@
     <string name="title_setup_theme_black">Negro</string>
     <string name="title_setup_theme_black_and_white">Blanco y Negro</string>
     <string name="title_setup_theme_reverse">Invertir colores</string>
+    <string name="title_setup_theme_light">Claro</string>
     <string name="title_setup_theme_dark">Oscuro</string>
     <string name="title_setup_theme_system">Igual que el sistema</string>
     <string name="title_setup_theme_black_background">Fondo negro</string>
@@ -567,6 +569,7 @@
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
     <string name="title_email_invalid">Dirección de correo no válida: \'%1$s\'</string>
+    <string name="title_address_duplicate">Dirección \'%1$s\' duplicada</string>
     <string name="title_address_parse_error">Dirección \'%1$s\' inválida: %2$s</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>
@@ -821,6 +824,8 @@
     <string name="title_style_list_numbered">Numeradas</string>
     <string name="title_style_font">Fuente</string>
     <string name="title_style_font_default">Por defecto</string>
+    <string name="title_style_blockquote">Citar en bloque</string>
+    <string name="title_style_strikethrough">Tachado</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_add_image">Añadir imagen</string>
@@ -1036,6 +1041,8 @@
     <string name="title_legend_section_compose">Redactar</string>
     <string name="title_legend_section_keyboard">Teclado</string>
     <string name="title_legend_oauth">Autorización OAuth</string>
+    <string name="title_legend_folder_connected">Carpeta conectada</string>
+    <string name="title_legend_folder_disconnected">Carpeta desconectada</string>
     <string name="title_legend_download_on">Descargar el contenido de mensajes automáticamente</string>
     <string name="title_legend_download_off">Descargar el contenido de mensajes bajo demanda </string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
@@ -1144,6 +1151,7 @@
     <string name="title_hint_battery">Dado que por defecto FairEmail recibe mensajes permanentemente, Android reportará a FairEmail como siempre activo. Por lo tanto, puede parecer que FairEmail siempre está usando la batería, pero de hecho no es así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformatea los mensajes por razones de privacidad y seguridad. Para ver el mensaje original, pulse el icono \'pantalla completa\' sobre el texto del mensaje.</string>
     <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>
+    <string name="title_hint_junk">El filtrado de spam debería ser hecho por el servidor de correo electrónico y no se puede hacer de forma confiable en un dispositivo alimentado con batería y de capacidades limitadas.</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensaje crudo. Guarde el mensaje raw con el icono guardar en la barra de acción para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>

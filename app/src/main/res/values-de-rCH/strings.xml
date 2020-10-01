@@ -569,6 +569,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
     <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
+    <string name="title_address_duplicate">Duplikat der Adresse „%1$s“</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
@@ -822,6 +823,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_list_numbered">Nummeriert</string>
     <string name="title_style_font">Schriftart</string>
     <string name="title_style_font_default">Standard</string>
+    <string name="title_style_blockquote">Zitatblock</string>
+    <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_add_image">Bild hinzufügen</string>
