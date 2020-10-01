@@ -70,7 +70,7 @@
 
     <item
         android:id="@+id/menu_filter"
-        android:icon="@drawable/twotone_filter_alt_24"
+        android:icon="@drawable/twotone_filter_list_24"
         android:title="@string/title_filter"
         app:showAsAction="ifRoom">
         <menu>
