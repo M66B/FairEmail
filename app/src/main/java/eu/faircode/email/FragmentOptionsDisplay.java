@@ -1050,10 +1050,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             swReverse.setChecked(reversed);
 
-            if (dark)
-                rgThemeOptions.check(R.id.rbThemeDark);
-            else if (system)
+            if (system)
                 rgThemeOptions.check(R.id.rbThemeSystem);
+            else if (dark || black)
+                rgThemeOptions.check(R.id.rbThemeDark);
             else
                 rgThemeOptions.check(R.id.rbThemeLight);
 
