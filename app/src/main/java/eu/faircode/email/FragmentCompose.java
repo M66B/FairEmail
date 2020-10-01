@@ -4502,6 +4502,23 @@ public class FragmentCompose extends FragmentBase {
                                 checkAddress(ato, context);
                                 checkAddress(acc, context);
                                 checkAddress(abcc, context);
+
+                                List<String> all = new ArrayList<>();
+                                List<String> dup = new ArrayList<>();
+                                for (InternetAddress a : Helper.concat(Helper.concat(ato, acc), abcc)) {
+                                    String email = a.getAddress();
+                                    if (TextUtils.isEmpty(email))
+                                        continue;
+                                    if (all.contains(a.getAddress()))
+                                        dup.add(email);
+                                    else
+                                        all.add(email);
+                                }
+
+                                if (dup.size() > 0)
+                                    throw new AddressException(context.getString(
+                                            R.string.title_address_duplicate,
+                                            TextUtils.join(", ", dup)));
                             } catch (AddressException ex) {
                                 args.putString("address_error", ex.getMessage());
                             }

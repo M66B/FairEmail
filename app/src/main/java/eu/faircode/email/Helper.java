@@ -1564,6 +1564,17 @@ public class Helper {
         return result;
     }
 
+    @SuppressWarnings("unchecked")
+    public static <T> T[] concat(T[] a, T[] b) {
+        if (a == null)
+            a = (T[]) new Object[0];
+        if (b == null)
+            b = (T[]) new Object[0];
+        T[] both = Arrays.copyOf(a, a.length + b.length);
+        System.arraycopy(b, 0, both, a.length, b.length);
+        return both;
+    }
+
     static boolean equal(String[] a1, String[] a2) {
         if (a1 == null && a2 == null)
             return true;

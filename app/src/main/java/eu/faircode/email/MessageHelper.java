@@ -487,7 +487,7 @@ public class MessageHelper {
         if (existing != null)
             result.addAll(Arrays.asList(existing));
 
-        Address[] all = imessage.getAllRecipients();
+        Address[] all = imessage.getAllRecipients(); // to, cc, bcc
         Address[] addresses = convertAddress(InternetAddress.parse(email), identity);
         for (Address address : addresses) {
             boolean found = false;

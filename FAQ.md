@@ -1055,6 +1055,7 @@ Too large messages and triggering the spam filter of an email server are the mos
 * The attachment size limit for Yahoo [is 25 MB](https://help.yahoo.com/kb/SLN5673.html)
 * *554 5.7.1 Service unavailable; Client host xxx.xxx.xxx.xxx blocked*, please [see here](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntax error - line too long* is often caused by using a long Autocrypt header
+* *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 
 **Gmail errors**
 

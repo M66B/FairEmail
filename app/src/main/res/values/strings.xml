@@ -664,6 +664,7 @@
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>
     <string name="title_email_invalid">Email address invalid: \'%1$s\'</string>
+    <string name="title_address_duplicate">Address \'%1$s\' duplicate</string>
     <string name="title_address_parse_error">Address \'%1$s\' invalid: %2$s</string>
     <string name="title_no_account">Account missing</string>
     <string name="title_no_host">Host name missing</string>
