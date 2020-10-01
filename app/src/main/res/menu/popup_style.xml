@@ -56,8 +56,16 @@
     </item>
 
     <group
-        android:id="@+id/group_style_clear"
+        android:id="@+id/group_style_blockquote"
         android:orderInCategory="5">
+        <item
+            android:id="@+id/menu_style_blockquote"
+            android:title="@string/title_style_blockquote" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_clear"
+        android:orderInCategory="6">
         <item
             android:id="@+id/menu_style_clear"
             android:title="@string/title_style_clear" />
