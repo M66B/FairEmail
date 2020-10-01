@@ -4507,16 +4507,24 @@ public class FragmentCompose extends FragmentBase {
                                 checkAddress(acc, context);
                                 checkAddress(abcc, context);
 
-                                List<String> all = new ArrayList<>();
+                                List<InternetAddress> check = new ArrayList<>();
+                                List<String> checked = new ArrayList<>();
                                 List<String> dup = new ArrayList<>();
-                                for (InternetAddress a : Helper.concat(Helper.concat(ato, acc), abcc)) {
+                                if (ato != null)
+                                    check.addAll(Arrays.asList(ato));
+                                if (acc != null)
+                                    check.addAll(Arrays.asList(acc));
+                                if (abcc != null)
+                                    check.addAll(Arrays.asList(abcc));
+
+                                for (InternetAddress a : check) {
                                     String email = a.getAddress();
                                     if (TextUtils.isEmpty(email))
                                         continue;
-                                    if (all.contains(a.getAddress()))
+                                    if (checked.contains(a.getAddress()))
                                         dup.add(email);
                                     else
-                                        all.add(email);
+                                        checked.add(email);
                                 }
 
                                 if (dup.size() > 0)

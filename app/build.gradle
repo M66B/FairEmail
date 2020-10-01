@@ -12,8 +12,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1343
-        versionName "1.1343"
+        versionCode 1344
+        versionName "1.1344"
         archivesBaseName = "FairEmail-v$versionName"
 
         // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
