@@ -218,7 +218,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSubscribed"
-            app:srcCompat="@drawable/twotone_filter_list_24" />
+            app:srcCompat="@drawable/twotone_filter_alt_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRule"

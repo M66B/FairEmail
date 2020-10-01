@@ -98,7 +98,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivSubscribed"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
-                app:srcCompat="@drawable/twotone_filter_list_24" />
+                app:srcCompat="@drawable/twotone_filter_alt_24" />
 
             <ImageView
                 android:id="@+id/ivNotify"
