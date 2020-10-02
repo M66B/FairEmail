@@ -227,12 +227,29 @@ public class FragmentBase extends Fragment {
         getParentFragmentManager().setFragmentResultListener(getRequestKey(), this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                int requestCode = result.getInt("requestCode");
-                int resultCode = result.getInt("resultCode");
+                try {
+                    int requestCode = result.getInt("requestCode");
+                    int resultCode = result.getInt("resultCode");
 
-                Intent data = new Intent();
-                data.putExtra("args", result);
-                onActivityResult(requestCode, resultCode, data);
+                    Intent data = new Intent();
+                    data.putExtra("args", result);
+                    onActivityResult(requestCode, resultCode, data);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    /*
+                        android.os.BadParcelableException: ClassNotFoundException when unmarshalling: eu.faircode.email.FragmentMessages$MessageTarget
+                                at android.os.Parcel.readParcelableCreator(Parcel.java:2839)
+                                at android.os.Parcel.readParcelable(Parcel.java:2765)
+                                at android.os.Parcel.readValue(Parcel.java:2668)
+                                at android.os.Parcel.readListInternal(Parcel.java:3098)
+                                at android.os.Parcel.readArrayList(Parcel.java:2319)
+                                at android.os.Parcel.readValue(Parcel.java:2689)
+                                at android.os.Parcel.readArrayMapInternal(Parcel.java:3037)
+                                at android.os.BaseBundle.initializeFromParcelLocked(BaseBundle.java:288)
+                                at android.os.BaseBundle.unparcel(BaseBundle.java:232)
+                                at android.os.BaseBundle.getInt(BaseBundle.java:1017)
+                     */
+                }
             }
         });
     }

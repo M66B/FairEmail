@@ -76,12 +76,16 @@ public class FragmentDialogBase extends DialogFragment {
         getParentFragmentManager().setFragmentResultListener(getRequestKey(), this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                int requestCode = result.getInt("requestCode");
-                int resultCode = result.getInt("resultCode");
+                try {
+                    int requestCode = result.getInt("requestCode");
+                    int resultCode = result.getInt("resultCode");
 
-                Intent data = new Intent();
-                data.putExtra("args", result);
-                onActivityResult(requestCode, resultCode, data);
+                    Intent data = new Intent();
+                    data.putExtra("args", result);
+                    onActivityResult(requestCode, resultCode, data);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
             }
         });
 
