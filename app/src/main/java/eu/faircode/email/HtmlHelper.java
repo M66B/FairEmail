@@ -2167,6 +2167,10 @@ public class HtmlHelper {
                                     ssb.append("\n");
 
                                 Element parent = element.parent();
+                                while (parent != null &&
+                                        !"ol".equals(parent.tagName()) &&
+                                        !"ul".equals(parent.tagName()))
+                                    parent = parent.parent();
                                 if (parent == null || "ul".equals(parent.tagName()))
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                         setSpan(ssb, new BulletSpan(dp6, colorAccent), start, ssb.length());
