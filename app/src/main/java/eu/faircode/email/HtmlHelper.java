@@ -2209,6 +2209,9 @@ public class HtmlHelper {
                             case "pre":
                                 setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                                 break;
+                            case "script":
+                                // Do nothing
+                                break;
                             case "small":
                                 setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
                                 break;
