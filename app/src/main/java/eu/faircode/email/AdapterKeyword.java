@@ -132,10 +132,13 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
 
             final TupleKeyword keyword = all.get(pos);
 
+            int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
             ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
                     .with(context)
                     .setTitle(context.getString(R.string.title_color))
                     .showColorEdit(true)
+                    .setColorEditTextColor(editTextColor)
                     .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                     .density(6)
                     .lightnessSliderOnly()

@@ -1,7 +1,6 @@
 package eu.faircode.email;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -33,7 +32,6 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -163,10 +161,14 @@ public class StyleHelper {
                             if (imm != null)
                                 imm.hideSoftInputFromWindow(etBody.getWindowToken(), 0);
 
+                            Context context = etBody.getContext();
+                            int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
                             ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
-                                    .with(etBody.getContext())
+                                    .with(context)
                                     .setTitle(R.string.title_color)
                                     .showColorEdit(true)
+                                    .setColorEditTextColor(editTextColor)
                                     .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                                     .density(6)
                                     .lightnessSliderOnly()
@@ -183,18 +185,7 @@ public class StyleHelper {
                                         }
                                     });
 
-                            Dialog dialog = builder.build();
-
-                            try {
-                                Field fColorEdit = builder.getClass().getDeclaredField("colorEdit");
-                                fColorEdit.setAccessible(true);
-                                EditText colorEdit = (EditText) fColorEdit.get(builder);
-                                colorEdit.setTextColor(Helper.resolveColor(etBody.getContext(), android.R.attr.textColorPrimary));
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            }
-
-                            dialog.show();
+                            builder.build().show();
 
                             return true;
                         }

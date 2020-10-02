@@ -108,10 +108,13 @@ public class ActivityWidget extends ActivityBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int editTextColor = Helper.resolveColor(ActivityWidget.this, android.R.attr.editTextColor);
+
                 ColorPickerDialogBuilder
                         .with(ActivityWidget.this)
                         .setTitle(R.string.title_widget_background)
                         .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                         .density(6)
                         .lightnessSliderOnly()
