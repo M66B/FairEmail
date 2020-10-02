@@ -228,6 +228,7 @@ public class FragmentBase extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 try {
+                    result.setClassLoader(ApplicationEx.class.getClassLoader());
                     int requestCode = result.getInt("requestCode");
                     int resultCode = result.getInt("resultCode");
 

@@ -7323,7 +7323,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         EntityAccount copyto;
     }
 
-    private static class MessageTarget implements Parcelable {
+    public static class MessageTarget implements Parcelable {
         long id;
         Account sourceAccount;
         Folder sourceFolder;
