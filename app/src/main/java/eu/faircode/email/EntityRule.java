@@ -418,6 +418,11 @@ public class EntityRule {
         boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
 
+        if (message.auto_submitted != null && message.auto_submitted) {
+            EntityLog.log(context, "Auto submitted rule=" + name);
+            return false;
+        }
+
         if (!message.content)
             EntityOperation.queue(context, message, EntityOperation.BODY);
 
@@ -477,6 +482,7 @@ public class EntityRule {
         if (cc)
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
+        reply.auto_submitted = true;
         reply.subject = context.getString(
                 TextUtils.isEmpty(to) ? R.string.title_subject_reply : R.string.title_subject_forward,
                 message.subject == null ? "" : message.subject);

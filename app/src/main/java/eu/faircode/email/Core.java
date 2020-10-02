@@ -1991,6 +1991,7 @@ class Core {
                         message.deliveredto = helper.getDeliveredTo();
                         message.thread = helper.getThreadId(context, account.id, 0);
                         message.priority = helper.getPriority();
+                        message.auto_submitted = helper.getAutoSubmitted();
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
@@ -2669,6 +2670,7 @@ class Core {
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(context, account.id, uid);
             message.priority = helper.getPriority();
+            message.auto_submitted = helper.getAutoSubmitted();
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);

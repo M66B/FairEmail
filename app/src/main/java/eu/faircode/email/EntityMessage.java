@@ -129,6 +129,7 @@ public class EntityMessage implements Serializable {
     public String thread; // compose = null
     public Integer priority;
     public Integer importance;
+    public Boolean auto_submitted;
     public Boolean receipt; // is receipt
     public Boolean receipt_request;
     public Address[] receipt_to;

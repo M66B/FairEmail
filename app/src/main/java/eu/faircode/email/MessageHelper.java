@@ -258,6 +258,9 @@ public class MessageHelper {
         if (message.unsubscribe != null)
             imessage.addHeader("List-Unsubscribe", "<" + message.unsubscribe + ">");
 
+        if (message.auto_submitted != null && message.auto_submitted)
+            imessage.addHeader("Auto-Submitted", "auto-replied");
+
         MailDateFormat mdf = new MailDateFormat();
         mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
         imessage.setHeader("Date", mdf.format(new Date()));
@@ -1047,6 +1050,14 @@ public class MessageHelper {
             priority = null;
 
         return priority;
+    }
+
+    Boolean getAutoSubmitted() throws MessagingException {
+        // https://tools.ietf.org/html/rfc3834
+        String header = imessage.getHeader("Auto-Submitted", null);
+        if (header == null)
+            return null;
+        return !"no".equalsIgnoreCase(header);
     }
 
     boolean getReceiptRequested() throws MessagingException {

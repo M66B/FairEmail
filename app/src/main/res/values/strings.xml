@@ -1227,6 +1227,7 @@
     <string name="title_legend_forwarded">Was forwarded</string>
     <string name="title_legend_plain_only">Is plain text only</string>
     <string name="title_legend_receipt">Receipt was requested</string>
+    <string name="title_legend_auto_submitted">Was automatically sent</string>
     <string name="title_legend_attachment">Has attachment</string>
     <string name="title_legend_flagged">Is favorite</string>
     <string name="title_legend_contacts">Manage contacts</string>

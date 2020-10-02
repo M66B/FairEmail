@@ -280,35 +280,13 @@
             app:layout_constraintTop_toTopOf="@id/ivSnoozed" />
 
         <ImageView
-            android:id="@+id/ivBrowsed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_browsed"
-            android:padding="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSnoozed"
-            app:srcCompat="@drawable/twotone_playlist_add_24" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvBrowsed"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:text="@string/title_legend_browsed"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivBrowsed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivBrowsed"
-            app:layout_constraintTop_toTopOf="@id/ivBrowsed" />
-
-        <ImageView
             android:id="@+id/ivAnswered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_answered"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivBrowsed"
+            app:layout_constraintTop_toBottomOf="@id/ivSnoozed"
             app:srcCompat="@drawable/twotone_reply_24" />
 
         <eu.faircode.email.FixedTextView
@@ -390,13 +368,57 @@
             app:layout_constraintTop_toTopOf="@id/ivReceipt" />
 
         <ImageView
+            android:id="@+id/ivAutoSubmitted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_receipt"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivReceipt"
+            app:srcCompat="@drawable/twotone_remove_circle_outline_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAutoSubmitted"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_auto_submitted"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivAutoSubmitted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAutoSubmitted"
+            app:layout_constraintTop_toTopOf="@id/ivAutoSubmitted" />
+
+        <ImageView
+            android:id="@+id/ivBrowsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_browsed"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAutoSubmitted"
+            app:srcCompat="@drawable/twotone_playlist_add_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBrowsed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_browsed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivBrowsed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivBrowsed"
+            app:layout_constraintTop_toTopOf="@id/ivBrowsed" />
+
+        <ImageView
             android:id="@+id/ivAttachment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_attachment"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivReceipt"
+            app:layout_constraintTop_toBottomOf="@id/ivBrowsed"
             app:srcCompat="@drawable/twotone_attachment_24" />
 
         <eu.faircode.email.FixedTextView
@@ -418,7 +440,7 @@
             android:contentDescription="@string/title_legend_flagged"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAttachment"
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment"
             app:srcCompat="@drawable/baseline_star_24" />
 
         <eu.faircode.email.FixedTextView

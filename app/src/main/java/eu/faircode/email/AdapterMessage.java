@@ -364,6 +364,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageView ivPlain;
         private ImageView ivReceipt;
+        private ImageView ivAutoSubmitted;
         private ImageView ivBrowsed;
 
         private ImageButton ibSearchContact;
@@ -562,6 +563,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivPlain = vsBody.findViewById(R.id.ivPlain);
             ivReceipt = vsBody.findViewById(R.id.ivReceipt);
+            ivAutoSubmitted = vsBody.findViewById(R.id.ivAutoSubmitted);
             ivBrowsed = vsBody.findViewById(R.id.ivBrowsed);
 
             ibSearchContact = vsBody.findViewById(R.id.ibSearchContact);
@@ -1265,6 +1267,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivPlain.setVisibility(View.GONE);
             ivReceipt.setVisibility(View.GONE);
+            ivAutoSubmitted.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
 
             ibSearchContact.setVisibility(View.GONE);
@@ -1683,6 +1686,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
+            ivAutoSubmitted.setVisibility(message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
 
             ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
