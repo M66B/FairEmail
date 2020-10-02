@@ -52,7 +52,7 @@ This app starts a foreground service with a low priority status bar notification
 * Reformat messages to prevent [phishing](https://en.wikipedia.org/wiki/Phishing)
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
-* Automatically recognize and disable tracking images
+* Attempt to recognize and disable tracking images
 * Warning if messages could not be [authenticated](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq92)
 
 ## Simple
