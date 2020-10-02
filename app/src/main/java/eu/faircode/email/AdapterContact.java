@@ -20,9 +20,11 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
@@ -40,11 +42,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
@@ -225,7 +230,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share);
             if (ShortcutManagerCompat.isRequestPinShortcutSupported(context))
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, 3, R.string.title_pin);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_edit_name, 4, R.string.title_advanced_edit_name);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 5, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -239,6 +245,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                             return true;
                         case R.string.title_pin:
                             onActionPin();
+                            return true;
+                        case R.string.title_advanced_edit_name:
+                            onActionEdit();
                             return true;
                         case R.string.title_delete:
                             onActionDelete();
@@ -287,6 +296,16 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 private void onActionPin() {
                     ShortcutInfoCompat.Builder builder = Shortcuts.getShortcut(context, contact);
                     ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
+                }
+
+                private void onActionEdit() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", contact.id);
+                    args.putString("name", contact.name);
+
+                    FragmentEditName fragment = new FragmentEditName();
+                    fragment.setArguments(args);
+                    fragment.show(parentFragment.getParentFragmentManager(), "contact:edit");
                 }
 
                 private void onActionDelete() {
@@ -456,5 +475,49 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.powner.recreate();
+    }
+
+    public static class FragmentEditName extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_name, null);
+            final EditText etName = view.findViewById(R.id.etName);
+            etName.setText(getArguments().getString("name"));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Bundle args = new Bundle();
+                            args.putLong("id", getArguments().getLong("id"));
+                            args.putString("name", etName.getText().toString());
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    String name = args.getString("name");
+
+                                    if (TextUtils.isEmpty(name))
+                                        name = null;
+
+                                    DB db = DB.getInstance(context);
+                                    db.contact().setContactName(id, name);
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                }
+                            }.execute(getContext(), getActivity(), args, "edit:name");
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }

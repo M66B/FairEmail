@@ -3182,7 +3182,7 @@ class Core {
                     contact.id = db.contact().insertContact(contact);
                     Log.i("Inserted contact=" + contact + " type=" + type);
                 } else {
-                    if (!TextUtils.isEmpty(name))
+                    if (contact.name == null && !TextUtils.isEmpty(name))
                         contact.name = name;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted++;

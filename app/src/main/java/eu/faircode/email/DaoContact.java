@@ -81,6 +81,9 @@ public interface DaoContact {
             " AND email = :email")
     int deleteContact(long account, int type, String email);
 
+    @Query("UPDATE contact SET name = :name WHERE id = :id")
+    int setContactName(long id, String name);
+
     @Query("UPDATE contact SET state = :state WHERE id = :id")
     int setContactState(long id, int state);
 
