@@ -888,15 +888,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                     if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
                         throw new IOException("tag_name field missing");
-                    if (!jroot.has("html_url") || jroot.isNull("html_url"))
-                        throw new IOException("html_url field missing");
+                    //if (!jroot.has("html_url") || jroot.isNull("html_url"))
+                    //    throw new IOException("html_url field missing");
                     if (!jroot.has("assets") || jroot.isNull("assets"))
                         throw new IOException("assets section missing");
 
                     // Get update info
                     UpdateInfo info = new UpdateInfo();
                     info.tag_name = jroot.getString("tag_name");
-                    info.html_url = jroot.getString("html_url");
+                    //info.html_url = jroot.getString("html_url");
+                    info.html_url = BuildConfig.GITHUB_LATEST_URI;
 
                     // Check if new release
                     JSONArray jassets = jroot.getJSONArray("assets");
@@ -934,6 +935,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         new NotificationCompat.Builder(ActivityView.this, "update")
                                 .setSmallIcon(R.drawable.twotone_get_app_24)
                                 .setContentTitle(getString(R.string.title_updated, info.tag_name))
+                                .setContentText(info.html_url)
                                 .setAutoCancel(true)
                                 .setShowWhen(false)
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
