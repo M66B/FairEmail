@@ -1686,7 +1686,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
-            ivAutoSubmitted.setVisibility(message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
+            ivAutoSubmitted.setVisibility(show_addresses && message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
 
             ibSearchContact.setVisibility(show_addresses && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
