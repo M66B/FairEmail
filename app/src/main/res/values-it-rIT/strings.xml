@@ -397,7 +397,6 @@
     <string name="title_advanced_browse_links">Delega link di apertura a Android</string>
     <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
     <string name="title_advanced_confirm_html">Mostra i messaggi riformattati in modo predefinito</string>
-    <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>

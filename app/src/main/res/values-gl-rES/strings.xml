@@ -392,7 +392,6 @@
     <string name="title_advanced_browse_links">Delegar a apertura de ligazóns a Android</string>
     <string name="title_advanced_confirm_images">Confirmar a mostra de imaxes</string>
     <string name="title_advanced_confirm_html">Mostrar por defecto as mensaxes reformatadas</string>
-    <string name="title_advanced_tracking">Recoñecer e desactivar automaticamente as imaxes de rastrexo</string>
     <string name="title_advanced_hide_timezone">Enviar mensaxes sen a información de fuso horario</string>
     <string name="title_advanced_display_hidden">Mostrar textos ocultos das mensaxes</string>
     <string name="title_advanced_secure">Excluír da pantalla de aplicacións recentes e impedir a toma de capturas de pantalla</string>

@@ -16,7 +16,7 @@ Heb je een vraag? Bekijk dan eerst de veelgestelde vragen! Staat jouw vraag er n
 
 In de meeste gevallen zal de snelle installatie automatisch de juiste configuratie identificeren.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Als de snelle installatie mislukt, moet u handmatig een account aanmaken (om e-mail tekunnen ontvangen) en een identiteit (om e-mail te kunnen verzenden) instellen. Hiervoor heb je de IMAP- en SMTP-serveradressen en poortnummers nodig, en moet je weten of SSL / TLS of STARTTLS moet worden gebruikt. en uw gebruikersnaam (meestal, maar niet altijd, uw e-mailadres) en uw wachtwoord. die je gebruikte bij je andere e-mail programma.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

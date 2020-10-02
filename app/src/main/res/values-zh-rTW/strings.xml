@@ -379,7 +379,6 @@
     <string name="title_advanced_browse_links">將打開的連結轉向 Android</string>
     <string name="title_advanced_confirm_images">顯示圖片前確認</string>
     <string name="title_advanced_confirm_html">預設顯示重新格式化的郵件</string>
-    <string name="title_advanced_tracking">自動辨識和禁止可追蹤的影像</string>
     <string name="title_advanced_hide_timezone">傳送沒有時區資料的郵件</string>
     <string name="title_advanced_display_hidden">顯示隱藏的訊息內文</string>
     <string name="title_advanced_secure">從最近的應用程式中移除並防止截圖</string>

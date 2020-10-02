@@ -386,27 +386,27 @@ Operations are processed only when there is a connection to the email server or 
 
 Dovresti provare a risolvere ciò contattando il tuo fornitore o ottenendo un certificato di sicurezza valido perché i certificati di sicurezza non validi non sono sicuri e consente gli [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere dei certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint shown below the error message if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard). Note that you should make sure the internet connection you are using is safe.
+In alternativa, puoi accettare le impronte digitali mostrate sotto il messaggio di errore se configuri il profilo e/o l'identità nei passaggi 1 e 2 della configurazione (non è possibile usando la procedura guidata di configurazione rapida). Nota che dovresti assicurarti che la connessione ad internet che stai usando sia sicura.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Nota che le versioni precedenti potrebbero non riconoscere le autorità di certificazione più nuove come Let's Encrypt, causando alle connessioni di essere considerate non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Ancoraggio di fiducia per il percorso di certificazione non trovato*
 
 *... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Dovresti correggere la configurazione del server o accettare l'impronta digitale mostrata sotto il messaggio d'errore.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Nota che questo problema può essere causato dal server che non invia anche certificati intermedi.
 
-*Empty password*
+*Password vuota*
 
-Your username is likely easily guessed, so this is insecure.
+Il tuo nome utente è probabilmente facilmente individuato, quindi ciò non è sicuro.
 
-*Plain text connection*
+*Connessione del testo semplice*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Il tuo nome utente e la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che è **molto insicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una connessione del testo semplice dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o dell'identità. STARTTLS dovrebbe essere selezionato per le connessioni in testo semplice. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 

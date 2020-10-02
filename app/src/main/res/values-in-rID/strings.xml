@@ -376,7 +376,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_browse_links">Delegasikan ketika membuka tautan ke sistem Android</string>
     <string name="title_advanced_confirm_images">Minta konfirmasi ketika menampilkan gambar</string>
     <string name="title_advanced_confirm_html">Tampilkan pesan yang diformat ulang secara standar</string>
-    <string name="title_advanced_tracking">Secara otomatis mengenali dan menonaktifkan sebuah gambar yang mengandung pelacakan</string>
     <string name="title_advanced_hide_timezone">Kirim pesan tanpa data zona waktu</string>
     <string name="title_advanced_display_hidden">Tampilkan teks pesan tersembunyi</string>
     <string name="title_advanced_secure">Sembunyikan dari layar aplikasi terbaru dan cegah pengambilan tangkapan layar</string>

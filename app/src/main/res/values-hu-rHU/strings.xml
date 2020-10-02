@@ -395,7 +395,6 @@
     <string name="title_advanced_browse_links">A linkeket a rendzser kezelje</string>
     <string name="title_advanced_confirm_images">Képek megjelenítésének megerősítéshez kötése</string>
     <string name="title_advanced_confirm_html">Üzenetek alapértelmezett újraformázása</string>
-    <string name="title_advanced_tracking">Követésre használt képek automatikus felismerése és tiltása</string>
     <string name="title_advanced_hide_timezone">Üzenetek küldése időzóna adat nélkül</string>
     <string name="title_advanced_display_hidden">Rejtett szövegrészletek megjelenítése</string>
     <string name="title_advanced_secure">Elrejtés a \"legutóbbi alkalmazások\" képernyőről, és képernyőkép készítésének tiltása</string>

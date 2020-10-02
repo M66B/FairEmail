@@ -385,7 +385,7 @@
     <string name="title_advanced_browse_links">授权打开到 Android的链接</string>
     <string name="title_advanced_confirm_images">确认显示图像</string>
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
-    <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
+    <string name="title_advanced_tracking">尝试识别和禁用跟踪图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
@@ -1075,6 +1075,7 @@
     <string name="title_legend_forwarded">已转发过的</string>
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求接收</string>
+    <string name="title_legend_auto_submitted">被自动发送</string>
     <string name="title_legend_attachment">含附件</string>
     <string name="title_legend_flagged">收藏</string>
     <string name="title_legend_contacts">管理联系人</string>

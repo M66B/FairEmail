@@ -397,7 +397,7 @@
     <string name="title_advanced_browse_links">Déléguer l\'ouverture des liens à Android</string>
     <string name="title_advanced_confirm_images">Confirmer l\'affichage des images</string>
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
-    <string name="title_advanced_tracking">Reconnaître et désactiver automatiquement les images de pistage</string>
+    <string name="title_advanced_tracking">Tenter de reconnaître et de désactiver les images de pistage</string>
     <string name="title_advanced_hide_timezone">Envoyer les messages sans les données de fuseau horaire</string>
     <string name="title_advanced_display_hidden">Afficher les textes cachés des messages</string>
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
@@ -1087,6 +1087,7 @@
     <string name="title_legend_forwarded">A été transféré</string>
     <string name="title_legend_plain_only">Texte brut seulement</string>
     <string name="title_legend_receipt">Une confirmation a été demandée</string>
+    <string name="title_legend_auto_submitted">A été envoyé automatiquement</string>
     <string name="title_legend_attachment">A une pièce jointe</string>
     <string name="title_legend_flagged">Est suivi</string>
     <string name="title_legend_contacts">Gérer les contacts</string>

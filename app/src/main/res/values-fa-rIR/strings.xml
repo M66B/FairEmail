@@ -341,7 +341,6 @@
     <string name="title_advanced_confirm_links">تایید بازکردن پیوندها</string>
     <string name="title_advanced_browse_links">بازکردن پیوند‌ها را به اندروید واگذار کن</string>
     <string name="title_advanced_confirm_images">تایید نمایش تصاویر</string>
-    <string name="title_advanced_tracking">تصاویر ردیاب را خودکار شناسایی و غیرفعال کن</string>
     <string name="title_advanced_hide_timezone">پیام‌ها را بدون داده منطقه زمانی بفرست</string>
     <string name="title_advanced_display_hidden">نمایش متن پیام‌های پنهان</string>
     <string name="title_advanced_secure">از صفحه برنامه های اخیر پنهان شو و از گرفتن اسکرین‌شات جلوگیری کن</string>

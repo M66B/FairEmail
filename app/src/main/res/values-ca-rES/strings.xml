@@ -368,7 +368,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_browse_links">Delega obrir enllaços a Android</string>
     <string name="title_advanced_confirm_images">Confirmeu la visualització d’imatges</string>
     <string name="title_advanced_confirm_html">Mostra els missatges reformatats de manera predeterminada</string>
-    <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_hide_timezone">Envia missatges sense dades de fus horari</string>
     <string name="title_advanced_display_hidden">Mostra textos de missatges ocults</string>
     <string name="title_advanced_secure">Amaga de la pantalla d\'aplicacions recents i evita que es pugui fer captures de pantalla</string>

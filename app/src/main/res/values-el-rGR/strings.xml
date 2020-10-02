@@ -395,7 +395,7 @@
     <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>
     <string name="title_advanced_confirm_images">Επιβεβαίωση προβολής των εικόνων</string>
     <string name="title_advanced_confirm_html">Προβολή αναμορφοποιημένων μηνυμάτων από προεπιλογή</string>
-    <string name="title_advanced_tracking">Αυτόματη αναγνώριση και απενεργοποίηση των εικόνων ιχνηλάτησης</string>
+    <string name="title_advanced_tracking">Να γίνεται απόπειρα αναγνώρισης και απενεργοποίησης εικόνων ιχνηλάτησης</string>
     <string name="title_advanced_hide_timezone">Αποστολή μηνυμάτων χωρίς πληροφορίες για τη ζώνη ώρας</string>
     <string name="title_advanced_display_hidden">Προβολή κρυμμένων κειμένων στα μηνύματα</string>
     <string name="title_advanced_secure">Απόκρυψη του FairEmail από τη λίστα των πρόσφατων εφαρμογών και παρεμπόδιση λήψης στιγμιοτύπου οθόνης</string>
@@ -817,6 +817,7 @@
     <string name="title_style_list_numbered">Αρίθμηση</string>
     <string name="title_style_font">Γραμματοσειρά</string>
     <string name="title_style_font_default">Προεπιλογή</string>
+    <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
     <string name="title_add_image">Προσθήκη εικόνας</string>

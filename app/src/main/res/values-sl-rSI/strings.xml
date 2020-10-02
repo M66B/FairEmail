@@ -353,7 +353,6 @@
     <string name="title_advanced_browse_links">Za odpiranje povezav pooblasti Android</string>
     <string name="title_advanced_confirm_images">Potrdi prikaz slik</string>
     <string name="title_advanced_confirm_html">Privzeto prikaži preoblikovana sporočila</string>
-    <string name="title_advanced_tracking">Samodejno prepoznaj in onemogoči sledilne slike</string>
     <string name="title_advanced_hide_timezone">Pošiljaj sporočila brez podatkov o časovnem pasu</string>
     <string name="title_advanced_display_hidden">Prikaži skrita besedila v sporočilu</string>
     <string name="title_advanced_secure">Skrij z zaslona nedavnih programov in prepreči zaslonske slike</string>

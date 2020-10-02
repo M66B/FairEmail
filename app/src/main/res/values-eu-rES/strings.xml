@@ -349,7 +349,6 @@
     <string name="title_advanced_browse_links">Delegatu Androiden estekak irekitzea</string>
     <string name="title_advanced_confirm_images">Berretsi irudiak erakustea</string>
     <string name="title_advanced_confirm_html">Berez erakutsi erreformatutako mezuak</string>
-    <string name="title_advanced_tracking">Antzeman eta desgaitu jarraipen irudiak automatikoki</string>
     <string name="title_advanced_hide_timezone">Bidali mezuak denbora-zona daturik gabe</string>
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_secure">Ezkutatu erabilitako azken aplikazioen pantailatik eta saihestu pantaila-argazkia egitea</string>

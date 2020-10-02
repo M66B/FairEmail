@@ -363,7 +363,6 @@
     <string name="title_advanced_browse_links">Изпращане на отварящите връзки към Android</string>
     <string name="title_advanced_confirm_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
-    <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
     <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>

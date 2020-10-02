@@ -2725,7 +2725,7 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 ## Support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Endast den senaste versionen av Play Store och den senaste versionen av GitHub stöds. Detta innebär också att nedgradering inte stöds.
 
 Requested features should:
 
@@ -2738,6 +2738,6 @@ Features not fulfilling these requirements will likely be rejected. This is also
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-issues är inaktiverade på grund av frekvent missbruk.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

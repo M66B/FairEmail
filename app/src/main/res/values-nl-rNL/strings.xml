@@ -396,7 +396,7 @@
     <string name="title_advanced_browse_links">Het openen van links overdragen aan Android</string>
     <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
     <string name="title_advanced_confirm_html">Toon standaard opnieuw geformatteerde berichten</string>
-    <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking afbeeldingen</string>
+    <string name="title_advanced_tracking">Probeer om tracking afbeeldingen te herkennen en uit te schakelen</string>
     <string name="title_advanced_hide_timezone">Berichten verzenden zonder tijdzone data</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
@@ -1086,6 +1086,7 @@
     <string name="title_legend_forwarded">Is doorgestuurd</string>
     <string name="title_legend_plain_only">Is alleen platte tekst</string>
     <string name="title_legend_receipt">Ontvangstbevestiging gevraagd</string>
+    <string name="title_legend_auto_submitted">Werd automatisch verzonden</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>
     <string name="title_legend_flagged">Is favoriet</string>
     <string name="title_legend_contacts">Contacten beheren</string>
