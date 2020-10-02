@@ -4418,7 +4418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
-            }.execute(context, owner, args, "message:share");
+            }.execute(context, owner, args, "message:resync");
         }
 
         private void onMenuSearch(TupleMessageEx message) {
