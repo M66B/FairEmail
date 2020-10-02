@@ -38,6 +38,7 @@ import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
+import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -683,6 +684,16 @@ public class Log {
                 ex.getCause() instanceof TransactionTooLargeException)
             // Some Android versions (Samsung) send images as clip data
             return false;
+
+        if (ex instanceof RuntimeException &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Throwable cause = ex.getCause();
+            while (cause != null) {
+                if (cause instanceof DeadSystemException)
+                    return false;
+                cause = cause.getCause();
+            }
+        }
 
         if (ex instanceof RuntimeException &&
                 ex.getMessage() != null &&
