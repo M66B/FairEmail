@@ -2199,7 +2199,7 @@ public class HtmlHelper {
                                 int llevel = 0;
                                 Element lparent = element.parent();
                                 while (lparent != null) {
-                                    if (lparent.tagName().equals(element.tagName()))
+                                    if ("ol".equals(element.tagName()) || "ul".equals(element.tagName()))
                                         llevel++;
                                     lparent = lparent.parent();
                                 }
