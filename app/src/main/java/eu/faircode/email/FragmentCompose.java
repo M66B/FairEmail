@@ -3141,7 +3141,11 @@ public class FragmentCompose extends FragmentBase {
 
             attachment.message = draft.id;
             attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-            attachment.name = info.name;
+            if (privacy) {
+                String ext = Helper.getExtension(info.name);
+                attachment.name = "img" + attachment.sequence + (ext == null ? "" : "." + ext);
+            } else
+                attachment.name = info.name;
             attachment.type = info.type;
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
             attachment.size = info.size;
