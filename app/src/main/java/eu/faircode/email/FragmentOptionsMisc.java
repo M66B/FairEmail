@@ -89,6 +89,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnApp;
     private Button btnMore;
 
+    private SwitchCompat swProtocol;
     private SwitchCompat swDebug;
     private SwitchCompat swAuthPlain;
     private SwitchCompat swAuthLogin;
@@ -106,7 +107,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts", "english", "watchdog", "updates",
             "experiments", "query_threads", "crash_reports", "cleanup_attachments",
-            "debug", "auth_plain", "auth_login", "auth_sasl"
+            "protocol", "debug", "auth_plain", "auth_login", "auth_sasl"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -149,6 +150,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnApp = view.findViewById(R.id.btnApp);
         btnMore = view.findViewById(R.id.btnMore);
 
+        swProtocol = view.findViewById(R.id.swProtocol);
         swDebug = view.findViewById(R.id.swDebug);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
@@ -336,6 +338,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("debug", checked).apply();
                 Log.setDebug(checked);
                 grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        swProtocol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("protocol", checked).apply();
             }
         });
 
@@ -596,6 +605,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvUuid.setText(prefs.getString("uuid", null));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
+        swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));

@@ -504,6 +504,7 @@
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_query_threads">Limit parallel database access</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
+    <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Cleanup</string>
@@ -585,6 +586,7 @@
     <string name="title_advanced_fts_hint">Enabling this improves search performance, but also increases battery and storage space usage</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_experiments_hint">List of current experimental features</string>
+    <string name="title_advanced_protocol_hint">This will significantly increase battery and storage space usage!</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
     <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronized</string>
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>

@@ -130,7 +130,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
             "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
-            "debug" // force reconnect
+            "protocol", "debug" // force reconnect
     ));
 
     static final int PI_ALARM = 1;

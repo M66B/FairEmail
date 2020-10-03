@@ -30,7 +30,10 @@ import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -92,6 +95,7 @@ public class EmailService implements AutoCloseable {
     private boolean harden;
     private boolean useip;
     private String ehlo;
+    private boolean log;
     private boolean debug;
     private Properties properties;
     private Session isession;
@@ -150,6 +154,7 @@ public class EmailService implements AutoCloseable {
         properties = MessageHelper.getSessionProperties();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.log = prefs.getBoolean("protocol", false);
         this.harden = prefs.getBoolean("ssl_harden", false);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
@@ -515,7 +520,27 @@ public class EmailService implements AutoCloseable {
             String user, String password,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, null);
-        isession.setDebug(debug);
+
+        isession.setDebug(debug || log);
+        if (debug || log)
+            isession.setDebugOut(new PrintStream(new OutputStream() {
+                private ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+                @Override
+                public void write(int b) {
+                    if (((char) b) == '\n') {
+                        String line = bos.toString();
+                        if (!line.endsWith("ignoring socket timeout"))
+                            if (debug)
+                                android.util.Log.i("javamail", user + " " + line);
+                            else
+                                EntityLog.log(context, user + " " + line);
+                        bos.reset();
+                    } else
+                        bos.write(b);
+                }
+            }));
+
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
         isession.addProvider(new GmailSSLProvider());
 
