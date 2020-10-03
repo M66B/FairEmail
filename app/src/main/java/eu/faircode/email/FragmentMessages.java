@@ -2613,6 +2613,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.protocol != EntityAccount.TYPE_IMAP);
                     boolean isJunk = EntityFolder.JUNK.equals(folder.type);
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
+                    boolean isSent = EntityFolder.SENT.equals(folder.type);
+
+                    if (pop && isSent)
+                        isInbox = true;
 
                     result.isInbox = (result.isInbox == null ? isInbox : result.isInbox && isInbox);
                     result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
