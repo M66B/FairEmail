@@ -40,10 +40,15 @@ import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 import org.jsoup.nodes.Document;
 
+import java.util.concurrent.ExecutorService;
+
 public class EditTextCompose extends FixedEditText {
     private boolean raw = false;
     private ISelection selectionListener = null;
     private IInputContentListener inputContentListener = null;
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "paste");
 
     public EditTextCompose(Context context) {
         super(context);
@@ -96,90 +101,112 @@ public class EditTextCompose extends FixedEditText {
                     }
                 }
             } else if (id == android.R.id.paste) {
-                Context context = getContext();
+                final Context context = getContext();
+
                 ClipboardManager cbm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                if (cbm != null && cbm.hasPrimaryClip()) {
-                    ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
+                if (cbm == null || !cbm.hasPrimaryClip())
+                    return false;
 
-                    String html = item.getHtmlText();
-                    if (html == null) {
-                        CharSequence text = item.getText();
-                        if (text == null)
-                            return false;
-                        if (raw)
-                            html = text.toString();
-                        else
-                            html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
-                    }
+                ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
-                    SpannableStringBuilder ssb;
+                final String html;
+                String h = item.getHtmlText();
+                if (h == null) {
+                    CharSequence text = item.getText();
+                    if (text == null)
+                        return false;
                     if (raw)
-                        ssb = new SpannableStringBuilder(html);
-                    else {
-                        Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                        Spanned paste = HtmlHelper.fromDocument(getContext(), document, true, new Html.ImageGetter() {
-                            @Override
-                            public Drawable getDrawable(String source) {
-                                return ImageHelper.decodeImage(getContext(),
-                                        -1, source, true, 0, 1.0f, EditTextCompose.this);
+                        html = text.toString();
+                    else
+                        html = "<div>" + HtmlHelper.formatPre(text.toString(), false) + "</div>";
+                } else
+                    html = h;
+
+                final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                final int dp3 = Helper.dp2pixels(context, 3);
+                final int dp6 = Helper.dp2pixels(context, 6);
+
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            SpannableStringBuilder ssb;
+                            if (raw)
+                                ssb = new SpannableStringBuilder(html);
+                            else {
+                                Document document = HtmlHelper.sanitizeCompose(context, html, false);
+                                Spanned paste = HtmlHelper.fromDocument(context, document, true, new Html.ImageGetter() {
+                                    @Override
+                                    public Drawable getDrawable(String source) {
+                                        return ImageHelper.decodeImage(context,
+                                                -1, source, true, 0, 1.0f, EditTextCompose.this);
+                                    }
+                                }, null);
+
+                                ssb = new SpannableStringBuilder(paste);
+                                QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
+                                for (QuoteSpan span : spans) {
+                                    QuoteSpan q;
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                        q = new QuoteSpan(colorPrimary);
+                                    else
+                                        q = new QuoteSpan(colorPrimary, dp3, dp6);
+                                    ssb.setSpan(q,
+                                            ssb.getSpanStart(span),
+                                            ssb.getSpanEnd(span),
+                                            ssb.getSpanFlags(span));
+                                    ssb.removeSpan(span);
+                                }
                             }
-                        }, null);
 
-                        int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                        int dp3 = Helper.dp2pixels(context, 3);
-                        int dp6 = Helper.dp2pixels(context, 6);
+                            ApplicationEx.getMainHandler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        int start = getSelectionStart();
+                                        int end = getSelectionEnd();
 
-                        ssb = new SpannableStringBuilder(paste);
-                        QuoteSpan[] spans = ssb.getSpans(0, ssb.length(), QuoteSpan.class);
-                        for (QuoteSpan span : spans) {
-                            QuoteSpan q;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q = new QuoteSpan(colorPrimary);
-                            else
-                                q = new QuoteSpan(colorPrimary, dp3, dp6);
-                            ssb.setSpan(q,
-                                    ssb.getSpanStart(span),
-                                    ssb.getSpanEnd(span),
-                                    ssb.getSpanFlags(span));
-                            ssb.removeSpan(span);
+                                        if (start < 0)
+                                            start = 0;
+                                        if (end < 0)
+                                            end = 0;
+
+                                        if (start > end) {
+                                            int tmp = start;
+                                            start = end;
+                                            end = tmp;
+                                        }
+
+                                        if (start == end)
+                                            getText().insert(start, ssb);
+                                        else
+                                            getText().replace(start, end, ssb);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        /*
+                                            java.lang.RuntimeException: PARAGRAPH span must start at paragraph boundary
+                                                    at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:619)
+                                                    at android.text.SpannableStringBuilder.change(SpannableStringBuilder.java:391)
+                                                    at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:496)
+                                                    at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:454)
+                                                    at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:33)
+                                                    at android.widget.TextView.paste(TextView.java:8891)
+                                                    at android.widget.TextView.onTextContextMenuItem(TextView.java:8706)
+                                         */
+                                    }
+                                }
+                            });
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
+                });
 
-                    int start = getSelectionStart();
-                    int end = getSelectionEnd();
-
-                    if (start < 0)
-                        start = 0;
-                    if (end < 0)
-                        end = 0;
-
-                    if (start > end) {
-                        int tmp = start;
-                        start = end;
-                        end = tmp;
-                    }
-
-                    if (start == end)
-                        getText().insert(start, ssb);
-                    else
-                        getText().replace(start, end, ssb);
-
-                    return true;
-                }
+                return true;
             }
 
             return super.onTextContextMenuItem(id);
         } catch (Throwable ex) {
-            /*
-                java.lang.RuntimeException: PARAGRAPH span must start at paragraph boundary
-                        at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:619)
-                        at android.text.SpannableStringBuilder.change(SpannableStringBuilder.java:391)
-                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:496)
-                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:454)
-                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:33)
-                        at android.widget.TextView.paste(TextView.java:8891)
-                        at android.widget.TextView.onTextContextMenuItem(TextView.java:8706)
-             */
             Log.e(ex);
             return false;
         }
