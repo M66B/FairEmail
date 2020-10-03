@@ -3161,9 +3161,14 @@ class Core {
         }
 
         for (Address address : addresses) {
-            final String email = ((InternetAddress) address).getAddress();
-            final String name = ((InternetAddress) address).getPersonal();
-            final Uri avatar = ContactInfo.getLookupUri(new Address[]{address});
+            String email = ((InternetAddress) address).getAddress();
+            String name = ((InternetAddress) address).getPersonal();
+            Uri avatar = ContactInfo.getLookupUri(new Address[]{address});
+
+            if (TextUtils.isEmpty(email))
+                continue;
+            if (TextUtils.isEmpty(name))
+                name = null;
 
             try {
                 db.beginTransaction();
@@ -3182,7 +3187,7 @@ class Core {
                     contact.id = db.contact().insertContact(contact);
                     Log.i("Inserted contact=" + contact + " type=" + type);
                 } else {
-                    if (contact.name == null && !TextUtils.isEmpty(name))
+                    if (contact.name == null && name != null)
                         contact.name = name;
                     contact.avatar = (avatar == null ? null : avatar.toString());
                     contact.times_contacted++;
