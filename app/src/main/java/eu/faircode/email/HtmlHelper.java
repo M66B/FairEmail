@@ -2322,7 +2322,9 @@ public class HtmlHelper {
             int s = start.get(spans[i]);
             int e = end.get(spans[i]);
             int f = flags.get(spans[i]);
-            if (spans[i] instanceof BulletSpan || spans[i] instanceof NumberSpan)
+            if (spans[i] instanceof AlignmentSpan ||
+                    spans[i] instanceof BulletSpan ||
+                    spans[i] instanceof NumberSpan)
                 if (s > 1 && ssb.charAt(s - 1) == '\n' &&
                         e > 1 && ssb.charAt(e - 1) == '\n')
                     f |= Spanned.SPAN_PARAGRAPH;

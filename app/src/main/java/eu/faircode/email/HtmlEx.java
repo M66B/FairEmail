@@ -170,7 +170,7 @@ public class HtmlEx {
             // Only use the last AlignmentSpan with flag SPAN_PARAGRAPH
             for (int i = alignmentSpans.length - 1; i >= 0; i--) {
                 AlignmentSpan s = alignmentSpans[i];
-                if ((text.getSpanFlags(s) & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH || true) {
+                if ((text.getSpanFlags(s) & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH) {
                     final Layout.Alignment alignment = s.getAlignment();
                     if (alignment == Layout.Alignment.ALIGN_NORMAL) {
                         textAlign = "text-align:start;";

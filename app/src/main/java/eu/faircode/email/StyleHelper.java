@@ -232,7 +232,8 @@ public class StyleHelper {
                             }
 
                             if (alignment != null)
-                                t.setSpan(new AlignmentSpan.Standard(alignment), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                t.setSpan(new AlignmentSpan.Standard(alignment),
+                                        start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
 
                             etBody.setText(t);
                             etBody.setSelection(start, end);
