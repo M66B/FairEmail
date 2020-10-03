@@ -6,9 +6,12 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.text.Layout;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -34,6 +37,7 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class StyleHelper {
     static boolean apply(int action, View anchor, EditText etBody, Object... args) {
@@ -115,6 +119,8 @@ public class StyleHelper {
                                         return setSize(item);
                                     case R.id.group_style_color:
                                         return setColor(item);
+                                    case R.id.group_style_align:
+                                        return setAlignment(item);
                                     case R.id.group_style_list:
                                         return setList(item);
                                     case R.id.group_style_font:
@@ -199,6 +205,34 @@ public class StyleHelper {
 
                             etBody.setText(t);
                             etBody.setSelection(s, e);
+                        }
+
+                        private boolean setAlignment(MenuItem item) {
+                            AlignmentSpan[] spans = t.getSpans(s, e, AlignmentSpan.class);
+                            for (AlignmentSpan span : spans)
+                                t.removeSpan(span);
+
+                            Layout.Alignment alignment = null;
+                            boolean ltr = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_LTR);
+                            switch (item.getItemId()) {
+                                case R.id.menu_style_align_start:
+                                    alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                    break;
+                                case R.id.menu_style_align_center:
+                                    alignment = Layout.Alignment.ALIGN_CENTER;
+                                    break;
+                                case R.id.menu_style_align_end:
+                                    alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                    break;
+                            }
+
+                            if (alignment != null)
+                                t.setSpan(new AlignmentSpan.Standard(alignment), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                            etBody.setText(t);
+                            etBody.setSelection(s, e);
+
+                            return true;
                         }
 
                         private boolean setList(MenuItem item) {

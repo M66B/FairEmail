@@ -2043,6 +2043,7 @@ public class HtmlHelper {
                                         Layout.Alignment alignment = null;
                                         switch (value) {
                                             case "left":
+                                            case "start":
                                             case "justify":
                                                 alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
                                                 break;
@@ -2050,6 +2051,7 @@ public class HtmlHelper {
                                                 alignment = Layout.Alignment.ALIGN_CENTER;
                                                 break;
                                             case "right":
+                                            case "end":
                                                 alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
                                                 break;
                                         }

@@ -30,8 +30,29 @@
     </group>
 
     <item
-        android:id="@+id/menu_style_list"
+        android:id="@+id/menu_style_align"
         android:orderInCategory="3"
+        android:title="@string/title_style_align">
+        <menu>
+            <group android:id="@+id/group_style_align">
+                <item
+                    android:id="@+id/menu_style_align_start"
+                    android:title="@string/title_style_align_start" />
+
+                <item
+                    android:id="@+id/menu_style_align_center"
+                    android:title="@string/title_style_align_center" />
+
+                <item
+                    android:id="@+id/menu_style_align_end"
+                    android:title="@string/title_style_align_end" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_style_list"
+        android:orderInCategory="4"
         android:title="@string/title_style_list">
         <menu>
             <group android:id="@+id/group_style_list">
@@ -45,10 +66,9 @@
         </menu>
     </item>
 
-
     <item
         android:id="@+id/menu_style_font"
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         android:title="@string/title_style_font">
         <menu>
             <group android:id="@+id/group_style_font" />
@@ -57,7 +77,7 @@
 
     <group
         android:id="@+id/group_style_blockquote"
-        android:orderInCategory="5">
+        android:orderInCategory="6">
         <item
             android:id="@+id/menu_style_blockquote"
             android:title="@string/title_style_blockquote" />
@@ -65,7 +85,7 @@
 
     <group
         android:id="@+id/group_style_strikethrough"
-        android:orderInCategory="6">
+        android:orderInCategory="7">
         <item
             android:id="@+id/menu_style_strikethrough"
             android:title="@string/title_style_strikethrough" />
@@ -73,7 +93,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="7">
+        android:orderInCategory="8">
         <item
             android:id="@+id/menu_style_clear"
             android:title="@string/title_style_clear" />
