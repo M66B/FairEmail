@@ -22,6 +22,7 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
@@ -208,7 +209,11 @@ public class StyleHelper {
                         }
 
                         private boolean setAlignment(MenuItem item) {
-                            AlignmentSpan[] spans = t.getSpans(s, e, AlignmentSpan.class);
+                            Pair<Integer, Integer> paragraph = ensureParagraph(t, s, e);
+                            int start = paragraph.first;
+                            int end = paragraph.second;
+
+                            AlignmentSpan[] spans = t.getSpans(start, end, AlignmentSpan.class);
                             for (AlignmentSpan span : spans)
                                 t.removeSpan(span);
 
@@ -227,10 +232,10 @@ public class StyleHelper {
                             }
 
                             if (alignment != null)
-                                t.setSpan(new AlignmentSpan.Standard(alignment), s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                t.setSpan(new AlignmentSpan.Standard(alignment), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                             etBody.setText(t);
-                            etBody.setSelection(s, e);
+                            etBody.setSelection(start, end);
 
                             return true;
                         }
@@ -246,36 +251,9 @@ public class StyleHelper {
                             int message_zoom = prefs.getInt("message_zoom", 100);
                             float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
 
-                            int start = s;
-                            int end = e;
-
-                            // Expand selection at start
-                            while (start > 0 && t.charAt(start - 1) != '\n')
-                                start--;
-
-                            // Expand selection at end
-                            while (end > 0 && end < t.length() && t.charAt(end - 1) != '\n')
-                                end++;
-
-                            // Nothing to do
-                            if (start == end)
-                                return false;
-
-                            // Create paragraph at start
-                            if (start == 0 && t.charAt(start) != '\n') {
-                                t.insert(0, "\n");
-                                start++;
-                                end++;
-                            }
-
-                            // Create paragraph at end
-                            if (end == t.length() && t.charAt(end - 1) != '\n') {
-                                t.append("\n");
-                                end++;
-                            }
-
-                            if (end == t.length())
-                                t.append("\n"); // workaround Android bug
+                            Pair<Integer, Integer> paragraph = ensureParagraph(t, s, e);
+                            int start = paragraph.first;
+                            int end = paragraph.second;
 
                             // Remove existing bullets
                             BulletSpan[] spans = t.getSpans(start, end, BulletSpan.class);
@@ -374,6 +352,41 @@ public class StyleHelper {
                             etBody.setSelection(s, e);
 
                             return true;
+                        }
+
+                        private Pair<Integer, Integer> ensureParagraph(SpannableStringBuilder t, int s, int e) {
+                            int start = s;
+                            int end = e;
+
+                            // Expand selection at start
+                            while (start > 0 && t.charAt(start - 1) != '\n')
+                                start--;
+
+                            // Expand selection at end
+                            while (end > 0 && end < t.length() && t.charAt(end - 1) != '\n')
+                                end++;
+
+                            // Nothing to do
+                            if (start == end)
+                                return null;
+
+                            // Create paragraph at start
+                            if (start == 0 && t.charAt(start) != '\n') {
+                                t.insert(0, "\n");
+                                start++;
+                                end++;
+                            }
+
+                            // Create paragraph at end
+                            if (end == t.length() && t.charAt(end - 1) != '\n') {
+                                t.append("\n");
+                                end++;
+                            }
+
+                            if (end == t.length())
+                                t.append("\n"); // workaround Android bug
+
+                            return new Pair(start, end);
                         }
                     });
 
