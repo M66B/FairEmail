@@ -801,7 +801,7 @@ public class HtmlHelper {
             if (hasVisibleContent(row.childNodes())) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
-                    if (text_separators)
+                    if (text_separators && view)
                         row.appendElement("hr")
                                 .attr("x-dashed", "true");
                     else
