@@ -677,8 +677,10 @@ public class HtmlHelper {
 
                             case "text-align":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                if (text_align)
+                                if (text_align) {
+                                    sb.append("display:block;");
                                     sb.append(key).append(':').append(value).append(';');
+                                }
                                 break;
                         }
                     }
@@ -2343,25 +2345,48 @@ public class HtmlHelper {
         HtmlEx converter = new HtmlEx(context);
         String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
 
-        // @Google: why convert size to and from in a different way?
         Document doc = JsoupEx.parse(html);
         for (Element element : doc.select("span")) {
             String style = element.attr("style");
-            if (style.startsWith("font-size:")) {
-                int colon = style.indexOf(':');
-                int semi = style.indexOf("em;", colon);
-                if (semi > colon)
-                    try {
-                        String hsize = style.substring(colon + 1, semi).replace(',', '.');
-                        float size = Float.parseFloat(hsize);
-                        if (size < 1.0f)
-                            element.tagName("small");
-                        else if (size > 1.0f)
-                            element.tagName("big");
-                        element.attributes().remove("style");
-                    } catch (NumberFormatException ex) {
-                        Log.e(ex);
-                    }
+            if (TextUtils.isEmpty(style))
+                continue;
+
+            StringBuilder sb = new StringBuilder();
+
+            String[] params = style.split(";");
+            for (String param : params) {
+                int semi = param.indexOf(":");
+                if (semi < 0) {
+                    sb.append(param).append(';');
+                    continue;
+                }
+
+                String key = param.substring(0, semi).trim();
+                String value = param.substring(semi + 1).trim();
+
+                switch (key) {
+                    case "font-size":
+                        // @Google: why convert size to and from in a different way?
+                        String v = value.replace(',', '.');
+                        Float size = getFontSize(v, 1.0f);
+                        if (size != null) {
+                            if (size < 1.0f)
+                                element.tagName("small");
+                            else if (size > 1.0f)
+                                element.tagName("big");
+                        }
+                        break;
+                    case "text-align":
+                        sb.append(" display:block;");
+                        // fall through
+                    default:
+                        sb.append(param).append(';');
+                }
+
+                if (sb.length() == 0)
+                    element.removeAttr("style");
+                else
+                    element.attr("style", sb.toString());
             }
         }
 
