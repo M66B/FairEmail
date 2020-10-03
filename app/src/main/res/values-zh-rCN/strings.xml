@@ -591,7 +591,7 @@
     <string name="title_service_protocol">请仔细检查协议 (SSL/TLS 或 STARTTLS)</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
-    <string name="title_synchronize_now">现在同步</string>
+    <string name="title_synchronize_now">立即同步</string>
     <string name="title_synchronize_more">同步更多消息</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
@@ -792,7 +792,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
-    <string name="title_send_now">现在发送</string>
+    <string name="title_send_now">立即发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_send_encryption">加密</string>
@@ -1080,7 +1080,7 @@
     <string name="title_legend_forwarded">已转发过的</string>
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">请求接收</string>
-    <string name="title_legend_auto_submitted">被自动发送</string>
+    <string name="title_legend_auto_submitted">已被自动发送</string>
     <string name="title_legend_attachment">含附件</string>
     <string name="title_legend_flagged">收藏</string>
     <string name="title_legend_contacts">管理联系人</string>
