@@ -2348,8 +2348,8 @@ public class HtmlHelper {
         String html = converter.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_INDIVIDUAL);
 
         Document doc = JsoupEx.parse(html);
-        for (Element element : doc.select("span")) {
-            String style = element.attr("style");
+        for (Element span : doc.select("span")) {
+            String style = span.attr("style");
             if (TextUtils.isEmpty(style))
                 continue;
 
@@ -2373,9 +2373,9 @@ public class HtmlHelper {
                         Float size = getFontSize(v, 1.0f);
                         if (size != null) {
                             if (size < 1.0f)
-                                element.tagName("small");
+                                span.tagName("small");
                             else if (size > 1.0f)
-                                element.tagName("big");
+                                span.tagName("big");
                         }
                         break;
                     case "text-align":
@@ -2386,9 +2386,9 @@ public class HtmlHelper {
                 }
 
                 if (sb.length() == 0)
-                    element.removeAttr("style");
+                    span.removeAttr("style");
                 else
-                    element.attr("style", sb.toString());
+                    span.attr("style", sb.toString());
             }
         }
 
