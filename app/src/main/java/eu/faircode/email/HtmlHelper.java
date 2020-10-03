@@ -2392,6 +2392,16 @@ public class HtmlHelper {
             }
         }
 
+        for (Element quote : doc.select("blockquote")) {
+            Element prev = quote.previousElementSibling();
+            if (prev != null && "br".equals(prev.tagName()))
+                prev.remove();
+
+            Element last = quote.children().last();
+            if (last != null && "br".equals(last.tagName()))
+                last.remove();
+        }
+
         return doc.html();
     }
 
