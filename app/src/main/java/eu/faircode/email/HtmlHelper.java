@@ -571,6 +571,12 @@ public class HtmlHelper {
 
                                 Float fsize = getFontSize(value, current);
                                 if (fsize != null && fsize != 0) {
+                                    if (!view) {
+                                        if (fsize < 1)
+                                            fsize = FONT_SMALL;
+                                        else if (fsize > 1)
+                                            fsize = FONT_LARGE;
+                                    }
                                     element.attr("x-font-size", Float.toString(fsize));
                                     element.attr("x-font-size-rel", Float.toString(fsize / current));
                                 }
@@ -2059,7 +2065,8 @@ public class HtmlHelper {
                     String xFontSize = element.attr("x-font-size-rel");
                     if (!TextUtils.isEmpty(xFontSize)) {
                         Float fsize = Float.parseFloat(xFontSize);
-                        setSpan(ssb, new RelativeSizeSpan(fsize), start, ssb.length());
+                        if (fsize != 1.0f)
+                            setSpan(ssb, new RelativeSizeSpan(fsize), start, ssb.length());
                     }
 
                     // Apply element
@@ -2342,7 +2349,10 @@ public class HtmlHelper {
                     try {
                         String hsize = style.substring(colon + 1, semi).replace(',', '.');
                         float size = Float.parseFloat(hsize);
-                        element.tagName(size < 1.0f ? "small" : "big");
+                        if (size < 1.0f)
+                            element.tagName("small");
+                        else if (size > 1.0f)
+                            element.tagName("big");
                         element.attributes().remove("style");
                     } catch (NumberFormatException ex) {
                         Log.e(ex);
