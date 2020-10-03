@@ -2040,11 +2040,11 @@ public class HtmlHelper {
                                     }
 
                                     if (!table) {
+                                        // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
                                         Layout.Alignment alignment = null;
                                         switch (value) {
                                             case "left":
                                             case "start":
-                                            case "justify":
                                                 alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
                                                 break;
                                             case "center":
