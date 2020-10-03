@@ -385,7 +385,7 @@
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
 
-        <item name="colorUnreadHighlight">@color/greyAccent</item>
+        <item name="colorUnreadHighlight">@color/greyAccentLight</item>
         <item name="colorSeparator">@color/greyPrimary</item>
 
         <item name="colorActionBackground">@color/greyPrimary</item>
