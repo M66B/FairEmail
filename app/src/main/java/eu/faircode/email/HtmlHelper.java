@@ -811,11 +811,13 @@ public class HtmlHelper {
 
         document.select("caption").tagName("div");
 
-        for (Element table : document.select("table"))
+        for (Element table : document.select("table")) {
+            table.attr("x-table", "true");
             if (table.parent() != null && "a".equals(table.parent().tagName()))
                 table.tagName("span"); // Links cannot contain tables
             else
                 table.tagName("div");
+        }
         for (Element hf : document.select("thead,tfoot"))
             hf.tagName("span");
 
@@ -2032,7 +2034,8 @@ public class HtmlHelper {
                                     boolean table = false;
                                     Element e = element;
                                     while (e != null) {
-                                        if ("table".equals(e.tagName())) {
+                                        if ("table".equals(e.tagName()) ||
+                                                "true".equals(e.attr("x-table"))) {
                                             table = true;
                                             break;
                                         }
