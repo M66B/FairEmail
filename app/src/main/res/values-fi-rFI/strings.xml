@@ -827,7 +827,6 @@
     <string name="title_add_image_attach">Liitä</string>
     <string name="title_add_image_resize">Muuta kokoa</string>
     <string name="title_add_image_privacy">Poista yksityisyyden kannalta merkitykselliset tiedot</string>
-    <string name="title_add_image_privacy_remark">Maantieteellinen sijainti, sarjanumerot, jne.</string>
     <string name="title_add_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_add_image_select">Valitse tiedosto</string>
     <string name="title_add_attachment">Lisää liite</string>

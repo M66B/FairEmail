@@ -419,6 +419,7 @@
     <string name="title_advanced_browse_links">Otevírání odkazů přenechat Androidu</string>
     <string name="title_advanced_confirm_images">Potvrzovat zobrazení obrázků</string>
     <string name="title_advanced_confirm_html">Automaticky zobrazit zprávy přeformátované</string>
+    <string name="title_advanced_tracking">Pokusit se rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_hide_timezone">Zprávy odesílat bez časového pásma</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
@@ -524,6 +525,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
+    <string name="title_advanced_edit_name">Upravit pojmenování</string>
     <string name="title_advanced_swipe_actions">Nastavit akce tažení prstem</string>
     <string name="title_advanced_swipe_actions_hint">Nastaví akce tažení doleva a doprava pro všechny IMAP účty</string>
     <string name="title_select">Vybrat &#8230;</string>
@@ -589,6 +591,7 @@
     <string name="title_no_name">Chybí jméno</string>
     <string name="title_no_email">Chybí e-mailová adresa</string>
     <string name="title_email_invalid">E-mailová adresa je neplatná: „%1$s“</string>
+    <string name="title_address_duplicate">Duplikát adresy „%1$s“</string>
     <string name="title_address_parse_error">Adresa „%1$s“ je neplatná: %2$s</string>
     <string name="title_no_account">Chybí účet</string>
     <string name="title_no_host">Chybí název hostitele</string>
@@ -843,6 +846,8 @@
     <string name="title_style_list_numbered">Číslovaný</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Výchozí</string>
+    <string name="title_style_blockquote">Bloková citace</string>
+    <string name="title_style_strikethrough">Přeškrtnutí</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_add_image">Přidat obrázek</string>
@@ -850,7 +855,7 @@
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
     <string name="title_add_image_privacy">Odebrat citlivé osobní údaje</string>
-    <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, apod.</string>
+    <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, názvy souborů, apod.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_add_image_select">Vybrat soubor</string>
     <string name="title_add_attachment">Přidat přílohu</string>
@@ -1105,6 +1110,7 @@
     <string name="title_legend_forwarded">Bylo přeposláno</string>
     <string name="title_legend_plain_only">Je pouze prostý text</string>
     <string name="title_legend_receipt">Potvrzení o přečtení bylo vyžádáno</string>
+    <string name="title_legend_auto_submitted">Byl automaticky odeslán</string>
     <string name="title_legend_attachment">Má přílohu</string>
     <string name="title_legend_flagged">Je oblíbené</string>
     <string name="title_legend_contacts">Spravovat kontakty</string>

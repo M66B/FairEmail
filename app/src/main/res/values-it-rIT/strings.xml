@@ -397,6 +397,7 @@
     <string name="title_advanced_browse_links">Delega link di apertura a Android</string>
     <string name="title_advanced_confirm_images">Conferma visualizzazione immagini</string>
     <string name="title_advanced_confirm_html">Mostra i messaggi riformattati in modo predefinito</string>
+    <string name="title_advanced_tracking">Prova a riconoscere e disabilitare le immagini di tracciamento</string>
     <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
@@ -502,6 +503,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
+    <string name="title_advanced_edit_name">Modifica il nome</string>
     <string name="title_advanced_swipe_actions">Imposta azioni di swipe</string>
     <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione per lo swipe a sinistra e a destra per tutti gli account IMAP</string>
     <string name="title_select">Seleziona &#8230;</string>
@@ -831,7 +833,7 @@
     <string name="title_add_image_attach">Allega</string>
     <string name="title_add_image_resize">Ridimensiona</string>
     <string name="title_add_image_privacy">Rimuovi dati sensibili riguardo alla privacy</string>
-    <string name="title_add_image_privacy_remark">Posizione geografica, numeri di serie, ecc.</string>
+    <string name="title_add_image_privacy_remark">Posizione geografica, numeri di serie, nomi di file, ecc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
@@ -1086,6 +1088,7 @@
     <string name="title_legend_forwarded">È stato inoltrato</string>
     <string name="title_legend_plain_only">È solo testo semplice</string>
     <string name="title_legend_receipt">La ricevuta è stata richiesta</string>
+    <string name="title_legend_auto_submitted">È stato inviato automaticamente</string>
     <string name="title_legend_attachment">Ha allegato</string>
     <string name="title_legend_flagged">È preferito</string>
     <string name="title_legend_contacts">Gestisci contatti</string>

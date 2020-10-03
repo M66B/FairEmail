@@ -754,7 +754,6 @@
     <string name="title_add_image_attach">Ekle</string>
     <string name="title_add_image_resize">Yeniden boyutlandır</string>
     <string name="title_add_image_privacy">Mahremiyetiniz için önemli verileri sil</string>
-    <string name="title_add_image_privacy_remark">Coğrafi konum, seri numarası vb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_add_image_select">Dosya seçin</string>
     <string name="title_add_attachment">Ek ekle</string>

@@ -419,6 +419,7 @@
     <string name="title_advanced_browse_links">Предоставить Android открывать ссылки</string>
     <string name="title_advanced_confirm_images">Подтверждать показ изображений</string>
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
+    <string name="title_advanced_tracking">Пытаться распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_hide_timezone">Отправлять сообщения без данных часового пояса</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
@@ -524,6 +525,7 @@
     <string name="title_advanced_cleanup_attachments_hint">При ручной очистке будут удалены вложения сообщений, которые больше не синхронизируются</string>
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
+    <string name="title_advanced_edit_name">Переименовать</string>
     <string name="title_advanced_swipe_actions">Настройка жестов</string>
     <string name="title_advanced_swipe_actions_hint">Данная настройка определяет действия жестов вправо и влево для всех учётных записей IMAP</string>
     <string name="title_select">Выбор&#8230;</string>
@@ -839,6 +841,10 @@
     <string name="title_style_size_medium">Средний</string>
     <string name="title_style_size_large">Большой</string>
     <string name="title_style_color">Цвет&#8230;</string>
+    <string name="title_style_align">Выравнивание</string>
+    <string name="title_style_align_start">По левому краю</string>
+    <string name="title_style_align_center">По центру</string>
+    <string name="title_style_align_end">По правому краю</string>
     <string name="title_style_list">Список</string>
     <string name="title_style_list_bullets">Маркированный</string>
     <string name="title_style_list_numbered">Нумерованный</string>
@@ -853,7 +859,7 @@
     <string name="title_add_image_attach">Прикрепить</string>
     <string name="title_add_image_resize">Изменить размер</string>
     <string name="title_add_image_privacy">Удалить конфиденциальные данные</string>
-    <string name="title_add_image_privacy_remark">Географическое местоположение, серийные номера и т.п.</string>
+    <string name="title_add_image_privacy_remark">Географическое положение, серийные номера, имена файлов и т.п.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикс.</string>
     <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>
@@ -1108,6 +1114,7 @@
     <string name="title_legend_forwarded">Было переслано</string>
     <string name="title_legend_plain_only">Только простой текст</string>
     <string name="title_legend_receipt">Запрошено уведомление</string>
+    <string name="title_legend_auto_submitted">Отправлено автоматически</string>
     <string name="title_legend_attachment">Имеет вложение</string>
     <string name="title_legend_flagged">Избранное</string>
     <string name="title_legend_contacts">Управление контактами</string>
@@ -1171,7 +1178,7 @@
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
     <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_design">Дизайн преднамеренно не отвлекающий, но сохраняет высокую функциональность. Существует множество вариантов для настройки внешнего вида, но пожалуйста, поймите, что невозможно сделать всех полностью счастливыми одновременно.</string>
-    <string name="title_hint_junk">Фильтрация спама должна выполняться почтовым сервером и не может быть надежно выполнена на устройстве с ограниченными возможностями и питанием от батареи.</string>
+    <string name="title_hint_junk">Фильтрация спама должна выполняться почтовым сервером и не может быть надёжно выполнена на устройстве с ограниченными возможностями и питанием от батареи.</string>
     <string name="title_hint_contact_actions">Длительное нажатие откроет другие действия.</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>

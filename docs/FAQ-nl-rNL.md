@@ -18,21 +18,21 @@ In de meeste gevallen zal de snelle installatie automatisch de juiste configurat
 
 Als de snelle installatie mislukt, moet u handmatig een account aanmaken (om e-mail tekunnen ontvangen) en een identiteit (om e-mail te kunnen verzenden) instellen. Hiervoor heb je de IMAP- en SMTP-serveradressen en poortnummers nodig, en moet je weten of SSL / TLS of STARTTLS moet worden gebruikt. en uw gebruikersnaam (meestal, maar niet altijd, uw e-mailadres) en uw wachtwoord. die je gebruikte bij je andere e-mail programma.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Zoeken naar * IMAP * en de naam van de provider, is meestal voldoende, om de juiste documentatie te vinden.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+In sommige gevallen moet u externe toegang tot uw account inschakelen en / of een speciaal (app) wachtwoord gebruiken, bijvoorbeeld wanneer tweefactorauthenticatie is ingeschakeld.
 
-For authorizing:
+Voor autorisatie:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, zie [ vraag 6 ](#user-content-faq6)
+* Outlook / Live / Hotmail, zie [ vraag 14 ](#user-content-faq14)
+* Office 365, zie [ vraag 14 ](#user-content-faq156)
+* Microsoft Exchange, zie [ vraag 8 ](#user-content-faq8)
+* Yahoo, AOL en Sky, zie [ vraag 88 ](#user-content-faq88)
+* Apple iCloud, zie [ vraag 148 ](#user-content-faq148)
+* Free.fr, zie [ vraag 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Kijk [ hier ](#user-content-faq22) voor veelvoorkomende foutmeldingen en oplossingen.
 
 Gerelateerde vragen:
 
@@ -43,12 +43,12 @@ Gerelateerde vragen:
 
 ## Hoe kan ik...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
+* Wijzig de accountnaam: Instellingen, stap 1, Beheren, tik op account
+* Verander het vegen naar links of rechts: instellingen, Gedrag, Stel veegacties in
+* Wachtwoord wijzigen: Instellingen, stap 1, Beheren, tik op account, wachtwoord wijzigen
+* Wachtwoord wijzigen: Instellingen, stap 1, Beheren, tik op account, wachtwoord wijzigen.
+* CC- en BCC-adressen toevoegen: tik op het mensenpictogram aan het einde van het onderwerp
+* Ga naar het volgende / vorige bericht bij archiveren / verwijderen: schakel in de gedragsinstellingen * Conversaties automatisch sluiten * uit en selecteer * Ga naar volgend / vorig gesprek * voor * Bij het sluiten van een gesprek *
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Synchronize more messages*
@@ -1610,6 +1610,11 @@ Rules are applied directly after the message header has been fetched, but before
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+
+Some common header conditions (regex):
+
+* *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
+* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 

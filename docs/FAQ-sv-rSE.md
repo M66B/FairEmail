@@ -1611,6 +1611,11 @@ If you want to forward a message, consider to use the move action instead. This 
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
+Some common header conditions (regex):
+
+* *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
+* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
@@ -2201,7 +2206,7 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store-köp kan inte användas utan Play Store, vilket inte heller är tillåtet enligt Play Store-reglerna
+* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
@@ -2725,7 +2730,7 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 ## Support
 
-Endast den senaste versionen av Play Store och den senaste versionen av GitHub stöds. Detta innebär också att nedgradering inte stöds.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
 Requested features should:
 
@@ -2738,6 +2743,6 @@ Features not fulfilling these requirements will likely be rejected. This is also
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub-issues är inaktiverade på grund av frekvent missbruk.
+GitHub issues are disabled due to frequent misusage.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

@@ -804,7 +804,6 @@
     <string name="title_add_image_attach">附加</string>
     <string name="title_add_image_resize">調整大小</string>
     <string name="title_add_image_privacy">刪除隱私敏感數據</string>
-    <string name="title_add_image_privacy_remark">地理位置，序列號等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">選擇文件</string>
     <string name="title_add_attachment">添加附件</string>

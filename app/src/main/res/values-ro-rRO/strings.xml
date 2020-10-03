@@ -841,7 +841,6 @@
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
     <string name="title_add_image_privacy">Elimină datele confidențiale</string>
-    <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>

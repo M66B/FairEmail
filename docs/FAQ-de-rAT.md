@@ -56,9 +56,9 @@ Verwandte Fragen:
 * Konto/Identität löschen: Schritt 1/2, Verwalten, Benutzerkonten/Identität, Drei-Punkte-Menü, Löschen
 * Ordner löschen: Drücken Sie lange auf den Ordner in der Ordnerliste, Eigenschaften, Drei-Punkte-Menü, Löschen
 * Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
-* Gesendete Nachrichten im Posteingang speichern: [Siehe diese FAQ](#user-content-faq142)
+* Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
 * Systemordner ändern: Einrichten, Schritt 1, Verwalten, Benutzerkonto unten
-* Export/Import-Einstellungen: Setup, Navigation/Hamburger Menü
+* Export-/Import-Einstellungen: Einrichtung, Navigations-/Hamburgermenü
 
 ## Bekannte Probleme
 
@@ -730,7 +730,7 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-Um ein Office 365-Konto einzurichten, lesen Sie bitte [diese F&A](#user-content-faq156).
+Um ein Office-365-Konto einzurichten, lesen Sie bitte [diese F&A](#user-content-faq156).
 
 <br />
 
@@ -1611,6 +1611,11 @@ If you want to forward a message, consider to use the move action instead. This 
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
+Some common header conditions (regex):
+
+* *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
+* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
@@ -2190,7 +2195,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Öffnen Sie FairEmail und wechseln Sie zum Bildschirm mit den Pro-Funktionen, damit FairEmail die Einkäufe überprüfen kann.
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2201,7 +2206,7 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play-Store-Regeln ebenfalls nicht zulässig ist.
+* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
@@ -2445,8 +2450,8 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* Push-Nachrichten sind für zu viele Ordner aktiviert: Weitere Informationen und eine Behelfslösung hierfür finden Sie in den [Häufig gestellten Fragen (FAQ)](#user-content-faq23)
-* Das Passwort wurde geändert: Eine Passwortaktualisierung in FairEmail sollte das Problem beheben
+* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
@@ -2706,8 +2711,8 @@ Please see [here](https://disconnect.me/trackerprotection) for more information 
 
 After downloading the lists in the privacy settings, the lists can optionally be used:
 
-* um vor Tracking-Links bei geöffneten Links zu warnen
-* um Tracking-Bilder in Nachrichten zu erkennen
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
 Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
@@ -2729,10 +2734,10 @@ Only the latest Play store version and latest GitHub release are supported. This
 
 Requested features should:
 
-* für die meisten Menschen nützlich sein
-* die Nutzung von FairEmail nicht verkomplizieren
-* in die Philosophie von FairEmail passen (privat- und sicherheitsorientiert)
-* den gängigen Standards entsprechen (IMAP, SMTP, etc)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 

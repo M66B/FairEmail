@@ -828,7 +828,6 @@
     <string name="title_add_image_attach">Vedhæft</string>
     <string name="title_add_image_resize">Skalér</string>
     <string name="title_add_image_privacy">Fjern personsensitive data</string>
-    <string name="title_add_image_privacy_remark">Geografisk placering, serienumre mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>

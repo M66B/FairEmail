@@ -502,6 +502,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Dit zal bijlagen verwijderen van berichten die niet meer worden gesynchroniseerd bij handmatig opruimen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
+    <string name="title_advanced_edit_name">Naam wijzigen</string>
     <string name="title_advanced_swipe_actions">Stel veegacties in</string>
     <string name="title_advanced_swipe_actions_hint">Dit stelt de veeg naar links en rechts actie voor alle IMAP accounts in</string>
     <string name="title_select">Selecteer &#8230;</string>
@@ -817,6 +818,10 @@
     <string name="title_style_size_medium">Middelgroot</string>
     <string name="title_style_size_large">Groot</string>
     <string name="title_style_color">Kleur &#8230;</string>
+    <string name="title_style_align">Uitlijnen</string>
+    <string name="title_style_align_start">Begin</string>
+    <string name="title_style_align_center">Midden</string>
+    <string name="title_style_align_end">Einde</string>
     <string name="title_style_list">Lijst</string>
     <string name="title_style_list_bullets">Opsommingstekens</string>
     <string name="title_style_list_numbered">Nummers</string>
@@ -831,7 +836,7 @@
     <string name="title_add_image_attach">Bijlage</string>
     <string name="title_add_image_resize">Grootte aanpassen</string>
     <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
-    <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, enz</string>
+    <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, bestandsnamen, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>

@@ -820,7 +820,6 @@
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
     <string name="title_add_image_privacy">Eliminar datos privados</string>
-    <string name="title_add_image_privacy_remark">Localización xeográfica, números de serie, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d puntos</string>
     <string name="title_add_image_select">Seleccionar ficheiro</string>
     <string name="title_add_attachment">Engadir ficheiro anexo</string>

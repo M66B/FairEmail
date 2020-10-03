@@ -396,6 +396,7 @@
     <string name="title_advanced_browse_links">Låt Android öppna länkar</string>
     <string name="title_advanced_confirm_images">Bekräfta visning av bilder</string>
     <string name="title_advanced_confirm_html">Visa omformaterade meddelanden som standard</string>
+    <string name="title_advanced_tracking">Försök att känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_hide_timezone">Skicka meddelanden utan tidszon</string>
     <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
     <string name="title_advanced_secure">Dölj dig från senaste appar-skärmen och förhindra tagning av skärmdumpar</string>
@@ -501,6 +502,7 @@
     <string name="title_advanced_cleanup_attachments_hint">När du städar manuellt kommer detta att ta bort bilagor från meddelanden som inte längre är synkroniserade</string>
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
     <string name="title_advanced_never_favorite">Aldrig favorit</string>
+    <string name="title_advanced_edit_name">Redigera namn</string>
     <string name="title_advanced_swipe_actions">Ställ in svepåtgärder</string>
     <string name="title_advanced_swipe_actions_hint">Detta kommer att ställa in svep åt vänster och höger för alla IMAP-konton</string>
     <string name="title_select">Välj &#8230;</string>
@@ -816,6 +818,10 @@
     <string name="title_style_size_medium">Medel</string>
     <string name="title_style_size_large">Stor</string>
     <string name="title_style_color">Färg &#8230;</string>
+    <string name="title_style_align">Justera</string>
+    <string name="title_style_align_start">Start</string>
+    <string name="title_style_align_center">Centrera</string>
+    <string name="title_style_align_end">Slut</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Punkter</string>
     <string name="title_style_list_numbered">Numrerad</string>
@@ -830,7 +836,7 @@
     <string name="title_add_image_attach">Bifoga</string>
     <string name="title_add_image_resize">Ändra storlek</string>
     <string name="title_add_image_privacy">Ta bort sekretesskänslig data</string>
-    <string name="title_add_image_privacy_remark">Geografisk plats, serienummer, etc</string>
+    <string name="title_add_image_privacy_remark">Geografisk plats, serienummer, filnamn etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
@@ -1085,6 +1091,7 @@
     <string name="title_legend_forwarded">Vidarebefordrades</string>
     <string name="title_legend_plain_only">Är endast oformaterad text</string>
     <string name="title_legend_receipt">Kvitto begärdes</string>
+    <string name="title_legend_auto_submitted">Skickades automatiskt</string>
     <string name="title_legend_attachment">Har bilaga</string>
     <string name="title_legend_flagged">Är favorit</string>
     <string name="title_legend_contacts">Hantera kontakter</string>

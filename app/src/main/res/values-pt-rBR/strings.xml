@@ -825,7 +825,6 @@
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
     <string name="title_add_image_privacy">Remover dados confidenciais</string>
-    <string name="title_add_image_privacy_remark">Localização, número de série, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Selecionar arquivo</string>
     <string name="title_add_attachment">Adicionar anexo</string>

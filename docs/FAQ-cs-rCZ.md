@@ -1611,6 +1611,11 @@ If you want to forward a message, consider to use the move action instead. This 
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
+Some common header conditions (regex):
+
+* *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
+* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
@@ -2729,10 +2734,10 @@ Only the latest Play store version and latest GitHub release are supported. This
 
 Requested features should:
 
-* být užitečné pro většinu lidí
-* nekomplikovat používání FairEmailu
-* být v souladu s filozofií FairEmailu (zaměření na soukromí s ohledem na bezpečnost)
-* neporušovat společné standardy (IMAP, SMTP, apod.)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 

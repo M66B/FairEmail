@@ -491,6 +491,7 @@
     <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
+    <string name="title_advanced_edit_name">编辑名称</string>
     <string name="title_advanced_swipe_actions">设置滑动操作</string>
     <string name="title_advanced_swipe_actions_hint">这将为所有 IMAP 账户设置左右滑动操作</string>
     <string name="title_select">选择 &#8230;</string>
@@ -556,7 +557,7 @@
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
     <string name="title_email_invalid">电邮地址无效：\'%1$s\'</string>
-    <string name="title_address_duplicate">地址%1$s重复</string>
+    <string name="title_address_duplicate">地址 \'%1$s\' 重复</string>
     <string name="title_address_parse_error">地址 \'%1$s\' 无效: %2$s</string>
     <string name="title_no_account">缺少账户</string>
     <string name="title_no_host">缺少主机名称</string>
@@ -806,12 +807,16 @@
     <string name="title_style_size_medium">中等</string>
     <string name="title_style_size_large">大</string>
     <string name="title_style_color">颜色 &#8230;</string>
+    <string name="title_style_align">对齐</string>
+    <string name="title_style_align_start">起始</string>
+    <string name="title_style_align_center">居中</string>
+    <string name="title_style_align_end">末尾</string>
     <string name="title_style_list">列表</string>
     <string name="title_style_list_bullets">项目符号列表</string>
     <string name="title_style_list_numbered">编号列表</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
-    <string name="title_style_blockquote">阻止引用</string>
+    <string name="title_style_blockquote">引用块</string>
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>
@@ -820,7 +825,7 @@
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
-    <string name="title_add_image_privacy_remark">地理位置、序列号等</string>
+    <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>

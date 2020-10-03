@@ -524,6 +524,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_advanced_never_favorite">Nigdy ulubiony</string>
+    <string name="title_advanced_edit_name">Zmień nazwę</string>
     <string name="title_advanced_swipe_actions">Ustaw akcje przesuwania</string>
     <string name="title_advanced_swipe_actions_hint">Spowoduje to ustawienie akcji przesuwania w lewo i w prawo dla wszystkich kont IMAP</string>
     <string name="title_select">Wybierz &#8230;</string>
@@ -853,7 +854,7 @@
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
     <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
-    <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, itp.</string>
+    <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, nazwy plików itp</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>
@@ -1108,6 +1109,7 @@
     <string name="title_legend_forwarded">Przesłana dalej</string>
     <string name="title_legend_plain_only">Tylko jako zwykły tekst</string>
     <string name="title_legend_receipt">Zażądano potwierdzenia</string>
+    <string name="title_legend_auto_submitted">Został wysłany automatycznie</string>
     <string name="title_legend_attachment">Zawiera załącznik</string>
     <string name="title_legend_flagged">Ulubiona</string>
     <string name="title_legend_contacts">Zarządzaj kontaktami</string>

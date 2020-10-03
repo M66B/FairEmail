@@ -825,7 +825,6 @@
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
     <string name="title_add_image_privacy">Magán jellegű adatok törlése</string>
-    <string name="title_add_image_privacy_remark">Földrajzi helyzet, azonosítók, stb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>

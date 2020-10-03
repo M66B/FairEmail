@@ -398,7 +398,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
     <string name="title_advanced_confirm_html">Standardmäßig umformatierte Nachrichten anzeigen</string>
-    <string name="title_advanced_tracking">Versuchen, Tracking-Bilder zu erkennen und zu deaktivieren</string>
+    <string name="title_advanced_tracking">Versuchen, Verfolgungsbilder zu erkennen und zu deaktivieren</string>
     <string name="title_advanced_hide_timezone">Nachrichten ohne Zeitzoneninformationen senden</string>
     <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
@@ -504,6 +504,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_cleanup_attachments_hint">Beim manuellen Bereinigen werden Anhänge von Nachrichten entfernt, die nicht mehr synchronisiert werden</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
     <string name="title_advanced_never_favorite">Niemals favorisiert</string>
+    <string name="title_advanced_edit_name">Namen bearbeiten</string>
     <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
     <string name="title_advanced_swipe_actions_hint">Das wird die Aktion fürs Links- und Rechtswischen aller IMAP-Konten festlegen</string>
     <string name="title_select">Auswählen &#8230;</string>
@@ -818,6 +819,10 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_size_medium">Mittel</string>
     <string name="title_style_size_large">Groß</string>
     <string name="title_style_color">Farbe &#8230;</string>
+    <string name="title_style_align">Ausrichtung</string>
+    <string name="title_style_align_start">Anfang</string>
+    <string name="title_style_align_center">Zentriert</string>
+    <string name="title_style_align_end">Ende</string>
     <string name="title_style_list">Liste</string>
     <string name="title_style_list_bullets">Aufzählungspunkte</string>
     <string name="title_style_list_numbered">Nummeriert</string>
@@ -832,7 +837,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
-    <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, usw.</string>
+    <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, Dateinamen usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
