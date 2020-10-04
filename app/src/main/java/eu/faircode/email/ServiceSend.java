@@ -112,16 +112,16 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         });
 
         // Observe send operations
-        db.operation().liveOperations(null).observe(owner, new Observer<List<TupleOperationEx>>() {
+        db.operation().liveSend().observe(owner, new Observer<List<EntityOperation>>() {
             @Override
-            public void onChanged(List<TupleOperationEx> operations) {
+            public void onChanged(List<EntityOperation> operations) {
                 if (operations == null)
                     operations = new ArrayList<>();
 
-                final List<TupleOperationEx> process = new ArrayList<>();
+                final List<EntityOperation> process = new ArrayList<>();
 
                 List<Long> ops = new ArrayList<>();
-                for (TupleOperationEx op : operations) {
+                for (EntityOperation op : operations) {
                     if (!handling.contains(op.id))
                         process.add(op);
                     ops.add(op.id);
@@ -322,7 +322,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
     };
 
-    private void processOperations(List<TupleOperationEx> ops) {
+    private void processOperations(List<EntityOperation> ops) {
         try {
             wlOutbox.acquire();
 
@@ -338,7 +338,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     if (!ConnectionHelper.getNetworkState(this).isSuitable())
                         break;
 
-                    TupleOperationEx op = ops.get(0);
+                    EntityOperation op = ops.get(0);
 
                     EntityMessage message = null;
                     if (op.message != null)
@@ -707,7 +707,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                     EntityFolder outbox = db.folder().getOutbox();
                     if (outbox != null) {
-                        int operations = db.operation().getOperations(outbox.id).size();
+                        int operations = db.operation().getOperations(EntityOperation.SEND).size();
                         if (operations > 0)
                             start(context);
                         else {

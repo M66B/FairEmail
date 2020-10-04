@@ -908,7 +908,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 state.reset();
                 Log.i(account.name + " run thread=" + currentThread);
 
-                final List<TwoStateOwner> cowners = new ArrayList<>();
+                final ObjectHolder<TwoStateOwner> cowner = new ObjectHolder<>();
                 final ExecutorService executor =
                         Helper.getBackgroundExecutor(1, "account_" + account.id);
 
@@ -1220,179 +1220,189 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityOperation.sync(this, folder.id, false);
                         } else
                             mapFolders.put(folder, null);
+                    }
 
-                        Log.d(folder.name + " observing");
-                        getMainHandler().post(new Runnable() {
-                            @Override
-                            public void run() {
-                                TwoStateOwner cowner = new TwoStateOwner(ServiceSynchronize.this, folder.name);
-                                cowners.add(cowner);
-                                cowner.start();
+                    Log.i(account.name + " observing operations");
+                    getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            cowner.value = new TwoStateOwner(ServiceSynchronize.this, account.name);
+                            cowner.value.start();
 
-                                db.operation().liveOperations(folder.id).observe(cowner, new Observer<List<TupleOperationEx>>() {
-                                    private List<Long> handling = new ArrayList<>();
-                                    private final Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions = new HashMap<>();
+                            db.operation().liveOperations(account.id).observe(cowner.value, new Observer<List<TupleOperationEx>>() {
+                                private List<Long> handling = new ArrayList<>();
+                                private final Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions = new HashMap<>();
 
-                                    private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
-                                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
+                                private final PowerManager.WakeLock wlOperations = pm.newWakeLock(
+                                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":operations." + account.id);
 
-                                    @Override
-                                    public void onChanged(final List<TupleOperationEx> _operations) {
-                                        // Get new operations
-                                        List<Long> ops = new ArrayList<>();
-                                        List<TupleOperationEx> added = new ArrayList<>();
-                                        for (TupleOperationEx op : _operations) {
-                                            if (!handling.contains(op.id))
-                                                added.add(op);
-                                            ops.add(op.id);
-                                        }
-                                        handling = ops;
-
-                                        if (added.size() > 0) {
-                                            Log.i(folder.name + " queuing operations=" + added.size() +
-                                                    " init=" + folder.initialize + " poll=" + folder.poll);
-
-                                            // Partition operations by priority
-                                            boolean offline = (mapFolders.get(folder) == null);
-                                            List<TupleOperationEx.PartitionKey> keys = new ArrayList<>();
-                                            synchronized (partitions) {
-                                                for (TupleOperationEx op : added) {
-                                                    TupleOperationEx.PartitionKey key = op.getPartitionKey(offline);
-
-                                                    if (!partitions.containsKey(key)) {
-                                                        partitions.put(key, new ArrayList<>());
-                                                        keys.add(key);
-                                                    }
-
-                                                    partitions.get(key).add(op);
+                                @Override
+                                public void onChanged(final List<TupleOperationEx> _operations) {
+                                    // Get new operations
+                                    List<Long> ops = new ArrayList<>();
+                                    Map<EntityFolder, List<TupleOperationEx>> added = new HashMap<>();
+                                    for (TupleOperationEx op : _operations) {
+                                        if (!handling.contains(op.id)) {
+                                            boolean found = false;
+                                            for (EntityFolder folder : mapFolders.keySet())
+                                                if (Objects.equals(folder.id, op.folder)) {
+                                                    found = true;
+                                                    if (!added.containsKey(folder))
+                                                        added.put(folder, new ArrayList<>());
+                                                    added.get(folder).add(op);
+                                                    break;
                                                 }
+                                            if (!found)
+                                                Log.e(account.name + " folder not found operation=" + op.name);
+                                        }
+                                        ops.add(op.id);
+                                    }
+                                    handling = ops;
+
+                                    for (EntityFolder folder : added.keySet()) {
+                                        Log.i(folder.name + " queuing operations=" + added.size() +
+                                                " init=" + folder.initialize + " poll=" + folder.poll);
+
+                                        // Partition operations by priority
+                                        boolean offline = (mapFolders.get(folder) == null);
+                                        List<TupleOperationEx.PartitionKey> keys = new ArrayList<>();
+                                        synchronized (partitions) {
+                                            for (TupleOperationEx op : added.get(folder)) {
+                                                TupleOperationEx.PartitionKey key = op.getPartitionKey(offline);
+
+                                                if (!partitions.containsKey(key)) {
+                                                    partitions.put(key, new ArrayList<>());
+                                                    keys.add(key);
+                                                }
+
+                                                partitions.get(key).add(op);
+                                            }
+                                        }
+
+                                        Collections.sort(keys, new Comparator<TupleOperationEx.PartitionKey>() {
+                                            @Override
+                                            public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
+                                                Integer p1 = k1.getPriority();
+                                                Integer p2 = k2.getPriority();
+                                                int priority = p1.compareTo(p2);
+                                                if (priority == 0) {
+                                                    Long o1 = k1.getOrder();
+                                                    Long o2 = k2.getOrder();
+                                                    return o1.compareTo(o2);
+                                                } else
+                                                    return priority;
+                                            }
+                                        });
+
+                                        for (TupleOperationEx.PartitionKey key : keys) {
+                                            synchronized (partitions) {
+                                                Log.i(folder.name +
+                                                        " queuing partition=" + key +
+                                                        " operations=" + partitions.get(key).size());
                                             }
 
-                                            Collections.sort(keys, new Comparator<TupleOperationEx.PartitionKey>() {
+                                            final long sequence = state.getSequence(folder.id, key.getPriority());
+
+                                            executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
                                                 @Override
-                                                public int compare(TupleOperationEx.PartitionKey k1, TupleOperationEx.PartitionKey k2) {
-                                                    Integer p1 = k1.getPriority();
-                                                    Integer p2 = k2.getPriority();
-                                                    int priority = p1.compareTo(p2);
-                                                    if (priority == 0) {
-                                                        Long o1 = k1.getOrder();
-                                                        Long o2 = k2.getOrder();
-                                                        return o1.compareTo(o2);
-                                                    } else
-                                                        return priority;
+                                                public void run() {
+                                                    super.run();
+                                                    try {
+                                                        wlOperations.acquire();
+
+                                                        List<TupleOperationEx> partition;
+                                                        synchronized (partitions) {
+                                                            partition = partitions.get(key);
+                                                            partitions.remove(key);
+                                                        }
+
+                                                        Log.i(folder.name +
+                                                                " executing partition=" + key +
+                                                                " operations=" + partition.size());
+
+                                                        // Get folder
+                                                        Folder ifolder = mapFolders.get(folder); // null when polling
+                                                        boolean canOpen = (account.protocol == EntityAccount.TYPE_IMAP || EntityFolder.INBOX.equals(folder.type));
+                                                        final boolean shouldClose = (ifolder == null && canOpen);
+
+                                                        try {
+                                                            Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
+
+                                                            if (shouldClose) {
+                                                                // Prevent unnecessary folder connections
+                                                                if (db.operation().getOperationCount(folder.id, null) == 0)
+                                                                    return;
+
+                                                                db.folder().setFolderState(folder.id, "connecting");
+
+                                                                try {
+                                                                    ifolder = iservice.getStore().getFolder(folder.name);
+                                                                } catch (IllegalStateException ex) {
+                                                                    if ("Not connected".equals(ex.getMessage()))
+                                                                        return; // Store closed
+                                                                    else
+                                                                        throw ex;
+                                                                }
+
+                                                                try {
+                                                                    ifolder.open(Folder.READ_WRITE);
+                                                                    if (ifolder instanceof IMAPFolder)
+                                                                        db.folder().setFolderReadOnly(folder.id, ((IMAPFolder) ifolder).getUIDNotSticky());
+                                                                } catch (ReadOnlyFolderException ex) {
+                                                                    Log.w(folder.name + " read only");
+                                                                    ifolder.open(Folder.READ_ONLY);
+                                                                    db.folder().setFolderReadOnly(folder.id, true);
+                                                                }
+
+                                                                db.folder().setFolderState(folder.id, "connected");
+                                                                db.folder().setFolderError(folder.id, null);
+
+                                                                int count = MessageHelper.getMessageCount(ifolder);
+                                                                db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
+
+                                                                Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
+                                                            }
+
+                                                            Core.processOperations(ServiceSynchronize.this,
+                                                                    account, folder,
+                                                                    partition,
+                                                                    iservice.getStore(), ifolder,
+                                                                    state, key.getPriority(), sequence);
+
+                                                        } catch (Throwable ex) {
+                                                            Log.e(folder.name, ex);
+                                                            EntityLog.log(
+                                                                    ServiceSynchronize.this,
+                                                                    folder.name + " " + Log.formatThrowable(ex, false));
+                                                            db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
+                                                            state.error(new OperationCanceledException("Process"));
+                                                        } finally {
+                                                            if (shouldClose) {
+                                                                if (ifolder != null && ifolder.isOpen()) {
+                                                                    db.folder().setFolderState(folder.id, "closing");
+                                                                    try {
+                                                                        ifolder.close(false);
+                                                                    } catch (Throwable ex) {
+                                                                        Log.w(folder.name, ex);
+                                                                    }
+                                                                }
+                                                                if (folder.synchronize && (folder.poll || !capIdle))
+                                                                    db.folder().setFolderState(folder.id, "waiting");
+                                                                else
+                                                                    db.folder().setFolderState(folder.id, null);
+                                                            }
+                                                        }
+                                                    } finally {
+                                                        wlOperations.release();
+                                                    }
                                                 }
                                             });
-
-                                            for (TupleOperationEx.PartitionKey key : keys) {
-                                                synchronized (partitions) {
-                                                    Log.i(folder.name +
-                                                            " queuing partition=" + key +
-                                                            " operations=" + partitions.get(key).size());
-                                                }
-
-                                                final long sequence = state.getSequence(folder.id, key.getPriority());
-
-                                                executor.submit(new Helper.PriorityRunnable(key.getPriority(), key.getOrder()) {
-                                                    @Override
-                                                    public void run() {
-                                                        super.run();
-                                                        try {
-                                                            wlFolder.acquire();
-
-                                                            List<TupleOperationEx> partition;
-                                                            synchronized (partitions) {
-                                                                partition = partitions.get(key);
-                                                                partitions.remove(key);
-                                                            }
-
-                                                            Log.i(folder.name +
-                                                                    " executing partition=" + key +
-                                                                    " operations=" + partition.size());
-
-                                                            // Get folder
-                                                            Folder ifolder = mapFolders.get(folder); // null when polling
-                                                            boolean canOpen = (account.protocol == EntityAccount.TYPE_IMAP || EntityFolder.INBOX.equals(folder.type));
-                                                            final boolean shouldClose = (ifolder == null && canOpen);
-
-                                                            try {
-                                                                Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
-
-                                                                if (shouldClose) {
-                                                                    // Prevent unnecessary folder connections
-                                                                    if (db.operation().getOperationCount(folder.id, null) == 0)
-                                                                        return;
-
-                                                                    db.folder().setFolderState(folder.id, "connecting");
-
-                                                                    try {
-                                                                        ifolder = iservice.getStore().getFolder(folder.name);
-                                                                    } catch (IllegalStateException ex) {
-                                                                        if ("Not connected".equals(ex.getMessage()))
-                                                                            return; // Store closed
-                                                                        else
-                                                                            throw ex;
-                                                                    }
-
-                                                                    try {
-                                                                        ifolder.open(Folder.READ_WRITE);
-                                                                        if (ifolder instanceof IMAPFolder)
-                                                                            db.folder().setFolderReadOnly(folder.id, ((IMAPFolder) ifolder).getUIDNotSticky());
-                                                                    } catch (ReadOnlyFolderException ex) {
-                                                                        Log.w(folder.name + " read only");
-                                                                        ifolder.open(Folder.READ_ONLY);
-                                                                        db.folder().setFolderReadOnly(folder.id, true);
-                                                                    }
-
-                                                                    db.folder().setFolderState(folder.id, "connected");
-                                                                    db.folder().setFolderError(folder.id, null);
-
-                                                                    int count = MessageHelper.getMessageCount(ifolder);
-                                                                    db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
-
-                                                                    Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
-                                                                }
-
-                                                                Core.processOperations(ServiceSynchronize.this,
-                                                                        account, folder,
-                                                                        partition,
-                                                                        iservice.getStore(), ifolder,
-                                                                        state, key.getPriority(), sequence);
-
-                                                            } catch (Throwable ex) {
-                                                                Log.e(folder.name, ex);
-                                                                EntityLog.log(
-                                                                        ServiceSynchronize.this,
-                                                                        folder.name + " " + Log.formatThrowable(ex, false));
-                                                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                                state.error(new OperationCanceledException("Process"));
-                                                            } finally {
-                                                                if (shouldClose) {
-                                                                    if (ifolder != null && ifolder.isOpen()) {
-                                                                        db.folder().setFolderState(folder.id, "closing");
-                                                                        try {
-                                                                            ifolder.close(false);
-                                                                        } catch (Throwable ex) {
-                                                                            Log.w(folder.name, ex);
-                                                                        }
-                                                                    }
-                                                                    if (folder.synchronize && (folder.poll || !capIdle))
-                                                                        db.folder().setFolderState(folder.id, "waiting");
-                                                                    else
-                                                                        db.folder().setFolderState(folder.id, null);
-                                                                }
-                                                            }
-                                                        } finally {
-                                                            wlFolder.release();
-                                                        }
-                                                    }
-                                                });
-                                            }
                                         }
                                     }
-                                });
-                            }
-                        });
-                    }
+                                }
+                            });
+                        }
+                    });
 
                     // Keep alive
                     boolean first = true;
@@ -1603,8 +1613,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
-                            for (TwoStateOwner owner : cowners)
-                                owner.destroy();
+                            try {
+                                cowner.value.destroy();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
                     });
 

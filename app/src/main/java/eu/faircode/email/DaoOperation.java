@@ -48,57 +48,47 @@ public interface DaoOperation {
     @Query("SELECT operation.*" +
             ", " + priority + " AS priority" +
             ", account.name AS accountName, folder.name AS folderName" +
-            " ,((account.synchronize IS NULL OR account.synchronize)" +
-            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
+            ", (account.synchronize IS NULL OR account.synchronize) AS synchronize" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
-            " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = operation.account" +
-            " LEFT JOIN identity ON identity.id = message.identity" +
             " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
-    String GET_OPS_FOLDER = "SELECT operation.*" +
+    @Transaction
+    @Query("SELECT operation.*" +
             ", " + priority + " AS priority" +
             ", account.name AS accountName, folder.name AS folderName" +
-            " ,((account.synchronize IS NULL OR account.synchronize)" +
-            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
+            ", account.synchronize" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
-            " LEFT JOIN message ON message.id = operation.message" +
-            " LEFT JOIN account ON account.id = operation.account" +
-            " LEFT JOIN identity ON identity.id = message.identity" +
-            " WHERE CASE WHEN :folder IS NULL THEN folder.account IS NULL ELSE operation.folder = :folder END" +
-            " AND (account.synchronize IS NULL OR account.synchronize)" +
-            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)" +
-            " ORDER BY " + priority + ", id";
-
-    @Query(GET_OPS_FOLDER)
-    List<TupleOperationEx> getOperations(Long folder);
+            " JOIN account ON account.id = operation.account" +
+            " WHERE operation.account = :account" +
+            " AND account.synchronize" +
+            " AND folder.account IS NOT NULL" + // not outbox
+            " ORDER BY " + priority + ", id")
+    LiveData<List<TupleOperationEx>> liveOperations(long account);
 
     @Transaction
-    @Query(GET_OPS_FOLDER)
-    LiveData<List<TupleOperationEx>> liveOperations(Long folder);
+    @Query("SELECT operation.*" +
+            " FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " WHERE folder.account IS NULL" + // outbox
+            " ORDER BY id")
+    LiveData<List<EntityOperation>> liveSend();
 
     @Query("SELECT COUNT(operation.id) AS pending" +
             ", SUM(CASE WHEN operation.error IS NULL THEN 0 ELSE 1 END) AS errors" +
             " FROM operation" +
-            " JOIN folder ON folder.id = operation.folder" +
-            " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = operation.account" +
-            " LEFT JOIN identity ON identity.id = message.identity" +
-            " WHERE (account.synchronize IS NULL OR account.synchronize)" +
-            " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)")
+            " WHERE (account.synchronize IS NULL OR account.synchronize)")
     LiveData<TupleOperationStats> liveStats();
 
     @Query("SELECT" +
             " COUNT(operation.id) AS count" +
             ", SUM(CASE WHEN operation.state = 'executing' THEN 1 ELSE 0 END) AS busy" +
             " FROM operation" +
-            " JOIN message ON message.id = operation.message" +
-            " JOIN identity ON identity.id = message.identity" +
-            " WHERE operation.name = '" + EntityOperation.SEND + "'" +
-            " AND identity.synchronize")
+            " WHERE operation.name = '" + EntityOperation.SEND + "'")
     LiveData<TupleUnsent> liveUnsent();
 
     @Query("SELECT * FROM operation ORDER BY id")
