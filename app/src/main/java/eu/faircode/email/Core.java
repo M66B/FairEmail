@@ -1482,7 +1482,7 @@ class Core {
             EntityOperation.queue(context, message, EntityOperation.ADD);
         else {
             if (imessages.length > 1)
-                Log.w(folder.name + " exists messages=" + imessages.length);
+                Log.e(folder.name + " exists messages=" + imessages.length);
             for (int i = 0; i < imessages.length; i++) {
                 long uid = ifolder.getUID(imessages[i]);
                 EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
