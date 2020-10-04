@@ -1228,23 +1228,28 @@ class Core {
                     }
             }
 
-            if (!TextUtils.isEmpty(message.msgid) && !deleted) {
-                Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-                if (imessages == null)
-                    Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
-                else
-                    for (Message iexisting : imessages) {
-                        long muid = ifolder.getUID(iexisting);
-                        Log.i(folder.name + " deleting uid=" + muid);
-                        try {
-                            iexisting.setFlag(Flags.Flag.DELETED, true);
-                        } catch (MessageRemovedException ignored) {
-                            Log.w(folder.name + " existing gone uid=" + muid);
+            if (!TextUtils.isEmpty(message.msgid) && !deleted)
+                try {
+                    Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+                    if (imessages == null)
+                        Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
+                    else
+                        for (Message iexisting : imessages) {
+                            long muid = ifolder.getUID(iexisting);
+                            Log.i(folder.name + " deleting uid=" + muid);
+                            try {
+                                iexisting.setFlag(Flags.Flag.DELETED, true);
+                                deleted = true;
+                            } catch (MessageRemovedException ignored) {
+                                Log.w(folder.name + " existing gone uid=" + muid);
+                            }
                         }
-                    }
-            }
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                }
 
-            ifolder.expunge();
+            if (deleted)
+                ifolder.expunge();
 
             db.message().deleteMessage(message.id);
         } finally {
