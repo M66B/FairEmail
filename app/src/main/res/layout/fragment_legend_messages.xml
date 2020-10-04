@@ -659,6 +659,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_tracking_pixel"
             android:padding="12dp"
+            android:tint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivEmbeddedImage"
             app:srcCompat="@drawable/twotone_my_location_24" />
