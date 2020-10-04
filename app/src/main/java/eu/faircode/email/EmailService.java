@@ -528,18 +528,22 @@ public class EmailService implements AutoCloseable {
 
                 @Override
                 public void write(int b) {
-                    if (((char) b) == '\n') {
-                        String line = bos.toString();
-                        if (!line.endsWith("ignoring socket timeout"))
-                            if (debug)
-                                android.util.Log.i("javamail", user + " " + line);
-                            else
-                                EntityLog.log(context, user + " " + line);
-                        bos.reset();
-                    } else
-                        bos.write(b);
+                    try {
+                        if (((char) b) == '\n') {
+                            String line = bos.toString();
+                            if (!line.endsWith("ignoring socket timeout"))
+                                if (log)
+                                    EntityLog.log(context, user + " " + line);
+                                else
+                                    android.util.Log.i("javamail", user + " " + line);
+                            bos.reset();
+                        } else
+                            bos.write(b);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
-            }));
+            }, true));
 
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
         isession.addProvider(new GmailSSLProvider());
