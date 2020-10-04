@@ -477,7 +477,6 @@
     <string name="title_advanced_fts_hint">啟用此功能可增加搜尋效率，但也會增加電池和儲存空間的使用量</string>
     <string name="title_advanced_english_hint">這將會重起應用程式</string>
     <string name="title_advanced_experiments_hint">當前實驗功能列表</string>
-    <string name="title_advanced_debug_hint">啟用額外的日誌記錄並在不同位置顯示調試信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手動清除時，這將從不再同步的郵件中刪除附件</string>
     <string name="title_advanced_cleanup_hint">這將刪除所有臨時文件</string>
     <string name="title_advanced_never_favorite">從不喜歡</string>

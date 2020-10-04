@@ -491,7 +491,6 @@
     <string name="title_advanced_fts_hint">Activar isto mellora o rendemento de procura, pero tamén incrementa o uso da batería de do espazo de almacenamento</string>
     <string name="title_advanced_english_hint">Isto reiniciará a aplicación</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentais</string>
-    <string name="title_advanced_debug_hint">Activar rexistros extra e amosar información de depuración en varios lugares</string>
     <string name="title_advanced_cleanup_attachments_hint">Cando se limpe manualmente, isto eliminará os anexos de mensaxes que xa non estean sincronizadas</string>
     <string name="title_advanced_cleanup_hint">Isto eliminará todos os ficheiros temporais</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>

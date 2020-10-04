@@ -454,6 +454,7 @@
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
+    <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
@@ -520,7 +521,6 @@
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>
     <string name="title_advanced_english_hint">To uruchomi aplikację ponownie</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
-    <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_advanced_never_favorite">Nigdy ulubiony</string>
@@ -840,12 +840,16 @@
     <string name="title_style_size_medium">Średni</string>
     <string name="title_style_size_large">Duży</string>
     <string name="title_style_color">Kolor &#8230;</string>
+    <string name="title_style_align">Wyrównanie</string>
+    <string name="title_style_align_start">Na początku</string>
+    <string name="title_style_align_center">Wyśrodkowane</string>
+    <string name="title_style_align_end">Na końcu</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Wypunktowania</string>
     <string name="title_style_list_numbered">Numerowane</string>
     <string name="title_style_font">Czcionka</string>
     <string name="title_style_font_default">Domyślny</string>
-    <string name="title_style_blockquote">Zablokuj cytat</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Zablokuj cytat</string>
     <string name="title_style_strikethrough">Przekreślenie</string>
     <string name="title_style_clear">Wyczyść formatowanie</string>
     <string name="title_style_link">Wstaw link</string>

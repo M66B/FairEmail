@@ -455,7 +455,6 @@
     <string name="title_advanced_fts_hint">Aktivering av dette vil øke søke ytelsen, men også øke batteri bruken og bruke mer lagringsplass</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>
-    <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Aldri favoritt</string>
     <string name="title_select">Velg &#8230;</string>

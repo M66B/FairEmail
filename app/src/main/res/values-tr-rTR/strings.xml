@@ -461,7 +461,6 @@
     <string name="title_advanced_fts_hint">Bunu etkinleştirmek arama performansını iyileştirir, ancak pil ve depolama alanı kullanımını da artırır</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
-    <string name="title_advanced_debug_hint">Fazladan günlük kaydını etkinleştir ve çeşitli yerlerdeki hata ayıklama bilgisini göster</string>
     <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
     <string name="title_advanced_never_favorite">Asla sık kullanılan değil</string>
     <string name="title_select">Seçin &#8230;</string>

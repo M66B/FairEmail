@@ -432,6 +432,7 @@
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_query_threads">Beperk parallelle database toegang</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
+    <string name="title_advanced_protocol">Protocolregistratie</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
     <string name="title_advanced_cleanup">Opruimen</string>
@@ -498,7 +499,8 @@
     <string name="title_advanced_fts_hint">Dit inschakelen verbetert de zoekprestaties, maar verhoogt ook het batterij- en opslaggebruik</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
-    <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
+    <string name="title_advanced_protocol_hint">Dit zal het gebruik van de batterij en de opslagruimte aanzienlijk verhogen!</string>
+    <string name="title_advanced_debug_hint">Extra logging inschakelen en lelijke debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_attachments_hint">Dit zal bijlagen verwijderen van berichten die niet meer worden gesynchroniseerd bij handmatig opruimen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
@@ -818,16 +820,16 @@
     <string name="title_style_size_medium">Middelgroot</string>
     <string name="title_style_size_large">Groot</string>
     <string name="title_style_color">Kleur &#8230;</string>
-    <string name="title_style_align">Uitlijnen</string>
-    <string name="title_style_align_start">Begin</string>
-    <string name="title_style_align_center">Midden</string>
-    <string name="title_style_align_end">Einde</string>
+    <string name="title_style_align">Uitlijning</string>
+    <string name="title_style_align_start">start</string>
+    <string name="title_style_align_center">Centerpunt</string>
+    <string name="title_style_align_end">stop</string>
     <string name="title_style_list">Lijst</string>
     <string name="title_style_list_bullets">Opsommingstekens</string>
     <string name="title_style_list_numbered">Nummers</string>
     <string name="title_style_font">Lettertype</string>
     <string name="title_style_font_default">Standaard</string>
-    <string name="title_style_blockquote">Blokcitaat</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Blokcitaat</string>
     <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>

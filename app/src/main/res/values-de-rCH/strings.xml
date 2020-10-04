@@ -434,6 +434,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_query_threads">Parallelen Datenbankzugriff beschränken</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
+    <string name="title_advanced_protocol">Protokollaufzeichnung</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
@@ -500,6 +501,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
+    <string name="title_advanced_protocol_hint">Dies wird den Batterie- und Speicherplatzverbrauch deutlich erhöhen!</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_attachments_hint">Beim manuellen Bereinigen werden Anhänge von Nachrichten entfernt, die nicht mehr synchronisiert werden</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
@@ -828,7 +830,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_list_numbered">Nummeriert</string>
     <string name="title_style_font">Schriftart</string>
     <string name="title_style_font_default">Standard</string>
-    <string name="title_style_blockquote">Zitatblock</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Zitatblock</string>
     <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>

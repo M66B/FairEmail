@@ -433,6 +433,7 @@
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
+    <string name="title_advanced_protocol">Journalisation du protocole</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
@@ -499,7 +500,8 @@
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l’utilisation de la pile et de l’espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
-    <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher des informations de débogage en divers endroits</string>
+    <string name="title_advanced_protocol_hint">Ceci augmentera considérablement l\'utilisation de la batterie et de l\'espace de stockage !</string>
+    <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher d\'affreuses informations de débogage en différents endroits</string>
     <string name="title_advanced_cleanup_attachments_hint">Lors du nettoyage manuel, ceci supprimera les pièces jointes des messages qui ne sont plus synchronisés</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Ne jamais mettre en favori</string>
@@ -828,7 +830,7 @@
     <string name="title_style_list_numbered">Numérotée</string>
     <string name="title_style_font">Police de caractères</string>
     <string name="title_style_font_default">Par défaut</string>
-    <string name="title_style_blockquote">Bloc de citation</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Bloc de citation</string>
     <string name="title_style_strikethrough">Barré</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>

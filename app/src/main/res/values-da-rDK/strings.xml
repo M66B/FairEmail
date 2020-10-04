@@ -397,6 +397,7 @@
     <string name="title_advanced_browse_links">Delegér åbningslinks til Android</string>
     <string name="title_advanced_confirm_images">Bekræft visning af billeder</string>
     <string name="title_advanced_confirm_html">Vis som standard omformaterede beskeder</string>
+    <string name="title_advanced_tracking">Forsøg på at genkend og deaktivere sporingsbilleder</string>
     <string name="title_advanced_hide_timezone">Send beskeder uden tidszonedata</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
@@ -432,6 +433,7 @@
     <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
     <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
+    <string name="title_advanced_protocol">Protokollogning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>
@@ -498,10 +500,10 @@
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
-    <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_attachments_hint">Ved manuel rensning, vil dette fjerner vedhæftninger fra beskeder, som ikke længere synkroniseres</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
+    <string name="title_advanced_edit_name">Redigér navn</string>
     <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
     <string name="title_advanced_swipe_actions_hint">Dette opsætter handlinger for venstre- og højrestrygning for alle IMAP-konti</string>
     <string name="title_select">Vælg &#8230;</string>
@@ -815,6 +817,10 @@
     <string name="title_style_size_medium">Mellem</string>
     <string name="title_style_size_large">Stor</string>
     <string name="title_style_color">Farve &#8230;</string>
+    <string name="title_style_align">Justér</string>
+    <string name="title_style_align_start">Start</string>
+    <string name="title_style_align_center">Centrér</string>
+    <string name="title_style_align_end">Ende</string>
     <string name="title_style_list">Liste</string>
     <string name="title_style_list_bullets">Punktliste</string>
     <string name="title_style_list_numbered">Nummereret</string>
@@ -1080,6 +1086,7 @@
     <string name="title_legend_forwarded">Blev videresendt</string>
     <string name="title_legend_plain_only">Kun klartekst</string>
     <string name="title_legend_receipt">Kvittering blev udbedt</string>
+    <string name="title_legend_auto_submitted">Blev afsendt automatisk</string>
     <string name="title_legend_attachment">Har vedhæftning</string>
     <string name="title_legend_flagged">Er favorit</string>
     <string name="title_legend_contacts">Håndtér kontakter</string>

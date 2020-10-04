@@ -495,7 +495,6 @@
     <string name="title_advanced_fts_hint">Ativando isto melhora o desempenho da pesquisa, mas também aumenta o uso de bateria e espaço de armazenamento</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
     <string name="title_advanced_experiments_hint">Lista de recursos experimentais atuais</string>
-    <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>
     <string name="title_advanced_cleanup_attachments_hint">Ao limpar manualmente, isto removerá anexos de mensagens que não estão mais sincronizadas</string>
     <string name="title_advanced_cleanup_hint">Isto irá excluir todos os arquivos temporários</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>

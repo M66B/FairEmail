@@ -337,7 +337,7 @@ Aviseringen i statusfältet kan inaktiveras via inställningarna för FairEmail:
 * Android 8 Oreo och senare: tryck på *Receive channel* -knappen och inaktivera kanalen via Android-inställningarna (detta kommer inte att inaktivera nya meddelanden)
 * Android 7 Nougat och tidigare: aktiverat *Använd bakgrundstjänst för att synkronisera meddelanden*, men se till att läsa anmärkningen under inställningen
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Du kan växla till periodisk synkronisering av meddelanden i mottagarinställningarna för att ta bort meddelandet, men var medveten om att detta kan använda mer batteridrift. See [here](#user-content-faq39) for more details about battery usage.
 
 Android 8 Oreo kan också visa ett meddelande i statusfältet med texten *Apps körs i bakgrunden*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 

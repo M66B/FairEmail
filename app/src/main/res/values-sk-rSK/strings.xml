@@ -518,7 +518,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_fts_hint">Zapnutie tejto funkcie zvýši rýchlosť vyhľadávania, no taktiež spotrebu batérie a využitie úložiska</string>
     <string name="title_advanced_english_hint">Toto reštartuje aplikáciu</string>
     <string name="title_advanced_experiments_hint">Zoznam aktuálnych experimentálnych funkcií</string>
-    <string name="title_advanced_debug_hint">Zapnúť rozšírené logovanie a zobrazovanie debugovacích informácií na rôznych miestach</string>
     <string name="title_advanced_cleanup_attachments_hint">Pri manuálnom čistení táto možnosť odstráni prílohy zo správ, ktoré už nie sú synchronizované</string>
     <string name="title_advanced_cleanup_hint">Toto odstráni všetky dočasné súbory</string>
     <string name="title_advanced_never_favorite">Nikdy nepovažovať za obľúbený</string>
@@ -841,7 +840,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_list_numbered">Číslovaný</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Predvolené</string>
-    <string name="title_style_blockquote">Citácia</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Citácia</string>
     <string name="title_style_strikethrough">Prečiarknutie</string>
     <string name="title_style_clear">Vymazať formátovanie</string>
     <string name="title_style_link">Vložiť odkaz</string>

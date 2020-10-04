@@ -394,6 +394,7 @@
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
     <string name="title_advanced_confirm_images">Vahvista kuvien näyttäminen</string>
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
+    <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
@@ -428,6 +429,7 @@
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
+    <string name="title_advanced_protocol">Protokollan kirjaaminen lokiin</string>
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
@@ -494,10 +496,12 @@
     <string name="title_advanced_fts_hint">Tämän käyttöönotto parantaa haun suorituskykyä, mutta myös lisää akun ja tallennustilan käyttöä</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
-    <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
+    <string name="title_advanced_protocol_hint">Tämä lisää merkittävästi akun ja tallennustilan käyttöä!</string>
+    <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä rumia debug-tietoja eri paikoissa</string>
     <string name="title_advanced_cleanup_attachments_hint">Manuaalisesti siivottaessa tämä poistaa liitteet viesteistä, joita ei enää synkronoida</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
+    <string name="title_advanced_edit_name">Muokkaa nimeä</string>
     <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
     <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisytoiminnot kaikille IMAP-tileille</string>
     <string name="title_select">Valitse &#8230;</string>
@@ -813,12 +817,16 @@
     <string name="title_style_size_medium">Keskikokoinen</string>
     <string name="title_style_size_large">Suuri</string>
     <string name="title_style_color">Väri &#8230;</string>
+    <string name="title_style_align">Tasaus</string>
+    <string name="title_style_align_start">Alku</string>
+    <string name="title_style_align_center">Keskikohta</string>
+    <string name="title_style_align_end">Loppu</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Luettelomerkit</string>
     <string name="title_style_list_numbered">Numeroitu</string>
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
-    <string name="title_style_blockquote">Kappalelainaus</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Kappalelainaus</string>
     <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
@@ -827,6 +835,7 @@
     <string name="title_add_image_attach">Liitä</string>
     <string name="title_add_image_resize">Muuta kokoa</string>
     <string name="title_add_image_privacy">Poista yksityisyyden kannalta merkitykselliset tiedot</string>
+    <string name="title_add_image_privacy_remark">Maantieteellinen sijainti, sarjanumerot, tiedostonimet, jne.</string>
     <string name="title_add_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_add_image_select">Valitse tiedosto</string>
     <string name="title_add_attachment">Lisää liite</string>
@@ -1081,6 +1090,7 @@
     <string name="title_legend_forwarded">Edelleenlähetetty</string>
     <string name="title_legend_plain_only">Muotoilematon teksti</string>
     <string name="title_legend_receipt">Kuittaus pyydetty</string>
+    <string name="title_legend_auto_submitted">Automaattisesti lähetetty</string>
     <string name="title_legend_attachment">Sisältää liitteen</string>
     <string name="title_legend_flagged">Tähdellinen</string>
     <string name="title_legend_contacts">Muokkaa yhteystietoja</string>

@@ -454,7 +454,6 @@
     <string name="title_advanced_fts_hint">Активирането на това подобрява ефективността на търсенето, но също така увеличава използването на батерията и пространството за съхранение</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
-    <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
     <string name="title_advanced_cleanup_attachments_hint">Това ще премахне прикачените файлове от съобщенията, които вече не се синхронизират при ръчно почистване</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
     <string name="title_advanced_never_favorite">Никога в любими</string>

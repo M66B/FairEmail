@@ -495,7 +495,6 @@
     <string name="title_advanced_fts_hint">Bekapcsolása javítja a keresés sebességét, a tárhely- és akkumulátorhasználat kárára</string>
     <string name="title_advanced_english_hint">Ez újraindítja az alkalmazást</string>
     <string name="title_advanced_experiments_hint">A jelenlegi kísérleti funkciók listája</string>
-    <string name="title_advanced_debug_hint">Bővített logok és részletes debug üzenetek bekapcsolása</string>
     <string name="title_advanced_cleanup_attachments_hint">Manuális ürítésnél ez törölni fogja a mellékleteket olyan üzenetekről, amik már nem szinkronizáltak</string>
     <string name="title_advanced_cleanup_hint">Ez törli az összes ideiglenes fájlt</string>
     <string name="title_advanced_never_favorite">Kedvencként megjelölés tiltása</string>

@@ -455,6 +455,7 @@
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
+    <string name="title_advanced_protocol">Protokolovat protokoly</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
     <string name="title_advanced_cleanup">Úklid</string>
@@ -521,7 +522,6 @@
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
-    <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
@@ -850,7 +850,7 @@
     <string name="title_style_list_numbered">Číslovaný</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Výchozí</string>
-    <string name="title_style_blockquote">Bloková citace</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Bloková citace</string>
     <string name="title_style_strikethrough">Přeškrtnutí</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
@@ -1258,7 +1258,7 @@
     <string name="title_boundary_error">Chyba při stahování zpráv z e-mailového serveru</string>
     <string name="title_boundary_retry">Zkusit znovu</string>
     <string name="title_unexpected_error">Neočekávaná chyba</string>
-    <string name="title_log">Záznam</string>
+    <string name="title_log">Protokol</string>
     <string name="title_auto_scroll">Automatické posouvání</string>
     <string name="title_log_clear">Vyčistit</string>
     <string name="title_rules_search_hint">Hledat název nebo podmínku</string>

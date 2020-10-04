@@ -413,7 +413,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_fts_hint">有効にすると検索パフォーマンスが向上しますが、バッテリーとストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
     <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
-    <string name="title_advanced_debug_hint">追加のログを有効にし様々な場所でデバッグ情報を表示</string>
     <string name="title_advanced_cleanup_attachments_hint">手動でクリーニングすると同期されていないメッセージから添付ファイルが削除されます</string>
     <string name="title_advanced_cleanup_hint">全ての一時ファイルが削除されます</string>
     <string name="title_advanced_never_favorite">お気に入りにしないようにします</string>

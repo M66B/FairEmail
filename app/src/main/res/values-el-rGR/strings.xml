@@ -430,6 +430,7 @@
     <string name="title_advanced_experiments">Δοκιμή πειραματικών χαρακτηριστικών</string>
     <string name="title_advanced_query_threads">Περιορισμός παράλληλων προσβάσεων στη βάση δεδομένων</string>
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
+    <string name="title_advanced_protocol">Τήρηση αρχείων καταγραφής πρωτοκόλλου</string>
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>
     <string name="title_advanced_cleanup">Καθαρισμός</string>
@@ -495,7 +496,8 @@
     <string name="title_advanced_fts_hint">Αν ενεργοποιηθεί, βελτιώνεται η απόδοση της αναζήτησης, αλλά αυξάνονται επίσης η χρήση της μπαταρίας και του αποθηκευτικού χώρου</string>
     <string name="title_advanced_english_hint">Θα επανεκκινήσει την εφαρμογή</string>
     <string name="title_advanced_experiments_hint">Λίστα των τρεχόντων πειραματικών χαρακτηριστικών</string>
-    <string name="title_advanced_debug_hint">Πιο λεπτομερές αρχείο καταγραφών και προβολή πληροφοριών αποσφαλμάτωσης σε διάφορες θέσεις</string>
+    <string name="title_advanced_protocol_hint">Αυτό θα αυξήσει σημαντικά τη χρήση μπαταρίας και αποθηκευτικού χώρου!</string>
+    <string name="title_advanced_debug_hint">Ενεργοποίηση επιπλέον καταγραφών και προβολή αντιαισθητικών πληροφοριών αποσφαλμάτωσης σε διάφορες θέσεις</string>
     <string name="title_advanced_cleanup_attachments_hint">Κατά τον χειροκίνητο καθαρισμό, θα απομακρύνονται τα συνημμένα από τα μηνύματα που πλέον δεν συγχρονίζονται</string>
     <string name="title_advanced_cleanup_hint">Θα διαγράψει όλα τα προσωρινά αρχεία</string>
     <string name="title_advanced_never_favorite">Ποτέ ως αγαπημένο</string>

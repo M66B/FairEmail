@@ -335,7 +335,6 @@
     <string name="title_advanced_notify_no_channels">Ова Андроид верзија не подржава канале за обавештање</string>
     <string name="title_advanced_english_hint">Ово ће рестартовати апликацију</string>
     <string name="title_advanced_experiments_hint">Списак тренутних експерименталних функционалности</string>
-    <string name="title_advanced_debug_hint">Укључи додатно бележење и приказуј информације за отклањање грешака на разним местима</string>
     <string name="title_advanced_cleanup_hint">Ово ће обрисати све привремене фајлове</string>
     <string name="title_advanced_never_favorite">Никад омиљени</string>
     <string name="title_select">Одабери &#8230;</string>

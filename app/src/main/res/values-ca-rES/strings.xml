@@ -460,7 +460,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_fts_hint">Habilitant això millora el rendiment de cerca, però també augmenta l’ús de la bateria i l’espai d’emmagatzematge</string>
     <string name="title_advanced_english_hint">Això reiniciarà l\'aplicació</string>
     <string name="title_advanced_experiments_hint">Llista de funcions experimentals actuals</string>
-    <string name="title_advanced_debug_hint">Habiliteu el registre addicional i mostra informació de depuració en diversos llocs</string>
     <string name="title_advanced_cleanup_attachments_hint">Si es neteja manualment, s\'eliminen els fitxers adjunts dels missatges que ja no es sincronitzen</string>
     <string name="title_advanced_cleanup_hint">S\'eliminaran tots els fitxers temporals</string>
     <string name="title_advanced_never_favorite">Mai preferit</string>

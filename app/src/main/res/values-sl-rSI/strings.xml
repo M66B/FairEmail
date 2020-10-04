@@ -435,7 +435,6 @@
     <string name="title_advanced_fts_hint">Omogočanje tega izboljša zmogljivost iskanja, vendar poveča tudi porabo energije in prostora za shranjevanje.</string>
     <string name="title_advanced_english_hint">To bo ponovno zagnalo program.</string>
     <string name="title_advanced_experiments_hint">Seznam trenutno preizkusnih značilnosti.</string>
-    <string name="title_advanced_debug_hint">Omogoči dodatno beleženje in na raznih mestih prikaži razhroščevalne podatke.</string>
     <string name="title_advanced_cleanup_attachments_hint">To bo odstranilo priloge iz sporočil, ki se ne sinhronizirajo več ob ročnem čiščenju.</string>
     <string name="title_advanced_cleanup_hint">To bo izbrisalo vse začasne datoteke.</string>
     <string name="title_advanced_never_favorite">Nikoli ne dodaj med priljub.</string>

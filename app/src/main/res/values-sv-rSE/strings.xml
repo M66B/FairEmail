@@ -432,6 +432,7 @@
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
+    <string name="title_advanced_protocol">Loggar för protokoll</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
     <string name="title_advanced_cleanup">Rensa</string>
@@ -498,6 +499,7 @@
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
+    <string name="title_advanced_protocol_hint">Detta kommer att avsevärt öka batteri- och lagringsutrymmets användning!</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
     <string name="title_advanced_cleanup_attachments_hint">När du städar manuellt kommer detta att ta bort bilagor från meddelanden som inte längre är synkroniserade</string>
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
@@ -827,7 +829,7 @@
     <string name="title_style_list_numbered">Numrerad</string>
     <string name="title_style_font">Typsnitt</string>
     <string name="title_style_font_default">Standard</string>
-    <string name="title_style_blockquote">Block</string>
+    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Block</string>
     <string name="title_style_strikethrough">Genomstruken</string>
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
