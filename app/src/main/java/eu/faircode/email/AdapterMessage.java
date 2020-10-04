@@ -4555,12 +4555,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
-            new SimpleTask<Map<String, String>>() {
+            new SimpleTask<Map<String, Object>>() {
                 @Override
-                protected Map<String, String> onExecute(Context context, Bundle args) throws Throwable {
+                protected Map<String, Object> onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
-                    Map<String, String> result = new HashMap<>();
+                    Map<String, Object> result = new HashMap<>();
 
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
@@ -4589,11 +4589,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!TextUtils.isEmpty(text))
                         result.put("text", text);
 
+                    result.put("attachments", db.attachment().getAttachments(message.id));
+
                     return result;
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, Map<String, String> data) {
+                protected void onExecuted(Bundle args, Map<String, Object> data) {
                     if (data == null)
                         return;
 
@@ -4602,20 +4604,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         intent.setAction(Intent.ACTION_INSERT);
                         intent.setData(CalendarContract.Events.CONTENT_URI);
                         if (data.containsKey("me"))
-                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{data.get("me")});
+                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{(String) data.get("me")});
                         if (data.containsKey("subject"))
-                            intent.putExtra(CalendarContract.Events.TITLE, data.get("subject"));
+                            intent.putExtra(CalendarContract.Events.TITLE, (String) data.get("subject"));
                         if (data.containsKey("text"))
-                            intent.putExtra(CalendarContract.Events.DESCRIPTION, data.get("text"));
+                            intent.putExtra(CalendarContract.Events.DESCRIPTION, (String) data.get("text"));
                     } else {
                         intent.setAction(Intent.ACTION_SEND);
                         intent.setType("text/plain");
                         if (data.containsKey("from"))
-                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{data.get("from")});
+                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{(String) data.get("from")});
                         if (data.containsKey("subject"))
-                            intent.putExtra(Intent.EXTRA_SUBJECT, data.get("subject"));
+                            intent.putExtra(Intent.EXTRA_SUBJECT, (String) data.get("subject"));
                         if (data.containsKey("text"))
-                            intent.putExtra(Intent.EXTRA_TEXT, data.get("text"));
+                            intent.putExtra(Intent.EXTRA_TEXT, (String) data.get("text"));
+
+                        ArrayList<Uri> uris = new ArrayList<>();
+
+                        List<EntityAttachment> attachments = (List<EntityAttachment>) data.get("attachments");
+                        if (attachments != null)
+                            for (EntityAttachment attachment : attachments) {
+                                File file = attachment.getFile(context);
+                                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                                uris.add(uri);
+                            }
+
+                        if (uris.size() > 0) {
+                            if (uris.size() == 1)
+                                intent.putExtra(Intent.EXTRA_STREAM, uris.get(0));
+                            else {
+                                intent.setAction(Intent.ACTION_SEND_MULTIPLE);
+                                intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+                            }
+                            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        }
                     }
 
                     PackageManager pm = context.getPackageManager();
