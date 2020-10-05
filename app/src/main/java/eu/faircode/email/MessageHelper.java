@@ -2389,6 +2389,16 @@ public class MessageHelper {
         return email;
     }
 
+    static boolean isRemoved(Throwable ex) {
+        while (ex != null) {
+            if (ex instanceof MessageRemovedException ||
+                    ex instanceof MessageRemovedIOException)
+                return true;
+            ex = ex.getCause();
+        }
+        return false;
+    }
+
     static boolean equalEmail(Address a1, Address a2) {
         String email1 = ((InternetAddress) a1).getAddress();
         String email2 = ((InternetAddress) a2).getAddress();

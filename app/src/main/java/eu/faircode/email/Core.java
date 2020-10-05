@@ -485,11 +485,7 @@ class Core {
                                 db.operation().deleteOperation(op.id);
 
                                 // Cleanup messages
-                                if (message != null &&
-                                        (ex instanceof MessageRemovedException ||
-                                                ex instanceof MessageRemovedIOException ||
-                                                ex.getCause() instanceof MessageRemovedException ||
-                                                ex.getCause() instanceof MessageRemovedIOException))
+                                if (message != null && MessageHelper.isRemoved(ex))
                                     db.message().deleteMessage(message.id);
 
                                 db.setTransactionSuccessful();
