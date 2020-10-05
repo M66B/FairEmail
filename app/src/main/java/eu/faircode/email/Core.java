@@ -2244,9 +2244,12 @@ class Core {
                 }
             });
 
+            int expunge = 0;
             for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++)
                 try {
-                    if (!imessages[i].isSet(Flags.Flag.DELETED))
+                    if (imessages[i].isSet(Flags.Flag.DELETED))
+                        expunge++;
+                    else
                         uids.remove(ifolder.getUID(imessages[i]));
                 } catch (MessageRemovedException ex) {
                     Log.w(folder.name, ex);
@@ -2254,6 +2257,14 @@ class Core {
                     Log.e(folder.name, ex);
                     EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
+                }
+
+            if (expunge > 0)
+                try {
+                    Log.i(folder.name + " expunging=" + expunge);
+                    ifolder.expunge();
+                } catch (Throwable ex) {
+                    Log.w(ex);
                 }
 
             if (uids.size() > 0) {
