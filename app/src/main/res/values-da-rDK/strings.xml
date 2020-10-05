@@ -500,6 +500,8 @@
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
+    <string name="title_advanced_protocol_hint">Dette vil øge batteri- og lagerpladsforbruget betydeligt!</string>
+    <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_attachments_hint">Ved manuel rensning, vil dette fjerner vedhæftninger fra beskeder, som ikke længere synkroniseres</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>

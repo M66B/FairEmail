@@ -501,7 +501,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
-    <string name="title_advanced_protocol_hint">Dies wird den Batterie- und Speicherplatzverbrauch deutlich erhöhen!</string>
+    <string name="title_advanced_protocol_hint">Dadurch wird der Akku- und Speicherplatzverbrauch erheblich erhöht!</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_attachments_hint">Beim manuellen Bereinigen werden Anhänge von Nachrichten entfernt, die nicht mehr synchronisiert werden</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>

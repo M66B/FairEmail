@@ -407,6 +407,7 @@
     <string name="title_advanced_browse_links">Delegarea deschiderii de adrese către Android</string>
     <string name="title_advanced_confirm_images">Confirmă afișarea imaginilor</string>
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
+    <string name="title_advanced_tracking">Încearcă să detectezi și dezactivezi în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
@@ -442,6 +443,7 @@
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_query_threads">Limitează accesul paralel la baza de date</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
+    <string name="title_advanced_protocol">Jurnalizare protocol</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
     <string name="title_advanced_cleanup">Curățare</string>
@@ -508,9 +510,12 @@
     <string name="title_advanced_fts_hint">Activată îmbunătățește performanța de căutare, dar de asemenea crește folosirea bateriei și a spațiului de stocare</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
+    <string name="title_advanced_protocol_hint">Acest lucru va crește semnificativ utilizarea bateriei și a spațiului de stocare!</string>
+    <string name="title_advanced_debug_hint">Activează jurnalul suplimentar și arată informații de depanare urât în diferite locuri</string>
     <string name="title_advanced_cleanup_attachments_hint">Când se curăță manual, se vor elimina atașamentele din mesajele care nu mai sunt sincronizate</string>
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>
+    <string name="title_advanced_edit_name">Editare nume</string>
     <string name="title_advanced_swipe_actions">Setare acțiuni glisare</string>
     <string name="title_advanced_swipe_actions_hint">Acesta va seta acțiunea glisare la stânga și la dreapta pentru toate conturile IMAP</string>
     <string name="title_select">Selectaţi &#8230;</string>
@@ -826,6 +831,10 @@
     <string name="title_style_size_medium">Mediu</string>
     <string name="title_style_size_large">Mare</string>
     <string name="title_style_color">Culoare &#8230;</string>
+    <string name="title_style_align">Aliniere</string>
+    <string name="title_style_align_start">Start</string>
+    <string name="title_style_align_center">Centru</string>
+    <string name="title_style_align_end">Sfârşit</string>
     <string name="title_style_list">Listă</string>
     <string name="title_style_list_bullets">Buline</string>
     <string name="title_style_list_numbered">Numere</string>
@@ -840,6 +849,7 @@
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
     <string name="title_add_image_privacy">Elimină datele confidențiale</string>
+    <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, nume de fișiere etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
@@ -1094,6 +1104,7 @@
     <string name="title_legend_forwarded">A fost redirecţionat</string>
     <string name="title_legend_plain_only">Este numai text simplu</string>
     <string name="title_legend_receipt">A fost cerută confirmarea</string>
+    <string name="title_legend_auto_submitted">A fost trimis automat</string>
     <string name="title_legend_attachment">Are atașament</string>
     <string name="title_legend_flagged">Este favorit</string>
     <string name="title_legend_contacts">Administrare contacte</string>
