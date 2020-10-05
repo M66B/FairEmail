@@ -398,6 +398,7 @@
     <string name="title_advanced_browse_links">Delegar apertura de enlaces a Android</string>
     <string name="title_advanced_confirm_images">Confirmar mostrar imágenes</string>
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
+    <string name="title_advanced_tracking">Intentar reconocer y deshabilitar imágenes de rastreo</string>
     <string name="title_advanced_hide_timezone">Enviar mensajes sin datos de zona horaria</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
@@ -433,6 +434,7 @@
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
+    <string name="title_advanced_protocol">Registro de protocolos</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
     <string name="title_advanced_cleanup">Limpieza</string>
@@ -499,9 +501,12 @@
     <string name="title_advanced_fts_hint">Activar esto mejora el rendimiento de búsqueda, pero también aumenta el uso de batería y espacio de almacenamiento</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentales actuales</string>
+    <string name="title_advanced_protocol_hint">¡Esto aumentará significativamente el uso de la batería y el espacio de almacenamiento!</string>
+    <string name="title_advanced_debug_hint">Activar registro extra y mostrar desagradable información de depuración en distintos lugares</string>
     <string name="title_advanced_cleanup_attachments_hint">Esto eliminará los archivos adjuntos de los mensajes que ya no están sincronizados al limpiar manualmente</string>
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
+    <string name="title_advanced_edit_name">Editar nombre</string>
     <string name="title_advanced_swipe_actions">Establecer acciones de deslizamiento</string>
     <string name="title_advanced_swipe_actions_hint">Esto establecerá las acciones al deslizar a izquierda o derecha para todas las cuentas IMAP</string>
     <string name="title_select">Seleccione &#8230;</string>
@@ -817,6 +822,10 @@
     <string name="title_style_size_medium">Mediano</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_color">Color &#8230;</string>
+    <string name="title_style_align">Alinear</string>
+    <string name="title_style_align_start">Comienzo</string>
+    <string name="title_style_align_center">Centro</string>
+    <string name="title_style_align_end">Final</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Viñetas</string>
     <string name="title_style_list_numbered">Numeradas</string>
@@ -831,6 +840,7 @@
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
     <string name="title_add_image_privacy">Eliminar datos de privacidad sensibles</string>
+    <string name="title_add_image_privacy_remark">Ubicación geográfica, números de serie, nombres de archivos, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
@@ -1085,6 +1095,7 @@
     <string name="title_legend_forwarded">Fue reenviado</string>
     <string name="title_legend_plain_only">Sólo es texto plano</string>
     <string name="title_legend_receipt">Se solicitó confirmación de lectura</string>
+    <string name="title_legend_auto_submitted">Se envió automáticamente</string>
     <string name="title_legend_attachment">Tiene adjunto</string>
     <string name="title_legend_flagged">Es favorito</string>
     <string name="title_legend_contacts">Administrar contactos</string>

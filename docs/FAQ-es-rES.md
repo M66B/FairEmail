@@ -235,29 +235,29 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(115) ¿Puedes añadir chips de direcciones de correo electrónico?](#user-content-faq115)
 * [~~(116) ¿Cómo puedo mostrar imágenes en mensajes de remitentes de confianza por defecto?~~](#user-content-faq116)
 * [(117) ¿Puede ayudarme a restaurar mi compra?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
+* [(118) ¿Qué es exactamente 'Quitar parámetros de seguimiento'?](#user-content-faq118)
+* [~~(119) ¿Puedes añadir colores al widget de bandeja de entrada unificada?~~](#user-content-faq119)
+* [(120) ¿Por qué no son eliminadas las notificaciones de nuevos mensajes al abrir la aplicación?](#user-content-faq120)
+* [(121) ¿Cómo se agrupan los mensajes en una conversación?](#user-content-faq121)
+* [~~(122) ¿Por qué se muestra el nombre/correo-e del destinatario con un color de advertencia?~~](#user-content-faq122)
+* [(123) ¿Qué pasará cuando FairEmail no pueda conectarse a un servidor de correo-e?](#user-content-faq123)
+* [(124) ¿Por qué recibo 'Mensaje muy grande o muy complejo para mostrar?](#user-content-faq124)
+* [(125) ¿Cuáles son las características experimentales actuales?](#user-content-faq125)
+* [(126) ¿Pueden enviarse las previsualizaciones de mensajes a mi vestible?](#user-content-faq126)
+* [(127) ¿Cómo puedo arreglar 'argumento(s) HELO sintácticamente invalido'?](#user-content-faq127)
+* [(128) ¿Cómo puedo reiniciar las preguntas, por ejemplo para mostrar imágenes?](#user-content-faq128)
+* [(129) ¿ProtonMail, Tutanota son apoyadas?](#user-content-faq129)
+* [(130) ¿Qué significa error de mensaje..?](#user-content-faq130)
+* [(131) ¿Puedes cambiar la dirección para deslizar al mensaje previo/siguiente?](#user-content-faq131)
+* [(132) ¿Por qué se silencian las notificaciones de mensajes nuevos?](#user-content-faq132)
+* [(133) ¿Por qué ActiveSync no es compatible?](#user-content-faq133)
+* [(134) ¿Puedes añadir borrado de mensajes locales?](#user-content-faq134)
+* [(135) ¿Por qué se muestran mensajes basura y borradores en las conversaciones?](#user-content-faq135)
+* [(136) ¿Cómo puedo eliminar una cuenta/identidad/carpeta?](#user-content-faq136)
+* [(137) ¿Cómo puedo reiniciar 'No preguntar de nuevo'?](#user-content-faq137)
+* [(138) ¿Puedes añadir calendario/gestión de contactos/sincronización?](#user-content-faq138)
+* [(139) ¿Cómo arreglo 'El usuario está autenticado pero no conectado'?](#user-content-faq139)
+* [(140) ¿Por qué el texto del mensaje contiene caracteres extraños?](#user-content-faq140)
 * [(141) ¿Cómo puedo arreglar 'Una carpeta de borradores es necesaria para enviar mensajes'?](#user-content-faq141)
 * [(142) ¿Cómo puedo guardar los mensajes enviados en la bandeja de entrada?](#user-content-faq142)
 * [~~(143) ¿Puedes añadir una carpeta de papelera para cuentas POP3?~~](#user-content-faq143)
@@ -273,7 +273,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(153) ¿Por qué la eliminación permanente de mensajes de Gmail no funciona?](#user-content-faq153)
 * [~~(154) ¿Puedes añadir favicons como fotos de contacto?~~](#user-content-faq154)
 * [(155) ¿Qué es un archivo winmail.dat?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
+* [(156) ¿Cómo puedo configurar una cuenta de Office 365?](#user-content-faq156)
 * [(157) ¿Cómo puedo configurar una cuenta de Free.fr?](#user-content-faq157)
 * [(158) ¿Qué cámara / grabador de audio recomienda?](#user-content-faq158)
 * [(159) ¿Qué son las listas de protección de rastreadores de Disconnect?](#user-content-faq159)
@@ -319,12 +319,12 @@ Los siguientes permisos son necesarios para mostrar el recuento de mensajes no l
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Ten en cuenta que todavía puedes elegir contactos sin conceder sus permisos a FairEmail, solo sugerir que los contactos no funcionarán sin los permisos de contactos.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) ¿Por qué se muestra una notificación permanente?**
 
 A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
@@ -398,20 +398,20 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*Contraseña vacía*
 
-Your username is likely easily guessed, so this is insecure.
+Su nombre de usuario probablemente sea fácilmente adivinado, por lo que esto es inseguro.
 
-*Plain text connection*
+*Conexión de texto simple*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Su nombre de usuario y contraseña y todos los mensajes serán enviados y recibidos sin cifrar, el cual es **muy inseguro** porque un [ataque de intermediario](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) es muy simple en una conexión no cifrada.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si aún quiere usar un certificado de seguridad invalido, una contraseña vacía o una conexión de texto simple necesitará habilitar conexiones inseguras en la cuenta y/o configuraciones de identidad. STARTTLS debería ser seleccionado para conexiones de texto simple. Si activa conexiones inseguras, sólo debería conectarse a través de redes privadas y confiables y nunca a través de redes públicas, como las ofrecidas en hoteles, aeropuertos, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) ¿Cómo puedo personalizar la vista del mensaje?**
 
 In the three dot overflow menu you can enable or disable or select:
 
