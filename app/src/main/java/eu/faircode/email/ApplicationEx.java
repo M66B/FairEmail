@@ -39,13 +39,23 @@ import android.webkit.CookieManager;
 
 import androidx.preference.PreferenceManager;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class ApplicationEx extends Application {
+public class ApplicationEx extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
+
+    private static final List<String> OPTIONS_RESTART = Collections.unmodifiableList(Arrays.asList(
+            "secure", // privacy
+            "shortcuts", // misc
+            "language", // misc
+            "query_threads" // misc
+    ));
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -54,14 +64,26 @@ public class ApplicationEx extends Application {
 
     static Context getLocalizedContext(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean english = prefs.getBoolean("english", false);
 
-        if (english) {
+        if (prefs.contains("english")) {
+            boolean english = prefs.getBoolean("english", false);
+            if (english)
+                prefs.edit()
+                        .remove("english")
+                        .putString("language", Locale.US.toLanguageTag())
+                        .commit();
+        }
+
+        String language = prefs.getString("language", null);
+        if (language != null) {
+            Locale locale = Locale.forLanguageTag(language);
+            Locale.setDefault(locale);
             Configuration config = new Configuration(context.getResources().getConfiguration());
-            config.setLocale(Locale.US);
+            config.setLocale(locale);
             return context.createConfigurationContext(config);
-        } else
-            return context;
+        }
+
+        return context;
     }
 
     @Override
@@ -81,6 +103,7 @@ public class ApplicationEx extends Application {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        prefs.registerOnSharedPreferenceChangeListener(this);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
@@ -134,6 +157,19 @@ public class ApplicationEx extends Application {
 
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (OPTIONS_RESTART.contains(key))
+            restart();
+    }
+
+    void restart() {
+        Intent intent = new Intent(this, ActivityMain.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Runtime.getRuntime().exit(0);
     }
 
     @Override

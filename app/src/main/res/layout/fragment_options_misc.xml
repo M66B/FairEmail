@@ -112,28 +112,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFtsIndexed" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swEnglish"
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_english"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_language"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFtsPro"
-            app:switchPadding="12dp" />
+            app:layout_constraintTop_toBottomOf="@id/tvFtsPro" />
+
+        <Spinner
+            android:id="@+id/spLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvEnglishHint"
+            android:id="@+id/tvLanguageHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="48dp"
             android:text="@string/title_advanced_english_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swEnglish" />
+            app:layout_constraintTop_toBottomOf="@id/spLanguage" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swWatchdog"
@@ -144,7 +155,7 @@
             android:text="@string/title_advanced_watchdog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
+            app:layout_constraintTop_toBottomOf="@id/tvLanguageHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

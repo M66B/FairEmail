@@ -230,7 +230,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
-                restart();
             }
         });
 

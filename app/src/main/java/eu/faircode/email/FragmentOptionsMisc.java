@@ -39,8 +39,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +62,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.SortedMap;
 
 import javax.net.ssl.SSLSocket;
@@ -74,7 +78,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swFts;
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
-    private SwitchCompat swEnglish;
+    private Spinner spLanguage;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
@@ -105,7 +109,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "english", "watchdog", "updates",
+            "shortcuts", "fts", "language", "watchdog", "updates",
             "experiments", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "auth_plain", "auth_login", "auth_sasl"
     };
@@ -135,7 +139,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFts = view.findViewById(R.id.swFts);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
-        swEnglish = view.findViewById(R.id.swEnglish);
+        spLanguage = view.findViewById(R.id.spLanguage);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
@@ -182,7 +186,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("shortcuts", checked).commit(); // apply won't work here
-                restart();
             }
         });
 
@@ -225,11 +228,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         Helper.linkPro(tvFtsPro);
 
-        swEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("english", checked).commit(); // apply won't work here
-                restart();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                if (position == 0)
+                    onNothingSelected(adapterView);
+                else {
+                    String tag = getResources().getAssets().getLocales()[position - 1];
+                    prefs.edit().putString("language", tag).commit(); // apply won't work here
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("language").commit(); // apply won't work here
             }
         });
 
@@ -274,7 +286,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
                 else
                     prefs.edit().remove("query_threads").commit(); // apply won't work here
-                restart();
             }
         });
 
@@ -593,7 +604,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch.setChecked(state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
-        swEnglish.setChecked(prefs.getBoolean("english", false));
+
+        String language = prefs.getString("language", null);
+        String[] languages = getResources().getAssets().getLocales();
+
+        int selected = -1;
+        List<String> display = new ArrayList<>();
+        display.add(getString(R.string.title_advanced_language_system));
+        for (int pos = 0; pos < languages.length; pos++) {
+            String lang = languages[pos];
+            Locale loc = Locale.forLanguageTag(lang);
+            display.add(loc.getDisplayName() + " [" + lang + "]");
+            if (lang.equals(language))
+                selected = pos + 1;
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spLanguage.setAdapter(adapter);
+        if (selected >= 0)
+            spLanguage.setSelection(selected);
+
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(
