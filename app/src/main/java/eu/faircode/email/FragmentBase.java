@@ -536,7 +536,7 @@ public class FragmentBase extends Fragment {
                     OutputStream os = null;
                     InputStream is = null;
                     try {
-                        os = context.getContentResolver().openOutputStream(uri);
+                        os = context.getContentResolver().openOutputStream(document.getUri());
                         is = new FileInputStream(file);
 
                         byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -569,6 +569,7 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                Log.w(ex);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                     if (ex instanceof RecoverableSecurityException) {
                         handle((RecoverableSecurityException) ex);
