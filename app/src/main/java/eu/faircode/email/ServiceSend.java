@@ -490,6 +490,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         if (ident == null)
             throw new IllegalArgumentException("Identity not found");
+        if (!ident.synchronize)
+            throw new IllegalArgumentException("Identity is disabled");
 
         if (!message.content)
             throw new IllegalArgumentException("Message body missing");
