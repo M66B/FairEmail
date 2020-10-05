@@ -525,14 +525,26 @@ public abstract class PagedList<T> extends AbstractList<T> {
 
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     void dispatchBoundaryCallbacks(boolean begin, boolean end) {
-        // safe to deref mBoundaryCallback here, since we only defer if mBoundaryCallback present
-        if (begin) {
-            //noinspection ConstantConditions
-            mBoundaryCallback.onItemAtFrontLoaded(mStorage.getFirstLoadedItem());
-        }
-        if (end) {
-            //noinspection ConstantConditions
-            mBoundaryCallback.onItemAtEndLoaded(mStorage.getLastLoadedItem());
+        try {
+            // safe to deref mBoundaryCallback here, since we only defer if mBoundaryCallback present
+            if (begin) {
+                //noinspection ConstantConditions
+                mBoundaryCallback.onItemAtFrontLoaded(mStorage.getFirstLoadedItem());
+            }
+            if (end) {
+                //noinspection ConstantConditions
+                mBoundaryCallback.onItemAtEndLoaded(mStorage.getLastLoadedItem());
+            }
+        } catch (Throwable ex) {
+            eu.faircode.email.Log.w(ex);
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=0; index=-1
+                        at java.util.ArrayList.get(ArrayList.java:439)
+                        at androidx.paging.PagedStorage.getLastLoadedItem(SourceFile:361)
+                        at androidx.paging.PagedList.dispatchBoundaryCallbacks(SourceFile:535)
+                        at androidx.paging.PagedList.tryDispatchBoundaryCallbacks(SourceFile:522)
+                        at androidx.paging.PagedList$1.run(SourceFile:487)
+             */
         }
     }
 
