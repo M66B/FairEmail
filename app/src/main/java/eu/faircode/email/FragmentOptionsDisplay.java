@@ -1170,51 +1170,57 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                             boolean system = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeSystem);
                             boolean black = (swBlack.isEnabled() && swBlack.isChecked());
 
+                            SharedPreferences.Editor editor = prefs.edit();
+
+                            editor.remove("highlight_color");
+
                             switch (rgTheme.getCheckedRadioButtonId()) {
                                 case R.id.rbThemeBlueOrange:
                                     if (system)
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "orange_blue_system" : "blue_orange_system") +
                                                         (black ? "_black" : "")).apply();
                                     else
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "orange_blue" : "blue_orange") +
                                                         (black ? "_black" : dark ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeYellowPurple:
                                     if (system)
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "purple_yellow_system" : "yellow_purple_system") +
                                                         (black ? "_black" : "")).apply();
                                     else
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "purple_yellow" : "yellow_purple") +
                                                         (black ? "_black" : dark ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeRedGreen:
                                     if (system)
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "green_red_system" : "red_green_system") +
                                                         (black ? "_black" : "")).apply();
                                     else
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 (reverse ? "green_red" : "red_green") +
                                                         (black ? "_black" : dark ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeGrey:
                                     if (system)
-                                        prefs.edit().putString("theme", "grey_system").apply();
+                                        editor.putString("theme", "grey_system").apply();
                                     else
-                                        prefs.edit().putString("theme",
+                                        editor.putString("theme",
                                                 "grey" + (dark ? "_dark" : "_light")).apply();
                                     break;
                                 case R.id.rbThemeBlack:
-                                    prefs.edit().putString("theme", "black").apply();
+                                    editor.putString("theme", "black").apply();
                                     break;
                                 case R.id.rbThemeBlackAndWhite:
-                                    prefs.edit().putString("theme", "black_and_white").apply();
+                                    editor.putString("theme", "black_and_white").apply();
                                     break;
                             }
+
+                            editor.apply();
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
