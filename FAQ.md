@@ -1416,12 +1416,15 @@ consider switching to a modern provider which supports push messages (IMAP IDLE)
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme.
 
-By default auto optimize in the receive settings is enabled,
-which will switch an account to periodically checking for new messages when the email server:
+If auto optimize in the receive settings is enabled,
+an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
 * The email server does not support push messages
 * The keep-alive interval is lower than 12 minutes
+
+In addition, the trash and spam folders will be automatically set to checking for new messages
+after three successive [too many simultaneous connections](#user-content-faq23) errors.
 
 <br />
 

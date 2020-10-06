@@ -326,6 +326,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
     int setFolderTbd(long id);
 
+    @Query("UPDATE folder SET poll = :poll, poll_count = 1 WHERE id = :id")
+    int setFolderPoll(long id, boolean poll);
+
     @Query("UPDATE folder SET poll_count = :count WHERE id = :id")
     int setFolderPollCount(long id, int count);
 

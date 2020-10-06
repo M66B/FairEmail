@@ -1578,6 +1578,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         " last connected: " + new Date(account.last_connected));
                         if (errors >= FAST_ERROR_COUNT)
                             state.setBackoff(FAST_ERROR_BACKOFF * 60);
+
+                        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+                        if (auto_optimize) {
+                            Throwable e = ex;
+                            while (e != null) {
+                                if (ConnectionHelper.isMaxConnections(e.getMessage())) {
+                                    for (String ft : new String[]{EntityFolder.TRASH, EntityFolder.JUNK}) {
+                                        EntityFolder f = db.folder().getFolderByType(account.id, ft);
+                                        if (f != null)
+                                            db.folder().setFolderPoll(f.id, true);
+                                    }
+                                }
+                                e = e.getCause();
+                            }
+                        }
                     }
 
                     // Report account connection error
