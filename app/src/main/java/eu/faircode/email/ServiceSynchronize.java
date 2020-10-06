@@ -1253,7 +1253,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     break;
                                                 }
                                             if (!found)
-                                                Log.e(account.name + " folder not found operation=" + op.name);
+                                                Log.w(account.name + " folder not found operation=" + op.name);
                                         }
                                         ops.add(op.id);
                                     }
