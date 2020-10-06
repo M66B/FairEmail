@@ -133,6 +133,9 @@ The GitHub release will automatically check for updates on GitHub (this can be t
 F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
 
+**Important**: There is support on the F-Droid build only if the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+Please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147) for more information on third-party builds.
+
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
 Certificate fingerprints:
