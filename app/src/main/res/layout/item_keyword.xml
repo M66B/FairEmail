@@ -27,7 +27,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="9dp"
+            android:paddingHorizontal="6dp"
             android:text="@string/title_select"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cbKeyword"

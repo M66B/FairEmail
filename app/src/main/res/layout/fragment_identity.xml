@@ -123,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:paddingHorizontal="6dp"
             android:tag="disable"
             android:text="@string/title_select"
             app:layout_constraintStart_toStartOf="parent"
