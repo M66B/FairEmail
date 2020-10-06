@@ -325,18 +325,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaptionHeader"
             app:switchPadding="12dp" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvHighlightUnreadHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_highlight_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swHighlightUnread" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swColorStripe"
             android:layout_width="0dp"
@@ -347,7 +335,7 @@
             android:text="@string/title_advanced_color_stripe"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHighlightUnreadHint"
+            app:layout_constraintTop_toBottomOf="@id/swHighlightUnread"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -677,18 +665,6 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvHighlightSubjectHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_highlight_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swHighlightSubject" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubjectEllipsize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -698,7 +674,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHighlightSubjectHint" />
+            app:layout_constraintTop_toBottomOf="@id/swHighlightSubject" />
 
         <Spinner
             android:id="@+id/spSubjectEllipsize"
@@ -709,6 +685,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsize" />
 
+        <eu.faircode.email.ViewButtonColor
+            android:id="@+id/btnHighlightColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="6dp"
+            android:text="@string/title_advanced_highlight_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHighlightColorHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_highlight_color_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHighlightColor" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swKeywords"
             android:layout_width="0dp"
@@ -717,7 +716,7 @@
             android:text="@string/title_advanced_keywords"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize"
+            app:layout_constraintTop_toBottomOf="@id/tvHighlightColorHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

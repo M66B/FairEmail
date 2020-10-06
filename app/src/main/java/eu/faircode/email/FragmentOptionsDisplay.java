@@ -57,6 +57,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnTheme;
     private Spinner spStartup;
@@ -100,6 +104,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swHighlightSubject;
     private Spinner spSubjectEllipsize;
+    private ViewButtonColor btnHighlightColor;
     private SwitchCompat swKeywords;
     private SwitchCompat swLabels;
     private SwitchCompat swFlags;
@@ -133,7 +138,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "highlight_unread", "color_stripe",
             "avatars", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts", "show_recipients",
-            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
+            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize", "highlight_color",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
@@ -195,6 +200,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swHighlightSubject = view.findViewById(R.id.swHighlightSubject);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
+        btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
         swKeywords = view.findViewById(R.id.swKeywords);
         swLabels = view.findViewById(R.id.swLabels);
         swFlags = view.findViewById(R.id.swFlags);
@@ -566,6 +572,39 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        btnHighlightColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
+                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                        .with(context)
+                        .setTitle(R.string.title_advanced_highlight_color)
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .lightnessSliderOnly()
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                prefs.edit().putInt("highlight_color", selectedColor).apply();
+                                btnHighlightColor.setColor(selectedColor);
+                            }
+                        })
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                prefs.edit().remove("highlight_color").apply();
+                                btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorAccent));
+                            }
+                        });
+
+                builder.build().show();
+            }
+        });
+
         swKeywords.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -888,6 +927,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 spSubjectEllipsize.setSelection(pos);
                 break;
             }
+
+        btnHighlightColor.setColor(prefs.getInt("highlight_color",
+                Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
 
         swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
         swLabels.setChecked(prefs.getBoolean("labels_header", true));
