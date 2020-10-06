@@ -426,7 +426,8 @@
     <string name="title_advanced_language_detection">Détecter la langue du texte du message</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
-    <string name="title_advanced_english">Utiliser les paramètres des États-Unis</string>
+    <string name="title_advanced_language">Langue</string>
+    <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_updates">Rechercher des mises à jour</string>
@@ -830,7 +831,7 @@
     <string name="title_style_list_numbered">Numéros</string>
     <string name="title_style_font">Police de caractères</string>
     <string name="title_style_font_default">Par défaut</string>
-    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Bloc de citation</string>
+    <string name="title_style_blockquote">Bloc de citation</string>
     <string name="title_style_strikethrough">Barré</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>

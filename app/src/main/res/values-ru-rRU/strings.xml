@@ -448,7 +448,8 @@
     <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
-    <string name="title_advanced_english">Использовать настройки для США</string>
+    <string name="title_advanced_language">Язык</string>
+    <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
@@ -844,15 +845,15 @@
     <string name="title_style_size_large">Большой</string>
     <string name="title_style_color">Цвет&#8230;</string>
     <string name="title_style_align">Выравнивание</string>
-    <string name="title_style_align_start">По левому краю</string>
+    <string name="title_style_align_start">Слева</string>
     <string name="title_style_align_center">По центру</string>
-    <string name="title_style_align_end">По правому краю</string>
+    <string name="title_style_align_end">Справа</string>
     <string name="title_style_list">Список</string>
     <string name="title_style_list_bullets">Маркированный</string>
     <string name="title_style_list_numbered">Нумерованный</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">По умолчанию</string>
-    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Блок цитаты</string>
+    <string name="title_style_blockquote">Блок цитаты</string>
     <string name="title_style_strikethrough">Зачёркнутый</string>
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>

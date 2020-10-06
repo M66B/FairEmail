@@ -394,7 +394,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_language_detection">Detecta el llenguatge de text del missatge</string>
     <string name="title_advanced_fts">Construint índex de cerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d missatges indexats (%3$s)</string>
-    <string name="title_advanced_english">Utilitzeu la configuració de país dels Estats Units</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_optimize">Optimitzar automàticament</string>
     <string name="title_advanced_updates">Comprova si hi ha actualitzacions</string>

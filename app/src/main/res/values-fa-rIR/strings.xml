@@ -364,7 +364,6 @@
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
-    <string name="title_advanced_english">استفاده از تنظیمات کشور آمریکا</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>

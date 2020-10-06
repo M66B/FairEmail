@@ -420,7 +420,6 @@
     <string name="title_advanced_language_detection">Detectar o idioma da mensaxe</string>
     <string name="title_advanced_fts">Crear o índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensaxes no índice (%3$s)</string>
-    <string name="title_advanced_english">Usar a configuración de EE.UU.</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se FairEmail aínda está activo</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
     <string name="title_advanced_updates">Comprobar actualizacións</string>

@@ -414,7 +414,8 @@
     <string name="title_advanced_language_detection">检测消息文本语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
-    <string name="title_advanced_english">使用美国国家设置</string>
+    <string name="title_advanced_language">语言</string>
+    <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -489,7 +490,7 @@
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_protocol_hint">这将大幅增加电池和存储空间用量！</string>
-    <string name="title_advanced_debug_hint">启用额外的日志记录并在不同位置显示难看的调试信息</string>
+    <string name="title_advanced_debug_hint">启用额外的日志记录并在不同位置显示晦涩的调试信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
@@ -818,7 +819,7 @@
     <string name="title_style_list_numbered">编号列表</string>
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
-    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">引用块</string>
+    <string name="title_style_blockquote">引用块</string>
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>

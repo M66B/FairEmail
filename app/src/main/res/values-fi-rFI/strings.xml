@@ -422,7 +422,6 @@
     <string name="title_advanced_language_detection">Tunnista tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
-    <string name="title_advanced_english">Käytä Yhdysvaltojen maa-asetusta</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -826,7 +825,7 @@
     <string name="title_style_list_numbered">Numeroitu</string>
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
-    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Kappalelainaus</string>
+    <string name="title_style_blockquote">Kappalelainaus</string>
     <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>

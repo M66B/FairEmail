@@ -427,7 +427,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
-    <string name="title_advanced_english">US-Ländereinstellungen verwenden</string>
+    <string name="title_advanced_language">Sprache</string>
+    <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_optimize">Automatisch optimieren</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -830,7 +831,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_style_list_numbered">Nummeriert</string>
     <string name="title_style_font">Schriftart</string>
     <string name="title_style_font_default">Standard</string>
-    <string name="title_style_blockquote" comment="title_style_blockquote&#10;See here for what a block quote is:&#10;https://en.wikipedia.org/wiki/Block_quotation">Zitatblock</string>
+    <string name="title_style_blockquote">Zitatblock</string>
     <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
     <string name="title_style_link">Link einfügen</string>

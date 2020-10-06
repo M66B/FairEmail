@@ -735,15 +735,15 @@ Um ein Office-365-Konto einzurichten, lesen Sie bitte [diese F&A](#user-content-
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Warum wird der Nachrichtentext weiter geladen?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. The message text will keep loading if there is no connection to the account, see also the next question.
+Der Nachrichtenkopf und der Nachrichtentext werden getrennt vom Server abgerufen. Der Nachrichtentext größerer Nachrichten wird nicht bei getakteten Verbindungen vorab geladen und muss beim Öffnen der Nachricht abgerufen werden. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht (siehe auch die nächste Frage) oder wenn dort andere Operationen, wie z. B. das Synchronisieren von Nachrichten, ausgeführt werden.
 
-Sie können in der Konten- und Ordnerliste den Konten- und Ordnerstatus überprüfen (siehe Legende für die Bedeutung der Symbole). In der über das Hauptnavigationsmenü erreichbare Liste sehen Sie ausstehende Operationen (siehe [diese F&A](#user-content-faq3) für die Bedeutung der Operationen).
+Sie können in der Konten- und Ordnerliste den Konten- und Ordnerstatus überprüfen (siehe Legende für die Bedeutung der Symbole). In der über das Hauptnavigationsmenü erreichbaren Liste sehen Sie ausstehende Vorgänge (siehe [diese F&A](#user-content-faq3) für die Bedeutung der Vorgänge).
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+In den Empfangseinstellungen können Sie die maximale Größe für das automatische Herunterladen von Nachrichten bei getakteten Verbindungen festlegen.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Die Mobilfunkverbindungen sind fast immer getaktet und einige (bezahlte) WLAN-Zuganspunkte sind das ebenfalls.
 
 <br />
 
@@ -780,16 +780,16 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. Siehe auch [diese F&A](#user-content-faq15).
+Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [diese F&A](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
 **(19) Warum sind die Pro-Funktionen so teuer?**
 
-Die richtige Frage ist: "*Warum gibt es so viele Steuern und Gebühren?*":
+Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
 
 * MwSt.: 25 % (je nach Land)
 * Google-Gebühr: 30 %
