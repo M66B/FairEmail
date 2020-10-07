@@ -2072,7 +2072,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 div.appendChild(h);
 
-                                Element p = embedded.getReplyHeader(context, document, true);
+                                Element p = embedded.getReplyHeader(context, document, false, true);
                                 div.appendChild(p);
 
                                 div.appendChild(d.body().tagName("p"));

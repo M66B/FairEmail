@@ -52,6 +52,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private Spinner spComposeFont;
     private SwitchCompat swPrefixOnce;
+    private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
     private SwitchCompat swResizeReply;
@@ -71,7 +72,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "compose_font", "prefix_once", "extended_reply", "quote_reply", "resize_reply",
+            "compose_font", "prefix_once", "separate_reply", "extended_reply", "quote_reply", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "discard_delete",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -98,6 +99,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont = view.findViewById(R.id.spComposeFont);
 
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swResizeReply = view.findViewById(R.id.swResizeReply);
@@ -200,6 +202,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
+            }
+        });
+
+        swSeparateReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("separate_reply", checked).apply();
+            }
+        });
+
+        swSeparateReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("separate_reply", checked).apply();
             }
         });
 
@@ -382,6 +398,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
+        swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));

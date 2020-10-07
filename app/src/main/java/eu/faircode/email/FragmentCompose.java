@@ -3712,8 +3712,9 @@ public class FragmentCompose extends FragmentBase {
                             reply.appendElement("br");
 
                             // Build reply header
+                            boolean separate_reply = prefs.getBoolean("separate_reply", false);
                             boolean extended_reply = prefs.getBoolean("extended_reply", false);
-                            Element p = ref.getReplyHeader(context, document, extended_reply);
+                            Element p = ref.getReplyHeader(context, document, separate_reply, extended_reply);
                             reply.appendChild(p);
 
                             Document d;

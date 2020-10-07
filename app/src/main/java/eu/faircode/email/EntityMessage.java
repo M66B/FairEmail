@@ -263,7 +263,7 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
-    Element getReplyHeader(Context context, Document document, boolean extended) {
+    Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
@@ -315,7 +315,13 @@ public class EntityMessage implements Serializable {
         } else
             p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
 
-        return p;
+        if (separate) {
+            Element div = document.createElement("div");
+            div.appendElement("hr");
+            div.appendChild(p);
+            return div;
+        } else
+            return p;
     }
 
     String getNotificationChannelId() {

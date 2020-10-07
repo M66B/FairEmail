@@ -495,6 +495,7 @@ public class EntityRule {
         reply.id = db.message().insertMessage(reply);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean separate_reply = prefs.getBoolean("separate_reply", false);
         boolean extended_reply = prefs.getBoolean("extended_reply", false);
         boolean quote_reply = prefs.getBoolean("quote_reply", true);
         boolean quote = (quote_reply && TextUtils.isEmpty(to));
@@ -504,7 +505,7 @@ public class EntityRule {
 
         Element div = msg.createElement("div");
 
-        Element p = message.getReplyHeader(context, msg, extended_reply);
+        Element p = message.getReplyHeader(context, msg, separate_reply, extended_reply);
         div.appendChild(p);
 
         Document answering = JsoupEx.parse(message.getFile(context));
