@@ -444,7 +444,6 @@
     <string name="title_advanced_date_hint">如果郵件按時間排序，則僅按日期分組</string>
     <string name="title_advanced_navbar_colorize_hint">這是否可行取決於Android版本和變量</string>
     <string name="title_advanced_threading_hint">彼此相關的群組訊息</string>
-    <string name="title_advanced_highlight_hint">主題的強調色將用於突出顯示</string>
     <string name="title_advanced_gravatars_hint">可能存在隱私風險</string>
     <string name="title_advanced_name_email_hint">禁用時，僅顯示名稱（如果可用）</string>
     <string name="title_advanced_preview_hint">僅在消息文本已被下載時可用</string>

@@ -1181,11 +1181,13 @@ If you got the message *This provider does not support push messages* while conf
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
 
-By default auto optimize in the receive settings is enabled, which will switch an account to periodically checking for new messages when the email server:
+If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
 * The email server does not support push messages
 * The keep-alive interval is lower than 12 minutes
+
+In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
 
 <br />
 
@@ -1209,13 +1211,13 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-Siehe auch [diese F&A](#user-content-faq4).
+See also [this FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL oder TLSV1_ALERT_PROTOCOL_VERSION ...*' kann durch das Aktivieren von abgehärteten Verbindungen in den Verbindungseinstellungen verursacht werden oder durch Android, das ältere Protokolle, wie SSLv3, nicht mehr unterstützt.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
@@ -1224,11 +1226,11 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <br />
 
 <a name="faq42"></a>
-**(42) Könne Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?**
+**(42) Can you add a new provider to the list of providers?**
 
-Wenn der Anbieter von mehr als ein paar Leuten benutzt wird, ja, mit Freude.
+If the provider is used by more than a few people, yes, with pleasure.
 
-Folgende Informationen werden benötigt:
+The following information is needed:
 
 ```
 <provider
@@ -1246,13 +1248,13 @@ Folgende Informationen werden benötigt:
 </provider>
 ```
 
-Das EFF [schreibt](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Zusätzlich, auch wenn Sie STARTTLS perfekt konfigurieren und ein gültiges Zertifikat verwenden, gibt es noch keine Garantie dafür, dass Ihre Kommunikation verschlüsselt wird.*"
+The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
-Also sind reine SSL-Verbindungen sicherer als die Verwendung von [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) und daher bevorzugt.
+So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
 
-Bitte stellen Sie sicher, dass das Empfangen und Senden von Nachrichten richtig funktioniert, bevor Sie mich kontaktieren, um einen Anbieter hinzuzufügen.
+Please make sure receiving and sending messages works properly before contacting me to add a provider.
 
-Sehen Sie weiter unten wie Sie mich kontaktieren können.
+See below about how to contact me.
 
 <br />
 
@@ -1311,14 +1313,14 @@ You likely selected or sent an attachment or image with an outdated file manager
 
 You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions. Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings. Note that this workaround [won't work on Android Q](https://developer.android.com/preview/privacy/scoped-storage) anymore.
 
-Siehe auch [Frage 25](#user-content-faq25) und [Was Google dazu schreibt](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
+See also [question 25](#user-content-faq25) and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
 
 <br />
 
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. Sie können bese die Serversuche nutzen (siehe [Frage 13](#user-content-faq13)), die schneller und effizienter ist. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
 
 <br />
 
@@ -1481,7 +1483,7 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 
 ~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
 
-~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. Siehe auch [diese Frage](#user-content-faq55).~~
+~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
 
 ~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~ ~~Note that there is an advanced option to mark messages automatically read on moving,~~ ~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~ ~~You can also mark messages read from new message notifications.~~
 
@@ -1499,7 +1501,7 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-Der Preis für FairEmail ist dafür zu niedrig, niedriger als bei fast allen ähnlichen Apps, und es müssen [zu viele Gebühren und Steuern](#user-content-faq19) entrichtet werden. Google kassiert alleine schon 30 % dafür, dass FairEmail in der [Google Play-Familienmediathek](https://support.google.com/googleone/answer/7007852) zur Verfügung gestellt wird. Note that Google promotes the Family libray, but lets developers pay for it and doesn't contribute anything.
+The price of FairEmail is too low, lower than that of most similar apps, and there are [too many fees and taxes](#user-content-faq19), Google alone already takes 30 %, to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it and doesn't contribute anything.
 
 <br />
 

@@ -406,7 +406,6 @@
     <string name="title_advanced_date_hint">Sporočila bodo združena po datumu samo, če so razvrščena po času.</string>
     <string name="title_advanced_navbar_colorize_hint">Delovanje tega je odvisno od različice in izvedbe Androida.</string>
     <string name="title_advanced_threading_hint">Združi sporočila, ki so med seboj povezana.</string>
-    <string name="title_advanced_highlight_hint">Odtenek barve teme se bo uporabil za poudarjanje.</string>
     <string name="title_advanced_gravatars_hint">Vklop te možnosti lahko ogrozi zasebnost.</string>
     <string name="title_advanced_name_email_hint">Ko je onemogočeno, bodo prikazana samo imena, če so na voljo.</string>
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>

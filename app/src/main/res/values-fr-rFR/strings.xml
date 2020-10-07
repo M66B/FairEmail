@@ -312,6 +312,7 @@
     <string name="title_advanced_subject_top">Afficher l’objet au-dessus de l’expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l’objet en italique</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
+    <string name="title_advanced_highlight_color">Couleur de surbrillance</string>
     <string name="title_advanced_keywords">Afficher les mots-clés dans l\'en-tête du message</string>
     <string name="title_advanced_labels">Afficher les libellés Gmail dans l\'en-tête du message</string>
     <string name="title_advanced_flags">Afficher les étoiles de suivi</string>
@@ -469,9 +470,9 @@
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
     <string name="title_advanced_navbar_colorize_hint">Le fonctionnement dépend de la version et de la variante d’Android</string>
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
-    <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la mise en surbrillance</string>
     <string name="title_advanced_gravatars_hint">Ceci pourrait présenter un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
+    <string name="title_advanced_highlight_color_hint">Couleur de surbrillance pour l\'expéditeur et l\'objet</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_preview_issue">Le défilement peut être lent lorsqu’il y a plus d’une ligne en raison d’un bogue dans certaines versions d’Android</string>
     <string name="title_advanced_overview_mode_hint">Ceci peut afficher de très petites polices de caractères</string>

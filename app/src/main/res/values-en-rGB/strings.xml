@@ -19,7 +19,6 @@
     <string name="title_advanced_notify_action_trash">Delete</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronising messages</string>
-    <string name="title_advanced_highlight_hint">The accent colour of the theme will be used for highlighting</string>
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or deleted</string>
     <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronised</string>
     <string name="title_identity_color_hint">Identity colours take precedence over folder and account colours</string>

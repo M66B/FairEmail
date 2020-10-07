@@ -479,7 +479,6 @@
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
-    <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>

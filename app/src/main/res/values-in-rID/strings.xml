@@ -440,7 +440,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_date_hint">Pesan hanya dikelompokkan berdasarkan tanggal jika mereka diurutkan berdasarkan waktu</string>
     <string name="title_advanced_navbar_colorize_hint">Apakah karya ini tergantung pada versi Android dan variannya</string>
     <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
-    <string name="title_advanced_highlight_hint">Aksen warna tema akan digunakan untuk menyoroti pesan</string>
     <string name="title_advanced_gravatars_hint">Mungkin ada risiko privasi</string>
     <string name="title_advanced_name_email_hint">Ketika dinonaktifkan hanya akan menampilkan nama jika ada</string>
     <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>

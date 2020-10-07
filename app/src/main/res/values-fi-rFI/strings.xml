@@ -463,7 +463,6 @@
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
-    <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>

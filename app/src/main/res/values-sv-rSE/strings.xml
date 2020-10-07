@@ -466,7 +466,6 @@
     <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
-    <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
     <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>

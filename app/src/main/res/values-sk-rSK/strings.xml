@@ -445,12 +445,15 @@
     <string name="title_advanced_language_detection">Zisťovať jazyk textu správ</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>
     <string name="title_advanced_fts_indexed">%1$d z %2$d správ spracovaných (%3$s)</string>
+    <string name="title_advanced_language">Jazyk</string>
+    <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
     <string name="title_advanced_optimize">Automaticky optimalizovať</string>
     <string name="title_advanced_updates">Kontrolovať aktualizácie</string>
     <string name="title_advanced_experiments">Vyskúšať experimentálne vlastnosti</string>
     <string name="title_advanced_query_threads">Obmedziť viacnásobný prístup k databáze</string>
     <string name="title_advanced_crash_reports">Odosielať hlásenia o chybách</string>
+    <string name="title_advanced_protocol">Záznam na úrovni protokolu</string>
     <string name="title_advanced_debug">Ladiaci režim</string>
     <string name="title_advanced_cleanup_attachments">Vymazať prílohy zo starých správ</string>
     <string name="title_advanced_cleanup">Čistenie</string>
@@ -485,7 +488,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_date_hint">Správy sú zoskupené podľa dátumu len ak je zoznam zotriedený podľa času</string>
     <string name="title_advanced_navbar_colorize_hint">Či to bude fungovať záleží od verzie a variantu systému Android</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
-    <string name="title_advanced_highlight_hint">Farba zvíraznenia témy bude použitá pre zvírazňovanie</string>
     <string name="title_advanced_gravatars_hint">Môže predstavovať potenciálny risk straty súkromia</string>
     <string name="title_advanced_name_email_hint">Pri vypnutí sa zobrazia iba dostupné mená</string>
     <string name="title_advanced_preview_hint">Dostupné len v prípade, že bol prevzatý text správy</string>
@@ -517,6 +519,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_fts_hint">Zapnutie tejto funkcie zvýši rýchlosť vyhľadávania, no taktiež spotrebu batérie a využitie úložiska</string>
     <string name="title_advanced_english_hint">Toto reštartuje aplikáciu</string>
     <string name="title_advanced_experiments_hint">Zoznam aktuálnych experimentálnych funkcií</string>
+    <string name="title_advanced_protocol_hint">Toto výrazne ovplivní nároky na úložisko a využívanie batérie!</string>
+    <string name="title_advanced_debug_hint">Povoliť rozšírené zaznamenávanie a zobrazovať ladiace informácie na rôznych miestach</string>
     <string name="title_advanced_cleanup_attachments_hint">Pri manuálnom čistení táto možnosť odstráni prílohy zo správ, ktoré už nie sú synchronizované</string>
     <string name="title_advanced_cleanup_hint">Toto odstráni všetky dočasné súbory</string>
     <string name="title_advanced_never_favorite">Nikdy nepovažovať za obľúbený</string>
@@ -834,6 +838,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_size_medium">Stredná</string>
     <string name="title_style_size_large">Veľká</string>
     <string name="title_style_color">Farba &#8230;</string>
+    <string name="title_style_align">Zarovnať</string>
+    <string name="title_style_align_start">Začiatok</string>
+    <string name="title_style_align_center">Stred</string>
+    <string name="title_style_align_end">Koniec</string>
     <string name="title_style_list">Zoznam</string>
     <string name="title_style_list_bullets">Odrážky</string>
     <string name="title_style_list_numbered">Číslovaný</string>

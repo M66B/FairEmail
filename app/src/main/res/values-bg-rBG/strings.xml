@@ -423,7 +423,6 @@
     <string name="title_advanced_date_hint">Съобщенията са групирани по дата само ако са сортирани по време</string>
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
-    <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
     <string name="title_advanced_gravatars_hint">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_name_email_hint">Когато са деактивирани ще се показват само имената когато са налични</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>

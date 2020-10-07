@@ -465,7 +465,6 @@
     <string name="title_advanced_date_hint">Τα μηνύματα ομαδοποιούνται μόνον κατά ημερομηνία όταν ταξινομούνται σε χρονολογική σειρά</string>
     <string name="title_advanced_navbar_colorize_hint">Το αν αυτό λειτουργεί ή όχι, εξαρτάται από την έκδοση και εκδοχή του Android</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
-    <string name="title_advanced_highlight_hint">Το χρώμα τονισμού του θέματος θα χρησιμοποιηθεί για έμφαση</string>
     <string name="title_advanced_gravatars_hint">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Αν απενεργοποιηθεί, θα προβάλλονται μόνον τα ονόματα εφόσον είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>

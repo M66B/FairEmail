@@ -1181,11 +1181,13 @@ If you got the message *This provider does not support push messages* while conf
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
 
-By default auto optimize in the receive settings is enabled, which will switch an account to periodically checking for new messages when the email server:
+If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
 
 * Says '*Still here*' within 3 minutes
 * The email server does not support push messages
 * The keep-alive interval is lower than 12 minutes
+
+In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
 
 <br />
 
@@ -1215,7 +1217,7 @@ The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either c
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ... * ' peut être provoqué par l'activation du durcissement des connexions dans les paramètres de connexion ou par Android qui ne prend plus en charge les protocoles plus anciens comme SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 

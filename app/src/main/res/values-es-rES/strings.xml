@@ -468,7 +468,6 @@
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_navbar_colorize_hint">Que esto funcione dependerá de la versión y variante de Android</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
-    <string name="title_advanced_highlight_hint">El color de acento del tema se utilizará para resaltar</string>
     <string name="title_advanced_gravatars_hint">Puede haber un riesgo para la privacidad</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>

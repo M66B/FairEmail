@@ -430,7 +430,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_date_hint">Els missatges només s\'agruparan per data si s\'ordena per ordre temporal</string>
     <string name="title_advanced_navbar_colorize_hint">Si això funciona depèn de la versió i la versió d\'Android</string>
     <string name="title_advanced_threading_hint">Agrupa missatges relacionats entre ells</string>
-    <string name="title_advanced_highlight_hint">El color de l’accent del tema s’utilitzarà per ressaltar</string>
     <string name="title_advanced_gravatars_hint">Pot haver-hi un risc de privadesa</string>
     <string name="title_advanced_name_email_hint">Quan estigui desactivat només es mostraran noms quan estiguin disponibles</string>
     <string name="title_advanced_preview_hint">Només disponible quan s\'ha descarregat el text del missatge</string>

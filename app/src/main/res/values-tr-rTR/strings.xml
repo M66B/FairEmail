@@ -394,7 +394,7 @@
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
     <string name="title_advanced_ca">Yüklü sertifika otoritesi (CA) kök sertifikaları</string>
     <string name="title_advanced_manage_keys_hint">        Android güvenlik seçeneklerini açar.
-        Anahtarlar ve sertifikalar genellikle Gelişmiş -> Şifreleme ve altındaki menülerde bulunur.
+        Anahtarlar ve sertifikalar genellikle Gelişmiş -&gt; Şifreleme ve altındaki menülerde bulunur.
     </string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
     <string name="title_advanced_shortcuts">Sık kullanılan kişileri Android\'in paylaşma menüsünde göster</string>

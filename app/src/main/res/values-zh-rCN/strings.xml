@@ -300,6 +300,7 @@
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
+    <string name="title_advanced_highlight_color">高亮色</string>
     <string name="title_advanced_keywords">在邮件头中显示关键字</string>
     <string name="title_advanced_labels">在邮件头中显示 Gmail 标签</string>
     <string name="title_advanced_flags">显示星标</string>
@@ -457,9 +458,9 @@
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
-    <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
+    <string name="title_advanced_highlight_color_hint">发件人和主题的高亮色</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
