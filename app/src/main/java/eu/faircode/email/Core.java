@@ -174,6 +174,9 @@ class Core {
                             " group=" + group +
                             " retry=" + retry);
 
+                    if (!Objects.equals(folder.id, op.folder))
+                        throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
+
                     if (ifolder != null && !ifolder.isOpen())
                         break;
 

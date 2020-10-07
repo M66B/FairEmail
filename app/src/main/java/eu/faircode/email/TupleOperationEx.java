@@ -48,6 +48,7 @@ public class TupleOperationEx extends EntityOperation {
     PartitionKey getPartitionKey(boolean offline) {
         PartitionKey key = new PartitionKey();
 
+        key.folder = this.folder;
         key.order = this.id;
 
         if (offline) {
@@ -77,6 +78,7 @@ public class TupleOperationEx extends EntityOperation {
     }
 
     class PartitionKey {
+        private long folder;
         private long order;
         private int priority;
         private String id;
@@ -99,7 +101,8 @@ public class TupleOperationEx extends EntityOperation {
         public boolean equals(@Nullable Object obj) {
             if (obj instanceof PartitionKey) {
                 PartitionKey other = (PartitionKey) obj;
-                return (this.priority == other.priority &&
+                return (this.folder == other.folder &&
+                        this.priority == other.priority &&
                         Objects.equals(this.id, other.id) &&
                         Objects.equals(this.operation, other.operation));
             } else
