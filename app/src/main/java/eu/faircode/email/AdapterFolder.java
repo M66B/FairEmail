@@ -830,7 +830,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
-        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : android.R.attr.textColorPrimary);
+        int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
+        this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
 
         setHasStableIds(true);
 
