@@ -80,6 +80,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbarColor;
 
     private SwitchCompat swHighlightUnread;
+    private ViewButtonColor btnHighlightColor;
     private SwitchCompat swColorStripe;
     private SwitchCompat swAvatars;
     private TextView tvGravatarsHint;
@@ -104,7 +105,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swHighlightSubject;
     private Spinner spSubjectEllipsize;
-    private ViewButtonColor btnHighlightColor;
     private SwitchCompat swKeywords;
     private SwitchCompat swLabels;
     private SwitchCompat swFlags;
@@ -135,10 +135,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "date", "navbar_colorize", "portrait2", "landscape", "landscape3",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
-            "highlight_unread", "color_stripe",
+            "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "distinguish_contacts", "show_recipients",
-            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize", "highlight_color",
+            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
@@ -176,6 +176,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swActionbarColor = view.findViewById(R.id.swActionbarColor);
 
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
+        btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
         swColorStripe = view.findViewById(R.id.swColorStripe);
         swAvatars = view.findViewById(R.id.swAvatars);
         swGravatars = view.findViewById(R.id.swGravatars);
@@ -200,7 +201,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swHighlightSubject = view.findViewById(R.id.swHighlightSubject);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
-        btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
         swKeywords = view.findViewById(R.id.swKeywords);
         swLabels = view.findViewById(R.id.swLabels);
         swFlags = view.findViewById(R.id.swFlags);
@@ -353,6 +353,41 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("highlight_unread", checked).apply();
+            }
+        });
+
+        btnHighlightColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+                int highlightColor = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorAccent));
+
+                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                        .with(context)
+                        .setTitle(R.string.title_advanced_highlight_color)
+                        .initialColor(highlightColor)
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .lightnessSliderOnly()
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                prefs.edit().putInt("highlight_color", selectedColor).apply();
+                                btnHighlightColor.setColor(selectedColor);
+                            }
+                        })
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                prefs.edit().remove("highlight_color").apply();
+                                btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorAccent));
+                            }
+                        });
+
+                builder.build().show();
             }
         });
 
@@ -569,39 +604,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("subject_ellipsize").apply();
-            }
-        });
-
-        btnHighlightColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = getContext();
-                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
-
-                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
-                        .with(context)
-                        .setTitle(R.string.title_advanced_highlight_color)
-                        .showColorEdit(true)
-                        .setColorEditTextColor(editTextColor)
-                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .density(6)
-                        .lightnessSliderOnly()
-                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                prefs.edit().putInt("highlight_color", selectedColor).apply();
-                                btnHighlightColor.setColor(selectedColor);
-                            }
-                        })
-                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                prefs.edit().remove("highlight_color").apply();
-                                btnHighlightColor.setColor(Helper.resolveColor(context, R.attr.colorAccent));
-                            }
-                        });
-
-                builder.build().show();
             }
         });
 
@@ -879,6 +881,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swActionbarColor.setEnabled(swActionbar.isChecked());
 
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", true));
+
+        btnHighlightColor.setColor(prefs.getInt("highlight_color",
+                Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
+
         swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGravatars.setChecked(prefs.getBoolean("gravatars", false));
@@ -927,9 +933,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 spSubjectEllipsize.setSelection(pos);
                 break;
             }
-
-        btnHighlightColor.setColor(prefs.getInt("highlight_color",
-                Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
 
         swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
         swLabels.setChecked(prefs.getBoolean("labels_header", true));

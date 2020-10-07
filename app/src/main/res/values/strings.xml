@@ -552,9 +552,9 @@
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
+    <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
     <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
-    <string name="title_advanced_highlight_color_hint">The highlight color for unread messages (sender, subject, etc)</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
     <string name="title_advanced_overview_mode_hint">This can result in very small fonts</string>
