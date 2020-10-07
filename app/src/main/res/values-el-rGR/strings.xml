@@ -310,6 +310,7 @@
     <string name="title_advanced_subject_top">Να προβάλλεται το θέμα πάνω από τον αποστολέα</string>
     <string name="title_advanced_subject_italic">Να προβάλλεται το θέμα σε πλάγια γραφή</string>
     <string name="title_advanced_subject_elipsed">Να συντομεύεται το θέμα, εφόσον χρειάζεται</string>
+    <string name="title_advanced_highlight_color">Χρώμα επισήμανσης</string>
     <string name="title_advanced_keywords">Να προβάλλονται οι λέξεις-κλειδιά στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_labels">Να προβάλλονται οι ετικέτες Gmail στην κεφαλίδα του μηνύματος</string>
     <string name="title_advanced_flags">Να προβάλλονται τα αστέρια</string>
@@ -465,6 +466,7 @@
     <string name="title_advanced_date_hint">Τα μηνύματα ομαδοποιούνται μόνον κατά ημερομηνία όταν ταξινομούνται σε χρονολογική σειρά</string>
     <string name="title_advanced_navbar_colorize_hint">Το αν αυτό λειτουργεί ή όχι, εξαρτάται από την έκδοση και εκδοχή του Android</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
+    <string name="title_advanced_highlight_hint">Το χρώμα επισήμανσης του θέματος θα χρησιμοποιηθεί για έμφαση</string>
     <string name="title_advanced_gravatars_hint">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Αν απενεργοποιηθεί, θα προβάλλονται μόνον τα ονόματα εφόσον είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>
@@ -824,6 +826,7 @@
     <string name="title_style_list_numbered">Αρίθμηση</string>
     <string name="title_style_font">Γραμματοσειρά</string>
     <string name="title_style_font_default">Προεπιλογή</string>
+    <string name="title_style_blockquote">Παράθεμα με εσοχή</string>
     <string name="title_style_strikethrough">Διακριτή διαγραφή</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>

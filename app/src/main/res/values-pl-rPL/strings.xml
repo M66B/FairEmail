@@ -333,6 +333,7 @@
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
+    <string name="title_advanced_highlight_color">Kolor podświetlenia</string>
     <string name="title_advanced_keywords">Pokaż słowa kluczowe w nagłówku wiadomości</string>
     <string name="title_advanced_labels">Pokaż etykiety Gmail w nagłówku wiadomości</string>
     <string name="title_advanced_flags">Pokaż gwiazdki</string>
@@ -447,6 +448,8 @@
     <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
+    <string name="title_advanced_language">Język</string>
+    <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
