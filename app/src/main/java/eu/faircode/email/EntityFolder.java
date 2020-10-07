@@ -218,7 +218,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             false, // inbox
             false, // drafts
             false, // sent
-            false, // archive
+            true, // archive
             true, // trash
             true // junk
     )); // MUST match SYSTEM_FOLDER_SYNC
