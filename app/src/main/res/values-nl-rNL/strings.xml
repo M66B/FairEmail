@@ -253,6 +253,7 @@
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
     <string name="title_advanced_compose_font">Standaard lettertype</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
+    <string name="title_advanced_separate_reply">Voeg een horizontale lijn in voor een antwoord/doorsturen kop</string>
     <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>

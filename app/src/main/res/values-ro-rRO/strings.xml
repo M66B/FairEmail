@@ -264,6 +264,7 @@
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
+    <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
@@ -322,6 +323,7 @@
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
+    <string name="title_advanced_highlight_color">Culoare de evidențiere</string>
     <string name="title_advanced_keywords">Arată cuvinte cheie în antetul mesajului</string>
     <string name="title_advanced_labels">Arată etichetele Gmail în antetul mesajului</string>
     <string name="title_advanced_flags">Arată cu stea</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
+    <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>

@@ -96,6 +96,7 @@
     <string name="menu_rate">Beoardielje dizze app</string>
     <string name="title_welcome">Wolkom</string>
     <string name="title_eula">Lisinsjeoerienkomst foar einbrûkers</string>
+    <string name="title_contributors">Meiwurkers</string>
     <string name="title_agree">Ik bin it iens</string>
     <string name="title_disagree">Ik bin it der net mei iens</string>
     <string name="title_version">Ferzje: %1$s</string>
@@ -153,6 +154,7 @@
     <string name="title_setup_theme_grey">Griis</string>
     <string name="title_setup_theme_black">Swart</string>
     <string name="title_setup_theme_reverse">Omkeare kleuren</string>
+    <string name="title_setup_theme_light">Ljocht</string>
     <string name="title_setup_theme_dark">Tsjuster</string>
     <string name="title_setup_theme_system">Folgje systeem</string>
     <string name="title_setup_theme_black_background">Swarte eftergrûn</string>

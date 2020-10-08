@@ -255,6 +255,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
     <string name="title_advanced_compose_font">Standard-Schriftart</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
+    <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_resize_reply">Bilder im Antworttext skalieren</string>
@@ -471,6 +472,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_navbar_colorize_hint">Ob das funktioniert, hängt von der Android-Version und -Variante ab</string>
     <string name="title_advanced_threading_hint">E-Mails gruppieren, die miteinander verwandt sind</string>
+    <string name="title_advanced_highlight_hint">Die Akzentfarbe des Farbschemas wird zur Hervorhebung verwendet</string>
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>

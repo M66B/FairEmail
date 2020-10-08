@@ -242,6 +242,7 @@
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
+    <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
@@ -280,7 +281,7 @@
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_highlight_subject">高亮主题</string>
+    <string name="title_advanced_highlight_subject">高亮邮件主题</string>
     <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
@@ -458,6 +459,7 @@
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
+    <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>

@@ -254,6 +254,7 @@
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
+    <string name="title_advanced_separate_reply">Indsæt en vandret linje før en svar-/videresendelsesoverskrift</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
@@ -469,6 +470,7 @@
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
+    <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>

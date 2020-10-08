@@ -254,6 +254,7 @@
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
+    <string name="title_advanced_separate_reply">Insérer une ligne horizontale avant l\'en-tête de réponse/transfert</string>
     <string name="title_advanced_extended_reply">Utiliser l\'en-tête étendu de réponse/transfert</string>
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
     <string name="title_advanced_resize_reply">Redimensionner les images dans le texte de la réponse</string>
@@ -291,8 +292,8 @@
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_threading_unread">Afficher le nombre de messages non lus dans les conversations</string>
     <string name="title_advanced_indentation">Mettre en retrait vers la gauche/droite les messages reçus/envoyés dans les conversations</string>
-    <string name="title_advanced_highlight_unread">Mettre les messages non lus en surbrillance</string>
-    <string name="title_advanced_highlight_subject">Mettre l’objet en surbrillance</string>
+    <string name="title_advanced_highlight_unread">Afficher les messages non lus en surbrillance</string>
+    <string name="title_advanced_highlight_subject">Afficher l’objet en surbrillance</string>
     <string name="title_advanced_color_stripe">Afficher la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_gravatars">Afficher les Gravatars</string>
@@ -470,6 +471,7 @@
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
     <string name="title_advanced_navbar_colorize_hint">Le fonctionnement dépend de la version et de la variante d’Android</string>
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
+    <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la surbrillance</string>
     <string name="title_advanced_gravatars_hint">Ceci pourrait présenter un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
