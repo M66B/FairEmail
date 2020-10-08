@@ -387,7 +387,7 @@ public class HtmlHelper {
         for (Element e : parsed.select("*")) {
             String tag = e.tagName();
             if (tag.contains(":")) {
-                if (ns != null && tag.startsWith(ns)) {
+                if (ns == null || tag.startsWith(ns)) {
                     e.tagName(tag.split(":")[1]);
                     Log.i("Updated tag=" + tag + " to=" + e.tagName());
                 } else {
