@@ -3095,6 +3095,15 @@ public class FragmentCompose extends FragmentBase {
         // Workaround underlines left by Android
         etBody.clearComposingText();
 
+        Editable e = etBody.getText();
+        boolean notext = e.toString().trim().isEmpty();
+        boolean formatted = false;
+        for (Object span : e.getSpans(0, e.length(), Object.class))
+            if (span instanceof CharacterStyle || span instanceof ParagraphStyle) {
+                formatted = true;
+                break;
+            }
+
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putInt("action", action);
@@ -3108,7 +3117,8 @@ public class FragmentCompose extends FragmentBase {
         args.putString("body", HtmlHelper.toHtml(etBody.getText(), getContext()));
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
-        args.putBoolean("notext", etBody.getText().toString().trim().isEmpty());
+        args.putBoolean("notext", notext);
+        args.putBoolean("formatted", formatted);
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putBundle("extras", extras);
 
@@ -4825,11 +4835,13 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
                 boolean remind_size = args.getBoolean("remind_size", false);
+                boolean formatted = args.getBoolean("formatted", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_size ||
+                        (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
                                 (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
@@ -5449,6 +5461,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
             final boolean remind_size = args.getBoolean("remind_size", false);
+            final boolean formatted = args.getBoolean("formatted", false);
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
 
@@ -5475,6 +5488,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
+            final TextView tvRemindPlain = dview.findViewById(R.id.tvRemindPlain);
             final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
             final TextView tvReceipt = dview.findViewById(R.id.tvReceiptType);
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
@@ -5502,6 +5516,7 @@ public class FragmentCompose extends FragmentBase {
 
             tvTo.setText(null);
             tvVia.setText(null);
+            tvRemindPlain.setVisibility(View.GONE);
             tvReceipt.setVisibility(View.GONE);
             spEncrypt.setTag(0);
             spEncrypt.setSelection(0);
@@ -5543,6 +5558,8 @@ public class FragmentCompose extends FragmentBase {
             cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    tvRemindPlain.setVisibility(checked && formatted ? View.VISIBLE : View.GONE);
+
                     Bundle args = new Bundle();
                     args.putLong("id", id);
                     args.putBoolean("plain_only", checked);
