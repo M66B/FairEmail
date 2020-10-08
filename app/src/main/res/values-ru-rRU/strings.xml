@@ -276,6 +276,7 @@
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
+    <string name="title_advanced_separate_reply">Вставлять горизонтальную линию перед заголовком ответа/пересылки</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему сообщения курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему сообщения</string>
+    <string name="title_advanced_highlight_color">Цвет выделения</string>
     <string name="title_advanced_keywords">Показывать ключевые слова в заголовке сообщения</string>
     <string name="title_advanced_labels">Показывать метки Gmail в заголовке сообщения</string>
     <string name="title_advanced_flags">Показывать метки избранного</string>
