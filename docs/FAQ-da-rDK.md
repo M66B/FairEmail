@@ -737,9 +737,11 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. Kontinuerlig genindlæsning af beskedteksten vil blive ved, hvis der ikke er forbindelse til kontoen. Se også næste spørgsmål, eller hvorvidt andre operationer, såsom beskedsynkronisering, afvikles.
+The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. Kontinuerlig genindlæsning af beskedteksten vil blive ved, hvis der ikke er forbindelse til kontoen. Se også næste spørgsmål, eller hvorvidt andre operationer, såsom beskedsynkronisering, afvikles.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+
+If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
 In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
 
@@ -845,7 +847,7 @@ The errors *... invalid greeting ...*, *... requires valid address ...* and *...
 
 The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
 
-Fejlen *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 

@@ -503,7 +503,7 @@
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l’utilisation de la pile et de l’espace de stockage</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
-    <string name="title_advanced_protocol_hint">Ceci augmentera considérablement l\'utilisation de la batterie et de l\'espace de stockage !</string>
+    <string name="title_advanced_protocol_hint">Ceci augmentera considérablement l\'utilisation de la pile et de l\'espace de stockage!</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher d\'affreuses informations de débogage en différents endroits</string>
     <string name="title_advanced_cleanup_attachments_hint">Lors du nettoyage manuel, ceci supprimera les pièces jointes des messages qui ne sont plus synchronisés</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
@@ -877,6 +877,7 @@
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>
     <string name="title_attachment_reminder">Aviez-vous l’intention d’ajouter une pièce jointe?</string>
+    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Tout le formatage sera supprimé</string>
     <string name="title_size_reminder">Message (%1$s) plus grand que la limite du serveur (%2$s)</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
     <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu à trois points de la barre d’action supérieure</string>

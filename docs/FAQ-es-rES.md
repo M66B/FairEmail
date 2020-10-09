@@ -737,20 +737,22 @@ Para configurar una cuenta de Office 365, consulte [esta sección de Preguntas F
 <a name="faq15"></a>
 **(15) ¿Por qué sigue cargando el texto del mensaje?**
 
-El encabezado del mensaje y el cuerpo del mensaje se obtienen por separado del servidor. El texto del mensaje de los mensajes más grandes no está siendo pre-obtenido en conexiones medidas y necesita ser obtenido al abrir el mensaje. El texto del mensaje seguirá cargándose si no hay conexión con la cuenta, vea también la siguiente pregunta, o si hay otras operaciones, como mensajes sincronizando, se están ejecutando.
+El encabezado del mensaje y el cuerpo del mensaje se obtienen por separado del servidor. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. El texto del mensaje seguirá cargándose si no hay conexión con la cuenta, vea también la siguiente pregunta, o si hay otras operaciones, como mensajes sincronizando, se están ejecutando.
 
 Puede comprobar la lista de cuentas y carpetas para el estado de las cuentas y las carpetas (ver la leyenda para el significado de los iconos) y la lista de operaciones accesible a través del menú de navegación principal para operaciones pendientes (ver [estas Preguntas Frecuentes](#user-content-faq3) para el significado de las operaciones).
 
-En la configuración de recepción puede establecer el tamaño máximo para la descarga automática de mensajes en conexiones medidas.
+If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
-Las conexiones móviles son casi siempre medidas y algunos puntos de acceso Wi-Fi (de pago) también lo son.
+In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+
+Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
 
 <br />
 
 <a name="faq16"></a>
-**(16) ¿Por qué no se sincronizan los mensajes?**
+**(16) Why are messages not being synchronized?**
 
-Las posibles causas de que los mensajes no se sincronicen (enviados o recibidos) son:
+Possible causes of messages not being synchronized (sent or received) are:
 
 * La cuenta o carpeta(s) no están configuradas para sincronizar
 * El número de días para sincronizar mensajes es demasiado bajo
@@ -758,96 +760,96 @@ Las posibles causas de que los mensajes no se sincronicen (enviados o recibidos)
 * El servidor de correo electrónico no está disponible temporalmente
 * Android detuvo el servicio de sincronización
 
-Por lo tanto, compruebe la configuración de su cuenta y carpetas y compruebe si las cuentas/carpetas están conectadas (vea la leyenda en el menú de navegación para ver el significado de los iconos).
+So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
 
-Si hay algún mensaje de error, por favor consulte [esta sección de Preguntas Frecuentes](#user-content-faq22).
+If there are any error messages, please see [this FAQ](#user-content-faq22).
 
-En algunos dispositivos, donde hay muchas aplicaciones que compiten por la memoria, Android puede detener el servicio de sincronización como último recurso.
+On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
 
-Algunas versiones de Android detienen aplicaciones y servicios en forma demasiado agresiva. Vea [este sitio web dedicado](https://dontkillmyapp.com/) y [este problema de Android](https://issuetracker.google.com/issues/122098785) para más información.
+Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
-Deshabilitar optimizaciones de batería (configuración del paso 4) reduce la posibilidad de que Android detenga el servicio de sincronización.
+Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) ¿Por qué no funciona la sincronización manual?~~**
+**~~(17) Why does manual synchronize not work?~~**
 
-~~Si el menú *Sincronizar ahora* está atenuado, no hay conexión con la cuenta.~~
+~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
-~~Ver la pregunta anterior para más información.~~
+~~See the previous question for more information.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) ¿Por qué no se muestra siempre la vista previa del mensaje?**
+**(18) Why is the message preview not always shown?**
 
-La vista previa del texto del mensaje no se puede mostrar si el cuerpo del mensaje no ha sido descargado todavía. Ver también [estas Preguntas Frecuentes](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) ¿Por qué las características Pro son tan caras?**
+**(19) Why are the pro features so expensive?**
 
-La pregunta correcta es "*¿por qué hay tantos impuestos y tasas?*":
+The right question is "*why are there so many taxes and fees?*":
 
 * IVA: 25 % (dependiendo de su país)
 * Comisión de Google: 30 %
 * Impuesto sobre la renta: 50 %
 * <sub>Comisión de Paypal: 5-10 % dependiendo del país/monto</sub>
 
-Por lo tanto, lo que queda para el desarrollador es sólo una fracción de lo que Ud. paga.
+So, what is left for the developer is just a fraction of what you pay.
 
-Tenga en cuenta que sólo algunas características avanzadas y de comodidad necesitan ser compradas, lo que significa que FairEmail es básicamente gratis para usar.
+Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
 
-También tenga en cuenta que la mayoría de las aplicaciones gratuitas parecerán no ser sostenibles al final, mientras que FairEmail está adecuadamente mantenido y soportado, y que las aplicaciones gratuitas pueden tener una trampa, como enviar información confidencial de privacidad a Internet.
+Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-He estado trabajando en FairEmail casi todos los días por más de dos años, por lo que creo que el precio es más que razonable. Por esta razón tampoco habrá descuentos.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
 <br />
 
 <a name="faq20"></a>
-**(20) ¿Puedo obtener un reembolso?**
+**(20) Can I get a refund?**
 
-Si una característica pro comprada no funciona como está previsto y esto no es causado por un problema en las características gratuitas y no puedo arreglar el problema de forma oportuna, usted puede obtener un reembolso. En todos los demás casos no es posible el reembolso. En ninguna circunstancia hay un reembolso posible para cualquier problema relacionado con las características gratuitas, ya que no se pagó nada por ellas y porque pueden ser evaluados sin ninguna limitación. Asumo mi responsabilidad como vendedor de entregar lo que se ha prometido y espero que Ud. se responsabilice de informarse de lo que está comprando.
+If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) ¿Cómo puedo activar la luz de notificación?**
+**(21) How do I enable the notification light?**
 
-Anterior a Android 8 Oreo: hay una opción avanzada en la configuración para esto.
+Before Android 8 Oreo: there is an advanced option in the setup for this.
 
-Android 8 Oreo y posteriores: vea [aquí](https://developer.android.com/training/notify-user/channels) sobre cómo configurar los canales de notificación. Puede utilizar el botón *Administrar notificaciones* en la configuración para ir directamente a los ajustes de notificación de Android. Tenga en cuenta que las aplicaciones ya no pueden cambiar los ajustes de notificación, incluyendo la configuración de la luz de notificación, en Android 8 Oreo y posteriores. Las aplicaciones diseñadas y orientadas a versiones antiguas de Android podrían seguir siendo capaces de controlar el contenido de las notificaciones, pero estas aplicaciones ya no se pueden actualizar y las versiones recientes de Android mostrarán una advertencia de que dichas aplicaciones están desactualizadas.
+Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Manage notifications* in the setup to directly go to the Android notification settings. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
 
-A veces es necesario desactivar la configuración *Mostrar vista previa del mensaje en las notificaciones* o habilitar la configuración *Mostrar notificaciones sólo con un texto de vista previa* para solucionar un error en Android. Esto podría aplicarse también a los sonidos de notificación y las vibraciones.
+Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
 
-Establecer un color de luz antes de Android 8 no es compatible y no es posible en Android 8 y posterior.
+Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
 
 <br />
 
 <a name="faq22"></a>
-**(22) ¿Qué significa el error ... de cuenta/carpeta?**
+**(22) What does account/folder error ... mean?**
 
-FairEmail no oculta errores como las aplicaciones similares a menudo lo hacen, para que sea más fácil diagnosticar problemas.
+FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
-FairEmail intentará reconectarse automáticamente después de un retraso. Este retraso se duplicará tras cada intento fallido de evitar que se consuma la batería y prevenir que se bloquee permanentemente.
+FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
 
-Hay errores generales y errores específicos para las cuentas de Gmail (ver abajo).
+There are general errors and errors specific to Gmail accounts (see below).
 
-**Errores generales**
+**General errors**
 
-El error *... La autenticación falló ...* o *... AUTHENTICATE falló...* probablemente significa que tu nombre de usuario o contraseña era incorrecto. Algunos proveedores esperan como nombre de usuario sólo *nombre de usuario* y otros su dirección de correo electrónico completa *nombredeusuario@ejemplo.com*. Al copiar/pegar para introducir un nombre de usuario o contraseña, pueden copiarse caracteres invisibles, lo que también podría causar este problema. También se sabe que algunos administradores de contraseñas hacen esto incorrectamente. El nombre de usuario puede ser sensible a mayúsculas, así que intente sólo caracteres en minúsculas. La contraseña es casi siempre sensible a mayúsculas y minúsculas. Algunos proveedores requieren usar una contraseña de aplicación en lugar de la contraseña de la cuenta, así que por favor revise la documentación del proveedor. A veces es necesario habilitar primero el acceso externo (IMAP/SMTP) en el sitio web del proveedor. Otras posibles causas son que la cuenta está bloqueada o que el inicio de sesión ha sido restringido administrativamente de alguna manera, por ejemplo permitiendo iniciar sesión desde ciertas redes / direcciones IP solamente.
+El error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-El error *... Demasiados intentos de autenticación incorrectos ...* probablemente significa que está utilizando una contraseña de cuenta Yahoo en lugar de una contraseña de la aplicación. Por favor, consulte [esta sección de Preguntas Frecuentes](#user-content-faq88) sobre cómo configurar una cuenta Yahoo.
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
-El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente el número de puerto 995) está siendo usado para una cuenta IMAP (generalmente el puerto número 993).
+The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
-Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parámetro HELO no se ajusta a la sintaxis RFC ...* puede resolverse cambiando la configuración de identidad avanzada *Utilice la dirección IP local en lugar del nombre de host*.
+The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-Los errores *... No se pudo conectar al host ...*, *... Conexión rechazada...* o *... Red inalcanzable ...* significa que FairEmail no pudo conectarse al servidor de correo.
+The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
 
-El error *... Host no resuelto ...* o "*... No se puede resolver el host ...* significa que la dirección del servidor de correo no se ha podido resolver. Esto puede ser causado por el bloqueo de anuncios o por un servidor [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) inaccesible o que no funciona correctamente.
+El error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
-El error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
 The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
@@ -861,15 +863,15 @@ The error *... connection failure ...* could indicate [Too many simultaneous con
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Certificado de seguridad no válido (no se puede verificar la identidad del servidor) ...* o *... Trust anchor for certification path not found*
+Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
-Por favor, [vea aquí](#user-content-faq127) para el error *... Argumento(s) HELO sintácticamente inválidos ...*.
+Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
-Por favor, [vea aquí](#user-content-faq41) para el error *... Handshake falló ...*.
+Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
-Vea [aquí](https://linux.die.net/man/3/connect) para qué significan códigos de error como EHOSTUNREACH y ETIMEDOUT.
+See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
-Las causas posibles son:
+Possible causes are:
 
 * Un cortafuegos o router está bloqueando conexiones al servidor
 * El nombre de host o número de puerto no es válido
@@ -879,13 +881,13 @@ Las causas posibles son:
 * El servidor de correo electrónico se niega a aceptar un mensaje, por ejemplo porque es demasiado grande o contiene enlaces inaceptables
 * Hay demasiadas conexiones al servidor, vea también la siguiente pregunta
 
-Muchas redes Wi-Fi públicas bloquean el correo electrónico saliente para prevenir el spam. A veces puede solucionar esto usando otro puerto SMTP. Consulte la documentación del proveedor para ver los números de puerto utilizables.
+Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
-Si está usando una [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), el proveedor de VPN puede bloquear la conexión porque está intentando prevenir el spam de forma demasiado agresiva. Tenga en cuenta que [Google Fi](https://fi.google.com/) también está usando una VPN.
+If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
-**Enviar errores**
+**Send errors**
 
-Los servidores SMTP pueden rechazar los mensajes por [varias razones](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Los mensajes demasiado grandes y activar el filtro de correo no deseado de un servidor de correo electrónico son las razones más comunes.
+SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
 * El límite de tamaño del archivo adjunto para Gmail [es de 25 MB](https://support.google.com/mail/answer/6584)
 * El límite de tamaño de archivo adjunto para Outlook y Office 365 [es de 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -894,11 +896,11 @@ Los servidores SMTP pueden rechazar los mensajes por [varias razones](https://en
 * *501 Error de sintaxis - línea demasiado larga* es a menudo causada por el uso de un encabezado Autocrypt largo
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
 
-**Errores de Gmail**
+**Gmail errors**
 
-La autorización de las cuentas de Gmail configuradas con el asistente rápido debe actualizarse periódicamente a través del [administrador de cuentas de Android](https://developer.android.com/reference/android/accounts/AccountManager). Esto requiere permisos de contacto/cuenta y conectividad a Internet.
+The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-El error *... Autenticación fallida... Cuenta no encontrada ...* significa que una cuenta de Gmail previamente autorizada fue eliminada del dispositivo.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -941,7 +943,7 @@ When using a Dovecot server, you might want to change the setting [mail_max_user
 <br />
 
 <a name="faq24"></a>
-**(24) ¿Qué es explorar los mensajes en el servidor?**
+**(24) What is browse messages on the server?**
 
 Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
 

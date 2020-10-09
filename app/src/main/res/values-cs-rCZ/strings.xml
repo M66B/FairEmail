@@ -276,6 +276,7 @@
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
+    <string name="title_advanced_separate_reply">Vložit vodorovnou čáru před hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">Zestručnit předmět v případě potřeby</string>
+    <string name="title_advanced_highlight_color">Barva zvýraznění</string>
     <string name="title_advanced_keywords">Zobrazit klíčová slova v hlavičce zprávy</string>
     <string name="title_advanced_labels">Zobrazit Gmail štítky v hlavičce zprávy</string>
     <string name="title_advanced_flags">Zobrazit hvězdičky</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
+    <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
@@ -896,6 +899,7 @@
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
+    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Veškeré formátování bude ztraceno</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>

@@ -737,9 +737,11 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message. Le texte du message continuera à se charger s'il n'y a pas de connexion au compte, voir aussi la question suivante, ou s'il y a d'autres opérations en cours d'exécution comme la synchronisation des messages.
+The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. Le texte du message continuera à se charger s'il n'y a pas de connexion au compte, voir aussi la question suivante, ou s'il y a d'autres opérations en cours d'exécution comme la synchronisation des messages.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+
+If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
 In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
 

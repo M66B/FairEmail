@@ -737,20 +737,22 @@ Um ein Office-365-Konto einzurichten, lesen Sie bitte [diese F&A](#user-content-
 <a name="faq15"></a>
 **(15) Warum wird der Nachrichtentext weiter geladen?**
 
-Der Nachrichtenkopf und der Nachrichtentext werden getrennt vom Server abgerufen. Der Nachrichtentext größerer Nachrichten wird nicht bei getakteten Verbindungen vorab geladen und muss beim Öffnen der Nachricht abgerufen werden. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht (siehe auch die nächste Frage) oder wenn dort andere Operationen, wie z. B. das Synchronisieren von Nachrichten, ausgeführt werden.
+Der Nachrichtenkopf und der Nachrichtentext werden getrennt vom Server abgerufen. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht (siehe auch die nächste Frage) oder wenn dort andere Operationen, wie z. B. das Synchronisieren von Nachrichten, ausgeführt werden.
 
 Sie können in der Konten- und Ordnerliste den Konten- und Ordnerstatus überprüfen (siehe Legende für die Bedeutung der Symbole). In der über das Hauptnavigationsmenü erreichbaren Liste sehen Sie ausstehende Vorgänge (siehe [diese F&A](#user-content-faq3) für die Bedeutung der Vorgänge).
 
-In den Empfangseinstellungen können Sie die maximale Größe für das automatische Herunterladen von Nachrichten bei getakteten Verbindungen festlegen.
+If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
-Die Mobilfunkverbindungen sind fast immer getaktet und einige (bezahlte) WLAN-Zuganspunkte sind das ebenfalls.
+In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+
+Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
 
 <br />
 
 <a name="faq16"></a>
-**(16) Warum werden Nachrichten nicht synchronisiert?**
+**(16) Why are messages not being synchronized?**
 
-Mögliche Ursachen dafür, dass Nachrichten nicht synchronisiert (gesendet oder empfangen) werden, sind:
+Possible causes of messages not being synchronized (sent or received) are:
 
 * Konto oder Ordner(e) sind nicht zum Synchronisieren gesetzt
 * Die Anzahl der Tage, für die die Nachricht synchronisiert werden soll, ist zu niedrig gesetzt
@@ -758,13 +760,13 @@ Mögliche Ursachen dafür, dass Nachrichten nicht synchronisiert (gesendet oder 
 * Der E-Mail-Server ist vorübergehend nicht verfügbar
 * Android hat die Synchronisation gestoppt
 
-Überprüfen Sie also Ihre Konto- und Ordnereinstellungen und überprüfen Sie, ob die Konten/Ordner verbunden sind (siehe die Legende in der Navigation zur Bedeutung der Symbole).
+So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
 
-Wenn es irgendwelche Fehlermeldungen gibt, lesen Sie bitte [diese FAQ](#user-content-faq22).
+If there are any error messages, please see [this FAQ](#user-content-faq22).
 
-Auf einigen Geräten, wo es viele Anwendungen gibt, die um Speicher konkurrieren, kann Android den Synchronisierungsdienst als letzte Möglichkeit stoppen.
+On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
 
-Einige Android-Versionen stoppen Apps und Dienste zu aggressiv. Siehe [diese spezielle Webseite](https://dontkillmyapp.com/) und [dieses Android-Problem](https://issuetracker.google.com/issues/122098785) für weitere Informationen.
+Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
@@ -780,23 +782,23 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?**
+**(18) Why is the message preview not always shown?**
 
-Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [diese F&A](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Warum sind die Pro-Funktionen so teuer?**
+**(19) Why are the pro features so expensive?**
 
-Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
+The right question is "*why are there so many taxes and fees?*":
 
 * MwSt.: 25 % (je nach Land)
 * Google-Gebühr: 30 %
 * Einkommenssteuer: 50 %
 * <sub>PayPal-Gebühr: 5-10 % abhängig vom Land/Betrag</sub>
 
-Was also für den Entwickler übrig bleibt, ist nur ein Bruchteil dessen, was Sie bezahlen.
+So, what is left for the developer is just a fraction of what you pay.
 
 Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
 
@@ -837,7 +839,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Siehe in [dieser F&A](#user-content-faq88), wie man ein Yahoo-Konto einrichtet.
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
@@ -845,7 +847,7 @@ The errors *... invalid greeting ...*, *... requires valid address ...* and *...
 
 The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
 
-Der Fehler *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
@@ -861,11 +863,11 @@ The error *... connection failure ...* could indicate [Too many simultaneous con
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-Bitte [sehen Sie hier](#user-content-faq4) nach den Fehlern *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
-Bitte [sehen Sie hier](#user-content-faq127) nach dem Fehler *... Syntactically invalid HELO argument(s) ...*.
+Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
-Bitte [sehen Sie hier](#user-content-faq41) nach dem Fehler *... Handshake failed ...*.
+Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
@@ -898,7 +900,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-The error *... Authentifizierung fehlgeschlagen ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -1013,7 +1015,7 @@ See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications
 
 On Android before Android 8 Oreo you can set the notification sound in the settings.
 
-Sehen Sie sich [diese F&A](#user-content-faq21) an, wenn Ihr Gerät ein Benachrichtigungslicht hat.
+See [this FAQ](#user-content-faq21) if your device has a notification light.
 
 <br />
 
@@ -1101,7 +1103,7 @@ Matched identities can be used to color code messages. The identity color takes 
 <a name="faq35"></a>
 **(35) Why should I be careful with viewing images, attachments, and the original message?**
 
-Beim Anschauen von entfernt gespeicherten Bildern (siehe auch [diese F&A](#user-content-faq27)) kann der Absender nicht nur wissen, dass Sie die Nachricht gesehen haben, er wird auch Ihre IP-Adresse kennen.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
 
 Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 

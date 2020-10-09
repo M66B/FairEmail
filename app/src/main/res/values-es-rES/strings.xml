@@ -878,6 +878,7 @@
     <string name="title_text_reminder">El mensaje está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
+    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Todo el formato se perderá</string>
     <string name="title_size_reminder">Mensaje (%1$s) más grande que el límite del servidor (%2$s)</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_dialog_hint">Este diálogo se puede activar de nuevo a través del menú de tres puntos en la barra de acción superior</string>

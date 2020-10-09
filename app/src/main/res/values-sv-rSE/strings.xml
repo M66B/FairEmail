@@ -876,6 +876,7 @@
     <string name="title_text_reminder">Meddelandet är tomt</string>
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
+    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">All formatering kommer gå förlorad</string>
     <string name="title_size_reminder">Meddelande (%1$s) större än gränsen på servern (%2$s)</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
     <string name="title_dialog_hint">Denna dialogruta kan aktiveras igen via tre-pricks-menyn i åtgärdsfältet</string>

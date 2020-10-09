@@ -254,6 +254,7 @@
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti in base alla frequenza d\'uso</string>
     <string name="title_advanced_compose_font">Tipo di carattere predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
+    <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione rispondi/inoltra</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposta/inoltro</string>
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
     <string name="title_advanced_resize_reply">Ridimensiona le immagini nel testo di risposta</string>
@@ -312,6 +313,7 @@
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
+    <string name="title_advanced_highlight_color">Colore di evidenziazione</string>
     <string name="title_advanced_keywords">Mostra parole chiave nell\'intestazione del messaggio</string>
     <string name="title_advanced_labels">Mostra le etichette Gmail nell\'intestazione del messaggio</string>
     <string name="title_advanced_flags">Mostra stelle</string>
@@ -426,12 +428,15 @@
     <string name="title_advanced_language_detection">Rileva lingua testo messaggio</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
+    <string name="title_advanced_language">Lingua</string>
+    <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_query_threads">Limita l\'accesso alla banca dati parallela</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
+    <string name="title_advanced_protocol">Registrazione del protocollo</string>
     <string name="title_advanced_debug">Modalità debug</string>
     <string name="title_advanced_cleanup_attachments">Elimina allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
@@ -466,6 +471,7 @@
     <string name="title_advanced_date_hint">I messaggi sono raggruppati per data solo se sono ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona dipende dalla versione e variante di Android</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
+    <string name="title_advanced_highlight_hint">Il colore principale del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_gravatars_hint">Potrebbe esserci un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
@@ -497,6 +503,8 @@
     <string name="title_advanced_fts_hint">Abilitando questa opzione migliora le prestazioni di ricerca, ma aumenta anche l\'utilizzo dello spazio di batteria e archiviazione</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
+    <string name="title_advanced_protocol_hint">Questo aumenterà significativamente l\'utilizzo della batteria e dello spazio di archiviazione!</string>
+    <string name="title_advanced_debug_hint">Abilita la registrazione extra e mostra informazioni di debug brutte in vari luoghi</string>
     <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
@@ -816,6 +824,10 @@
     <string name="title_style_size_medium">Medio</string>
     <string name="title_style_size_large">Grande</string>
     <string name="title_style_color">Colore &#8230;</string>
+    <string name="title_style_align">Allinea</string>
+    <string name="title_style_align_start">Inizio</string>
+    <string name="title_style_align_center">Centra</string>
+    <string name="title_style_align_end">Fine</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Punti</string>
     <string name="title_style_list_numbered">Numerata</string>
@@ -865,6 +877,7 @@
     <string name="title_text_reminder">Il messaggio è vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
     <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
+    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Tutta la formattazione sarà persa</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_dialog_hint">Questa finestra di dialogo può essere riattivata tramite il menu a tre puntini nella barra di azione superiore</string>
