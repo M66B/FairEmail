@@ -1139,7 +1139,7 @@ public class MessageHelper {
         if (header.trim().startsWith("=?"))
             return header;
 
-        if (Helper.isUTF8(header)) {
+        if (CharsetHelper.isUTF8(header)) {
             Log.w("Converting " + name + " to UTF-8");
             return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         } else {
@@ -1730,8 +1730,10 @@ public class MessageHelper {
                     warnings.add(context.getString(R.string.title_no_charset, charset));
 
                 if (part.isMimeType("text/plain")) {
-                    if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())) &&
-                            Helper.isUTF8(result)) {
+                    if (TextUtils.isEmpty(charset) && CharsetHelper.isISO2022JP(result))
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), "ISO-2022-JP");
+                    else if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())) &&
+                            CharsetHelper.isUTF8(result)) {
                         Log.i("Charset plain=UTF8");
                         result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                     }
@@ -1740,7 +1742,9 @@ public class MessageHelper {
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (part.isMimeType("text/html")) {
-                    if (TextUtils.isEmpty(charset)) {
+                    if (TextUtils.isEmpty(charset) && CharsetHelper.isISO2022JP(result))
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), "ISO-2022-JP");
+                    else if (TextUtils.isEmpty(charset)) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
@@ -1760,7 +1764,7 @@ public class MessageHelper {
                                 try {
                                     Log.i("Charset=" + meta);
                                     Charset c = Charset.forName(charset);
-                                    if (c.equals(StandardCharsets.UTF_8) && !Helper.isUTF8(result))
+                                    if (c.equals(StandardCharsets.UTF_8) && !CharsetHelper.isUTF8(result))
                                         break;
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), charset);
                                     break;
