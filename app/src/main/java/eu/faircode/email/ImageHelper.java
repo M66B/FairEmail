@@ -465,8 +465,10 @@ class ImageHelper {
                                     ((AnimatedImageDrawable) d).start();
                             }
 
-                            view.invalidate();
-                            view.requestLayout();
+                            view.setText(view.getText());
+
+                            //view.invalidate();
+                            //view.requestLayout();
                         }
                     });
                 }
