@@ -69,7 +69,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/btnManageDefault"
             app:layout_constraintStart_toEndOf="@+id/btnManageDefault"
             app:layout_constraintTop_toTopOf="@+id/btnManageDefault"
-            app:srcCompat="@drawable/off_on" />
+            app:srcCompat="@drawable/switch_off_on" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageDefaultHint"
@@ -101,7 +101,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/btnManageService"
             app:layout_constraintStart_toEndOf="@+id/btnManageService"
             app:layout_constraintTop_toTopOf="@+id/btnManageService"
-            app:srcCompat="@drawable/off_on" />
+            app:srcCompat="@drawable/switch_off_on" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageServiceHint"
