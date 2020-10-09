@@ -675,7 +675,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (exit || count > 1)
                 super.onBackPressed();
             else if (!backHandled()) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getOriginalContext());
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
                 boolean double_back = prefs.getBoolean("double_back", true);
                 if (searching || !double_back)
                     super.onBackPressed();
