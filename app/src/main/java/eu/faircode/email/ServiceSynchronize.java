@@ -2253,7 +2253,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static void start(Context context, Intent intent) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean background_service = prefs.getBoolean("background_service", false);
-        if (background_service)
+        if (background_service && Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             context.startService(intent);
         else
             ContextCompat.startForegroundService(context, intent);
