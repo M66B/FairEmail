@@ -76,7 +76,7 @@ Questions connexes :
 * ~~Le chiffrement avec YubiKey se traduit par une boucle infinie. Cela semble être causé par un [bug dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Le défilement vers un emplacement lié en interne dans les messages originaux ne fonctionne pas. Ceci ne peut pas être corrigé car la vue du message d'origine est contenue dans une vue déroulante.
 * Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation du message sont connus pour être affichés correctement sur Pebble 2, Fitbit Charge 3 et Mi band 3. Voir aussi [cette FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancrés) ne fonctionneront pas parce que les messages originaux sont affichés dans une WebView intégrée dans une vue défilante (la liste des conversations). Il s'agit d'une limitation Android qui ne peut être ni corrigée ni contournée.
 
 ## Fonctionnalités prévues
@@ -452,9 +452,9 @@ Malheureusement, il est impossible de contenter tout le monde et ajouter tout un
 <a name="faq6"></a>
 **(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Vous pouvez utiliser l'assistant d'installation rapide pour configurer facilement un compte Gmail et une identité.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Si vous ne voulez pas utiliser un compte Gmail sur votre appareil, vous pouvez soit activer l'accès pour les "applications moins sécurisées" et utiliser le mot de passe de votre compte (non conseillé) ou activer l'authentification en deux étapes et utiliser un mot de passe spécifique à l'application. Pour utiliser un mot de passe, vous devrez configurer un compte et une identité via les étapes 1 et 2 de configuration au lieu de l'assistant d'installation rapide.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
