@@ -21,7 +21,10 @@ package eu.faircode.email;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -34,6 +37,85 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 class NotificationHelper {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static void createNotificationChannels(Context context) {
+        // https://issuetracker.google.com/issues/65108694
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Sync
+        NotificationChannel service = new NotificationChannel(
+                "service", context.getString(R.string.channel_service),
+                NotificationManager.IMPORTANCE_MIN);
+        service.setDescription(context.getString(R.string.channel_service_description));
+        service.setSound(null, null);
+        service.enableVibration(false);
+        service.enableLights(false);
+        service.setShowBadge(false);
+        service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
+        nm.createNotificationChannel(service);
+
+        // Send
+        NotificationChannel send = new NotificationChannel(
+                "send", context.getString(R.string.channel_send),
+                NotificationManager.IMPORTANCE_DEFAULT);
+        send.setDescription(context.getString(R.string.channel_send_description));
+        send.setSound(null, null);
+        send.enableVibration(false);
+        send.enableLights(false);
+        send.setShowBadge(false);
+        send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(send);
+
+        // Notify
+        NotificationChannel notification = new NotificationChannel(
+                "notification", context.getString(R.string.channel_notification),
+                NotificationManager.IMPORTANCE_HIGH);
+        notification.setDescription(context.getString(R.string.channel_notification_description));
+        notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        notification.enableLights(true);
+        notification.setLightColor(Color.YELLOW);
+        nm.createNotificationChannel(notification);
+
+        // Update
+        if (!Helper.isPlayStoreInstall()) {
+            NotificationChannel update = new NotificationChannel(
+                    "update", context.getString(R.string.channel_update),
+                    NotificationManager.IMPORTANCE_HIGH);
+            update.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            update.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(update);
+        }
+
+        // Warnings
+        NotificationChannel warning = new NotificationChannel(
+                "warning", context.getString(R.string.channel_warning),
+                NotificationManager.IMPORTANCE_HIGH);
+        warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(warning);
+
+        // Errors
+        NotificationChannel error = new NotificationChannel(
+                "error",
+                context.getString(R.string.channel_error),
+                NotificationManager.IMPORTANCE_HIGH);
+        error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(error);
+
+        // Server alerts
+        NotificationChannel alerts = new NotificationChannel(
+                "alerts",
+                context.getString(R.string.channel_alert),
+                NotificationManager.IMPORTANCE_HIGH);
+        alerts.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(alerts);
+
+        // Contacts grouping
+        NotificationChannelGroup group = new NotificationChannelGroup(
+                "contacts",
+                context.getString(R.string.channel_group_contacts));
+        nm.createNotificationChannelGroup(group);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     static JSONObject channelToJSON(NotificationChannel channel) throws JSONException {
         JSONObject jchannel = new JSONObject();

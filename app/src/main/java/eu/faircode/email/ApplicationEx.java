@@ -20,17 +20,12 @@ package eu.faircode.email;
 */
 
 import android.app.Application;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationChannelGroup;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -130,7 +125,8 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
 
         upgrade(this);
 
-        createNotificationChannels();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+            NotificationHelper.createNotificationChannels(this);
 
         DB.setupViewInvalidation(this);
 
@@ -360,86 +356,6 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
         editor.apply();
-    }
-
-    private void createNotificationChannels() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            // https://issuetracker.google.com/issues/65108694
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-            // Sync
-            NotificationChannel service = new NotificationChannel(
-                    "service", getString(R.string.channel_service),
-                    NotificationManager.IMPORTANCE_MIN);
-            service.setDescription(getString(R.string.channel_service_description));
-            service.setSound(null, null);
-            service.enableVibration(false);
-            service.enableLights(false);
-            service.setShowBadge(false);
-            service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
-            nm.createNotificationChannel(service);
-
-            // Send
-            NotificationChannel send = new NotificationChannel(
-                    "send", getString(R.string.channel_send),
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            send.setDescription(getString(R.string.channel_send_description));
-            send.setSound(null, null);
-            send.enableVibration(false);
-            send.enableLights(false);
-            send.setShowBadge(false);
-            send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(send);
-
-            // Notify
-            NotificationChannel notification = new NotificationChannel(
-                    "notification", getString(R.string.channel_notification),
-                    NotificationManager.IMPORTANCE_HIGH);
-            notification.setDescription(getString(R.string.channel_notification_description));
-            notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            notification.enableLights(true);
-            notification.setLightColor(Color.YELLOW);
-            nm.createNotificationChannel(notification);
-
-            // Update
-            if (!Helper.isPlayStoreInstall()) {
-                NotificationChannel update = new NotificationChannel(
-                        "update", getString(R.string.channel_update),
-                        NotificationManager.IMPORTANCE_HIGH);
-                update.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
-                update.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-                nm.createNotificationChannel(update);
-            }
-
-            // Warnings
-            NotificationChannel warning = new NotificationChannel(
-                    "warning", getString(R.string.channel_warning),
-                    NotificationManager.IMPORTANCE_HIGH);
-            warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(warning);
-
-            // Errors
-            NotificationChannel error = new NotificationChannel(
-                    "error",
-                    getString(R.string.channel_error),
-                    NotificationManager.IMPORTANCE_HIGH);
-            error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(error);
-
-            // Server alerts
-            NotificationChannel alerts = new NotificationChannel(
-                    "alerts",
-                    getString(R.string.channel_alert),
-                    NotificationManager.IMPORTANCE_HIGH);
-            alerts.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(alerts);
-
-            // Contacts grouping
-            NotificationChannelGroup group = new NotificationChannelGroup(
-                    "contacts",
-                    getString(R.string.channel_group_contacts));
-            nm.createNotificationChannelGroup(group);
-        }
     }
 
     private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
