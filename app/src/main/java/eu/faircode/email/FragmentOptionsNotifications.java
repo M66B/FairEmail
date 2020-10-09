@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -36,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +55,9 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnManage;
     private Button btnManageDefault;
+    private ImageView ivChannelDefault;
     private Button btnManageService;
+    private ImageView ivChannelService;
     private SwitchCompat swBackground;
 
     private CheckBox cbNotifyActionTrash;
@@ -112,7 +118,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         btnManage = view.findViewById(R.id.btnManage);
         btnManageDefault = view.findViewById(R.id.btnManageDefault);
+        ivChannelDefault = view.findViewById(R.id.ivChannelDefault);
         btnManageService = view.findViewById(R.id.btnManageService);
+        ivChannelService = view.findViewById(R.id.ivChannelService);
         swBackground = view.findViewById(R.id.swBackground);
 
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
@@ -181,6 +189,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        ivChannelDefault.setVisibility(View.GONE);
+
         final Intent channelService = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
                 .putExtra(Settings.EXTRA_CHANNEL_ID, "service");
@@ -192,6 +202,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 startActivity(channelService);
             }
         });
+
+        ivChannelService.setVisibility(View.GONE);
 
         swBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -407,6 +419,27 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+            NotificationChannel notification = nm.getNotificationChannel("notification");
+            if (notification != null) {
+                ivChannelDefault.setImageLevel(notification.getImportance() == NotificationManager.IMPORTANCE_NONE ? 0 : 1);
+                ivChannelDefault.setVisibility(View.VISIBLE);
+            }
+
+            NotificationChannel service = nm.getNotificationChannel("service");
+            if (service != null) {
+                ivChannelService.setImageLevel(service.getImportance() == NotificationManager.IMPORTANCE_NONE ? 0 : 1);
+                ivChannelService.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override

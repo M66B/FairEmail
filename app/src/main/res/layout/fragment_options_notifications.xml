@@ -61,6 +61,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvManageHint" />
 
+        <ImageView
+            android:id="@+id/ivChannelDefault"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnManageDefault"
+            app:layout_constraintStart_toEndOf="@+id/btnManageDefault"
+            app:layout_constraintTop_toTopOf="@+id/btnManageDefault"
+            app:srcCompat="@drawable/off_on" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageDefaultHint"
             android:layout_width="0dp"
@@ -82,6 +92,16 @@
             android:text="@string/title_advanced_notifications_service"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvManageDefaultHint" />
+
+        <ImageView
+            android:id="@+id/ivChannelService"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnManageService"
+            app:layout_constraintStart_toEndOf="@+id/btnManageService"
+            app:layout_constraintTop_toTopOf="@+id/btnManageService"
+            app:srcCompat="@drawable/off_on" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManageServiceHint"
