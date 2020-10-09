@@ -94,7 +94,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
@@ -7133,11 +7132,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final String[] data) {
-                if (data == null)
+                if (data == null) {
+                    Log.w("Print no data");
                     return;
+                }
+
+                ActivityBase activity = (ActivityBase) getActivity();
+                if (activity == null) {
+                    Log.w("Print no activity");
+                    return;
+                }
+
+                final Context context = activity.getOriginalContext();
 
                 // https://developer.android.com/training/printing/html-docs.html
-                printWebView = new WebView(getContext());
+                printWebView = new WebView(context);
+
                 WebSettings settings = printWebView.getSettings();
                 settings.setLoadsImagesAutomatically(true);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
@@ -7150,19 +7160,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     public void onPageFinished(WebView view, String url) {
+                        Log.i("Print page finished");
+
                         try {
-                            if (printWebView == null)
+                            if (printWebView == null) {
+                                Log.w("Print no view");
                                 return;
+                            }
 
-                            ActivityBase activity = (ActivityBase) getActivity();
-                            if (activity == null)
-                                return;
-
-                            PrintManager printManager = (PrintManager) activity.getOriginalContext().getSystemService(Context.PRINT_SERVICE);
+                            PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
                             String jobName = getString(R.string.app_name);
                             if (!TextUtils.isEmpty(data[0]))
                                 jobName += " - " + data[0];
 
+                            Log.i("Print queue job=" + jobName);
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
                             printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
                         } catch (Throwable ex) {
@@ -7173,6 +7184,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
 
+                Log.i("Print load data");
                 printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", StandardCharsets.UTF_8.name(), null);
             }
 
