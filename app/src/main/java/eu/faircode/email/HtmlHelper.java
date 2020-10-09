@@ -1654,7 +1654,10 @@ public class HtmlHelper {
         if (full)
             return text;
 
-        return truncate(text, PREVIEW_SIZE);
+        String preview = text
+                .replace("\u200C", "") // Zero-width non-joiner
+                .replaceAll("\\s+", " ");
+        return truncate(preview, PREVIEW_SIZE);
     }
 
     static String truncate(String text, int at) {
