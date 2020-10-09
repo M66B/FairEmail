@@ -1299,8 +1299,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onViewMessages(Intent intent) {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            if (content_pane != null)
-                getSupportFragmentManager().popBackStack("unified", 0);
+            //if (content_pane != null)
+            //    getSupportFragmentManager().popBackStack("unified", 0);
         }
 
         Bundle args = new Bundle();
