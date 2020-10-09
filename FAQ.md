@@ -1285,6 +1285,12 @@ to match the username of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
+If you like to match a catch-all email address, this regex is mostly okay:
+
+```
+.*
+```
+
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com
 and like to have a fallback email address main@example.com as well, you could do something like this:
 
