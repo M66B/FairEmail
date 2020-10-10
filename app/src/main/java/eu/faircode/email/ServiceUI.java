@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.AlarmManagerCompat;
@@ -344,7 +343,6 @@ public class ServiceUI extends IntentService {
         }
 
         ServiceSend.start(this);
-        ToastEx.makeText(this, R.string.title_queued, Toast.LENGTH_LONG).show();
     }
 
     private void onFlag(long id) {
