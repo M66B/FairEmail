@@ -284,6 +284,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
+* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 
 [I have another question.](#user-content-support)
 
@@ -3289,6 +3290,14 @@ This command can be sent to FairEmail from an automation app to update the prote
 
 Updating once a week will probably be sufficient,
 please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+
+<br />
+
+<a name="faq160"></a>
+**(160) Can you add permanent deletion of messages without confirmation?**
+
+Permanent deletion means that messages will irreversibly be lost and to prevent this from happening accidentally this always needs to be confirmed.
+Even with the confirmation in place some very angry people who lost some of their messages contacted me, which was a rather unpleasant experience :-(
 
 <br />
 
