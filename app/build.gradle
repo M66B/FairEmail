@@ -398,6 +398,7 @@ dependencies {
     implementation "net.freeutils:jcharset:$jcharset_version"
 
     // https://github.com/albfernandez/juniversalchardet
+    // https://www-archive.mozilla.org/projects/intl/chardet.html
     // https://mvnrepository.com/artifact/com.github.albfernandez/juniversalchardet
     implementation "com.github.albfernandez:juniversalchardet:$jchardet_version"
 }
