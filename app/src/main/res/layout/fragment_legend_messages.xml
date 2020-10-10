@@ -351,6 +351,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_receipt"
             android:padding="12dp"
+            android:tint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPlain"
             app:srcCompat="@drawable/twotone_playlist_add_check_24" />
