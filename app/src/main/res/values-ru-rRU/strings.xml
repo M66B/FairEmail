@@ -491,7 +491,7 @@
     <string name="title_advanced_startup_hint">Длительное нажатие на любую папку в списке позволит добавить или удалить её из списка единых папок</string>
     <string name="title_advanced_beige_hint">Только светлые темы</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
-    <string name="title_advanced_navbar_colorize_hint">Это работает в зависимости от версии и варианта Android</string>
+    <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_highlight_hint">Цвет акцента темы будет использован для подсветки</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
@@ -1075,8 +1075,8 @@
     <string name="title_legend_oauth">OAuth-авторизация</string>
     <string name="title_legend_folder_connected">Папка подключена</string>
     <string name="title_legend_folder_disconnected">Папка отключена</string>
-    <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>
-    <string name="title_legend_download_off">Загружать содержимое сообщения по требованию</string>
+    <string name="title_legend_download_on">Автоматическая загрузка содержимое сообщения</string>
+    <string name="title_legend_download_off">Загрузка содержимого сообщения по требованию</string>
     <string name="title_legend_synchronize_on">Синхронизация включена</string>
     <string name="title_legend_synchronize_off">Синхронизация отключена</string>
     <string name="title_legend_disconnected">Отключено</string>

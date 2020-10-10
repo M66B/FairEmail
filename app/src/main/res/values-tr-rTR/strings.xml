@@ -15,6 +15,9 @@
     <string name="channel_error">Hatalar</string>
     <string name="channel_alert">Sunucu uyarıları</string>
     <string name="channel_group_contacts">Rehber</string>
+    <string name="channel_service_description">Hesapların senkronizasyonu ve izlenmesi</string>
+    <string name="channel_send_description">Mesajların gönderilmesi</string>
+    <string name="channel_notification_description">Yeni mesaj bildirimleri</string>
     <plurals name="page_conversation">
         <item quantity="one">Sohbet</item>
         <item quantity="other">Sohbetler</item>
@@ -81,6 +84,7 @@
     <string name="title_notification_alert">\'%1$s\' sunucu uyarısı</string>
     <string name="title_notification_sending_left">%1$d deneme kaldı</string>
     <string name="title_notification_sending_failed">%1$s adresine gönderim başarısız oldu</string>
+    <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -104,6 +108,7 @@
     <string name="menu_rate">Bu uygulamaya puan verin</string>
     <string name="title_welcome">Hoşgeldiniz</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
+    <string name="title_contributors">Katkıda bulunanlar</string>
     <string name="title_agree">Kabul ediyorum</string>
     <string name="title_disagree">Kabul etmiyorum</string>
     <string name="title_version">Sürüm %1$s</string>
@@ -121,6 +126,7 @@
     </string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_remark">Bir hesabı çabucak kurmak için ve çoğu e posta sağlayıcı için kimlik ayarları</string>
+    <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
@@ -133,6 +139,7 @@
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
+    <string name="title_setup_office_remark">Microsoft, Outlook, Live, Hotmail vb. Hesaplar için bu tür bir yetkilendirme sağlamaz.</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
@@ -159,6 +166,7 @@
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_doze">Pil optimizasyonlarını ayarla</string>
+    <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
@@ -199,6 +207,7 @@
     <string name="title_setup_theme_black">Siyah</string>
     <string name="title_setup_theme_black_and_white">Siyah-beyaz</string>
     <string name="title_setup_theme_reverse">Renkleri ters çevir</string>
+    <string name="title_setup_theme_light">Açık</string>
     <string name="title_setup_theme_dark">Koyu</string>
     <string name="title_setup_theme_system">Sistem ile aynı</string>
     <string name="title_setup_theme_black_background">Siyah arka plan</string>
@@ -237,12 +246,15 @@
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_check_reply">Mesajları senkronize ederken yanıtlama e-posta adreslerini kontrol et</string>
+    <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
+    <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
+    <string name="title_advanced_separate_reply">Yanıtlama / iletme başlığından önce yatay bir çizgi ekleyin</string>
     <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
     <string name="title_advanced_resize_reply">Yanıtlanan metindeki görselleri boyutlandır</string>
@@ -250,6 +262,8 @@
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
     <string name="title_advanced_signature_forward">Yönlendirirken imza kullan</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
+    <string name="title_advanced_flow">düz metin için \"biçim akışı\"</string>
+    <string name="title_advanced_receipt">Makbuz talep ederken</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
@@ -273,6 +287,7 @@
     <string name="title_advanced_landscape3">Yatay modda varsayılan olarak menüyü göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
+    <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_threading_unread">Sohbetlerde okunmamış mesajların sayısını göster</string>
@@ -298,6 +313,7 @@
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
+    <string name="title_advanced_highlight_color">Rengi vurgula</string>
     <string name="title_advanced_keywords">Mesaj başlığında anahtar kelimeleri göster</string>
     <string name="title_advanced_labels">Mesaj başlığında Gmail etiketlerini göster</string>
     <string name="title_advanced_flags">Yıldızları göster</string>
@@ -308,15 +324,21 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
+    <string name="title_advanced_message_text_zoom">Varsayılan mesaj metni yakınlaştırma</string>
+    <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
     <string name="title_advanced_text_color">Metinde renk kullan</string>
     <string name="title_advanced_text_size">Metin boyutunu kullan</string>
     <string name="title_advanced_text_font">Yazı tiplerini kullan</string>
+    <string name="title_advanced_text_align">Metin hizalamasını kullan</string>
+    <string name="title_advanced_text_separators">Ayırıcı çizgiler kullanın</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
+    <string name="title_advanced_actionbar_color">Hesap rengini konuşma eylem çubuğu için arka plan rengi olarak kullan</string>
+    <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
     <string name="title_advanced_parse_classes">CSS\'i çözümle</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
@@ -334,6 +356,7 @@
     <string name="title_advanced_collapse_multiple">Birden fazla mesaj içeren sohbetlerdeki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
+    <string name="title_advanced_undo">Zaman aşımını geri al</string>
     <string name="title_advanced_quick_filter">Rahatsız edici olmayan hızlı filtre simgelerini göster</string>
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
@@ -345,6 +368,7 @@
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
+    <string name="title_advanced_notifications_service">Kanalı al</string>
     <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
     <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
@@ -375,6 +399,7 @@
     <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>
     <string name="title_advanced_confirm_images">Görüntüleri göstermeyi onayla</string>
     <string name="title_advanced_confirm_html">Yeniden formatlanmış mesajları varsayılan olarak göster</string>
+    <string name="title_advanced_tracking">Takip resimlerini tanımaya ve devre dışı bırakmaya çalışın</string>
     <string name="title_advanced_hide_timezone">İletileri saat dilimi verisi olmadan gönder</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
@@ -403,12 +428,15 @@
     <string name="title_advanced_language_detection">İletinin dilini tespit et</string>
     <string name="title_advanced_fts">Arama indeksini oluştur</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaj indekslendi (%3$s)</string>
+    <string name="title_advanced_language">Dil</string>
+    <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_optimize">Otomatik olarak optimize et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_query_threads">Paralel veritabanı erişimini sınırla</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
+    <string name="title_advanced_protocol">Protokol günlüğü</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_cleanup_attachments">Eski iletilerin eklerini sil</string>
     <string name="title_advanced_cleanup">Temizle</string>
@@ -416,8 +444,12 @@
     <string name="title_advanced_app">Uygulama ayarları</string>
     <string name="title_advanced_more">Daha fazla seçenek</string>
     <string name="title_advanced_manual_hint">İletileri alma devre dışı olsa bile, ileti listesini aşağı çekerek iletileri manuel olarak almaya devam edebilirsiniz</string>
+    <string name="title_advanced_poll_hint">Yeni mesajların periyodik olarak kontrol edilmesi, her seferinde yerel ve uzak mesajları karşılaştıracaktır; bu, özellikle çok fazla mesaj varsa ekstra pil kullanımına neden olabilecek pahalı bir işlemdir. Her zaman al, değişiklikleri sürekli takip ederek bunu önleyecektir.</string>
+    <string name="title_advanced_optimize_hint">Bu, e-posta sunucularının özelliklerine ve davranışına bağlı olarak pil kullanımından tasarruf etmek için senkronizasyon sıklığını değiştirebilir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
+    <string name="title_advanced_no_date_hint">Bazı sağlayıcılar bilinmeyen, geçersiz veya ileri tarihli mesajları tarih içermeyen mesajlar olarak saklar.</string>
     <string name="title_advanced_unseen_hint">Bazı sağlayıcılar bunu düzgün bir şekilde desteklememektedir, bu durum mesajların hiç birinin senkronize edilmemesine ya da hepsinin senkronize edilmesine sebep olmaktadır</string>
+    <string name="title_advanced_deleted_unseen">Devre dışı bırakıldığında, okunmamış mesajlar sonsuza kadar cihazda tutulur</string>
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
@@ -429,20 +461,29 @@
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
+    <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
+    <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek, zayıf SSL protokollerini ve şifrelerini devre dışı bırakır ve bu da bağlantı sorunlarına yol açabilir.</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_layout_hint">Daha kompakt bir yerleşime geçmek ve mesaj metin boyutunu değiştirmek, mesaj görünümündeki üst eylem çubuğu menüsünden yapılabilir</string>
+    <string name="title_advanced_startup_hint">Birleştirilmiş klasörler listesine eklemek veya listeden çıkarmak için klasör listesindeki herhangi bir klasöre uzun basın</string>
+    <string name="title_advanced_beige_hint">Yalnızca açık temalar</string>
     <string name="title_advanced_date_hint">Eğer zamana göre sıralanmışlarsa mesajlar sadece tarihe göre gruplanacaktır</string>
+    <string name="title_advanced_navbar_colorize_hint">Bunun işe yarayıp yaramadığı Android sürümüne ve değişkenine bağlıdır</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski olabilir</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_preview_issue">Bazı Android sürümlerindeki bir hata nedeniyle satır sayısı birden fazla olduğunda kaydırma yavaş olabilir</string>
+    <string name="title_advanced_overview_mode_hint">Bu çok küçük yazı tiplerine neden olabilir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>
+    <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
+    <string name="title_advanced_bcc_hint">Adres gösterilmeyecek, ancak gönderime eklenecek</string>
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
@@ -453,15 +494,23 @@
     <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
     <string name="title_advanced_notify_manage_service_hint">Kalıcı bildirimi devre dışı bırakmak için</string>
     <string name="title_advanced_notify_preview_all_hint">Tüm metni gösterebilen giyilebilir cihazlar için (5.000 karaktere kadar)</string>
+    <string name="title_advanced_notify_preview_only_hint">Bu, mesaj metni indirilene kadar bildirimlerin gösterilmesini geciktirir</string>
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
     <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
+    <string name="title_advanced_queries_hint">Bunu etkinleştirmek performansı düşürür, ancak bazı cihazlarda etkinleştirme gerekir.</string>
     <string name="title_advanced_fts_hint">Bunu etkinleştirmek arama performansını iyileştirir, ancak pil ve depolama alanı kullanımını da artırır</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
+    <string name="title_advanced_protocol_hint">Bu, pil ve depolama alanı kullanımını önemli ölçüde artıracaktır!</string>
+    <string name="title_advanced_debug_hint">Ekstra günlük kaydını etkinleştirin ve çeşitli yerlerde çirkin hata ayıklama bilgileri gösterin</string>
+    <string name="title_advanced_cleanup_attachments_hint">El ile temizlerken, artık senkronize edilmeyen iletilerden ekler kaldırılır.</string>
     <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
     <string name="title_advanced_never_favorite">Asla sık kullanılan değil</string>
+    <string name="title_advanced_edit_name">Adı düzenle</string>
+    <string name="title_advanced_swipe_actions">Kaydırma eylemlerini ayarlayın</string>
+    <string name="title_advanced_swipe_actions_hint">Bu, tüm IMAP hesapları için sola ve sağa kaydırma işlemini ayarlayacaktır.</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -469,6 +518,8 @@
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
+    <string name="title_identity_unicode">Unicode taşımayı kullan</string>
+    <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
     <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
     <string name="title_identity_use_ip_hint">\'Geçersiz selamlaşma\', \'geçerli adres gerekir\' veya benzer bir hata olması durumunda, bu ayarı değiştirmeyi deneyin</string>
     <string name="title_optional">İsteğe bağlı</string>
@@ -819,6 +870,9 @@
     <string name="title_search">Ara</string>
     <string name="title_search_for_hint">Metin giriniz</string>
     <string name="title_search_more">Daha fazla seçenek</string>
+    <string name="title_search_in_senders">Gönderenlerde (kimden)</string>
+    <string name="title_search_in_recipients">Alıcılarda (alıcı, cc)</string>
+    <string name="title_search_in_subject">Konu içinde</string>
     <string name="title_search_in_keywords">Anahtar kelimelerle (eğer destekleniyorsa)</string>
     <string name="title_search_in_message">İleti metnindeki</string>
     <string name="title_search_with_unseen">Okunmamış</string>
@@ -1260,8 +1314,15 @@
         <item>20 MB</item>
         <item>50 MB</item>
     </string-array>
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
+    </string-array>
     <string-array name="fontNameNames">
-        <item>Cursive</item>
+        <item>El yazısı</item>
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace (sabit genişlikli)</item>
