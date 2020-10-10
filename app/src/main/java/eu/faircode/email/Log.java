@@ -960,6 +960,21 @@ public class Log {
              */
             return false;
 
+        if (stack.length > 0 &&
+                "view.AccessibilityInteractionController".equals(stack[0].getClassName()) &&
+                "applyAppScaleAndMagnificationSpecIfNeeded".equals(stack[0].getMethodName()))
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'void android.graphics.RectF.scale(float)' on a null object reference
+                  at android.view.AccessibilityInteractionController.applyAppScaleAndMagnificationSpecIfNeeded(AccessibilityInteractionController.java:872)
+                  at android.view.AccessibilityInteractionController.applyAppScaleAndMagnificationSpecIfNeeded(AccessibilityInteractionController.java:796)
+                  at android.view.AccessibilityInteractionController.updateInfosForViewportAndReturnFindNodeResult(AccessibilityInteractionController.java:924)
+                  at android.view.AccessibilityInteractionController.findAccessibilityNodeInfoByAccessibilityIdUiThread(AccessibilityInteractionController.java:345)
+                  at android.view.AccessibilityInteractionController.access$400(AccessibilityInteractionController.java:75)
+                  at android.view.AccessibilityInteractionController$PrivateHandler.handleMessage(AccessibilityInteractionController.java:1393)
+                  at android.os.Handler.dispatchMessage(Handler.java:107)
+             */
+            return false;
+
         if (ex instanceof InflateException)
             /*
                 android.view.InflateException: Binary XML file line #7: Binary XML file line #7: Error inflating class <unknown>
