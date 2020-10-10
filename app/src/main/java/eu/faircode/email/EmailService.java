@@ -582,11 +582,8 @@ public class EmailService implements AutoCloseable {
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
-            String[] c = BuildConfig.APPLICATION_ID.split("\\.");
-            Collections.reverse(Arrays.asList(c));
-            String hdomain = TextUtils.join(".", c);
-
             // https://tools.ietf.org/html/rfc5321#section-4.1.3
+            String hdomain = getDefaultEhlo();
             String haddr = (address instanceof Inet4Address ? "[127.0.0.1]" : "[IPv6:::1]");
 
             properties.put("mail." + protocol + ".localhost",
@@ -612,6 +609,12 @@ public class EmailService implements AutoCloseable {
             }
         } else
             throw new NoSuchProviderException(protocol);
+    }
+
+    static String getDefaultEhlo() {
+        String[] c = BuildConfig.APPLICATION_ID.split("\\.");
+        Collections.reverse(Arrays.asList(c));
+        return TextUtils.join(".", c);
     }
 
     private static class ErrorHolder {

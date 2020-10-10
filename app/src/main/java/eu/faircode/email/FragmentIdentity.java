@@ -468,6 +468,8 @@ public class FragmentIdentity extends FragmentBase {
 
         btnAdvanced.setVisibility(View.GONE);
 
+        etEhlo.setHint(EmailService.getDefaultEhlo());
+
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         cbTrust.setVisibility(View.GONE);
