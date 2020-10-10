@@ -363,7 +363,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibExpanderAddress;
 
         private ImageView ivPlain;
-        private ImageView ivReceipt;
+        private ImageButton ibReceipt;
         private ImageView ivAutoSubmitted;
         private ImageView ivBrowsed;
 
@@ -562,7 +562,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpanderAddress = vsBody.findViewById(R.id.ibExpanderAddress);
 
             ivPlain = vsBody.findViewById(R.id.ivPlain);
-            ivReceipt = vsBody.findViewById(R.id.ivReceipt);
+            ibReceipt = vsBody.findViewById(R.id.ibReceipt);
             ivAutoSubmitted = vsBody.findViewById(R.id.ivAutoSubmitted);
             ivBrowsed = vsBody.findViewById(R.id.ivBrowsed);
 
@@ -721,6 +721,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(this);
+                ibReceipt.setOnClickListener(this);
                 ibSearchContact.setOnClickListener(this);
                 ibNotifyContact.setOnClickListener(this);
                 ibPinContact.setOnClickListener(this);
@@ -825,6 +826,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(null);
+                ibReceipt.setOnLongClickListener(null);
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
                 ibPinContact.setOnClickListener(null);
@@ -1266,7 +1268,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpImages.setVisibility(View.GONE);
 
             ivPlain.setVisibility(View.GONE);
-            ivReceipt.setVisibility(View.GONE);
+            ibReceipt.setVisibility(View.GONE);
             ivAutoSubmitted.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
 
@@ -1685,7 +1687,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpanderAddress.setContentDescription(context.getString(show_addresses ? R.string.title_accessibility_hide_addresses : R.string.title_accessibility_show_addresses));
 
             ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
-            ivReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
+            ibReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ivAutoSubmitted.setVisibility(show_addresses && message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
 
@@ -2855,6 +2857,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onToggleFlag(message);
             else if (view.getId() == R.id.ibHelp)
                 onHelp(message);
+            else if (view.getId() == R.id.ibReceipt)
+                onReceipt(message);
             else if (view.getId() == R.id.ibSearchContact)
                 onSearchContact(message);
             else if (view.getId() == R.id.ibNotifyContact)
@@ -3254,6 +3258,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onHelp(TupleMessageEx message) {
             Helper.viewFAQ(context, 130);
+        }
+
+        private void onReceipt(TupleMessageEx message) {
+            Intent reply = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "receipt")
+                    .putExtra("reference", message.id);
+            context.startActivity(reply);
         }
 
         private void onSearchContact(TupleMessageEx message) {

@@ -35,12 +35,15 @@
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/twotone_notes_24" />
 
-    <eu.faircode.email.ViewImageHint
-        android:id="@+id/ivReceipt"
+    <ImageButton
+        android:id="@+id/ibReceipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_receipt"
+        android:tint="?attr/colorWarning"
+        android:tooltipText="@string/title_legend_receipt"
         app:layout_constraintStart_toEndOf="@id/ivPlain"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/twotone_playlist_add_check_24" />
@@ -51,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_auto_submitted"
-        app:layout_constraintStart_toEndOf="@id/ivReceipt"
+        app:layout_constraintStart_toEndOf="@id/ibReceipt"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/twotone_remove_circle_outline_24" />
 
@@ -118,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivPlain,ivReceipt,ivAutoSubmitted,ivBrowsed,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
+        app:constraint_referenced_ids="ivPlain,ibReceipt,ivAutoSubmitted,ivBrowsed,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSubmitterTitle"
