@@ -19,11 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import org.mozilla.universalchardet.UniversalDetector;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
 
 class CharsetHelper {
+    private static UniversalDetector detector = new UniversalDetector();
+
+    private static final int SAMPLE_SIZE = 2 * 1024;
+
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
         byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
@@ -114,5 +120,25 @@ class CharsetHelper {
         }
 
         return false;
+    }
+
+    static Charset detect(String text) {
+        try {
+            byte[] sample = text.getBytes(StandardCharsets.ISO_8859_1);
+
+            detector.handleData(sample, 0, Math.min(SAMPLE_SIZE, sample.length));
+            detector.dataEnd();
+
+            String detected = detector.getDetectedCharset();
+            if (detected == null)
+                return null;
+
+            return Charset.forName(detected);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        } finally {
+            detector.reset();
+        }
     }
 }

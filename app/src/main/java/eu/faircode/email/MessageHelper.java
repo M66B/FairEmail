@@ -1729,22 +1729,28 @@ public class MessageHelper {
                 if (UnknownCharsetProvider.charsetForMime(charset) == null)
                     warnings.add(context.getString(R.string.title_no_charset, charset));
 
+                if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())))
+                    charset = null;
+
                 if (part.isMimeType("text/plain")) {
-                    if (TextUtils.isEmpty(charset) && CharsetHelper.isISO2022JP(result))
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), "ISO-2022-JP");
-                    else if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())) &&
-                            CharsetHelper.isUTF8(result)) {
-                        Log.i("Charset plain=UTF8");
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                    if (charset == null) {
+                        Charset detected = CharsetHelper.detect(result);
+                        if (detected == null) {
+                            if (CharsetHelper.isUTF8(result)) {
+                                Log.i("Charset plain=UTF8");
+                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                            }
+                        } else {
+                            Log.i("Charset plain=" + detected.name());
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                        }
                     }
 
                     if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (part.isMimeType("text/html")) {
-                    if (TextUtils.isEmpty(charset) && CharsetHelper.isISO2022JP(result))
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), "ISO-2022-JP");
-                    else if (TextUtils.isEmpty(charset)) {
+                    if (charset == null) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
