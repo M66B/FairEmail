@@ -406,14 +406,14 @@ Il tuo nome utente è probabilmente facilmente individuato, quindi ciò non è s
 
 Il tuo nome utente e la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che è **molto insicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
 
-Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una connessione del testo semplice dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o dell'identità. STARTTLS dovrebbe essere selezionato per le connessioni in testo semplice. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una connessione del testo semplice dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o dell'identità. STARTTLS dovrebbe essere selezionato per le connessioni in testo semplice. Se abiliti connessioni non sicure, dovresti connetterti solo tramite reti private e attendibili e mai tramite reti pubbliche, come quelle offerte in hotel, aeroporti, ecc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Come posso personalizzare la visualizzazione dei messaggi?**
 
-In the three dot overflow menu you can enable or disable or select:
+Nel menu di overflow a tre punti è possibile abilitare o disabilitare o selezionare:
 
 * *text size*: for three different font sizes
 * *compact view*: for more condensed message items and a smaller message text font
