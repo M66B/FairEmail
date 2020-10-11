@@ -285,6 +285,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
+* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 
 [I have another question.](#user-content-support)
 
@@ -3300,6 +3301,15 @@ Permanent deletion means that messages will *irreversibly* be lost, and to preve
 Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
 <br />
+
+<a name="faq161"></a>
+**(161) Can you add a setting to change the primary and accent color?***
+
+If I could, I would add a setting to select the primary and accent color right away,
+but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+
+<br />
+
 
 ## Support
 
