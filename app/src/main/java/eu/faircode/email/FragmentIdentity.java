@@ -600,7 +600,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("unicode", cbUnicode.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
         args.putLong("account", account == null ? -1 : account.id);
-        args.putString("host", etHost.getText().toString().trim());
+        args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
