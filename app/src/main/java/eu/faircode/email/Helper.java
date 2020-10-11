@@ -677,6 +677,10 @@ public class Helper {
         return 0;
     }
 
+    static boolean isSplitScreen() {
+        return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
+    }
+
     // Graphics
 
     static int dp2pixels(Context context, int dp) {

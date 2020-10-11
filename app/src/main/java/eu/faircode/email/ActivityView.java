@@ -44,6 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -182,6 +183,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
+
+        if (!portrait && !landscape3 && Helper.isSplitScreen()) {
+            View content_frame = findViewById(R.id.content_frame);
+            ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
+            if (lparam instanceof LinearLayout.LayoutParams) {
+                ((LinearLayout.LayoutParams) lparam).weight = 1;
+                content_frame.setLayoutParams(lparam);
+            }
+        }
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
