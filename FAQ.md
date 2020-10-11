@@ -3296,8 +3296,8 @@ please see [here](https://github.com/disconnectme/disconnect-tracking-protection
 <a name="faq160"></a>
 **(160) Can you add permanent deletion of messages without confirmation?**
 
-Permanent deletion means that messages will irreversibly be lost and to prevent this from happening accidentally this always needs to be confirmed.
-Even with the confirmation in place some very angry people who lost some of their messages contacted me, which was a rather unpleasant experience :-(
+Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed.
+Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
 <br />
 
