@@ -677,7 +677,7 @@ public class Helper {
         return 0;
     }
 
-    static boolean isSplitScreen() {
+    static boolean isFoldable() {
         return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
     }
 

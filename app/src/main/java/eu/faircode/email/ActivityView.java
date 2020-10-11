@@ -184,7 +184,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
 
-        if (!portrait && !landscape3 && Helper.isSplitScreen()) {
+        if ((portrait ? portrait2 : !landscape3) && Helper.isFoldable()) {
             View content_frame = findViewById(R.id.content_frame);
             ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
             if (lparam instanceof LinearLayout.LayoutParams) {
