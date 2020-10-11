@@ -575,7 +575,7 @@
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
     <string name="title_email_invalid">Dirección de correo no válida: \'%1$s\'</string>
-    <string name="title_address_duplicate">Dirección \'%1$s\' duplicada</string>
+    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Dirección \'%1$s\' duplicada</string>
     <string name="title_address_parse_error">Dirección \'%1$s\' inválida: %2$s</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>

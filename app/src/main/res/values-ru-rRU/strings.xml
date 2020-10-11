@@ -596,7 +596,7 @@
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>
-    <string name="title_address_duplicate">Адрес \"%1$s\" дублируется</string>
+    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Адрес \"%1$s\" дублируется</string>
     <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
     <string name="title_no_account">Отсутствует учётная запись</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
@@ -619,7 +619,7 @@
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_sign_key">Ключ подписи: %1$s</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
-    <string name="title_storage_quota">Использование хранилища сервера: %1$s/%2$s</string>
+    <string name="title_storage_quota">Занято на сервере: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
@@ -1075,7 +1075,7 @@
     <string name="title_legend_oauth">OAuth-авторизация</string>
     <string name="title_legend_folder_connected">Папка подключена</string>
     <string name="title_legend_folder_disconnected">Папка отключена</string>
-    <string name="title_legend_download_on">Автоматическая загрузка содержимое сообщения</string>
+    <string name="title_legend_download_on">Автоматическая загрузка содержимого сообщения</string>
     <string name="title_legend_download_off">Загрузка содержимого сообщения по требованию</string>
     <string name="title_legend_synchronize_on">Синхронизация включена</string>
     <string name="title_legend_synchronize_off">Синхронизация отключена</string>

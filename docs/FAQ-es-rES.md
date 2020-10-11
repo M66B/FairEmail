@@ -737,22 +737,22 @@ Para configurar una cuenta de Office 365, consulte [esta sección de Preguntas F
 <a name="faq15"></a>
 **(15) ¿Por qué sigue cargando el texto del mensaje?**
 
-El encabezado del mensaje y el cuerpo del mensaje se obtienen por separado del servidor. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. El texto del mensaje seguirá cargándose si no hay conexión con la cuenta, vea también la siguiente pregunta, o si hay otras operaciones, como mensajes sincronizando, se están ejecutando.
+El encabezado del mensaje y el cuerpo del mensaje se obtienen por separado del servidor. El texto del mensaje de los mensajes más grandes no está siendo pre-obtenido en conexiones medidas y necesita ser obtenido bajo demanda al abrir el mensaje. El texto del mensaje seguirá cargándose si no hay conexión con la cuenta, vea también la siguiente pregunta, o si hay otras operaciones, como mensajes sincronizando, se están ejecutando.
 
 Puede comprobar la lista de cuentas y carpetas para el estado de las cuentas y las carpetas (ver la leyenda para el significado de los iconos) y la lista de operaciones accesible a través del menú de navegación principal para operaciones pendientes (ver [estas Preguntas Frecuentes](#user-content-faq3) para el significado de las operaciones).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+Si FairEmail se está retrasando debido a problemas de conectividad previos, por favor vea [esta sección de Preguntas Frecuentes](#user-content-faq123), puede forzar la sincronización a través del menú de tres puntos.
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+En la configuración de recepción puede establecer el tamaño máximo para la descarga automática de mensajes en conexiones medidas.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Las conexiones móviles son casi siempre medidas y algunos puntos de acceso Wi-Fi (de pago) también lo son.
 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) ¿Por qué no se sincronizan los mensajes?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Las posibles causas de que los mensajes no sean sincronizados (enviados o recibidos) son:
 
 * La cuenta o carpeta(s) no están configuradas para sincronizar
 * El número de días para sincronizar mensajes es demasiado bajo
@@ -760,7 +760,7 @@ Possible causes of messages not being synchronized (sent or received) are:
 * El servidor de correo electrónico no está disponible temporalmente
 * Android detuvo el servicio de sincronización
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Por lo tanto, compruebe la configuración de su cuenta y carpetas y compruebe si las cuentas/carpetas están conectadas (vea la leyenda en el menú de navegación para ver el significado de los iconos).
 
 If there are any error messages, please see [this FAQ](#user-content-faq22).
 

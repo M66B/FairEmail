@@ -1,49 +1,49 @@
 # FairEmail 지원
 
-질문이 있으면 먼저 하단의 자주 묻는 질문들을 확인해주세요. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+질문이 있으면 먼저 하단의 자주 묻는 질문들을 확인해주세요. 하단에서 다른 질문을 어떻게 하는지 알아내고, 기능을 요청하고, 버그를 신고할 수 있습니다.
 
-## Index
+## 목차
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [계정 인증](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [어떻게 하나요...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [알려진 문제](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [계획된 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [자주 묻는 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [자주 묻는 질문](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [지원](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
 
-## Authorizing accounts
+## 계정 인증
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+대부분의 경우 빠른 설정은 올바른 구성을 자동으로 식별할 수 있습니다.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+빠른 설정이 실패할 경우 수동으로 계정(이메일을 수신할 계정) 과 이메일을 보낼 계정을 설정해야 합니다. 이를 위해 SSL/TLS 또는 STARTLS를 사용해야 하는 경우 IMAP 및 SMTP 서버 주소와 포트 번호가 필요합니다. 사용자 이름(항상 이메일 주소는 아님) 과 암호를 입력해야 합니다.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+경우에 따라 계정에 대한 외부 액세스를 활성화하거나 특수(앱) 암호를 사용해야 합니다. 예를 들어, 2단계 인증을 사용할 수 있습니다.
 
-For authorizing:
+인증 가능한 계정의 경우:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail/ G Suite의 경우 [질문 6번](#user-content-faq6)을 확인하세요.
+* Outlook / Live / Hotmail의 경우 [질문 14번](#user-content-faq14)을 확인하세요.
+* Office 365의 경우 [질문 14번](#user-content-faq156)을 확인하세요.
+* Microsoft Exchange의 경우 [질문 8번](#user-content-faq8)을 확인하세요.
+* Yahoo, AOL 그리고 Sky의 경우 [질문 88번](#user-content-faq88)을 확인하세요.
+* Apple iCloud의 경우 [질문 148번](#user-content-faq148)을 확인하세요.
+* Free.fr의 경우 [질문 157번](#user-content-faq157)을 확인하세요.
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+일반적인 오류 메시지 및 해결 방법은 [여기](#user-content-faq22)를 참조하십시오.
 
-Related questions:
+관련 질문:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [OAuth를 지원합니까?](#user-content-faq111)
+* [왜 ActiveSync는 지원하지 않습니까?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## 어떻게 하나요...?
 
-* Change the account name: Setup, step 1, Manage, tap account
+* 계정 이름을 변경합니다: 설정, 1단계, 관리, 계정을 누릅니다.
 * Change the swipe left/right target: Setup, Behavior, Set swipe actions
 * Change password: Setup, step 1, Manage, tap account, change password
 * Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
@@ -60,7 +60,7 @@ Related questions:
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
-## Known problems
+## 알려진 문제
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -114,11 +114,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## 자주 묻는 기능
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Frequently Asked Questions
+## 자주 묻는 질문
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
