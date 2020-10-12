@@ -467,6 +467,7 @@ class Core {
                                 ex.getCause() instanceof MessageRemovedIOException ||
                                 ex.getCause() instanceof BadCommandException ||
                                 ex.getCause() instanceof CommandFailedException ||
+                                EntityOperation.ATTACHMENT.equals(op.name) ||
                                 (ConnectionHelper.isIoError(ex) &&
                                         EntityFolder.DRAFTS.equals(folder.type) &&
                                         EntityOperation.ADD.equals(op.name))) {
