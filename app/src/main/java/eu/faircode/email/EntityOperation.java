@@ -453,8 +453,10 @@ public class EntityOperation {
             try {
                 JSONArray jargs = new JSONArray(args);
                 long tmpid = jargs.optLong(2, -1);
-                if (tmpid > 0)
-                    db.message().deleteMessage(tmpid);
+                if (tmpid < 0)
+                    return;
+
+                db.message().deleteMessage(tmpid);
             } catch (JSONException ex) {
                 Log.e(ex);
             }
