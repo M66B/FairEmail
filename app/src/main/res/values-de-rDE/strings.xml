@@ -254,7 +254,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
     <string name="title_advanced_compose_font">Standard-Schriftart</string>
-    <string name="title_advanced_prefix_once">AW: und WG: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
+    <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
@@ -678,8 +678,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_messages">Keine Nachrichten</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
-    <string name="title_subject_reply">AW: %1$s</string>
-    <string name="title_subject_forward">WG: %1$s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
+    <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_buttons">Schaltflächen</string>
     <string name="title_seen">Gelesen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
