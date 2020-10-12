@@ -461,6 +461,15 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
+        if (EntityOperation.ATTACHMENT.equals(name))
+            try {
+                JSONArray jargs = new JSONArray(args);
+                db.attachment().setProgress(jargs.getLong(0), null);
+                return;
+            } catch (JSONException ex) {
+                Log.e(ex);
+            }
+
         if (EntityOperation.SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
