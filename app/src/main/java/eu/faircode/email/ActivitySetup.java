@@ -958,6 +958,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("alert_once".equals(key) && !Log.isXiaomi())
                             continue;
 
+                        if ("background_service".equals(key) &&
+                                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            continue;
+
                         if (key != null && key.startsWith("widget."))
                             continue;
 

@@ -351,6 +351,9 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
                 editor.putBoolean("beige", false);
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            editor.remove("background_service");
+
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);
