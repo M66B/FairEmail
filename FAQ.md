@@ -165,7 +165,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)
 * [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the network usage of FairEmail?](#user-content-faq40)
+* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
 * [(43) Can you show the original ... ?](#user-content-faq43)
@@ -1439,9 +1439,16 @@ after three successive [too many simultaneous connections](#user-content-faq23) 
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the network usage of FairEmail?**
+**(40) How can I reduce the data usage of FairEmail?**
 
-You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+
+It is inevitable that data will be used to synchronize messages.
+
+If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed.
+If the connection is unstable, this can result in extra data usage.
+In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question)
+or to switch to periodically synchronizing of messages (receive settings).
 
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection.
 You can change this in the connection settings.
