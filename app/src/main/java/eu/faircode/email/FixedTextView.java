@@ -119,7 +119,58 @@ public class FixedTextView extends AppCompatTextView {
             setText(text);
         }
 
-        return super.dispatchTouchEvent(event);
+        try {
+            return super.dispatchTouchEvent(event);
+        } catch (Throwable ex) {
+            /*
+                Attempt to fix
+                java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                  at android.text.SpannableStringInternal.checkRange(SpannableStringInternal.java:434)
+                  at android.text.SpannableStringInternal.setSpan(SpannableStringInternal.java:155)
+                  at android.text.SpannableString.setSpan(SpannableString.java:46)
+                  at android.text.Selection.setSelection(Selection.java:76)
+                  at android.widget.Editor$SelectionHandleView.updateSelection(Editor.java:4687)
+                  at android.widget.Editor$HandleView.positionAtCursorOffset(Editor.java:4262)
+                  at android.widget.Editor$SelectionHandleView.positionAtCursorOffset(Editor.java:4870)
+                  at android.widget.Editor$SelectionHandleView.positionAndAdjustForCrossingHandles(Editor.java:4918)
+                  at android.widget.Editor$SelectionHandleView.updatePosition(Editor.java:4863)
+                  at android.widget.Editor$HandleView.onTouchEvent(Editor.java:4407)
+                  at android.widget.Editor$SelectionHandleView.onTouchEvent(Editor.java:4876)
+                  at android.view.View.dispatchTouchEvent(View.java:10024)
+                  at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2632)
+                  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2321)
+                  at android.widget.PopupWindow$PopupDecorView.dispatchTouchEvent(PopupWindow.java:2277)
+                  at android.view.View.dispatchPointerEvent(View.java:10244)
+                  at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:4468)
+                  at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4336)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3883)
+                  at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3936)
+                  at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3902)
+                  at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:4029)
+                  at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3910)
+                  at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:4086)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3883)
+                  at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3936)
+                  at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3902)
+                  at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3910)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3883)
+                  at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:6284)
+                  at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:6258)
+                  at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:6219)
+                  at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:6387)
+                  at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:185)
+                  at android.view.InputEventReceiver.nativeConsumeBatchedInputEvents(Native Method)
+                  at android.view.InputEventReceiver.consumeBatchedInputEvents(InputEventReceiver.java:176)
+                  at android.view.ViewRootImpl.doConsumeBatchedInput(ViewRootImpl.java:6358)
+                  at android.view.ViewRootImpl$ConsumeBatchedInputRunnable.run(ViewRootImpl.java:6410)
+                  at android.view.Choreographer$CallbackRecord.run(Choreographer.java:874)
+                  at android.view.Choreographer.doCallbacks(Choreographer.java:686)
+                  at android.view.Choreographer.doFrame(Choreographer.java:615)
+                  at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:860)
+                  at android.os.Handler.handleCallback(Handler.java:751)
+             */
+            return false;
+        }
     }
 
     @Override

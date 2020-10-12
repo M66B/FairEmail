@@ -88,6 +88,16 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        try {
+            return super.dispatchTouchEvent(event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {
             return super.onTouchEvent(event);
