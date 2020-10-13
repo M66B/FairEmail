@@ -2092,7 +2092,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
+            LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
+            int pos = viewHolder.getAdapterPosition();
+            if (pos != NO_POSITION)
+                llm.scrollToPositionWithOffset(pos, 0);
+
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
             if (message.ui_seen)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 1, R.string.title_unseen);
