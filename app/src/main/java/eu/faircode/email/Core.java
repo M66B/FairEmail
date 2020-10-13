@@ -145,6 +145,7 @@ class Core {
     private static final int LOCAL_RETRY_MAX = 2;
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
+    private static final int MAX_PREVIEW = 5000; // characters
 
     static void processOperations(
             Context context,
@@ -3952,6 +3953,8 @@ class Core {
                     try {
                         File file = message.getFile(context);
                         preview = HtmlHelper.getFullText(file);
+                        if (preview != null && preview.length() > MAX_PREVIEW)
+                            preview = preview.substring(0, MAX_PREVIEW);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
