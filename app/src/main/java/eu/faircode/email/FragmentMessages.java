@@ -2092,105 +2092,109 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
-            LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
-            int pos = viewHolder.getAdapterPosition();
-            if (pos != NO_POSITION)
-                llm.scrollToPositionWithOffset(pos, 0);
-
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
-
-            if (message.ui_seen)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 1, R.string.title_unseen);
-            else
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
-
-            if (message.ui_flagged)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, 2, R.string.title_unflag);
-            else
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, 2, R.string.title_flag);
-
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
-
-            if (message.ui_snoozed == null)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, 4, R.string.title_hide);
-            else if (message.ui_snoozed == Long.MAX_VALUE)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, 4, R.string.title_unhide);
-
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 5, R.string.title_flag_color);
-            if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 6, R.string.title_move);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_report_spam, 7, R.string.title_report_spam);
-            }
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, 8, R.string.title_delete_permanently);
-
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            rvMessage.post(new Runnable() {
                 @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case R.string.title_seen:
-                            onActionSeenSelection(true, message.id);
-                            return true;
-                        case R.string.title_unseen:
-                            onActionSeenSelection(false, message.id);
-                            return true;
-                        case R.string.title_flag:
-                            onActionFlagSelection(true, null, message.id);
-                            return true;
-                        case R.string.title_unflag:
-                            onActionFlagSelection(false, null, message.id);
-                            return true;
-                        case R.string.title_snooze:
-                            onMenuSnooze();
-                            return true;
-                        case R.string.title_hide:
-                        case R.string.title_unhide:
-                            onActionHide(message);
-                            return true;
-                        case R.string.title_flag_color:
-                            onMenuColor();
-                            return true;
-                        case R.string.title_move:
-                            onSwipeMove(message);
-                            return true;
-                        case R.string.title_report_spam:
-                            onSwipeJunk(message);
-                            return true;
-                        case R.string.title_delete_permanently:
-                            onSwipeDelete(message);
-                            return true;
-                        default:
-                            return false;
+                public void run() {
+                    try {
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
+
+                        if (message.ui_seen)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 1, R.string.title_unseen);
+                        else
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
+
+                        if (message.ui_flagged)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, 2, R.string.title_unflag);
+                        else
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, 2, R.string.title_flag);
+
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
+
+                        if (message.ui_snoozed == null)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, 4, R.string.title_hide);
+                        else if (message.ui_snoozed == Long.MAX_VALUE)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, 4, R.string.title_unhide);
+
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 5, R.string.title_flag_color);
+                        if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 6, R.string.title_move);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_report_spam, 7, R.string.title_report_spam);
+                        }
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, 8, R.string.title_delete_permanently);
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem target) {
+                                switch (target.getItemId()) {
+                                    case R.string.title_seen:
+                                        onActionSeenSelection(true, message.id);
+                                        return true;
+                                    case R.string.title_unseen:
+                                        onActionSeenSelection(false, message.id);
+                                        return true;
+                                    case R.string.title_flag:
+                                        onActionFlagSelection(true, null, message.id);
+                                        return true;
+                                    case R.string.title_unflag:
+                                        onActionFlagSelection(false, null, message.id);
+                                        return true;
+                                    case R.string.title_snooze:
+                                        onMenuSnooze();
+                                        return true;
+                                    case R.string.title_hide:
+                                    case R.string.title_unhide:
+                                        onActionHide(message);
+                                        return true;
+                                    case R.string.title_flag_color:
+                                        onMenuColor();
+                                        return true;
+                                    case R.string.title_move:
+                                        onSwipeMove(message);
+                                        return true;
+                                    case R.string.title_report_spam:
+                                        onSwipeJunk(message);
+                                        return true;
+                                    case R.string.title_delete_permanently:
+                                        onSwipeDelete(message);
+                                        return true;
+                                    default:
+                                        return false;
+                                }
+                            }
+
+                            private void onMenuSnooze() {
+                                Bundle args = new Bundle();
+                                args.putString("title", getString(R.string.title_snooze));
+                                args.putLong("account", message.account);
+                                args.putString("thread", message.thread);
+                                args.putLong("id", message.id);
+                                args.putBoolean("finish", false);
+
+                                FragmentDialogDuration fragment = new FragmentDialogDuration();
+                                fragment.setArguments(args);
+                                fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
+                                fragment.show(getParentFragmentManager(), "message:snooze");
+                            }
+
+                            private void onMenuColor() {
+                                Bundle args = new Bundle();
+                                args.putLong("id", message.id);
+                                args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
+                                args.putString("title", getString(R.string.title_flag_color));
+
+                                FragmentDialogColor fragment = new FragmentDialogColor();
+                                fragment.setArguments(args);
+                                fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_COLOR);
+                                fragment.show(getParentFragmentManager(), "message:color");
+                            }
+                        });
+
+                        popupMenu.show();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
                     }
                 }
-
-                private void onMenuSnooze() {
-                    Bundle args = new Bundle();
-                    args.putString("title", getString(R.string.title_snooze));
-                    args.putLong("account", message.account);
-                    args.putString("thread", message.thread);
-                    args.putLong("id", message.id);
-                    args.putBoolean("finish", false);
-
-                    FragmentDialogDuration fragment = new FragmentDialogDuration();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
-                    fragment.show(getParentFragmentManager(), "message:snooze");
-                }
-
-                private void onMenuColor() {
-                    Bundle args = new Bundle();
-                    args.putLong("id", message.id);
-                    args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
-                    args.putString("title", getString(R.string.title_flag_color));
-
-                    FragmentDialogColor fragment = new FragmentDialogColor();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_COLOR);
-                    fragment.show(getParentFragmentManager(), "message:color");
-                }
             });
-
-            popupMenu.show();
         }
 
         private void onSwipeMove(final @NonNull TupleMessageEx message) {
