@@ -158,7 +158,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(36) Wie werden Einstellungsdateien verschlüsselt?](#user-content-faq36)
 * [(37) Wie werden Passwörter gespeichert?](#user-content-faq37)
 * [(39) Wie kann ich den Akkuverbrauch von FairEmail verringern?](#user-content-faq39)
-* [(40) Wie kann ich die Netzwerknutzung von FairEmail reduzieren?](#user-content-faq40)
+* [(40) Wie kann ich die Datennutzung von FairEmail verringern?](#user-content-faq40)
 * [(41) Wie kann ich den Fehler »Handshake failed« beheben?](#user-content-faq41)
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
@@ -277,6 +277,8 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(157) Wie kann ich ein Free.fr-Konto einrichten?](#user-content-faq157)
 * [(158) Welche/r Kamera/Audiorekorder ist empfehlenswert?](#user-content-faq158)
 * [(159) Was sind Disconnects Tracker-Schutzlisten?](#user-content-faq159)
+* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
+* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 
 [Ich habe eine weitere Frage.](#user-content-support)
 
@@ -660,7 +662,7 @@ Sehen Sie [hier](https://support.google.com/pixelphone/answer/2844832?hl=en), wi
 
 Die Verwendung von abgelaufenen Schlüsseln, inline­verschlüsselten oder -signierten Nachrichten und Hardware­sicherheitstoken wird nicht unterstützt.
 
-Wenn Sie ein kostenloses (Test) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen.
+Wenn Sie ein kostenloses (Test) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
 
@@ -1090,11 +1092,17 @@ It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expr
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
+Wenn du eine "Catch-All-E-Mail-Adresse" eintragen möchtest, ist dieser Regex meistens in Ordnung:
+
+```
+.*
+```
+
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identität: abc@example.com; regex: **(?i)abc**
-* Identität: xyz@example.com; regex: **(?i)xyz**
-* Identität: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identität: abc@example.com; regulärer Ausdruck: **(?i)abc**
+* Identität: xyz@example.com; regulärer Ausdruck: **(?i)xyz**
+* Identität: main@example.com; regulärer Ausdruck: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
@@ -1122,19 +1130,19 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Wie werden Einstellungsdateien verschlüsselt?**
 
-Short version: AES 256 bit
+Kurze Version: AES 256 Bit
 
-Long version:
+Lange Version:
 
-* Der 256 Bit Schlüssel wird mit *PBKDF2WithHmacSHA1* generiert, wobei ein 128 Bit sicheres Zufallssalz und 65536 Iterationen verwendet werden
-* Die Chiffre ist *AES/CBC/PKCS5Padding*
+* Der 256-Bit-Schlüssel wird mit *PBKDF2WithHmacSHA1* erstellt, durch ein 128 Bit sicheres Zufallssalz und 65536 Wiederholungen
+* Die Verschlüsselung ist *AES/CBC/PKCS5Padding*
 
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Wie werden Passwörter gespeichert?**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
@@ -1194,9 +1202,13 @@ In addition, the trash and spam folders will be automatically set to checking fo
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the network usage of FairEmail?**
+**(40) How can I reduce the data usage of FairEmail?**
 
-You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+
+It is inevitable that data will be used to synchronize messages.
+
+If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
@@ -1238,7 +1250,7 @@ The following information is needed:
 <provider
     name="Gmail"
     link="https://support.google.com/mail/answer/7126229" // link to the instructions of the provider
-    type="com.google"> // das wird nicht benötigt
+    type="com.google"> // this is not needed
     <imap
         host="imap.gmail.com"
         port="993"
@@ -2731,6 +2743,21 @@ This command can be sent to FairEmail from an automation app to update the prote
 Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
+
+<a name="faq160"></a>
+**(160) Can you add permanent deletion of messages without confirmation?**
+
+Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+
+<br />
+
+<a name="faq161"></a>
+**(161) Can you add a setting to change the primary and accent color?***
+
+If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+
+<br />
+
 
 ## Hilfe
 

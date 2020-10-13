@@ -110,7 +110,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_exit">Выход</string>
@@ -596,7 +595,7 @@
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>
-    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Адрес \"%1$s\" дублируется</string>
+    <string name="title_address_duplicate">Адрес \"%1$s\" дублируется</string>
     <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
     <string name="title_no_account">Отсутствует учётная запись</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
@@ -899,7 +898,7 @@
     <string name="title_text_reminder">Сообщение пустое</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included,вложение,вложения,вложении,приложено</string>
     <string name="title_attachment_reminder">Вы хотите добавить вложение?</string>
-    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Всё форматирование будет утрачено</string>
+    <string name="title_plain_reminder">Всё форматирование будет утрачено</string>
     <string name="title_size_reminder">Сообщение (%1$s) больше, чем лимит сервера (%2$s)</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
     <string name="title_dialog_hint">Этот диалог можно снова включить через верхнее меню трёх точек в панели действий</string>

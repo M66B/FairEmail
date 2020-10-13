@@ -88,7 +88,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s : %2$s</string>
     <string name="title_factor_minutes">%1$d minutes</string>
     <string name="menu_exit">Sortir</string>
@@ -877,7 +876,7 @@
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>
     <string name="title_attachment_reminder">Aviez-vous l’intention d’ajouter une pièce jointe ?</string>
-    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Tout le formatage sera supprimé</string>
+    <string name="title_plain_reminder">Tout le formatage sera supprimé</string>
     <string name="title_size_reminder">Message (%1$s) plus grand que la limite du serveur (%2$s)</string>
     <string name="title_attachments_missing">Les pièces jointes n’ont pas toutes été téléchargées</string>
     <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu à trois points de la barre d’action supérieure</string>

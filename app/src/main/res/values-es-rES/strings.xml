@@ -88,7 +88,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Salir</string>
@@ -367,7 +366,7 @@
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
-    <string name="title_advanced_notifications">Gestionar notificaciones</string>
+    <string name="title_advanced_notifications">Administrar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de recepción</string>
     <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
@@ -575,7 +574,7 @@
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
     <string name="title_email_invalid">Dirección de correo no válida: \'%1$s\'</string>
-    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Dirección \'%1$s\' duplicada</string>
+    <string name="title_address_duplicate">Dirección \'%1$s\' duplicada</string>
     <string name="title_address_parse_error">Dirección \'%1$s\' inválida: %2$s</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>
@@ -741,7 +740,7 @@
     <string name="title_reply_template">Responder con plantilla</string>
     <string name="title_move_undo">Moviendo a %1$s (%2$d)</string>
     <string name="title_open_with">Abrir con</string>
-    <string name="title_authentication_failed">Fallo en autenticación %1$s</string>
+    <string name="title_authentication_failed">La autenticación %1$s falló</string>
     <string name="title_receipt_subject">Confirmación de lectura: %1$s</string>
     <string name="title_receipt_text">Esta confirmación de lectura sólo afirma que el mensaje fue mostrado. No hay garantía de que el destinatario haya leído el contenido del mensaje.</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
@@ -878,7 +877,7 @@
     <string name="title_text_reminder">El mensaje está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
-    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Todo el formato se perderá</string>
+    <string name="title_plain_reminder">Todo el formato se perderá</string>
     <string name="title_size_reminder">Mensaje (%1$s) más grande que el límite del servidor (%2$s)</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_dialog_hint">Este diálogo se puede activar de nuevo a través del menú de tres puntos en la barra de acción superior</string>
@@ -959,7 +958,7 @@
     <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
-    <string name="title_filter">Filtrar</string>
+    <string name="title_filter">Filtrar fuera</string>
     <string name="title_filter_seen">Leído</string>
     <string name="title_filter_unflagged">No destacado</string>
     <string name="title_filter_unknown">Remitentes desconocidos</string>
@@ -1091,7 +1090,7 @@
     <string name="title_legend_importance_low">No es importante</string>
     <string name="title_legend_signed">Está firmado</string>
     <string name="title_legend_encrypted">Está cifrado</string>
-    <string name="title_legend_auth">Error de autenticación</string>
+    <string name="title_legend_auth">La autenticación falló</string>
     <string name="title_legend_found">Se encontró</string>
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
@@ -1199,7 +1198,7 @@
     <string name="title_clipboard_copied">Copiado al portapapeles</string>
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
-    <string name="title_no_ask_for_again">No volver a preguntar esto por %1$s</string>
+    <string name="title_no_ask_for_again">No volver a preguntar esto para %1$s</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>
     <string name="title_via">Vía: %1$s</string>

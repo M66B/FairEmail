@@ -110,7 +110,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minút</string>
     <string name="menu_exit">Ukončiť</string>
@@ -273,6 +272,7 @@
     <string name="title_advanced_suggest_frequently">Zoradiť navrhované adresy podľa počtu použití</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
+    <string name="title_advanced_separate_reply">Vložiť vodorovnú čiaru pred hlavičkou odpovedanej / preposlanej správy</string>
     <string name="title_advanced_extended_reply">Používať rozšírenú hlavičku odpovede/preposlania</string>
     <string name="title_advanced_quote_reply">Citovať text odpovede</string>
     <string name="title_advanced_resize_reply">Upraviť veľkosť obrázkov v texte odpovedi</string>
@@ -331,6 +331,7 @@
     <string name="title_advanced_subject_top">Zobraziť predmet nad odosielateľom</string>
     <string name="title_advanced_subject_italic">Zobraziť predmet kurzívou</string>
     <string name="title_advanced_subject_elipsed">Skracovať predmet podľa potreby</string>
+    <string name="title_advanced_highlight_color">Farba vysvietenia</string>
     <string name="title_advanced_keywords">Zobraziť kľúčové slová v hlavičke správy</string>
     <string name="title_advanced_labels">Zobraziť štítky Gmailu v hlavičke správy</string>
     <string name="title_advanced_flags">Zobraziť hviezdičky</string>
@@ -488,6 +489,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_date_hint">Správy sú zoskupené podľa dátumu len ak je zoznam zotriedený podľa času</string>
     <string name="title_advanced_navbar_colorize_hint">Či to bude fungovať záleží od verzie a variantu systému Android</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
+    <string name="title_advanced_highlight_hint">Na vysvietenie sa použije farba akcent z použitej témy</string>
     <string name="title_advanced_gravatars_hint">Môže predstavovať potenciálny risk straty súkromia</string>
     <string name="title_advanced_name_email_hint">Pri vypnutí sa zobrazia iba dostupné mená</string>
     <string name="title_advanced_preview_hint">Dostupné len v prípade, že bol prevzatý text správy</string>
@@ -891,6 +893,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>
     <string name="title_attachment_reminder">Mali ste v úmysle pridať prílohu?</string>
+    <string name="title_plain_reminder">Všetko formátovanie bude stratené</string>
     <string name="title_size_reminder">Správa (%1$s) väčšia než serverový limit (%2$s)</string>
     <string name="title_attachments_missing">Nie všetky prílohy boli prevzaté</string>
     <string name="title_dialog_hint">Tento dialóg môže byť znovu zapnutý cez menu s troma bodkami v hornom panely akcií</string>

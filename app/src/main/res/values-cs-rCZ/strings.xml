@@ -110,7 +110,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minut</string>
     <string name="menu_exit">Ukončit</string>
@@ -899,7 +898,7 @@
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
-    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Veškeré formátování bude ztraceno</string>
+    <string name="title_plain_reminder">Veškeré formátování bude ztraceno</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>

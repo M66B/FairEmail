@@ -88,7 +88,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuti</string>
     <string name="menu_exit">Esci</string>
@@ -574,7 +573,7 @@
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
     <string name="title_email_invalid">Indirizzo email non valido: \'%1$s\'</string>
-    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Indirizzo «%1$s» duplicato</string>
+    <string name="title_address_duplicate">Indirizzo «%1$s» duplicato</string>
     <string name="title_address_parse_error">Indirizzo \'%1$s\' non valido: %2$s</string>
     <string name="title_no_account">Account mancante</string>
     <string name="title_no_host">Nome dell\'host mancante</string>
@@ -877,7 +876,7 @@
     <string name="title_text_reminder">Il messaggio è vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
     <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
-    <string name="title_plain_reminder" comment="title_plain_reminder&#10;This warning will be shown when sending a plain text message with formatting (bold, italic, embedded images, etc)">Tutta la formattazione sarà persa</string>
+    <string name="title_plain_reminder">Tutta la formattazione sarà persa</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_dialog_hint">Questa finestra di dialogo può essere riattivata tramite il menu a tre puntini nella barra di azione superiore</string>

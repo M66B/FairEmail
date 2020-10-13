@@ -158,7 +158,7 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(36) Come sono crittografati i file delle impostazioni?](#user-content-faq36)
 * [(37) Come vengono memorizzate le password?](#user-content-faq37)
 * [(39) Come posso ridurre l'uso della batteria di FairEmail?](#user-content-faq39)
-* [(40) Come posso ridurre l'utilizzo rete di FairEmail?](#user-content-faq40)
+* [(40) Come posso ridurre l'uso dei dati di FairEmail?](#user-content-faq40)
 * [(41) Come posso correggere l'errore 'Handshake non riuscito'?](#user-content-faq41)
 * [(42) È possibile aggiungere un nuovo provider all'elenco dei provider?](#user-content-faq42)
 * [(43) Riesci a mostrare l'originale ... ?](#user-content-faq43)
@@ -277,6 +277,8 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(157) Come posso configurare un profilo di Free.fr?](#user-content-faq157)
 * [(158) Quale registratore audio / videocamera consigliate?](#user-content-faq158)
 * [(159) Cosa sono gli elenchi di protezione del monitoraggio di Disconnect?](#user-content-faq159)
+* [(160) Puoi aggiungere l'eliminazione permanente dei messaggi senza conferma?](#user-content-faq160)
+* [(161) Puoi aggiungere un'impostazione per modificare il colore primario e di cadenza?](#user-content-faq161)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -660,7 +662,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -1090,13 +1092,19 @@ It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expr
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
-If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
+Se ti piace abbinare un indirizzo email, quest'espressione regolare è principalmente okay:
+
+```
+.*
+```
+
+Se ti piace abbinare gli indirizzi email di scopo speciali abc@example.com e xyx@example.com e ti piace avere anche un'indirizzo email di ripiego main@example.com, potresti fare qualcosa del genere:
 
 * Identity: abc@example.com; regex: **(?i)abc**
 * Identity: xyz@example.com; regex: **(?i)xyz**
 * Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
+Le identità corrispondenti possono essere usate per colorare i messaggi di codice. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
 <br />
 
@@ -1194,9 +1202,13 @@ In addition, the trash and spam folders will be automatically set to checking fo
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the network usage of FairEmail?**
+**(40) How can I reduce the data usage of FairEmail?**
 
-You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+
+It is inevitable that data will be used to synchronize messages.
+
+If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
@@ -2731,6 +2743,21 @@ This command can be sent to FairEmail from an automation app to update the prote
 Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
+
+<a name="faq160"></a>
+**(160) Can you add permanent deletion of messages without confirmation?**
+
+Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+
+<br />
+
+<a name="faq161"></a>
+**(161) Can you add a setting to change the primary and accent color?***
+
+If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+
+<br />
+
 
 ## Supporto
 

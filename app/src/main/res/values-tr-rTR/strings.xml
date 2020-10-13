@@ -88,7 +88,6 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ➤ %2$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d dakika</string>
     <string name="menu_exit">Çıkış</string>
@@ -574,7 +573,7 @@
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
     <string name="title_email_invalid">E-posta adresi geçersiz: \'%1$s\'</string>
-    <string name="title_address_duplicate" comment="title_address_duplicate&#10;This warning message will be shown when there is a duplicate TO, CC or BCC address because some email servers do not accept this.">Adressen \'%1$s\' er en dublet</string>
+    <string name="title_address_duplicate">Adressen \'%1$s\' er en dublet</string>
     <string name="title_address_parse_error">%1$s adresi geçersiz: %2$s</string>
     <string name="title_no_account">Hesap bilgisi eksik</string>
     <string name="title_no_host">Sunucu adı eksik</string>
