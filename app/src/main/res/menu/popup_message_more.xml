@@ -37,6 +37,10 @@
                 android:checkable="true"
                 android:title="@string/title_event" />
             <item
+                android:id="@+id/menu_button_share"
+                android:checkable="true"
+                android:title="@string/title_share" />
+            <item
                 android:id="@+id/menu_button_print"
                 android:checkable="true"
                 android:title="@string/title_print" />
