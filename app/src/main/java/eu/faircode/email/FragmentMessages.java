@@ -7188,7 +7188,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Log.i("Print queue job=" + jobName);
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
                             PrintJob job = printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
-                            Log.i("Print queued job=" + job.getInfo());
+                            EntityLog.log(context,"Print queued job=" + job.getInfo());
                         } catch (Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         } finally {
