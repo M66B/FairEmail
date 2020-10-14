@@ -984,15 +984,14 @@
     <provider
         name="Ecomail"
         domain="ecomail\\..*,ecomail-.*\\..*,apiculteur\\.me,asso-nature\\.fr"
-        enabled="false"
-        link="https://www.ecomail.fr/">
+        link="https://sav.ecomail.earth/">
         <imap
             host="imap.ecomail.fr"
             port="993"
             starttls="false" />
         <smtp
             host="smtp.ecomail.fr"
-            port="465"
-            starttls="false" />
+            port="587"
+            starttls="true" />
     </provider>
 </providers>
