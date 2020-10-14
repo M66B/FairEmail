@@ -1002,8 +1002,15 @@ The message *... +OK ...* likely means that a POP3 port (usually port number 995
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...*
 can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
-mean that FairEmail was not able to connect to the email server.
+The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default).
+Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app.
+You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+
+The error *... Connection refused ...* means that the email server
+or something between the email server and the app, like a firewall, actively refused the connection.
+
+The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection,
+for example because internet traffic is restricted to local traffic only.
 
 The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved.
 This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
