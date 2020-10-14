@@ -462,6 +462,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean debug = prefs.getBoolean("debug", false);
 
+            int order = 1;
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             if (folder.selectable) {
@@ -470,53 +471,63 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, order++, R.string.title_synchronize_now);
+            }
 
+            int childs = 0;
+            if (folder.child_refs != null)
+                for (TupleFolderEx child : folder.child_refs)
+                    if (child.selectable)
+                        childs++;
+            if (childs > 0)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_childs, order++, R.string.title_synchronize_childs);
+
+            if (folder.selectable) {
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_more, 2, R.string.title_synchronize_more);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_more, order++, R.string.title_synchronize_more);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, order++, R.string.title_delete_local);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, order++, R.string.title_delete_browsed);
                 }
 
                 if (EntityFolder.TRASH.equals(folder.type))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, order++, R.string.title_empty_trash);
                 else if (EntityFolder.JUNK.equals(folder.type))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, order++, R.string.title_empty_spam);
 
                 if (folder.account != null) {
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, order++, R.string.title_unified_folder)
                             .setCheckable(true).setChecked(folder.unified);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 7, R.string.title_navigation_folder)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, order++, R.string.title_navigation_folder)
                             .setCheckable(true).setChecked(folder.navigation);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, order++, R.string.title_notify_folder)
                             .setCheckable(true).setChecked(folder.notify);
                 }
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     boolean subscriptions = prefs.getBoolean("subscriptions", false);
                     if (subscriptions && !folder.read_only)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, order++, R.string.title_subscribe)
                                 .setCheckable(true).setChecked(folder.subscribed != null && folder.subscribed);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 10, R.string.title_synchronize_enabled)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, order++, R.string.title_synchronize_enabled)
                             .setCheckable(true).setChecked(folder.synchronize);
 
                     if (!folder.read_only)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 12, R.string.title_edit_properties);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
 
                     if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         String channelId = EntityFolder.getNotificationChannelId(folder.id);
                         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                         NotificationChannel channel = nm.getNotificationChannel(channelId);
                         if (channel == null)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 13, R.string.title_create_channel);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, order++, R.string.title_create_channel);
                         else {
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 14, R.string.title_edit_channel);
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 15, R.string.title_delete_channel);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, order++, R.string.title_edit_channel);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, order++, R.string.title_delete_channel);
                         }
                     }
                 }
@@ -538,7 +549,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
                         case R.string.title_synchronize_now:
-                            onActionSync();
+                            onActionSync(false);
+                            return true;
+                        case R.string.title_synchronize_childs:
+                            onActionSync(true);
                             return true;
 
                         case R.string.title_synchronize_more:
@@ -608,10 +622,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
 
-                private void onActionSync() {
+                private void onActionSync(boolean childs) {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
                     args.putInt("months", -1);
+                    args.putBoolean("childs", childs);
+
                     Intent data = new Intent();
                     data.putExtra("args", args);
                     parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);

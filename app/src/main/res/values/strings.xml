@@ -708,6 +708,7 @@
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
+    <string name="title_synchronize_childs">Synchronize child folders</string>
     <string name="title_synchronize_more">Synchronize more messages</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_delete_local">Delete local messages</string>

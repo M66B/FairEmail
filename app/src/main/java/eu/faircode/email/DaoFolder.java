@@ -175,6 +175,10 @@ public interface DaoFolder {
             " AND folder.notify")
     List<EntityFolder> getNotifyingFolders(long account);
 
+    @Query("SELECT * FROM folder" +
+            " WHERE parent = :parent")
+    List<EntityFolder> getChildFolders(long parent);
+
     @Query("SELECT folder.type" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +

@@ -577,6 +577,7 @@ public class FragmentFolders extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 int months = args.getInt("months", -1);
                 long fid = args.getLong("folder");
+                boolean childs = args.getBoolean("childs");
 
                 if (months < 0 && !ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
@@ -591,15 +592,25 @@ public class FragmentFolders extends FragmentBase {
                     if (folder == null)
                         return null;
 
-                    if (months == 0) {
-                        db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
-                        db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
-                    } else if (months > 0) {
-                        db.folder().setFolderInitialize(folder.id, months * 30);
-                        db.folder().setFolderKeep(folder.id, months * 30);
+                    if (folder.selectable) {
+                        if (months == 0) {
+                            db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
+                            db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
+                        } else if (months > 0) {
+                            db.folder().setFolderInitialize(folder.id, months * 30);
+                            db.folder().setFolderKeep(folder.id, months * 30);
+                        }
+
+                        EntityOperation.sync(context, folder.id, true);
                     }
 
-                    EntityOperation.sync(context, folder.id, true);
+                    if (childs) {
+                        List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
+                        if (folders != null)
+                            for (EntityFolder child : folders)
+                                if (child.selectable)
+                                    EntityOperation.sync(context, child.id, true);
+                    }
 
                     if (folder.account != null) {
                         EntityAccount account = db.account().getAccount(folder.account);
