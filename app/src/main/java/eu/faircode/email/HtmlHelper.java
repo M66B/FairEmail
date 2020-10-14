@@ -914,11 +914,18 @@ public class HtmlHelper {
                                 int start = matcher.start();
                                 int end = matcher.end();
 
-                                // Workaround for links between parenthesis
-                                if (group.endsWith(")") &&
-                                        start > 0 && text.charAt(start - 1) == '(') {
-                                    group = group.substring(0, group.length() - 1);
+                                // Workarounds
+                                if (group.endsWith(".")) {
                                     end--;
+                                    group = group.substring(0, group.length() - 1);
+                                }
+                                if (group.startsWith("(")) {
+                                    start++;
+                                    group = group.substring(1);
+                                }
+                                if (group.endsWith(")")) {
+                                    end--;
+                                    group = group.substring(0, group.length() - 1);
                                 }
 
                                 boolean email = group.contains("@") && !group.contains(":");
