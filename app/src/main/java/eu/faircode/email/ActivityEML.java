@@ -24,7 +24,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -158,8 +157,7 @@ public class ActivityEML extends ActivityBase {
                 Result result = new Result();
 
                 ContentResolver resolver = context.getContentResolver();
-                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                try (InputStream is = descriptor.createInputStream()) {
+                try (InputStream is = resolver.openInputStream(uri)) {
 
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
@@ -406,8 +404,7 @@ public class ActivityEML extends ActivityBase {
                                             throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
 
                                         ContentResolver resolver = context.getContentResolver();
-                                        AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                                        try (InputStream is = descriptor.createInputStream()) {
+                                        try (InputStream is = resolver.openInputStream(uri)) {
 
                                             Properties props = MessageHelper.getSessionProperties();
                                             Session isession = Session.getInstance(props, null);

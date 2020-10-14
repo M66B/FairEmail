@@ -32,7 +32,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -704,8 +703,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
-                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                try (InputStream raw = new BufferedInputStream(descriptor.createInputStream())) {
+                try (InputStream raw = new BufferedInputStream(resolver.openInputStream(uri))) {
 
                     InputStream in;
                     if (TextUtils.isEmpty(password))

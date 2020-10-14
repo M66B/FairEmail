@@ -23,7 +23,6 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -101,8 +100,7 @@ public class ActivityDSN extends ActivityBase {
                 Result result = new Result();
 
                 ContentResolver resolver = context.getContentResolver();
-                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                try (InputStream is = descriptor.createInputStream()) {
+                try (InputStream is = resolver.openInputStream(uri)) {
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int length;
