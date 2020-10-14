@@ -83,6 +83,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -3969,8 +3970,12 @@ class Core {
                     if (!TextUtils.isEmpty(preview))
                         sb.append(preview);
                 }
-                if (sb.length() > 0)
-                    mbuilder.setContentText(sb.toString());
+                if (sb.length() > 0) {
+                    String ascii = Normalizer
+                            .normalize(sb.toString(), Normalizer.Form.NFKD)
+                            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+                    mbuilder.setContentText(ascii);
+                }
 
                 // Device
                 StringBuilder sbm = new StringBuilder();
