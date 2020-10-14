@@ -50,6 +50,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
+import android.print.PrintJob;
 import android.print.PrintManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
@@ -265,6 +266,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean found;
     private BoundaryCallbackMessages.SearchCriteria criteria = null;
     private boolean pane;
+
+    private WebView printWebView = null;
 
     private long message = -1;
     private OpenPgpServiceConnection pgpService;
@@ -7028,8 +7031,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onPrint(Bundle args) {
         new SimpleTask<String[]>() {
-            private WebView printWebView = null;
-
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
@@ -7186,9 +7187,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                             Log.i("Print queue job=" + jobName);
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
-                            printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                            PrintJob job = printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
+                            Log.i("Print queued job=" + job.getInfo());
                         } catch (Throwable ex) {
-                            Log.e(ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         } finally {
                             printWebView = null;
                         }
