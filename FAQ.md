@@ -2267,9 +2267,8 @@ However, texts and links are not easily distinguished,
 especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words.
 This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
-Links for less usual protocols like telnet and ftp will not automatically be linked.
-
-<br />
+Links for the tel, geo, rtsp and xmpp protocols will be recognized too,
+but links for less usual or less safe protocols like telnet and ftp will not be recognized.
 
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
