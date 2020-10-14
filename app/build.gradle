@@ -241,7 +241,6 @@ dependencies {
     def overscroll_version = "1.1.0"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
-    def jchardet_version = "2.3.2"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
@@ -402,9 +401,4 @@ dependencies {
     // http://www.freeutils.net/source/jcharset/
     // https://mvnrepository.com/artifact/net.freeutils/jcharset
     implementation "net.freeutils:jcharset:$jcharset_version"
-
-    // https://github.com/albfernandez/juniversalchardet
-    // https://www-archive.mozilla.org/projects/intl/chardet.html
-    // https://mvnrepository.com/artifact/com.github.albfernandez/juniversalchardet
-    implementation "com.github.albfernandez:juniversalchardet:$jchardet_version"
 }
