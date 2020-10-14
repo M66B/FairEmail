@@ -28,6 +28,12 @@ import java.nio.charset.UnsupportedCharsetException;
 class CharsetHelper {
     private static final int SAMPLE_SIZE = 1024;
 
+    static {
+        System.loadLibrary("compact_enc_det");
+    }
+
+    private static native String jni_detect(byte[] chars);
+
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
         byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
@@ -123,6 +129,7 @@ class CharsetHelper {
     static Charset detect(String text) {
         try {
             byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
+            Log.i("compact_enc_det=" + jni_detect(octets));
 
             int offset = 0;
             UniversalDetector detector = new UniversalDetector();

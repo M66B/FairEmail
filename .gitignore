@@ -24,3 +24,4 @@
 crowdin.properties
 keystore.properties
 /app/src/debug/res/xml/providers.xml
+/app/.cxx/

@@ -77,6 +77,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
     packagingOptions {
         exclude 'LICENSES'
         exclude 'META-INF/LICENSE.txt'
