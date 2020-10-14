@@ -930,6 +930,7 @@
             host="smtp.onmail.com"
             port="465"
             starttls="false" />
+        <!--- please login the account by OnMail app -->
     </provider>
     <provider
         name="HCCnet"
