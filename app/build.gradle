@@ -36,6 +36,26 @@ android {
         }
     }
 
+    // https://stackoverflow.com/questions/28948538/
+    // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
+    applicationVariants.all { variant ->
+        if (variant.getBuildType().isMinifyEnabled())
+            variant.assembleProvider.get().doLast {
+                for (file in variant.getMappingFileProvider().get().files)
+                    if (file != null && file.exists()) {
+                        def dir = "${rootDir}/app/schemas/mapping"
+                        def name = "$archivesBaseName-$variant.baseName-$file.name"
+                        def target = new File(dir, name)
+                        if (!target.exists())
+                            copy {
+                                from file
+                                into dir
+                                rename { String fileName -> name }
+                            }
+                    }
+            }
+    }
+
     android {
         buildFeatures {
             buildFeatures {
