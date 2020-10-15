@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.bugsnag.android.gradle'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -162,6 +163,19 @@ android {
         if (variant.buildType.name == "debug" &&
                 (flavors.contains("fdroid") || flavors.contains("play"))) {
             setIgnore(true)
+        }
+    }
+
+    bugsnag {
+        // https://docs.bugsnag.com/build-integrations/gradle/
+        uploadJvmMappings = false // disables upload of ProGuard/DexGuard/R8 mapping files
+        uploadNdkMappings = false // disables upload of NDK mapping files
+        reportBuilds = false // disables upload of build metadata
+        overwrite = true
+        builderName = "M66B"
+        sourceControl {
+            provider = "github-enterprise"
+            repository = "https://github.com/M66B/FairEmail"
         }
     }
 }

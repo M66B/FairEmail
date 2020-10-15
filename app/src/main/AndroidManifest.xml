@@ -121,6 +121,9 @@
         <meta-data
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="9d2d57476a0614974449a3ec33f2604a" />
 
         <activity
             android:name=".ActivityMain"
