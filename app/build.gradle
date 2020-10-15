@@ -107,10 +107,10 @@ android {
     }
 
     buildTypes {
+        // https://developer.android.com/studio/build/shrink-code
         release {
             debuggable = false
             minifyEnabled = true
-            useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -118,7 +118,6 @@ android {
             applicationIdSuffix '.debug'
             debuggable = true
             minifyEnabled = false
-            useProguard = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
