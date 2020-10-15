@@ -269,7 +269,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(149) ¿Cómo funciona el widget de conteo de mensajes no leídos?](#user-content-faq149)
 * [(150) ¿Puedes añadir la cancelación de invitaciones de calendario?](#user-content-faq150)
 * [(151) ¿Puedes añadir copia de seguridad/restauración de mensajes?](#user-content-faq151)
-* [(152) ¿Cómo puedo insertar un grupo de contacto?](#user-content-faq152)
+* [(152) ¿Cómo puedo insertar un grupo de contactos?](#user-content-faq152)
 * [(153) ¿Por qué la eliminación permanente de mensajes de Gmail no funciona?](#user-content-faq153)
 * [~~(154) ¿Puedes añadir favicons como fotos de contacto?~~](#user-content-faq154)
 * [(155) ¿Qué es un archivo winmail.dat?](#user-content-faq155)
@@ -608,7 +608,7 @@ FairEmail enviará el encabezado [Autocrypt](https://autocrypt.org/) para su uso
 
 Toda la gestión de claves se delega a la aplicación OpenKeychain por razones de seguridad. Esto también significa que FairEmail no almacena claves PGP.
 
-Se admite cifrado PGP en línea en los mensajes recibidos, pero las firmas PGP en línea y PGP en línea en los mensajes salientes no son soportados, mire [aquí](https://josefsson.org/inline-openpgp-considered-harmful.html) sobre por qué no.
+Se admite cifrado PGP embebido en los mensajes recibidos, pero las firmas PGP embebidas y PGP embebido en los mensajes salientes no son soportados, mire [aquí](https://josefsson.org/inline-openpgp-considered-harmful.html) sobre por qué no.
 
 Los mensajes sólo firmados o sólo cifrados no son una buena idea, por favor vea aquí por qué no:
 
@@ -660,7 +660,7 @@ Tenga en cuenta que una cadena de certificados siempre será inválida cuando no
 
 Consulte [aquí](https://support.google.com/pixelphone/answer/2844832?hl=en) cómo puede importar certificados en la tienda de claves Android.
 
-El uso de claves caducadas, mensajes cifrados/firmados en línea y tokens de seguridad de hardware no está soportado.
+El uso de claves caducadas, mensajes cifrados/firmados embebidos y tokens de seguridad de hardware no está soportado.
 
 Si está buscando un certificado S/MIME gratuito (de prueba), consulta [aquí](http://kb.mozillazine.org/Getting_an_SMIME_certificate) para ver las opciones. Por favor, asegúrese de [leer esto antes](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) si desea solicitar un certificado de S/MIME Actalis. Si está buscando un certificado S/MIME barato, he tenido buena experiencia con [Certum](https://www.certum.eu/en/smime-certificates/).
 
@@ -1490,7 +1490,7 @@ Si su proveedor requiere un método de autenticación no soportado, probablement
 <a name="faq63"></a>
 **(63) ¿Cómo se redimensionan las imágenes para mostrarlas en pantalla?**
 
-Imágenes grandes [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) y [JPEG](https://en.wikipedia.org/wiki/JPEG) en línea o adjuntas se redimensionarán automáticamente para mostrarlas en pantalla. Esto se debe a que los mensajes de correo electrónico están limitados en tamaño, dependiendo del proveedor mayormente entre 10 y 50 MB. Las imágenes se redimensionarán de forma predeterminada a un ancho y altura máximos de 1440 píxeles y se guardarán con un ratio de compresión del 90 %. Las imágenes se reducen usando factores numéricos enteros para reducir el uso de memoria y para conservar la calidad de imagen. Redimensionar automáticamente las imágenes adjuntas y/o en línea y el tamaño máximo de la imagen de destino se puede configurar en los ajustes de envío.
+Imágenes [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) y [JPEG](https://en.wikipedia.org/wiki/JPEG) embebidas o adjuntas grandes se redimensionarán automáticamente para mostrarlas en pantalla. Esto se debe a que los mensajes de correo electrónico están limitados en tamaño, dependiendo del proveedor mayormente entre 10 y 50 MB. Las imágenes se redimensionarán de forma predeterminada a un ancho y altura máximos de 1440 píxeles y se guardarán con un ratio de compresión del 90 %. Las imágenes se reducen usando factores numéricos enteros para reducir el uso de memoria y para conservar la calidad de imagen. Redimensionar automáticamente las imágenes adjuntas y/o embebidas y el tamaño máximo de la imagen de destino se puede configurar en los ajustes de envío.
 
 Si desea cambiar el tamaño de las imágenes para cada caso, puede utilizar [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) o una aplicación similar.
 
@@ -1512,7 +1512,7 @@ Si desea cambiar el tamaño de las imágenes para cada caso, puede utilizar [Sen
 <a name="faq65"></a>
 **(65) ¿Por qué se muestran atenuados algunos archivos adjuntos?**
 
-Los archivos adjuntos en línea (imágenes) se muestran atenuados. Se supone que [los adjuntos en línea](https://tools.ietf.org/html/rfc2183) se descargarán y mostrarán automáticamente, pero dado que FairEmail no siempre descarga archivos adjuntos automáticamente, vea también [estas Preguntas Frecuentes](#user-content-faq40), FairEmail muestra todos los tipos de archivos adjuntos. Para distinguir los archivos adjuntos en línea y regulares, los archivos adjuntos en línea se muestran atenuados.
+Los archivos adjuntos embebidos (imágenes) se muestran atenuados. Se supone que [los adjuntos embebidos](https://tools.ietf.org/html/rfc2183) se descargarán y mostrarán automáticamente, pero dado que FairEmail no siempre descarga archivos adjuntos automáticamente, vea también [estas Preguntas Frecuentes](#user-content-faq40), FairEmail muestra todos los tipos de archivos adjuntos. Para distinguir los archivos adjuntos embebidos y regulares, los archivos adjuntos embebidos se muestran atenuados.
 
 <br />
 
@@ -2563,7 +2563,7 @@ Remitente:
 * Expanda la sección de direcciones tocando en la flecha hacia abajo
 * Toca el icono de la campana para crear o editar un canal de notificación y cambiar el sonido de notificación
 
-El orden de precedencia es: sonido del remitente, sonido de la carpeta, sonido de la cuenta y sonido por defecto.
+El orden de prioridad es: sonido del remitente, sonido de la carpeta, sonido de la cuenta y sonido por defecto.
 
 Configurar un sonido de notificación para una cuenta, carpeta o remitente requiere Android 8 Oreo o posterior y es una característica pro.
 
