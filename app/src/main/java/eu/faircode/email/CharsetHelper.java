@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
 
 class CharsetHelper {
-    private static final int MAX_DETECT_SIZE = 8192;
+    private static final int MAX_SAMPLE_SIZE = 8192;
 
     static {
         System.loadLibrary("compact_enc_det");
@@ -129,16 +129,16 @@ class CharsetHelper {
             byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
 
             byte[] sample;
-            if (octets.length < MAX_DETECT_SIZE)
+            if (octets.length < MAX_SAMPLE_SIZE)
                 sample = octets;
             else {
-                sample = new byte[MAX_DETECT_SIZE];
-                System.arraycopy(octets, 0, sample, 0, MAX_DETECT_SIZE);
+                sample = new byte[MAX_SAMPLE_SIZE];
+                System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
             }
 
             Log.i("compact_enc_det sample=" + sample.length);
             String detected = jni_detect(sample);
-            Log.i("compact_enc_det result=" + detected);
+            Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected);
         } catch (Throwable ex) {
