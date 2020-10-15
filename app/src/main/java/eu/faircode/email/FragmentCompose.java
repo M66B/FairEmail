@@ -5229,10 +5229,11 @@ public class FragmentCompose extends FragmentBase {
     private ActivityBase.IKeyPressedListener onKeyPressedListener = new ActivityBase.IKeyPressedListener() {
         @Override
         public boolean onKeyPressed(KeyEvent event) {
-            if (event.isCtrlPressed() && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (event.isCtrlPressed() && event.getAction() == KeyEvent.ACTION_UP) {
                 switch (event.getKeyCode()) {
+                    case KeyEvent.KEYCODE_S:
                     case KeyEvent.KEYCODE_ENTER:
-                        onAction(R.id.action_check, "enter");
+                        onAction(R.id.action_check, "key");
                         return true;
                     case KeyEvent.KEYCODE_B:
                         if (etBody.hasSelection())
