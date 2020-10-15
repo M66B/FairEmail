@@ -463,7 +463,6 @@
     <string name="title_advanced_notify_remove_hint">輕掃掉並標記已讀郵件後，新郵件通知將始終被刪除</string>
     <string name="title_advanced_notify_manage_hint">點擊頻道名稱以設置頻道屬性</string>
     <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
-    <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
     <string name="title_advanced_notify_preview_all_hint">對於可顯示全文（最多5,000個字符）的可穿戴設備</string>
     <string name="title_advanced_notify_preview_only_hint">這會延遲通知的顯示，直到下載了消息文本為止</string>
     <string name="title_advanced_wearable_hint">通知僅在下載消息文本後發送到可穿戴設備</string>

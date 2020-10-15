@@ -328,7 +328,6 @@
     <string name="title_advanced_notify_remove_hint">Обавештење о новој поруци ће увек бити уклоњено на склањање превлачењем и на означавање поруке прочитаном</string>
     <string name="title_advanced_notify_manage_hint">Кликните на име канала да му поставите својства</string>
     <string name="title_advanced_notify_manage_default_hint">За постављање подразумеваних звукова, итд.</string>
-    <string name="title_advanced_notify_manage_service_hint">Да искључите трајна обавештења</string>
     <string name="title_advanced_wearable_hint">Обавештења се шаљу само на уређаје који се носе на телу пошто се текст поруке преузме</string>
     <string name="title_advanced_move_hint">Одредишна фасцикла се може подесити у поставкама налога</string>
     <string name="title_advanced_notify_no_grouping">Ова Андроид верзија не подржава груписање обавештења</string>

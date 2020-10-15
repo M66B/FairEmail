@@ -477,7 +477,6 @@
     <string name="title_advanced_notify_remove_hint">As novas notificacións de mensaxes borraranse sempre cando se arrastren e cando se marquen as mensaxes como lidas</string>
     <string name="title_advanced_notify_manage_hint">Premer no nome da canle para axustar as súas propiedades</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar os sons predeterminados, etc</string>
-    <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificación permanente</string>
     <string name="title_advanced_notify_preview_all_hint">Para que os reloxos e similares poidan mostrar o texto completo (até 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Isto adía a mostra de notificacións até que o texto da mensaxe sexa descargado</string>
     <string name="title_advanced_wearable_hint">As notificacións só se envían ao reloxo ou similar despois de que o texto da mensaxe sexa descargado</string>

@@ -87,6 +87,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ▶ %2$s</string>
+    <string name="title_to_from">%2$s ◀ %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d λεπτά</string>
     <string name="menu_exit">Έξοδος</string>
@@ -487,7 +489,6 @@
     <string name="title_advanced_notify_remove_hint">Οι ειδοποιήσεις νέων μηνυμάτων θα απομακρύνονται πάντα, όταν σαρώνονται με το δάχτυλο και όταν τα μηνύματα επισημαίνονται ως αναγνωσμένα</string>
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
     <string name="title_advanced_notify_manage_default_hint">Για τον ορισμό του προκαθορισμένου ήχου, κτλ</string>
-    <string name="title_advanced_notify_manage_service_hint">Για να απενεργοποιηθεί η μόνιμη ειδοποίηση</string>
     <string name="title_advanced_notify_preview_all_hint">Για φορετές συσκευές που μπορούν να προβάλλουν ολόκληρο το κείμενο (μέχρι 5.000 χαρακτήρες)</string>
     <string name="title_advanced_notify_preview_only_hint">Καθυστερεί την προβολή των ειδοποιήσεων μέχρι να έχει κατέβει το κείμενο</string>
     <string name="title_advanced_wearable_hint">Οι ειδοποιήσεις αποστέλλονται σε μια φορετή συσκευή μόνον αφού το κείμενο του μηνύματος έχει κατέβει</string>
@@ -603,6 +604,7 @@
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
+    <string name="title_synchronize_childs">Συγχρονισμός υποφακέλων</string>
     <string name="title_synchronize_more">Συγχρονισμός περισσοτέρων μηνυμάτων</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>

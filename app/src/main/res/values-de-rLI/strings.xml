@@ -89,6 +89,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ⮞ %2$s</string>
+    <string name="title_to_from">%2$s ⮜ %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d Minuten</string>
     <string name="menu_exit">Beenden</string>
@@ -492,7 +494,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
     <string name="title_advanced_notify_manage_hint">Tippen Sie auf den Kanalnamen, um die Kanaleigenschaften zu setzen</string>
     <string name="title_advanced_notify_manage_default_hint">Um den Standard-Ton einzustellen etc.</string>
-    <string name="title_advanced_notify_manage_service_hint">Um die permanente Benachrichtigung zu deaktivieren</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>
     <string name="title_advanced_notify_preview_only_hint">Dadurch wird die Anzeige der Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde.</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden nur nach dem Download des Nachrichtentextes an einen tragbaren Empfänger gesendet</string>
@@ -609,6 +610,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
+    <string name="title_synchronize_childs">Unterordner synchronisieren</string>
     <string name="title_synchronize_more">Weitere Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>

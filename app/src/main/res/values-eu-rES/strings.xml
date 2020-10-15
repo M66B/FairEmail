@@ -427,7 +427,6 @@
     <string name="title_advanced_notify_remove_hint">Mezu berrien jakinarazpenak kenduko dira hauek irakurtzean edo irakurritzat markatzean</string>
     <string name="title_advanced_notify_manage_hint">Sakatu kanalaren izenean kanalaren ezaugarriak ezartzeko</string>
     <string name="title_advanced_notify_manage_default_hint">Soinu eta abar lehenetsiak ezartzeko</string>
-    <string name="title_advanced_notify_manage_service_hint">Behin betiko jakinarazpenak desgaitzeko</string>
     <string name="title_advanced_notify_preview_all_hint">Testu osoa erakutsi dezaketen gailu mugikorretarako (5.000 karaktere arte)</string>
     <string name="title_advanced_wearable_hint">Jakinarazpenak bakarrik bidaltzen dira mugikorrera mezuen testua deskargatu ondoren</string>
     <string name="title_advanced_move_hint">Helburuko karpeta kontuaren ezarpenetan konfigura daiteke</string>

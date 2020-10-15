@@ -88,6 +88,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s ▶ %2$s</string>
+    <string name="title_to_from">%2$s ◀ %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuti</string>
     <string name="menu_exit">Esci</string>
@@ -491,7 +493,6 @@
     <string name="title_advanced_notify_remove_hint">Le notifiche di nuovo messaggio verranno sempre rimosse quando vengono eliminate via scorrimento e quando i messaggi vengono contrassegnati come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca il nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, ecc</string>
-    <string name="title_advanced_notify_manage_service_hint">Per disattivare la notifica permanente</string>
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
     <string name="title_advanced_notify_preview_only_hint">Questo ritardo la visualizzazione delle notifiche fino allo scaricamento del testo del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate solo a un indossabile dopo che il testo del messaggio è stato scaricato</string>
@@ -608,6 +609,7 @@
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
+    <string name="title_synchronize_childs">Sincronizza le sottocartelle</string>
     <string name="title_synchronize_more">Sincronizza altri messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>

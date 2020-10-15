@@ -441,7 +441,6 @@
     <string name="title_advanced_notify_remove_hint">Новите известия за съобщенията ще бъдат премахнати при изтриване и маркиране на прочетените съобщения</string>
     <string name="title_advanced_notify_manage_hint">Натиснете името на канала, за да зададете свойства на канала</string>
     <string name="title_advanced_notify_manage_default_hint">Задаване звука по подразбиране и т.н.</string>
-    <string name="title_advanced_notify_manage_service_hint">За деактивиране на постоянното известяване</string>
     <string name="title_advanced_notify_preview_all_hint">За преносими, които могат да показват целия текст (до 5000 знака)</string>
     <string name="title_advanced_wearable_hint">Известията се показват само след като текстът на съобщението бъде изтеглен</string>
     <string name="title_advanced_move_hint">Целевата папка може да бъде конфигурирана в настройките на профила</string>

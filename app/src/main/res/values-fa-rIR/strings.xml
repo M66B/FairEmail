@@ -23,7 +23,7 @@
         <item quantity="other">پیام</item>
     </plurals>
     <string name="page_folders">پوشه‌ها</string>
-    <string name="page_compose">ایجاد پیام</string>
+    <string name="page_compose">نوشتن</string>
     <string name="tile_synchronize">همگام سازی</string>
     <string name="tile_unseen">پیام‌های جدید</string>
     <string name="shortcut_refresh">نوسازی</string>
@@ -363,6 +363,8 @@
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
+    <string name="title_advanced_language">زبان</string>
+    <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_updates">بررسی بروزرسانی ها</string>
@@ -394,13 +396,13 @@
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_manage_default_hint">برای تنظیم صدای پیش‌فرض، وغیره</string>
-    <string name="title_advanced_notify_manage_service_hint">برای غیرفعال‌سازی اعلان همیشگی</string>
     <string name="title_advanced_notify_no_grouping">این نگارش اندروید گروه‌بندی اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_notify_no_channels">این نگارش اندروید کانال‌های اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_english_hint">این موجب شروع مجدد برنامه خواهد شد</string>
     <string name="title_advanced_experiments_hint">فهرستی از ویژگی‌های آزمایشی کنونی</string>
     <string name="title_advanced_cleanup_hint">این تمام پرونده‌های موقت را حذف خواهد کرد</string>
     <string name="title_advanced_never_favorite">هرگز مورد علاقه نشود</string>
+    <string name="title_advanced_edit_name">ویرایش نام</string>
     <string name="title_advanced_swipe_actions">تنظیم کنش‌های کشیدن</string>
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
@@ -427,6 +429,8 @@
     <string name="title_provider">فراهم کننده</string>
     <string name="title_custom">سفارشی</string>
     <string name="title_host">نام میزبان</string>
+    <string name="title_encryption">رمزنگاری</string>
+    <string name="title_encryption_none">هیچ کدام</string>
     <string name="title_allow_insecure">اجازه اتصال ناامن</string>
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>
@@ -665,6 +669,7 @@
     <string name="title_style_size_medium">متوسط</string>
     <string name="title_style_size_large">بزرگ</string>
     <string name="title_style_color">رنگ &#8230;</string>
+    <string name="title_style_align_start">آغاز</string>
     <string name="title_style_font">فونت</string>
     <string name="title_style_font_default">پیش‌فرض</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>

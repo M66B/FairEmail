@@ -425,7 +425,6 @@
     <string name="title_advanced_notify_remove_hint">Obvestila o novih sporočilih bodo vedno odstranjena, ko jih povlečete stran ali označite kot prebrana.</string>
     <string name="title_advanced_notify_manage_hint">Dotaknite se imena kanala, da nastavite lastnosti kanala.</string>
     <string name="title_advanced_notify_manage_default_hint">Za nastavitev privzetega zvoka itd.</string>
-    <string name="title_advanced_notify_manage_service_hint">Za onemogočanje trajnega obvestila.</string>
     <string name="title_advanced_notify_preview_all_hint">Za nosljive naprave, ki lahko prikažejo polno besedilo (do 5000 znakov).</string>
     <string name="title_advanced_wearable_hint">Obvestila se lahko pošljejo v nosljivo napravo samo, ko je bilo prejeto besedilo sporočila.</string>
     <string name="title_advanced_move_hint">Ciljno mapo lahko nastavite v nastavitvah računa.</string>

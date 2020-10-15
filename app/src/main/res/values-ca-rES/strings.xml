@@ -448,7 +448,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
     <string name="title_advanced_notify_manage_hint">Toqueu el nom del canal per configurar les propietats del canal</string>
     <string name="title_advanced_notify_manage_default_hint">Per definir el so per defecte, etc</string>
-    <string name="title_advanced_notify_manage_service_hint">Per deshabilitar la notificació permanent</string>
     <string name="title_advanced_notify_preview_all_hint">Per a wearables que puguin mostrar el text complet (fins a 5.000 caràcters)</string>
     <string name="title_advanced_wearable_hint">Les notificacions només s’envien a un portable després de descarregar el text del missatge</string>
     <string name="title_advanced_move_hint">La carpeta de destí pot ser configurada a la configuració del compte</string>

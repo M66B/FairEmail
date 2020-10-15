@@ -401,7 +401,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_notify_remove_hint">新しいメッセージ通知はスワイプで消したり、メッセージを既読にすると常に削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定</string>
-    <string name="title_advanced_notify_manage_service_hint">永続的な通知を無効にします</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示出来るウェアラブル(最大5,000文字)</string>
     <string name="title_advanced_wearable_hint">通知はメッセージテキストをダウンロード後、ウェアラブルにのみ送信されます</string>
     <string name="title_advanced_move_hint">ターゲットフォルダはアカウント設定で設定できます</string>

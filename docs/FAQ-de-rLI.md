@@ -662,7 +662,7 @@ Sehen Sie [hier](https://support.google.com/pixelphone/answer/2844832?hl=en), wi
 
 Die Verwendung von abgelaufenen Schlüsseln, inline­verschlüsselten oder -signierten Nachrichten und Hardware­sicherheitstoken wird nicht unterstützt.
 
-Wenn Sie ein kostenloses (Test) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+Wenn Sie ein kostenloses (Test) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. Wenn Sie ein günstiges S/MIME-Zertifikat suchen, habe ich mit [Certum](https://www.certum.eu/en/smime-certificates/) gute Erfahrungen gemacht.
 
 Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
 
@@ -847,7 +847,11 @@ The message *... +OK ...* likely means that a POP3 port (usually port number 995
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...* mean that FairEmail was not able to connect to the email server.
+The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+
+The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+
+The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
 The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
@@ -1092,7 +1096,7 @@ It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expr
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
-Wenn du eine "Catch-All-E-Mail-Adresse" eintragen möchtest, ist dieser Regex meistens in Ordnung:
+If you like to match a catch-all email address, this regex is mostly okay:
 
 ```
 .*
@@ -1130,11 +1134,11 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <br />
 
 <a name="faq36"></a>
-**(36) Wie werden Einstellungsdateien verschlüsselt?**
+**(36) How are settings files encrypted?**
 
-Kurze Version: AES 256 Bit
+Short version: AES 256 bit
 
-Lange Version:
+Long version:
 
 * Der 256-Bit-Schlüssel wird mit *PBKDF2WithHmacSHA1* erstellt, durch ein 128 Bit sicheres Zufallssalz und 65536 Wiederholungen
 * Die Verschlüsselung ist *AES/CBC/PKCS5Padding*
@@ -1142,7 +1146,7 @@ Lange Version:
 <br />
 
 <a name="faq37"></a>
-**(37) Wie werden Passwörter gespeichert?**
+**(37) How are passwords stored?**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
@@ -1887,9 +1891,7 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
-Links for less usual protocols like telnet and ftp will not automatically be linked.
-
-<br />
+Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized.
 
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**

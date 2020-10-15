@@ -510,7 +510,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_notify_remove_hint">Oznámenia o novej správe budú vždy odstránené, keď ich odmietnete potiahnutím a po označení správy ako prečítanej</string>
     <string name="title_advanced_notify_manage_hint">Kliknite na názov kanálu pre nastavenie jeho vlastností</string>
     <string name="title_advanced_notify_manage_default_hint">Pre nastavenie predvoleného zvuku atď</string>
-    <string name="title_advanced_notify_manage_service_hint">Ak chcete zakázať trvalé oznámenie</string>
     <string name="title_advanced_notify_preview_all_hint">Pre nositeľné zariadenia, ktoré dokážu zobraziť celý text (do 5000 znakov)</string>
     <string name="title_advanced_notify_preview_only_hint">Toto pozdrží zobrazenie oznámení, kým nebudú prevzaté aj texty správ</string>
     <string name="title_advanced_wearable_hint">Oznámenia sa odošlú na nositeľné zariadenia až po prevzatí textov správ</string>

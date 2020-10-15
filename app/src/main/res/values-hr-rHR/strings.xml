@@ -397,7 +397,6 @@
     <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala da biste postavili svojstva kanala</string>
     <string name="title_advanced_notify_manage_default_hint">Postavljanje zadanog zvuka itd</string>
-    <string name="title_advanced_notify_manage_service_hint">Da se onemogući trajna obavijest</string>
     <string name="title_advanced_notify_preview_all_hint">Za nošnjive uređaje koji mogu prikazati cijeli tekst (do 5.000 znakova)</string>
     <string name="title_advanced_wearable_hint">Obavijesti se šalju na nosive uređaje tek nakon što se preuzme tekst poruke</string>
     <string name="title_advanced_move_hint">Ciljna mapa može se konfigurirati u postavkama računa</string>
