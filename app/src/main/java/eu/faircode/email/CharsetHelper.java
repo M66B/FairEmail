@@ -138,7 +138,10 @@ class CharsetHelper {
 
             Log.i("compact_enc_det sample=" + sample.length);
             String detected = jni_detect(sample);
-            Log.e("compact_enc_det result=" + detected);
+            if ("US-ASCII".equals(detected))
+                Log.w("compact_enc_det result=" + detected);
+            else
+                Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected);
         } catch (Throwable ex) {
