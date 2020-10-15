@@ -844,7 +844,7 @@ public class MessageHelper {
                     String amsgid = null;
 
                     MessageParts parts = new MessageParts();
-                    getMessageParts(imessage, parts, null);
+                    getMessageParts(null, imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
                         if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
                             InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
@@ -1614,27 +1614,70 @@ public class MessageHelper {
         return address.getAddress();
     }
 
+    class PartHolder {
+        Multipart parent;
+        Part part;
+        String contentType;
+
+        PartHolder(Multipart parent, Part part, String contentType) {
+            this.parent = parent;
+            this.part = part;
+            this.contentType = contentType;
+        }
+    }
+
     class MessageParts {
-        private List<Part> plain = new ArrayList<>();
-        private List<Part> html = new ArrayList<>();
-        private List<Part> extra = new ArrayList<>();
+        private List<PartHolder> text = new ArrayList<>();
+        private List<PartHolder> extra = new ArrayList<>();
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
 
+        MessageParts select() {
+            Map<Multipart, List<PartHolder>> map = new HashMap<>();
+            for (PartHolder h : text)
+                if (h.parent != null) {
+                    if (!map.containsKey(h.parent))
+                        map.put(h.parent, new ArrayList<>());
+                    map.get(h.parent).add(h);
+                }
+
+            for (Multipart mp : map.keySet())
+                try {
+                    if (new ContentType(mp.getContentType())
+                            .getBaseType().equalsIgnoreCase("multipart/alternative")) {
+                        boolean plain = true;
+                        for (PartHolder h : map.get(mp))
+                            if (!"text/plain".equalsIgnoreCase(h.contentType)) {
+                                plain = false;
+                                break;
+                            }
+                        for (PartHolder h : map.get(mp))
+                            if (!plain && "text/plain".equalsIgnoreCase(h.contentType))
+                                text.remove(h);
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+
+            return this;
+        }
+
         Boolean isPlainOnly() {
-            if (plain.size() + html.size() + extra.size() == 0)
+            if (text.size() + extra.size() == 0)
                 return null;
-            return (html.size() == 0);
+            for (PartHolder h : text)
+                if (!"text/plain".equalsIgnoreCase(h.contentType))
+                    return false;
+            return true;
         }
 
         boolean hasBody() throws MessagingException {
-            List<Part> all = new ArrayList<>();
-            all.addAll(plain);
-            all.addAll(html);
+            List<PartHolder> all = new ArrayList<>();
+            all.addAll(text);
             all.addAll(extra);
 
-            for (Part p : all)
-                if (p.getSize() > 0)
+            for (PartHolder h : all)
+                if (h.part.getSize() > 0)
                     return true;
 
             return false;
@@ -1643,12 +1686,11 @@ public class MessageHelper {
         Long getBodySize() throws MessagingException {
             Long size = null;
 
-            List<Part> all = new ArrayList<>();
-            all.addAll(plain);
-            all.addAll(html);
+            List<PartHolder> all = new ArrayList<>();
+            all.addAll(text);
             all.addAll(extra);
-            for (Part p : all) {
-                int s = p.getSize();
+            for (PartHolder h : all) {
+                int s = h.part.getSize();
                 if (s >= 0)
                     if (size == null)
                         size = (long) s;
@@ -1670,21 +1712,18 @@ public class MessageHelper {
         }
 
         String getHtml(Context context) throws MessagingException, IOException {
-            if (plain.size() + html.size() == 0) {
+            if (text.size() == 0) {
                 Log.i("No body part");
                 return null;
             }
 
             StringBuilder sb = new StringBuilder();
 
-            List<Part> parts = new ArrayList<>();
-            if (html.size() > 0)
-                parts.addAll(html);
-            else
-                parts.addAll(plain);
+            List<PartHolder> parts = new ArrayList<>();
+            parts.addAll(text);
             parts.addAll(extra);
-            for (Part part : parts) {
-                if (part.getSize() > MAX_MESSAGE_SIZE) {
+            for (PartHolder h : parts) {
+                if (h.part.getSize() > MAX_MESSAGE_SIZE) {
                     warnings.add(context.getString(R.string.title_insufficient_memory));
                     return null;
                 }
@@ -1692,7 +1731,7 @@ public class MessageHelper {
                 String result;
 
                 try {
-                    Object content = part.getContent();
+                    Object content = h.part.getContent();
                     Log.i("Content class=" + (content == null ? null : content.getClass().getName()));
 
                     if (content == null) {
@@ -1718,7 +1757,7 @@ public class MessageHelper {
                 // Get content type
                 ContentType ct;
                 try {
-                    ct = new ContentType(part.getContentType());
+                    ct = new ContentType(h.part.getContentType());
                 } catch (ParseException ex) {
                     Log.e(ex);
                     ct = new ContentType();
@@ -1732,7 +1771,7 @@ public class MessageHelper {
                 if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())))
                     charset = null;
 
-                if (part.isMimeType("text/plain")) {
+                if (h.part.isMimeType("text/plain")) {
                     if (charset == null) {
                         Charset detected = CharsetHelper.detect(result);
                         if (detected == null) {
@@ -1749,7 +1788,7 @@ public class MessageHelper {
                     if ("flowed".equalsIgnoreCase(ct.getParameter("format")))
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
-                } else if (part.isMimeType("text/html")) {
+                } else if (h.part.isMimeType("text/html")) {
                     if (charset == null) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1779,8 +1818,8 @@ public class MessageHelper {
                                 }
                         }
                     }
-                } else if (part.isMimeType("message/delivery-status") ||
-                        part.isMimeType("message/disposition-notification")) {
+                } else if (h.part.isMimeType("message/delivery-status") ||
+                        h.part.isMimeType("message/disposition-notification")) {
                     StringBuilder report = new StringBuilder();
                     report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
                     for (String line : result.split("\\r?\\n")) {
@@ -2069,8 +2108,8 @@ public class MessageHelper {
                         "application/x-pkcs7-signature".equals(protocol)) {
                     Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
-                        getMessageParts(multipart.getBodyPart(0), parts, null);
-                        getMessageParts(multipart.getBodyPart(1), parts,
+                        getMessageParts(null, multipart.getBodyPart(0), parts, null);
+                        getMessageParts(null, multipart.getBodyPart(1), parts,
                                 "application/pgp-signature".equals(protocol)
                                         ? EntityAttachment.PGP_SIGNATURE
                                         : EntityAttachment.SMIME_SIGNATURE);
@@ -2102,7 +2141,7 @@ public class MessageHelper {
                     Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
                         // Ignore header
-                        getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                        getMessageParts(null, multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                         return parts;
                     }
                 }
@@ -2111,10 +2150,10 @@ public class MessageHelper {
                 ContentType ct = new ContentType(part.getContentType());
                 String smimeType = ct.getParameter("smime-type");
                 if ("enveloped-data".equals(smimeType)) {
-                    getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                    getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
                 } else if ("signed-data".equals(smimeType)) {
-                    getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                    getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
                 }
             }
@@ -2122,11 +2161,11 @@ public class MessageHelper {
             Log.w(ex);
         }
 
-        getMessageParts(imessage, parts, null);
-        return parts;
+        getMessageParts(null, imessage, parts, null);
+        return parts.select();
     }
 
-    private void getMessageParts(Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
+    private void getMessageParts(Multipart parent, Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
         try {
             Log.d("Part class=" + part.getClass() + " type=" + part.getContentType());
             if (part.isMimeType("multipart/*")) {
@@ -2143,7 +2182,7 @@ public class MessageHelper {
 
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
-                        getMessageParts(multipart.getBodyPart(i), parts, encrypt);
+                        getMessageParts(multipart, multipart.getBodyPart(i), parts, encrypt);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
@@ -2185,18 +2224,14 @@ public class MessageHelper {
                     contentType = new ContentType(Helper.guessMimeType(filename));
                 }
 
-                boolean plain = "text/plain".equalsIgnoreCase(contentType.getBaseType());
-                boolean html = "text/html".equalsIgnoreCase(contentType.getBaseType());
-                if ((plain || html) &&
+                String ct = contentType.getBaseType();
+                if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
                         !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
-                    if (plain)
-                        parts.plain.add(part);
-                    else if (html)
-                        parts.html.add(part);
+                    parts.text.add(new PartHolder(parent, part, ct));
                 } else {
                     if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
                             "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()))
-                        parts.extra.add(part);
+                        parts.extra.add(new PartHolder(parent, part, ct));
 
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
