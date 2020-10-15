@@ -298,7 +298,7 @@ public class HtmlHelper {
             Log.e(ex);
             Document document = Document.createShell("");
             Element strong = document.createElement("strong");
-            strong.text(Log.formatThrowable(ex));
+            strong.text(android.util.Log.getStackTraceString(ex));
             document.body().appendChild(strong);
             return document;
         }
@@ -312,7 +312,7 @@ public class HtmlHelper {
             Log.e(ex);
             Document document = Document.createShell("");
             Element strong = document.createElement("strong");
-            strong.text(Log.formatThrowable(ex));
+            strong.text(android.util.Log.getStackTraceString(ex));
             document.body().appendChild(strong);
             return document;
         }
@@ -389,7 +389,8 @@ public class HtmlHelper {
             if (tag.contains(":")) {
                 if (display_hidden ||
                         ns == null || tag.startsWith(ns)) {
-                    e.tagName(tag.split(":")[1]);
+                    String[] nstag = tag.split(":");
+                    e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
                     Log.i("Updated tag=" + tag + " to=" + e.tagName());
                 } else {
                     e.remove();
