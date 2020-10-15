@@ -33,6 +33,7 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -5955,6 +5956,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.message().setMessageFts(message.id, false);
 
                                         db.setTransactionSuccessful();
+                                    } catch (SQLiteConstraintException ex) {
+                                        // Message removed
+                                        Log.w(ex);
                                     } finally {
                                         db.endTransaction();
                                     }
@@ -6580,6 +6584,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.identity().setIdentitySignKeyAlias(message.identity, alias);
 
                     db.setTransactionSuccessful();
+                } catch (SQLiteConstraintException ex) {
+                    // Message removed
+                    Log.w(ex);
                 } finally {
                     db.endTransaction();
                 }
