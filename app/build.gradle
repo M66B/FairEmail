@@ -110,7 +110,7 @@ android {
         // https://developer.android.com/studio/build/shrink-code
         release {
             debuggable = false
-            minifyEnabled = false
+            minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
