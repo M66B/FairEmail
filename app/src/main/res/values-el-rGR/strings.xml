@@ -84,6 +84,7 @@
     <string name="title_notification_alert">\'%1$s\' ειδοποίηση διακομιστή</string>
     <string name="title_notification_sending_left">Προσπάθειες που απομένουν: %1$d</string>
     <string name="title_notification_sending_failed">Η αποστολή σε %1$s απέτυχε</string>
+    <string name="title_notification_redacted">Αφαιρέθηκε: Ενεργοποίηση ταυτοποίησης με PIN ή βιομετρικά στοιχεια</string>
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
@@ -272,6 +273,7 @@
     <string name="title_advanced_metered">Χρήση συνδέσεων με ογκοχρέωση</string>
     <string name="title_advanced_download">Αυτόματο κατέβασμα μηνυμάτων και συνημμένων με σύνδεση ογκοχρέωσης μέχρι</string>
     <string name="title_advanced_roaming">Κατέβασμα μηνυμάτων και συνημμένων σε λειτουργία περιαγωγής</string>
+    <string name="title_advanced_rlah">Περιήγηση όπως στο σπίτι</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>

@@ -494,6 +494,7 @@
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
+    <string name="title_advanced_notify_manage_service_hint">Para desactivar la notificación de \'monitoreo\'</string>
     <string name="title_advanced_notify_preview_all_hint">Para los wearables que pueden mostrar el texto completo (hasta 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Esto retrasa la visualización de notificaciones hasta que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
@@ -610,6 +611,7 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
+    <string name="title_synchronize_childs">Sincronizar carpetas hijas</string>
     <string name="title_synchronize_more">Sincronizar más mensajes</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>

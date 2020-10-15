@@ -481,6 +481,7 @@
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
+    <string name="title_advanced_notify_manage_service_hint">禁用“监视”通知</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
     <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示直到消息文本下载完成</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>

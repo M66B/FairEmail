@@ -847,37 +847,37 @@ El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente
 
 Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parámetro HELO no se ajusta a la sintaxis RFC ...* puede resolverse cambiando la configuración de identidad avanzada *Utilice la dirección IP local en lugar del nombre de host*.
 
-The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+El error *... No se pudo conectar al host ...* significa que no hubo respuesta del servidor de correo en un tiempo razonable (20 segundos por defecto). Esto indica principalmente problemas de conectividad a internet, posiblemente causados por una VPN o por una aplicación de firewall. Puede intentar aumentar el tiempo de espera de conexión en la configuración de conexión de FairEmail, para cuando el servidor de correo es realmente lento.
 
-El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+El error *... Conexión rechazada...* significa que el servidor de correo electrónico o algo entre el servidor de correo y la aplicación, como un cortafuegos, rechazó activamente la conexión.
 
-El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+El error *... Red inaccesible ...* significa que el servidor de correo electrónico no fue accesible a través de la conexión a internet actual, por ejemplo, porque el tráfico de internet sólo está restringido al tráfico local.
 
-The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+El error *... Host no resuelto ...* o "*... No se puede resolver el host ...* significa que la dirección del servidor de correo no se ha podido resolver. Esto puede ser causado por el bloqueo de anuncios o por un servidor [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) inaccesible o que no funciona correctamente.
 
-El error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+El error *... Software causó fin de conexión ...* significa que el servidor de correo o algo entre FairEmail y el servidor de correo terminó activamente una conexión existente. Esto puede suceder, por ejemplo, cuando la conectividad se perdió abruptamente. Un ejemplo típico es activar el modo avión.
 
-Los errores *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+Los errores *... BYE Cerrando sesión ...*, *... Conexión restablecida por el par ...* significa que el servidor de correo ha terminado activamente una conexión existente.
 
-El error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+El error *... Conexión cerrada por el par ...* podría ser causada por un servidor de Exchange no actualizado, vea [aquí](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) para más información.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Los errores *... Error de lectura ...*, *... Error de escritura ...*, *... Tiempo de lectura agotado ...*, *... Conexión rota ...* significa que el servidor de correo electrónico ya no responde o que la conexión a internet es mala.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+El error *... Fin inesperado de flujo de entrada zlib ...* significa que no todos los datos fueron recibidos, posiblemente debido a una conexión mala o interrumpida.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+El error *... fallo de conexión ...* podría indicar [Demasiadas conexiones simultáneas](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+La advertencia *... Codificación no soportada...* significa que el conjunto de caracteres del mensaje es desconocido o no soportado. FairEmail asumirá ISO-8859-1 (Latin1), que en la mayoría de los casos resultará en mostrar el mensaje correctamente.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Por favor, [vea aquí](#user-content-faq4) para los errores *... No confiable ... no en el certificado ...*, *... Certificado de seguridad no válido (no se puede verificar la identidad del servidor) ...* o *... Trust anchor for certification path not found ...*
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+Por favor, [vea aquí](#user-content-faq127) para el error *... Argumento(s) HELO sintácticamente inválido(s) ...*.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+Por favor, [vea aquí](#user-content-faq41) para el error *... Handshake falló ...*.
 
-See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+Vea [aquí](https://linux.die.net/man/3/connect) para qué significan códigos de error como EHOSTUNREACH y ETIMEDOUT.
 
-Possible causes are:
+Las causas posibles son:
 
 * Un cortafuegos o router está bloqueando conexiones al servidor
 * El nombre de host o número de puerto no es válido
@@ -887,13 +887,13 @@ Possible causes are:
 * El servidor de correo electrónico se niega a aceptar un mensaje, por ejemplo porque es demasiado grande o contiene enlaces inaceptables
 * Hay demasiadas conexiones al servidor, vea también la siguiente pregunta
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Muchas redes Wi-Fi públicas bloquean el correo electrónico saliente para prevenir el spam. A veces puede solucionar esto usando otro puerto SMTP. Consulte la documentación del proveedor para ver los números de puerto utilizables.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Si estás usando una [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), el proveedor de VPN puede bloquear la conexión porque está intentando prevenir el spam de forma demasiado agresiva. Tenga en cuenta que [Google Fi](https://fi.google.com/) también está usando una VPN.
 
-**Send errors**
+**Enviar errores**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+Los servidores SMTP pueden rechazar los mensajes por [varias razones](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Los mensajes demasiado grandes y el filtro de spam de un servidor de correo electrónico son las razones más comunes.
 
 * El límite de tamaño del archivo adjunto para Gmail [es de 25 MB](https://support.google.com/mail/answer/6584)
 * El límite de tamaño de archivo adjunto para Outlook y Office 365 [es de 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -902,114 +902,114 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *501 Error de sintaxis - línea demasiado larga* es a menudo causada por el uso de un encabezado Autocrypt largo
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
 
-**Gmail errors**
+**Errores de Gmail**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+La autorización de las cuentas de Gmail configuradas con el asistente rápido debe actualizarse periódicamente a través del [administrador de cuentas de Android](https://developer.android.com/reference/android/accounts/AccountManager). Esto requiere permisos de contactos/cuenta y conectividad a internet.
 
-El error *... La autenticación falló ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+El error *... La autenticación falló ... Cuenta no encontrada ...* significa que una cuenta de Gmail previamente autorizada fue eliminada del dispositivo.
 
-The errors *... La autenticación falló ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Los errores *... La autenticación falló ... Ningún token al actualizar...* significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail.
 
-The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+El error *... La autenticación falló ... Credenciales inválidas... error de red...* significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail debido a problemas con la conexión a Internet
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
+El error *... La autenticación falló ... Credenciales inválidas ...* podrían ser causadas por haber revocado los permisos requeridos de cuenta/contactos. Simplemente inicie el asistente (pero no seleccione una cuenta) para conceder los permisos necesarios de nuevo.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+El error *... ServiceDisabled ...* puede ser causado por inscribirse en el [Programa de Protección Avanzada](https://landing.google.com/advancedprotection/): "*Para leer su correo electrónico, puede (debe) usar Gmail - No podrá usar su cuenta de Google con algunas (todas) aplicaciones & servicios que requieren acceso a datos sensibles como sus correos electrónicos*", ver [aquí](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+En caso de duda, puede solicitar [soporte](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) ¿Por qué me alerta ... ?**
 
 *General*
 
-Alerts are warning messages sent by email servers.
+Las alertas son mensajes de advertencia enviados por los servidores de correo electrónico.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Demasiadas conexiones simultáneas* o *Número máximo de conexiones excedido*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Esta alerta se enviará cuando haya demasiadas conexiones de carpetas para la misma cuenta de correo electrónico al mismo tiempo.
 
-Possible causes are:
+Las causas posibles son:
 
 * Hay varios clientes de correo electrónico conectados a la misma cuenta
 * El mismo cliente de correo está conectado varias veces a la misma cuenta
 * Las conexiones anteriores terminaron abruptamente, por ejemplo, al perder abruptamente la conectividad a Internet
 
-First try to wait some time to see if the problem resolves itself, else:
+Primero trate de esperar algún tiempo para ver si el problema se resuelve por sí mismo, de lo contrario:
 
 * cambie a comprobar periódicamente los mensajes en la configuración de recepción, lo que dará como resultado abrir carpetas una a la vez
 * o configure algunas carpetas para sondear en lugar de sincronizar (mantenga presioanda una carpeta de la lista de carpetas, editar propiedades)
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+El número máximo de conexiones de carpetas simultáneas para Gmail es 15, para que pueda sincronizar como máximo 15 carpetas simultáneamente en *todos* sus dispositivos al mismo tiempo. Por esta razón, las carpetas de *usuario* de Gmail están configuradas para sondear por defecto en lugar de sincronizar siempre. Cuando sea necesario o deseado, puede cambiar esto manteniendo presionada una carpeta en la lista de carpetas y seleccionando *Editar propiedades*. Vea [aquí](https://support.google.com/mail/answer/7126229) para más detalles.
 
-When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
+Al usar un servidor Dovecot, puede que quiera cambiar la configuración [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) ¿Qué es explorar mensajes en el servidor?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+Explorar mensajes en el servidor obtendrá los mensajes del servidor de correo en tiempo real cuando llegue al final de la lista de mensajes sincronizados, incluso cuando la carpeta está configurada para no sincronizar. Puede desactivar esta función en la configuración avanzada de la cuenta.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) ¿Por qué no puedo seleccionar/abrir/guardar una imagen, adjunto o archivo?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Cuando un elemento de menú para seleccionar/abrir/guardar un archivo está deshabilitado (atenuado) o cuando recibe el mensaje *El framework de acceso a almacenamiento no está disponible*, probablemente no está presente el [framework de acceso a almacenamiento](https://developer.android.com/guide/topics/providers/document-provider), un componente estándar de Android. Esto puede deberse a que su ROM personalizada no la incluye o porque fue eliminada activamente (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail no solicita permisos de almacenamiento, por lo que este framework es necesario para seleccionar archivos y carpetas. Ninguna aplicación, excepto tal vez gestores de archivos, dirigidos a Android 4.4 KitKat o posterior debería pedir permisos de almacenamiento porque permitiría el acceso a *todos* los archivos.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+El framework de acceso al almacenamiento es proporcionado por el paquete *com.android.documentsui*, que es visible como la aplicación *Archivos* en algunas versiones de Android (por ejemplo en OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Puede habilitar (otra vez) el framework de acceso de almacenamiento con este comando adb:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativamente, puede ser capaz de habilitar la aplicación *Archivos* de nuevo usando la configuración de la aplicación de Android.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) ¿Puedo ayudar a traducir FairEmail en mi propio idioma?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Sí, puede traducir los textos de FairEmail a tu propio idioma [en Crowdin](https://crowdin.com/project/open-source-email). El registro es gratuito.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Si desea que su nombre o alias sea incluido en la lista de colaboradores en *Acerca de* de la aplicación, por favor [póngase en contacto conmigo](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) ¿Cómo puedo distinguir entre imágenes incrustadas y externas?**
 
-External image:
+Imagen externa:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Imagen externa](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Imagen incrustada:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Imagen incrustada](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Imagen rota:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Imagen rota](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Tenga en cuenta que la descarga de imágenes externas desde un servidor remoto puede ser usada para registrar que sí vio un mensaje, lo que probablemente no quiera si el mensaje es spam o malicioso.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) ¿Cómo puedo administrar las notificaciones de la barra de estado?**
 
-In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+En la configuración encontrará un botón *Administrar notificaciones* para navegar directamente a la configuración de notificaciones de Android para FairEmail.
 
-On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
+En Android 8.0 Oreo y posteriores puede administrar las propiedades de los canales de notificación individuales, por ejemplo para establecer un sonido de notificación específico o para mostrar notificaciones en la pantalla de bloqueo.
 
-FairEmail has the following notification channels:
+FairEmail tiene los siguientes canales de notificación:
 
 * Servicio: usado para la notificación del servicio de sincronización, vea también [éstas Preguntas Frecuentes](#user-content-faq2)
 * Enviar: usado para la notificación del servicio de envío
@@ -1017,98 +1017,98 @@ FairEmail has the following notification channels:
 * Alertas: usado para notificaciones de advertencia
 * Errores: usado para notificaciones de error
 
-See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
+Vea [aquí](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) para más detalles sobre los canales de notificación. Resumiendo: toque el nombre del canal de notificación para acceder a la configuración del canal.
 
-On Android before Android 8 Oreo you can set the notification sound in the settings.
+En Android antes de Android 8.0 Oreo puede configurar el sonido de notificación en los ajustes.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+Vea [estas Preguntas Frecuentes](#user-content-faq21) si su dispositivo tiene una luz de notificación.
 
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) ¿Cómo puedo recibir notificaciones de mensajes nuevos para otras carpetas?**
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Sólo mantenga presionada una carpeta, seleccione *Editar propiedades*, y habilite *Mostrar en bandeja de entrada unificada* o *Notificar mensajes nuevos* (disponible en Android 7 Nougat y posteriores solamente) y toque *Guardar*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) ¿Cómo puedo usar los ajustes rápidos proporcionados?**
 
-There are quick settings (settings tiles) available to:
+Hay ajustes rápidos (mosaicos de configuración) disponibles para:
 
 * activar/desactivar la sincronización globalmente
 * mostrar el número de mensajes nuevos y marcarlos como vistos (no leídos)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Los ajustes rápidos requieren Android 7.0 Nougat o posterior. El uso de mosaicos de configuración se explica [aquí](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) ¿Cómo puedo utilizar los accesos directos proporcionados?**
 
-There are shortcuts available to:
+Hay accesos directos disponibles para:
 
 * redactar un nuevo mensaje a un contacto favorito
 * configurar cuentas, identidades, etc
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Los accesos directos requieren Android 7.1 Nougat o posterior. El uso de accesos directos se explica [aquí](https://support.google.com/android/answer/2781850).
 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) ¿Cómo puedo comprobar si leer el correo electrónico es realmente seguro?**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+Puede utilizar [Email Privacy Tester](https://www.emailprivacytester.com/) para esto.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) ¿Por qué no funcionan las direcciones del remitente editadas?**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+La mayoría de los proveedores sólo aceptan direcciones validadas cuando envían mensajes para prevenir el spam.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+Por ejemplo, Google modifica los encabezados de mensajes como éste para direcciones *no verificadas*:
 
 ```
 De: Alguien <somebody@example.org>
 X-Google-Original-From: Alguien <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+Esto significa que la dirección del remitente editada fue automáticamente reemplazada por una dirección verificada antes de enviar el mensaje.
 
-Note that this is independent of receiving messages.
+Tenga en cuenta que esto es independiente de recibir mensajes.
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) ¿Cómo se emparejan las identidades?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Como es esperable, las identidades se emparejan por cuenta. Para mensajes entrantes serán comprobadas las direcciones *a*, *cc*, *cco*, *de* y *(X-)delivered/envelope/original-to* (en este orden) y para mensajes salientes (borradores, bandeja de salida y enviados) solo se comprobarán las direcciones *de*.
 
-The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
+La dirección coincidente se mostrará como *vía* en la sección de direcciones de los mensajes recibidos (entre el encabezado del mensaje y el texto del mensaje).
 
-Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
+Tenga en cuenta que las identidades deben estar habilitadas para poder ser emparejadas y que las identidades de otras cuentas no serán consideradas.
 
-Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
+El emparejamiento sólo se hará una vez al recibir un mensaje, por lo que cambiar la configuración no cambiará los mensajes existentes. Sin embargo, puede borrar los mensajes locales manteniendo presionada una carpeta en la lista de carpetas y sincronizando los mensajes de nuevo.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match the username of an email address (the part before the @ sign).
+Es posible configurar una [expresión regular](https://en.wikipedia.org/wiki/Regular_expression) en la configuración de identidad para que coincida con el nombre de usuario de una dirección de correo electrónico (la parte antes del signo @).
 
-Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+Tenga en cuenta que el nombre de dominio (la parte después del signo @) siempre debe ser igual al nombre de dominio de la identidad.
 
-If you like to match a catch-all email address, this regex is mostly okay:
+Si desea emparejar una dirección de correo electrónico comodín, ésta expresión regular está generalmente bien:
 
 ```
 .*
 ```
 
-If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
+Si desea emparejar con las direcciones de correo electrónico de propósito especial abc@ejemplo.com y xyx@ejemplo.com y también le gustaría tener una dirección de correo electrónico de respaldo main@ejemplo.com, podría hacer algo así:
 
 * Identidad: abc@ejemplo.com; regex: **(?i)abc**
 * Identidad: xyz@ejemplo.com; regex: **(?i)xyz**
 * Identidad: main@ejemplo.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
+Las identidades coincidentes se pueden utilizar para colorear los mensajes. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
 <br />
 
