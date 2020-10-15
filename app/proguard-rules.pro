@@ -34,11 +34,17 @@
 #Stack traces, InvalidationTracker reflection
 -keepnames class androidx.** {*;}
 
+-dontnote androidx.**
+-dontnote android.support.**
+-dontnote kotlin.**
+
 #IAB
 -keep class com.android.billingclient.** {*;}
 -keepnames class com.android.billingclient.** {*;}
 -keep class com.android.vending.billing.** {*;}
 -keepnames class com.android.vending.billing.** {*;}
+
+-dontnote com.android.billingclient.**
 
 #JavaMail
 -keep class javax.** {*;}
