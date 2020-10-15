@@ -1,5 +1,7 @@
 
-cmake_minimum_required(VERSION 3.6)
+# https://developer.android.com/studio/projects/configure-cmake
+
+cmake_minimum_required(VERSION 3.4.1)
 
 add_library(compact_enc_det SHARED
 	src/main/jni/charset.cc
