@@ -948,6 +948,9 @@ class Core {
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
+        if (folder.id.equals(target.id))
+            return;
+
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
         // Get source messages
@@ -1105,6 +1108,8 @@ class Core {
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
+        if (folder.id.equals(target.id))
+            return;
 
         // Move from trash/drafts only
         if (!EntityFolder.TRASH.equals(folder.type) &&

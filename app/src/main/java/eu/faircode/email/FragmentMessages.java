@@ -2698,6 +2698,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (account.protocol == EntityAccount.TYPE_IMAP)
                             result.accounts.add(account);
 
+                if (result.folders.size() > 1)
+                    result.folders = new ArrayList<>();
+
                 return result;
             }
 
@@ -7188,7 +7191,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Log.i("Print queue job=" + jobName);
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
                             PrintJob job = printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
-                            EntityLog.log(context,"Print queued job=" + job.getInfo());
+                            EntityLog.log(context, "Print queued job=" + job.getInfo());
                         } catch (Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         } finally {
