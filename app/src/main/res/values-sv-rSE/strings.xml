@@ -492,6 +492,7 @@
     <string name="title_advanced_notify_remove_hint">Nya meddelandeaviseringar kommer alltid att tas bort när de sveps bort och när meddelanden markeras som lästa</string>
     <string name="title_advanced_notify_manage_hint">Tryck på kanalens namn för att ange kanalens egenskaper</string>
     <string name="title_advanced_notify_manage_default_hint">För att ställa in standardljudet, etc</string>
+    <string name="title_advanced_notify_manage_service_hint">För att inaktivera meddelandet \"övervakning\"</string>
     <string name="title_advanced_notify_preview_all_hint">För handburna enheter som kan visa fulltext (upp till 5000 tecken)</string>
     <string name="title_advanced_notify_preview_only_hint">Denna försening visar aviseringar tills meddelandet har laddats ner</string>
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>

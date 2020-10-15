@@ -493,6 +493,7 @@
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
+    <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
     <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
     <string name="title_advanced_notify_preview_only_hint">Ceci retarde l\'affichage des notifications jusqu\'à ce que le texte du message ait été téléchargé</string>
     <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté qu’après le téléchargement du texte du message</string>

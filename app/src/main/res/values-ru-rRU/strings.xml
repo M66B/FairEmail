@@ -513,6 +513,7 @@
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
+    <string name="title_advanced_notify_manage_service_hint">Для отключения контролирующего уведомления</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>
     <string name="title_advanced_notify_preview_only_hint">Это задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>

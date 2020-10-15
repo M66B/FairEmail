@@ -99,7 +99,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%2$sadresa expeditorului adresa dedtinatarului%1$s</string>
+    <string name="title_from_to">%1$s ▶ %2$s</string>
+    <string name="title_to_from">%2$s ◀ %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minute</string>
     <string name="menu_exit">Ieșire</string>
@@ -502,6 +503,7 @@
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului pentru a-l configura</string>
     <string name="title_advanced_notify_manage_default_hint">Pentru a configura sunetul implicit etc</string>
+    <string name="title_advanced_notify_manage_service_hint">Pentru a dezactiva notificarea de „monitorizare”</string>
     <string name="title_advanced_notify_preview_all_hint">Pentru accesoriile de purtat care pot arăta textul complet (până la 5000 caractere)</string>
     <string name="title_advanced_notify_preview_only_hint">Aceasta întârzie notificările până când textul mesajului a fost descărcat</string>
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
@@ -618,6 +620,7 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
+    <string name="title_synchronize_childs">Sincronizare dosare secundare</string>
     <string name="title_synchronize_more">Sincronizează mai multe mesaje</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>
