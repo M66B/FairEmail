@@ -78,7 +78,7 @@
         Crear y usar reglas es una característica Pro.
     </string>
     <string name="title_notification_sending">Enviando mensajes</string>
-    <string name="title_notification_waiting">Esperando conexión</string>
+    <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
@@ -346,7 +346,7 @@
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
-    <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
+    <string name="title_advanced_double_tap">Doble toque para marcar mensaje como leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_volumenav">Volumen arriba/abajo para ir a la conversación siguiente/anterior</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
@@ -497,7 +497,7 @@
     <string name="title_advanced_notify_manage_service_hint">Para desactivar la notificación de \'monitoreo\'</string>
     <string name="title_advanced_notify_preview_all_hint">Para los wearables que pueden mostrar el texto completo (hasta 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Esto retrasa la visualización de notificaciones hasta que el texto del mensaje haya sido descargado</string>
-    <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
+    <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos wearables luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>

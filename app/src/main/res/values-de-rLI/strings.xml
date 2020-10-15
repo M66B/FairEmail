@@ -494,7 +494,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
     <string name="title_advanced_notify_manage_hint">Tippen Sie auf den Kanalnamen, um die Kanaleigenschaften zu setzen</string>
     <string name="title_advanced_notify_manage_default_hint">Um den Standard-Ton einzustellen etc.</string>
-    <string name="title_advanced_notify_manage_service_hint">So deaktivieren Sie die „Überwachungs”-Benachrichtigung</string>
+    <string name="title_advanced_notify_manage_service_hint">So deaktivieren Sie die Überwachungs-Benachrichtigung</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>
     <string name="title_advanced_notify_preview_only_hint">Dadurch wird die Anzeige der Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde.</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden nur nach dem Download des Nachrichtentextes an einen tragbaren Empfänger gesendet</string>
