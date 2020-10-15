@@ -578,7 +578,7 @@
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
     <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc</string>
-    <string name="title_advanced_notify_manage_service_hint">To disable the permanent notification</string>
+    <string name="title_advanced_notify_manage_service_hint">To disable the \'monitoring\' notification</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
     <string name="title_advanced_notify_preview_only_hint">This delays showing of notifications until the message text has been downloaded</string>
     <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
