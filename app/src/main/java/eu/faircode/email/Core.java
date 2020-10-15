@@ -3978,7 +3978,9 @@ class Core {
                 if (sb.length() > 0) {
                     String ascii = Normalizer
                             .normalize(sb.toString(), Normalizer.Form.NFKD)
-                            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+                            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
+                            .replace("ß", "ss")
+                            .replace("ĳ", "ij");
                     mbuilder.setContentText(ascii);
                 }
 
