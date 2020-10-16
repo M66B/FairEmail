@@ -493,6 +493,7 @@
     <string name="title_advanced_notify_remove_hint">Le notifiche di nuovo messaggio verranno sempre rimosse quando vengono eliminate via scorrimento e quando i messaggi vengono contrassegnati come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca il nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, ecc</string>
+    <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica «monitoraggio»</string>
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
     <string name="title_advanced_notify_preview_only_hint">Questo ritardo la visualizzazione delle notifiche fino allo scaricamento del testo del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate solo a un indossabile dopo che il testo del messaggio è stato scaricato</string>

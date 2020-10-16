@@ -491,6 +491,7 @@
     <string name="title_advanced_notify_remove_hint">Οι ειδοποιήσεις νέων μηνυμάτων θα απομακρύνονται πάντα, όταν σαρώνονται με το δάχτυλο και όταν τα μηνύματα επισημαίνονται ως αναγνωσμένα</string>
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
     <string name="title_advanced_notify_manage_default_hint">Για τον ορισμό του προκαθορισμένου ήχου, κτλ</string>
+    <string name="title_advanced_notify_manage_service_hint">Για να απενεργοποιηθεί η ειδοποίηση: \"Χ λογαριασμοί παρακολουθούνται\"</string>
     <string name="title_advanced_notify_preview_all_hint">Για φορετές συσκευές που μπορούν να προβάλλουν ολόκληρο το κείμενο (μέχρι 5.000 χαρακτήρες)</string>
     <string name="title_advanced_notify_preview_only_hint">Καθυστερεί την προβολή των ειδοποιήσεων μέχρι να έχει κατέβει το κείμενο</string>
     <string name="title_advanced_wearable_hint">Οι ειδοποιήσεις αποστέλλονται σε μια φορετή συσκευή μόνον αφού το κείμενο του μηνύματος έχει κατέβει</string>
