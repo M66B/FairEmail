@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/menu_style"
-        android:icon="@drawable/twotone_text_format_24_alt"
+        android:icon="@drawable/twotone_text_format_24_options"
         android:title="@string/title_style" />
 
     <item

@@ -240,7 +240,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivUnderline"
-            app:srcCompat="@drawable/twotone_text_format_24_alt" />
+            app:srcCompat="@drawable/twotone_text_format_24_options" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSize"
