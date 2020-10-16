@@ -2232,6 +2232,9 @@ public class HtmlHelper {
                                 if (llevel > 0)
                                     setSpan(ssb, new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length());
                                 break;
+                            case "meta":
+                                // Do nothing
+                                break;
                             case "pre":
                                 setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                                 break;
