@@ -1617,12 +1617,16 @@ public class MessageHelper {
     class PartHolder {
         Multipart parent;
         Part part;
-        String contentType;
+        ContentType contentType;
 
-        PartHolder(Multipart parent, Part part, String contentType) {
+        PartHolder(Multipart parent, Part part, ContentType contentType) {
             this.parent = parent;
             this.part = part;
             this.contentType = contentType;
+        }
+
+        boolean isPlainText() {
+            return "text/plain".equalsIgnoreCase(contentType.getBaseType());
         }
     }
 
@@ -1633,6 +1637,8 @@ public class MessageHelper {
         private ArrayList<String> warnings = new ArrayList<>();
 
         MessageParts select() {
+            // Prefer HTML over alternative text
+
             Map<Multipart, List<PartHolder>> map = new HashMap<>();
             for (PartHolder h : text)
                 if (h.parent != null) {
@@ -1643,18 +1649,15 @@ public class MessageHelper {
 
             for (Multipart mp : map.keySet())
                 try {
-                    if (new ContentType(mp.getContentType())
-                            .getBaseType().equalsIgnoreCase("multipart/alternative")) {
-                        boolean plain = true;
-                        for (PartHolder h : map.get(mp))
-                            if (!"text/plain".equalsIgnoreCase(h.contentType)) {
-                                plain = false;
-                                break;
-                            }
-                        for (PartHolder h : map.get(mp))
-                            if (!plain && "text/plain".equalsIgnoreCase(h.contentType))
-                                text.remove(h);
-                    }
+                    boolean plain = true;
+                    for (PartHolder h : map.get(mp))
+                        if (!h.isPlainText()) {
+                            plain = false;
+                            break;
+                        }
+                    for (PartHolder h : map.get(mp))
+                        if (!plain && h.isPlainText())
+                            text.remove(h);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -1666,7 +1669,7 @@ public class MessageHelper {
             if (text.size() + extra.size() == 0)
                 return null;
             for (PartHolder h : text)
-                if (!"text/plain".equalsIgnoreCase(h.contentType))
+                if (!h.isPlainText())
                     return false;
             return true;
         }
@@ -2180,9 +2183,10 @@ public class MessageHelper {
                 } else
                     throw new ParseException(content.getClass().getName());
 
+                boolean alternative = part.isMimeType("multipart/alternative");
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
-                        getMessageParts(multipart, multipart.getBodyPart(i), parts, encrypt);
+                        getMessageParts(alternative ? multipart : null, multipart.getBodyPart(i), parts, encrypt);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
@@ -2227,11 +2231,11 @@ public class MessageHelper {
                 String ct = contentType.getBaseType();
                 if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
                         !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
-                    parts.text.add(new PartHolder(parent, part, ct));
+                    parts.text.add(new PartHolder(parent, part, contentType));
                 } else {
                     if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
                             "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()))
-                        parts.extra.add(new PartHolder(parent, part, ct));
+                        parts.extra.add(new PartHolder(parent, part, contentType));
 
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
