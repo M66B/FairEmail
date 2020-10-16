@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugsnag.android.gradle'
 
+def getVersionCode = { -> return 1362 }
+def getReleaseName = { -> return "\"Xiyunykus\"" }
+// https://en.wikipedia.org/wiki/List_of_dinosaur_genera
+
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 
@@ -13,12 +17,11 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1362
-        versionName "1.1362"
+        versionCode getVersionCode()
+        versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName"
 
-        // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
-        buildConfigField "String", "RELEASE_NAME", "\"Xiyunykus\""
+        buildConfigField "String", "RELEASE_NAME", getReleaseName()
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -36,56 +39,17 @@ android {
         }
     }
 
-    // https://stackoverflow.com/questions/28948538/
-    // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
-    applicationVariants.all { variant ->
-        if (variant.getBuildType().isMinifyEnabled())
-            variant.assembleProvider.get().doLast {
-                for (file in variant.getMappingFileProvider().get().files)
-                    if (file != null && file.exists()) {
-                        def dir = "${rootDir}/app/schemas/mapping"
-                        def name = "$archivesBaseName-$variant.baseName-$file.name"
-                        def target = new File(dir, name)
-                        if (!target.exists())
-                            copy {
-                                from file
-                                into dir
-                                rename { String fileName -> name }
-                            }
-                    }
-            }
-    }
-
-    android {
-        buildFeatures {
-            buildFeatures {
-                buildConfig = true
-                viewBinding = false
-                dataBinding = false
-                aidl = true
-                renderScript = false
-                resValues = false
-                shaders = false
-            }
+    sourceSets {
+        github {
+            java.srcDirs = ['src/main/java', 'src/play/java']
         }
-
-        sourceSets {
-            github {
-                java.srcDirs = ['src/main/java', 'src/play/java']
-            }
-            fdroid {
-                java.srcDirs = ['src/main/java', 'src/fdroid/java']
-            }
-            play {
-                java.srcDirs = ['src/main/java', 'src/play/java']
-            }
-            main.res.srcDirs += 'src/main/resExtra'
+        fdroid {
+            java.srcDirs = ['src/main/java', 'src/fdroid/java']
         }
-    }
-
-    dependenciesInfo {
-        includeInApk = false
-        includeInBundle = false
+        play {
+            java.srcDirs = ['src/main/java', 'src/play/java']
+        }
+        main.res.srcDirs += 'src/main/resExtra'
     }
 
     lintOptions {
@@ -102,6 +66,11 @@ android {
         cmake {
             path "CMakeLists.txt"
         }
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
 
     packagingOptions {
@@ -124,6 +93,19 @@ android {
             keyPassword keystoreProperties['keyPassword']
             v1SigningEnabled true
             v2SigningEnabled true
+        }
+    }
+
+    buildFeatures {
+        buildFeatures {
+            buildConfig = true
+            viewBinding = false
+            dataBinding = false
+            aidl = true
+            renderScript = false
+            resValues = false
+            shaders = false
+            compose = false
         }
     }
 
@@ -184,6 +166,26 @@ android {
                 (flavors.contains("fdroid") || flavors.contains("play"))) {
             setIgnore(true)
         }
+    }
+
+    // https://stackoverflow.com/questions/28948538/
+    // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
+    applicationVariants.all { variant ->
+        if (variant.getBuildType().isMinifyEnabled())
+            variant.assembleProvider.get().doLast {
+                for (file in variant.getMappingFileProvider().get().files)
+                    if (file != null && file.exists()) {
+                        def dir = "${rootDir}/app/schemas/mapping"
+                        def name = "$archivesBaseName-$variant.baseName-$file.name"
+                        def target = new File(dir, name)
+                        if (!target.exists())
+                            copy {
+                                from file
+                                into dir
+                                rename { String fileName -> name }
+                            }
+                    }
+            }
     }
 
     bugsnag {
