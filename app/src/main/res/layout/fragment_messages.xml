@@ -204,7 +204,7 @@
                 app:backgroundTint="?attr/colorFabBackground"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/twotone_textsms_24" />
+                app:srcCompat="@drawable/twotone_reply_24_options" />
 
             <ImageButton
                 android:id="@+id/ibDown"
