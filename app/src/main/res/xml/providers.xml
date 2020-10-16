@@ -994,4 +994,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Rambler.ru"
+        domain="rambler\\.ru,lenta\\.ru,myrambler\\.ru,autorambler\\.ru,ro\\.ru,rambler\\.ua"
+        link="https://help.rambler.ru/mail/mail-pochtovye-klienty/1275/">
+        <imap
+            host="imap.rambler.ru"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.rambler.ru"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
