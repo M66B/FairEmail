@@ -949,7 +949,7 @@ class Core {
         if (target == null)
             throw new FolderNotFoundException();
         if (folder.id.equals(target.id))
-            return;
+            throw new IllegalArgumentException("self");
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
@@ -1109,7 +1109,7 @@ class Core {
         if (target == null)
             throw new FolderNotFoundException();
         if (folder.id.equals(target.id))
-            return;
+            throw new IllegalArgumentException("self");
 
         // Move from trash/drafts only
         if (!EntityFolder.TRASH.equals(folder.type) &&
