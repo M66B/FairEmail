@@ -321,7 +321,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         } else if (version < 1124) {
             editor.remove("experiments");
         } else if (version < 1181) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 editor.remove("background_service");
         } else if (version < 1195)
             editor.remove("auto_optimize");
@@ -351,7 +351,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
                 editor.putBoolean("beige", false);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
         if (version < BuildConfig.VERSION_CODE)
