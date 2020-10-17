@@ -508,7 +508,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
         swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
-        swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
+        swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", true));
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
         swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
 
