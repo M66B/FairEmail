@@ -526,22 +526,11 @@ public class Helper {
                 }
             } else
                 context.startActivity(intent);
-        } else {
-            try {
-                context.startActivity(intent);
-            } catch (ActivityNotFoundException ex) {
-                if (isTnef(type))
-                    viewFAQ(context, 155);
-                else {
-                    String message = context.getString(R.string.title_no_viewer,
-                            type != null ? type : name != null ? name : file.getName());
-                    ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
-                }
-            }
-        }
+        } else
+            context.startActivity(intent);
     }
 
-    private static boolean isTnef(String type) {
+    static boolean isTnef(String type) {
         // https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format
         return ("application/ms-tnef".equals(type) ||
                 "application/vnd.ms-tnef".equals(type));
