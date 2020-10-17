@@ -160,7 +160,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(FragmentMessages.ACTION_STORE_ATTACHMENT)
+                    new Intent(FragmentBase.ACTION_STORE_ATTACHMENT)
                             .putExtra("id", attachment.id)
                             .putExtra("name", Helper.sanitizeFilename(attachment.name))
                             .putExtra("type", attachment.getMimeType()));
