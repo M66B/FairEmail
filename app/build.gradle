@@ -276,6 +276,7 @@ dependencies {
     def overscroll_version = "1.1.0"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
+    def apache_poi = "4.1.2"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
@@ -436,4 +437,8 @@ dependencies {
     // http://www.freeutils.net/source/jcharset/
     // https://mvnrepository.com/artifact/net.freeutils/jcharset
     implementation "net.freeutils:jcharset:$jcharset_version"
+
+    // https://poi.apache.org/components/hmef/index.html
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
+    implementation "org.apache.poi:poi-scratchpad:$apache_poi"
 }

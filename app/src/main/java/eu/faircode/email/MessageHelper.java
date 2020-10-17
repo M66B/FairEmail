@@ -1940,6 +1940,10 @@ public class MessageHelper {
                 throw new IllegalArgumentException("Attachment not found");
 
             downloadAttachment(context, index, local);
+
+            if (Helper.isTnef(local.type) ||
+                    ("application/octet-stream".equals(local.type) && "winmail.dat".equals(local.name)))
+                decodeTNEF(context, local);
         }
 
         void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
@@ -2055,6 +2059,87 @@ public class MessageHelper {
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
+            }
+        }
+
+        private void decodeTNEF(Context context, EntityAttachment local) {
+            try {
+                DB db = DB.getInstance(context);
+                int subsequence = 0;
+
+                // https://poi.apache.org/components/hmef/index.html
+                File file = local.getFile(context);
+                org.apache.poi.hmef.HMEFMessage msg = new org.apache.poi.hmef.HMEFMessage(new FileInputStream(file));
+
+                String subject = msg.getSubject();
+                if (!TextUtils.isEmpty(subject)) {
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = local.message;
+                    attachment.sequence = local.sequence;
+                    attachment.subsequence = ++subsequence;
+                    attachment.name = "subject.txt";
+                    attachment.type = "text/plain";
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    Helper.writeText(attachment.getFile(context), subject);
+                    db.attachment().setDownloaded(attachment.id, (long) subject.length());
+                }
+
+                String body = msg.getBody();
+                if (!TextUtils.isEmpty(body)) {
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = local.message;
+                    attachment.sequence = local.sequence;
+                    attachment.subsequence = ++subsequence;
+                    attachment.name = "document.rtf";
+                    attachment.type = "application/rtf";
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    Helper.writeText(attachment.getFile(context), body);
+                    db.attachment().setDownloaded(attachment.id, (long) body.length());
+                }
+
+                for (org.apache.poi.hmef.Attachment at : msg.getAttachments()) {
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = local.message;
+                    attachment.sequence = local.sequence;
+                    attachment.subsequence = ++subsequence;
+                    attachment.name = at.getLongFilename();
+                    attachment.type = Helper.guessMimeType(attachment.name);
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    byte[] data = at.getContents();
+                    try (OutputStream os = new FileOutputStream(attachment.getFile(context))) {
+                        os.write(data);
+                    }
+
+                    db.attachment().setDownloaded(attachment.id, (long) data.length);
+                }
+
+                StringBuilder sb = new StringBuilder();
+                for (org.apache.poi.hmef.attribute.TNEFAttribute attr : msg.getMessageAttributes())
+                    sb.append(attr.toString()).append("\r\n");
+                for (org.apache.poi.hmef.attribute.MAPIAttribute attr : msg.getMessageMAPIAttributes())
+                    if (!org.apache.poi.hsmf.datatypes.MAPIProperty.RTF_COMPRESSED.equals(attr.getProperty()))
+                        sb.append(attr.toString()).append("\r\n");
+                if (sb.length() > 0) {
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = local.message;
+                    attachment.sequence = local.sequence;
+                    attachment.subsequence = ++subsequence;
+                    attachment.name = "attributes.txt";
+                    attachment.type = "text/plain";
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    Helper.writeText(attachment.getFile(context), sb.toString());
+                    db.attachment().setDownloaded(attachment.id, (long) sb.length());
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
             }
         }
 
