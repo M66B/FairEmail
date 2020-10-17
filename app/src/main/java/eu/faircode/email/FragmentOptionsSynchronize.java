@@ -147,6 +147,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
                 ServiceSynchronize.reschedule(getContext());
+                WorkerCleanup.init(getContext());
             }
         });
 

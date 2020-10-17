@@ -454,6 +454,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             // Stop service
                             stopSelf();
                             EntityLog.log(ServiceSynchronize.this, "### stop self eventId=" + eventId);
+
+                            WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
                         }
                     }
                 });

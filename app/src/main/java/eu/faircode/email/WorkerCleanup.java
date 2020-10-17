@@ -69,6 +69,24 @@ public class WorkerCleanup extends Worker {
         return Result.success();
     }
 
+    static void cleanupConditionally(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        if (enabled) {
+            Log.i("Skip cleanup enabled=" + enabled);
+            return;
+        }
+
+        long now = new Date().getTime();
+        long last_cleanup = prefs.getLong("last_cleanup", 0);
+        if (last_cleanup + CLEANUP_INTERVAL * 3600 * 1000L > now) {
+            Log.i("Skip cleanup last=" + new Date(last_cleanup));
+            return;
+        }
+
+        cleanup(context, false);
+    }
+
     static void cleanup(Context context, boolean manual) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", true);
@@ -279,37 +297,36 @@ public class WorkerCleanup extends Worker {
         } finally {
             Log.i("End cleanup");
 
+            long now = new Date().getTime();
             prefs.edit()
                     .remove("crash_report_count")
-                    .putLong("last_cleanup", new Date().getTime())
+                    .putLong("last_cleanup", now)
                     .apply();
         }
     }
 
-    static void queue(Context context) {
+    static void init(Context context) {
         try {
-            Log.i("Queuing " + getName() + " every " + CLEANUP_INTERVAL + " hours");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            if (enabled) {
+                Log.i("Queuing " + getName() + " every " + CLEANUP_INTERVAL + " hours");
 
-            PeriodicWorkRequest workRequest =
-                    new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
-                            .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
-                            .build();
-            WorkManager.getInstance(context)
-                    .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
+                PeriodicWorkRequest workRequest =
+                        new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
+                                .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
+                                .build();
+                WorkManager.getInstance(context)
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
 
-            Log.i("Queued " + getName());
+                Log.i("Queued " + getName());
+            } else {
+                Log.i("Cancelling " + getName());
+                WorkManager.getInstance(context).cancelUniqueWork(getName());
+                Log.i("Cancelled " + getName());
+            }
         } catch (IllegalStateException ex) {
             // https://issuetracker.google.com/issues/138465476
-            Log.w(ex);
-        }
-    }
-
-    static void cancel(Context context) {
-        try {
-            Log.i("Cancelling " + getName());
-            WorkManager.getInstance(context).cancelUniqueWork(getName());
-            Log.i("Cancelled " + getName());
-        } catch (IllegalStateException ex) {
             Log.w(ex);
         }
     }

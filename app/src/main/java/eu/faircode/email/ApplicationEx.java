@@ -139,7 +139,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         DisconnectBlacklist.init(this);
 
         WorkerWatchdog.init(this);
-        WorkerCleanup.queue(this);
+        WorkerCleanup.init(this);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
