@@ -3243,6 +3243,8 @@ You can find some more information about this file [here](https://support.mozill
 
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
+Unfortunately, there are no open source and maintained libraries to decode TNEF.
+
 <br />
 
 <a name="faq156"></a>
