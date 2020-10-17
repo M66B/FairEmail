@@ -48,7 +48,10 @@ public interface DaoAccount {
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
     @Query("SELECT account.*" +
-            ", (SELECT COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END)" +
+            ", (SELECT COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END)" +
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
