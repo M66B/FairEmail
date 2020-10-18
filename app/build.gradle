@@ -82,6 +82,7 @@ android {
         exclude 'META-INF/COPYRIGHT.html'
         exclude 'META-INF/LICENSE.gpl.txt'
         exclude 'META-INF/LICENSE.commercial.txt'
+        exclude 'org/apache/**'
     }
 
     // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
