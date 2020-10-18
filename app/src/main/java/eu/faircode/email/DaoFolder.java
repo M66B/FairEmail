@@ -176,7 +176,8 @@ public interface DaoFolder {
     List<EntityFolder> getNotifyingFolders(long account);
 
     @Query("SELECT * FROM folder" +
-            " WHERE parent = :parent")
+            " WHERE parent = :parent" +
+            " ORDER BY name COLLATE NOCASE")
     List<EntityFolder> getChildFolders(long parent);
 
     @Query("SELECT folder.type" +
