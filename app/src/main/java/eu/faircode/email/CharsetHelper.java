@@ -77,9 +77,12 @@ class CharsetHelper {
 
             Log.i("compact_enc_det sample=" + sample.length);
             String detected = jni_detect(sample);
-            if ("US-ASCII".equals(detected))
+            if ("US-ASCII".equals(detected) ||
+                    "ISO-8859-1".equals(detected) ||
+                    "UTF-8".equals(detected))
                 Log.w("compact_enc_det result=" + detected);
             else
+                // windows-1250, windows-1257
                 Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected);
