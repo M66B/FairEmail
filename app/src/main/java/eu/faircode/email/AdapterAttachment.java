@@ -189,7 +189,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 if (attachment.available)
                     onShare(attachment);
                 else {
-                    if (attachment.progress == null)
+                    if (attachment.progress == null && attachment.subsequence == null)
                         onDownload(attachment);
                 }
             }
