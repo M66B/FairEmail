@@ -2089,13 +2089,20 @@ public class MessageHelper {
                 if (TextUtils.isEmpty(body)) {
                     org.apache.poi.hmef.attribute.MAPIAttribute attr =
                             msg.getMessageMAPIAttribute(org.apache.poi.hsmf.datatypes.MAPIProperty.BODY_HTML);
+                    if (attr == null)
+                        attr = msg.getMessageMAPIAttribute(org.apache.poi.hsmf.datatypes.MAPIProperty.BODY);
                     if (attr != null) {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = local.message;
                         attachment.sequence = local.sequence;
                         attachment.subsequence = ++subsequence;
-                        attachment.name = "body.html";
-                        attachment.type = "text/html";
+                        if (attr.getProperty().equals(org.apache.poi.hsmf.datatypes.MAPIProperty.BODY_HTML)) {
+                            attachment.name = "body.html";
+                            attachment.type = "text/html";
+                        } else {
+                            attachment.name = "body.txt";
+                            attachment.type = "text/plain";
+                        }
                         attachment.disposition = Part.ATTACHMENT;
                         attachment.id = db.attachment().insertAttachment(attachment);
 
