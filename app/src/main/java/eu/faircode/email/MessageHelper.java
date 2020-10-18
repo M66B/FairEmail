@@ -2087,7 +2087,24 @@ public class MessageHelper {
                 }
 
                 String body = msg.getBody();
-                if (!TextUtils.isEmpty(body)) {
+                if (TextUtils.isEmpty(body)) {
+                    org.apache.poi.hmef.attribute.MAPIAttribute attr =
+                            msg.getMessageMAPIAttribute(org.apache.poi.hsmf.datatypes.MAPIProperty.BODY_HTML);
+                    if (attr != null) {
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = local.message;
+                        attachment.sequence = local.sequence;
+                        attachment.subsequence = ++subsequence;
+                        attachment.name = "body.html";
+                        attachment.type = "text/html";
+                        attachment.disposition = Part.ATTACHMENT;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                        byte[] data = attr.getData();
+                        Helper.writeText(attachment.getFile(context), new String(data));
+                        db.attachment().setDownloaded(attachment.id, (long) data.length);
+                    }
+                } else {
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
@@ -2123,7 +2140,8 @@ public class MessageHelper {
                 for (org.apache.poi.hmef.attribute.TNEFAttribute attr : msg.getMessageAttributes())
                     sb.append(attr.toString()).append("\r\n");
                 for (org.apache.poi.hmef.attribute.MAPIAttribute attr : msg.getMessageMAPIAttributes())
-                    if (!org.apache.poi.hsmf.datatypes.MAPIProperty.RTF_COMPRESSED.equals(attr.getProperty()))
+                    if (!org.apache.poi.hsmf.datatypes.MAPIProperty.RTF_COMPRESSED.equals(attr.getProperty()) &&
+                            !org.apache.poi.hsmf.datatypes.MAPIProperty.BODY_HTML.equals(attr.getProperty()))
                         sb.append(attr.toString()).append("\r\n");
                 if (sb.length() > 0) {
                     EntityAttachment attachment = new EntityAttachment();
