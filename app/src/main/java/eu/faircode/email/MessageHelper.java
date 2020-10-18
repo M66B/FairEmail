@@ -57,6 +57,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.UnsupportedCharsetException;
 import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
 import java.text.ParsePosition;
@@ -1775,16 +1776,29 @@ public class MessageHelper {
                     charset = null;
 
                 if (h.part.isMimeType("text/plain")) {
-                    if (charset == null) {
+                    Charset cs = null;
+                    try {
+                        if (charset != null)
+                            cs = Charset.forName(charset);
+                    } catch (UnsupportedCharsetException ignored) {
+                    }
+
+                    if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
                         Charset detected = CharsetHelper.detect(result);
-                        if (detected == null) {
-                            if (CharsetHelper.isUTF8(result)) {
-                                Log.i("Charset plain=UTF8");
-                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                            }
+                        if (StandardCharsets.ISO_8859_1.equals(cs) &&
+                                StandardCharsets.UTF_8.equals(detected)) {
+                            Log.i("Charset upgrade=UTF8");
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                         } else {
-                            Log.i("Charset plain=" + detected.name());
-                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                            if (detected == null) {
+                                if (CharsetHelper.isUTF8(result)) {
+                                    Log.i("Charset plain=UTF8");
+                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                                }
+                            } else {
+                                Log.i("Charset plain=" + detected.name());
+                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                            }
                         }
                     }
 
