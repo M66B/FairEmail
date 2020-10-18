@@ -1448,6 +1448,8 @@ class Core {
             attachment = db.attachment().getAttachment(message.id, (int) id); // legacy
         if (attachment == null)
             throw new IllegalArgumentException("Local attachment not found");
+        if (attachment.subsequence != null)
+            throw new IllegalArgumentException("Download of sub attachment");
         if (attachment.available)
             return;
 
@@ -2093,7 +2095,8 @@ class Core {
                                 parts.getWarnings(message.warning));
 
                         for (EntityAttachment attachment : parts.getAttachments())
-                            parts.downloadAttachment(context, attachment);
+                            if (attachment.subsequence == null)
+                                parts.downloadAttachment(context, attachment);
 
                         if (message.received > account.created)
                             updateContactInfo(context, folder, message);
