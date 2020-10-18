@@ -517,7 +517,7 @@ public class Helper {
 
             // Check if viewer available
             if (ris == null || ris.size() == 0) {
-                if (isTnef(type))
+                if (isTnef(type, null))
                     viewFAQ(context, 155);
                 else {
                     String message = context.getString(R.string.title_no_viewer,
@@ -530,10 +530,17 @@ public class Helper {
             context.startActivity(intent);
     }
 
-    static boolean isTnef(String type) {
+    static boolean isTnef(String type, String name) {
         // https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format
-        return ("application/ms-tnef".equals(type) ||
-                "application/vnd.ms-tnef".equals(type));
+        if ("application/ms-tnef".equals(type) ||
+                "application/vnd.ms-tnef".equals(type))
+            return true;
+
+        if ("application/octet-stream".equals(type) &&
+                "winmail.dat".equals(name))
+            return true;
+
+        return false;
     }
 
     static void view(Context context, Intent intent) {

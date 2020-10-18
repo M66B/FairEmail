@@ -1941,8 +1941,7 @@ public class MessageHelper {
 
             downloadAttachment(context, index, local);
 
-            if (Helper.isTnef(local.type) ||
-                    ("application/octet-stream".equals(local.type) && "winmail.dat".equals(local.name)))
+            if (Helper.isTnef(local.type, local.name))
                 decodeTNEF(context, local);
         }
 

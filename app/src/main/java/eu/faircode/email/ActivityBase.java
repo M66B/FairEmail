@@ -396,7 +396,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
-            if (Helper.isTnef(intent.getType()))
+            if (Helper.isTnef(intent.getType(), null))
                 Helper.viewFAQ(this, 155);
             else
                 ToastEx.makeText(this, getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
