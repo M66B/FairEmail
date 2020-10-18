@@ -2129,7 +2129,7 @@ public class MessageHelper {
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
                     attachment.subsequence = ++subsequence;
-                    attachment.name = "document.rtf";
+                    attachment.name = "body.rtf";
                     attachment.type = "application/rtf";
                     attachment.disposition = Part.ATTACHMENT;
                     attachment.id = db.attachment().insertAttachment(attachment);
@@ -2139,11 +2139,20 @@ public class MessageHelper {
                 }
 
                 for (org.apache.poi.hmef.Attachment at : msg.getAttachments()) {
+                    String filename = at.getLongFilename();
+                    if (filename == null)
+                        filename = at.getFilename();
+                    if (filename == null) {
+                        String ext = at.getExtension();
+                        if (ext != null)
+                            filename = "document." + ext;
+                    }
+
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = local.message;
                     attachment.sequence = local.sequence;
                     attachment.subsequence = ++subsequence;
-                    attachment.name = at.getLongFilename();
+                    attachment.name = filename;
                     attachment.type = Helper.guessMimeType(attachment.name);
                     attachment.disposition = Part.ATTACHMENT;
                     attachment.id = db.attachment().insertAttachment(attachment);
