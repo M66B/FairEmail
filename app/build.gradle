@@ -277,7 +277,7 @@ dependencies {
     def overscroll_version = "1.1.0"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
-    def apache_poi = "4.1.2"
+    def apache_poi = "3.17"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
