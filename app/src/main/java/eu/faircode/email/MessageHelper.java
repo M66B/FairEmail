@@ -845,7 +845,7 @@ public class MessageHelper {
                     String amsgid = null;
 
                     MessageParts parts = new MessageParts();
-                    getMessageParts(null, imessage, parts, null);
+                    getMessageParts(imessage, parts, null);
                     for (AttachmentPart apart : parts.attachments)
                         if ("text/rfc822-headers".equalsIgnoreCase(apart.attachment.type)) {
                             InternetHeaders iheaders = new InternetHeaders(apart.part.getInputStream());
@@ -1616,12 +1616,10 @@ public class MessageHelper {
     }
 
     class PartHolder {
-        Multipart parent;
         Part part;
         ContentType contentType;
 
-        PartHolder(Multipart parent, Part part, ContentType contentType) {
-            this.parent = parent;
+        PartHolder(Part part, ContentType contentType) {
             this.part = part;
             this.contentType = contentType;
         }
@@ -1636,35 +1634,6 @@ public class MessageHelper {
         private List<PartHolder> extra = new ArrayList<>();
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
-
-        MessageParts select() {
-            // Prefer HTML over alternative text
-
-            Map<Multipart, List<PartHolder>> map = new HashMap<>();
-            for (PartHolder h : text)
-                if (h.parent != null) {
-                    if (!map.containsKey(h.parent))
-                        map.put(h.parent, new ArrayList<>());
-                    map.get(h.parent).add(h);
-                }
-
-            for (Multipart mp : map.keySet())
-                try {
-                    boolean plain = true;
-                    for (PartHolder h : map.get(mp))
-                        if (!h.isPlainText()) {
-                            plain = false;
-                            break;
-                        }
-                    for (PartHolder h : map.get(mp))
-                        if (!plain && h.isPlainText())
-                            text.remove(h);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-
-            return this;
-        }
 
         Boolean isPlainOnly() {
             if (text.size() + extra.size() == 0)
@@ -2243,8 +2212,8 @@ public class MessageHelper {
                         "application/x-pkcs7-signature".equals(protocol)) {
                     Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
-                        getMessageParts(null, multipart.getBodyPart(0), parts, null);
-                        getMessageParts(null, multipart.getBodyPart(1), parts,
+                        getMessageParts(multipart.getBodyPart(0), parts, null);
+                        getMessageParts(multipart.getBodyPart(1), parts,
                                 "application/pgp-signature".equals(protocol)
                                         ? EntityAttachment.PGP_SIGNATURE
                                         : EntityAttachment.SMIME_SIGNATURE);
@@ -2276,7 +2245,7 @@ public class MessageHelper {
                     Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
                         // Ignore header
-                        getMessageParts(null, multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                        getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                         return parts;
                     }
                 }
@@ -2285,10 +2254,10 @@ public class MessageHelper {
                 ContentType ct = new ContentType(part.getContentType());
                 String smimeType = ct.getParameter("smime-type");
                 if ("enveloped-data".equals(smimeType)) {
-                    getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
+                    getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
                 } else if ("signed-data".equals(smimeType)) {
-                    getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                    getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
                 }
             }
@@ -2296,11 +2265,11 @@ public class MessageHelper {
             Log.w(ex);
         }
 
-        getMessageParts(null, imessage, parts, null);
-        return parts.select();
+        getMessageParts(imessage, parts, null);
+        return parts;
     }
 
-    private void getMessageParts(Multipart parent, Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
+    private void getMessageParts(Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
         try {
             Log.d("Part class=" + part.getClass() + " type=" + part.getContentType());
             if (part.isMimeType("multipart/*")) {
@@ -2315,16 +2284,36 @@ public class MessageHelper {
                 } else
                     throw new ParseException(content.getClass().getName());
 
+                boolean other = false;
+                List<Part> plain = new ArrayList<>();
+                int count = multipart.getCount();
                 boolean alternative = part.isMimeType("multipart/alternative");
-                for (int i = 0; i < multipart.getCount(); i++)
+                for (int i = 0; i < count; i++)
                     try {
-                        getMessageParts(alternative ? multipart : null, multipart.getBodyPart(i), parts, encrypt);
+                        BodyPart child = multipart.getBodyPart(i);
+                        if (alternative && count > 1 && child.isMimeType("text/plain"))
+                            plain.add(child);
+                        else {
+                            getMessageParts(child, parts, encrypt);
+                            other = true;
+                        }
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                         Log.w(ex);
                         parts.warnings.add(Log.formatThrowable(ex, false));
                     }
+
+                if (alternative && count > 1 && !other)
+                    for (Part child : plain)
+                        try {
+                            getMessageParts(child, parts, encrypt);
+                        } catch (ParseException ex) {
+                            // Nested body: try to continue
+                            // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
+                            Log.w(ex);
+                            parts.warnings.add(Log.formatThrowable(ex, false));
+                        }
             } else {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
                 String disposition;
@@ -2363,11 +2352,11 @@ public class MessageHelper {
                 String ct = contentType.getBaseType();
                 if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
                         !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
-                    parts.text.add(new PartHolder(parent, part, contentType));
+                    parts.text.add(new PartHolder(part, contentType));
                 } else {
                     if ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
                             "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()))
-                        parts.extra.add(new PartHolder(parent, part, contentType));
+                        parts.extra.add(new PartHolder(part, contentType));
 
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
