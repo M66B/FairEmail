@@ -101,6 +101,7 @@ public class ContactInfo {
     private static final int FAVICON_READ_BYTES = 2048;
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
+    private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
 
     private ContactInfo() {
     }
@@ -135,6 +136,21 @@ public class ContactInfo {
 
     private boolean isExpired() {
         return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
+    }
+
+    static void cleanup(Context context) {
+        long now = new Date().getTime();
+
+        // Favicons
+        Log.i("Cleanup favicons");
+        File[] favicons = new File(context.getCacheDir(), "favicons").listFiles();
+        if (favicons != null)
+            for (File file : favicons)
+                if (file.lastModified() + CACHE_FAVICON_DURATION < now) {
+                    Log.i("Deleting " + file);
+                    if (!file.delete())
+                        Log.w("Error deleting " + file);
+                }
     }
 
     static void clearCache(Context context) {

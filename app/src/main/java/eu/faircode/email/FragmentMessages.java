@@ -1653,6 +1653,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             setValue("expanded", message.id, value);
 
+            final int p = adapter.getPositionForKey(message.id);
+            if (p != NO_POSITION)
+                rvMessage.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            adapter.notifyItemChanged(p);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+
             // Collapse other messages
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean expand_all = prefs.getBoolean("expand_all", false);

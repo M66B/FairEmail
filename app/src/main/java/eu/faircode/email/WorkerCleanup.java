@@ -248,6 +248,10 @@ public class WorkerCleanup extends Worker {
                         }
                     }
 
+            // Cleanup contact info
+            if (!manual)
+                ContactInfo.cleanup(context);
+
             Log.i("Cleanup FTS=" + fts);
             if (fts) {
                 int deleted = 0;
