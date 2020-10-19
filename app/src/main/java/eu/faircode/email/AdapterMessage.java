@@ -3529,16 +3529,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
 
-                // Prevent flicker
-                if (expanded && message.accountAutoSeen && !message.folderReadOnly) {
-                    message.unseen = 0;
-                    message.ui_seen = true;
-                    message.visible_unseen = 0;
-                    message.ui_unsnoozed = false;
-                }
-                properties.setValue("expanded", message.id, expanded);
-                bindTo(message, expanded);
-
                 properties.setExpanded(message, expanded);
 
                 // Needed to scroll to item after collapsing other items
@@ -4288,10 +4278,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(id))
                         return;
 
-                    properties.setExpanded(message, false);
                     message.ui_seen = args.getBoolean("seen");
                     message.unseen = (message.ui_seen ? 0 : message.count);
-                    bindTo(message, false);
+                    properties.setExpanded(message, false);
                 }
 
                 @Override
