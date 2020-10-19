@@ -117,7 +117,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long FAST_ERROR_TIME = 6 * 60 * 1000L; // milliseconds
     private static final int FAST_ERROR_COUNT = 3;
     private static final int FAST_ERROR_BACKOFF = CONNECT_BACKOFF_ALARM_START;
 
@@ -1574,7 +1573,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Check for fast account errors
                     if (account.last_connected != null &&
-                            now - account.last_connected < FAST_ERROR_TIME) {
+                            now - account.last_connected < account.poll_interval * 60 * 1000 / 2) {
                         errors++;
                         EntityLog.log(ServiceSynchronize.this,
                                 account.name + " fast errors=" + errors +
