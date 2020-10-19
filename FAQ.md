@@ -3255,6 +3255,9 @@ If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disable
 In this case you should ask the administrator to enable IMAP and SMTP.
 The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
+If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol.
+Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+
 <br />
 
 <a name="faq157"></a>
