@@ -54,8 +54,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private String name;
     private Future<?> future;
+    private ExecutorService localExecutor;
 
-    private static ExecutorService executor = null;
+    private static ExecutorService globalExecutor = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
@@ -68,6 +69,25 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
         return this;
+    }
+
+    public SimpleTask<T> setExecutor(ExecutorService executor) {
+        this.localExecutor = executor;
+        return this;
+    }
+
+    private ExecutorService getExecutor(Context context) {
+        if (localExecutor != null)
+            return localExecutor;
+
+        if (globalExecutor == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int threads = prefs.getInt("query_threads", Runtime.getRuntime().availableProcessors());
+            Log.i("Task threads=" + threads);
+            globalExecutor = Helper.getBackgroundExecutor(threads, "task");
+        }
+
+        return globalExecutor;
     }
 
     public void execute(Context context, LifecycleOwner owner, @NonNull Bundle args, @NonNull String name) {
@@ -114,14 +134,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             onException(args, ex);
         }
 
-        if (executor == null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            int threads = prefs.getInt("query_threads", Runtime.getRuntime().availableProcessors());
-            Log.i("Task threads=" + threads);
-            executor = Helper.getBackgroundExecutor(threads, "task");
-        }
-
-        future = executor.submit(new Runnable() {
+        future = getExecutor(context).submit(new Runnable() {
             private Object data;
             private long elapsed;
             private Throwable ex;
