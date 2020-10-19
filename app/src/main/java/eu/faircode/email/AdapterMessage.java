@@ -1673,7 +1673,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
-            }.setLog(false).execute(context, owner, sargs, "message:more");
+            }.setLog(false).execute(context, owner, sargs, "message:tools");
         }
 
         private void bindAddresses(TupleMessageEx message) {
