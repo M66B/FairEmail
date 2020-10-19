@@ -901,6 +901,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * For *554 5.7.1 Tjeneste utilgængelig; Klient vært xxx.xxx.xxx.xxx blokeret*, tjek venligst [hér](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Syntaksfejl - linje for lang* er ofte forårsaget af brug af en lang Autocrypt-header
 * *503 5.5.0 Modtager allerede angivet* betyder typisk, at en adresse bruges som både TO- og CC-adresse
+* *554 5.7.1 ... ikke tilladt at videresende* betyder, at e-mailserveren ikke genkender brugernavnet/e-mailadressen. Dobbelttjek værtsnavn og brugernavn/e-mailadresse i identitetsindstillingerne.
 
 **Gmail errors**
 
@@ -2696,6 +2697,8 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+
+If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
 
 <br />
 

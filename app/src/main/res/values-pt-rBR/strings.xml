@@ -138,6 +138,7 @@
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
+    <string name="title_setup_office_remark">A Microsoft não fornece este tipo de autorização para o Outlook, Live, Hotmail e etc</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
@@ -205,6 +206,7 @@
     <string name="title_setup_theme_black">Preto</string>
     <string name="title_setup_theme_black_and_white">Preto e branco</string>
     <string name="title_setup_theme_reverse">Inverter cores</string>
+    <string name="title_setup_theme_light">Claro</string>
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_system">Seguir o sistema</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
@@ -309,6 +311,7 @@
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>
+    <string name="title_advanced_highlight_color">Cor de destaque</string>
     <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
     <string name="title_advanced_labels">Mostrar rótulos do Gmail no cabeçalho da mensagem</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
@@ -422,6 +425,8 @@
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
     <string name="title_advanced_fts">Construir índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
+    <string name="title_advanced_language">Idioma</string>
+    <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
@@ -458,6 +463,7 @@
     <string name="title_advanced_browse_hint">Obter mais mensagens ao rolar para baixo</string>
     <string name="title_advanced_layout_hint">Mudar para um layout mais compacto e alterar o tamanho do texto da mensagem pode ser feito no menu da barra de ação superior na exibição de mensagem</string>
     <string name="title_advanced_startup_hint">Pressione qualquer pasta da lista de pastas para adicioná-la ou removê-la da lista de pastas unificadas</string>
+    <string name="title_advanced_beige_hint">Apenas temas claros</string>
     <string name="title_advanced_date_hint">As mensagens são agrupadas apenas por data se forem ordenadas por tempo</string>
     <string name="title_advanced_navbar_colorize_hint">Se isso funciona depende da versão e variante do Android</string>
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>

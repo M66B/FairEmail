@@ -110,6 +110,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
+    <string name="title_to_from">%2$s &lt; %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_exit">Выход</string>
@@ -303,7 +305,7 @@
     <string name="title_advanced_caption_message">Сообщение</string>
     <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
     <string name="title_advanced_caption_message_body">Текст сообщения</string>
-    <string name="title_advanced_portrait2">Использовать два столбца в портретном режиме</string>
+    <string name="title_advanced_portrait2">Использовать два ряда в портретном режиме</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
     <string name="title_advanced_startup">При запуске показывать</string>
@@ -772,7 +774,7 @@
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
     <string name="title_no_internet">Нет или нет подходящего интернет-соединения</string>
-    <string name="title_no_connection">Подключение к одной или нескольким учётным записям &#8230;</string>
+    <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
     <string name="title_no_image">Изображение не может быть декодировано</string>

@@ -6,6 +6,8 @@
     <string name="app_limitations">例えば常に安全でない要素を削除し読みやすさを向上させるために再フォーマットされ、リンクを開くには安全の為に確認する必要があります</string>
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
+    <string name="app_cake">空き容量が足りません</string>
+    <string name="channel_service">受信</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>
@@ -36,13 +38,16 @@
         <item quantity="other">%1$d 件の新しいメッセージ</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="other">%1$d 送信されるメッセージ</item>
+        <item quantity="other">%1$d 件のメッセージを送信中</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d 新しい</item>
     </plurals>
     <plurals name="title_selected_conversations">
         <item quantity="other">会話 %1$d を選択</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="other">%1$d 件のメッセージを移動しますか？</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">%1$d メッセージを完全に削除しますか？</item>
@@ -51,6 +56,7 @@
         <item quantity="other">%1$d メッセージを迷惑メールとして扱いますか？</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s からのメッセージを迷惑メールとして扱いますか？</string>
+    <string name="title_junk_hint">迷惑メールの振り分けはメールプロバイダが行うものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得することができません。</string>
     <string name="title_block">ブロック %1$s</string>
     <string name="title_block_sender">送信者をブロック</string>
     <string name="title_block_domain">送信者ドメインをブロック</string>
@@ -64,6 +70,7 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
+    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d 分</string>
     <string name="menu_exit">終了</string>
     <string name="menu_answers">テンプレート</string>
@@ -104,12 +111,15 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">インストールウィザードを複数回使用し複数アカウントをセットアップ出来ます</string>
+    <string name="title_setup_wizard_new">新しいメールアドレスを取得したい</string>
     <string name="title_setup_wizard_remark">受信トレイに戻る</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>
     <string name="title_setup_gmail_permissions">Googleは全てのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmailは明示的な同意なしにメッセージを削除する事は有りません</string>
     <string name="title_setup_gmail_drafts">IMAPで下書きフォルダにアクセス出来ない場合、Gmailラベル設定で修正出来ます</string>
+    <string name="title_setup_office_remark">MicrosoftはOutlook・Live・Hotmailなどのアカウントに対してOAuthによるログインを提供していません。</string>
+    <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によってIMAP/SMTPが無効にされているときに発生する可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可します</string>
     <string name="title_setup_oauth_authorize">許可</string>
     <string name="title_setup_select_account">アカウントの選択</string>
@@ -118,6 +128,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_no_settings_hint">メールプロバイダーから提供された設定を使用しセットアップ手順1及び2でアカウントとIDをセットアップして下さい</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードで無くアプリのパスワードが必要です。プロバイダーの指示を確認して下さい</string>
+    <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
+    <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
     <string name="title_setup_quick_success">アカウントとユーザ情報が正常に追加されました</string>
     <string name="title_setup_quick_failed">以下のアカウントとユーザ情報設定してみて下さい</string>
     <string name="title_setup_manage">管理する</string>
@@ -129,13 +141,16 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_identity">IDのセットアップ</string>
     <string name="title_setup_identity_remark">メールを送信</string>
     <string name="title_setup_identity_hint">名前、色、署名などを変更</string>
+    <string name="title_setup_identity_what">IDとは？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
     <string name="title_setup_doze">電池の最適化セットアップ</string>
+    <string name="title_setup_doze_remark">確実にメールを受け取るために必要です</string>
     <string name="title_setup_doze_instructions">次のダイアログで上部の\"全てのアプリ\"を選び、FairEmailを選択し\"最適化しない\"を選んで完了します</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
+    <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
     <string name="title_setup_inbox">メッセージへ移動</string>
     <string name="title_setup_go">移動</string>
     <string name="title_setup_to_do">タスク</string>
@@ -168,7 +183,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_theme_red_green">レッド/グリーン</string>
     <string name="title_setup_theme_grey">グレイ</string>
     <string name="title_setup_theme_black">ブラック</string>
+    <string name="title_setup_theme_black_and_white">ブラック/ホワイト</string>
     <string name="title_setup_theme_reverse">色を反転</string>
+    <string name="title_setup_theme_light">ライト</string>
     <string name="title_setup_theme_dark">ダーク</string>
     <string name="title_setup_theme_system">システム設定に従う</string>
     <string name="title_setup_theme_black_background">ブラック背景</string>
@@ -190,6 +207,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
+    <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_advanced">詳細</string>
@@ -215,7 +233,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
-    <string name="title_advanced_receipt">受取をリクエストする時</string>
+    <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_remove_signatures">認識された署名を削除</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
@@ -421,7 +439,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_sender">送信者アドレスの編集を許可</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
-    <string name="title_identity_receipt">既定で送信/開封確認メッセージを要求</string>
+    <string name="title_identity_receipt">常に配信確認・開封確認メッセージを要求</string>
     <string name="title_identity_use_ip_hint">\"無効な挨拶\" \"有効なアドレスが必要\"などのエラーが発生した場合は、この設定を変更してみてください</string>
     <string name="title_optional">オプション</string>
     <string name="title_recommended">おすすめ</string>
@@ -615,8 +633,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_open_with">開く</string>
     <string name="title_authentication_failed">%1$sの認証に失敗しました</string>
-    <string name="title_receipt_subject">受取を読む:%1$s</string>
-    <string name="title_receipt_text">この開封確認メッセージはメッセージが表示された事を確認するだけです。受信者がメッセージの内容を読んだという保証は有りません</string>
+    <string name="title_receipt_subject">開封確認: %1$s</string>
+    <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことをお知らせするものです。受信者がメッセージの内容を読んだという保証はありません</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>
     <string name="title_no_viewer">%1$s で利用出来るビューアアプリは有りません</string>
     <string name="title_no_recorder">適切なオーディオレコーダーアプリが有りません</string>
@@ -714,8 +732,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_invalid_key">秘密鍵が無効です</string>
     <string name="title_unknown_key">秘密キーがどの暗号化キーとも一致しません</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
-    <string name="title_send_receipt">受取をリクエストする</string>
-    <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは受信要求を無視します</string>
+    <string name="title_send_receipt">開封確認メッセージを要求する</string>
+    <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>
     <string name="title_extra_missing">ユーザー名が有りません</string>
     <string name="title_to_missing">受信者がいません</string>
@@ -798,7 +816,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_sort_on_hidden">非表示</string>
     <string name="title_sort_ascending">古い順から</string>
     <string name="title_filter">除外する</string>
-    <string name="title_filter_seen">読む</string>
+    <string name="title_filter_seen">既読</string>
     <string name="title_filter_unflagged">スター無し</string>
     <string name="title_filter_unknown">不明な送信者</string>
     <string name="title_filter_hidden">非表示</string>
@@ -919,7 +937,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_answered">回答済み</string>
     <string name="title_legend_forwarded">転送済み</string>
     <string name="title_legend_plain_only">プレーンテキストのみ</string>
-    <string name="title_legend_receipt">受取がリクエストされました</string>
+    <string name="title_legend_receipt">開封確認メッセージが要求されました</string>
     <string name="title_legend_attachment">添付有り</string>
     <string name="title_legend_flagged">お気に入り</string>
     <string name="title_legend_contacts">連絡先を管理する</string>
@@ -1066,7 +1084,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>
     <string name="title_accessibility_expanded">拡大</string>
-    <string name="title_accessibility_seen">読む</string>
+    <string name="title_accessibility_seen">既読</string>
     <string name="title_accessibility_unseen">未読</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d メッセージ</item>
@@ -1183,9 +1201,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
         <item>大</item>
     </string-array>
     <string-array name="receiptNames">
-        <item>受取を読む</item>
-        <item>送達通知</item>
-        <item>読み取り+配信確認</item>
+        <item>開封確認のみ</item>
+        <item>配信確認のみ</item>
+        <item>開封確認 + 配信確認</item>
     </string-array>
     <string-array name="signatureNames">
         <item>テキスト上</item>

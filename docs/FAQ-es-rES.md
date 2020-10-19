@@ -901,6 +901,7 @@ Los servidores SMTP pueden rechazar los mensajes por [varias razones](https://en
 * *554 5.7.1 Servicio no disponible; Host cliente xxxx.xx.xx.xxx bloqueado*, por favor [vea aquí](https://docs.gandi.net/en/gandimail/faq/error_types/554_5_7_1_service_unavailable.html)
 * *501 Error de sintaxis - línea demasiado larga* es a menudo causada por el uso de un encabezado Autocrypt largo
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
+* *554 5.7.1 ... no se permite transmitir* significa que el servidor de correo electrónico no reconoce el nombre de usuario/dirección de correo electrónico. Por favor, compruebe el nombre de host y el nombre de usuario/dirección de correo electrónico en la configuración de identidad.
 
 **Errores de Gmail**
 
@@ -2697,6 +2698,8 @@ Se puede configurar una cuenta de Office 365 mediante el asistente de configurac
 
 Si el asistente termina con *AUTHENTICATE falló*, IMAP y/o SMTP podrían estar deshabilitados para la cuenta. En este caso debería pedir al administrador que active IMAP y SMTP. El procedimiento está documentado [aquí](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
+Si ha activado *valores predeterminados de seguridad* en su organización, puede que necesite habilitar el protocolo SMTP AUTH. Por favor, [vea aquí](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) sobre cómo hacerlo.
+
 <br />
 
 <a name="faq157"></a>
@@ -2711,7 +2714,7 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 <br />
 
 <a name="faq158"></a>
-**(158) ¿Qué cámara / grabadora de audio recomienda?**
+**(158) ¿Qué cámara / grabadora de audio recomiendas?**
 
 Para tomar fotos y grabar audio se necesita una cámara y una aplicación de grabación de audio. Las siguientes aplicaciones son cámaras y grabadoras de audio de código abierto:
 
@@ -2732,7 +2735,7 @@ Después de descargar las listas en la configuración de privacidad, las listas 
 * para avisar sobre el enlaces de seguimiento al abrir enlaces
 * para reconocer imágenes de seguimiento en los mensajes
 
-Las imágenes de seguimiento sólo se desactivarán si la opción principal 'desactivar' correspondiente está habilitada.
+Las imágenes de seguimiento sólo se desactivarán si la opción principal correspondiente 'desactivar' está habilitada.
 
 Las imágenes de seguimiento no serán reconocidas cuando el dominio se clasifique como '*Contenido*', vea [aquí](https://disconnect.me/trackerprotection#trackers-we-dont-block) para más información.
 
@@ -2742,7 +2745,7 @@ Este comando puede ser enviado a FairEmail desde una aplicación de automatizaci
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Probablemente sea suficiente actualizar una vez a la semana, consulte [aquí](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) para ver los cambios en las listas recientes.
+Probablemente sea suficiente actualizar una vez a la semana, consulte [aquí](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) para ver los cambios recientes en las listas.
 
 <br />
 
@@ -2763,7 +2766,7 @@ Si pudiera, añadiría un ajuste para seleccionar el color principal y de acento
 
 ## Soporte
 
-Sólo la última versión de Play Store y la última versión de GitHub son soportadas. Esto también significa que bajar de versión no es soportado.
+Sólo la última versión de Play Store y la última versión de GitHub son soportadas. Esto también significa que bajar de versión no está soportado.
 
 Las características solicitadas deberían:
 

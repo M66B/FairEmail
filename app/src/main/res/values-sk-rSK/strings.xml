@@ -510,6 +510,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_notify_remove_hint">Oznámenia o novej správe budú vždy odstránené, keď ich odmietnete potiahnutím a po označení správy ako prečítanej</string>
     <string name="title_advanced_notify_manage_hint">Kliknite na názov kanálu pre nastavenie jeho vlastností</string>
     <string name="title_advanced_notify_manage_default_hint">Pre nastavenie predvoleného zvuku atď</string>
+    <string name="title_advanced_notify_manage_service_hint">Zakázať oznámenie monitorovanie účtov</string>
     <string name="title_advanced_notify_preview_all_hint">Pre nositeľné zariadenia, ktoré dokážu zobraziť celý text (do 5000 znakov)</string>
     <string name="title_advanced_notify_preview_only_hint">Toto pozdrží zobrazenie oznámení, kým nebudú prevzaté aj texty správ</string>
     <string name="title_advanced_wearable_hint">Oznámenia sa odošlú na nositeľné zariadenia až po prevzatí textov správ</string>
@@ -626,6 +627,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_browse">Prehliadať správy na serveri</string>
     <string name="title_advanced_expand_read">Označiť správy za prečítané po rozbalení</string>
     <string name="title_synchronize_now">Synchronizovať teraz</string>
+    <string name="title_synchronize_childs">Synchronizovať vnorené priečinky</string>
     <string name="title_synchronize_more">Synchronizovať viac správ</string>
     <string name="title_synchronize_enabled">Synchronizovať</string>
     <string name="title_delete_local">Vymazať lokálne správy</string>
@@ -892,7 +894,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>
     <string name="title_attachment_reminder">Mali ste v úmysle pridať prílohu?</string>
-    <string name="title_plain_reminder">Všetko formátovanie bude stratené</string>
     <string name="title_size_reminder">Správa (%1$s) väčšia než serverový limit (%2$s)</string>
     <string name="title_attachments_missing">Nie všetky prílohy boli prevzaté</string>
     <string name="title_dialog_hint">Tento dialóg môže byť znovu zapnutý cez menu s troma bodkami v hornom panely akcií</string>

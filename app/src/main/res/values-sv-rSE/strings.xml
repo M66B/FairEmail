@@ -88,8 +88,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ▶ %2$s</string>
-    <string name="title_to_from">%2$s ◀ %1$s</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
+    <string name="title_to_from">%2$s &lt; %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuter</string>
     <string name="menu_exit">Avsluta</string>
@@ -878,7 +878,7 @@
     <string name="title_text_reminder">Meddelandet är tomt</string>
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
-    <string name="title_plain_reminder">All formatering kommer gå förlorad</string>
+    <string name="title_plain_reminder">All formatering kommer att förloras</string>
     <string name="title_size_reminder">Meddelande (%1$s) större än gränsen på servern (%2$s)</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
     <string name="title_dialog_hint">Denna dialogruta kan aktiveras igen via tre-pricks-menyn i åtgärdsfältet</string>

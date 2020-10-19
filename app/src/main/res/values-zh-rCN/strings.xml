@@ -76,8 +76,8 @@
     <string name="title_of">%1$s/%2$s</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s ▶ %2$s</string>
-    <string name="title_to_from">%2$s ◀ %1$s</string>
+    <string name="title_from_to">%1$s &gt; %2$s</string>
+    <string name="title_to_from">%2$s &lt; %1$s</string>
     <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d分钟</string>
     <string name="menu_exit">退出</string>
@@ -481,7 +481,7 @@
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
-    <string name="title_advanced_notify_manage_service_hint">禁用“监视”通知</string>
+    <string name="title_advanced_notify_manage_service_hint">禁用 “监视” 通知</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
     <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示直到消息文本下载完成</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
@@ -867,7 +867,7 @@
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
-    <string name="title_plain_reminder">所有格式文本都将丢失</string>
+    <string name="title_plain_reminder">所有文本格式都将丢失</string>
     <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>

@@ -250,6 +250,7 @@
     <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
+    <string name="title_advanced_separate_reply">Lisää vaakaviiva ennen vastaus-/edelleenlähetystunnistetietoja</string>
     <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
     <string name="title_advanced_resize_reply">Muuta vastatun tekstin kuvien koot</string>
@@ -308,6 +309,7 @@
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
+    <string name="title_advanced_highlight_color">Korostusväri</string>
     <string name="title_advanced_keywords">Näytä avainsanat viestin tunnistetiedoissa</string>
     <string name="title_advanced_labels">Näytä Gmail-tunnisteet viestin tunnistetiedoissa</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
@@ -421,6 +423,8 @@
     <string name="title_advanced_language_detection">Tunnista tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
+    <string name="title_advanced_language">Kieli</string>
+    <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -462,6 +466,7 @@
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
+    <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
@@ -482,6 +487,7 @@
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Napauta kanavan nimeä asettaaksesi sen ominaisuudet</string>
     <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
+    <string name="title_advanced_notify_manage_service_hint">Seurantailmoituksen käytöstä poistamiseksi</string>
     <string name="title_advanced_notify_preview_all_hint">Puettaville laitteille, jotka voivat näyttää koko tekstin (5 000 merkkiin asti)</string>
     <string name="title_advanced_notify_preview_only_hint">Tämä viivästää ilmoitusten näyttämistä kunnes viestin teksti on ladattu</string>
     <string name="title_advanced_wearable_hint">Ilmoitukset lähetetään puettavaan laitteeseen vasta, kun viestin teksti on ladattu</string>
@@ -598,6 +604,7 @@
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
+    <string name="title_synchronize_childs">Synkronoi alikansiot</string>
     <string name="title_synchronize_more">Synkronoi lisää viestejä</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>
