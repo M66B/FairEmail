@@ -109,12 +109,12 @@
 
     <string name="title_notification_redacted">Redacted: biometric or PIN authentication enabled</string>
 
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s &gt; %2$s</string>
-    <string name="title_to_from">%2$s &lt; %1$s</string>
-    <string name="title_title_description">%1$s: %2$s</string>
+    <string name="title_of" translatable="false">%1$s/%2$s</string>
+    <string name="title_name_count" translatable="false">%1$s (%2$s)</string>
+    <string name="title_name_plus" translatable="false">%1$s +%2$d</string>
+    <string name="title_from_to" translatable="false">%1$s &gt; %2$s</string>
+    <string name="title_to_from" translatable="false">%2$s &lt; %1$s</string>
+    <string name="title_title_description" translatable="false">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutes</string>
 
     <string name="menu_exit">Exit</string>
