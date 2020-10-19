@@ -1,5 +1,7 @@
 FairEmail is easy to setup and works with virtually all email providers, including Gmail, Outlook and Yahoo!
 
+<b>Note that OAuth was not approved for the F-Droid build. For this you'll need to use the Play store version or the GitHub release.</b>
+
 FairEmail might be for you if you value your privacy.
 
 <i>FairEmail is an email client only, so you need to bring your own email address.</i>
