@@ -1991,6 +1991,8 @@ class Core {
                         if (received == null)
                             received = 0L;
 
+                        boolean seen = (received <= account.created);
+
                         String[] authentication = helper.getAuthentication();
                         MessageHelper.MessageParts parts = helper.getMessageParts();
 
@@ -2029,12 +2031,12 @@ class Core {
                         message.ui_encrypt = message.encrypt;
                         message.received = received;
                         message.sent = sent;
-                        message.seen = false;
+                        message.seen = seen;
                         message.answered = false;
                         message.flagged = false;
                         message.flags = null;
                         message.keywords = new String[0];
-                        message.ui_seen = false;
+                        message.ui_seen = seen;
                         message.ui_answered = false;
                         message.ui_flagged = false;
                         message.ui_hide = false;
