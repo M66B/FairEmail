@@ -1088,10 +1088,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     throw ex1;
                                 }
                             } catch (FolderNotFoundException ex) {
-                                if ("INBOX".equalsIgnoreCase(folder.name))
-                                    throw ex;
                                 Log.w(folder.name, ex);
-                                db.folder().deleteFolder(folder.id);
+                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
+                                db.folder().setFolderSynchronize(folder.id, false);
                                 continue;
                             } catch (Throwable ex) {
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
