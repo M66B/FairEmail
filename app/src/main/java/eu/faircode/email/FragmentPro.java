@@ -50,6 +50,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class FragmentPro extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvPending;
     private TextView tvActivated;
+    private Button btnBackup;
     private TextView tvInfo;
     private CheckBox cbHide;
     private TextView tvList;
@@ -73,6 +74,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         tvPending = view.findViewById(R.id.tvPending);
         tvActivated = view.findViewById(R.id.tvActivated);
+        btnBackup = view.findViewById(R.id.btnBackup);
         tvInfo = view.findViewById(R.id.tvInfo);
         cbHide = view.findViewById(R.id.cbHide);
         tvList = view.findViewById(R.id.tvList);
@@ -83,6 +85,14 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
 
         btnCheck = view.findViewById(R.id.btnCheck);
+
+        btnBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivitySetup.class).putExtra("navigate", true));
+            }
+        });
+        btnBackup.setVisibility(View.GONE);
 
         tvInfo.setText(getString(R.string.title_pro_info)
                 .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
@@ -283,6 +293,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         if ("pro".equals(key)) {
             boolean pro = ActivityBilling.isPro(getContext());
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
+            btnBackup.setVisibility(pro ? View.VISIBLE : View.GONE);
             cbHide.setVisibility(pro ? View.GONE : View.VISIBLE);
         } else if ("banner_hidden".equals(key)) {
             long banner_hidden = prefs.getLong("banner_hidden", 0);

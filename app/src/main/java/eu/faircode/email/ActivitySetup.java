@@ -302,6 +302,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
+
+        Intent intent = getIntent();
+        boolean navigate = intent.hasExtra("navigate");
+        if (navigate) {
+            intent.removeExtra("navigate");
+            setIntent(intent);
+            onSetupMore(intent);
+        }
     }
 
     @Override
