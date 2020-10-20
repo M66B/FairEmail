@@ -82,7 +82,7 @@ class CharsetHelper {
                     "UTF-8".equals(detected))
                 Log.w("compact_enc_det result=" + detected);
             else
-                // ISO-2022-JP, ISO-8859-2, windows-1250, windows-1257
+                // ISO-2022-JP, ISO-8859-2, windows-1250, windows-1252, windows-1257
                 Log.e("compact_enc_det result=" + detected);
 
             return Charset.forName(detected);
