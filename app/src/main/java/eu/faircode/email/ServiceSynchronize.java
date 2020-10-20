@@ -1573,7 +1573,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Check for fast account errors
                     if (account.last_connected != null &&
-                            now - account.last_connected < account.poll_interval * 60 * 1000 / 2) {
+                            now - account.last_connected < account.poll_interval * 60 * 1000L / 2) {
                         errors++;
                         EntityLog.log(ServiceSynchronize.this,
                                 account.name + " fast errors=" + errors +
