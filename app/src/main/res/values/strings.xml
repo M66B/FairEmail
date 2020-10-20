@@ -172,6 +172,7 @@
     <string name="title_setup_gmail" translatable="false">Gmail</string>
     <string name="title_setup_outlook" translatable="false">Outlook, Live, Hotmail</string>
     <string name="title_setup_oauth" translatable="false">%1$s (OAuth)</string>
+    <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_activesync" translatable="false">Exchange ActiveSync</string>
     <string name="title_setup_other">Other provider</string>
     <string name="title_setup_gmail_support">Authorizing Google accounts will work in official versions only because Android checks the app signature</string>

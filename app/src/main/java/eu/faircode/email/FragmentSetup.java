@@ -171,15 +171,14 @@ public class FragmentSetup extends FragmentBase {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, order++, R.string.title_setup_outlook);
 
-                if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
-                    for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
-                        if (provider.oauth != null && provider.oauth.enabled)
-                            popupMenu.getMenu()
-                                    .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
-                                    .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
-                                            .putExtra("id", provider.id)
-                                            .putExtra("name", provider.name)
-                                            .putExtra("askAccount", provider.oauth.askAccount));
+                for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
+                    if (provider.oauth != null && provider.oauth.enabled)
+                        popupMenu.getMenu()
+                                .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
+                                .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
+                                        .putExtra("id", provider.id)
+                                        .putExtra("name", provider.name)
+                                        .putExtra("askAccount", provider.oauth.askAccount));
 
                 //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
@@ -206,7 +205,10 @@ public class FragmentSetup extends FragmentBase {
                                 if (item.getIntent() == null)
                                     return false;
                                 else {
-                                    lbm.sendBroadcast(item.getIntent());
+                                    if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
+                                        lbm.sendBroadcast(item.getIntent());
+                                    else
+                                        ToastEx.makeText(getContext(), R.string.title_setup_oauth_permission, Toast.LENGTH_LONG).show();
                                     return true;
                                 }
                         }
