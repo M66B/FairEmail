@@ -85,10 +85,6 @@
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
     <string name="title_notification_sending_failed">Verzenden naar %1$s mislukt</string>
     <string name="title_notification_redacted">Redactie: biometrische of pincodeverificatie ingeschakeld</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_exit">Afsluiten</string>
     <string name="menu_answers">Sjablonen</string>

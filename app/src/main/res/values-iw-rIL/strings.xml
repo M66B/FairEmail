@@ -86,7 +86,6 @@
     <string name="title_notification_idle">לא פעיל</string>
     <string name="title_notification_failed">\'%1$s\' נכשלה</string>
     <string name="title_notification_alert">\'%1$s\' התראת שרת</string>
-    <string name="title_name_count">(%1$s (%2$s</string>
     <string name="title_factor_minutes">%1$d דקות</string>
     <string name="menu_exit">יציאה</string>
     <string name="menu_answers">תבניות</string>

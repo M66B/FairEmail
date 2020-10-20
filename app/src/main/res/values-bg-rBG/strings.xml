@@ -74,10 +74,6 @@
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_notification_sending_failed">Изпращането до %1$s неуспешно</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d минути</string>
     <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>

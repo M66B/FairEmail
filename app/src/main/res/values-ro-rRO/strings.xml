@@ -96,10 +96,6 @@
     <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
     <string name="title_notification_redacted">Cenzurat: autentificare biometrică sau PIN activată</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minute</string>
     <string name="menu_exit">Ieșire</string>
     <string name="menu_answers">Șabloane</string>

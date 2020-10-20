@@ -72,10 +72,6 @@
     <string name="title_notification_sending_left">Percobaan tersisa: %1$d</string>
     <string name="title_notification_sending_failed">Gagal mengirim ke %1$s</string>
     <string name="title_notification_redacted">Menyusun: otentikasi sidik jari atau PIN diaktifkan</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d menit</string>
     <string name="menu_exit">Keluar</string>
     <string name="menu_answers">Template</string>

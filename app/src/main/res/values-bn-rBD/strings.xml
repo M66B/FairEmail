@@ -74,10 +74,6 @@
     <string name="title_notification_sending_left">চেষ্টা বাকিঃ %1$d</string>
     <string name="title_notification_sending_failed">%1$s এর কাছে প্রেরণ ব্যর্থ হয়েছে</string>
     <string name="title_notification_redacted">পুনঃনির্মাণঃ বায়োমেট্রিক বা পিন প্রমাণীকরণ চালু</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s+%2$d</string>
-    <string name="title_title_description">%1$sঃ %2$s</string>
     <string name="title_factor_minutes">%1$d মিনিট</string>
     <string name="menu_exit">প্রস্থান</string>
     <string name="menu_answers">টেম্পলেট</string>

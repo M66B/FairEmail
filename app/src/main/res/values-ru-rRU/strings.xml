@@ -107,12 +107,6 @@
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
     <string name="title_notification_sending_failed">Отправка для %1$s не удалась</string>
     <string name="title_notification_redacted">Отредактировано: включена биометрическая аутентификация или PIN-код</string>
-    <string name="title_of">%1$s/%2$s</string>
-    <string name="title_name_count">%1$s (%2$s)</string>
-    <string name="title_name_plus">%1$s +%2$d</string>
-    <string name="title_from_to">%1$s &gt; %2$s</string>
-    <string name="title_to_from">%2$s &lt; %1$s</string>
-    <string name="title_title_description">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
