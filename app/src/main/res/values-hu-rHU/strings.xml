@@ -201,6 +201,7 @@
     <string name="title_setup_theme_black">Fekete</string>
     <string name="title_setup_theme_black_and_white">Fekete és fehér</string>
     <string name="title_setup_theme_reverse">Színek felcserélése</string>
+    <string name="title_setup_theme_light">Világos</string>
     <string name="title_setup_theme_dark">Sötét</string>
     <string name="title_setup_theme_system">Rendszertéma-követés</string>
     <string name="title_setup_theme_black_background">Fekete háttér</string>
@@ -305,6 +306,7 @@
     <string name="title_advanced_subject_top">Tárgy megjelenítése a küldő fölött</string>
     <string name="title_advanced_subject_italic">Tárgy megjelnítése dőlt betűvel</string>
     <string name="title_advanced_subject_elipsed">Tárgy rövidítése szükség esetén</string>
+    <string name="title_advanced_highlight_color">Kiemelő szín</string>
     <string name="title_advanced_keywords">Kulcsszavak megjelenítése az üzenetek fejlécében</string>
     <string name="title_advanced_labels">Gmail címkék mutatása az üzenet fejlécében</string>
     <string name="title_advanced_flags">Csillagok megjelenítése</string>
@@ -418,6 +420,8 @@
     <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
+    <string name="title_advanced_language">Nyelv</string>
+    <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
     <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_updates">Frissítések keresése</string>
@@ -804,6 +808,8 @@
     <string name="title_style_size_medium">Közepes</string>
     <string name="title_style_size_large">Nagy</string>
     <string name="title_style_color">Szín &#8230;</string>
+    <string name="title_style_align">Igazítás</string>
+    <string name="title_style_align_center">Középre</string>
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Felsorolás</string>
     <string name="title_style_list_numbered">Sorszám</string>
