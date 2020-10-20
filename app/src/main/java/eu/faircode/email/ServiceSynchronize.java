@@ -1379,7 +1379,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                     ServiceSynchronize.this,
                                                                     folder.name + " " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                                            state.error(new OperationCanceledException("Process"));
+                                                            if (!(ex instanceof FolderNotFoundException))
+                                                                state.error(new OperationCanceledException("Process"));
                                                         } finally {
                                                             if (shouldClose) {
                                                                 if (ifolder != null && ifolder.isOpen()) {
