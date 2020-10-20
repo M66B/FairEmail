@@ -11,11 +11,13 @@
     <item
         android:id="@+id/menu_export"
         android:title="@string/title_rules_export"
+        android:visible="false"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_import"
         android:title="@string/title_rules_import"
+        android:visible="false"
         app:showAsAction="never" />
 
     <item
