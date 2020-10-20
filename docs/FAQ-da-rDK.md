@@ -2698,87 +2698,87 @@ An Office 365 account can be set up via the quick setup wizard and selecting *Of
 
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
-If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+Er *sikkerhedsstandarder* aktiveret i din organisation, kan du være nødt til at aktivere SMTP AUTH-protokollen. Tjek [hér](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) ang. hvordan.
 
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Hvordan opsættes en Free.fr-konto?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Tjek [hér](https://free.fr/assistance/597.html) ang. instruktioner.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+** SMTP er som standard deaktiveret **, tjek [hér](https://free.fr/assistance/2406.html) ang. aktivering af den.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Tjek [hér](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) ang. detaljeret vejledning.
 
 <br />
 
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Hvilke(t/n) kamera/lydoptager anbefaler du?**
 
-To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
+For at tage fotos og optage lyd kræves en kamera- samt lydoptager-app. Flg. er open-source kamera- og lydoptager-apps:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
+For at optage stemmenotater mv., skal lydoptageren understøtte [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Mærkværdigvis synes de fleste lydoptagere ikke at understøtte denne standard Android-handling.
 
 <br />
 
 <a name="faq159"></a>
-**(159) What are Disconnect's tracker protection lists?**
+**(159) Hvad er Disconnect's tracker-beskyttelseslister?**
 
-Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+Tjek [hér](https://disconnect.me/trackerprotection) for yderligere oplysninger om Disconnect's tracker-beskyttelseslister.
 
-After downloading the lists in the privacy settings, the lists can optionally be used:
+Efter download af listerne via fortrolighedsindstillingerne, kan disse anvendes:
 
 * to warn about tracking links on opening links
 * to recognize tracking images in messages
 
-Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+Trackingsbilleder deaktiveres kun, såfremt den tilsvarende hovedindstilling 'deaktivere' er slået til.
 
-Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
+Tracking-billeder genkendes ikke, såfremt domænet er klassificeret som '*Indhold*', tjek [hér](https://disconnect.me/trackerprotection#trackers-we-dont-block) for yderligere oplysninger.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Denne kommando kan sendes til FairEmail fra en automatiserings-app for at opdatere beskyttelseslisterne:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+Én ugentligt opdatering er formentlig tilstrækkeligt, tjek [hér](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for seneste listeændringer.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Kan der blive tilføjet permanent sletning af beskeder uden bekræftelse?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+Permanent sletning af beskeder er en *irreversibel handling*, så for at forhindre utilsigtet tab af beskeder, skal sletning altid bekræftes. Selv med en bekræftelse, har nogle meget vrede personer, som mistede nogle af deres beskeder grundet egne fejl, kontaktede mig, hvilket var en ret ubehagelig oplevelse :-(
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Kan der blive tilføjet en indstilling til ændring af primær- og accentfarverne?***
 
-If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+Om muligt blev der med det samme tilføjet en indstilling til valg af primær- og accentfarver, men Android-temaer er desværre statiske, tjek f.eks. [hér](https://stackoverflow.com/a/26511725/1794097), så dette er ikke muligt.
 
 <br />
 
 
 ## Support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. Dette betyder også, at nedgradering ikke understøttes.
 
-Requested features should:
+Ønskede funktioner skal:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er også for at muliggøre vedligeholdelse og support i det lange løb.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Har du spørgsmål, ønsker til en funktion eller vil indrapportere en fejl, så benyt venligst [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2020 Marcel Bokhorst. Alle rettigheder forbeholdt.

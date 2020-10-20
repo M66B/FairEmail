@@ -77,7 +77,7 @@
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">端末内の連絡先</string>
     <string name="menu_setup">設定</string>
-    <string name="menu_legend">記録</string>
+    <string name="menu_legend">凡例</string>
     <string name="menu_test">テストプログラム</string>
     <string name="menu_faq">サポート</string>
     <string name="menu_translate">翻訳を手伝う</string>
@@ -112,7 +112,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">インストールウィザードを複数回使用し複数アカウントをセットアップ出来ます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい</string>
-    <string name="title_setup_wizard_remark">受信トレイに戻る</string>
+    <string name="title_setup_wizard_remark">「戻る」で受信トレイに戻る
+
+back navigation</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>

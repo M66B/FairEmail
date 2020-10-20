@@ -879,6 +879,7 @@
     <string name="title_text_reminder">Il messaggio è vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
     <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
+    <string name="title_plain_reminder">Tutta la formattazione verrà persa</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_dialog_hint">Questa finestra di dialogo può essere riattivata tramite il menu a tre puntini nella barra di azione superiore</string>
