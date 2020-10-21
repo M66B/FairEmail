@@ -66,7 +66,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
                 prefs.edit()
                         .remove("english")
                         .putString("language", Locale.US.toLanguageTag())
-                        .commit();
+                        .commit(); // apply won't work here
         }
 
         String language = prefs.getString("language", null);
