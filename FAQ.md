@@ -182,7 +182,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 * [(56) Can you add support for JMAP?](#user-content-faq56)
-* [~~(57) Can I use HTML in signatures?~~](#user-content-faq57)
+* [(57) Can I use HTML in signatures?](#user-content-faq57)
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
@@ -1694,14 +1694,25 @@ so it is not worth a lot of effort to add support for this to FairEmail.
 <br />
 
 <a name="faq57"></a>
-**(57) ~~Can I use HTML in signatures?~~**
+**(57) Can I use HTML in signatures?**
 
-~~Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.~~
+Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML).
+In the signature editor you can switch to HTML mode via the three-dots menu.
 
-~~Note that including links and images in messages will increase the likelihood that a message will be seen as spam,~~
-~~especially when you send a message to someone for the first time.~~
+Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML.
+Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
 
-~~See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.~~
+If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
+
+```
+<pre>
+  |\_/|
+ / @ @ \
+( > º < )
+ `>>x<<´
+ /  O  \
+ </pre>
+```
 
 <br />
 
