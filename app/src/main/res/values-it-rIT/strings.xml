@@ -129,6 +129,7 @@
     <string name="title_setup_wizard_multiple">La procedura guidata di installazione può essere utilizzata più volte per impostare account multipli</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
     <string name="title_setup_wizard_remark">Vai \'indietro\' per andare alla casella di posta in arrivo</string>
+    <string name="title_setup_oauth_permission">Il fornitore di posta elettronica ha approvato OAuth solo per le versioni ufficiali dell\'applicazione</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_gmail_support">L\'autorizzazione degli account Google funzionerà solo nelle versioni ufficiali, perché Android controlla la firma dell\'app</string>
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>

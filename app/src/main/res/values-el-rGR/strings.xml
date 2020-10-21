@@ -129,6 +129,7 @@
     <string name="title_setup_wizard_multiple">Ο οδηγός εγκατάστασης μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
     <string name="title_setup_wizard_remark">\"Πίσω\" για να πάτε στα εισερχόμενα</string>
+    <string name="title_setup_oauth_permission">Ο πάροχος ηλ. ταχυδρομείου έχει εγκρίνει OAuth μόνον για τις επίσημες εφαρμογές</string>
     <string name="title_setup_other">Άλλος πάροχος</string>
     <string name="title_setup_gmail_support">Η εξουσιοδότηση λογαριασμών Google θα λειτουργήσει μόνο σε επίσημες εκδόσεις διότι το Android ελέγχει την υπογραφή της εφαρμογής</string>
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>

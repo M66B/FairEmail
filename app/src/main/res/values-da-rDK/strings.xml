@@ -129,6 +129,7 @@
     <string name="title_setup_wizard_multiple">Installationsguiden kan anvendes flere gange til opsætning af flere konti</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_wizard_remark">Returnér til indbakken</string>
+    <string name="title_setup_oauth_permission">E-mailudbyderen har alene godkendt OAuth for officielle app-versioner</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>

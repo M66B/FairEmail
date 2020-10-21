@@ -150,6 +150,7 @@
     <string name="title_setup_wizard_multiple">Sprievodcu inštaláciou môžete spustiť viacnásobne pre nastavenie viacerých účtov</string>
     <string name="title_setup_wizard_new">Potrebujem novú emailovú adresu</string>
     <string name="title_setup_wizard_remark">Vrátiť sa \'späť\' do doručených</string>
+    <string name="title_setup_oauth_permission">Poskytovateľ služby e-mail povolil autorizáciu použitím OAuth len pre oficiálne zostavenia aplikácii</string>
     <string name="title_setup_other">Iný poskytovateľ</string>
     <string name="title_setup_gmail_support">Autorizovanie účtu Google bude fungovať iba v oficiálnych verziách z dôvodu kontroly podpisu aplikácie zo strany Androidu</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
@@ -890,6 +891,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>
     <string name="title_attachment_reminder">Mali ste v úmysle pridať prílohu?</string>
+    <string name="title_plain_reminder">Dôjde k strate formátovania</string>
     <string name="title_size_reminder">Správa (%1$s) väčšia než serverový limit (%2$s)</string>
     <string name="title_attachments_missing">Nie všetky prílohy boli prevzaté</string>
     <string name="title_dialog_hint">Tento dialóg môže byť znovu zapnutý cez menu s troma bodkami v hornom panely akcií</string>

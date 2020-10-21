@@ -151,6 +151,7 @@
     <string name="title_setup_wizard_multiple">Мастер установки может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_wizard_remark">Переход \"назад\" приводит в папку \"Входящие\"</string>
+    <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
