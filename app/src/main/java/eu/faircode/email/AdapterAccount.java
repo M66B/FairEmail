@@ -196,10 +196,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvQuota.setText(context.getString(R.string.title_storage_quota,
                     (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
                     (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
-            tvQuota.setVisibility(account.quota_usage != null || account.quota_limit != null ? View.VISIBLE : View.GONE);
+            tvQuota.setVisibility(settings && (account.quota_usage != null || account.quota_limit != null) ? View.VISIBLE : View.GONE);
 
             tvMaxSize.setText(account.max_size == null ? null : Helper.humanReadableByteCount(account.max_size));
-            tvMaxSize.setVisibility(account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            tvMaxSize.setVisibility(settings && account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);
