@@ -1681,8 +1681,6 @@ public class HtmlHelper {
 
     @NonNull
     static String getText(Context context, String html) {
-        final StringBuilder sb = new StringBuilder();
-
         Document d = JsoupEx.parse(html);
 
         truncate(d, true);
