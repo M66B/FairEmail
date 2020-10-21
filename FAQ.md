@@ -1384,9 +1384,10 @@ If you are comparing the battery usage of FairEmail with another email client, p
 For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
-In this case you might want to synchronize periodically, for example each hour, instead of continuously.
+Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes.
+In these cases you might want to synchronize periodically, for example each hour, instead of continuously.
 Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always
-because connecting to the server and comparing the local and remotes messages are expensive operations.
+because connecting to the server and comparing the local and remote messages are expensive operations.
 
 [On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open.
 
