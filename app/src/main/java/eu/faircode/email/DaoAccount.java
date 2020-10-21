@@ -62,6 +62,13 @@ public interface DaoAccount {
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
+            ", (SELECT COUNT(DISTINCT message.id)" +
+            "    FROM message" +
+            "    JOIN folder ON folder.id = message.folder" +
+            "    WHERE message.account = account.id" +
+            "    AND folder.type = '" + EntityFolder.INBOX + "'" +
+            "    AND NOT ui_seen" +
+            "    AND NOT ui_hide) AS inbox" +
             ", (SELECT COUNT(identity.id)" +
             "    FROM identity" +
             "    WHERE identity.account = account.id" +

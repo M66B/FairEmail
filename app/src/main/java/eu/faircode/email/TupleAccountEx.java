@@ -23,6 +23,7 @@ import java.util.Objects;
 
 public class TupleAccountEx extends EntityAccount {
     public int unseen;
+    public int inbox;
     public int identities; // synchronizing
     public Long drafts;
 
@@ -32,6 +33,7 @@ public class TupleAccountEx extends EntityAccount {
             TupleAccountEx other = (TupleAccountEx) obj;
             return (super.equals(obj) &&
                     this.unseen == other.unseen &&
+                    this.inbox == other.inbox &&
                     this.identities == other.identities &&
                     Objects.equals(this.drafts, other.drafts));
         } else
