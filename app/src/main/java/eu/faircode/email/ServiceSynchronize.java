@@ -1461,7 +1461,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 account.keep_alive_succeeded = 0;
                                 if (account.keep_alive_failed >= 3) {
                                     account.keep_alive_failed = 0;
-                                    account.poll_interval--;
+                                    account.poll_interval = account.poll_interval - 2;
                                     db.account().setAccountKeepAliveInterval(account.id, account.poll_interval);
                                 }
                                 db.account().setAccountKeepAliveValues(account.id,
