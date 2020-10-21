@@ -88,7 +88,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private ImageView ivNotify;
         private TextView tvName;
         private ImageView ivSync;
-        private TextView tvInbox;
         private ImageButton ibInbox;
         private TextView tvUser;
         private ImageView ivState;
@@ -111,7 +110,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivSync = itemView.findViewById(R.id.ivSync);
-            tvInbox = itemView.findViewById(R.id.tvInbox);
             ibInbox = itemView.findViewById(R.id.ibInbox);
             ivOAuth = itemView.findViewById(R.id.ivOAuth);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
@@ -134,7 +132,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private void wire() {
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
-            tvInbox.setOnClickListener(this);
             ibInbox.setOnClickListener(this);
             btnHelp.setOnClickListener(this);
         }
@@ -142,7 +139,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private void unwire() {
             view.setOnClickListener(null);
             view.setOnLongClickListener(null);
-            tvInbox.setOnClickListener(null);
             ibInbox.setOnClickListener(null);
             btnHelp.setOnClickListener(null);
         }
@@ -170,10 +166,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
                 tvName.setTypeface(account.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
-
-                tvInbox.setText(NF.format(account.inbox));
-                tvInbox.setTypeface(account.inbox > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-                tvInbox.setTextColor(account.inbox > 0 ? colorUnread : textColorSecondary);
             }
 
             tvUser.setText(account.user);
@@ -219,7 +211,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
             btnHelp.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
 
-            tvInbox.setVisibility(settings ? View.GONE : View.VISIBLE);
             ibInbox.setVisibility(settings ? View.GONE : View.VISIBLE);
             grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
         }
@@ -237,8 +228,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 if (account.tbd != null)
                     return;
 
-                int id = view.getId();
-                if (id == R.id.tvInbox || id == R.id.ibInbox) {
+                if (view.getId() == R.id.ibInbox) {
                     Bundle args = new Bundle();
                     args.putLong("id", account.id);
 
@@ -273,9 +263,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 } else {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
-                            new Intent(settings
-                                    ? ActivitySetup.ACTION_EDIT_ACCOUNT
-                                    : ActivityView.ACTION_VIEW_FOLDERS)
+                            new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
                                     .putExtra("id", account.id)
                                     .putExtra("protocol", account.protocol));
                 }

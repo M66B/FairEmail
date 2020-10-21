@@ -100,21 +100,9 @@
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_synchronize_on"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintEnd_toStartOf="@+id/tvInbox"
+                app:layout_constraintEnd_toStartOf="@+id/ibInbox"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_sync_24" />
-
-            <eu.faircode.email.FixedTextView
-                android:id="@+id/tvInbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="start"
-                android:singleLine="true"
-                android:text="123"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintEnd_toStartOf="@id/ibInbox"
-                app:layout_constraintTop_toTopOf="@+id/tvName" />
 
             <ImageButton
                 android:id="@+id/ibInbox"
