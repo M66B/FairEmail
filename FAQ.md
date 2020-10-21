@@ -2674,6 +2674,7 @@ So, basically the only thing I can do, is give some advice:
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
@@ -2682,6 +2683,7 @@ Restarting the device might be necessary to let the Play store recognize the pur
 
 Note that:
 
+* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
