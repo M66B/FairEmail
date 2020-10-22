@@ -715,9 +715,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
             if (content_pane != null) {
+                boolean thread = "thread".equals(getSupportFragmentManager().getBackStackEntryAt(count - 1).getName());
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
-                content_separator.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
-                content_pane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
+                content_separator.setVisibility(!thread || fragment == null ? View.GONE : View.VISIBLE);
+                content_pane.setVisibility(!thread || fragment == null ? View.GONE : View.VISIBLE);
             }
         }
     }
