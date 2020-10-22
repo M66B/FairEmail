@@ -151,6 +151,7 @@
     <string name="title_setup_wizard_multiple">Průvodce instalací lze použít vícekrát pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_wizard_remark">Přejděte „zpět“ pro vstup do doručených</string>
+    <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>

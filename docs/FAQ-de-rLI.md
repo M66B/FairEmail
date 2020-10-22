@@ -2592,7 +2592,7 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Google Mail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play Store-Versionen und Github-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
+The F-Droid version is built from the same source code, but signed differently. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Google Mail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play-Store-Versionen und Github-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 

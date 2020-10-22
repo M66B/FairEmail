@@ -150,6 +150,7 @@
     <string name="title_setup_wizard_multiple">Kreator instalacji może być użyty wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
     <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
+    <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla oficjalnych wersji aplikacji</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>

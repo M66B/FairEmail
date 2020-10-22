@@ -2592,7 +2592,7 @@ Probablemente llegó aquí porque está usando una versión de terceros de FairE
 
 F-Droid compila de forma irregular, lo que puede ser problemático cuando hay una actualización importante. Por lo tanto se le aconseja cambiar a la versión de GitHub.
 
-La versión de F-Droid se compila con el mismo código fuente, pero se firma de forma diferente. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers have only allowed permission for official builds to use OAuth.
+La versión de F-Droid se compila con el mismo código fuente, pero se firma de forma diferente. Esto significa que todas las características están disponibles también en la versión de F-Droid excepto para usar el asistente de configuración rápida de Gmail porque Google aprueba (y permite) una sola firma de la aplicación. Para todos los demás proveedores de correo electrónico, el acceso OAuth sólo está disponible en las versiones de Play Store y en las versiones de Github, dado que los proveedores de correo electrónico sólo han permitido que las compilaciones oficiales usen OAuth.
 
 Tenga en cuenta que primero tendrá que desinstalar la compilación de F-Droid antes de instalar una versión de GitHub porque Android se niega a instalar la misma aplicación con una firma diferente por razones de seguridad.
 

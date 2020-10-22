@@ -130,6 +130,7 @@
     <string name="title_setup_wizard_multiple">El asistente de instalación puede utilizarse varias veces para configurar varias cuentas</string>
     <string name="title_setup_wizard_new">Necesito una nueva dirección de correo electrónico</string>
     <string name="title_setup_wizard_remark">Ir \'atrás\' para ir a la bandeja de entrada</string>
+    <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para versiones oficiales de la aplicación</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
