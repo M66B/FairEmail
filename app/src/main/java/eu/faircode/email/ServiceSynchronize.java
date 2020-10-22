@@ -1792,10 +1792,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        private Network reloaded = null;
-        private NetworkCapabilities lastActiveCaps = null;
-        private LinkProperties lastActiveProps = null;
-
         @Override
         public void onAvailable(@NonNull Network network) {
             try {
