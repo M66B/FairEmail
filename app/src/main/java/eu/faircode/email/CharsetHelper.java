@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -84,6 +86,9 @@ class CharsetHelper {
             else
                 // ISO-2022-JP, ISO-8859-2, windows-1250, windows-1252, windows-1257
                 Log.e("compact_enc_det result=" + detected);
+
+            if (TextUtils.isEmpty(detected))
+                return null;
 
             return Charset.forName(detected);
         } catch (Throwable ex) {
