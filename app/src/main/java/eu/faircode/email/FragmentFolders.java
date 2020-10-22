@@ -736,7 +736,6 @@ public class FragmentFolders extends FragmentBase {
                     }
 
                     EntityOperation.queue(context, folder, EntityOperation.PURGE);
-                    EntityOperation.sync(context, folder.id, false);
 
                     db.setTransactionSuccessful();
                 } finally {

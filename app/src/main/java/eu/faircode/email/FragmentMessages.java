@@ -7278,7 +7278,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                         EntityOperation.queue(context, folder, EntityOperation.PURGE);
-                        EntityOperation.sync(context, folder.id, false);
                     }
 
                     db.setTransactionSuccessful();

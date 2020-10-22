@@ -1789,8 +1789,6 @@ class Core {
 
     private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
         // Delete all messages from folder
-        DB db = DB.getInstance(context);
-
         try {
             final MessageSet[] sets = new MessageSet[]{new MessageSet(1, ifolder.getMessageCount())};
 
@@ -1810,15 +1808,12 @@ class Core {
             Log.e(ex);
             throw ex;
         } finally {
-            int count = MessageHelper.getMessageCount(ifolder);
-            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
-
-            // Delete local, hidden messages
-            onPurgeFolder(context, folder);
+            EntityOperation.sync(context, folder.id, false);
         }
     }
 
     private static void onPurgeFolder(Context context, EntityFolder folder) {
+        // POP3
         DB db = DB.getInstance(context);
         try {
             db.beginTransaction();
