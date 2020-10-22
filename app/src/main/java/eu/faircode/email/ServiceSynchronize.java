@@ -1588,11 +1588,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Throwable e = ex;
                             while (e != null) {
                                 if (ConnectionHelper.isMaxConnections(e.getMessage())) {
-                                    for (String ft : new String[]{EntityFolder.TRASH, EntityFolder.JUNK}) {
-                                        EntityFolder f = db.folder().getFolderByType(account.id, ft);
-                                        if (f != null)
-                                            db.folder().setFolderPoll(f.id, true);
-                                    }
+                                    for (int i = 0; i < EntityFolder.SYSTEM_FOLDER_SYNC.size(); i++)
+                                        if (EntityFolder.SYSTEM_FOLDER_POLL.get(i)) {
+                                            String ft = EntityFolder.SYSTEM_FOLDER_SYNC.get(i);
+                                            EntityFolder f = db.folder().getFolderByType(account.id, ft);
+                                            if (f != null && f.synchronize) {
+                                                EntityLog.log(ServiceSynchronize.this, account.name + "/" + f.name + "=poll");
+                                                db.folder().setFolderPoll(f.id, true);
+                                            }
+                                        }
                                 }
                                 e = e.getCause();
                             }
