@@ -1094,7 +1094,28 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 continue;
                             } catch (Throwable ex) {
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
-                                throw ex;
+                                if (EntityFolder.INBOX.equals(folder.type))
+                                    throw ex;
+                                else
+                                    continue;
+                                /*
+                                    javax.mail.MessagingException: D2 NO Mailbox does not exist, or must be subscribed to.;
+                                      nested exception is:
+                                        com.sun.mail.iap.CommandFailedException: D2 NO Mailbox does not exist, or must be subscribed to.
+                                    javax.mail.MessagingException: D2 NO Mailbox does not exist, or must be subscribed to.;
+                                      nested exception is:
+                                        com.sun.mail.iap.CommandFailedException: D2 NO Mailbox does not exist, or must be subscribed to.
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:61)
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:1)
+                                        at eu.faircode.email.ServiceSynchronize.monitorAccount(SourceFile:63)
+                                        at eu.faircode.email.ServiceSynchronize.access$900(SourceFile:1)
+                                        at eu.faircode.email.ServiceSynchronize$4$1.run(SourceFile:1)
+                                        at java.lang.Thread.run(Thread.java:919)
+                                    Caused by: com.sun.mail.iap.CommandFailedException: D2 NO Mailbox does not exist, or must be subscribed to.
+                                        at com.sun.mail.iap.Protocol.handleResult(SourceFile:8)
+                                        at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:19)
+                                        at com.sun.mail.imap.IMAPFolder.open(SourceFile:16)
+                                 */
                             }
 
                             db.folder().setFolderState(folder.id, "connected");
