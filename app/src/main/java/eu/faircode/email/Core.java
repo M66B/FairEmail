@@ -3767,6 +3767,7 @@ class Core {
                             .setSmallIcon(R.drawable.baseline_mail_white_24)
                             .setContentIntent(piContent)
                             .setWhen(message.received)
+                            .setShowWhen(true)
                             .setDeleteIntent(piIgnore)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
