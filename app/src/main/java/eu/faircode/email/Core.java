@@ -94,6 +94,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -3523,7 +3524,8 @@ class Core {
                             " id=" + id + " group=" + notification.getGroup() +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O
                                     ? " sdk=" + Build.VERSION.SDK_INT
-                                    : " channel=" + notification.getChannelId()));
+                                    : " channel=" + notification.getChannelId()) +
+                            " sort=" + notification.getSortKey());
                     try {
                         nm.notify(tag, 1, notification);
                     } catch (Throwable ex) {
@@ -3556,6 +3558,7 @@ class Core {
         boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_newest_first = prefs.getBoolean("notify_newest_first", false);
         boolean name_email = prefs.getBoolean("name_email", false);
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean flags = prefs.getBoolean("flags", true);
@@ -3761,6 +3764,9 @@ class Core {
                     channelName = channel.getId();
             }
 
+            String sortKey = String.format(Locale.ROOT, "%13d",
+                    notify_newest_first ? (10000000000000L - message.received) : message.received);
+
             NotificationCompat.Builder mbuilder =
                     new NotificationCompat.Builder(context, channelName)
                             .addExtras(args)
@@ -3768,6 +3774,7 @@ class Core {
                             .setContentIntent(piContent)
                             .setWhen(message.received)
                             .setShowWhen(true)
+                            .setSortKey(sortKey)
                             .setDeleteIntent(piIgnore)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)

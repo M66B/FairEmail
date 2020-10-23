@@ -58,6 +58,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private ImageView ivChannelDefault;
     private Button btnManageService;
     private ImageView ivChannelService;
+    private SwitchCompat swNewestFirst;
     private SwitchCompat swBackground;
 
     private CheckBox cbNotifyActionTrash;
@@ -95,6 +96,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
+            "notify_newest_first",
+            "background_service",
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
             "notify_flag", "notify_seen", "notify_snooze",
@@ -121,6 +124,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         ivChannelDefault = view.findViewById(R.id.ivChannelDefault);
         btnManageService = view.findViewById(R.id.btnManageService);
         ivChannelService = view.findViewById(R.id.ivChannelService);
+        swNewestFirst = view.findViewById(R.id.swNewestFirst);
         swBackground = view.findViewById(R.id.swBackground);
 
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
@@ -204,6 +208,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         ivChannelService.setVisibility(View.GONE);
+
+        swNewestFirst.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_newest_first", checked).apply();
+            }
+        });
 
         swBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -484,6 +495,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         boolean pro = ActivityBilling.isPro(getContext());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swNewestFirst.setChecked(prefs.getBoolean("notify_newest_first", false));
         swBackground.setChecked(prefs.getBoolean("background_service", false));
 
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
