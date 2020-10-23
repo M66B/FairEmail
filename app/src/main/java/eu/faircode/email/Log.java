@@ -1535,7 +1535,6 @@ public class Log {
         db.attachment().setDownloaded(attachment.id, size);
     }
 
-
     private static void attachLog(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
@@ -1580,15 +1579,20 @@ public class Log {
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             DateFormat TF = Helper.getTimeInstance(context);
 
-            for (EntityOperation op : db.operation().getOperations())
-                size += write(os, String.format("%s %d %s/%d %s %s %s\r\n",
+            for (EntityOperation op : db.operation().getOperations()) {
+                EntityAccount account = (op.account == null ? null : db.account().getAccount(op.account));
+                EntityFolder folder = (op.folder == null ? null : db.folder().getFolder(op.folder));
+                size += write(os, String.format("%s %s/%s %d %s/%d %s %s %s\r\n",
                         TF.format(op.created),
+                        account == null ? null : account.name,
+                        folder == null ? null : folder.name,
                         op.message == null ? -1 : op.message,
                         op.name,
                         op.tries,
                         op.args,
                         op.state,
                         op.error));
+            }
         }
 
         db.attachment().setDownloaded(attachment.id, size);
