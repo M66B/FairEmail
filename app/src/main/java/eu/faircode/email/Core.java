@@ -3519,8 +3519,11 @@ class Core {
 
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Notification notification = builder.build();
-                    Log.i("Notifying tag=" + tag + " id=" + id + " group=" + notification.getGroup() +
-                            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
+                    EntityLog.log(context, "Notifying tag=" + tag +
+                            " id=" + id + " group=" + notification.getGroup() +
+                            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+                                    ? " sdk=" + Build.VERSION.SDK_INT
+                                    : " channel=" + notification.getChannelId()));
                     try {
                         nm.notify(tag, 1, notification);
                     } catch (Throwable ex) {
