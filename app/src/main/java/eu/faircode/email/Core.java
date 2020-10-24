@@ -4058,8 +4058,11 @@ class Core {
             if (info[0].hasPhoto())
                 mbuilder.setLargeIcon(info[0].getPhotoBitmap());
 
-            if (info[0].hasLookupUri())
-                mbuilder.addPerson(info[0].getLookupUri().toString());
+            if (info[0].hasLookupUri()) {
+                Person.Builder you = new Person.Builder()
+                        .setUri(info[0].getLookupUri().toString());
+                mbuilder.addPerson(you.build());
+            }
 
             Integer color = getColor(message);
             if (pro && color != null) {
