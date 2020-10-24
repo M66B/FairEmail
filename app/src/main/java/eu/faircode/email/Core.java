@@ -3785,15 +3785,30 @@ class Core {
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
 
-            NotificationCompat.MessagingStyle messagingStyle = null;
             if (notify_messaging) {
                 // https://developer.android.com/training/cars/messaging
                 Person.Builder me = new Person.Builder()
                         .setName(MessageHelper.formatAddresses(message.to, name_email, false));
-                messagingStyle = new NotificationCompat.MessagingStyle(me.build());
+                Person.Builder you = new Person.Builder()
+                        .setName(MessageHelper.formatAddresses(message.from, name_email, false));
+
+                if (info[0].hasPhoto())
+                    you.setIcon(IconCompat.createWithBitmap(info[0].getPhotoBitmap()));
+
+                if (info[0].hasLookupUri())
+                    you.setUri(info[0].getLookupUri().toString());
+
+                NotificationCompat.MessagingStyle messagingStyle = new NotificationCompat.MessagingStyle(me.build());
 
                 if (!TextUtils.isEmpty(message.subject))
                     messagingStyle.setConversationTitle(message.subject);
+
+                messagingStyle.addMessage(
+                        notify_preview && message.preview != null ? message.preview : "",
+                        message.received,
+                        you.build());
+
+                mbuilder.setStyle(messagingStyle);
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
@@ -4020,7 +4035,7 @@ class Core {
                 }
 
                 // Device
-                if (messagingStyle == null) {
+                if (!notify_messaging) {
                     StringBuilder sbm = new StringBuilder();
                     if (!TextUtils.isEmpty(message.subject))
                         sbm.append("<em>").append(message.subject).append("</em>").append("<br>");
@@ -4036,19 +4051,6 @@ class Core {
 
                         mbuilder.setStyle(bigText);
                     }
-                } else {
-                    Person.Builder you = new Person.Builder()
-                            .setName(MessageHelper.formatAddresses(message.from, name_email, false));
-
-                    if (info[0].hasPhoto())
-                        you.setIcon(IconCompat.createWithBitmap(info[0].getPhotoBitmap()));
-
-                    if (info[0].hasLookupUri())
-                        you.setUri(info[0].getLookupUri().toString());
-
-                    messagingStyle.addMessage(preview == null ? "" : preview, message.received, you.build());
-
-                    mbuilder.setStyle(messagingStyle);
                 }
             } else {
                 if (!TextUtils.isEmpty(message.subject))
