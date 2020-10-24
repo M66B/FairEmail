@@ -1793,11 +1793,14 @@ public class MessageHelper {
 
                             if (!TextUtils.isEmpty(charset))
                                 try {
-                                    Log.i("Charset=" + meta);
+                                    Charset detected = CharsetHelper.detect(result);
+                                    Log.i("Charset detected=" + detected + " meta=" + meta);
                                     Charset c = Charset.forName(charset);
                                     if (c.equals(StandardCharsets.UTF_8) && !CharsetHelper.isUTF8(result))
                                         break;
-                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), charset);
+                                    if (c.equals(StandardCharsets.UTF_16) && !c.equals(detected))
+                                        break;
+                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
                                     break;
                                 } catch (Throwable ex) {
                                     Log.w(ex);
