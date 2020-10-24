@@ -688,9 +688,8 @@ public class Log {
             // Some Android versions (Samsung) send images as clip data
             return false;
 
-        if (ex instanceof RuntimeException &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Throwable cause = ex.getCause();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Throwable cause = ex;
             while (cause != null) {
                 if (cause instanceof DeadSystemException)
                     return false;
