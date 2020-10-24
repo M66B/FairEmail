@@ -87,6 +87,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swNotifyPreviewAll;
     private SwitchCompat swNotifyPreviewOnly;
     private SwitchCompat swWearablePreview;
+    private SwitchCompat swMessagingStyle;
     private SwitchCompat swBiometricsNotify;
     private SwitchCompat swAlertOnce;
     private TextView tvNoGrouping;
@@ -105,6 +106,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "badge", "unseen_ignored",
             "notify_background_only", "notify_known", "notify_summary", "notify_remove", "notify_clear",
             "notify_preview", "notify_preview_all", "notify_preview_only", "wearable_preview",
+            "notify_messaging",
             "biometrics_notify",
             "alert_once"
     };
@@ -153,6 +155,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreviewAll = view.findViewById(R.id.swNotifyPreviewAll);
         swNotifyPreviewOnly = view.findViewById(R.id.swNotifyPreviewOnly);
         swWearablePreview = view.findViewById(R.id.swWearablePreview);
+        swMessagingStyle = view.findViewById(R.id.swMessagingStyle);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
         tvNoGrouping = view.findViewById(R.id.tvNoGrouping);
@@ -400,6 +403,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swMessagingStyle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_messaging", checked).apply();
+            }
+        });
+
         swBiometricsNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -521,6 +531,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
         swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
         swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
+        swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
         swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
 

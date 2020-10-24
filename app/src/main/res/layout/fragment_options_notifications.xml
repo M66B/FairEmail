@@ -535,6 +535,29 @@
             app:layout_constraintTop_toBottomOf="@id/swWearablePreview" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swMessagingStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_notify_messaging"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWearablePreviewHint"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMessagingStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_messaging_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swMessagingStyle" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBiometricsNotify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -542,7 +565,7 @@
             android:text="@string/title_advanced_biometrics_notify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWearablePreviewHint"
+            app:layout_constraintTop_toBottomOf="@id/tvMessagingStyle"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

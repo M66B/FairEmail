@@ -452,6 +452,7 @@
     <string name="title_advanced_notify_remove">Remove new message notification on tapping on notification</string>
     <string name="title_advanced_notify_clear">Remove new message notifications on viewing message list</string>
     <string name="title_advanced_wearable_preview">Only send notifications with a message preview to wearables</string>
+    <string name="title_advanced_notify_messaging">Use Android messaging style notification format</string>
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
@@ -585,6 +586,7 @@
     <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
     <string name="title_advanced_notify_preview_only_hint">This delays showing of notifications until the message text has been downloaded</string>
     <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
+    <string name="title_advanced_messaging_hint">This is required for Android Auto support</string>
     <string name="title_advanced_move_hint">The target folder can be configured in the account settings</string>
     <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
