@@ -1273,7 +1273,11 @@ class Core {
         DB db = DB.getInstance(context);
 
         if (EntityFolder.INBOX.equals(folder.type)) {
-            if (!account.leave_deleted) {
+            if (account.leave_deleted) {
+                // Remove message/attachments files on cleanup
+                db.message().resetMessageContent(message.id);
+                db.attachment().resetAvailable(message.id);
+            } else {
                 Map<String, String> caps = istore.capabilities();
 
                 Message[] imessages = ifolder.getMessages();

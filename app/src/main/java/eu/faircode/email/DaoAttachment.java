@@ -83,6 +83,11 @@ public interface DaoAttachment {
     void setAvailable(long id, boolean available);
 
     @Query("UPDATE attachment" +
+            " SET size = NULL, progress = NULL, available = 0" +
+            " WHERE message = :message")
+    void resetAvailable(long message);
+
+    @Query("UPDATE attachment" +
             " SET error = :error, progress = NULL, available = 0" +
             " WHERE id = :id")
     void setError(long id, String error);
