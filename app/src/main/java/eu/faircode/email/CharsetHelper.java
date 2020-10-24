@@ -87,7 +87,11 @@ class CharsetHelper {
                     "windows-1257".equals(detected) ||
                     "UTF-8".equals(detected))
                 Log.w("compact_enc_det result=" + detected);
-            else
+            else if ("GB18030".equals(detected)) {
+                // https://github.com/google/compact_enc_det/issues/8
+                Log.w("compact_enc_det result=" + detected);
+                return null;
+            } else
                 // ISO-2022-JP, GB18030
                 Log.e("compact_enc_det result=" + detected);
 
