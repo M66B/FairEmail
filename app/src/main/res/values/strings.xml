@@ -452,7 +452,7 @@
     <string name="title_advanced_notify_remove">Remove new message notification on tapping on notification</string>
     <string name="title_advanced_notify_clear">Remove new message notifications on viewing message list</string>
     <string name="title_advanced_wearable_preview">Only send notifications with a message preview to wearables</string>
-    <string name="title_advanced_notify_messaging">Use Android messaging style notification format</string>
+    <string name="title_advanced_notify_messaging">Use Android \'messaging style\' notification format</string>
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
