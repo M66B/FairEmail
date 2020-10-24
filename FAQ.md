@@ -2819,6 +2819,7 @@ it is not possible to guarantee that a new message notification with a preview t
 
 If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*
 and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*.
+Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*.
 Note that some wearables are known to crash with this option enabled.
