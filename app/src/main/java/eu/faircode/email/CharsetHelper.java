@@ -81,10 +81,14 @@ class CharsetHelper {
             String detected = jni_detect(sample);
             if ("US-ASCII".equals(detected) ||
                     "ISO-8859-1".equals(detected) ||
+                    "ISO-8859-2".equals(detected) ||
+                    "windows-1250".equals(detected) ||
+                    "windows-1252".equals(detected) ||
+                    "windows-1257".equals(detected) ||
                     "UTF-8".equals(detected))
                 Log.w("compact_enc_det result=" + detected);
             else
-                // ISO-2022-JP, ISO-8859-2, windows-1250, windows-1252, windows-1257
+                // ISO-2022-JP, GB18030
                 Log.e("compact_enc_det result=" + detected);
 
             if (TextUtils.isEmpty(detected))
