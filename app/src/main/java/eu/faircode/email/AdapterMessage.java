@@ -991,8 +991,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivSigned.clearColorFilter();
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             if (show_recipients && recipients != null && recipients.length > 0)
-                tvFrom.setText(context.getString(
-                        outgoing && viewType != ViewType.THREAD ? R.string.title_to_from : R.string.title_from_to,
+                tvFrom.setText(context.getString(outgoing && viewType != ViewType.THREAD && compact
+                                ? R.string.title_to_from
+                                : R.string.title_from_to,
                         MessageHelper.formatAddresses(senders, name_email, false),
                         MessageHelper.formatAddresses(recipients, name_email, false)));
             else
