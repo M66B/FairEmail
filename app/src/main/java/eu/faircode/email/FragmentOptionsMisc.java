@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.provider.Settings;
@@ -57,10 +58,13 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.SortedMap;
@@ -105,8 +109,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFingerprint;
     private Button btnCharsets;
     private Button btnCiphers;
+    private Button btnFiles;
 
     private Group grpDebug;
+
+    private final static long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts", "language", "watchdog", "updates",
@@ -166,6 +173,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnCiphers = view.findViewById(R.id.btnCiphers);
+        btnFiles = view.findViewById(R.id.btnFiles);
 
         grpDebug = view.findViewById(R.id.grpDebug);
 
@@ -388,6 +396,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 new SimpleTask<SortedMap<String, Charset>>() {
                     @Override
+                    protected void onPreExecute(Bundle args) {
+                        btnCharsets.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        btnCharsets.setEnabled(true);
+                    }
+
+                    @Override
                     protected SortedMap<String, Charset> onExecute(Context context, Bundle args) {
                         return Charset.availableCharsets();
                     }
@@ -465,6 +483,87 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             }
                         })
                         .show();
+            }
+        });
+
+        final String title = getString(R.string.title_advanced_files, Helper.humanReadableByteCount(MIN_FILE_SIZE));
+        btnFiles.setText(title);
+
+        btnFiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<List<File>>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        btnFiles.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        btnFiles.setEnabled(true);
+                    }
+
+                    @Override
+                    protected List<File> onExecute(Context context, Bundle args) {
+                        List<File> files = new ArrayList<>();
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                            files.addAll(getFiles(context.getFilesDir(), MIN_FILE_SIZE));
+                            files.addAll(getFiles(context.getCacheDir(), MIN_FILE_SIZE));
+                        } else
+                            files.addAll(getFiles(context.getDataDir(), MIN_FILE_SIZE));
+                        Collections.sort(files, new Comparator<File>() {
+                            @Override
+                            public int compare(File f1, File f2) {
+                                return -Long.compare(f1.length(), f2.length());
+                            }
+                        });
+                        return files;
+                    }
+
+                    private List<File> getFiles(File dir, long minSize) {
+                        List<File> files = new ArrayList();
+                        File[] listed = dir.listFiles();
+                        if (listed != null)
+                            for (File file : listed)
+                                if (file.isDirectory())
+                                    files.addAll(getFiles(file, minSize));
+                                else if (file.length() > minSize)
+                                    files.add(file);
+                        return files;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<File> files) {
+                        StringBuilder sb = new StringBuilder();
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                            sb.append("Data: ").append(getContext().getDataDir()).append("\r\n");
+                        sb.append("Files: ").append(getContext().getFilesDir()).append("\r\n");
+                        sb.append("Cache: ").append(getContext().getCacheDir()).append("\r\n");
+
+                        for (File file : files)
+                            sb.append(file.getAbsolutePath())
+                                    .append(' ')
+                                    .append(Helper.humanReadableByteCount(file.length()))
+                                    .append("\r\n");
+
+                        new AlertDialog.Builder(getContext())
+                                .setTitle(title)
+                                .setMessage(sb.toString())
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Do nothing
+                                    }
+                                })
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsMisc.this, new Bundle(), "setup:files");
             }
         });
 
