@@ -3927,6 +3927,7 @@ class Core {
                         R.drawable.twotone_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply),
                         piReply)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
                         .setShowsUserInterface(true)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionReply.build());
