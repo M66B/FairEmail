@@ -14,10 +14,10 @@ void log_android(int prio, const char *fmt, ...) {
     }
 }
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyteArray _bytes) {
-    int len = env->GetArrayLength(_bytes);
-    jbyte *bytes = env->GetByteArrayElements(_bytes, nullptr);
+extern "C" JNIEXPORT jobject JNICALL
+Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyteArray _octets) {
+    int len = env->GetArrayLength(_octets);
+    jbyte *octets = env->GetByteArrayElements(_octets, nullptr);
 
     // https://github.com/google/compact_enc_det
 
@@ -25,7 +25,7 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
     int bytes_consumed;
 
     Encoding encoding = CompactEncDet::DetectEncoding(
-            (const char *) bytes, len,
+            (const char *) octets, len,
             nullptr, nullptr, nullptr,
             UNKNOWN_ENCODING,
             UNKNOWN_LANGUAGE,
@@ -39,7 +39,10 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
                 encoding, name, bytes_consumed, is_reliable);
 
     // https://developer.android.com/training/articles/perf-jni#primitive-arrays
-    env->ReleaseByteArrayElements(_bytes, bytes, JNI_ABORT);
+    env->ReleaseByteArrayElements(_octets, octets, JNI_ABORT);
 
-    return env->NewStringUTF(name);
+    jclass cls = env->FindClass("eu/faircode/email/CharsetHelper$DetectResult");
+    jmethodID ctor = env->GetMethodID(cls, "<init>", "(Ljava/lang/String;IZ)V");
+    jstring jname = env->NewStringUTF(name);
+    return env->NewObject(cls, ctor, jname, (jint) bytes_consumed, (jboolean) is_reliable);
 }

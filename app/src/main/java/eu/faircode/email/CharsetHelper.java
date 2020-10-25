@@ -23,17 +23,23 @@ import android.text.TextUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 class CharsetHelper {
-    private static String CHINESE = new Locale("zh").getLanguage();
     private static final int MAX_SAMPLE_SIZE = 8192;
+    private static String CHINESE = new Locale("zh").getLanguage();
+    private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
+            "US-ASCII", "ISO-8859-1", "ISO-8859-2", "windows-1250", "windows-1252", "windows-1257", "UTF-8"
+    ));
 
     static {
         System.loadLibrary("compact_enc_det");
     }
 
-    private static native String jni_detect(byte[] chars);
+    private static native DetectResult jni_detect(byte[] octets);
 
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
@@ -80,30 +86,43 @@ class CharsetHelper {
             }
 
             Log.i("compact_enc_det sample=" + sample.length);
-            String detected = jni_detect(sample);
-            if ("US-ASCII".equals(detected) ||
-                    "ISO-8859-1".equals(detected) ||
-                    "ISO-8859-2".equals(detected) ||
-                    "windows-1250".equals(detected) ||
-                    "windows-1252".equals(detected) ||
-                    "windows-1257".equals(detected) ||
-                    "UTF-8".equals(detected))
+            DetectResult detected = jni_detect(sample);
+
+            if (TextUtils.isEmpty(detected.charset)) {
+                Log.e("compact_enc_det result=" + detected);
+                return null;
+            } else if (!BuildConfig.PLAY_STORE_RELEASE &&
+                    COMMON.contains(detected.charset))
                 Log.w("compact_enc_det result=" + detected);
-            else if ("GB18030".equals(detected) &&
+            else if ("GB18030".equals(detected.charset) &&
                     !Locale.getDefault().getLanguage().equals(CHINESE)) {
                 // https://github.com/google/compact_enc_det/issues/8
-                Log.w("compact_enc_det result=" + detected);
+                Log.e("compact_enc_det result=" + detected);
                 return null;
-            } else // ISO-2022-JP, etc
+            } else
                 Log.e("compact_enc_det result=" + detected);
 
-            if (TextUtils.isEmpty(detected))
-                return null;
-
-            return Charset.forName(detected);
+            return Charset.forName(detected.charset);
         } catch (Throwable ex) {
             Log.w(ex);
             return null;
+        }
+    }
+
+    private static class DetectResult {
+        String charset;
+        int bytes_consumed;
+        boolean is_reliable;
+
+        DetectResult(String charset, int bytes_consumed, boolean is_reliable) {
+            this.charset = charset;
+            this.bytes_consumed = bytes_consumed;
+            this.is_reliable = is_reliable;
+        }
+
+        @Override
+        public String toString() {
+            return charset + " c=" + bytes_consumed + " r=" + is_reliable;
         }
     }
 }
