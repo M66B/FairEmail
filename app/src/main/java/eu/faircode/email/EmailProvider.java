@@ -571,15 +571,15 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             List<Server> imaps = new ArrayList<>();
             // SSL
-            imaps.add(new Server(domain, null, 993));
             imaps.add(new Server(domain, "imap", 993));
             imaps.add(new Server(domain, "mail", 993));
             imaps.add(new Server(domain, "mx", 993));
+            imaps.add(new Server(domain, null, 993));
             // STARTTLS
-            imaps.add(new Server(domain, null, 143));
             imaps.add(new Server(domain, "imap", 143));
             imaps.add(new Server(domain, "mail", 143));
             imaps.add(new Server(domain, "mx", 143));
+            imaps.add(new Server(domain, null, 143));
 
             for (Server server : imaps)
                 if (server.reachable.get()) {
@@ -594,15 +594,15 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             List<Server> smtps = new ArrayList<>();
             // SSL
-            smtps.add(new Server(domain, null, 465));
             smtps.add(new Server(domain, "smtp", 465));
             smtps.add(new Server(domain, "mail", 465));
             smtps.add(new Server(domain, "mx", 465));
+            smtps.add(new Server(domain, null, 465));
             // STARTTLS
-            smtps.add(new Server(domain, null, 587));
             smtps.add(new Server(domain, "smtp", 587));
             smtps.add(new Server(domain, "mail", 587));
             smtps.add(new Server(domain, "mx", 587));
+            smtps.add(new Server(domain, null, 587));
 
             for (Server server : smtps)
                 if (server.reachable.get()) {
