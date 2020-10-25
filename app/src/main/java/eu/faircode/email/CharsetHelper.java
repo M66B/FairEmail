@@ -111,18 +111,20 @@ class CharsetHelper {
 
     private static class DetectResult {
         String charset;
+        int sample_size;
         int bytes_consumed;
         boolean is_reliable;
 
-        DetectResult(String charset, int bytes_consumed, boolean is_reliable) {
+        DetectResult(String charset, int sample_size, int bytes_consumed, boolean is_reliable) {
             this.charset = charset;
+            this.sample_size = sample_size;
             this.bytes_consumed = bytes_consumed;
             this.is_reliable = is_reliable;
         }
 
         @Override
         public String toString() {
-            return charset + " c=" + bytes_consumed + " r=" + is_reliable;
+            return charset + " s=" + bytes_consumed + "/" + sample_size + " r=" + is_reliable;
         }
     }
 }

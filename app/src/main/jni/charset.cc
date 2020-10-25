@@ -42,7 +42,12 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
     env->ReleaseByteArrayElements(_octets, octets, JNI_ABORT);
 
     jclass cls = env->FindClass("eu/faircode/email/CharsetHelper$DetectResult");
-    jmethodID ctor = env->GetMethodID(cls, "<init>", "(Ljava/lang/String;IZ)V");
+    jmethodID ctor = env->GetMethodID(cls, "<init>", "(Ljava/lang/String;IIZ)V");
     jstring jname = env->NewStringUTF(name);
-    return env->NewObject(cls, ctor, jname, (jint) bytes_consumed, (jboolean) is_reliable);
+    return env->NewObject(
+            cls, ctor,
+            jname,
+            (jint) len,
+            (jint) bytes_consumed,
+            (jboolean) is_reliable);
 }
