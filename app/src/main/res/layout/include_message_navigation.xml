@@ -305,6 +305,13 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparator"
         app:srcCompat="@drawable/twotone_fullscreen_24" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="ibTools,ibFlow,ibVerify,ibDecrypt,ibImages,ibFull" />
+
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvReformatted"
         android:layout_width="0dp"
@@ -315,7 +322,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibFlow" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_action" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSignedData"
