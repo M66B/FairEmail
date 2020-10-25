@@ -796,6 +796,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onWatchdog(Intent intent) {
+        EntityLog.log(this, "Watchdog");
         schedule(this, false);
         networkCallback.onCapabilitiesChanged(null, null);
     }
