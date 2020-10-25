@@ -257,7 +257,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("watchdog", checked).apply();
-                WorkerWatchdog.init(getContext());
             }
         });
 
@@ -371,7 +370,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auth_plain", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_plain=" + checked);
             }
         });
 
@@ -379,7 +377,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auth_login", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_login=" + checked);
             }
         });
 
@@ -387,7 +384,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auth_sasl", checked).apply();
-                ServiceSynchronize.reload(getContext(), -1L, false, "auth_sasl=" + checked);
             }
         });
 

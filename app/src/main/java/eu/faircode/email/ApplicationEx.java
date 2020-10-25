@@ -34,23 +34,13 @@ import android.webkit.CookieManager;
 
 import androidx.preference.PreferenceManager;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 public class ApplicationEx extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
-
-    private static final List<String> OPTIONS_RESTART = Collections.unmodifiableList(Arrays.asList(
-            "secure", // privacy
-            "shortcuts", // misc
-            "language", // misc
-            "query_threads" // misc
-    ));
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -157,8 +147,35 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (OPTIONS_RESTART.contains(key))
-            restart();
+        switch (key) {
+            case "enabled":
+                ServiceSynchronize.reschedule(this);
+                WorkerCleanup.init(this);
+                WorkerWatchdog.init(this);
+                break;
+            case "poll_interval":
+            case "schedule":
+            case "schedule_start":
+            case "schedule_end":
+            case "schedule_day0":
+            case "schedule_day1":
+            case "schedule_day2":
+            case "schedule_day3":
+            case "schedule_day4":
+            case "schedule_day5":
+            case "schedule_day6":
+                ServiceSynchronize.reschedule(this);
+                break;
+            case "watchdog":
+                WorkerWatchdog.init(this);
+                break;
+            case "secure": // privacy
+            case "shortcuts": // misc
+            case "language": // misc
+            case "query_threads": // misc
+                restart();
+                break;
+        }
     }
 
     void restart() {

@@ -127,9 +127,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     ));
 
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
+            "sync_nodate",
+            "sync_unseen",
+            "sync_flagged",
+            "delete_unseen",
+            "sync_kept",
+            "sync_folders",
+            "sync_shared_folders",
             "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
-            "protocol", "debug" // force reconnect
+            "protocol", "debug", // force reconnect
+            "auth_plain",
+            "auth_login",
+            "auth_sasl"
     ));
 
     static final int PI_ALARM = 1;
@@ -1797,7 +1807,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
         EntityLog.log(context, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
         if (pollInterval == 0) {
-            prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
             try {
                 db.beginTransaction();
                 for (EntityAccount a : db.account().getAccounts())
@@ -1806,7 +1815,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             } finally {
                 db.endTransaction();
             }
-            ServiceSynchronize.reschedule(ServiceSynchronize.this);
+            prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
         } else if (pollInterval <= 60 && account.poll_exempted) {
             db.account().setAccountPollExempted(account.id, false);
             ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);

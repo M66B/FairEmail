@@ -173,7 +173,6 @@ public class ServiceExternal extends Service {
         if (accountName == null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putBoolean("enabled", enabled).apply();
-            ServiceSynchronize.eval(context, "external enabled=" + enabled);
         } else {
             EntityAccount account = db.account().getAccount(accountName);
             if (account == null)
