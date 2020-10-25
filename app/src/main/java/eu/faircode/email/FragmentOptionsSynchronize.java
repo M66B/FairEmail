@@ -148,6 +148,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 prefs.edit().putBoolean("enabled", checked).apply();
                 ServiceSynchronize.reschedule(getContext());
                 WorkerCleanup.init(getContext());
+                WorkerWatchdog.init(getContext());
             }
         });
 

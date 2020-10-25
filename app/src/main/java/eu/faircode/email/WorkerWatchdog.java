@@ -53,7 +53,8 @@ public class WorkerWatchdog extends Worker {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean watchdog = prefs.getBoolean("watchdog", true);
-            if (watchdog) {
+            boolean enabled = prefs.getBoolean("enabled", true);
+            if (watchdog && enabled) {
                 Log.i("Queuing " + getName() + " every " + WATCHDOG_INTERVAL + " minutes");
 
                 PeriodicWorkRequest workRequest =
