@@ -124,6 +124,12 @@ public class MessageHelper {
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
     private static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
 
+    private static final List<Charset> CHARSET16 = Collections.unmodifiableList(Arrays.asList(
+            StandardCharsets.UTF_16,
+            StandardCharsets.UTF_16BE,
+            StandardCharsets.UTF_16LE
+    ));
+
     // https://tools.ietf.org/html/rfc4021
 
     static void setSystemProperties(Context context) {
@@ -1793,13 +1799,13 @@ public class MessageHelper {
 
                             if (!TextUtils.isEmpty(charset))
                                 try {
-                                    Charset detected = CharsetHelper.detect(result);
-                                    Log.i("Charset detected=" + detected + " meta=" + meta);
+                                    Log.i("Charset meta=" + meta);
                                     Charset c = Charset.forName(charset);
                                     if (c.equals(StandardCharsets.UTF_8) && !CharsetHelper.isUTF8(result))
                                         break;
-                                    if (c.equals(StandardCharsets.UTF_16) && !c.equals(detected))
+                                    if (CHARSET16.contains(c))
                                         break;
+                                    Log.e("Converting meta=" + c);
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
                                     break;
                                 } catch (Throwable ex) {
