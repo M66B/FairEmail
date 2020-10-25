@@ -33,6 +33,7 @@ import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.NoClientAuthentication;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
 
@@ -47,12 +48,14 @@ class ServiceAuthenticator extends Authenticator {
     private String user;
     private String password;
     private IAuthenticated intf;
+    private long refreshed;
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
 
     static final String TYPE_GOOGLE = "com.google";
+    private static final long GMAIL_EXPIRY = 3600 * 1000L;
 
     ServiceAuthenticator(
             Context context,
@@ -65,6 +68,7 @@ class ServiceAuthenticator extends Authenticator {
         this.user = user;
         this.password = password;
         this.intf = intf;
+        this.refreshed = new Date().getTime();
     }
 
     void expire() {
@@ -80,9 +84,14 @@ class ServiceAuthenticator extends Authenticator {
         String token = password;
         try {
             if (auth == AUTH_TYPE_GMAIL) {
+                long now = new Date().getTime();
+                if (now - refreshed > GMAIL_EXPIRY)
+                    expire();
+
                 String oldToken = password;
                 token = getGmailToken(context, user);
                 password = token;
+
                 if (intf != null && !Objects.equals(oldToken, token))
                     intf.onPasswordChanged(password);
             } else if (auth == AUTH_TYPE_OAUTH) {
@@ -91,6 +100,7 @@ class ServiceAuthenticator extends Authenticator {
                 OAuthRefresh(context, provider, authState);
                 token = authState.getAccessToken();
                 password = authState.jsonSerializeString();
+
                 if (intf != null && !Objects.equals(oldToken, token))
                     intf.onPasswordChanged(password);
             }
