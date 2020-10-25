@@ -2195,6 +2195,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Bundle args = new Bundle();
             args.putString("question", getString(R.string.title_ask_delete));
             args.putLong("id", message.id);
+            args.putBoolean("warning", true);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
@@ -3097,6 +3098,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
+                aargs.putBoolean("warning", true);
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
@@ -3373,6 +3375,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
+                aargs.putBoolean("warning", true);
 
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
@@ -4132,6 +4135,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     account < 0 ? R.string.title_empty_spam_all_ask : R.string.title_empty_spam_ask));
         else
             throw new IllegalArgumentException("Invalid folder type=" + type);
+        aargs.putBoolean("warning", true);
         aargs.putString("remark", getString(R.string.title_empty_all));
         aargs.putLong("account", account);
         aargs.putString("type", type);

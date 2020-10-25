@@ -385,6 +385,7 @@ public class FragmentFolder extends FragmentBase {
     private void onMenuDelete() {
         Bundle aargs = new Bundle();
         aargs.putString("question", getString(R.string.title_folder_delete));
+        aargs.putBoolean("warning", true);
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);

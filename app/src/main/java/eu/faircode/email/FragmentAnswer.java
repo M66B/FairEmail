@@ -239,6 +239,7 @@ public class FragmentAnswer extends FragmentBase {
     private void onActionDelete() {
         Bundle args = new Bundle();
         args.putString("question", getString(R.string.title_ask_delete_answer));
+        args.putBoolean("warning", true);
 
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(args);

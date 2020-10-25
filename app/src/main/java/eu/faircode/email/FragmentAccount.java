@@ -1635,6 +1635,7 @@ public class FragmentAccount extends FragmentBase {
     private void onMenuDelete() {
         Bundle aargs = new Bundle();
         aargs.putString("question", getString(R.string.title_account_delete));
+        aargs.putBoolean("warning", true);
 
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);

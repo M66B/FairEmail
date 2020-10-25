@@ -1826,6 +1826,7 @@ public class FragmentCompose extends FragmentBase {
         else {
             Bundle args = new Bundle();
             args.putString("question", getString(R.string.title_ask_discard));
+            args.putBoolean("warning", true);
 
             FragmentDialogAsk fragment = new FragmentDialogAsk();
             fragment.setArguments(args);

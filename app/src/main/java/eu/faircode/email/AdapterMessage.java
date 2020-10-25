@@ -3833,6 +3833,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle aargs = new Bundle();
             aargs.putString("question", context.getString(R.string.title_ask_delete));
             aargs.putLong("id", message.id);
+            aargs.putBoolean("warning", true);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);
@@ -4402,6 +4403,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle aargs = new Bundle();
             aargs.putString("question", context.getString(R.string.title_ask_delete));
             aargs.putLong("id", message.id);
+            aargs.putBoolean("warning", true);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);

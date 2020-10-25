@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +41,16 @@ public class FragmentDialogAsk extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        String question = getArguments().getString("question");
-        String remark = getArguments().getString("remark");
-        String notagain = getArguments().getString("notagain");
+        Bundle args = getArguments();
+        String question = args.getString("question");
+        String remark = args.getString("remark");
+        String notagain = args.getString("notagain");
+        boolean warning = args.getBoolean("warning");
 
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+        final Context context = getContext();
+        final int colorError = Helper.resolveColor(context, R.attr.colorError);
+
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -53,11 +60,19 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         tvRemark.setVisibility(remark == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
 
+        if (warning) {
+            Drawable w = context.getResources().getDrawable(R.drawable.twotone_warning_24, context.getTheme());
+            w.setBounds(0, 0, w.getIntrinsicWidth(), w.getIntrinsicHeight());
+            w.setTint(colorError);
+            tvMessage.setCompoundDrawablesRelative(w, null, null, null);
+            tvMessage.setCompoundDrawablePadding(Helper.dp2pixels(context, 12));
+        }
+
         if (notagain != null)
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     prefs.edit().putBoolean(notagain, isChecked).apply();
                 }
             });

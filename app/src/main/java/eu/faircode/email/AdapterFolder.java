@@ -732,6 +732,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         aargs.putString("question", context.getString(R.string.title_empty_spam_ask));
                     else
                         throw new IllegalArgumentException("Invalid folder type=" + type);
+                    aargs.putBoolean("warning", true);
                     aargs.putString("remark", context.getString(R.string.title_empty_all));
                     aargs.putLong("folder", folder.id);
                     aargs.putString("type", type);
@@ -800,6 +801,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     Bundle aargs = new Bundle();
                     aargs.putLong("id", folder.id);
                     aargs.putString("question", context.getString(R.string.title_folder_delete));
+                    aargs.putBoolean("warning", true);
 
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
