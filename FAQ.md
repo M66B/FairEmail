@@ -413,9 +413,10 @@ You should try to fix this by contacting your provider or by getting a valid sec
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint shown below the error message
-if you set up the account and/or identity in setup step 1 and 2 (this is not possible when using the quick setup wizard).
-Note that you should make sure the internet connection you are using is safe.
+Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox.
+In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message.
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Note that you should make sure the internet connection you are using is safe if you do this.
 
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure,
 see also [here](https://developer.android.com/training/articles/security-ssl).
