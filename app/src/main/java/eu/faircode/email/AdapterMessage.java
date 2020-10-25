@@ -750,6 +750,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMove.setOnClickListener(this);
                 ibArchive.setOnClickListener(this);
                 ibTrash.setOnClickListener(this);
+                ibTrash.setOnLongClickListener(this);
                 ibJunk.setOnClickListener(this);
                 ibInbox.setOnClickListener(this);
                 ibMore.setOnClickListener(this);
@@ -757,6 +758,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibDownloading.setOnClickListener(this);
                 ibTrashBottom.setOnClickListener(this);
+                ibTrashBottom.setOnLongClickListener(this);
                 ibArchiveBottom.setOnClickListener(this);
                 ibSeenBottom.setOnClickListener(this);
 
@@ -856,6 +858,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibMove.setOnClickListener(null);
                 ibArchive.setOnClickListener(null);
                 ibTrash.setOnClickListener(null);
+                ibTrash.setOnLongClickListener(null);
                 ibJunk.setOnClickListener(null);
                 ibInbox.setOnClickListener(null);
                 ibMore.setOnClickListener(null);
@@ -863,6 +866,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibDownloading.setOnClickListener(null);
                 ibTrashBottom.setOnClickListener(null);
+                ibTrashBottom.setOnLongClickListener(null);
                 ibArchiveBottom.setOnClickListener(null);
                 ibSeenBottom.setOnClickListener(null);
 
@@ -3114,6 +3118,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             switch (view.getId()) {
                 case R.id.ibFlagged:
                     onMenuColoredStar(message);
+                    return true;
+                case R.id.ibTrash:
+                case R.id.ibTrashBottom:
+                    if (EntityFolder.OUTBOX.equals(message.folderType))
+                        return false;
+                    onActionTrash(message, true);
                     return true;
                 case R.id.btnCalendarAccept:
                 case R.id.btnCalendarDecline:
