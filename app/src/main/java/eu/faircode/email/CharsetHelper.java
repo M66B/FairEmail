@@ -21,7 +21,11 @@ package eu.faircode.email;
 
 import android.text.TextUtils;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
@@ -45,32 +49,17 @@ class CharsetHelper {
         // Get extended ASCII characters
         byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
 
-        int bytes;
-        for (int i = 0; i < octets.length; i++) {
-            if ((octets[i] & 0b10000000) == 0b00000000)
-                bytes = 1;
-            else if ((octets[i] & 0b11100000) == 0b11000000)
-                bytes = 2;
-            else if ((octets[i] & 0b11110000) == 0b11100000)
-                bytes = 3;
-            else if ((octets[i] & 0b11111000) == 0b11110000)
-                bytes = 4;
-            else if ((octets[i] & 0b11111100) == 0b11111000)
-                bytes = 5;
-            else if ((octets[i] & 0b11111110) == 0b11111100)
-                bytes = 6;
-            else
-                return false;
+        CharsetDecoder utf8Decoder = StandardCharsets.UTF_8.newDecoder()
+                .onMalformedInput(CodingErrorAction.REPORT)
+                .onUnmappableCharacter(CodingErrorAction.REPORT);
 
-            if (i + bytes > octets.length)
-                return false;
-
-            while (--bytes > 0)
-                if ((octets[++i] & 0b11000000) != 0b10000000)
-                    return false;
+        try {
+            utf8Decoder.decode(ByteBuffer.wrap(octets));
+            return true;
+        } catch (CharacterCodingException ex) {
+            Log.w(ex);
+            return false;
         }
-
-        return true;
     }
 
     static Charset detect(String text) {
