@@ -23,8 +23,10 @@ import android.text.TextUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 
 class CharsetHelper {
+    private static String CHINESE = new Locale("zh").getLanguage();
     private static final int MAX_SAMPLE_SIZE = 8192;
 
     static {
@@ -87,12 +89,12 @@ class CharsetHelper {
                     "windows-1257".equals(detected) ||
                     "UTF-8".equals(detected))
                 Log.w("compact_enc_det result=" + detected);
-            else if ("GB18030".equals(detected)) {
+            else if ("GB18030".equals(detected) &&
+                    !Locale.getDefault().getLanguage().equals(CHINESE)) {
                 // https://github.com/google/compact_enc_det/issues/8
                 Log.w("compact_enc_det result=" + detected);
                 return null;
-            } else
-                // ISO-2022-JP, GB18030
+            } else // ISO-2022-JP, etc
                 Log.e("compact_enc_det result=" + detected);
 
             if (TextUtils.isEmpty(detected))
