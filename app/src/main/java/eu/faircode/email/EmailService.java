@@ -3,6 +3,7 @@ package eu.faircode.email;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.security.KeyChain;
@@ -103,6 +104,8 @@ public class EmailService implements AutoCloseable {
     private StoreListener listener;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
+
+    static final String TYPE_GOOGLE = "com.google";
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
@@ -347,22 +350,9 @@ public class EmailService implements AutoCloseable {
             // Refresh token
             if (auth == AUTH_TYPE_GMAIL)
                 try {
-                    String type = "com.google";
-                    AccountManager am = AccountManager.get(context);
-                    Account[] accounts = am.getAccountsByType(type);
-                    for (Account account : accounts)
-                        if (user.equals(account.name)) {
-                            Log.i("Refreshing token user=" + user);
-                            am.invalidateAuthToken(type, password);
-                            String token = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
-                            if (token == null)
-                                throw new AuthenticatorException("No token on refresh for " + user);
-
-                            connect(host, port, auth, user, token, factory);
-                            return token;
-                        }
-
-                    throw new AuthenticatorException("Account not found for " + user);
+                    String token = GmailRefresh(context, user, password);
+                    connect(host, port, auth, user, token, factory);
+                    return token;
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
@@ -617,6 +607,24 @@ public class EmailService implements AutoCloseable {
 
     private static class ErrorHolder {
         AuthorizationException error;
+    }
+
+    private static String GmailRefresh(Context context, String user, String password) throws AuthenticatorException, OperationCanceledException, IOException {
+        AccountManager am = AccountManager.get(context);
+        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
+        for (Account account : accounts)
+            if (user.equals(account.name)) {
+                Log.i("Refreshing token user=" + user);
+                if (password != null)
+                    am.invalidateAuthToken(TYPE_GOOGLE, password);
+                String token = am.blockingGetAuthToken(account, getAuthTokenType(TYPE_GOOGLE), true);
+                if (token == null)
+                    throw new AuthenticatorException("No token on refresh for " + user);
+
+                return token;
+            }
+
+        throw new AuthenticatorException("Account not found for " + user);
     }
 
     private static AuthState OAuthRefresh(Context context, String id, String json) throws MessagingException {

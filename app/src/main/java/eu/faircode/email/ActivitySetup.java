@@ -776,7 +776,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if (account.auth_type == EmailService.AUTH_TYPE_GMAIL) {
                             AccountManager am = AccountManager.get(context);
                             boolean found = false;
-                            for (Account google : am.getAccountsByType("com.google"))
+                            for (Account google : am.getAccountsByType(EmailService.TYPE_GOOGLE))
                                 if (account.user.equals(google.name)) {
                                     found = true;
                                     break;

@@ -1334,12 +1334,12 @@ public class FragmentAccount extends FragmentBase {
                     return null;
 
                 AccountManager am = AccountManager.get(context);
-                Account[] accounts = am.getAccountsByType("com.google");
+                Account[] accounts = am.getAccountsByType(EmailService.TYPE_GOOGLE);
                 for (Account google : accounts)
                     if (account.user.equals(google.name))
                         return am.blockingGetAuthToken(
                                 google,
-                                EmailService.getAuthTokenType("com.google"),
+                                EmailService.getAuthTokenType(EmailService.TYPE_GOOGLE),
                                 true);
 
                 return null;
