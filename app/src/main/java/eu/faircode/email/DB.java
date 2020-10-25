@@ -40,6 +40,8 @@ import javax.mail.internet.InternetAddress;
 import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 /*
     This file is part of FairEmail.
 
@@ -1343,8 +1345,8 @@ public abstract class DB extends RoomDatabase {
                         int previous_version = prefs.getInt("previous_version", -1);
                         if (previous_version <= 848 && Helper.isPlayStoreInstall()) {
                             // JavaMail didn't check server certificates
-                            db.execSQL("UPDATE account SET insecure = 1 WHERE auth_type = " + EmailService.AUTH_TYPE_PASSWORD);
-                            db.execSQL("UPDATE identity SET insecure = 1 WHERE auth_type = " + EmailService.AUTH_TYPE_PASSWORD);
+                            db.execSQL("UPDATE account SET insecure = 1 WHERE auth_type = " + AUTH_TYPE_PASSWORD);
+                            db.execSQL("UPDATE identity SET insecure = 1 WHERE auth_type = " + AUTH_TYPE_PASSWORD);
                         }
                     }
                 })

@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -74,6 +72,9 @@ import javax.mail.Folder;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -153,7 +154,7 @@ public class FragmentAccount extends FragmentBase {
 
     private long id = -1;
     private long copy = -1;
-    private int auth = EmailService.AUTH_TYPE_PASSWORD;
+    private int auth = AUTH_TYPE_PASSWORD;
     private String provider = null;
     private String certificate = null;
     private boolean saving = false;
@@ -261,7 +262,7 @@ public class FragmentAccount extends FragmentBase {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
                 tvGmailHint.setVisibility(
-                        auth == EmailService.AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
+                        auth == AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
                                 ? View.VISIBLE : View.GONE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
@@ -1333,16 +1334,7 @@ public class FragmentAccount extends FragmentBase {
                 if (account == null)
                     return null;
 
-                AccountManager am = AccountManager.get(context);
-                Account[] accounts = am.getAccountsByType(EmailService.TYPE_GOOGLE);
-                for (Account google : accounts)
-                    if (account.user.equals(google.name))
-                        return am.blockingGetAuthToken(
-                                google,
-                                EmailService.getAuthTokenType(EmailService.TYPE_GOOGLE),
-                                true);
-
-                return null;
+                return ServiceAuthenticator.getGmailToken(context, account.user);
             }
 
             @Override
@@ -1449,7 +1441,7 @@ public class FragmentAccount extends FragmentBase {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
-                            if ((provider.oauth != null) == (account.auth_type == EmailService.AUTH_TYPE_OAUTH) &&
+                            if ((provider.oauth != null) == (account.auth_type == AUTH_TYPE_OAUTH) &&
                                     provider.imap.host.equals(account.host) &&
                                     provider.imap.port == account.port &&
                                     provider.imap.starttls == (account.encryption == EmailService.ENCRYPTION_STARTTLS)) {
@@ -1514,7 +1506,7 @@ public class FragmentAccount extends FragmentBase {
                     else
                         rgDate.check(R.id.radio_server_time);
 
-                    auth = (account == null ? EmailService.AUTH_TYPE_PASSWORD : account.auth_type);
+                    auth = (account == null ? AUTH_TYPE_PASSWORD : account.auth_type);
                     provider = (account == null ? null : account.provider);
 
                     new SimpleTask<EntityAccount>() {
@@ -1550,13 +1542,13 @@ public class FragmentAccount extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                if (auth != EmailService.AUTH_TYPE_PASSWORD) {
+                if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
 
-                if (account == null || account.auth_type != EmailService.AUTH_TYPE_GMAIL)
+                if (account == null || account.auth_type != AUTH_TYPE_GMAIL)
                     Helper.hide((btnOAuth));
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());

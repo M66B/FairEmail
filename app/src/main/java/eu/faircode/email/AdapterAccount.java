@@ -64,6 +64,8 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Fragment parentFragment;
     private boolean settings;
@@ -152,7 +154,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
             ivOAuth.setVisibility(
-                    settings && account.auth_type != EmailService.AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
+                    settings && account.auth_type != AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
             ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
 

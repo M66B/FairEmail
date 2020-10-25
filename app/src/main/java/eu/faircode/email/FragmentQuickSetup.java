@@ -54,6 +54,8 @@ import java.util.List;
 
 import javax.mail.AuthenticationFailedException;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
@@ -303,7 +305,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     try {
                         iservice.connect(
                                 provider.imap.host, provider.imap.port,
-                                EmailService.AUTH_TYPE_PASSWORD, null,
+                                AUTH_TYPE_PASSWORD, null,
                                 user, password,
                                 null, imap_fingerprint);
                     } catch (EmailService.UntrustedException ex) {
@@ -311,7 +313,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             imap_fingerprint = ex.getFingerprint();
                             iservice.connect(
                                     provider.imap.host, provider.imap.port,
-                                    EmailService.AUTH_TYPE_PASSWORD, null,
+                                    AUTH_TYPE_PASSWORD, null,
                                     user, password,
                                     null, imap_fingerprint);
                         } else
@@ -328,7 +330,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 Log.i("Retry with user=" + user);
                                 iservice.connect(
                                         provider.imap.host, provider.imap.port,
-                                        EmailService.AUTH_TYPE_PASSWORD, null,
+                                        AUTH_TYPE_PASSWORD, null,
                                         user, password,
                                         null, null);
                             } catch (Throwable ex1) {
@@ -353,7 +355,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     iservice.setUseIp(provider.useip, null);
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
-                            EmailService.AUTH_TYPE_PASSWORD, null,
+                            AUTH_TYPE_PASSWORD, null,
                             user, password,
                             null, smtp_fingerprint);
                     max_size = iservice.getMaxSize();
@@ -382,7 +384,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.host = provider.imap.host;
                     account.encryption = aencryption;
                     account.port = provider.imap.port;
-                    account.auth_type = EmailService.AUTH_TYPE_PASSWORD;
+                    account.auth_type = AUTH_TYPE_PASSWORD;
                     account.user = user;
                     account.password = password;
                     account.fingerprint = imap_fingerprint;
@@ -432,7 +434,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.host = provider.smtp.host;
                     identity.encryption = iencryption;
                     identity.port = provider.smtp.port;
-                    identity.auth_type = EmailService.AUTH_TYPE_PASSWORD;
+                    identity.auth_type = AUTH_TYPE_PASSWORD;
                     identity.user = user;
                     identity.password = password;
                     identity.fingerprint = smtp_fingerprint;

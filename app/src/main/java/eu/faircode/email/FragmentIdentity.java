@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -68,6 +66,9 @@ import javax.mail.internet.InternetAddress;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
@@ -131,7 +132,7 @@ public class FragmentIdentity extends FragmentBase {
     private long id = -1;
     private long copy = -1;
     private long account = -1;
-    private int auth = EmailService.AUTH_TYPE_PASSWORD;
+    private int auth = AUTH_TYPE_PASSWORD;
     private String provider = null;
     private String certificate = null;
     private String signature = null;
@@ -498,9 +499,9 @@ public class FragmentIdentity extends FragmentBase {
         etRealm.setText(account.realm);
         cbTrust.setChecked(false);
 
-        etUser.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-        tilPassword.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
-        btnCertificate.setEnabled(auth == EmailService.AUTH_TYPE_PASSWORD);
+        etUser.setEnabled(auth == AUTH_TYPE_PASSWORD);
+        tilPassword.setEnabled(auth == AUTH_TYPE_PASSWORD);
+        btnCertificate.setEnabled(auth == AUTH_TYPE_PASSWORD);
     }
 
     private void setProvider(EmailProvider provider) {
@@ -986,16 +987,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (identity == null)
                     return null;
 
-                AccountManager am = AccountManager.get(context);
-                Account[] accounts = am.getAccountsByType(EmailService.TYPE_GOOGLE);
-                for (Account google : accounts)
-                    if (identity.user.equals(google.name))
-                        return am.blockingGetAuthToken(
-                                google,
-                                EmailService.getAuthTokenType(EmailService.TYPE_GOOGLE),
-                                true);
-
-                return null;
+                return ServiceAuthenticator.getGmailToken(context, identity.user);
             }
 
             @Override
@@ -1137,7 +1129,7 @@ public class FragmentIdentity extends FragmentBase {
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbUnicode.setChecked(identity != null && identity.unicode);
 
-                    auth = (identity == null ? EmailService.AUTH_TYPE_PASSWORD : identity.auth_type);
+                    auth = (identity == null ? AUTH_TYPE_PASSWORD : identity.auth_type);
                     provider = (identity == null ? null : identity.provider);
 
                     if (identity == null || copy > 0)
@@ -1171,13 +1163,13 @@ public class FragmentIdentity extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                if (auth != EmailService.AUTH_TYPE_PASSWORD) {
+                if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
 
-                if (identity == null || identity.auth_type != EmailService.AUTH_TYPE_GMAIL)
+                if (identity == null || identity.auth_type != AUTH_TYPE_GMAIL)
                     Helper.hide(btnOAuth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1197,7 +1189,7 @@ public class FragmentIdentity extends FragmentBase {
                     if (identity != null)
                         for (int pos = 1; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
-                            if ((provider.oauth != null) == (identity.auth_type == EmailService.AUTH_TYPE_OAUTH) &&
+                            if ((provider.oauth != null) == (identity.auth_type == AUTH_TYPE_OAUTH) &&
                                     provider.smtp.host.equals(identity.host) &&
                                     provider.smtp.port == identity.port &&
                                     provider.smtp.starttls == (identity.encryption == EmailService.ENCRYPTION_STARTTLS)) {
@@ -1226,7 +1218,7 @@ public class FragmentIdentity extends FragmentBase {
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
-                        unselected.auth_type = EmailService.AUTH_TYPE_PASSWORD;
+                        unselected.auth_type = AUTH_TYPE_PASSWORD;
                         unselected.name = getString(R.string.title_select);
                         unselected.primary = false;
                         accounts.add(0, unselected);

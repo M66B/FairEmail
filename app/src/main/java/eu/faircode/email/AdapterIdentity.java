@@ -55,6 +55,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHolder> {
     private Fragment parentFragment;
     private Context context;
@@ -123,7 +125,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivSync.setImageResource(identity.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
             ivSync.setContentDescription(context.getString(identity.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
 
-            ivOAuth.setVisibility(identity.auth_type == EmailService.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
+            ivOAuth.setVisibility(identity.auth_type == AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             ivGroup.setVisibility(identity.self ? View.GONE : View.VISIBLE);
             tvName.setText(identity.getDisplayName());

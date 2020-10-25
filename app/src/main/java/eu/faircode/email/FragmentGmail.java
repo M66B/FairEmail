@@ -58,6 +58,7 @@ import java.util.Map;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 public class FragmentGmail extends FragmentBase {
     private ViewGroup view;
@@ -264,7 +265,7 @@ public class FragmentGmail extends FragmentBase {
                 Log.i("Requesting token name=" + account.name);
                 am.getAuthToken(
                         account,
-                        EmailService.getAuthTokenType(type),
+                        ServiceAuthenticator.getAuthTokenType(type),
                         new Bundle(),
                         getActivity(),
                         new AccountManagerCallback<Bundle>() {
@@ -369,7 +370,7 @@ public class FragmentGmail extends FragmentBase {
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.imap.host, provider.imap.port,
-                            EmailService.AUTH_TYPE_GMAIL, null,
+                            AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
 
@@ -384,7 +385,7 @@ public class FragmentGmail extends FragmentBase {
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
-                            EmailService.AUTH_TYPE_GMAIL, null,
+                            AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
                     max_size = iservice.getMaxSize();
@@ -402,7 +403,7 @@ public class FragmentGmail extends FragmentBase {
                     account.host = provider.imap.host;
                     account.encryption = aencryption;
                     account.port = provider.imap.port;
-                    account.auth_type = EmailService.AUTH_TYPE_GMAIL;
+                    account.auth_type = AUTH_TYPE_GMAIL;
                     account.user = user;
                     account.password = password;
 
@@ -451,7 +452,7 @@ public class FragmentGmail extends FragmentBase {
                     identity.host = provider.smtp.host;
                     identity.encryption = iencryption;
                     identity.port = provider.smtp.port;
-                    identity.auth_type = EmailService.AUTH_TYPE_GMAIL;
+                    identity.auth_type = AUTH_TYPE_GMAIL;
                     identity.user = user;
                     identity.password = password;
                     identity.synchronize = true;

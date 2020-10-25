@@ -77,6 +77,7 @@ import java.util.Map;
 import javax.mail.AuthenticationFailedException;
 
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
 public class FragmentOAuth extends FragmentBase {
     private String id;
@@ -434,7 +435,7 @@ public class FragmentOAuth extends FragmentBase {
                                             EmailService.PURPOSE_CHECK, true)) {
                                         iservice.connect(
                                                 provider.imap.host, provider.imap.port,
-                                                EmailService.AUTH_TYPE_OAUTH, provider.id,
+                                                AUTH_TYPE_OAUTH, provider.id,
                                                 unique_name, state,
                                                 null, null);
                                         username = unique_name;
@@ -486,7 +487,7 @@ public class FragmentOAuth extends FragmentBase {
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.imap.host, provider.imap.port,
-                            EmailService.AUTH_TYPE_OAUTH, provider.id,
+                            AUTH_TYPE_OAUTH, provider.id,
                             username, state,
                             null, null);
 
@@ -503,7 +504,7 @@ public class FragmentOAuth extends FragmentBase {
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             provider.smtp.host, provider.smtp.port,
-                            EmailService.AUTH_TYPE_OAUTH, provider.id,
+                            AUTH_TYPE_OAUTH, provider.id,
                             username, state,
                             null, null);
                     max_size = iservice.getMaxSize();
@@ -523,7 +524,7 @@ public class FragmentOAuth extends FragmentBase {
                     account.host = provider.imap.host;
                     account.encryption = aencryption;
                     account.port = provider.imap.port;
-                    account.auth_type = EmailService.AUTH_TYPE_OAUTH;
+                    account.auth_type = AUTH_TYPE_OAUTH;
                     account.provider = provider.id;
                     account.user = username;
                     account.password = state;
@@ -579,7 +580,7 @@ public class FragmentOAuth extends FragmentBase {
                         ident.host = provider.smtp.host;
                         ident.encryption = iencryption;
                         ident.port = provider.smtp.port;
-                        ident.auth_type = EmailService.AUTH_TYPE_OAUTH;
+                        ident.auth_type = AUTH_TYPE_OAUTH;
                         ident.provider = provider.id;
                         ident.user = username;
                         ident.password = state;

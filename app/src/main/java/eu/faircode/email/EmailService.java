@@ -1,9 +1,24 @@
 package eu.faircode.email;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
+/*
+    This file is part of FairEmail.
+
+    FairEmail is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FairEmail is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
+
+    Copyright 2018-2020 by Marcel Bokhorst (M66B)
+*/
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.security.KeyChain;
@@ -18,13 +33,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
-
-import net.openid.appauth.AuthState;
-import net.openid.appauth.AuthorizationException;
-import net.openid.appauth.AuthorizationService;
-import net.openid.appauth.ClientAuthentication;
-import net.openid.appauth.ClientSecretPost;
-import net.openid.appauth.NoClientAuthentication;
 
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.x509.Extension;
@@ -63,10 +71,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
 import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
+import javax.mail.Authenticator;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
@@ -86,6 +94,9 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+
 // IMAP standards: https://imapwiki.org/Specs
 
 public class EmailService implements AutoCloseable {
@@ -104,12 +115,6 @@ public class EmailService implements AutoCloseable {
     private StoreListener listener;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
-
-    static final String TYPE_GOOGLE = "com.google";
-
-    static final int AUTH_TYPE_PASSWORD = 1;
-    static final int AUTH_TYPE_GMAIL = 2;
-    static final int AUTH_TYPE_OAUTH = 3;
 
     static final int PURPOSE_CHECK = 1;
     static final int PURPOSE_USE = 2;
@@ -278,34 +283,49 @@ public class EmailService implements AutoCloseable {
     }
 
     public void connect(EntityAccount account) throws MessagingException {
-        String password = connect(
+        connect(
                 account.host, account.port,
                 account.auth_type, account.provider,
                 account.user, account.password,
+                new ServiceAuthenticator.IAuthenticated() {
+                    @Override
+                    public void onPasswordChanged(String newPassword) {
+                        DB db = DB.getInstance(context);
+                        int count = db.account().setAccountPassword(account.id, newPassword);
+                        EntityLog.log(context, account.name + " token refreshed=" + count);
+                    }
+                },
                 account.certificate_alias, account.fingerprint);
-        if (password != null) {
-            DB db = DB.getInstance(context);
-            int count = db.account().setAccountPassword(account.id, password);
-            Log.i(account.name + " token refreshed=" + count);
-        }
     }
 
     public void connect(EntityIdentity identity) throws MessagingException {
-        String password = connect(
+        connect(
                 identity.host, identity.port,
                 identity.auth_type, identity.provider,
                 identity.user, identity.password,
+                new ServiceAuthenticator.IAuthenticated() {
+                    @Override
+                    public void onPasswordChanged(String newPassword) {
+                        DB db = DB.getInstance(context);
+                        int count = db.identity().setIdentityPassword(identity.id, newPassword);
+                        EntityLog.log(context, identity.email + " token refreshed=" + count);
+
+                    }
+                },
                 identity.certificate_alias, identity.fingerprint);
-        if (password != null) {
-            DB db = DB.getInstance(context);
-            int count = db.identity().setIdentityPassword(identity.id, password);
-            Log.i(identity.email + " token refreshed=" + count);
-        }
     }
 
-    public String connect(
+    public void connect(
             String host, int port,
             int auth, String provider, String user, String password,
+            String certificate, String fingerprint) throws MessagingException {
+        connect(host, port, auth, provider, user, password, null, certificate, fingerprint);
+    }
+
+    private void connect(
+            String host, int port,
+            int auth, String provider, String user, String password,
+            ServiceAuthenticator.IAuthenticated intf,
             String certificate, String fingerprint) throws MessagingException {
         SSLSocketFactoryService factory = null;
         try {
@@ -332,35 +352,27 @@ public class EmailService implements AutoCloseable {
             Log.e("Trust issues", ex);
         }
 
+        properties.put("mail." + protocol + ".forcepasswordrefresh", "true");
+        ServiceAuthenticator authenticator = new ServiceAuthenticator(context, auth, provider, user, password, intf);
+
         try {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
 
-            if (auth == AUTH_TYPE_OAUTH) {
-                if ("imap.mail.yahoo.com".equals(host))
-                    properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
-                AuthState authState = OAuthRefresh(context, provider, password);
-                connect(host, port, auth, user, authState.getAccessToken(), factory);
-                return authState.jsonSerializeString();
-            } else {
-                connect(host, port, auth, user, password, factory);
-                return null;
-            }
+            if (auth == AUTH_TYPE_OAUTH && "imap.mail.yahoo.com".equals(host))
+                properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
+
+            connect(host, port, auth, user, authenticator, factory);
         } catch (AuthenticationFailedException ex) {
             // Refresh token
-            if (auth == AUTH_TYPE_GMAIL)
+            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
-                    String token = GmailRefresh(context, user, password);
-                    connect(host, port, auth, user, token, factory);
-                    return token;
+                    authenticator.expire();
+                    connect(host, port, auth, user, authenticator, factory);
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(ex.getMessage(), ex1);
                 }
-            else if (auth == AUTH_TYPE_OAUTH) {
-                AuthState authState = OAuthRefresh(context, provider, password);
-                connect(host, port, auth, user, authState.getAccessToken(), factory);
-                return authState.jsonSerializeString();
             } else if (purpose == PURPOSE_CHECK) {
                 String msg = ex.getMessage();
                 if (msg != null)
@@ -407,7 +419,7 @@ public class EmailService implements AutoCloseable {
 
     private void connect(
             String host, int port, int auth,
-            String user, String password,
+            String user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
         InetAddress main = null;
         boolean require_id = (purpose == PURPOSE_CHECK &&
@@ -421,7 +433,7 @@ public class EmailService implements AutoCloseable {
 
             main = InetAddress.getByName(host);
             EntityLog.log(context, "Connecting to " + main);
-            _connect(main, port, require_id, user, password, factory);
+            _connect(main, port, require_id, user, authenticator, factory);
         } catch (UnknownHostException ex) {
             throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
@@ -486,7 +498,7 @@ public class EmailService implements AutoCloseable {
 
                         try {
                             EntityLog.log(context, "Falling back to " + iaddr);
-                            _connect(iaddr, port, require_id, user, password, factory);
+                            _connect(iaddr, port, require_id, user, authenticator, factory);
                             return;
                         } catch (MessagingException ex1) {
                             ex = ex1;
@@ -505,9 +517,9 @@ public class EmailService implements AutoCloseable {
 
     private void _connect(
             InetAddress address, int port, boolean require_id,
-            String user, String password,
+            String user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
-        isession = Session.getInstance(properties, null);
+        isession = Session.getInstance(properties, authenticator);
 
         isession.setDebug(debug || log);
         if (debug || log)
@@ -538,13 +550,13 @@ public class EmailService implements AutoCloseable {
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             iservice = isession.getStore(protocol);
-            iservice.connect(address.getHostAddress(), port, user, password);
+            iservice.connect(address.getHostAddress(), port, user, null);
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            iservice.connect(address.getHostAddress(), port, user, password);
+            iservice.connect(address.getHostAddress(), port, user, null);
 
             // https://www.ietf.org/rfc/rfc2971.txt
             IMAPStore istore = (IMAPStore) getStore();
@@ -580,13 +592,13 @@ public class EmailService implements AutoCloseable {
 
             iservice = isession.getTransport(protocol);
             try {
-                iservice.connect(address.getHostAddress(), port, user, password);
+                iservice.connect(address.getHostAddress(), port, user, null);
             } catch (MessagingException ex) {
                 if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
                     properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
                     Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
                     try {
-                        iservice.connect(address.getHostAddress(), port, user, password);
+                        iservice.connect(address.getHostAddress(), port, user, null);
                     } catch (MessagingException ex1) {
                         if (ConnectionHelper.isSyntacticallyInvalid(ex1))
                             Log.e("Used localhost=" + haddr + "/" + hdomain);
@@ -603,75 +615,6 @@ public class EmailService implements AutoCloseable {
         String[] c = BuildConfig.APPLICATION_ID.split("\\.");
         Collections.reverse(Arrays.asList(c));
         return TextUtils.join(".", c);
-    }
-
-    private static class ErrorHolder {
-        AuthorizationException error;
-    }
-
-    private static String GmailRefresh(Context context, String user, String password) throws AuthenticatorException, OperationCanceledException, IOException {
-        AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
-        for (Account account : accounts)
-            if (user.equals(account.name)) {
-                Log.i("Refreshing token user=" + user);
-                if (password != null)
-                    am.invalidateAuthToken(TYPE_GOOGLE, password);
-                String token = am.blockingGetAuthToken(account, getAuthTokenType(TYPE_GOOGLE), true);
-                if (token == null)
-                    throw new AuthenticatorException("No token on refresh for " + user);
-
-                return token;
-            }
-
-        throw new AuthenticatorException("Account not found for " + user);
-    }
-
-    private static AuthState OAuthRefresh(Context context, String id, String json) throws MessagingException {
-        try {
-            AuthState authState = AuthState.jsonDeserialize(json);
-
-            ClientAuthentication clientAuth;
-            EmailProvider provider = EmailProvider.getProvider(context, id);
-            if (provider.oauth.clientSecret == null)
-                clientAuth = NoClientAuthentication.INSTANCE;
-            else
-                clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
-
-            ErrorHolder holder = new ErrorHolder();
-            Semaphore semaphore = new Semaphore(0);
-
-            Log.i("OAuth refresh");
-            AuthorizationService authService = new AuthorizationService(context);
-            authState.performActionWithFreshTokens(
-                    authService,
-                    clientAuth,
-                    new AuthState.AuthStateAction() {
-                        @Override
-                        public void execute(String accessToken, String idToken, AuthorizationException error) {
-                            if (error != null)
-                                holder.error = error;
-                            semaphore.release();
-                        }
-                    });
-
-            semaphore.acquire();
-            Log.i("OAuth refreshed");
-
-            if (holder.error != null)
-                throw holder.error;
-
-            return authState;
-        } catch (Exception ex) {
-            throw new MessagingException("OAuth refresh", ex);
-        }
-    }
-
-    static String getAuthTokenType(String type) {
-        // https://developers.google.com/gmail/imap/xoauth2-protocol
-        if ("com.google".equals(type))
-            return "oauth2:https://mail.google.com/";
-        return null;
     }
 
     List<EntityFolder> getFolders() throws MessagingException {

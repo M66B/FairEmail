@@ -102,6 +102,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.TYPE_GOOGLE;
+
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     private View view;
     private DrawerLayout drawerLayout;
@@ -773,10 +776,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         JSONObject jaccount = (JSONObject) jaccounts.get(a);
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
 
-                        if (account.auth_type == EmailService.AUTH_TYPE_GMAIL) {
+                        if (account.auth_type == AUTH_TYPE_GMAIL) {
                             AccountManager am = AccountManager.get(context);
                             boolean found = false;
-                            for (Account google : am.getAccountsByType(EmailService.TYPE_GOOGLE))
+                            for (Account google : am.getAccountsByType(TYPE_GOOGLE))
                                 if (account.user.equals(google.name)) {
                                     found = true;
                                     break;

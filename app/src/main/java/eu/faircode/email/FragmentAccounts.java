@@ -56,6 +56,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 public class FragmentAccounts extends FragmentBase {
     private boolean settings;
 
@@ -267,7 +269,7 @@ public class FragmentAccounts extends FragmentBase {
 
                         boolean authorized = true;
                         for (TupleAccountEx account : accounts)
-                            if (account.auth_type != EmailService.AUTH_TYPE_PASSWORD &&
+                            if (account.auth_type != AUTH_TYPE_PASSWORD &&
                                     !Helper.hasPermissions(getContext(), Helper.getOAuthPermissions())) {
                                 authorized = false;
                             }

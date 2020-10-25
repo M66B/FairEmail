@@ -1080,7 +1080,7 @@ This requires contact/account permissions and internet connectivity.
 
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...*
 means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection

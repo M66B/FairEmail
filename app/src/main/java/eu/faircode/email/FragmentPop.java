@@ -61,6 +61,7 @@ import java.util.Objects;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentPop extends FragmentBase {
     private ViewGroup view;
@@ -383,7 +384,7 @@ public class FragmentPop extends FragmentBase {
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
-                                EmailService.AUTH_TYPE_PASSWORD, null,
+                                AUTH_TYPE_PASSWORD, null,
                                 user, password,
                                 null, null);
                     }
@@ -408,7 +409,7 @@ public class FragmentPop extends FragmentBase {
                     account.encryption = encryption;
                     account.insecure = insecure;
                     account.port = Integer.parseInt(port);
-                    account.auth_type = EmailService.AUTH_TYPE_PASSWORD;
+                    account.auth_type = AUTH_TYPE_PASSWORD;
                     account.user = user;
                     account.password = password;
 
