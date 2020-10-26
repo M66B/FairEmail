@@ -2098,6 +2098,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         for (EntityFolder folder : db.folder().getFolders()) {
                             db.folder().setFolderState(folder.id, null);
                             db.folder().setFolderSyncState(folder.id, null);
+                            db.folder().setFolderPollCount(folder.id, 0);
                         }
 
                         // Reset operations
