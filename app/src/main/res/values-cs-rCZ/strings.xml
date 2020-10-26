@@ -387,6 +387,7 @@
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Kanál „příjem“</string>
+    <string name="title_advanced_notifications_newest_first">Nejnovější oznámení zobrazit přednostně</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
@@ -514,6 +515,7 @@
     <string name="title_advanced_notify_preview_all_hint">Pro nositelná zařízení umějící zobrazit celý text (až 5,000 znaků)</string>
     <string name="title_advanced_notify_preview_only_hint">Pozdrží zobrazení oznámení, dokud není stažen text zprávy</string>
     <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
+    <string name="title_advanced_messaging_hint">Vyžadováno pro podporu Android Auto</string>
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
@@ -1083,7 +1085,6 @@
     <string name="title_legend_synchronizing">Probíhá synchronizace</string>
     <string name="title_legend_downloading">Stahování</string>
     <string name="title_legend_closing">Ukončování</string>
-    <string name="title_legend_waiting">Čekání na další synchronizaci</string>
     <string name="title_legend_unified">Sjednocené doručené / hlavní účet</string>
     <string name="title_legend_inbox">Doručené</string>
     <string name="title_legend_drafts">Koncepty</string>

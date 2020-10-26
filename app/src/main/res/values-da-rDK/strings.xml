@@ -364,6 +364,7 @@
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Modtagekanal</string>
+    <string name="title_advanced_notifications_newest_first">Vis seneste notifikationer først</string>
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
     <string name="title_advanced_notify_clear">Fjern nye beskednotifikationer ved visning af beskedliste</string>
     <string name="title_advanced_wearable_preview">Send kun notifikationer med en beskedforhåndsvisning til wearables</string>
+    <string name="title_advanced_notify_messaging">Benyt Android \'beskedstil\' notifikationsformat</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
@@ -490,6 +492,7 @@
     <string name="title_advanced_notify_preview_all_hint">For wearables, som kan vise den fulde tekst (op til 5.000 tegn)</string>
     <string name="title_advanced_notify_preview_only_hint">Dette forsinker visning af notifikationer indtil beskedteksten er downloadet</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
+    <string name="title_advanced_messaging_hint">Dette kræves til Android Auto-understøttelse</string>
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
@@ -1053,7 +1056,6 @@
     <string name="title_legend_synchronizing">Synkroniserer</string>
     <string name="title_legend_downloading">Downloader</string>
     <string name="title_legend_closing">Lukker</string>
-    <string name="title_legend_waiting">Afventer næste synkronisering</string>
     <string name="title_legend_unified">Samlet indbakke/primærkonto</string>
     <string name="title_legend_inbox">Indbakke</string>
     <string name="title_legend_drafts">Kladder</string>

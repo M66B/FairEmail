@@ -375,7 +375,6 @@
     <string name="title_legend_synchronizing">مزامنة</string>
     <string name="title_legend_downloading">جارٍ التنزيل</string>
     <string name="title_legend_closing">إغلاق</string>
-    <string name="title_legend_waiting">في انتظار المزامنة اللاحقة</string>
     <string name="title_legend_inbox">صندوق البريد الوارد</string>
     <string name="title_legend_drafts">المسودات</string>
     <string name="title_legend_archive">الأرشيف</string>

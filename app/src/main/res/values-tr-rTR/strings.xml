@@ -1004,7 +1004,6 @@
     <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
-    <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
     <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
     <string name="title_legend_drafts">Taslaklar</string>

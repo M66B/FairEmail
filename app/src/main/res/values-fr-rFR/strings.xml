@@ -365,6 +365,7 @@
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal « Réception »</string>
+    <string name="title_advanced_notifications_newest_first">Afficher les notifications les plus récentes en premier</string>
     <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l’icône de lancement</string>
@@ -387,7 +388,8 @@
     <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer les notifications de nouveaux messages en tapant dessus</string>
     <string name="title_advanced_notify_clear">Supprimer les notifications de nouveaux messages lors de la visualisation de la liste des messages</string>
-    <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux appareils portables</string>
+    <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux objets connectés</string>
+    <string name="title_advanced_notify_messaging">Utiliser le format de notification Android « style message »</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu des notifications lors de l’utilisation de l’authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant lumineux pour les notifications</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
@@ -492,6 +494,7 @@
     <string name="title_advanced_notify_preview_all_hint">Pour les appareils portables qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>
     <string name="title_advanced_notify_preview_only_hint">Ceci retarde l\'affichage des notifications jusqu\'à ce que le texte du message ait été téléchargé</string>
     <string name="title_advanced_wearable_hint">Les notifications sont envoyées à un appareil portable seulement après le téléchargement du texte du message</string>
+    <string name="title_advanced_messaging_hint">Ceci est nécessaire pour la prise en charge d\'Android Auto</string>
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
     <string name="title_advanced_notify_no_grouping">Cette version d\'Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
@@ -1054,6 +1057,7 @@
     <string name="title_legend_download_off">Télécharger le contenu des messages sur demande</string>
     <string name="title_legend_synchronize_on">Synchronisation activée</string>
     <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
+    <string name="title_legend_synchronize_poll">Synchroniser périodiquement</string>
     <string name="title_legend_disconnected">Déconnecté</string>
     <string name="title_legend_connecting">Connexion en cours</string>
     <string name="title_legend_connected">Connecté</string>
@@ -1061,7 +1065,6 @@
     <string name="title_legend_synchronizing">Synchronisation en cours</string>
     <string name="title_legend_downloading">Téléchargement en cours</string>
     <string name="title_legend_closing">Fermeture en cours</string>
-    <string name="title_legend_waiting">En attente de la prochaine synchronisation</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte principal</string>
     <string name="title_legend_inbox">Boîte de réception</string>
     <string name="title_legend_drafts">Brouillons</string>

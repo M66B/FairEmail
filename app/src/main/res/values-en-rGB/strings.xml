@@ -44,7 +44,6 @@
     <string name="title_legend_synchronize_on">Synchronise on</string>
     <string name="title_legend_synchronize_off">Synchronise off</string>
     <string name="title_legend_synchronizing">Synchronising</string>
-    <string name="title_legend_waiting">Waiting for next synchronisation</string>
     <string name="title_legend_trash">Bin</string>
     <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>
     <string name="title_legend_default_color">Default colour</string>

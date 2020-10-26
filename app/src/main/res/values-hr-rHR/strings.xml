@@ -807,7 +807,6 @@
     <string name="title_legend_synchronizing">Sinkroniziranje</string>
     <string name="title_legend_downloading">Preuzimanje</string>
     <string name="title_legend_closing">Zatvaranje</string>
-    <string name="title_legend_waiting">Čeka se sljedeća sinkronizacija</string>
     <string name="title_legend_unified">Objedinjeni spremnik / primarni račun</string>
     <string name="title_legend_inbox">Ulazni spremnik</string>
     <string name="title_legend_drafts">Skice</string>

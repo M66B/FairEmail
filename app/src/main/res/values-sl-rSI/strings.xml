@@ -901,7 +901,6 @@
     <string name="title_legend_synchronizing">Sinhroniziranje</string>
     <string name="title_legend_downloading">Prejemanje</string>
     <string name="title_legend_closing">Zapiranje</string>
-    <string name="title_legend_waiting">Čakanje na naslednjo sinhronizacijo</string>
     <string name="title_legend_unified">Poenotena mapa \'Prejeto\'/Glavni račun</string>
     <string name="title_legend_inbox">Prejeto</string>
     <string name="title_legend_drafts">Osnutki</string>

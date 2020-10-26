@@ -83,6 +83,7 @@
     <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_notification_sending_left">Yrityksiä jäljellä: %1$d</string>
     <string name="title_notification_sending_failed">Lähettäminen vastaanottajalle %1$s epäonnistui</string>
+    <string name="title_notification_redacted">Muokattu: biometrinen tai PIN-tunnistautuminen on käytössä</string>
     <string name="title_factor_minutes">%1$d minuuttia</string>
     <string name="menu_exit">Poistu</string>
     <string name="menu_answers">Viestipohjat</string>
@@ -127,6 +128,7 @@
     <string name="title_setup_wizard_multiple">Asetusvelhoa voidaan käyttää moneen kertaan useamman tilin asettamiseksi</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
     <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
+    <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain virallisille sovellusversioille</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien valtuutus toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
@@ -361,6 +363,7 @@
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Vastaanottokanava</string>
+    <string name="title_advanced_notifications_newest_first">Näytä uusimmat ilmoitukset ensin</string>
     <string name="title_advanced_notifications_background">Käytä taustapalvelua viestien synkronointiin</string>
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
@@ -869,6 +872,7 @@
     <string name="title_text_reminder">Viesti on tyhjä</string>
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oliko tarkoituksenasi lisätä liite?</string>
+    <string name="title_plain_reminder">Kaikki muotoilut menetetään</string>
     <string name="title_size_reminder">Viesti (%1$s) on suurempi kuin palvelimen raja (%2$s)</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
     <string name="title_dialog_hint">Tämä valintaikkuna voidaan ottaa uudelleen käyttöön yläreunan toimintopalkin kolmen pisteen valikosta</string>
@@ -1055,7 +1059,6 @@
     <string name="title_legend_synchronizing">Synkronoidaan</string>
     <string name="title_legend_downloading">Ladataan</string>
     <string name="title_legend_closing">Suljetaan</string>
-    <string name="title_legend_waiting">Odotetaan seuraavaa synkronointia</string>
     <string name="title_legend_unified">Yhdistetty saapuneet-kansio / ensisijainen tili</string>
     <string name="title_legend_inbox">Saapuneet</string>
     <string name="title_legend_drafts">Luonnokset</string>

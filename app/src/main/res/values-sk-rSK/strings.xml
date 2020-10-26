@@ -1078,7 +1078,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_synchronizing">Synchronizácia</string>
     <string name="title_legend_downloading">Preberanie</string>
     <string name="title_legend_closing">Zatváranie</string>
-    <string name="title_legend_waiting">Čakanie na ďalšiu synchronizáciu</string>
     <string name="title_legend_unified">Spoločná doručená pošta / primárny účet</string>
     <string name="title_legend_inbox">Doručené</string>
     <string name="title_legend_drafts">Koncepty</string>

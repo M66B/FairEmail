@@ -867,7 +867,6 @@
     <string name="title_legend_synchronizing">در حال همگام‌سازی</string>
     <string name="title_legend_downloading">درحال بارگیری</string>
     <string name="title_legend_closing">در حال بسته شدن</string>
-    <string name="title_legend_waiting">در انتظار همگام سازی بعدی</string>
     <string name="title_legend_unified">صندوق دریافت یکپارچه / حساب اصلی</string>
     <string name="title_legend_inbox">صندوق دریافت</string>
     <string name="title_legend_drafts">پيش‌نويس‌ها</string>

@@ -743,7 +743,6 @@
     <string name="title_legend_synchronizing">Синхронизујем</string>
     <string name="title_legend_downloading">Преузимам</string>
     <string name="title_legend_closing">Затварам</string>
-    <string name="title_legend_waiting">Чекање на следећу синхронизацију</string>
     <string name="title_legend_unified">Обједињено пријемно сандуче / главни налог</string>
     <string name="title_legend_inbox">Пријемно сандуче</string>
     <string name="title_legend_drafts">Нацрти</string>

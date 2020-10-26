@@ -365,6 +365,7 @@
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
     <string name="title_advanced_notifications_service">Canal «Ricevi»</string>
+    <string name="title_advanced_notifications_newest_first">Mostra prima le notifiche più recenti</string>
     <string name="title_advanced_notifications_background">Usa un servizio in secondo piano per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in secondo piano può essere interrotto da Android in qualsiasi momento, ma non richiede una notifica nella barra di stato</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_notify_remove">Rimuovi la notifica di nuovo messaggio quando si tocca la notifica</string>
     <string name="title_advanced_notify_clear">Rimuovi le notifiche dei nuovi messaggi dalla lista dei messaggi</string>
     <string name="title_advanced_wearable_preview">Invia notifiche con un\'anteprima del messaggio solo agli indossabili</string>
+    <string name="title_advanced_notify_messaging">Usa il formato di notifica «stile di messagistica» di Android</string>
     <string name="title_advanced_biometrics_notify">Mostra il contenuto delle notifiche quando si utilizza l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
@@ -492,6 +494,7 @@
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
     <string name="title_advanced_notify_preview_only_hint">Questo ritardo la visualizzazione delle notifiche fino allo scaricamento del testo del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate solo a un indossabile dopo che il testo del messaggio è stato scaricato</string>
+    <string name="title_advanced_messaging_hint">Questo è necessario per il supporto di Android Auto</string>
     <string name="title_advanced_move_hint">La cartella di destinazione può essere configurata nelle impostazioni dell\'account</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
@@ -1061,7 +1064,6 @@
     <string name="title_legend_synchronizing">Sincronizzazione</string>
     <string name="title_legend_downloading">Scaricamento</string>
     <string name="title_legend_closing">Chiusura</string>
-    <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_drafts">Bozze</string>

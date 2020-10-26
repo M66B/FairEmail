@@ -103,7 +103,7 @@
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_idle">Низкий</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
-    <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
+    <string name="title_notification_alert">\"%1$s\" предупреждение сервера</string>
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
     <string name="title_notification_sending_failed">Отправка для %1$s не удалась</string>
     <string name="title_notification_redacted">Отредактировано: включена биометрическая аутентификация или PIN-код</string>
@@ -163,7 +163,7 @@
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
-    <string name="title_setup_no_settings">Не найдено настроек для домена %1$s</string>
+    <string name="title_setup_no_settings">Не найдено настроек для домена \"%1$s\"</string>
     <string name="title_setup_no_settings_hint">Пожалуйста, попробуйте настроить учётную запись и идентификатор в шагах 1 и 2, используя настройки, предоставленные вашим провайдером электронной почты</string>
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
     <string name="title_setup_app_password_hint">Данный провайдер требует пароль для приложения вместо пароля от учётной записи, пожалуйста, ознакомьтесь с его инструкциями</string>
@@ -387,6 +387,7 @@
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
     <string name="title_advanced_notifications_service">Канал получения</string>
+    <string name="title_advanced_notifications_newest_first">Сначала показывать новые уведомления</string>
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_badge">Показывать значок запуска с количеством новых сообщений</string>
@@ -410,6 +411,7 @@
     <string name="title_advanced_notify_remove">Удалять уведомление о новом сообщении при нажатии на уведомление</string>
     <string name="title_advanced_notify_clear">Удалять уведомления о новых сообщениях при просмотре списка сообщений</string>
     <string name="title_advanced_wearable_preview">Отправлять уведомления на носимые устройства только с предпросмотром</string>
+    <string name="title_advanced_notify_messaging">Использовать Android-стиль уведомления о сообщении</string>
     <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
@@ -514,6 +516,7 @@
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>
     <string name="title_advanced_notify_preview_only_hint">Это задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
+    <string name="title_advanced_messaging_hint">Требуется поддержка Android Auto</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
@@ -593,7 +596,7 @@
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>
     <string name="title_address_duplicate">Адрес \"%1$s\" дублируется</string>
-    <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
+    <string name="title_address_parse_error">Адрес \"%1$s\" неправильный: %2$s</string>
     <string name="title_no_account">Отсутствует учётная запись</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
     <string name="title_no_user">Отсутствует имя пользователя</string>
@@ -833,7 +836,7 @@
     <string name="title_send_at">Отправить в&#8230;</string>
     <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
-    <string name="title_no_server">Сервер не найден на \'%1$s\'</string>
+    <string name="title_no_server">Сервер не найден на \"%1$s\"</string>
     <string name="title_style">Стиль</string>
     <string name="title_style_bold">Жирный</string>
     <string name="title_style_italic">Курсив</string>
@@ -1076,6 +1079,7 @@
     <string name="title_legend_download_off">Загрузка содержимого сообщения по требованию</string>
     <string name="title_legend_synchronize_on">Синхронизация включена</string>
     <string name="title_legend_synchronize_off">Синхронизация отключена</string>
+    <string name="title_legend_synchronize_poll">Периодическая синхронизация</string>
     <string name="title_legend_disconnected">Отключено</string>
     <string name="title_legend_connecting">Подключение</string>
     <string name="title_legend_connected">Подключено</string>
@@ -1083,7 +1087,6 @@
     <string name="title_legend_synchronizing">Синхронизация</string>
     <string name="title_legend_downloading">Загрузка</string>
     <string name="title_legend_closing">Закрытие</string>
-    <string name="title_legend_waiting">Ожидание следующей синхронизации</string>
     <string name="title_legend_unified">Единый почтовый ящик / основная учётная запись</string>
     <string name="title_legend_inbox">Входящие</string>
     <string name="title_legend_drafts">Черновики</string>
@@ -1234,7 +1237,7 @@
     <string name="title_loading">Загрузка&#8230;</string>
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
     <string name="title_conversation_actions">Действия</string>
-    <string name="title_conversation_action_reply">Ответить на: \'%1$s\'</string>
+    <string name="title_conversation_action_reply">Ответить на: \"%1$s\"</string>
     <string name="title_conversation_action_copy">Копировать: \"%1$s\"</string>
     <string name="title_icalendar_accept">Принять</string>
     <string name="title_icalendar_decline">Отклонить</string>

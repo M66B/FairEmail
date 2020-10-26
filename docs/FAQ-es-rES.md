@@ -75,7 +75,7 @@ Preguntas relacionadas:
 * ~~Un [error en AndroidX](https://issuetracker.google.com/issues/64729576) hace difícil agarrar el desplazamiento rápido. Una solución fue añadida.~~
 * ~~El cifrado con YubiKey resulta en un bucle infinito. Esto parece ser causado por un [error en OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Desplazar a una ubicación vinculada internamente en mensajes originales no funciona. Esto no se puede arreglar porque la vista original del mensaje está contenida en una vista de desplazamiento.
-* La vista previa del texto de los mensajes no aparece (siempre) en los relojes de Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. El texto de vista previa de los mensajes se muestra correctamente en Pebble 2, Fitbit Charge 3 y Mi band 3. Ver también [estas Preguntas Frecuentes](#user-content-faq126).
+* La vista previa del texto de los mensajes no aparece (siempre) en los relojes de Samsung porque [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) parece ser ignorado. Se sabe que los textos de vista previa de los mensajes se muestran correctamente en los wearables Pebble 2, Fitbit Charge 3, Mi band 3 y Xiaomi Amazfit BIP. Ver también [estas Preguntas Frecuentes](#user-content-faq126).
 * Un [error en Android 6.0](https://issuetracker.google.com/issues/37068143) causa un error con *... Offset inválido: ... El rango válido es ...* cuando el texto está seleccionado y se toca fuera del texto seleccionado. Este error ha sido corregido en Android 6.0.1.
 * Los enlaces internos (anchor) no funcionarán porque los mensajes originales se muestran en una WebView embebida en una vista de desplazamiento (la lista de conversaciones). Esta es una limitación de Android que no se puede arreglar o eludir.
 
@@ -175,7 +175,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [~~(54) ¿Cómo uso un prefijo de espacio de nombres?~~](#user-content-faq54)
 * [(55) ¿Cómo puedo marcar todos los mensajes como leídos / moverlos o borrarlos?](#user-content-faq55)
 * [(56) ¿Puedes añadir soporte para JMAP?](#user-content-faq56)
-* [~~(57) ¿Puedo usar HTML en firmas?~~](#user-content-faq57)
+* [(57) ¿Puedo usar HTML en firmas?](#user-content-faq57)
 * [(58) ¿Qué significa un icono de correo electrónico abierto/cerrado?](#user-content-faq58)
 * [(59) ¿Pueden abrirse mensajes originales en el navegador?](#user-content-faq59)
 * [(60) ¿Sabía que ...?](#user-content-faq60)
@@ -225,7 +225,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(105) ¿Cómo funciona la opción de roam-como-en-casa?](#user-content-faq105)
 * [(106) ¿Qué lanzadores pueden mostrar un contador con el número de mensajes no leídos?](#user-content-faq106)
 * [(107) ¿Cómo utilizo estrellas de colores?](#user-content-faq107)
-* [(108) ¿Puedes añadir eliminar mensajes permanentemente desde cualquier carpeta?](#user-content-faq108)
+* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) ¿Por qué 'seleccionar cuenta' está disponible sólo en versiones oficiales?~~](#user-content-faq109)
 * [(110) ¿Por qué hay (algunos) mensajes vacíos y/o adjuntos corruptos?](#user-content-faq110)
 * [(111) ¿Es compatible OAuth?](#user-content-faq111)
@@ -388,7 +388,7 @@ Las operaciones sólo se procesan cuando hay una conexión al servidor de correo
 
 Debería intentar arreglar esto poniéndose en contacto con su proveedor u obteniendo un certificado de seguridad válido porque los certificados de seguridad inválidos no son seguros y permiten [ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si el dinero es un obstáculo, puede obtener certificados de seguridad gratuitos de [Let’s Encrypt](https://letsencrypt.org).
 
-Alternativamente, puede aceptar la huella digital mostrada a continuación del mensaje de error si configura la cuenta y/o identidad en los pasos de configuración 1 y 2 (esto no es posible cuando utiliza el asistente de configuración rápido). Tenga en cuenta que debe asegurarse de que la conexión a Internet que está utilizando es segura.
+Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
 
 Tenga en cuenta que las versiones antiguas de Android podrían no reconocer las nuevas autoridades de certificación como Let’s Encrypt que causan que las conexiones se consideren inseguras, vea también [aquí](https://developer.android.com/training/articles/security-ssl).
 
@@ -909,7 +909,7 @@ La autorización de las cuentas de Gmail configuradas con el asistente rápido d
 
 El error *... La autenticación falló ... Cuenta no encontrada ...* significa que una cuenta de Gmail previamente autorizada fue eliminada del dispositivo.
 
-Los errores *... La autenticación falló ... Ningún token al actualizar...* significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail.
+Los errores *... La autenticación falló ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 El error *... La autenticación falló ... Credenciales inválidas... error de red...* significa que el administrador de cuentas de Android no pudo actualizar la autorización de una cuenta de Gmail debido a problemas con la conexión a Internet
 
@@ -1168,9 +1168,9 @@ Es inevitable que sincronizar mensajes use energía de batería porque requiere 
 
 Si está comparando el uso de la batería de FairEmail con otro cliente de correo electrónico, por favor asegúrese de que el otro cliente de correo esté configurado de forma similar. Por ejemplo, comparar sincronizar siempre (mensajes push) y la comprobación periódica (poco frecuente) de nuevos mensajes no es una comparación justa.
 
-Reconectar a un servidor de correo electrónico consumirá energía extra de la batería, por lo que una conexión a internet inestable resultará en un uso adicional de la batería. En este caso puede que quiera sincronizar periódicamente, por ejemplo cada hora, en lugar de continuamente. Tenga en cuenta que sondear con frecuencia (más que cada 30-60 minutos) probablemente usará más energía de batería que sincronizar siempre porque conectarse al servidor y comparar los mensajes locales y remotos son operaciones costosas.
+Reconectar a un servidor de correo electrónico consumirá energía extra de la batería, por lo que una conexión a internet inestable resultará en un uso adicional de la batería. Además, algunos servidores de correo electrónico terminan las conexiones inactivas prematuramente, mientras que [el estándar](https://tools.ietf.org/html/rfc2177) dice que una conexión inactiva debe mantenerse abierta durante 29 minutos. En estos casos puede que desee sincronizar periódicamente, por ejemplo cada hora, en lugar de continuamente. Tenga en cuenta que sondear con frecuencia (más de 30-60 minutos) probablemente usará más energía de batería que sincronizar siempre porque conectarse al servidor y comparar los mensajes locales y remotos son operaciones costosas.
 
-[En algunos dispositivos](https://dontkillmyapp.com/) es necesario *desactivar* optimizaciones de batería (configuración paso 4) para mantener las conexiones a los servidores de correo electrónico abiertos.
+[En algunos dispositivos](https://dontkillmyapp.com/) es necesario *desactivar* optimizaciones de batería (configuración paso 4) para mantener las conexiones a los servidores de correo electrónico abiertos. De hecho, dejar habilitadas las optimizaciones de la batería puede resultar en un uso extra de la batería para todos los dispositivos, ¡aunque esto suene contradictorio!
 
 La mayor parte del uso de la batería, sin considerar la visualización de mensajes, se debe a la sincronización (recepción y envío) de mensajes. Por lo tanto, para reducir el uso de la batería, establezca el número de días para sincronizar el mensaje a un valor más bajo, especialmente si hay muchos mensajes recientes en una carpeta. Mantenga presionado el nombre de carpeta en la lista de carpetas y seleccione *Editar propiedades* para acceder a esta configuración.
 
@@ -1402,13 +1402,23 @@ Casi no hay proveedores que ofrezcan el protocolo [JMAP](https://jmap.io/), por 
 <br />
 
 <a name="faq57"></a>
-**(57) ~~¿Puedo usar HTML en firmas?~~**
+**(57) ¿Puedo usar HTML en firmas?**
 
-~~Sí, puede usar HTML en firmas si pega texto formateado en el campo de firma o usa el menú *Editar como HTML* para introducir HTML manualmente.~~
+Sí, puede usar [HTML](https://en.wikipedia.org/wiki/HTML). En el editor de firmas se puede cambiar al modo HTML a través del menú de tres puntos.
 
-~~Tenga en cuenta que incluir enlaces e imágenes en los mensajes aumentará la probabilidad de que un mensaje sea visto como spam,~~ ~~especialmente cuando envía un mensaje a alguien por primera vez.~~
+Tenga en cuenta que si vuelve al editor de texto no todo el HTML puede ser renderizado tal como es porque el editor de texto de Android no es capaz de renderizar todo el HTML. De la misma manera, si utiliza el editor de texto, el HTML podría ser alterado de maneras inesperadas.
 
-~~Vea [aquí](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) para ver qué etiquetas HTML son soportadas.~~
+Si desea utilizar texto preformateado, como [arte ASCII](https://en.wikipedia.org/wiki/ASCII_art), debe envolver el texto en un elemento *pre*, así:
+
+```
+<pre>
+  |\_/|
+ / @ @ \
+( > o < )
+ `>>x<<́
+ / O \
+ </pre>
+```
 
 <br />
 
@@ -2213,13 +2223,15 @@ Google gestiona todas las compras, por lo que como desarrollador tengo poco cont
 * Asegúrese de tener una conexión activa a internet
 * Asegúrese de que ha iniciado sesión con la cuenta de Google correcta y de que no hay ningún problema con su cuenta de Google
 * Asegúrese de instalar FairEmail a través de la cuenta de Google correcta si configuró varias cuentas de Google en su dispositivo
+* Asegúrese de que la aplicación Play Store está actualizada, por favor [ver aquí](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Abra la aplicación Play Store y espere al menos un minuto para darle tiempo para sincronizar con los servidores de Google
-* Abrir FairEmail y navegar a la pantalla de características pro para permitir que FairEmail compruebe las compras
+* Abra FairEmail y navegue a la pantalla de características pro para permitir que FairEmail compruebe las compras
 
 También puede intentar limpiar la caché de la aplicación Play Store a través de los ajustes de las aplicaciones de Android. Reiniciar el dispositivo puede ser necesario para que la Play Store reconozca la compra correctamente.
 
 Tenga en cuenta que:
 
+* Si obtiene *ITEM_ALREADY_OWNED*, la aplicación Play Store probablemente necesite ser actualizada, por favor [vea aquí](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Las compras se almacenan en la nube de Google y no se pueden perder
 * No hay límite de tiempo en las compras, por lo que no pueden expirar
 * Google no expone detalles (nombre, correo electrónico, etc.) sobre los compradores a los desarrolladores
@@ -2317,7 +2329,7 @@ Justo después del primer paso se notificarán nuevos mensajes. Sin embargo, só
 
 Dado que no hay garantía de que un texto del mensaje se obtenga siempre después de un encabezado del mensaje, no es posible garantizar que una notificación de nuevo mensaje con un texto de vista previa se enviará siempre a un wearable.
 
-Si usted piensa que esto es suficientemente bueno, puede activar la opción de notificación *Sólo enviar notificaciones con vista previa de mensaje a dispositivos wearables* y si esto no funciona, puede intentar activar la opción de notificación *Mostrar notificaciones sólo con un texto de vista previa*.
+Si usted piensa que esto es suficientemente bueno, puede activar la opción de notificación *Sólo enviar notificaciones con vista previa de mensaje a dispositivos wearables* y si esto no funciona, puede intentar activar la opción de notificación *Mostrar notificaciones sólo con un texto de vista previa*. Tenga en cuenta que esto se aplica también a los wearables que no muestran un texto de vista previa, incluso cuando la aplicación Android Wear dice que la notificación ha sido enviada (bridged).
 
 Si desea que se le envíe el mensaje completo a su wearable, puede activar la opción de notificación *Vista previa de todo el texto*. Tenga en cuenta que se sabe que algunos wearables fallan con esta opción habilitada.
 
@@ -2592,7 +2604,7 @@ Probablemente llegó aquí porque está usando una versión de terceros de FairE
 
 F-Droid compila de forma irregular, lo que puede ser problemático cuando hay una actualización importante. Por lo tanto se le aconseja cambiar a la versión de GitHub.
 
-La versión de F-Droid se compila con el mismo código fuente, pero se firma de forma diferente. Esto significa que todas las características están disponibles también en la versión de F-Droid excepto para usar el asistente de configuración rápida de Gmail porque Google aprueba (y permite) una sola firma de la aplicación. Para todos los demás proveedores de correo electrónico, el acceso OAuth sólo está disponible en las versiones de Play Store y en las versiones de Github, dado que los proveedores de correo electrónico sólo han permitido que las compilaciones oficiales usen OAuth.
+La versión de F-Droid se compila con el mismo código fuente, pero se firma de forma diferente. Esto significa que todas las características están disponibles también en la versión de F-Droid excepto para usar el asistente de configuración rápida de Gmail porque Google aprueba (y permite) una sola firma de la aplicación. Para todos los demás proveedores de correo electrónico, el acceso OAuth sólo está disponible en las versiones de Play Store y en las versiones de Github, dado que los proveedores de correo electrónico sólo permiten el uso de OAuth para versiones oficiales.
 
 Tenga en cuenta que primero tendrá que desinstalar la compilación de F-Droid antes de instalar una versión de GitHub porque Android se niega a instalar la misma aplicación con una firma diferente por razones de seguridad.
 

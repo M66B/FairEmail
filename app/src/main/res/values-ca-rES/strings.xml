@@ -945,7 +945,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_legend_synchronizing">Sincronitzant</string>
     <string name="title_legend_downloading">Descarregant</string>
     <string name="title_legend_closing">Tancant</string>
-    <string name="title_legend_waiting">Esperant la propera sincronització</string>
     <string name="title_legend_unified">Safata d\'entrada unificada / Compre principal</string>
     <string name="title_legend_inbox">Safata d\'entrada</string>
     <string name="title_legend_drafts">Esborranys</string>

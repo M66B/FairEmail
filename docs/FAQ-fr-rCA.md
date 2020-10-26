@@ -75,7 +75,7 @@ Questions connexes :
 * ~~Un [bug dans AndroidX](https://issuetracker.google.com/issues/64729576) rend difficile le défilement rapide. Une solution de contournement a été ajoutée.~~
 * ~~Le chiffrement avec YubiKey se traduit par une boucle infinie. Cela semble être causé par un [bug dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Le défilement vers un emplacement lié en interne dans les messages originaux ne fonctionne pas. Ceci ne peut pas être corrigé car la vue du message d'origine est contenue dans une vue déroulante.
-* Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation du message sont connus pour être affichés correctement sur Pebble 2, Fitbit Charge 3 et Mi band 3. Voir aussi [cette FAQ](#user-content-faq126).
+* Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation des messages sont censés être affichés correctement sur les objets connectés Pebble 2, Fitbit Charge 3, Mi band 3 et Xiaomi Amazfit BIP. Voir aussi [cette FAQ](#user-content-faq126).
 * Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancrés) ne fonctionneront pas parce que les messages originaux sont affichés dans une WebView intégrée dans une vue défilante (la liste des conversations). Il s'agit d'une limitation Android qui ne peut être ni corrigée ni contournée.
 
@@ -175,7 +175,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [~~(54) Comment utiliser un préfixe d'espace de noms ?~~](#user-content-faq54)
 * [(55) Comment puis-je marquer tous les messages comme lus / déplacer ou supprimer tous les messages ?](#user-content-faq55)
 * [(56) Pouvez-vous ajouter un support pour JMAP?](#user-content-faq56)
-* [~~(57) Puis-je utiliser du HTML dans les signatures ?~~](#user-content-faq57)
+* [(57) Puis-je utiliser HTML dans les signatures ?](#user-content-faq57)
 * [(58) Que signifie une icône de courriel ouverte/fermée?](#user-content-faq58)
 * [(59) Peut-on ouvrir des messages originaux dans le navigateur?](#user-content-faq59)
 * [(60) Saviez-vous ...?](#user-content-faq60)
@@ -225,7 +225,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(105) Comment fonctionne l’option itinérance à domicile?](#user-content-faq105)
 * [(106) Quels lanceurs peuvent afficher un nombre de badges avec le nombre de messages non lus ?](#user-content-faq106)
 * [(107) Comment utiliser les étoiles colorées ?](#user-content-faq107)
-* [(108) Pouvez-vous ajouter des messages de façon permanente à partir de n'importe quel dossier ?](#user-content-faq108)
+* [~~(108) Pouvez-vous ajouter la suppression des messages de façon définitive à partir de n'importe quel dossier ?~~](#user-content-faq108)
 * [~~(109) Pourquoi 'sélectionner le compte' est-il uniquement disponible dans les versions officielles ?~~](#user-content-faq109)
 * [(110) Pourquoi (certains) les messages sont-ils vides et/ou les pièces jointes corrompues?](#user-content-faq110)
 * [(111) OAuth est-il pris en charge ?](#user-content-faq111)
@@ -388,7 +388,7 @@ Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de 
 
 Vous devriez essayer de résoudre ce problème en contactant votre fournisseur ou en obtenant un certificat de sécurité valide car les certificats de sécurité non valides sont non sécurisés et autorisent [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si l'argent est un obstacle, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Crypt](https://letsencrypt.org).
 
-Alternativement, vous pouvez accepter l'empreinte digitale affichée sous le message d'erreur si vous configurez le compte et/ou l'identité lors de l'étape de configuration 1 et 2 (ce n'est pas possible lorsque vous utilisez l'assistant d'installation rapide). Notez que vous devez vous assurer que la connexion Internet que vous utilisez est sûre.
+Vous pouvez également accepter l'empreinte du certificat de serveur non valide comme indiqué sous le message d'erreur en cochant une case à cocher. En cas de compte existant (IMAP, recevoir) et/ou d'identité (SMTP, envoyer) vous aurez besoin de le vérifier/sauvegarder via les étapes 1 et 2 de configuration pour recevoir le message d'erreur. Ceci va "épingler" le certificat du serveur pour éviter les attaques de man-in-the-middle. Notez que vous devez vous assurer que la connexion Internet que vous utilisez est sûre si vous faites cela.
 
 Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvelles autorités de certification comme Let's Encrypt qui peuvent considérer les connexions comme non sécurisées, voir aussi [ici](https://developer.android.com/training/articles/security-ssl).
 
@@ -909,7 +909,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... Aucun jeton ...* signifie que le gestionnaire de comptes Android n'a pas réussi à actualiser l'autorisation d'un compte Gmail.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -1168,9 +1168,9 @@ It is inevitable that synchronizing messages will use battery power because it r
 
 If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. In this case you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remotes messages are expensive operations.
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. De plus, certains serveurs de messagerie terminent prématurément les connexions inactives, tandis que [la norme](https://tools.ietf.org/html/rfc2177) indique qu'une connexion inactive doit rester ouverte pendant 29 minutes. Dans ces cas, vous pouvez synchroniser périodiquement, par exemple chaque heure au lieu de en continu. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
 
-[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open.
+[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
@@ -1402,13 +1402,23 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 <br />
 
 <a name="faq57"></a>
-**(57) ~~Can I use HTML in signatures?~~**
+**(57) Can I use HTML in signatures?**
 
-~~Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.~~
+Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
 
-~~Note that including links and images in messages will increase the likelihood that a message will be seen as spam,~~ ~~especially when you send a message to someone for the first time.~~
+Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
 
-~~See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.~~
+If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
+
+```
+<pre>
+  |\_/|
+ / @ @ \
+( > º < )
+ `>>x<<´
+ /  O  \
+ </pre>
+```
 
 <br />
 
@@ -2213,6 +2223,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
@@ -2220,6 +2231,7 @@ You can also try to clear the cache of the Play store app via the Android apps s
 
 Note that:
 
+* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Purchases are stored in the Google cloud and cannot get lost
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
@@ -2317,7 +2329,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*.
+Si vous pensez que c'est suffisant, vous pouvez activer l'option de notification *Envoyer uniquement des notifications avec un aperçu de message aux objets connectés* et si cela ne fonctionne pas, vous pouvez essayer d'activer l'option de notification *Afficher les notifications avec un texte de prévisualisation uniquement*. Notez que ceci s'applique aux objets connectés n'affichant pas de texte de prévisualisation non plus, même lorsque l'application Android Wear indique que la notification a été envoyée (pont).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2592,7 +2604,7 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. Ceci signifie que toutes les fonctionnalités sont également disponibles dans la version F-Droid, à l'exception de l'utilisation de l'assistant de configuration rapide Gmail parce que Google a approuvé (et autorisé) une seule signature d'application. Pour tous les autres fournisseurs de messagerie, l'accès OAuth n'est disponible que dans les versions du Play Store et dans les versions de Github, étant donné que les fournisseurs de messagerie n'ont autorisé que les versions officielles à utiliser OAuth.
+The F-Droid version is built from the same source code, but signed differently. Ceci signifie que toutes les fonctionnalités sont également disponibles dans la version F-Droid, à l'exception de l'utilisation de l'assistant de configuration rapide Gmail parce que Google a approuvé (et autorisé) une seule signature d'application. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 

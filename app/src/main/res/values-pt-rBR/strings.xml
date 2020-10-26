@@ -1040,7 +1040,6 @@
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Baixando</string>
     <string name="title_legend_closing">Fechando</string>
-    <string name="title_legend_waiting">Aguardando a próxima sincronização</string>
     <string name="title_legend_unified">Caixa de entrada unificada / conta principal</string>
     <string name="title_legend_inbox">Caixa de entrada</string>
     <string name="title_legend_drafts">Rascunhos</string>

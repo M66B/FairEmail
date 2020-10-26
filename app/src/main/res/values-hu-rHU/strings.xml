@@ -1042,7 +1042,6 @@
     <string name="title_legend_synchronizing">Szinkronizálás...</string>
     <string name="title_legend_downloading">Letöltés...</string>
     <string name="title_legend_closing">Bezárás</string>
-    <string name="title_legend_waiting">Szinkronizálásra várakozás</string>
     <string name="title_legend_unified">Egységes beérkező mappa / elsődleges fiók</string>
     <string name="title_legend_inbox">Bejövő mappa</string>
     <string name="title_legend_drafts">Piszkozatok</string>

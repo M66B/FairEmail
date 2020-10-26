@@ -866,7 +866,6 @@
     <string name="title_legend_synchronizing">Synkroniserer</string>
     <string name="title_legend_downloading">Laster ned</string>
     <string name="title_legend_closing">Lukker</string>
-    <string name="title_legend_waiting">Venter på neste synkronisering</string>
     <string name="title_legend_unified">Enhetlig innboks/primærkonto</string>
     <string name="title_legend_inbox">Innboks</string>
     <string name="title_legend_drafts">Utkast</string>

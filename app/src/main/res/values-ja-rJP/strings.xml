@@ -15,6 +15,9 @@
     <string name="channel_error">エラー</string>
     <string name="channel_alert">サーバアラート</string>
     <string name="channel_group_contacts">連絡先</string>
+    <string name="channel_service_description">アカウントの同期と監視</string>
+    <string name="channel_send_description">メッセージの送信</string>
+    <string name="channel_notification_description">新しいメッセージ通知</string>
     <plurals name="page_conversation">
         <item quantity="other">会話</item>
     </plurals>
@@ -85,6 +88,7 @@
     <string name="menu_rate">このアプリを評価</string>
     <string name="title_welcome">ようこそ</string>
     <string name="title_eula">エンドユーザー使用許諾契約書</string>
+    <string name="title_contributors">コントリビューター</string>
     <string name="title_agree">同意する</string>
     <string name="title_disagree">同意しない</string>
     <string name="title_version">バージョン %1$s</string>
@@ -155,6 +159,7 @@ back navigation</string>
     <string name="title_setup_done">完了</string>
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
+    <string name="title_setup_configuring">アカウントを設定しています &#8230;</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
@@ -216,6 +221,7 @@ back navigation</string>
     <string name="title_advanced_kept_removed">古いメッセージがサーバから削除されたか確認</string>
     <string name="title_advanced_gmail_thread">Gmailアカウント用のGmailメッセージグループ化</string>
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
+    <string name="title_advanced_sync_shared_folders">共有フォルダリストを同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_check_reply">メッセージ同期に関する返信メールアドレスを確認</string>
@@ -224,6 +230,7 @@ back navigation</string>
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_received">受信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_frequently">使用頻度で提案されたアドレスを並べ替える</string>
+    <string name="title_advanced_compose_font">デフォルトフォント</string>
     <string name="title_advanced_prefix_once">返信または転送時にプレフィックスを1回だけにします</string>
     <string name="title_advanced_extended_reply">拡張した返信/転送ヘッダーを使用</string>
     <string name="title_advanced_quote_reply">返信テキスト時に引用符を付ける</string>
@@ -276,6 +283,7 @@ back navigation</string>
     <string name="title_advanced_subject_top">送信者の上に件名を表示</string>
     <string name="title_advanced_subject_italic">件名を斜体で表示</string>
     <string name="title_advanced_subject_elipsed">必要に応じて件名を短くします</string>
+    <string name="title_advanced_highlight_color">ハイライトカラー</string>
     <string name="title_advanced_keywords">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_flags">スターを表示</string>
     <string name="title_advanced_flags_background">色付きのスターの代わりに色付きの背景を表示</string>
@@ -285,6 +293,9 @@ back navigation</string>
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を表示</string>
     <string name="title_advanced_attachments_alt">メッセージテキストの後に添付ファイルを表示</string>
     <string name="title_advanced_contrast">メッセージテキストにハイコントラストを使用</string>
+    <string name="title_advanced_text_color">テキストの色を使用する</string>
+    <string name="title_advanced_text_size">テキストのサイズを使用する</string>
+    <string name="title_advanced_text_font">フォントを使用する</string>
     <string name="title_advanced_collapse_quotes">引用テキストを折りたたむ</string>
     <string name="title_advanced_images_inline">インライン画像を自動的に表示</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
@@ -366,6 +377,8 @@ back navigation</string>
     <string name="title_advanced_language_detection">メッセージのテキスト言語を検出</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
+    <string name="title_advanced_language">言語</string>
+    <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_updates">更新を確認</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
@@ -903,7 +916,6 @@ back navigation</string>
     <string name="title_legend_synchronizing">同期する</string>
     <string name="title_legend_downloading">ダウンロード中</string>
     <string name="title_legend_closing">閉じる</string>
-    <string name="title_legend_waiting">次の同期を待っています</string>
     <string name="title_legend_unified">統合受信トレイ/プライマリアカウント</string>
     <string name="title_legend_inbox">受信トレイ</string>
     <string name="title_legend_drafts">下書き</string>

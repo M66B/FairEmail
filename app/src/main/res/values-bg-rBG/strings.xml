@@ -949,7 +949,6 @@
     <string name="title_legend_synchronizing">Синхронизиране</string>
     <string name="title_legend_downloading">Изтегляне</string>
     <string name="title_legend_closing">Затваряне</string>
-    <string name="title_legend_waiting">Изчаква следваща синхронизация</string>
     <string name="title_legend_unified">Обединена входяща поща / главен профил</string>
     <string name="title_legend_inbox">Входящи</string>
     <string name="title_legend_drafts">Чернови</string>

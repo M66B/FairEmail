@@ -364,6 +364,7 @@
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Mottagningskanal</string>
+    <string name="title_advanced_notifications_newest_first">Visa nyaste aviseringar först</string>
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_notify_remove">Ta bort aviseringar för nya meddelanden när du trycker på meddelandet</string>
     <string name="title_advanced_notify_clear">Ta bort nya meddelandeaviseringar vid visning av meddelandelistan</string>
     <string name="title_advanced_wearable_preview">Skicka endast aviseringar med en förhandsgranskning av meddelanden till bärbara enheter</string>
+    <string name="title_advanced_notify_messaging">Använd Android \'meddelandestil\' aviseringsformat</string>
     <string name="title_advanced_biometrics_notify">Visa aviseringsinnehåll när du använder biometrisk autentisering</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_notify_preview_all_hint">För handburna enheter som kan visa fulltext (upp till 5000 tecken)</string>
     <string name="title_advanced_notify_preview_only_hint">Denna försening visar aviseringar tills meddelandet har laddats ner</string>
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>
+    <string name="title_advanced_messaging_hint">Detta krävs för Android Auto-stöd</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
     <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
@@ -1053,6 +1056,7 @@
     <string name="title_legend_download_off">Hämta meddelandeinnehåll på begäran </string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>
     <string name="title_legend_synchronize_off">Synkronisera av</string>
+    <string name="title_legend_synchronize_poll">Synkronisera periodiskt</string>
     <string name="title_legend_disconnected">Frånkopplad</string>
     <string name="title_legend_connecting">Ansluter</string>
     <string name="title_legend_connected">Ansluten</string>
@@ -1060,7 +1064,6 @@
     <string name="title_legend_synchronizing">Synkroniserar</string>
     <string name="title_legend_downloading">Hämtar</string>
     <string name="title_legend_closing">Stänger</string>
-    <string name="title_legend_waiting">Väntar på nästa synkronisering</string>
     <string name="title_legend_unified">Samlad inkorg / primärt konto</string>
     <string name="title_legend_inbox">Inkorg</string>
     <string name="title_legend_drafts">Utkast</string>

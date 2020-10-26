@@ -386,6 +386,7 @@
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
     <string name="title_advanced_notifications_service">Kanał odbioru</string>
+    <string name="title_advanced_notifications_newest_first">Pokaż najpierw najnowsze powiadomienia</string>
     <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
@@ -409,6 +410,7 @@
     <string name="title_advanced_notify_remove">Usuń powiadomienie o nowej wiadomości po dotknięciu powiadomienia</string>
     <string name="title_advanced_notify_clear">Usuń powiadomienia o nowych wiadomościach podczas przeglądania listy wiadomości</string>
     <string name="title_advanced_wearable_preview">Powiadomienia z podglądem wiadomości wysyłaj tylko do urządzeń do noszenia</string>
+    <string name="title_advanced_notify_messaging">Użyj formatu powiadomień w stylu wiadomości systemu Android</string>
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
@@ -513,6 +515,7 @@
     <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>
     <string name="title_advanced_notify_preview_only_hint">Opóźnia to wyświetlanie powiadomień do momentu pobrania tekstu wiadomości</string>
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
+    <string name="title_advanced_messaging_hint">Jest to wymagane dla wsparcia Android Auto</string>
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
@@ -1075,6 +1078,7 @@
     <string name="title_legend_download_off">Pobierz treść wiadomości na żądanie </string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
+    <string name="title_legend_synchronize_poll">Synchronizuj okresowo</string>
     <string name="title_legend_disconnected">Rozłączony</string>
     <string name="title_legend_connecting">‎Łączenie</string>
     <string name="title_legend_connected">Połączony</string>
@@ -1082,7 +1086,6 @@
     <string name="title_legend_synchronizing">Synchronizowanie</string>
     <string name="title_legend_downloading">Pobieranie</string>
     <string name="title_legend_closing">Zamykanie</string>
-    <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
     <string name="title_legend_unified">Wspólna skrzynka / konto podstawowe</string>
     <string name="title_legend_inbox">Odebrane</string>
     <string name="title_legend_drafts">Szkice</string>

@@ -75,7 +75,7 @@ Relaterede spørgsmål:
 * ~~En [fejl i AndroidX](https://issuetracker.google.com/issues/64729576) gør det svært at gribe fat i hurtig-rulningsobjektet. En løsning blev tilføjet.~~
 * ~~Kryptering med YubiKey resulterer i en uendelig løkke. Dette synes forårsaget at en [fejl i OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Rulning ned til en internt linket position i originalbeskeder fungerer ikke. Dette kan ikke rettes, da originalbeskedvisningen udgør en del af selve rulningsvisningen.
-* En forhåndsvisning af en beskedtekst vises ikke (altid) på Samsung-ure, da [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean))-parameteren synes at blive ignoreret. Beskedforhåndsvisningstekster bliver vist korrekt på Pebble- 2, Fitbit Charge 3- og Mi band 3-wearables. Se også [denne FAQ](#user-content-faq126).
+* En forhåndsvisning af en beskedtekst vises ikke (altid) på Samsung-ure, da [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean))-parameteren synes at blive ignoreret. Beskedforhåndsvisningstekster fremgår korrekt på Pebble 2-, Fitbit Charge 3- og Mi band 3-wearables. Se også [denne FAQ](#user-content-faq126).
 * En [fejl i Android](https://issuetracker.google.com/issues/37068143) medfører af og til et nedbrud med "*... Ugyldig forskydning... Gyldigt område er ...* når tekst er valgt og der trykkes uden for den valgte tekst. Denne fejl er rettet i Android 6.0.1.
 * Interne (anker-) links vil ikke fungere, da de oprindelige beskeder vises i et indlejret WebView i en rullevisning (samtalelisten). Dette er en Android-begrænsning, der ikke kan rettes eller omgås.
 
@@ -175,7 +175,7 @@ Designet er baseret på mange debatter, og er du interesseret, kan du også deba
 * [~~(54) Hvodan bruges et navneområdepræfiks?~~](#user-content-faq54)
 * [(55) Hvordan kan alle beskeder markeres som læst, flyttes eller slettes?](#user-content-faq55)
 * [(56) Kan der tilføjes understøttelse af JMAP?](#user-content-faq56)
-* [~~(57) Kan HTML anvendes i signaturer?~~](#user-content-faq57)
+* [(57) Kan HTML benyttes i signaturer?](#user-content-faq57)
 * [(58) Hvad betyder et åbent/lukket e-mail ikon?](#user-content-faq58)
 * [(59) Kan originalbeskeder åbnes i browseren?](#user-content-faq59)
 * [(60) Vidste du, at...?](#user-content-faq60)
@@ -225,7 +225,7 @@ Designet er baseret på mange debatter, og er du interesseret, kan du også deba
 * [(105) Hvordan fungere indstillingen roam-som-på-hjemadressen?](#user-content-faq105)
 * [(106) Hvilke launchere kan vise et badge-tal for antallet af ulæste beskeder?](#user-content-faq106)
 * [(107) Hvordan anvendes farvede stjerner?](#user-content-faq107)
-* [(108) Kan der tilføjes permanent slettede beskeder fra enhver mappe?](#user-content-faq108)
+* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) Hvorfor er 'vælg konto' kun tilgængelig i officielle versioner?~~](#user-content-faq109)
 * [(110) Hvorfor er (nogle) beskeder tomme og/eller vedhæftninger ødelagte?](#user-content-faq110)
 * [(111) Er OAuth understøttet?](#user-content-faq111)
@@ -388,7 +388,7 @@ Operationer behandles kun, såfremt en forbindelse til e-mailserveren findes, el
 
 Du bør forsøge at løse dette ved at kontakte din udbyder eller ved at få et gyldigt sikkerhedscertifikat, da ugyldige sikkerhedscertifikater er usikre og tillader [mand-i-midten-angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Er penge en hindring, kan du få gratis sikkerhedscertifikater fra [Let's Encrypt](https://letsencrypt.org).
 
-Alternativt kan du acceptere fingeraftrykket vist under fejlmeddelelsen, hvis du opsætter kontoen og/eller identiteten i opsætningstrin 1 og 2 (dette er ikke muligt, når du benytter hurtigopsætningsguiden). Bemærk, at du bør sikre dig, at den anvendte Internetforbindelse er sikker.
+Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
 
 Bemærk, at ældre Android-versioner muligvis ikke genkender nyere certificeringsmyndigheder såsom Let’s Encrypt, hvorfor forbindelser kan blive betragtet som usikre, se også [hér](https://developer.android.com/training/articles/security-ssl).
 
@@ -909,7 +909,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -1168,9 +1168,9 @@ It is inevitable that synchronizing messages will use battery power because it r
 
 If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. In this case you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remotes messages are expensive operations.
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Visse e-mailservere afslutter også ikke-aktive forbindelser for tidligt, selvom [standarden](https://tools.ietf.org/html/rfc2177) dikterer, at en ikke-aktiv forbindelse bør holdes åben i 29 minutter. I sådanne tilfælde vil du måske kun synkronisere periodisk, f.eks. hver time, i stedet for kontinuerligt. Bemærk, at hyppig polling (udover hvert ca. 30.-60. min) antageligt vil forbruge mere strøm end kontinuerlig synkronisering, da serverforbindelsesoprettelsen samt lokal-/fjernbeskeds matchning kræver ressourcer.
 
-[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open.
+Det er [på visse enheder](https://dontkillmyapp.com/) nødvendigt at *deaktivere* batterioptimering (opsætningstrin 4) for at holde e-mailserverforbinndelser åbne. Faktisk kan aktiv batterioptimering resultere i ekstra strømforbrug på alle enheder, selvom det lyder selvmodsigende!
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
@@ -1402,13 +1402,23 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 <br />
 
 <a name="faq57"></a>
-**(57) ~~Can I use HTML in signatures?~~**
+**(57) Kan HTML benyttes i signaturer?**
 
-~~Yes, you can use HTML in signatures if you paste formatted text into the signature field or use the *Edit as HTML* menu to enter HTML manually.~~
+Ja, [HTML](https://en.wikipedia.org/wiki/HTML) kan benyttes. I signaturredigeringsværktøjet kan du via trepriksmenuen skifte til HTML-tilstand.
 
-~~Note that including links and images in messages will increase the likelihood that a message will be seen as spam,~~ ~~especially when you send a message to someone for the first time.~~
+Bemærk, at skifter du tilbage til teksredigeringsværktøjet, vil alt HTML måske fremstå korrekt, da Android-teksredigeringsværktøjet ikke kan håndtere alt HTML. Tilsvarende, hvis du bruger tekstredigerinsværktøjet, kan HTML blive ændret på uventede måder.
 
-~~See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.~~
+Ønsker su at bruge præformateret tekst, såsom [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), bør du ombryde teksten i et *præelement* således:
+
+```
+<pre>
+  |\_/|
+ / @ @ \
+( > º < )
+ `>>x<<´
+ /  O  \
+ </pre>
+```
 
 <br />
 
@@ -1739,16 +1749,16 @@ Note that disabling an account will hide the account and all associated folders 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
-New task: Something recognizable
-Action Category: Misc/Send Intent
-Action: eu.faircode.email.ENABLE
-Target: Service
+Ny opgave: En genkendelig
+Handlingskategori: Div./Send-
+hensigtshandling: eu.faircode.email.ENABLE
+Mål: Tjeneste
 ```
 
 To enable/disable an account with the name *Gmail*:
 
 ```
-Extras: account:Gmail
+Ekstra: konto:Gmail
 ```
 
 Account names are case sensitive.
@@ -1873,9 +1883,9 @@ Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo e
 Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
 ```
-Y1 CAPABILITY
-* CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
-Y1 OK CAPABILITY completed
+Y1-EVNE
+* MULIGHED FOR IMAP4rev1 ID FLYT NAVNEOMRÅDE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT AFMARKÉR OBJEKTID
+Y1 OK MULIGHED fuldført
 ```
 
 <br />
@@ -2213,19 +2223,21 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
-* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
+* Sørg for, at Play Butik-appen er opdateret, [tjek hér](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Åbn Play Butik-appen, og vent mindst ét minut for at give den tid til at synkronisere med Google-serverne
+* Åbn FairEmail og gå til Pro-funktionssiden for at lade FairEmail tjekke købene
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
 Note that:
 
-* Purchases are stored in the Google cloud and cannot get lost
-* There is no time limit on purchases, so they cannot expire
-* Google does not expose details (name, e-mail, etc) about buyers to developers
-* An app like FairEmail cannot select which Google account to use
-* It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
+* Ser du *VARE ALLEREDE KØBT*, skal Play Butik-appen sandsynligvis opdateres, [tjek hér](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Køb gemmes i Google-skyen og kan ikke gå tabt
+* Der er ingen tidsbegrænsning på køb, hvorfor de aldrig udløber
+* Google afslører ikke oplysninger (navn, e-mail mv.) om købere til udviklere
+* En app såsom FairEmail kan ikke vælge, hvilken Google-konto, der skal benyttes
+* Der kan gå et stykke tid, før Play Butik-appen har synkroniseret et køb til en anden enhed
+* Play Butik-køb kan ikke anvendes uden Play Butik, hvilket heller ikke er tilladt jf. Play Butik-reglerne
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
@@ -2317,7 +2329,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*.
+Mener du, at dette er tilstrækkeligt, du kan aktivere notifikationsindstillingen *Send kun notifikationer med beskedforhåndsvisning til wearables*, og fungerer dette ikke, du kan prøve at aktivere notifikationsindstillingen *Vis kun notifikationer med forhåndsvisningstekst*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2477,7 +2489,7 @@ The error *User is authenticated but not connected* might occur if:
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
 ```
-you@example.com\shared@example.com
+dig@eksempel.dk\delt@eksempel.dk
 ```
 
 Note that it should be a backslash and not a forward slash.

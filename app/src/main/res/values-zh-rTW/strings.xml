@@ -1010,7 +1010,6 @@
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">正在下載</string>
     <string name="title_legend_closing">關閉中</string>
-    <string name="title_legend_waiting">等待下一次同步</string>
     <string name="title_legend_unified">全域的收件匣/主要帳戶</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_drafts">草稿</string>

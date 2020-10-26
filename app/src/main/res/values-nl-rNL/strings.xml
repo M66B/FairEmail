@@ -189,7 +189,7 @@
     <string name="title_setup_reorder_accounts">Volgorde accounts</string>
     <string name="title_setup_reorder_folders">Volgorde mappen</string>
     <string name="title_reset_order">Reset volgorde</string>
-    <string name="title_setup_authentication">Verificatie</string>
+    <string name="title_setup_authentication">Authenticatie</string>
     <string name="title_setup_biometrics">Biometrische verificatie</string>
     <string name="title_setup_biometrics_enable">Inschakelen</string>
     <string name="title_setup_biometrics_disable">Uitschakelen</string>
@@ -364,6 +364,7 @@
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
     <string name="title_advanced_notifications_service">Ontvangstkanaal</string>
+    <string name="title_advanced_notifications_newest_first">Laat nieuwste meldingen eerst zien</string>
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_notify_remove">Verwijder melding van nieuw bericht bij het tikken op melding</string>
     <string name="title_advanced_notify_clear">Verwijder meldingen van nieuwe berichten bij het bekijken van een berichtenlijst</string>
     <string name="title_advanced_wearable_preview">Stuur alleen meldingen met een berichtvoorbeeld naar wearables</string>
+    <string name="title_advanced_notify_messaging">Gebruik Android \'messaging style\' notificatieformaat</string>
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_notify_preview_all_hint">Voor wearables die de volledige tekst kunnen weergeven (tot 5.000 tekens)</string>
     <string name="title_advanced_notify_preview_only_hint">Dit vertraagt het tonen van meldingen totdat de berichttekst is gedownload</string>
     <string name="title_advanced_wearable_hint">Meldingen worden alleen verzonden naar een wearable nadat de berichttekst is gedownload</string>
+    <string name="title_advanced_messaging_hint">Dit is vereist voor Android Auto ondersteuning</string>
     <string name="title_advanced_move_hint">De doelmap kan worden geconfigureerd in de accountinstellingen</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
@@ -1053,6 +1056,7 @@
     <string name="title_legend_download_off">Inhoud van berichten op aanvraag downloaden </string>
     <string name="title_legend_synchronize_on">Synchronisatie aan</string>
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
+    <string name="title_legend_synchronize_poll">Periodiek synchroniseren</string>
     <string name="title_legend_disconnected">Verbinding verbroken</string>
     <string name="title_legend_connecting">Verbinding maken</string>
     <string name="title_legend_connected">Verbonden</string>
@@ -1060,7 +1064,6 @@
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>
     <string name="title_legend_closing">Sluiten</string>
-    <string name="title_legend_waiting">Wachten op volgende synchronisatie</string>
     <string name="title_legend_unified">Gecombineerd postvak in / primaire account</string>
     <string name="title_legend_inbox">Postvak in</string>
     <string name="title_legend_drafts">Concepten</string>

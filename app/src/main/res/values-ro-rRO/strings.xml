@@ -1071,7 +1071,6 @@
     <string name="title_legend_synchronizing">Sincronizare în curs</string>
     <string name="title_legend_downloading">Descărcare în curs</string>
     <string name="title_legend_closing">Închidere</string>
-    <string name="title_legend_waiting">Așteptă următoarea sincronizare</string>
     <string name="title_legend_unified">Inbox unificat / cont primar</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_drafts">Ciorne</string>

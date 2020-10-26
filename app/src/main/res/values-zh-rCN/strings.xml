@@ -353,6 +353,7 @@
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">接收频道</string>
+    <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
@@ -376,6 +377,7 @@
     <string name="title_advanced_notify_remove">点击通知时移除新的消息通知</string>
     <string name="title_advanced_notify_clear">查看消息列表时移除新消息通知</string>
     <string name="title_advanced_wearable_preview">只向可穿戴设备发送有消息预览的通知</string>
+    <string name="title_advanced_notify_messaging">使用安卓 \'消息样式\' 通知格式</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
@@ -480,6 +482,7 @@
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>
     <string name="title_advanced_notify_preview_only_hint">这会延迟通知的显示直到消息文本下载完成</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
+    <string name="title_advanced_messaging_hint">这是支持 Android Auto 所必需的</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
@@ -1042,6 +1045,7 @@
     <string name="title_legend_download_off">按需下载邮件内容 </string>
     <string name="title_legend_synchronize_on">同步开启</string>
     <string name="title_legend_synchronize_off">同步关闭</string>
+    <string name="title_legend_synchronize_poll">定期同步</string>
     <string name="title_legend_disconnected">未连接</string>
     <string name="title_legend_connecting">正在连接</string>
     <string name="title_legend_connected">已连接</string>
@@ -1049,7 +1053,6 @@
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">下载中</string>
     <string name="title_legend_closing">正在结束</string>
-    <string name="title_legend_waiting">等待下次同步</string>
     <string name="title_legend_unified">聚合收件箱/主账户</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_drafts">草稿</string>
