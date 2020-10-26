@@ -47,7 +47,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -72,7 +71,6 @@ import javax.mail.Folder;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -96,7 +94,6 @@ public class FragmentAccount extends FragmentBase {
     private TextView tvCharacters;
     private Button btnCertificate;
     private TextView tvCertificate;
-    private Button btnOAuth;
     private EditText etRealm;
 
     private EditText etName;
@@ -201,7 +198,6 @@ public class FragmentAccount extends FragmentBase {
         tvCharacters = view.findViewById(R.id.tvCharacters);
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
-        btnOAuth = view.findViewById(R.id.btnOAuth);
         etRealm = view.findViewById(R.id.etRealm);
 
         etName = view.findViewById(R.id.etName);
@@ -289,7 +285,6 @@ public class FragmentAccount extends FragmentBase {
                 tilPassword.getEditText().setText(null);
                 certificate = null;
                 tvCertificate.setText(R.string.title_optional);
-                btnOAuth.setEnabled(false);
                 etRealm.setText(null);
                 cbTrust.setChecked(false);
 
@@ -360,13 +355,6 @@ public class FragmentAccount extends FragmentBase {
                         tvCertificate.setText(getString(R.string.title_optional));
                     }
                 });
-            }
-        });
-
-        btnOAuth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onAuth();
             }
         });
 
@@ -1309,49 +1297,6 @@ public class FragmentAccount extends FragmentBase {
         }.execute(this, args, "account:save");
     }
 
-    private void onAuth() {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<String>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                btnOAuth.setEnabled(false);
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                btnOAuth.setEnabled(true);
-            }
-
-            @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityAccount account = db.account().getAccount(id);
-                if (account == null)
-                    return null;
-
-                GmailState state = GmailState.jsonDeserialize(account.password);
-                state.refresh(context, account.user, true);
-                return state.jsonSerializeString();
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, String token) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                tilPassword.getEditText().setText(token);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex, false);
-            }
-        }.execute(this, args, "account:oauth");
-    }
-
     private void showError(Throwable ex) {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
@@ -1549,9 +1494,6 @@ public class FragmentAccount extends FragmentBase {
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
-
-                if (account == null || account.auth_type != AUTH_TYPE_GMAIL)
-                    Helper.hide((btnOAuth));
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());

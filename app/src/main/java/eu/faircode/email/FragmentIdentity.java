@@ -45,7 +45,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -66,7 +65,6 @@ import javax.mail.internet.InternetAddress;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -98,7 +96,6 @@ public class FragmentIdentity extends FragmentBase {
     private TextView tvCharacters;
     private Button btnCertificate;
     private TextView tvCertificate;
-    private Button btnOAuth;
     private EditText etRealm;
     private CheckBox cbUseIp;
     private EditText etEhlo;
@@ -191,7 +188,6 @@ public class FragmentIdentity extends FragmentBase {
         tvCharacters = view.findViewById(R.id.tvCharacters);
         btnCertificate = view.findViewById(R.id.btnCertificate);
         tvCertificate = view.findViewById(R.id.tvCertificate);
-        btnOAuth = view.findViewById(R.id.btnOAuth);
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
         etEhlo = view.findViewById(R.id.etEhlo);
@@ -407,13 +403,6 @@ public class FragmentIdentity extends FragmentBase {
                         tvCertificate.setText(R.string.title_optional);
                     }
                 });
-            }
-        });
-
-        btnOAuth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onAuth();
             }
         });
 
@@ -962,49 +951,6 @@ public class FragmentIdentity extends FragmentBase {
         }.execute(this, args, "identity:save");
     }
 
-    private void onAuth() {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<String>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                btnOAuth.setEnabled(false);
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                btnOAuth.setEnabled(true);
-            }
-
-            @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityIdentity identity = db.identity().getIdentity(id);
-                if (identity == null)
-                    return null;
-
-                GmailState state = GmailState.jsonDeserialize(identity.password);
-                state.refresh(context, identity.user, true);
-                return state.jsonSerializeString();
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, String token) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                tilPassword.getEditText().setText(token);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex, false);
-            }
-        }.execute(this, args, "identity:oauth");
-    }
-
     private void showError(Throwable ex) {
         tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
@@ -1170,9 +1116,6 @@ public class FragmentIdentity extends FragmentBase {
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
-
-                if (identity == null || identity.auth_type != AUTH_TYPE_GMAIL)
-                    Helper.hide(btnOAuth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 

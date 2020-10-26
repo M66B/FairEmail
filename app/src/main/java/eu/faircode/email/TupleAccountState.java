@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import java.util.Objects;
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 public class TupleAccountState extends EntityAccount {
     // TODO: folder property changes (name, poll)
     public int folders;
@@ -35,7 +37,7 @@ public class TupleAccountState extends EntityAccount {
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
-                    this.password.equals(other.password) &&
+                    (auth_type != AUTH_TYPE_PASSWORD || this.password.equals(other.password)) &&
                     Objects.equals(this.certificate_alias, other.certificate_alias) &&
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.fingerprint, other.fingerprint) &&
