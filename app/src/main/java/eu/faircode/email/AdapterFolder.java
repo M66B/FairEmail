@@ -67,7 +67,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -102,6 +104,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> items = new ArrayList<>();
 
+    private DateFormat DTF;
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -223,9 +226,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     if (folder.executing > 0) {
                         ivState.setImageResource(R.drawable.twotone_dns_24);
                         ivState.setContentDescription(context.getString(R.string.title_legend_executing));
-                    } else if ("waiting".equals(folder.state)) {
-                        ivState.setImageResource(R.drawable.twotone_hourglass_top_24);
-                        ivState.setContentDescription(context.getString(R.string.title_legend_waiting));
                     } else if ("connected".equals(folder.state)) {
                         ivState.setImageResource(R.drawable.twotone_cloud_done_24);
                         ivState.setContentDescription(context.getString(R.string.title_legend_connected));
@@ -315,7 +315,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else
                     tvType.setText(EntityFolder.localizeType(context, folder.type));
 
-                tvTotal.setText(folder.total == null ? "" : NF.format(folder.total));
+                StringBuilder t = new StringBuilder();
+                if (folder.total != null)
+                    t.append(NF.format(folder.total));
+
+                if (BuildConfig.DEBUG &&
+                        folder.synchronize && folder.poll && folder.last_sync != null) {
+                    if (t.length() > 0)
+                        t.append(' ');
+                    t.append(DTF.format(folder.last_sync));
+                }
+
+                tvTotal.setText(t.toString());
 
                 if (folder.account == null) {
                     tvAfter.setText(null);
@@ -337,8 +348,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         a.append(NF.format(folder.keep_days));
 
                     tvAfter.setText(a.toString());
-                    ivSync.setImageResource(folder.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-                    ivSync.setContentDescription(context.getString(folder.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
+                    if (folder.synchronize) {
+                        ivSync.setImageResource(folder.poll
+                                ? R.drawable.twotone_hourglass_top_24
+                                : R.drawable.twotone_sync_24);
+                        ivSync.setContentDescription(context.getString(folder.poll
+                                ? R.string.title_legend_synchronize_poll
+                                : R.string.title_legend_synchronize_on));
+                    } else {
+                        ivSync.setImageResource(R.drawable.twotone_sync_disabled_24);
+                        ivSync.setContentDescription(context.getString(R.string.title_legend_synchronize_off));
+                    }
                 }
                 ivSync.setImageTintList(ColorStateList.valueOf(
                         folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
@@ -819,6 +839,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     AdapterFolder(Fragment parentFragment, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
         this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, primary, show_compact, show_hidden, show_flagged, listener);
         this.parentFragment = parentFragment;
+        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
     }
 
     AdapterFolder(Context context, LifecycleOwner owner, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {

@@ -167,13 +167,35 @@
             app:layout_constraintTop_toTopOf="@id/ivSynchronizeOff" />
 
         <ImageView
+            android:id="@+id/ivSynchronizePoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_synchronize_poll"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff"
+            app:srcCompat="@drawable/twotone_hourglass_top_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSynchronizePoll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_synchronize_poll"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSynchronizePoll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSynchronizePoll"
+            app:layout_constraintTop_toTopOf="@id/ivSynchronizePoll" />
+
+        <ImageView
             android:id="@+id/ivDisconnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_disconnected"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff"
+            app:layout_constraintTop_toBottomOf="@id/ivSynchronizePoll"
             app:srcCompat="@drawable/twotone_cloud_off_24" />
 
         <eu.faircode.email.FixedTextView
@@ -319,27 +341,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivClosing"
             app:layout_constraintTop_toTopOf="@id/ivClosing" />
-
-        <ImageView
-            android:id="@+id/ivWaiting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_waiting"
-            android:padding="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivClosing"
-            app:srcCompat="@drawable/twotone_hourglass_top_24" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvWaiting"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:text="@string/title_legend_waiting"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivWaiting"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivWaiting"
-            app:layout_constraintTop_toTopOf="@id/ivWaiting" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

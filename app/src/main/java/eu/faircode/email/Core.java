@@ -2113,6 +2113,7 @@ class Core {
                     ((POP3Message) imessage).invalidate(true);
                 }
 
+            db.folder().setFolderLastSync(folder.id, new Date().getTime());
             Log.i(folder.name + " POP done");
         } finally {
             db.folder().setFolderSyncState(folder.id, null);

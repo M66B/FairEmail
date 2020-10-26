@@ -1202,6 +1202,7 @@
     <string name="title_legend_download_off">Download message content on demand</string>
     <string name="title_legend_synchronize_on">Synchronize on</string>
     <string name="title_legend_synchronize_off">Synchronize off</string>
+    <string name="title_legend_synchronize_poll">Synchronize periodically</string>
     <string name="title_legend_disconnected">Disconnected</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
@@ -1209,7 +1210,6 @@
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_downloading">Downloading</string>
     <string name="title_legend_closing">Closing</string>
-    <string name="title_legend_waiting">Waiting for next synchronization</string>
 
     <string name="title_legend_unified">Unified inbox / primary account</string>
     <string name="title_legend_inbox">Inbox</string>

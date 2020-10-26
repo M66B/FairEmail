@@ -1256,6 +1256,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } else {
                             mapFolders.put(folder, null);
                             db.folder().setFolderState(folder.id, null);
+                            if (!capIdle && !folder.poll) {
+                                folder.poll = true;
+                                db.folder().setFolderPoll(folder.id, folder.poll);
+                            }
                         }
                     }
 
@@ -1424,11 +1428,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                         Log.w(folder.name, ex);
                                                                     }
                                                                 }
-                                                                if (!isTransient(account) &&
-                                                                        folder.synchronize && (folder.poll || !capIdle))
-                                                                    db.folder().setFolderState(folder.id, "waiting");
-                                                                else
-                                                                    db.folder().setFolderState(folder.id, null);
+                                                                db.folder().setFolderState(folder.id, null);
                                                             }
                                                         }
                                                     } finally {
