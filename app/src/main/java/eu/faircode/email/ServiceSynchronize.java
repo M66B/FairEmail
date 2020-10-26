@@ -1741,8 +1741,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         } else {
                             // Cancel transient sync operations
-                            boolean enabled = prefs.getBoolean("enabled", true);
-                            int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
                             if (isTransient(account)) {
                                 List<EntityOperation> syncs = db.operation().getOperations(account.id, EntityOperation.SYNC);
                                 if (syncs != null) {
