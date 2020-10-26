@@ -67,9 +67,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DateFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -104,7 +102,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> items = new ArrayList<>();
 
-    private DateFormat DTF;
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -315,18 +312,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else
                     tvType.setText(EntityFolder.localizeType(context, folder.type));
 
-                StringBuilder t = new StringBuilder();
-                if (folder.total != null)
-                    t.append(NF.format(folder.total));
-
-                if (BuildConfig.DEBUG &&
-                        folder.synchronize && folder.poll && folder.last_sync != null) {
-                    if (t.length() > 0)
-                        t.append(' ');
-                    t.append(DTF.format(folder.last_sync));
-                }
-
-                tvTotal.setText(t.toString());
+                tvTotal.setText(folder.total == null ? null : NF.format(folder.total));
 
                 if (folder.account == null) {
                     tvAfter.setText(null);
@@ -486,7 +472,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             if (folder.selectable) {
-                SpannableString ss = new SpannableString(folder.getDisplayName(context));
+                String title;
+                if (folder.last_sync == null)
+                    title = folder.getDisplayName(context);
+                else
+                    title = context.getString(R.string.title_name_count,
+                            folder.getDisplayName(context),
+                            Helper.getRelativeTimeSpanString(context, folder.last_sync));
+
+                SpannableString ss = new SpannableString(title);
                 ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
@@ -839,7 +833,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     AdapterFolder(Fragment parentFragment, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
         this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, primary, show_compact, show_hidden, show_flagged, listener);
         this.parentFragment = parentFragment;
-        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
     }
 
     AdapterFolder(Context context, LifecycleOwner owner, long account, boolean primary, boolean show_compact, boolean show_hidden, boolean show_flagged, IFolderSelectedListener listener) {
