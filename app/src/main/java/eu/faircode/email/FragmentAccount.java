@@ -1334,7 +1334,9 @@ public class FragmentAccount extends FragmentBase {
                 if (account == null)
                     return null;
 
-                return ServiceAuthenticator.getGmailToken(context, account.user);
+                GmailState state = GmailState.jsonDeserialize(account.password);
+                state.refresh(context, account.user, true);
+                return state.jsonSerializeString();
             }
 
             @Override

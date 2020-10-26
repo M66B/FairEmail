@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
@@ -32,8 +30,9 @@ import net.openid.appauth.ClientAuthentication;
 import net.openid.appauth.ClientSecretPost;
 import net.openid.appauth.NoClientAuthentication;
 
+import org.json.JSONException;
+
 import java.io.IOException;
-import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
 
@@ -41,21 +40,19 @@ import javax.mail.Authenticator;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 
-class ServiceAuthenticator extends Authenticator {
+import static eu.faircode.email.GmailState.TYPE_GOOGLE;
+
+public class ServiceAuthenticator extends Authenticator {
     private Context context;
     private int auth;
     private String provider;
     private String user;
     private String password;
     private IAuthenticated intf;
-    private long refreshed;
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
-
-    static final String TYPE_GOOGLE = "com.google";
-    private static final long GMAIL_EXPIRY = 3600 * 1000L;
 
     ServiceAuthenticator(
             Context context,
@@ -68,76 +65,52 @@ class ServiceAuthenticator extends Authenticator {
         this.user = user;
         this.password = password;
         this.intf = intf;
-        this.refreshed = new Date().getTime();
-    }
-
-    void expire() {
-        if (auth == AUTH_TYPE_GMAIL) {
-            EntityLog.log(context, user + " token expired");
-            expireGmailToken(context, password);
-            password = null;
-        }
     }
 
     @Override
     protected PasswordAuthentication getPasswordAuthentication() {
         String token = password;
         try {
-            if (auth == AUTH_TYPE_GMAIL) {
-                long now = new Date().getTime();
-                if (now - refreshed > GMAIL_EXPIRY)
-                    expire();
-
-                String oldToken = password;
-                token = getGmailToken(context, user);
-                password = token;
-
-                if (intf != null && !Objects.equals(oldToken, token))
-                    intf.onPasswordChanged(password);
-            } else if (auth == AUTH_TYPE_OAUTH) {
-                AuthState authState = AuthState.jsonDeserialize(password);
-                String oldToken = authState.getAccessToken();
-                OAuthRefresh(context, provider, authState);
-                token = authState.getAccessToken();
-                password = authState.jsonSerializeString();
-
-                if (intf != null && !Objects.equals(oldToken, token))
-                    intf.onPasswordChanged(password);
-            }
+            token = refreshToken(false);
         } catch (Throwable ex) {
             Log.e(ex);
         }
+
         Log.i(user + " returning password");
         return new PasswordAuthentication(user, token);
     }
 
-    interface IAuthenticated {
-        void onPasswordChanged(String newPassword);
-    }
+    String refreshToken(boolean expired) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
+        if (auth == AUTH_TYPE_GMAIL) {
+            GmailState gmailState = GmailState.jsonDeserialize(password);
+            gmailState.refresh(context, user, expired);
 
-    static String getGmailToken(Context context, String user) throws AuthenticatorException, OperationCanceledException, IOException {
-        AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
-        for (Account account : accounts)
-            if (user.equals(account.name)) {
-                Log.i("Getting token user=" + user);
-                String token = am.blockingGetAuthToken(account, getAuthTokenType(TYPE_GOOGLE), true);
-                if (token == null)
-                    throw new AuthenticatorException("No token for " + user);
-
-                return token;
+            String newPassword = gmailState.jsonSerializeString();
+            if (!Objects.equals(password, newPassword)) {
+                password = newPassword;
+                if (intf != null)
+                    intf.onPasswordChanged(password);
             }
 
-        throw new AuthenticatorException("Account not found for " + user);
+            return gmailState.getAccessToken();
+        } else if (auth == AUTH_TYPE_OAUTH) {
+            AuthState authState = AuthState.jsonDeserialize(password);
+            OAuthRefresh(context, provider, authState);
+
+            String newPassword = authState.jsonSerializeString();
+            if (!Objects.equals(password, newPassword)) {
+                password = newPassword;
+                if (intf != null)
+                    intf.onPasswordChanged(password);
+            }
+
+            return authState.getAccessToken();
+        } else
+            return password;
     }
 
-    private static void expireGmailToken(Context context, String token) {
-        try {
-            AccountManager am = AccountManager.get(context);
-            am.invalidateAuthToken(TYPE_GOOGLE, token);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+    interface IAuthenticated {
+        void onPasswordChanged(String newPassword);
     }
 
     private static void OAuthRefresh(Context context, String id, AuthState authState) throws MessagingException {
@@ -178,7 +151,7 @@ class ServiceAuthenticator extends Authenticator {
 
     static String getAuthTokenType(String type) {
         // https://developers.google.com/gmail/imap/xoauth2-protocol
-        if ("com.google".equals(type))
+        if (TYPE_GOOGLE.equals(type))
             return "oauth2:https://mail.google.com/";
         return null;
     }

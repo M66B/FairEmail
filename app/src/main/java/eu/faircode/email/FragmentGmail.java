@@ -58,6 +58,7 @@ import java.util.Map;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 public class FragmentGmail extends FragmentBase {
@@ -74,8 +75,6 @@ public class FragmentGmail extends FragmentBase {
     private Button btnSupport;
 
     private Group grpError;
-
-    private static String TYPE_GOOGLE = "com.google";
 
     @Override
     @Nullable
@@ -318,11 +317,13 @@ public class FragmentGmail extends FragmentBase {
         }
     }
 
-    private void onAuthorized(String user, String password) {
+    private void onAuthorized(String user, String token) {
+        GmailState state = GmailState.jsonDeserialize(token);
+
         Bundle args = new Bundle();
         args.putString("name", etName.getText().toString().trim());
         args.putString("user", user);
-        args.putString("password", password);
+        args.putString("password", state.jsonSerializeString());
 
         new SimpleTask<Void>() {
             @Override

@@ -364,10 +364,9 @@ public class EmailService implements AutoCloseable {
 
             connect(host, port, auth, user, authenticator, factory);
         } catch (AuthenticationFailedException ex) {
-            // Refresh token
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
-                    authenticator.expire();
+                    authenticator.refreshToken(true);
                     connect(host, port, auth, user, authenticator, factory);
                 } catch (Exception ex1) {
                     Log.e(ex1);
