@@ -53,8 +53,8 @@ public class GmailState {
         return token;
     }
 
-    void refresh(@NonNull Context context, @NonNull String user, boolean expired) throws AuthenticatorException, OperationCanceledException, IOException {
-        if (expired || acquired + TOKEN_LIFETIME < new Date().getTime())
+    void refresh(@NonNull Context context, @NonNull String user, boolean expire) throws AuthenticatorException, OperationCanceledException, IOException {
+        if (expire || acquired + TOKEN_LIFETIME < new Date().getTime())
             try {
                 if (token != null) {
                     EntityLog.log(context, "Invalidating token user=" + user);
@@ -73,7 +73,10 @@ public class GmailState {
 
         EntityLog.log(context, "Getting token user=" + user);
         AccountManager am = AccountManager.get(context);
-        String newToken = am.blockingGetAuthToken(account, ServiceAuthenticator.getAuthTokenType(TYPE_GOOGLE), true);
+        String newToken = am.blockingGetAuthToken(
+                account,
+                ServiceAuthenticator.getAuthTokenType(TYPE_GOOGLE),
+                true);
 
         if (newToken != null && !newToken.equals(token)) {
             token = newToken;

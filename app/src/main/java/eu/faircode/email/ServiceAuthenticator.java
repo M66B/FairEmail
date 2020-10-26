@@ -80,19 +80,19 @@ public class ServiceAuthenticator extends Authenticator {
         return new PasswordAuthentication(user, token);
     }
 
-    String refreshToken(boolean expired) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
+    String refreshToken(boolean expire) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
         if (auth == AUTH_TYPE_GMAIL) {
-            GmailState gmailState = GmailState.jsonDeserialize(password);
-            gmailState.refresh(context, user, expired);
+            GmailState authState = GmailState.jsonDeserialize(password);
+            authState.refresh(context, user, expire);
 
-            String newPassword = gmailState.jsonSerializeString();
+            String newPassword = authState.jsonSerializeString();
             if (!Objects.equals(password, newPassword)) {
                 password = newPassword;
                 if (intf != null)
                     intf.onPasswordChanged(password);
             }
 
-            return gmailState.getAccessToken();
+            return authState.getAccessToken();
         } else if (auth == AUTH_TYPE_OAUTH) {
             AuthState authState = AuthState.jsonDeserialize(password);
             OAuthRefresh(context, provider, authState);
