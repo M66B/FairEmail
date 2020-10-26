@@ -950,7 +950,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if ("Still here".equals(message) && !isTransient(account)) {
                                 long now = new Date().getTime();
                                 if (now - start < STILL_THERE_THRESHOLD)
-                                    optimizeAccount(ServiceSynchronize.this, account, message);
+                                    optimizeAccount(account, message);
                             }
                         } else
                             try {
@@ -1009,7 +1009,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     final boolean capIdle = iservice.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
                     if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
-                        optimizeAccount(ServiceSynchronize.this, account, "IDLE");
+                        optimizeAccount(account, "IDLE");
 
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountError(account.id, null);
@@ -1807,16 +1807,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted));
     }
 
-    private void optimizeAccount(Context context, EntityAccount account, String reason) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    private void optimizeAccount(EntityAccount account, String reason) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
         if (!auto_optimize)
             return;
 
-        DB db = DB.getInstance(context);
+        DB db = DB.getInstance(this);
 
         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-        EntityLog.log(context, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
+        EntityLog.log(this, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
         if (pollInterval == 0) {
             try {
                 db.beginTransaction();
