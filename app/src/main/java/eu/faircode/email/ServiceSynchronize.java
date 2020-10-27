@@ -2004,8 +2004,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
 
         if (!Objects.equals(lastActive, active)) {
-            if (lastActive != null)
-                lastLost = new Date().getTime();
+            if (lastActive != null) {
+                boolean connected = false;
+                try {
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo ni = (cm == null ? null : cm.getNetworkInfo(lastActive));
+                    connected = (ni != null && ni.isConnected());
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+                if (!connected)
+                    lastLost = new Date().getTime();
+            }
 
             lastActive = active;
             EntityLog.log(ServiceSynchronize.this, "New active network=" + active);
