@@ -33,6 +33,7 @@ import android.content.res.Configuration;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -1502,14 +1503,17 @@ public class Log {
                         " type=" + ani.getType() + "/" + ani.getTypeName() +
                         "\r\n\r\n");
 
-            Network active = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                active = cm.getActiveNetwork();
-
+            Network active = ConnectionHelper.getActiveNetwork(context);
             for (Network network : cm.getAllNetworks()) {
+                size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
+
                 NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                size += write(os, (network.equals(active) ? "active=" : "network=") + network +
-                        " capabilities=" + caps + "\r\n\r\n");
+                size += write(os, " caps=" + caps + "\r\n");
+
+                LinkProperties props = cm.getLinkProperties(network);
+                size += write(os, " props=" + props + "\r\n");
+
+                size += write(os, "\r\n");
             }
 
             size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
