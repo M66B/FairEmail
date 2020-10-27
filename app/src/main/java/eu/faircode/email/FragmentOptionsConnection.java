@@ -58,13 +58,14 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
     private EditText etTimeout;
+    private SwitchCompat swPreferIp4;
     private SwitchCompat swSslHarden;
     private Button btnManage;
     private TextView tvConnectionType;
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "timeout", "ssl_harden"
+            "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "ssl_harden"
     };
 
     @Override
@@ -82,6 +83,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
         etTimeout = view.findViewById(R.id.etTimeout);
+        swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         btnManage = view.findViewById(R.id.btnManage);
 
@@ -150,6 +152,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
+            }
+        });
+
+        swPreferIp4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefer_ip4", checked).apply();
             }
         });
 
@@ -266,6 +275,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
         etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
+        swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", false));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
     }
 

@@ -134,7 +134,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "sync_kept",
             "sync_folders",
             "sync_shared_folders",
-            "ssl_harden", // force reconnect
+            "prefer_ip4", "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
             "protocol", "debug", // force reconnect
             "auth_plain",

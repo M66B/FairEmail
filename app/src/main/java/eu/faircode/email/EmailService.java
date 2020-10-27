@@ -431,6 +431,18 @@ public class EmailService implements AutoCloseable {
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
             main = InetAddress.getByName(host);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", false);
+            if (prefer_ip4 && main instanceof Inet6Address) {
+                for (InetAddress iaddr : InetAddress.getAllByName(host))
+                    if (iaddr instanceof Inet4Address) {
+                        main = iaddr;
+                        EntityLog.log(context, "Preferring=" + main);
+                        break;
+                    }
+            }
+
             EntityLog.log(context, "Connecting to " + main);
             _connect(main, port, require_id, user, authenticator, factory);
         } catch (UnknownHostException ex) {
