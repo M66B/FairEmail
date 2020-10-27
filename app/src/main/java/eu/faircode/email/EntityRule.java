@@ -214,7 +214,7 @@ public class EntityRule {
 
                     boolean found = false;
                     for (EntityAttachment attachment : attachments)
-                        if (mimeType.equalsIgnoreCase(attachment.type)) {
+                        if (mimeType.equalsIgnoreCase(attachment.getMimeType())) {
                             found = true;
                             break;
                         }

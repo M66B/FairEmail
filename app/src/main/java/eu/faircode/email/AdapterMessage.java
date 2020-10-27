@@ -1540,7 +1540,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.available)
                                 if (attachment.isInline() && attachment.isImage())
                                     inlineImages++;
-                                else if ("message/rfc822".equals(attachment.type))
+                                else if ("message/rfc822".equals(attachment.getMimeType()))
                                     embeddedMessages++;
 
                     int lastInlineImages = 0;
@@ -1551,7 +1551,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (attachment.available)
                                 if (attachment.isInline() && attachment.isImage())
                                     lastInlineImages++;
-                                else if ("message/rfc822".equals(attachment.type))
+                                else if ("message/rfc822".equals(attachment.getMimeType()))
                                     lastEmbeddedMessages++;
 
                     boolean show_images = properties.getValue("images", message.id);
@@ -2062,7 +2062,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Add embedded messages
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.available && "message/rfc822".equals(attachment.type))
+                        if (attachment.available && "message/rfc822".equals(attachment.getMimeType()))
                             try (FileInputStream fis = new FileInputStream(attachment.getFile(context))) {
                                 Properties props = MessageHelper.getSessionProperties();
                                 Session isession = Session.getInstance(props, null);
