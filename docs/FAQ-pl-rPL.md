@@ -388,39 +388,47 @@ Operacje są przetwarzane tylko wtedy, gdy istnieje połączenie z serwerem e-ma
 
 Powinieneś spróbować to naprawić, kontaktując się z dostawcą lub uzyskując ważny certyfikat bezpieczeństwa ponieważ nieprawidłowe certyfikaty bezpieczeństwa są niepewne i umożliwiają [ ataki typu man-in-the-middle ](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Jeśli pieniądze są przeszkodą, możesz otrzymać darmowe certyfikaty bezpieczeństwa od [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-Pamiętaj, że starsze wersje Androida mogą nie rozpoznawać nowszych urzędów certyfikacji, takich jak Let's Encrypt, powodując, że połączenia są uważane za niebezpieczne, patrz także [ tutaj ](https://developer.android.com/training/articles/security-ssl).
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
 
-*Nie znaleziono kotwicy zaufania dla ścieżki certyfikacji*
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* oznacza, że ​​domyślny menedżer zaufania Androida nie mógł zweryfikować łańcucha certyfikatów serwera.
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-Powinieneś naprawić konfigurację serwera lub zaakceptować odcisk palca pokazany poniżej komunikatu o błędzie.
+*Trust anchor for certification path not found*
 
-Pamiętaj, że ten problem może być spowodowany tym, że serwer nie wysyła również wszystkich certyfikatów pośrednich.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-*Puste hasło*
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Twoja nazwa użytkownika jest łatwa do odgadnięcia, więc jest to niepewne.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Zwykłe połączenie tekstowe*
+*Empty password*
 
-Twoja nazwa użytkownika i hasło oraz wszystkie wiadomości będą wysyłane i odbierane w postaci niezaszyfrowanej, co jest ** bardzo niepewne ** ponieważ [ atak typu man-in-the-middle ](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) jest bardzo prosty na nieszyfrowanym połączeniu.
+Your username is likely easily guessed, so this is insecure.
 
-Jeśli nadal chcesz używać nieprawidłowego certyfikatu bezpieczeństwa, pustego hasła lub połączenia zwykłego tekstu musisz włączyć niezabezpieczone połączenia w ustawieniach konta i/lub tożsamości. STARTTLS powinien być wybrany dla połączeń tekstowych. Jeśli włączysz niezabezpieczone połączenia, powinieneś łączyć się tylko za pośrednictwem prywatnych, zaufanych sieci i nigdy za pośrednictwem sieci publicznych, takich jakie są oferowane w hotelach, portach lotniczych itp.
+*Plain text connection*
+
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Jak mogę dostosować widok wiadomości?**
+**(5) How can I customize the message view?**
 
-W menu trzech kropek możesz włączyć, wyłączyć lub wybrać:
+In the three dot overflow menu you can enable or disable or select:
 
 * *rozmiar tekstu*: dla trzech różnych rozmiarów czcionki
 * *widok kompaktowy*: dla bardziej zwartych elementów wiadomości i mniejszej czcionki tekstowej
 
-W ustawieniach wyświetlania możesz włączyć lub wyłączyć:
+In the display section of the settings you can enable or disable:
 
 * *Wspólna skrzynka*: aby wyłączyć wspólną skrzynkę odbiorczą i wyświetlić listę folderów wybranych dla wspólnej skrzynki odbiorczej
 * *Grupuj według daty*: pokaż nagłówek daty powyżej wiadomości z tą samą datą
@@ -437,24 +445,24 @@ W ustawieniach wyświetlania możesz włączyć lub wyłączyć:
 * *Automatycznie pokazuj obrazy dla znanych kontaktów*: aby automatycznie pokazać zdjęcia dla kontaktów na Twoim urządzeniu, przeczytaj [to FAQ](#user-content-faq35)
 * *Pokaż pasek akcji konwersacji*: aby wyłączyć dolny pasek nawigacji
 
-Pamiętaj, że podgląd wiadomości można wyświetlić tylko wtedy, gdy tekst wiadomości został pobrany. Większe wiadomości nie są pobierane (domyślnie) w sieciach komórkowych (zazwyczaj mobilnych). Możesz to zmienić w ustawieniach.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
 
-Jeśli lista adresów jest długa, możesz zwinąć sekcję adresów za pomocą ikony *less* u góry sekcji adresów.
+If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
-Niektórzy ludzie proszą:
+Some people ask:
 
 * aby pokazać temat pogrubiony, ale pogrubienie jest już używane do podświetlenia nieprzeczytanych wiadomości
 * aby wyświetlić większy lub mniejszy adres lub temat, ale mogłoby to zakłócić opcję rozmiaru tekstu
 * aby przesunąć gwiazdkę w lewo, ale o wiele łatwiej jest operować gwiazdą po prawej stronie
 
-Niestety, nie można uszczęśliwić wszystkich, a dodanie wielu ustawień byłoby nie tylko mylące, ale także nigdy wystarczające.
+Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
 <a name="faq6"></a>
-**(6) Jak mogę zalogować się do Gmail / G suite?**
+**(6) How can I login to Gmail / G suite?**
 
-Możesz użyć kreatora szybkiej konfiguracji, aby łatwo skonfigurować konto Gmail i tożsamość.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 
@@ -2322,8 +2331,8 @@ The message *Message too large or too complex to display* will be shown if there
 
 FairEmail fetches a message in two steps:
 
-1. Pobranie nagłówków wiadomości
-1. Pobranie tekstu wiadomości i załączników
+1. Fetch message headers
+1. Fetch message text and attachments
 
 Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 

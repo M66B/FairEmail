@@ -388,7 +388,15 @@ Operations are processed only when there is a connection to the email server or 
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
+
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
+
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 
@@ -2778,19 +2787,19 @@ If I could, I would add a setting to select the primary and accent color right a
 
 ## Asistencia Técnica
 
-So se soportan as derradeiras versións da Play store e de Github. Isto significa tamén que non se soporta volver a versións antigas.
+Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
 
-As características que se pidan deberían:
+Requested features should:
 
 * ser de utilidade para a maioría da xente
 * non complicar o uso de FairEmail
 * encaixar na filosofía de FairEmail (orientado á privacidade e coa seguridade en mente)
 * cumprir cos estándares comúns (IMAP, SMTP, etc)
 
-As características que non cumpran con estes requirimentos van ser probablemente rexeitadas. Isto tamén é para facer posible o mantemento e a asistencia técnica posibles ao longo prazo.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
 
-Se ten algunha dúbida, quere pedir unha característica ou avisar dun fallo, use [este formulario](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-O seguimento de fallos de GitHub desactivouse porque non se estaba a usar correctamente de maneira habitual.
+GitHub issues are disabled due to frequent misusage.
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.

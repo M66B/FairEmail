@@ -388,7 +388,15 @@ Operations are processed only when there is a connection to the email server or 
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
+
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
+
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
@@ -631,9 +639,9 @@ Private keys are stored by Android and can be imported via the Android advanced 
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
-Az alkalmazás támogat az RSA-n kívül számos más aláíráshoz használható algoritmust is, azonban kérjük vegye figyelembe, hogy ezeket nem minden Levelező kliens alkalmazás képes értelmezni. A titkosításhoz csak szimmertikus algoritmus használható, általában a legeelterjettebb ezek közül az RSA algoritmus.
+Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
 
-Az alapértelemzett titkosítási algoritmus a PGP. Amennyiben viszont mást választ, az lesz az alapértelmezett a kiválasztott levelezési fiókhoz. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 

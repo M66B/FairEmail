@@ -388,39 +388,47 @@ Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de 
 
 Vous devriez essayer de résoudre ce problème en contactant votre fournisseur ou en obtenant un certificat de sécurité valide car les certificats de sécurité non valides sont non sécurisés et autorisent [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si l'argent est un obstacle, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Crypt](https://letsencrypt.org).
 
-Vous pouvez également accepter l'empreinte du certificat de serveur non valide comme indiqué sous le message d'erreur en cochant une case à cocher. En cas de compte existant (IMAP, recevoir) et/ou d'identité (SMTP, envoyer) vous aurez besoin de le vérifier/sauvegarder via les étapes 1 et 2 de configuration pour recevoir le message d'erreur. Ceci va "épingler" le certificat du serveur pour éviter les attaques de man-in-the-middle. Notez que vous devez vous assurer que la connexion Internet que vous utilisez est sûre si vous faites cela.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvelles autorités de certification comme Let's Encrypt qui peuvent considérer les connexions comme non sécurisées, voir aussi [ici](https://developer.android.com/training/articles/security-ssl).
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
 
-*Ancre de confiance pour le chemin de certification introuvable*
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-*... java.security.cert.CertPathValidatorException: Ancre de confiance pour le chemin de certification introuvable... /0> signifie que le gestionnaire de confiance Android par défaut n'a pas pu vérifier la chaîne de certificats du serveur.</p>
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-Vous devriez soit corriger la configuration du serveur ou accepter l'empreinte digitale affichée sous le message d'erreur.
+*Trust anchor for certification path not found*
 
-Notez que ce problème peut être causé par le serveur qui n'envoie pas tous les certificats intermédiaires.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-*Mot de passe vide*
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Votre nom d'utilisateur est probablement facilement deviné, donc ce n'est pas sûr.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Connexion au texte brut*
+*Empty password*
 
-Votre nom d'utilisateur et votre mot de passe et tous les messages seront envoyés et reçus non chiffrés, qui est **très peu sécurisé** car une [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est très simple sur une connexion non chiffrée.
+Your username is likely easily guessed, so this is insecure.
 
-Si vous voulez toujours utiliser un certificat de sécurité invalide, un mot de passe vide ou une connexion en texte brut vous aurez besoin d'activer des connexions non sécurisées dans les paramètres du compte et/ou de l'identité. STARTTLS doit être sélectionné pour les connexions en texte brut. Si vous activez des connexions non sécurisées, vous devez vous connecter par des réseaux privés et de confiance uniquement et jamais par des réseaux publics, comme ceux offerts dans les hôtels, les aéroports, etc.
+*Plain text connection*
+
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Comment puis-je personnaliser la vue des messages ?**
+**(5) How can I customize the message view?**
 
-Dans les trois points du menu à débordement, vous pouvez activer ou désactiver ou sélectionner :
+In the three dot overflow menu you can enable or disable or select:
 
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver :
+In the display section of the settings you can enable or disable:
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Grouper par date*: Affiche la date en en-tête au dessus des messages ayant la même date
@@ -437,26 +445,26 @@ Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver 
 * *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 * *Barre d'action de conversation*: pour désactiver la barre de navigation du bas
 
-Notez que les messages ne peuvent être prévisualisés que quand le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez changer cela dans les paramètres.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
 
-Si la liste des adresses est longue, vous pouvez réduire la section Adresses avec l'icône *moins* en haut de la section Adresses.
+If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
-Certaines personnes demandent :
+Some people ask:
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * d'afficher l'adresse ou l'objet en plus grand/plus petit, mais cela interférerait avec l'option de taille de texte
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
 
-Malheureusement, il est impossible de contenter tout le monde et ajouter tout un lot de réglages serait non seulement déroutant, mais également jamais suffisant.
+Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
 <a name="faq6"></a>
-**(6) Comment puis-je me connecter à Gmail / G suite ?**
+**(6) How can I login to Gmail / G suite?**
 
-Vous pouvez utiliser l'assistant d'installation rapide pour configurer facilement un compte Gmail et une identité.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-Si vous ne voulez pas utiliser un compte Gmail sur votre appareil, vous pouvez soit activer l'accès pour les "applications moins sécurisées" et utiliser le mot de passe de votre compte (non conseillé) ou activer l'authentification en deux étapes et utiliser un mot de passe spécifique à l'application. Pour utiliser un mot de passe, vous devrez configurer un compte et une identité via les étapes 1 et 2 de configuration au lieu de l'assistant d'installation rapide.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -662,7 +670,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. Si vous recherchez un certificat S/MIME bon marché, j'ai eu une bonne expérience avec [Certum](https://www.certum.eu/en/smime-certificates/).
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -739,7 +747,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. Le texte du message continuera à se charger s'il n'y a pas de connexion au compte, voir aussi la question suivante, ou s'il y a d'autres opérations en cours d'exécution comme la synchronisation des messages.
+The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
 
@@ -909,7 +917,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... Aucun jeton ...* signifie que le gestionnaire de comptes Android n'a pas réussi à actualiser l'autorisation d'un compte Gmail.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
@@ -1168,7 +1176,7 @@ It is inevitable that synchronizing messages will use battery power because it r
 
 If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. De plus, certains serveurs de messagerie terminent prématurément les connexions inactives, tandis que [la norme](https://tools.ietf.org/html/rfc2177) indique qu'une connexion inactive doit rester ouverte pendant 29 minutes. Dans ces cas, vous pouvez synchroniser périodiquement, par exemple chaque heure au lieu de en continu. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes. In these cases you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
 
 [On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 
@@ -2329,7 +2338,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-Si vous pensez que c'est suffisant, vous pouvez activer l'option de notification *Envoyer uniquement des notifications avec un aperçu de message aux objets connectés* et si cela ne fonctionne pas, vous pouvez essayer d'activer l'option de notification *Afficher les notifications avec un texte de prévisualisation uniquement*. Notez que ceci s'applique aux objets connectés n'affichant pas de texte de prévisualisation non plus, même lorsque l'application Android Wear indique que la notification a été envoyée (pont).
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2604,7 +2613,7 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. Ceci signifie que toutes les fonctionnalités sont également disponibles dans la version F-Droid, à l'exception de l'utilisation de l'assistant de configuration rapide Gmail parce que Google a approuvé (et autorisé) une seule signature d'application. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 

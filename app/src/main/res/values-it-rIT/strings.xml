@@ -1057,6 +1057,7 @@
     <string name="title_legend_download_off">Scarica il contenuto del messaggio su richiesta </string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
+    <string name="title_legend_synchronize_poll">Sincronizza periodicamente</string>
     <string name="title_legend_disconnected">Disconnesso</string>
     <string name="title_legend_connecting">Connessione in corso</string>
     <string name="title_legend_connected">Connesso</string>

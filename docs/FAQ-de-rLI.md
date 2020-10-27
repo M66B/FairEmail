@@ -388,39 +388,47 @@ Operationen werden nur bearbeitet, wenn eine Verbindung zum E-Mail-Server besteh
 
 Kontaktieren Sie Ihren Provider, um dieses Problem zu beheben oder besorgen Sie sich ein gültiges Sicherheitszertifikat, da ungültige und dadurch unsichere Sicherheitszertifikate [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ermöglichen. Falls Sie die Kosten hierfür scheuen, dann können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) beziehen.
 
-Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsbehörden wie Let’s Encrypt möglicherweise nicht akzeptieren, wodurch Internetverbindungen als unsicher eingestuft werden können, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
 
-*Vertrauensanker für Zertifizierungspfad nicht gefunden*
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-*... java.security.cert.CertPathValidatorException: Vertrauensanker für Zertifizierungspfad nicht gefunden ...* bedeutet, dass der standardmäßige Android Trust Manager die Server-Zertifikatskette nicht überprüfen konnte.
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-Sie sollten entweder die Serverkonfiguration korrigieren oder den unten angezeigten Fingerabdruck akzeptieren.
+*Trust anchor for certification path not found*
 
-Beachten Sie, dass dieses Problem dadurch verursacht werden kann, dass der Server nicht alle Zwischenzertifikate sendet.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-*Leeres Passwort*
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist dies unsicher.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Klartext-Verbindung*
+*Empty password*
 
-Benutzername und Passwort, sowie alle Nachrichten, werden unverschlüsselt gesendet und empfangen, was im **höchsten Maße unsicher** ist, weil eine [Man-in-the-Middle-Attacke](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf einer unverschlüsselten Verbindung sehr einfach ist.
+Your username is likely easily guessed, so this is insecure.
 
-Wenn Sie dennoch ein ungültiges Sicherheitszertifikat, ein leeres Passwort oder eine Klartext-Verbindung verwenden möchten, dann müssen Sie unsichere Verbindungen in den Konto- und/oder Identitätseinstellungen aktivieren. STARTTLS sollte für Klartext-Verbindungen ausgewählt werden. Wenn Sie unsichere Verbindungen aktivieren, sollten Sie sich nur über private, vertrauenswürdige Netzwerke verbinden und niemals über öffentliche Netzwerke, wie sie in Hotels, Flughäfen usw. angeboten werden.
+*Plain text connection*
+
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Wie kann ich die Nachrichtenansicht anpassen?**
+**(5) How can I customize the message view?**
 
-Im Drei-Punkte-Überlaufmenü können Sie die folgenden Optionen aktivieren/deaktivieren bzw. wählen:
+In the three dot overflow menu you can enable or disable or select:
 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-Im Anzeigebereich der Einstellungen können Sie ein- oder ausschalten:
+In the display section of the settings you can enable or disable:
 
 * *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
 * *Nach Datum gruppieren*: Zeigt eine Kopfzeile für alle Nachrichten mit dem gleichen Datum anzeigen
@@ -437,119 +445,119 @@ Im Anzeigebereich der Einstellungen können Sie ein- oder ausschalten:
 * *Bilder von bekannten Kontakten anzeigen*: Wenn Sie Bilder von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
 * *Konversations-Aktionsleiste*: Blendet die untere Navigationsleiste ein oder aus
 
-Beachten Sie, dass Nachrichten nur angezeigt werden können, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. Sie können dies in den Einstellungen ändern.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
 
-Wenn die Liste der Adressaten sehr lang ist, dann können Sie den Adressbereich mit dem *Weniger* Symbol oben im Adressbereich einklappen.
+If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
-Einige Benutzer fragten:
+Some people ask:
 
 * wie man den Betreff fett anzeigen lassen kann, obwohl eine fette Schrift bereits verwendet wird, um ungelesene Nachrichten hervorzuheben
 * wie man die Adresse oder den Betreff unabhängig von der Textgröße-Option in den Einstellungen größer/kleiner anzeigen lassen kann
 * um den Stern nach links zu bewegen, aber es ist viel einfacher, den Stern auf der rechten Seite zu bedienen
 
-Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wären nicht nur verwirrend, sondern auch nie ausreichend.
+Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
 <a name="faq6"></a>
-**(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
+**(6) How can I login to Gmail / G suite?**
 
-Sie können den Schnelleinrichtungsassistenten verwenden, um einfach ein Gmail-Konto und eine Gmail-Identität einzurichten.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-Wenn Sie kein Gmail-Konto auf dem Gerät verwenden möchten, können Sie entweder den Zugriff für „weniger sichere Apps“ aktivieren und Ihr Kontopasswort verwenden (nicht empfohlen) oder die Zwei-Faktor-Authentifizierung aktivieren und ein appspezifisches Passwort verwenden. Um ein Passwort zu verwenden, müssen Sie Konto und Identität über die Einrichtungsschritte 1 und 2 statt über den Schnelleinrichtungs-Assistenten einrichten.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
-Bitte lesen Sie in [dieser FAQ](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein app-spezifisches Passwort erforderlich ist.
-
-<br />
-
-*Appspezifisches Passwort*
-
-Wie ein appspezifisches Passwort erstellt wird, sehen Sie [hier](https://support.google.com/accounts/answer/185833).
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*„Weniger sichere Apps“ aktivieren*
+*App specific password*
 
-**Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
-
-**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert sind, funktionieren [in naher Zukunft](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) nicht mehr.
-
-Sehen Sie [hier](https://support.google.com/accounts/answer/6010255) wie man „weniger sichere Apps“ aktiviert oder gehen Sie [direkt zu der Einstellung](https://www.google.com/settings/security/lesssecureapps).
-
-Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung „weniger sichere Apps“ des/der richtigen Accounts ändern.
-
-Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm über den Zurückpfeil verlassen müssen, um die Einstellung anzuwenden.
-
-Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was aber grundsätzlich immer eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501)-IMAP-Protokolls an sich nicht weniger sicher ist.
-
-Wenn „weniger sichere Anwendungen” nicht aktiviert ist, erhalten Sie die Fehlermeldung *Authentifizierung fehlgeschlagen - ungültige Anmeldedaten* für Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für Identitäten (SMTP).
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
-*Allgemein*
+*Enable "Less secure apps"*
 
-Möglicherweise erhalten Sie die Meldung „*Bitte melden Sie sich über Ihren Webbrowser an*”. Dies geschieht, wenn Google das Netzwerk, das Sie mit dem Internet verbindet (dies könnte ein VPN sein), als unsicher einstuft. Dies kann verhindert werden, indem Sie den Assistenten zur schnellen Einrichtung von Google Mail oder ein app-spezifisches Passwort verwenden.
+**Important**: using this method is not recommended because it is less reliable.
 
-Siehe [hier](https://support.google.com/mail/answer/7126229) für eine Anleitung von Google und [hier](https://support.google.com/mail/accounts/answer/78754) für die Problemlösung.
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+
+When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+
+<br />
+
+*General*
+
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Warum werden gesendete Nachrichten nicht (direkt) im gesendeten Ordner angezeigt?**
+**(7) Why are sent messages not appearing (directly) in the sent folder?**
 
-Gesendete Nachrichten werden normalerweise aus dem Postausgang in den Ordner „Gesendet” verschoben, sobald Ihr Provider gesendete Nachrichten dem Ordner „Gesendet” hinzufügt. Dazu muss in den Kontoeinstellungen einen Ordner "Gesendet" ausgewählt werden, und dieser Ordner zum Synchronisieren festgelegt werden.
+Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Einige Provider verfolgen die gesendeten Nachrichten nicht oder der verwendete SMTP-Server ist möglicherweise nicht mit dem Provider verbunden. In diesen Fällen fügt FairEmail gesendete Nachrichten automatisch bei der Synchronisation des Ordners „Gesendet” dem Ordner „Gesendet” hinzu. Beachten Sie, dass dies zu zusätzlichem Internetverkehr führt.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
 
-~~Wenn dies nicht geschieht, verfolgt Ihr Provider möglicherweise nicht die gesendeten Nachrichten oder Sie verwenden einen SMTP-Server, der dem Provider nicht zugeordnet ist. ~ ~~In diesen Fällen können Sie die erweiterte Identitätseinstellung *Speichere gesendete Nachrichten* aktivieren, damit FairEmail gesendete Nachrichten direkt nach dem Senden einer Nachricht in den gesendeten Ordner einfügen kann. ~ ~~Beachten Sie, dass das Aktivieren dieser Einstellung zu doppelten Nachrichten führen kann, wenn Ihr Provider auch gesendete Nachrichten in den gesendeten Ordner einfügt. ~ ~~Beachten Sie auch, dass das Aktivieren dieser Einstellung zusätzliche Datenauslastung zur Folge hat, insbesondere wenn Nachrichten mit großen Anhängen gesendet werden.~~
+~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
 ~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Kann ich ein Microsoft Exchange-Konto verwenden?**
+**(8) Can I use a Microsoft Exchange account?**
 
-Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP zugänglich ist, was meistens der Fall ist. Sehen Sie [hier](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) für weitere Informationen.
+You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-[Hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) finden Sie Microsofts Dokumentation zur Konfiguration eines E-Mail-Clients. Es gibt auch einen Abschnitt über häufige Verbindungsfehler und -lösungen.
+Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 
-Einige ältere Exchange-Server-Versionen haben einen Fehler, der eine leere Nachricht und beschädigte Anhänge verursacht. Eine Problemumgehung finden Sie in [dieser FAQ](#user-content-faq110).
+Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
 
-Siehe [diese FAQ](#user-content-faq133) zur ActiveSync Unterstützung.
+Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
-Siehe [diese FAQ](#user-content-faq111) zu OAuth Support.
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
 <br />
 
 <a name="faq9"></a>
-**(9) Was sind Identitäten / wie füge ich einen Alias hinzu?**
+**(9) What are identities / how do I add an alias?**
 
-Identitäten stellen E-Mail-Adressen dar, *von* denen Sie über einen E-Mail (SMTP) Server senden.
+Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
-Einige Anbieter gestatten die Verwendung mehrerer Aliasse. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
-Beachten Sie, dass Sie eine Identität durch langes Drücken kopieren können.
+Note that you can copy an identity by long pressing it.
 
-Alternativ können Sie in den erweiterten Einstellungen einer existierenden Identität das *Bearbeiten der Absenderadresse erlauben*, um den Benutzernamen beim Erstellen einer Nachricht zu bearbeiten, wenn Ihr Provider dies zulässt.
+Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
 
-FairEmail aktualisiert automatisch die Passwörter der jeweiligen Identitäten, wenn Sie das Passwort des zugehörigen Kontos oder einer damit verbundenen Identität aktualisieren.
+FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-Mail-Adressen beachten.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
 <a name="faq10"></a>
 **~~(10) What does 'UIDPLUS not supported' mean?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. Wenn Ihr Anbieter diese Erweiterung nicht aktivieren kann, können Sie FairEmail nicht für diesen Anbieter verwenden.~~
+~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Warum wird POP nicht unterstützt?~~**
+**~~(11) Why is POP not supported?~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -566,7 +574,7 @@ Bitte diese [F&A](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-*Allgemein*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -618,7 +626,7 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
-Häufige Fehler:
+Common errors:
 
 * *Kein Schlüssel*: kein PGP-Schlüssel für eine der aufgeführten E-Mail-Adressen verfügbar
 * *Verschlüsselungsschlüssel fehlt*: es wurde wahrscheinlich in FairEmail ein Schlüssel ausgewählt, der in der OpenKeychain-App nicht mehr vorhanden ist. Das Zurücksetzen des Schlüssels (siehe oben) wird dieses Problem eventuell beheben.
@@ -631,26 +639,26 @@ Private keys are stored by Android and can be imported via the Android advanced 
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
-Beachten Sie, dass S/MIME-Signierung mit anderen Algorithmen als RSA zwar unterstützt wird, aber andere E-Mail-Clients dies möglicherweise nicht unterstützen. S/MIME-Verschlüsselung ist nur mit symmetrischen Algorithmen möglich, das heißt in der Praxis RSA.
+Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
 
-Die Standard-Verschlüsselungsmethode ist PGP, aber die zuletzt verwendete Verschlüsselungsmethode wird fürs nächsten Mal für die ausgewählte Identität gespeichert. Möglicherweise müssen Sie die Sendeoptionen im Drei-Punkte-Menü erneut aktivieren, um die Verschlüsselungsmethode wählen zu können.
+The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
 
-Um verschiedene private Schlüssel für die gleiche E-Mail-Adresse zu erlauben lässt FairEmail Sie immer einen Schlüssel auswählen, wenn es mehrere Identitäten mit der gleichen E-Mail-Adresse für denselben Account gibt.
+To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
-Öffentliche Schlüssel werden bei FairEmail gespeichert und können bei der erstmaligen Überprüfung einer Signatur oder über die Privatsphäre-Einstellungen (PEM oder DER Format) importiert werden.
+Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
 
-FairEmail überprüft sowohl die Unterschrift als auch die gesamte Zertifikatskette.
+FairEmail verifies both the signature and the complete certificate chain.
 
-Häufige Fehler:
+Common errors:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
 * *Privater Schlüssel stimmt mit keinem Verschlüsselungsschlüssel überein*: Der ausgewählte Schlüssel kann nicht verwendet werden, um die Nachricht zu entschlüsseln, wahrscheinlich weil es der falsche Schlüssel ist
 * *Kein privater Schlüssel*: Es wurde kein Zertifikat ausgewählt oder kein Zertifikat im Android-Schlüsselgeschäft verfügbar
 
-Falls die Zertifikatskette falsch ist, können Sie auf den kleinen Info-Button klicken, um alle Zertifikate anzuzeigen. After the certificate details the issuer or "selfSign" is shown. Ein Zertifikat ist selbstsigniert, wenn der Betreff und der Emittent identisch sind. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Zertifikate im Android-Schlüsselspeicher werden mit »Android« gekennzeichnet.
+In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
 
-Eine gültige Kette sieht so aus:
+A valid chain looks like this:
 
 ```
 Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
@@ -658,45 +666,45 @@ Your certificate > zero or more intermediate certificates > CA (root) certificat
 
 Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
 
-Sehen Sie [hier](https://support.google.com/pixelphone/answer/2844832?hl=en), wie Sie Zertifikate in den Android-Schlüsselspeicher importieren können.
+Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
 
-Die Verwendung von abgelaufenen Schlüsseln, inline­verschlüsselten oder -signierten Nachrichten und Hardware­sicherheitstoken wird nicht unterstützt.
+The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-Wenn Sie ein kostenloses (Test) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. Wenn Sie ein günstiges S/MIME-Zertifikat suchen, habe ich mit [Certum](https://www.certum.eu/en/smime-certificates/) gute Erfahrungen gemacht.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
-Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
+How to extract a public key from a S/MIME certificate:
 
 ```
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-Sie können S/MIME Signaturen dekodieren usw., siehe [hier](https://lapo.it/asn1js/).
+You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
-S/MIME signieren/verschlüsseln ist ein Pro-Funktion, aber alle anderen PGP- und S/MIME-Operationen sind frei nutzbar.
+S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
 
 <br />
 
 <a name="faq13"></a>
-**(13) Wie funktioniert die Suche auf dem Gerät bzw. auf den Servern?**
+**(13) How does search on device/server work?**
 
-Sie können Nachrichten nach Absender (von), Empfänger (to, cc, bcc), Betreff, Schlagwörtern oder Nachrichtentext mit Hilfe der Lupe in der Aktionsleiste eines Ordners suchen. Sie können auch von jeder App aus suchen, indem Sie *FairEmail Suche* im Popup-Menü kopieren/einfügen auswählen.
+You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
-Die Suche im Sammeleingang wird alle Ordner aller Konten durchsuchen, die Suche in der Ordnerliste wird nur in dem zugehörigen Konto suchen, und die Suche in einem Ordner wird nur in diesem Ordner durchsuchen.
+Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
 
-Nachrichten werden zuerst nur auf dem Gerät gesucht. Es gibt einen Nochmal-Suchen-Aktionsknopf am unteren Bildschirmrand, um die Suche auf dem Server fortzusetzen. Sie können auswählen, in welchem Ordner die Suche fortgesetzt werden soll.
+Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
 
-Das IMAP-Protokoll unterstützt nicht die gleichzeitige Suche in mehr als einem Ordner. Die Suche auf dem Server ist ein aufwendiger Vorgang, daher ist es nicht möglich, mehrere Ordner auszuwählen.
+The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
-Die Suche nach lokalen Nachrichten ist unabhängig von Groß- und Kleinschreibung und auf Teiltext bezoge. Der Nachrichtentext lokaler Nachrichten wird nicht durchsucht, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Die Suche auf dem Server kann je nach Anbieter Groß- und Kleinschreibung berücksichtigen oder ignorieren, nach Teiltext oder nur nach ganzen Wörtern suchen.
+Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
-Einige Server schaffen es nicht den Nachrichtentext zu durchsuchen, wenn es viele Nachrichten gibt. Für diesen Fall gibt es eine Option, um die Suche im Nachrichtentext zu deaktivieren.
+Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-Es ist möglich, Gmail-Suchoperatoren zu verwenden, indem einem Suchbefehl die Präfix *raw:* vorangestellt wird. Wenn Sie nur ein Gmail-Konto konfiguriert haben, können Sie eine rohe Suche direkt auf dem Server starten, indem Sie vom Sammeleingang aus suchen. Wenn Sie mehrere Gmail-Konten konfiguriert haben, müssen sie zuerst zur Ordnerliste oder zum Archiv („Alle Nachrichten“) des Gmail-Kontos navigieren, in dem Sie suchen möchten. Die möglichen Suchoperatoren finden Sie [hier](https://support.google.com/mail/answer/7190). Zum Beispiel:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
 
 `
 raw:larger:10M`
 
-Die Suche durch eine große Anzahl von Nachrichten auf dem Gerät ist aufgrund von zwei Einschränkungen nicht sehr schnell:
+Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), die Datenbank-Engine von Android hat ein Datensatzgrößenlimit und verhindert, dass Nachrichten in der Datenbank gespeichert werden
 * Android-Apps können nur mit limitiertem Arbeitsspeicher arbeiten, auch wenn das Gerät viel Speicher zur Verfügung hat
@@ -732,16 +740,16 @@ To use an Outlook, Live or Hotmail account with two factor authentication enable
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-Um ein Office-365-Konto einzurichten, lesen Sie bitte [diese F&A](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Warum wird der Nachrichtentext weiter geladen?**
+**(15) Why does the message text keep loading?**
 
-Der Nachrichtenkopf und der Nachrichtentext werden getrennt vom Server abgerufen. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht (siehe auch die nächste Frage) oder wenn dort andere Operationen, wie z. B. das Synchronisieren von Nachrichten, ausgeführt werden.
+The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
-Sie können in der Konten- und Ordnerliste den Konten- und Ordnerstatus überprüfen (siehe Legende für die Bedeutung der Symbole). In der über das Hauptnavigationsmenü erreichbaren Liste sehen Sie ausstehende Vorgänge (siehe [diese F&A](#user-content-faq3) für die Bedeutung der Vorgänge).
+You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
 
 If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 
@@ -2329,7 +2338,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-Sofern das für Sie ausreichend ist, können Sie die Benachrichtigungsoption *Nur Benachrichtigungen mit einer Nachrichtenvorschau an Wearables senden* aktivieren, und falls dies nicht funktioniert, versuchen Sie die Benachrichtigungsoption *Benachrichtigungen nur mit einem Vorschautext anzeigen*. Beachten Sie, dass dies auch für Wearables gilt, die keinen Vorschautext anzeigen, selbst wenn die Android Wear App angibt, dass die Benachrichtigung gesendet (überbrückt) wurde.
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2604,7 +2613,7 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Google Mail, da Google nur eine Signatur erlaubt (und zulässt). For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 

@@ -1049,6 +1049,7 @@
     <string name="title_legend_download_off">Download beskedindhold efter behov</string>
     <string name="title_legend_synchronize_on">Synkronisering slået til</string>
     <string name="title_legend_synchronize_off">Synkronisering slået fra</string>
+    <string name="title_legend_synchronize_poll">Synkronisér periodisk</string>
     <string name="title_legend_disconnected">Afbrudt</string>
     <string name="title_legend_connecting">Tilslutter</string>
     <string name="title_legend_connected">Tilsluttet</string>

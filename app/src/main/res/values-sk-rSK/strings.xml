@@ -384,6 +384,7 @@
     <string name="title_advanced_notifications">Spravovať oznámenia</string>
     <string name="title_advanced_notifications_default">Predvolený kanál</string>
     <string name="title_advanced_notifications_service">Kanál prijímania správ</string>
+    <string name="title_advanced_notifications_newest_first">Najprv zobraziť najnovšie oznámenia</string>
     <string name="title_advanced_notifications_background">Použiť službu bežiacu na pozadí pre synchronizáciu správ</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí môže byť kedykoľvek zastavená systémom, ale nevyžaduje neustále zobrazenú ikonu v oblasti oznámení</string>
     <string name="title_advanced_badge">Zobraziť počet nových správ na ikonke aplikácie</string>
@@ -407,6 +408,7 @@
     <string name="title_advanced_notify_remove">Odstrániť oznámenie o novej správe po kliknutí</string>
     <string name="title_advanced_notify_clear">Odstrániť oznámenia o nových správach po zobrazení zoznamu správ</string>
     <string name="title_advanced_wearable_preview">Oznámenia s náhľadom správy posielať len na nositeľné zariadenia</string>
+    <string name="title_advanced_notify_messaging">Použiť štýl oznámení správ systému Android</string>
     <string name="title_advanced_biometrics_notify">Zobraziť obsah správy pri použití biometrického overenia</string>
     <string name="title_advanced_light">Zobrazovať LED oznámenia</string>
     <string name="title_advanced_sound">Vybrať zvuk oznámenia</string>
@@ -511,6 +513,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_notify_preview_all_hint">Pre nositeľné zariadenia, ktoré dokážu zobraziť celý text (do 5000 znakov)</string>
     <string name="title_advanced_notify_preview_only_hint">Toto pozdrží zobrazenie oznámení, kým nebudú prevzaté aj texty správ</string>
     <string name="title_advanced_wearable_hint">Oznámenia sa odošlú na nositeľné zariadenia až po prevzatí textov správ</string>
+    <string name="title_advanced_messaging_hint">Je vyžadované pre podporu Android Auto</string>
     <string name="title_advanced_move_hint">Cieľový priečinok je možné nastaviť v nastaveniach účtu</string>
     <string name="title_advanced_notify_no_grouping">Táto verzia Androidu nepodporuje zoskupovanie oznámení</string>
     <string name="title_advanced_notify_no_channels">Táto verzia Androidu nepodporuje kanály oznámení</string>
@@ -1071,6 +1074,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_download_off">Prevziať obsah správy na vyžiadanie</string>
     <string name="title_legend_synchronize_on">Aktívna synchronizácia</string>
     <string name="title_legend_synchronize_off">Neaktívna synchronizácia</string>
+    <string name="title_legend_synchronize_poll">Pravideľne synchronizovať</string>
     <string name="title_legend_disconnected">Odpojené</string>
     <string name="title_legend_connecting">Pripájanie</string>
     <string name="title_legend_connected">Pripojené</string>

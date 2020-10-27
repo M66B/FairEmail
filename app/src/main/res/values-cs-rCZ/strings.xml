@@ -663,7 +663,7 @@
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
     <string name="title_synchronize_folder">Synchronizovat (přijímat zprávy)</string>
-    <string name="title_poll_folder">Kontrolovat periodicky namísto průběžné synchronizace</string>
+    <string name="title_poll_folder">Kontrolovat pravidelně namísto průběžné synchronizace</string>
     <string name="title_download_folder">Automaticky stahovat obsah a přílohy zpráv</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
     <string name="title_sync_days">Synchronizovat zprávy (dny)</string>
@@ -1078,6 +1078,7 @@
     <string name="title_legend_download_off">Stáhnout obsah zprávy na vyžádání</string>
     <string name="title_legend_synchronize_on">Synchronizace zapnuta</string>
     <string name="title_legend_synchronize_off">Synchronizace vypnuta</string>
+    <string name="title_legend_synchronize_poll">Synchronizovat pravidelně</string>
     <string name="title_legend_disconnected">Odpojeno</string>
     <string name="title_legend_connecting">Připojování</string>
     <string name="title_legend_connected">Připojeno</string>

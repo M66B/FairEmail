@@ -388,39 +388,47 @@ Operações são processadas somente quando há uma conexão com o servidor de e
 
 Você deve tentar corrigir isso entrando em contato com seu provedor ou obtendo um certificado de segurança válido porque certificados de segurança inválidos são inseguros e permitem os chamados [ ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se dinheiro for um obstáculo, você pode obter certificados de segurança gratuitos no [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of the invalid server certificate as shown below the error message by ticking a checkbox. In case of an existing account (IMAP, receive) and/or identity (SMTP, send) you will need check/save it via setup step 1 and 2 to get the error message. This will "pin" the server certificate to prevent man-in-the-middle attacks. Note that you should make sure the internet connection you are using is safe if you do this.
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-Observe ainda que versões mais antigas do Android podem não reconhecer as autoridades de certificados mais recentes como o Encrypt, fazendo com que as conexões sejam consideradas inseguras, veja também [aqui](https://developer.android.com/training/articles/security-ssl).
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Check/save the account and identity
+1. Tick the checkbox below the error message and save again
 
-*Âncora confiável para o caminho de certificação não encontrada*
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-*... java.security,cet.CertPathValidatorException: Trust anchor for certification path not found ...* significa que o gerenciador de confiança padrão do Android não pôde verificar a cadeia de certificados do servidor.
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-Você deve ou corrigir a configuração do servidor, ou aceitar a impressão digital mostrada abaixo da mensagem de erro.
+*Trust anchor for certification path not found*
 
-Observe que esse problema pode ser causado pelo fato de o servidor não estar enviando todos os certificados intermediários também.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-*Senha em branco*
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Seu nome de usuário é provavelmente facilmente descoberto, então isso não é seguro.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Conexão de texto simples*
+*Empty password*
 
-Seu nome de usuário, senha e todas as mensagens serão enviadas e recebidas sem criptografia, o que é **muito inseguro** porque um [ataque man-in=the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) é muito fácil em uma conexão não criptografada.
+Your username is likely easily guessed, so this is insecure.
 
-Se ainda assim você quiser utilizar um certificado inválido, uma senha em branco ou uma conexão de texto simples, você precisará habilitar conexões inseguras nas configurações de conta/identidade. O STARTTLS deve ser utilizado para conexões de texto simples. Se você habilitar conexões inseguras, você deve se conectar através de redes privadas e confiáveis e nunca através de redes públicas, como as oferecidas em hóteis, aeroportos etc.
+*Plain text connection*
+
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Como posso personalizar a visualização de mensagens?**
+**(5) How can I customize the message view?**
 
-No menu de três pontos você pode ativar, desativar ou selecionar:
+In the three dot overflow menu you can enable or disable or select:
 
 * *tamanho do texto*: para três tamanhos de texto diferentes
 * *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
 
-Na seção de exibição das configurações, você pode ativar ou desativar:
+In the display section of the settings you can enable or disable:
 
 * *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
 * *Agrupar por data*: mostrar cabeçalhos de data acima de mensagens com a mesma data
@@ -437,30 +445,30 @@ Na seção de exibição das configurações, você pode ativar ou desativar:
 * *Exibir automaticamente imagens para contatos conhecidos*: para exibir automaticamente imagens para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
 * *Barra de ação da conversa*: para desativar a barra de navegação inferior
 
-Observe que as mensagens só podem ser pre-visualizadas quando o texto delas tiver sido baixado. Mensagens grandes não são baixadas por padrão em redes limitadas (geralmente em dados móveis). Você pode alterar isso nas configurações.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
 
-Se a lista de endereços for longa, você pode recolher a seção de endereços com o ícone de *menos* no topo da seção de endereços.
+If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
-Algumas pessoas pedem:
+Some people ask:
 
 * para mostrar o assunto em negrito, mas o negrito já é utilizado para destacar mensagens não lidas
 * para mostrar o endereço ou o assunto maior/menor, mas isso poderia interferir com a opção de tamanho do texto
 * para mostrar a estrela à esquerda, mas é muito mais fácil utilizar a estrela no lado direito
 
-Infelizmente, é impossível fazer todo mundo feliz e adicionar muitas configurações poderia não só ser confuso, mas também sempre faltaria alguma.
+Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
 <a name="faq6"></a>
-**(6) Como posso fazer login com Gmail / G Suite?**
+**(6) How can I login to Gmail / G suite?**
 
-Você pode usar o assistente de configuração rápida para configurar facilmente uma conta e uma identidade do Gmail.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-Se você não quiser usar uma conta do Gmail salva em seu dispositivo, você pode ativar o acesso a "aplicativos menos seguros" e usar a senha de sua conta (não recomendado) ou habilitar a autenticação em duas etapas e usar uma senha específica de aplicativo. Para usar uma senha, você precisará configurar uma conta e identidade através das etapas 1 e 2, ao invés do assistente de configuração rápida.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
-Por favor, veja [este FAQ](#user-content-faq111) sobre porque apenas as contas salvas no dispositivo podem ser usadas.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Observe que uma senha de aplicativo específica é necessária quando a autenticação em duas etapas estiver habilitada.
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
@@ -1463,6 +1471,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
+* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
 

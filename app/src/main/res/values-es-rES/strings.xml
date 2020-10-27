@@ -1058,6 +1058,7 @@
     <string name="title_legend_download_off">Descargar el contenido de mensajes bajo demanda </string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
+    <string name="title_legend_synchronize_poll">Sincronizar periódicamente</string>
     <string name="title_legend_disconnected">Desconectado</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
