@@ -88,7 +88,7 @@ public class ConnectionHelper {
         private Boolean suitable = null;
         private Boolean unmetered = null;
         private Boolean roaming = null;
-        private Integer type = null;
+        private Network active;
 
         boolean isConnected() {
             return (connected != null && connected);
@@ -106,16 +106,16 @@ public class ConnectionHelper {
             return (roaming != null && roaming);
         }
 
-        Integer getType() {
-            return type;
+        Network getActive() {
+            return active;
         }
 
         public void update(NetworkState newState) {
             connected = newState.connected;
-            unmetered = newState.unmetered;
             suitable = newState.suitable;
+            unmetered = newState.unmetered;
             roaming = newState.roaming;
-            type = newState.type;
+            active = newState.active;
         }
 
         @Override
@@ -143,14 +143,13 @@ public class ConnectionHelper {
             state.connected = (isMetered != null);
             state.unmetered = (isMetered != null && !isMetered);
             state.suitable = (isMetered != null && (metered || !isMetered));
+            state.active = getActiveNetwork(context);
 
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
-            if (ani != null)
-                state.type = ani.getType();
 
             if (state.connected && !roaming) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+                    NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                     if (ani != null)
                         state.roaming = ani.isRoaming();
                 } else {

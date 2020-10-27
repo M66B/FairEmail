@@ -1523,7 +1523,6 @@ public class Log {
             size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
             size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
             size += write(os, "Roaming=" + state.isRoaming() + "\r\n");
-            size += write(os, "Type=" + state.getType() + "\r\n\r\n");
         }
 
         db.attachment().setDownloaded(attachment.id, size);
