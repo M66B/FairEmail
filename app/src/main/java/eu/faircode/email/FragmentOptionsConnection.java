@@ -24,8 +24,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
@@ -61,8 +63,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swPreferIp4;
     private SwitchCompat swSslHarden;
     private Button btnManage;
-    private TextView tvConnectionType;
-    private TextView tvConnectionRoaming;
+    private TextView tvNetworkMetered;
+    private TextView tvNetworkRoaming;
+    private TextView tvNetworkInfo;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "ssl_harden"
@@ -87,8 +90,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swSslHarden = view.findViewById(R.id.swSslHarden);
         btnManage = view.findViewById(R.id.btnManage);
 
-        tvConnectionType = view.findViewById(R.id.tvConnectionType);
-        tvConnectionRoaming = view.findViewById(R.id.tvConnectionRoaming);
+        tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
+        tvNetworkRoaming = view.findViewById(R.id.tvNetworkRoaming);
+        tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
 
         setOptions();
 
@@ -184,8 +188,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
-        tvConnectionType.setVisibility(View.GONE);
-        tvConnectionRoaming.setVisibility(View.GONE);
+        tvNetworkMetered.setVisibility(View.GONE);
+        tvNetworkRoaming.setVisibility(View.GONE);
+        tvNetworkInfo.setVisibility(View.GONE);
 
         return view;
     }
@@ -304,15 +309,41 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     };
 
     private void showConnectionType() {
+        final ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
+
+        final StringBuilder sb = new StringBuilder();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean debug = prefs.getBoolean("debug", false);
+        if ((debug || BuildConfig.DEBUG) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            try {
+                ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                Network active = (cm == null ? null : cm.getActiveNetwork());
+                if (active != null) {
+                    NetworkInfo ni = cm.getNetworkInfo(active);
+                    if (ni != null)
+                        sb.append(ni).append("\r\n\r\n");
+
+                    NetworkCapabilities nc = cm.getNetworkCapabilities(active);
+                    if (nc != null)
+                        sb.append(nc).append("\r\n\r\n");
+
+                    LinkProperties lp = cm.getLinkProperties(active);
+                    if (lp != null)
+                        sb.append(lp).append("\r\n\r\n");
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
-
-                    tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
-                    tvConnectionType.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
-                    tvConnectionRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
+                    tvNetworkMetered.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);
+                    tvNetworkInfo.setText(sb.toString());
+                    tvNetworkMetered.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
+                    tvNetworkRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
+                    tvNetworkInfo.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
                 }
             }
         });
