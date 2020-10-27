@@ -121,9 +121,10 @@
         <meta-data
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />
-        <!--meta-data
+        <meta-data
             android:name="com.google.android.gms.car.application"
-            android:resource="@xml/car" /-->
+            android:resource="@xml/car"
+            tools:node="remove" />
         <!-- https://play.google.com/about/auto/developer-distribution-agreement-addendum/ -->
         <meta-data
             android:name="com.bugsnag.android.API_KEY"
