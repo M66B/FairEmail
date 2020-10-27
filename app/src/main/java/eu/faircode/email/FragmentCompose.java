@@ -470,20 +470,20 @@ public class FragmentCompose extends FragmentBase {
         });
 
         etBody.setSelectionListener(new EditTextCompose.ISelection() {
-            private boolean style = false;
             private boolean styling = false;
 
             @Override
-            public void onSelected(boolean selection) {
+            public void onSelected(final boolean selection) {
                 if (media) {
-                    style = selection;
                     getMainHandler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            if (style != styling) {
-                                styling = style;
+                            if (styling != selection) {
+                                styling = selection;
                                 media_bar.getMenu().clear();
-                                media_bar.inflateMenu(styling ? R.menu.action_compose_style_alt : R.menu.action_compose_media);
+                                media_bar.inflateMenu(styling
+                                        ? R.menu.action_compose_style_alt
+                                        : R.menu.action_compose_media);
                             }
                         }
                     }, 20);
@@ -1550,9 +1550,11 @@ public class FragmentCompose extends FragmentBase {
         media = !media;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_media", media).apply();
-        media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        etBody.setSelection(etBody.getSelectionStart());
         media_bar.getMenu().clear();
-        media_bar.inflateMenu(media && etBody.hasSelection() ? R.menu.action_compose_style_alt : R.menu.action_compose_media);
+        media_bar.inflateMenu(R.menu.action_compose_media);
+        media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
+        style_bar.setVisibility(View.GONE);
     }
 
     private void onMenuCompact() {
