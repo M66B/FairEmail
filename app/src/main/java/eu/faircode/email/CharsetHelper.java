@@ -80,14 +80,14 @@ class CharsetHelper {
             if (TextUtils.isEmpty(detected.charset)) {
                 Log.e("compact_enc_det result=" + detected);
                 return null;
-            } else if (!BuildConfig.PLAY_STORE_RELEASE &&
-                    COMMON.contains(detected.charset))
+            } else if (COMMON.contains(detected.charset))
                 Log.w("compact_enc_det result=" + detected);
-            else if ("GB18030".equals(detected.charset) &&
-                    !Locale.getDefault().getLanguage().equals(CHINESE)) {
+            else if ("GB18030".equals(detected.charset)) {
+                boolean chinese = Locale.getDefault().getLanguage().equals(CHINESE);
                 // https://github.com/google/compact_enc_det/issues/8
-                Log.e("compact_enc_det result=" + detected);
-                return null;
+                Log.e("compact_enc_det result=" + detected + " chinese=" + chinese);
+                if (!chinese)
+                    return null;
             } else
                 Log.e("compact_enc_det result=" + detected);
 

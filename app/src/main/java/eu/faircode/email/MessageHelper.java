@@ -1801,18 +1801,33 @@ public class MessageHelper {
                                 try {
                                     Log.i("Charset meta=" + meta);
                                     Charset c = Charset.forName(charset);
-                                    if (c.equals(StandardCharsets.UTF_8) && !CharsetHelper.isUTF8(result))
+
+                                    // US-ASCII is a subset of ISO8859-1
+                                    if (StandardCharsets.US_ASCII.equals(c))
                                         break;
-                                    if (CHARSET16.contains(c))
-                                        break; // Can't convert 16 bits charset to 8 bits
+
+                                    // Check if really UTF-8
+                                    if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
+                                        Log.e("Charset meta=" + meta + " !isUTF8");
+                                        break;
+                                    }
+
+                                    // 16 bits charsets cannot be converted to 8 bits
+                                    if (CHARSET16.contains(c)) {
+                                        Log.e("Charset meta=" + meta);
+                                        break;
+                                    }
+
                                     Charset detected = CharsetHelper.detect(result);
                                     if (!(StandardCharsets.US_ASCII.equals(detected) &&
                                             StandardCharsets.UTF_8.equals(c)))
                                         Log.e("Converting detected=" + detected + " meta=" + c);
+
+                                    // Convert
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
                                     break;
                                 } catch (Throwable ex) {
-                                    Log.w(ex);
+                                    Log.e(ex);
                                 }
                         }
                     }
