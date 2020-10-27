@@ -128,7 +128,15 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
 
         DisconnectBlacklist.init(this);
 
-        WorkerWatchdog.init(this);
+        boolean watchdog = prefs.getBoolean("watchdog", true);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        if (watchdog && enabled)
+            WorkerWatchdog.init(this);
+        else {
+            ServiceSynchronize.watchdog(this);
+            ServiceSend.watchdog(this);
+        }
+
         WorkerCleanup.init(this);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
