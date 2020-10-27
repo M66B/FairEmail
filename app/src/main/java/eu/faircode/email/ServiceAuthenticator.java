@@ -33,6 +33,7 @@ import net.openid.appauth.NoClientAuthentication;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
 
@@ -84,6 +85,9 @@ public class ServiceAuthenticator extends Authenticator {
         if (auth == AUTH_TYPE_GMAIL) {
             GmailState authState = GmailState.jsonDeserialize(password);
             authState.refresh(context, user, expire);
+            Long expiration = authState.getAccessTokenExpirationTime();
+            if (expiration != null)
+                EntityLog.log(context, user + " token expiration=" + new Date(expiration));
 
             String newPassword = authState.jsonSerializeString();
             if (!Objects.equals(password, newPassword)) {
@@ -96,6 +100,9 @@ public class ServiceAuthenticator extends Authenticator {
         } else if (auth == AUTH_TYPE_OAUTH) {
             AuthState authState = AuthState.jsonDeserialize(password);
             OAuthRefresh(context, provider, authState);
+            Long expiration = authState.getAccessTokenExpirationTime();
+            if (expiration != null)
+                EntityLog.log(context, user + " token expiration=" + new Date(expiration));
 
             String newPassword = authState.jsonSerializeString();
             if (!Objects.equals(password, newPassword)) {

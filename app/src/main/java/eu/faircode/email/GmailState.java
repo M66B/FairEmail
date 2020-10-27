@@ -53,6 +53,13 @@ public class GmailState {
         return token;
     }
 
+    Long getAccessTokenExpirationTime() {
+        if (token == null || acquired == 0)
+            return null;
+        else
+            return acquired + TOKEN_LIFETIME;
+    }
+
     void refresh(@NonNull Context context, @NonNull String user, boolean expire) throws AuthenticatorException, OperationCanceledException, IOException {
         if (expire || acquired + TOKEN_LIFETIME < new Date().getTime())
             try {
