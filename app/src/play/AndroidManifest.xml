@@ -111,7 +111,7 @@
         android:theme="@style/AppThemeBlueOrangeLight">
         <!-- https://developer.samsung.com/samsung-dex/modify-optimizing.html -->
 
-        <!-- do not contact Google servers -->
+        <!-- https://developer.android.com/guide/webapps/managing-webview#metrics -->
         <meta-data
             android:name="android.webkit.WebView.MetricsOptOut"
             android:value="true" />
@@ -121,6 +121,13 @@
         <meta-data
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />
+        <!--meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/car" /-->
+        <!-- https://play.google.com/about/auto/developer-distribution-agreement-addendum/ -->
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="9d2d57476a0614974449a3ec33f2604a" />
 
         <activity
             android:name=".ActivityMain"
