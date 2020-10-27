@@ -1806,7 +1806,9 @@ public class MessageHelper {
                                     if (CHARSET16.contains(c))
                                         break; // Can't convert 16 bits charset to 8 bits
                                     Charset detected = CharsetHelper.detect(result);
-                                    Log.e("Converting detected=" + detected + " meta=" + c);
+                                    if (!(StandardCharsets.US_ASCII.equals(detected) &&
+                                            StandardCharsets.UTF_8.equals(c)))
+                                        Log.e("Converting detected=" + detected + " meta=" + c);
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
                                     break;
                                 } catch (Throwable ex) {
