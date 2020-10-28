@@ -88,7 +88,7 @@ public class ConnectionHelper {
         private Boolean suitable = null;
         private Boolean unmetered = null;
         private Boolean roaming = null;
-        private Network active;
+        private Network active = null;
 
         boolean isConnected() {
             return (connected != null && connected);
@@ -125,9 +125,34 @@ public class ConnectionHelper {
                 return (Objects.equals(this.connected, other.connected) &&
                         Objects.equals(this.suitable, other.suitable) &&
                         Objects.equals(this.unmetered, other.unmetered) &&
-                        Objects.equals(this.roaming, other.roaming));
+                        Objects.equals(this.roaming, other.roaming) &&
+                        Objects.equals(this.active, other.active));
             } else
                 return false;
+        }
+
+        @Override
+        public String toString() {
+            return "connected=" + connected +
+                    " suitable=" + suitable +
+                    " unmetered=" + unmetered +
+                    " roaming=" + roaming +
+                    " active=" + active;
+        }
+    }
+
+    static boolean isConnected(Context context, Network network) {
+        NetworkInfo ni = getNetworkInfo(context, network);
+        return (ni != null && ni.isConnected());
+    }
+
+    static NetworkInfo getNetworkInfo(Context context, Network network) {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            return (cm == null ? null : cm.getNetworkInfo(network));
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
         }
     }
 

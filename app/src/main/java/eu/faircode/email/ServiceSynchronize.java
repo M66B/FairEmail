@@ -31,7 +31,6 @@ import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
@@ -97,6 +96,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private long lastLost = 0;
     private int lastAccounts = 0;
     private int lastOperations = 0;
+    private ConnectionHelper.NetworkState lastNetworkState = null;
 
     private boolean foreground = false;
     private Map<Long, Core.State> coreStates = new Hashtable<>();
@@ -333,9 +333,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             WorkerFts.cancel(ServiceSynchronize.this);
                         }
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                        boolean background_service = prefs.getBoolean("background_service", false);
-                        if (!background_service)
+                        if (!isBackgroundService(ServiceSynchronize.this))
                             try {
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
@@ -639,15 +637,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (PREF_EVAL.contains(key) || ConnectionHelper.PREF_NETWORK.contains(key)) {
-            if (ConnectionHelper.PREF_NETWORK.contains(key))
-                updateNetworkState(null, null);
-
+        if (PREF_EVAL.contains(key)) {
             Bundle command = new Bundle();
             command.putString("pref", key);
             command.putString("name", "eval");
             liveAccountNetworkState.post(command);
-        } else if (PREF_RELOAD.contains(key)) {
+        } else if (PREF_RELOAD.contains(key) || ConnectionHelper.PREF_NETWORK.contains(key)) {
             Bundle command = new Bundle();
             command.putString("pref", key);
             command.putString("name", "reload");
@@ -1841,121 +1836,22 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(@NonNull Network network) {
-            try {
-                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo ni = cm.getNetworkInfo(network);
-                NetworkInfo ani = cm.getActiveNetworkInfo();
-                EntityLog.log(ServiceSynchronize.this, "Available network=" + network + " info=" + ni + " active=" + ani);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-
-            updateNetworkState(network, null);
+            updateNetworkState(network, "available");
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities caps) {
-            updateNetworkState(network, caps);
-            /*
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                try {
-                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    Network active = cm.getActiveNetwork();
-                    if (active != null && active.equals(network)) {
-                        boolean reload = (!active.equals(reloaded) && lastActiveCaps != null &&
-                                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED) &&
-                                lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                                !lastActiveCaps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
-
-                        if (reload) {
-                            reloaded = active;
-                            reload(ServiceSynchronize.this, -1L, false,
-                                    "Connectivity changed " + network + " caps=" + caps);
-                        }
-
-                        lastActiveCaps = caps;
-                    }
-
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            */
+            updateNetworkState(network, "capabilities");
         }
 
         @Override
         public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties props) {
-            /*
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                try {
-                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    Network active = cm.getActiveNetwork();
-                    if (active != null && active.equals(network)) {
-                        boolean ahas4 = false;
-                        boolean ahas6 = false;
-                        boolean lhas4 = false;
-                        boolean lhas6 = false;
-                        if (lastActiveProps != null) {
-                            String aname = props.getInterfaceName();
-                            String lname = lastActiveProps.getInterfaceName();
-                            if (!TextUtils.isEmpty(aname) && !TextUtils.isEmpty(lname)) {
-                                NetworkInterface aintf = NetworkInterface.getByName(aname);
-                                NetworkInterface lintf = NetworkInterface.getByName(lname);
-                                if (aintf != null && lintf != null) {
-                                    for (InterfaceAddress iaddr : aintf.getInterfaceAddresses()) {
-                                        InetAddress addr = iaddr.getAddress();
-                                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
-                                            if (addr instanceof Inet4Address)
-                                                ahas4 = true;
-                                            else if (addr instanceof Inet6Address)
-                                                ahas6 = true;
-                                    }
-
-                                    for (InterfaceAddress iaddr : lintf.getInterfaceAddresses()) {
-                                        InetAddress addr = iaddr.getAddress();
-                                        if (!addr.isLoopbackAddress() && !addr.isLinkLocalAddress())
-                                            if (addr instanceof Inet4Address)
-                                                lhas4 = true;
-                                            else if (addr instanceof Inet6Address)
-                                                lhas6 = true;
-                                    }
-                                }
-                            }
-                        }
-
-                        boolean reload = (!active.equals(reloaded) &&
-                                (ahas4 && !lhas4) || (ahas6 && !lhas6));
-
-                        if (reload) {
-                            reloaded = active;
-                            reload(ServiceSynchronize.this, -1L, false,
-                                    "Connectivity changed " + network + " props=" + props);
-                        }
-
-                        lastActiveProps = props;
-                    }
-
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-             */
+            updateNetworkState(network, "properties");
         }
 
         @Override
         public void onLost(@NonNull Network network) {
-            /*
-            try {
-                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo ani = cm.getActiveNetworkInfo();
-                EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + ani);
-                if (ani == null)
-                    lastLost = new Date().getTime();
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-             */
-
-            updateNetworkState(network, null);
+            updateNetworkState(network, "lost");
         }
     };
 
@@ -1971,57 +1867,48 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     lastLost = 0;
             }
 
-            updateNetworkState(null, null);
+            Network active = ConnectionHelper.getActiveNetwork(ServiceSynchronize.this);
+            updateNetworkState(active, "connectivity");
         }
     };
 
-    private void updateNetworkState(Network network, NetworkCapabilities capabilities) {
-        Network active = ConnectionHelper.getActiveNetwork(ServiceSynchronize.this);
-
-        if (Objects.equals(network, active)) {
-            if (BuildConfig.DEBUG)
-                EntityLog.log(ServiceSynchronize.this, "Updating active network state");
-            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-            liveNetworkState.postValue(ns);
-
-            if (lastSuitable == null || lastSuitable != ns.isSuitable()) {
-                lastSuitable = ns.isSuitable();
-                EntityLog.log(ServiceSynchronize.this,
-                        "Updated network=" + network +
-                                " capabilities " + capabilities +
-                                " suitable=" + lastSuitable);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                boolean background_service = prefs.getBoolean("background_service", false);
-                if (!background_service)
-                    try {
-                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
+    private synchronized void updateNetworkState(Network network, String reason) {
+        Network active = ConnectionHelper.getActiveNetwork(this);
+        if (active != null && !active.equals(lastActive)) {
+            if (ConnectionHelper.isConnected(this, active)) {
+                EntityLog.log(this, reason + ": new active network=" + active + "/" + lastActive);
+                lastActive = active;
+            }
+        } else if (lastActive != null) {
+            if (!ConnectionHelper.isConnected(this, lastActive)) {
+                EntityLog.log(this, reason + ": lost active network=" + lastActive);
+                lastActive = null;
+                lastLost = new Date().getTime();
             }
         }
 
-        if (!Objects.equals(lastActive, active)) {
-            if (lastActive != null) {
-                boolean connected = false;
-                try {
-                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo ni = (cm == null ? null : cm.getNetworkInfo(lastActive));
-                    connected = (ni != null && ni.isConnected());
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-                if (!connected)
-                    lastLost = new Date().getTime();
+        if (Objects.equals(network, active)) {
+            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(this);
+            if (!Objects.equals(lastNetworkState, ns)) {
+                EntityLog.log(this, reason + ": updating state network=" + active +
+                        " info=" + ConnectionHelper.getNetworkInfo(this, active) + " " + ns);
+                lastNetworkState = ns;
+                liveNetworkState.postValue(ns);
             }
+        }
 
-            lastActive = active;
-            EntityLog.log(ServiceSynchronize.this, "New active network=" + active);
+        boolean isSuitable = (lastNetworkState != null && lastNetworkState.isSuitable());
+        if (lastSuitable == null || lastSuitable != isSuitable) {
+            lastSuitable = isSuitable;
+            EntityLog.log(this, reason + ": updated suitable=" + lastSuitable);
 
-            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-            liveNetworkState.postValue(ns);
+            if (!isBackgroundService(this))
+                try {
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
         }
     }
 
