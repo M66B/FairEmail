@@ -117,8 +117,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final int FAST_ERROR_COUNT = 3;
-    private static final int FAST_ERROR_BACKOFF = CONNECT_BACKOFF_ALARM_START;
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -903,7 +901,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     account.deleteNotificationChannel(ServiceSynchronize.this);
             }
 
-            int errors = 0;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
@@ -1479,9 +1476,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
                                         }
                             }
-
-                            if (!first)
-                                errors = 0;
                         } catch (Throwable ex) {
                             if (tune) {
                                 account.keep_alive_failed++;
@@ -1499,6 +1493,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         " interval=" + account.poll_interval +
                                         " idle=" + idleTime);
                             }
+
                             throw ex;
                         }
 
@@ -1598,36 +1593,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
-                    long now = new Date().getTime();
-
-                    // Check for fast account errors
-                    if (account.last_connected != null &&
-                            now - account.last_connected < account.poll_interval * 60 * 1000L / 2) {
-                        errors++;
-                        EntityLog.log(ServiceSynchronize.this,
-                                account.name + " fast errors=" + errors +
-                                        " last connected: " + new Date(account.last_connected));
-                        if (errors >= FAST_ERROR_COUNT)
-                            state.setBackoff(FAST_ERROR_BACKOFF * 60);
-
-                        boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                        if (auto_optimize) {
-                            Throwable e = ex;
-                            while (e != null) {
-                                if (ConnectionHelper.isMaxConnections(e.getMessage())) {
-                                    for (int i = 0; i < EntityFolder.SYSTEM_FOLDER_SYNC.size(); i++)
-                                        if (EntityFolder.SYSTEM_FOLDER_POLL.get(i)) {
-                                            String ft = EntityFolder.SYSTEM_FOLDER_SYNC.get(i);
-                                            EntityFolder f = db.folder().getFolderByType(account.id, ft);
-                                            if (f != null && f.synchronize) {
-                                                EntityLog.log(ServiceSynchronize.this, account.name + "/" + f.name + "=poll");
-                                                db.folder().setFolderPoll(f.id, true);
-                                            }
-                                        }
+                    boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+                    if (auto_optimize && ConnectionHelper.isMaxConnections(ex)) {
+                        for (int i = 0; i < EntityFolder.SYSTEM_FOLDER_SYNC.size(); i++)
+                            if (EntityFolder.SYSTEM_FOLDER_POLL.get(i)) {
+                                String ft = EntityFolder.SYSTEM_FOLDER_SYNC.get(i);
+                                EntityFolder f = db.folder().getFolderByType(account.id, ft);
+                                if (f != null && f.synchronize) {
+                                    EntityLog.log(ServiceSynchronize.this, account.name + "/" + f.name + "=poll");
+                                    db.folder().setFolderPoll(f.id, true);
                                 }
-                                e = e.getCause();
                             }
-                        }
                     }
 
                     // Report account connection error
@@ -1635,6 +1611,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
 
                         int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+                        long now = new Date().getTime();
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
                         long maxDelayed = (pollInterval > 0 && !account.poll_exempted
                                 ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;

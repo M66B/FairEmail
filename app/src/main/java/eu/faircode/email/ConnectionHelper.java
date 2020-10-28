@@ -373,6 +373,15 @@ public class ConnectionHelper {
         return false;
     }
 
+    static boolean isMaxConnections(Throwable ex) {
+        while (ex != null) {
+            if (isMaxConnections(ex.getMessage()))
+                return true;
+            ex = ex.getCause();
+        }
+        return false;
+    }
+
     static boolean isMaxConnections(String message) {
         return (message != null &&
                 (message.contains("Too many simultaneous connections") /* Gmail */ ||
