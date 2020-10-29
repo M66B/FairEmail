@@ -1012,7 +1012,10 @@ public class Helper {
         if (name == null)
             return null;
 
-        return name.replaceAll("[?:\"*|/\\\\<>]", "_");
+        return name
+                // Canonical files names cannot contain NUL
+                .replace("\0", "")
+                .replaceAll("[?:\"*|/\\\\<>]", "_");
     }
 
     static String getExtension(String filename) {
