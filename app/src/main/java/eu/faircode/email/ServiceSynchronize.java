@@ -1714,7 +1714,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             backoff = CONNECT_BACKOFF_ALARM_MAX;
                                         String msg = "Fast" +
                                                 " fails=" + fast_fails +
-                                                " first=" + (now - first_fail) +
+                                                " first=" + ((now - first_fail) / 1000L) +
                                                 " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
                                                 " missing=" + (missing / 1000L) +
                                                 " compensate=" + compensate +
