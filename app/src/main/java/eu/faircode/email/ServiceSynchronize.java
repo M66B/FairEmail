@@ -901,6 +901,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     account.deleteNotificationChannel(ServiceSynchronize.this);
             }
 
+            int fast_fails = 0;
+            long first_fail = 0;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
@@ -1690,6 +1692,44 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     long now = new Date().getTime();
+
+                    // Check for fast successive server, connectivity, etc failures
+                    long fail_threshold = account.poll_interval * 60 * 1000L * 2 / 3;
+                    if (account.last_connected == null ||
+                            now - account.last_connected < fail_threshold) {
+                        if (state.getBackoff() == CONNECT_BACKOFF_START) {
+                            fast_fails++;
+                            if (fast_fails == 1)
+                                first_fail = now;
+                            else {
+                                long avg_fail = (now - first_fail) / fast_fails;
+                                if (avg_fail < fail_threshold) {
+                                    long missing = (fail_threshold - avg_fail) * fast_fails;
+                                    int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
+                                    if (compensate > 0) {
+                                        int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
+                                        if (backoff > CONNECT_BACKOFF_ALARM_MAX)
+                                            backoff = CONNECT_BACKOFF_ALARM_MAX;
+                                        String msg = "Fast" +
+                                                " fails=" + fast_fails +
+                                                " first=" + (now - first_fail) +
+                                                " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
+                                                " missing=" + (missing / 1000L) +
+                                                " compensate=" + compensate +
+                                                " backoff=" + backoff +
+                                                " host=" + account.host;
+                                        Log.e(msg);
+                                        EntityLog.log(this, msg);
+                                        state.setBackoff(backoff * 60);
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        fast_fails = 0;
+                        first_fail = 0;
+                    }
+
                     int backoff = state.getBackoff();
                     int max = CONNECT_BACKOFF_MAX * (lastLost + RECONNECT_BACKOFF < now ? 1 : 2);
                     EntityLog.log(this, account.name + " backoff=" + backoff + " max=" + max);
