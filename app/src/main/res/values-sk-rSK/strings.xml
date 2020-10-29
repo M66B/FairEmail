@@ -7,8 +7,8 @@
     <string name="app_crash">FairEmail nie je podporovaný na tomto zariadení, pretože chyby v systéme spôsobujú pády</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
-    <string name="channel_service">Prijímanie</string>
-    <string name="channel_send">Odosielanie</string>
+    <string name="channel_service">Prijať</string>
+    <string name="channel_send">Odoslať</string>
     <string name="channel_notification">Oznámenia</string>
     <string name="channel_update">Aktualizácie</string>
     <string name="channel_warning">Upozornenia</string>
@@ -289,6 +289,7 @@
     <string name="title_advanced_roaming">Preberať správy a prílohy počas roamingu</string>
     <string name="title_advanced_rlah">Roaming ako doma</string>
     <string name="title_advanced_timeout">Časový limit pripojenia (sekundy)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Uprednostňovať IPv4 pred IPv6</string>
     <string name="title_advanced_ssl_harden">Obrniť SSL pripojenia</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>

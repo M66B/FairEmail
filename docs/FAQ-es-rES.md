@@ -388,12 +388,12 @@ Las operaciones sólo se procesan cuando hay una conexión al servidor de correo
 
 Debería intentar arreglar esto poniéndose en contacto con su proveedor u obteniendo un certificado de seguridad válido porque los certificados de seguridad inválidos no son seguros y permiten [ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si el dinero es un obstáculo, puede obtener certificados de seguridad gratuitos de [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternativamente, puede aceptar la huella dactilar de certificados de servidores inválidos como este:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
+1. Asegúrese de estar usando una conexión a internet de confianza (no redes Wi-Fi publicas, etc.)
+1. Ve a la pantalla de configuración a través del menú de navegación (deslice desde el lado izquierdo hacia adentro)
 1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
-1. Check/save the account and identity
+1. Comprobar/guardar la cuenta y la identidad
 1. Tick the checkbox below the error message and save again
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.

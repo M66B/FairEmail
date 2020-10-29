@@ -268,6 +268,7 @@
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Käytä IPv4:ää ensisijaisesti IPv6:n sijaan</string>
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_caption_general">Yleiset</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
     <string name="title_advanced_wearable_preview">Lähetä ilmoitukset puettaviin laitteisiin vain esikatselun kanssa</string>
+    <string name="title_advanced_notify_messaging">Käytä Androidin viestityylistä ilmoituksen muotoilua</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
@@ -424,7 +426,7 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
-    <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
+    <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
@@ -438,7 +440,7 @@
     <string name="title_advanced_app">Sovellusasetukset</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
     <string name="title_advanced_manual_hint">Jos viestien vastaanotto on pois käytöstä, voi viestejä silti vastaanottaa manuaalisesti vetämällä alaspäin viestilistassa</string>
-    <string name="title_advanced_poll_hint">Ajoittainen uusien viestien tarkistus vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun viestejä on paljon. Jatkuva vastaanotto välttää tämän seuraamalla jatkuvasti muutoksia.</string>
+    <string name="title_advanced_poll_hint">Väliajoin uusien viestien tarkistus vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun viestejä on paljon. Jatkuva vastaanotto välttää tämän seuraamalla jatkuvasti muutoksia.</string>
     <string name="title_advanced_optimize_hint">Tämä saattaa muuttaa synkronoinnin aikaväliä akun säästämiseksi riippuen sähköpostipalvelinten ominaisuuksista ja käyttäytymisestä</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_no_date_hint">Jotkin palveluntarjoajat tallentavat viestien virheelliset tai tulevaisuudessa olevat päivämäärät puuttuvina</string>
@@ -490,6 +492,7 @@
     <string name="title_advanced_notify_preview_all_hint">Puettaville laitteille, jotka voivat näyttää koko tekstin (5 000 merkkiin asti)</string>
     <string name="title_advanced_notify_preview_only_hint">Tämä viivästää ilmoitusten näyttämistä kunnes viestin teksti on ladattu</string>
     <string name="title_advanced_wearable_hint">Ilmoitukset lähetetään puettavaan laitteeseen vasta, kun viestin teksti on ladattu</string>
+    <string name="title_advanced_messaging_hint">Tämä vaaditaan Android Auton tukemiseksi</string>
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
@@ -637,7 +640,7 @@
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>
     <string name="title_synchronize_folder">Synkronoi (vastaanota viestejä)</string>
-    <string name="title_poll_folder">Tarkista ajoittain jatkuvan synkronoinnin sijaan</string>
+    <string name="title_poll_folder">Tarkista väliajoin jatkuvan synkronoinnin sijaan</string>
     <string name="title_download_folder">Lataa viestien tekstit ja liitteet automaattisesti</string>
     <string name="title_notify_folder">Ilmoita uusista viesteistä</string>
     <string name="title_sync_days">Synkronoi viestit (päivää)</string>
@@ -1052,6 +1055,7 @@
     <string name="title_legend_download_off">Lataa viestien sisältö pyydettäessä </string>
     <string name="title_legend_synchronize_on">Synkronointi käytössä</string>
     <string name="title_legend_synchronize_off">Synkronointi pois käytöstä</string>
+    <string name="title_legend_synchronize_poll">Synkronoi väliajoin</string>
     <string name="title_legend_disconnected">Yhteys katkaistu</string>
     <string name="title_legend_connecting">Yhdistetään</string>
     <string name="title_legend_connected">Yhdistetty</string>

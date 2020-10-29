@@ -291,6 +291,7 @@
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Preferuj IPv4 nad IPv6</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>

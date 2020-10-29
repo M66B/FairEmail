@@ -269,6 +269,7 @@
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Geef de voorkeur aan IPv4 boven IPv6</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>

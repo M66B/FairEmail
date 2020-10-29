@@ -258,6 +258,7 @@
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">国内漫游</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">IPv4 优先于 IPv6</string>
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
@@ -1144,7 +1145,7 @@
     <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">左滑移动到回收站; 右滑存档 (如果可用); 滑动操作可以在账户设置中配置</string>
-    <string name="title_hint_message_selection">长按一则消息开始选择多条消息；按住并向上或向下滑动来选择更多消息</string>
+    <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>

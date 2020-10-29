@@ -270,6 +270,7 @@
     <string name="title_advanced_roaming">Κατέβασμα μηνυμάτων και συνημμένων σε λειτουργία περιαγωγής</string>
     <string name="title_advanced_rlah">Περιήγηση όπως στο σπίτι</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Να προτιμάται IPv4 παρά IPv6</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
@@ -571,6 +572,7 @@
     <string name="title_no_name">Λείπει το όνομα</string>
     <string name="title_no_email">Λείπει η διεύθυνση ηλ. ταχυδρομείου</string>
     <string name="title_email_invalid">Μη έγκυρη διεύθυνση ηλ. ταχυδρομείου: \'%1$s\'</string>
+    <string name="title_address_duplicate">Διπλότυπο της διεύθυνσης \'%1$s\'</string>
     <string name="title_address_parse_error">Διεύθυνση \'%1$s\' μη έγκυρη: %2$s</string>
     <string name="title_no_account">Λείπει λογαριασμός</string>
     <string name="title_no_host">Λείπει όνομα υπολογιστή</string>

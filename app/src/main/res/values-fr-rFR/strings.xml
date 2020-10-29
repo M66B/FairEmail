@@ -270,6 +270,7 @@
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Préférer IPv4 à IPv6</string>
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>

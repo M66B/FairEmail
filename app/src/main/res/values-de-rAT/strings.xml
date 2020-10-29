@@ -271,6 +271,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">IPv4 gegenüber IPv6 bevorzugen</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>

@@ -270,6 +270,7 @@
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Foretræk IPv4 frem for IPv6</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>

@@ -388,13 +388,13 @@ Operasi diproses hanya ketika ada koneksi ke servel surel atau tersingkronisasi 
 
 Anda harus mencoba memperbaiki hal ini dengan menghubungu penyedia atau dengan mendapatkan sertifikat keamanan yang valid karena sertifikat keamanan yang tidak valid tersebut tidak aman dan memberikan [ serangan man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Jika dana menjadi kendala, anda dapat mengambil sertifikat keamanan gratis dari [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternatifnya, Anda dapat menerima sidik jari dari sertifikat server yang tidak valid seperti ini:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Pastikan Anda menggunakan koneksi internet tepercaya (tidak di jaringan Wi-Fi publik, dll)
+1. Buka layar pengaturan melalui menu navigasi (geser dari sisi kiri ke dalam)
+1. Pada langkah 1 dan 2, ketuk * Kelola *, lalu ketuk akun dan identitas yang cacat
+1. Periksa / simpan akun dan identitas
+1. Centang kotak di bawah pesan kesalahan dan simpan lagi
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
@@ -2796,10 +2796,10 @@ Requested features should:
 * cocok dengan filosofi FairEmail (berorientasi dengan privasi, berfikir keamanan)
 * memenuhi standar umum (IMAP, SMTP, dll)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Fitur yang tidak memenuhi persyaratan ini kemungkinan besar akan ditolak. Hal ini juga untuk menjaga pemeliharaan dan dukungan dalam jangka panjang dapat terpenuhi.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Jika Anda memiliki pertanyaan, ingin meminta fitur atau melaporkan bug, silahkan gunakan [formulir ini](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Permasalahan di GitHub dinonaktifkan karena sering disalahgunakan.
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Hak cipta &copy; 2018-2020 Marcel Bokhorst.
