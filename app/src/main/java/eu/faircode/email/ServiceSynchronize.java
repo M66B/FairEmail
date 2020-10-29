@@ -1739,9 +1739,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (backoff <= max) {
                         // Short back-off period, keep device awake
                         try {
+                            db.account().setAccountBackoff(account.id, System.currentTimeMillis() + backoff * 1000L);
                             state.acquire(backoff * 1000L, true);
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " backoff " + ex.toString());
+                        } finally {
+                            db.account().setAccountBackoff(account.id, null);
                         }
                     } else {
                         // Cancel transient sync operations
@@ -1769,6 +1772,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
+                                db.account().setAccountBackoff(account.id, trigger);
                                 wlAccount.release();
                                 state.acquire(2 * backoff * 1000L, true);
                                 Log.i("### " + account.name + " backoff done");
@@ -1776,6 +1780,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 Log.w(account.name + " backoff " + ex.toString());
                             } finally {
                                 wlAccount.acquire();
+                                db.account().setAccountBackoff(account.id, null);
                             }
                         } finally {
                             am.cancel(pi);

@@ -142,6 +142,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public String warning;
     public String error;
     public Long last_connected;
+    public Long backoff_until;
     public Long max_size;
 
     boolean isGmail() {
@@ -367,6 +368,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     Objects.equals(this.warning, other.warning) &&
                     Objects.equals(this.error, other.error) &&
                     Objects.equals(this.last_connected, other.last_connected) &&
+                    Objects.equals(this.backoff_until, other.backoff_until) &&
                     Objects.equals(this.max_size, other.max_size));
         } else
             return false;
