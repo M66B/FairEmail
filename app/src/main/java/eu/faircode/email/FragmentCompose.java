@@ -2164,6 +2164,9 @@ public class FragmentCompose extends FragmentBase {
                     Log.w(ex);
                     Snackbar.make(view, getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
+                } catch (Throwable ex) {
+                    // / java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }
         } else {

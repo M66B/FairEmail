@@ -205,17 +205,27 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment == null || !attachment.available)
                 return false;
 
-            File file = attachment.getFile(context);
-            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+            try {
+                File file = attachment.getFile(context);
+                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
 
-            Intent send = new Intent();
-            send.setAction(Intent.ACTION_SEND);
-            send.putExtra(Intent.EXTRA_STREAM, uri);
-            send.setType(attachment.getMimeType());
-            send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(Intent.createChooser(send, context.getString(R.string.title_select_app)));
+                Intent send = new Intent();
+                send.setAction(Intent.ACTION_SEND);
+                send.putExtra(Intent.EXTRA_STREAM, uri);
+                send.setType(attachment.getMimeType());
+                send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                context.startActivity(Intent.createChooser(send, context.getString(R.string.title_select_app)));
 
-            return true;
+                return true;
+            } catch (Throwable ex) {
+                /*
+                    java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
+                      at androidx.core.content.FileProvider$SimplePathStrategy.getUriForFile(SourceFile:730)
+                      at androidx.core.content.FileProvider.getUriForFile(SourceFile:418)
+                 */
+                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                return false;
+            }
         }
 
         private void onDelete(final EntityAttachment attachment) {
