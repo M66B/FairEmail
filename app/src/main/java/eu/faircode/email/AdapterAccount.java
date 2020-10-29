@@ -95,6 +95,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private ImageView ivState;
         private TextView tvHost;
         private TextView tvLast;
+        private TextView tvUsage;
         private TextView tvQuota;
         private TextView tvMaxSize;
         private TextView tvIdentity;
@@ -121,6 +122,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
+            tvUsage = itemView.findViewById(R.id.tvUsage);
             tvQuota = itemView.findViewById(R.id.tvQuota);
             tvMaxSize = itemView.findViewById(R.id.tvMaxSize);
             tvIdentity = itemView.findViewById(R.id.tvIdentity);
@@ -195,6 +197,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                             "/" + account.keep_alive_ok +
                                             "/" + account.keep_alive_failed +
                                             "/" + account.keep_alive_succeeded : "")));
+            Integer percent = null;
+            if (!settings && account.quota_usage != null && account.quota_limit != null)
+                percent = Math.round((float) account.quota_usage * 100 / account.quota_limit);
+            tvUsage.setText(percent == null ? null : NF.format(percent) + "%");
+            tvUsage.setVisibility(percent == null ? View.GONE : View.VISIBLE);
             tvQuota.setText(context.getString(R.string.title_storage_quota,
                     (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
                     (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
