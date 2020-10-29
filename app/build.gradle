@@ -243,7 +243,7 @@ dependencies {
     def fragment_version = "1.3.0-beta01"
     def recyclerview_version = "1.2.0-alpha06"
     def coordinatorlayout_version = "1.1.0"
-    def constraintlayout_version = "2.0.2"
+    def constraintlayout_version = "2.0.3"
     def material_version = "1.3.0-alpha03"
     def browser_version = "1.3.0-alpha06"
     def lbm_version = "1.0.0"
