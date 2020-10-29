@@ -4,7 +4,6 @@
     <font
         app:font="@font/endor"
         app:fontStyle="normal"
-        app:fontWeight="400">
-        <!-- https://www.1001freefonts.com/endor.font -->
-    </font>
+        app:fontWeight="400" />
+    <!-- https://www.1001freefonts.com/endor.font -->
 </font-family>

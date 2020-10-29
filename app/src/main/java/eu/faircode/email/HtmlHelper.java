@@ -2032,7 +2032,7 @@ public class HtmlHelper {
                                     break;
                                 case "font-family":
                                     String face = value.toLowerCase(Locale.ROOT);
-                                    if (BuildConfig.DEBUG && "fantasy".equals(face)) {
+                                    if ("fairemail".equals(face)) {
                                         Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
                                         setSpan(ssb, new CustomTypefaceSpan(face, typeface), start, ssb.length());
                                     } else
