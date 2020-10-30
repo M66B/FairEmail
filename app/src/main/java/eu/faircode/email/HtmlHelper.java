@@ -1491,7 +1491,7 @@ public class HtmlHelper {
         List<String> hosts = new ArrayList<>();
         for (Element img : document.select("img")) {
             String src = img.attr("src");
-            if (!TextUtils.isEmpty(src) && !isTrackingPixel(img, disconnect_images)) {
+            if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
                 Uri uri = Uri.parse(img.attr("src"));
                 String host = uri.getHost();
                 if (host != null && !hosts.contains(host))
@@ -1525,7 +1525,8 @@ public class HtmlHelper {
                 continue;
             }
 
-            if (isTrackingPixel(img, disconnect_images)) {
+            if (isTrackingPixel(img) ||
+                    (disconnect_images && DisconnectBlacklist.isTracking(host))) {
                 img.attr("src", sb.toString());
                 img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                 img.attr("height", "24");
@@ -1536,19 +1537,14 @@ public class HtmlHelper {
         }
     }
 
-    private static boolean isTrackingPixel(Element img, boolean disconnect_images) {
+    private static boolean isTrackingPixel(Element img) {
         String src = img.attr("src");
         if (!TextUtils.isEmpty(src))
             try {
                 Uri uri = Uri.parse(src);
                 String host = uri.getHost();
-                if (!TextUtils.isEmpty(host)) {
-                    if (TRACKING_HOSTS.contains(host))
-                        return true;
-                    if (disconnect_images &&
-                            DisconnectBlacklist.isTracking(host))
-                        return true;
-                }
+                if (!TextUtils.isEmpty(host) && TRACKING_HOSTS.contains(host))
+                    return true;
             } catch (Throwable ex) {
                 Log.w(ex);
             }
