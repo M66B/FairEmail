@@ -1315,7 +1315,7 @@ class Core {
                         ifolder.open(Folder.READ_WRITE);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        state.error(new FolderClosedException(ifolder, "POP"));
+                        state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
                     }
                 }
             }
