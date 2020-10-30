@@ -168,16 +168,14 @@ public class FragmentContacts extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvMessage.setText(getText(R.string.title_delete_contacts));
             cbNotAgain.setVisibility(View.GONE);
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -195,7 +193,7 @@ public class FragmentContacts extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(context, getActivity(), new Bundle(), "contacts:delete");
+                            }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

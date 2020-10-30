@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,9 +50,7 @@ public class FragmentDialogLink extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Uri uri = getArguments().getParcelable("uri");
 
-        final Context context = getContext();
-
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_insert_link, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
         etLink = view.findViewById(R.id.etLink);
         final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
 
@@ -79,7 +76,7 @@ public class FragmentDialogLink extends FragmentDialogBase {
         else
             etLink.setText(savedInstanceState.getString("fair:link"));
 
-        return new AlertDialog.Builder(context)
+        return new AlertDialog.Builder(getContext())
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

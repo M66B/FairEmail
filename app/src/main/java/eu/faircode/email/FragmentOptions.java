@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -335,9 +334,7 @@ public class FragmentOptions extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             Group grp3 = dview.findViewById(R.id.grp3);
             Group grp4 = dview.findViewById(R.id.grp4);
@@ -345,18 +342,18 @@ public class FragmentOptions extends FragmentBase {
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                     prefs.edit().putBoolean("setup_reminder", !isChecked).apply();
                 }
             });
 
-            boolean hasPermissions = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-            Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
+            boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
 
             grp3.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
             grp4.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

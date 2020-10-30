@@ -481,13 +481,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-
-            View view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_name, null);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_edit_name, null);
             final EditText etName = view.findViewById(R.id.etName);
             etName.setText(getArguments().getString("name"));
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -515,7 +513,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(context, getActivity(), args, "edit:name");
+                            }.execute(getContext(), getActivity(), args, "edit:name");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

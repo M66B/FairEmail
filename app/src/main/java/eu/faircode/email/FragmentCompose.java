@@ -5371,16 +5371,14 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             int title = getArguments().getInt("title");
 
-            final Context context = getContext();
-
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean add_inline = prefs.getBoolean("add_inline", true);
             boolean resize_images = prefs.getBoolean("resize_images", true);
             int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
             boolean privacy_images = prefs.getBoolean("privacy_images", false);
             boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
-            final ViewGroup dview = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_add_image, null);
+            final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_image, null);
             final RadioGroup rgAction = dview.findViewById(R.id.rgAction);
             final CheckBox cbResize = dview.findViewById(R.id.cbResize);
             final Spinner spResize = dview.findViewById(R.id.spResize);
@@ -5448,7 +5446,7 @@ public class FragmentCompose extends FragmentBase {
             cbNotAgain.setChecked(!image_dialog);
             tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(title,
@@ -5481,9 +5479,7 @@ public class FragmentCompose extends FragmentBase {
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
 
-            final Context context = getContext();
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean send_reminders = prefs.getBoolean("send_reminders", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
             boolean send_dialog = prefs.getBoolean("send_dialog", true);
@@ -5492,7 +5488,7 @@ public class FragmentCompose extends FragmentBase {
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
-            final ViewGroup dview = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_send, null);
+            final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
@@ -5696,7 +5692,7 @@ public class FragmentCompose extends FragmentBase {
             ibEncryption.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(context, 12);
+                    Helper.viewFAQ(getContext(), 12);
                 }
             });
 
@@ -5755,7 +5751,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            DB db = DB.getInstance(context);
+            DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
                 @Override
                 public void onChanged(TupleMessageEx draft) {
@@ -5771,7 +5767,7 @@ public class FragmentCompose extends FragmentBase {
                     else
                         tvTo.setText(getString(R.string.title_name_plus,
                                 MessageHelper.formatAddressesShort(draft.to), cc));
-                    tvTo.setTextColor(Helper.resolveColor(context,
+                    tvTo.setTextColor(Helper.resolveColor(getContext(),
                             to + cc > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
 
@@ -5804,7 +5800,7 @@ public class FragmentCompose extends FragmentBase {
                                     break;
                                 }
                     } else {
-                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                        DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                         DateFormat D = new SimpleDateFormat("E");
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
@@ -5813,7 +5809,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context)
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null);
 

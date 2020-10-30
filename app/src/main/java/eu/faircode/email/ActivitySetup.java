@@ -1254,9 +1254,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final boolean export = getArguments().getBoolean("export");
 
-            final Context context = getContext();
-
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_password, null);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
             TextView tvImportHint = dview.findViewById(R.id.tvImportHint);
@@ -1269,7 +1267,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
             tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1278,16 +1276,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             String password2 = etPassword2.getEditText().getText().toString();
 
                             if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
-                                ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(getContext(), R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
                                 if (!export || password1.equals(password2)) {
                                     ((ActivitySetup) getActivity()).password = password1;
                                     getActivity().startActivityForResult(
-                                            Helper.getChooser(context,
+                                            Helper.getChooser(getContext(),
                                                     export ? getIntentExport() : getIntentImport()),
                                             export ? REQUEST_EXPORT : REQUEST_IMPORT);
                                 } else
-                                    ToastEx.makeText(context, R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(getContext(), R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
                             }
                         }
                     })

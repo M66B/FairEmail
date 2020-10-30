@@ -793,9 +793,7 @@ public class FragmentFolders extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-
-            View view = LayoutInflater.from(context).inflate(R.layout.dialog_folder_all, null);
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_all, null);
             final EditText etSyncDays = view.findViewById(R.id.etSyncDays);
             final EditText etKeepDays = view.findViewById(R.id.etKeepDays);
             final CheckBox cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -807,7 +805,7 @@ public class FragmentFolders extends FragmentBase {
                 }
             });
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

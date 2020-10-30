@@ -1263,12 +1263,10 @@ public class FragmentRule extends FragmentBase {
             cal.set(Calendar.SECOND, 0);
             cal.set(Calendar.MILLISECOND, 0);
 
-            final Context context = getContext();
-
-            return new TimePickerDialog(context, this,
+            return new TimePickerDialog(getContext(), this,
                     cal.get(Calendar.HOUR_OF_DAY),
                     cal.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(context));
+                    DateFormat.is24HourFormat(getContext()));
         }
 
         public void onTimeSet(TimePicker view, int hour, int minute) {
@@ -1285,19 +1283,17 @@ public class FragmentRule extends FragmentBase {
             String condition = getArguments().getString("condition");
             String action = getArguments().getString("action");
 
-            final Context context = getContext();
-
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_rule_match, null);
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
             final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
             final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
             final Button btnExecute = dview.findViewById(R.id.btnExecute);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             rvMessage.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(context);
+            LinearLayoutManager llm = new LinearLayoutManager(getContext());
             rvMessage.setLayoutManager(llm);
 
-            final AdapterRuleMatch adapter = new AdapterRuleMatch(context, getViewLifecycleOwner());
+            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getViewLifecycleOwner());
             rvMessage.setAdapter(adapter);
 
             tvNoMessages.setVisibility(View.GONE);
@@ -1315,7 +1311,7 @@ public class FragmentRule extends FragmentBase {
                     new SimpleTask<Integer>() {
                         @Override
                         protected void onPreExecute(Bundle args) {
-                            ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
                         }
 
                         @Override
@@ -1353,16 +1349,16 @@ public class FragmentRule extends FragmentBase {
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
                             if (applied > 0)
-                                ServiceSynchronize.eval(context, "rules/manual");
+                                ServiceSynchronize.eval(getContext(), "rules/manual");
 
                             dismiss();
-                            ToastEx.makeText(context, getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
                             if (ex instanceof IllegalArgumentException)
-                                ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                             else
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                         }
@@ -1429,7 +1425,7 @@ public class FragmentRule extends FragmentBase {
                 }
             }.execute(this, args, "rule:check");
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_rule_matched)
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)

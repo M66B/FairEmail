@@ -634,6 +634,10 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question) {
+        if (context == null) {
+            Log.e(new Throwable("FAQ"));
+            return;
+        }
         if (question == 0)
             view(context, Uri.parse(FAQ_URI), false);
         else

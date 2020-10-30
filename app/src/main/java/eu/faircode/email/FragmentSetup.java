@@ -460,9 +460,7 @@ public class FragmentSetup extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setMessage(R.string.title_setup_doze_instructions)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

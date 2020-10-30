@@ -1,7 +1,6 @@
 package eu.faircode.email;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,9 +23,7 @@ public class FragmentReview extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final Context context = getContext();
-
-        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review_account, null);
+        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review_account, null);
         TextView tvLeft = dview.findViewById(R.id.tvLeft);
         TextView tvRight = dview.findViewById(R.id.tvRight);
         Button btnAccount = dview.findViewById(R.id.btnAccount);
@@ -40,7 +37,7 @@ public class FragmentReview extends FragmentDialogBase {
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(
                         new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                 .putExtra("id", account)
@@ -49,7 +46,7 @@ public class FragmentReview extends FragmentDialogBase {
             }
         });
 
-        DB db = DB.getInstance(context);
+        DB db = DB.getInstance(getContext());
         db.account().liveAccountSwipes(account).observe(this, new Observer<List<TupleAccountSwipes>>() {
             @Override
             public void onChanged(List<TupleAccountSwipes> swipes) {
@@ -65,7 +62,7 @@ public class FragmentReview extends FragmentDialogBase {
             }
         });
 
-        return new AlertDialog.Builder(context)
+        return new AlertDialog.Builder(getContext())
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
