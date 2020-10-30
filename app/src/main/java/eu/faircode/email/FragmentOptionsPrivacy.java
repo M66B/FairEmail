@@ -187,10 +187,11 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                         try {
                             boolean pro = ActivityBilling.isPro(getContext());
                             if (pro) {
-                                prefs.edit().putBoolean("biometrics", !biometrics).apply();
-                                btnBiometrics.setText(!biometrics
-                                        ? R.string.title_setup_biometrics_disable
-                                        : R.string.title_setup_biometrics_enable);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                if (!biometrics)
+                                    editor.remove("pin");
+                                editor.putBoolean("biometrics", !biometrics);
+                                editor.apply();
                             } else
                                 startActivity(new Intent(getContext(), ActivityBilling.class));
                         } catch (Throwable ex) {
@@ -357,6 +358,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", true));
 
+        String pin = prefs.getString("pin", null);
+        btnPin.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0, TextUtils.isEmpty(pin) ? 0 : R.drawable.twotone_check_12, 0);
+
         boolean biometrics = prefs.getBoolean("biometrics", false);
         btnBiometrics.setText(biometrics
                 ? R.string.title_setup_biometrics_disable
@@ -405,7 +410,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                                 boolean pro = ActivityBilling.isPro(getContext());
                                 if (pro) {
                                     Helper.setAuthenticated(getContext());
-                                    prefs.edit().putString("pin", pin).apply();
+                                    prefs.edit()
+                                            .remove("biometrics")
+                                            .putString("pin", pin)
+                                            .apply();
                                 } else
                                     startActivity(new Intent(getContext(), ActivityBilling.class));
                             }
