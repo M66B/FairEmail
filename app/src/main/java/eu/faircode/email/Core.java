@@ -4168,6 +4168,7 @@ class Core {
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;
+        private Throwable unrecoverable = null;
         private Long lastActivity = null;
 
         private boolean process = false;
@@ -4244,6 +4245,9 @@ class Core {
             if (ex instanceof OperationCanceledException)
                 recoverable = false;
 
+            if (!recoverable)
+                unrecoverable = ex;
+
             if (!backingoff) {
                 thread.interrupt();
                 yield();
@@ -4295,6 +4299,10 @@ class Core {
 
         boolean isRecoverable() {
             return recoverable;
+        }
+
+        Throwable getUnrecoverable() {
+            return unrecoverable;
         }
 
         void join(Thread thread) {
