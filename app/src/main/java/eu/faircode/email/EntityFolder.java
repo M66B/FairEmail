@@ -206,7 +206,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     static final int DEFAULT_KEEP = 30; // days
     static final int DEFAULT_KEEP_DRAFTS = 180; // days
 
-    static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
+    private static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
             INBOX,
             DRAFTS,
             SENT,
@@ -214,7 +214,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             TRASH,
             JUNK
     ));
-    static final List<Boolean> SYSTEM_FOLDER_POLL = Collections.unmodifiableList(Arrays.asList(
+    private static final List<Boolean> SYSTEM_FOLDER_POLL = Collections.unmodifiableList(Arrays.asList(
             false, // inbox
             false, // drafts
             false, // sent
@@ -222,7 +222,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             true, // trash
             true // junk
     )); // MUST match SYSTEM_FOLDER_SYNC
-    static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Collections.unmodifiableList(Arrays.asList(
+    private static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Collections.unmodifiableList(Arrays.asList(
             true, // inbox
             true, // drafts
             false, // sent

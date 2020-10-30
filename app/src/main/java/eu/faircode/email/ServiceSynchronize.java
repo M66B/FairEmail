@@ -117,6 +117,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final long AUTOFIX_TOO_MANY_FOLDERS = 3600 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -1617,19 +1618,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
-                    boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                    if (auto_optimize && ConnectionHelper.isMaxConnections(ex)) {
-                        for (int i = 0; i < EntityFolder.SYSTEM_FOLDER_SYNC.size(); i++)
-                            if (EntityFolder.SYSTEM_FOLDER_POLL.get(i)) {
-                                String ft = EntityFolder.SYSTEM_FOLDER_SYNC.get(i);
-                                EntityFolder f = db.folder().getFolderByType(account.id, ft);
-                                if (f != null && f.synchronize) {
-                                    EntityLog.log(ServiceSynchronize.this, account.name + "/" + f.name + "=poll");
-                                    db.folder().setFolderPoll(f.id, true);
-                                }
-                            }
-                    }
-
                     // Report account connection error
                     if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
                         EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
@@ -1744,6 +1732,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(msg);
                                         EntityLog.log(this, msg);
                                         state.setBackoff(backoff * 60);
+                                    }
+                                }
+
+                                // Autofix too many simultaneous connections
+                                if (ConnectionHelper.isMaxConnections(last_fail)) {
+                                    boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+                                    if (auto_optimize ||
+                                            account.last_connected == null ||
+                                            now - account.last_connected > AUTOFIX_TOO_MANY_FOLDERS) {
+                                        int user = 0;
+                                        int system = 0;
+                                        List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
+                                        if (folders != null) {
+                                            for (EntityFolder folder : folders)
+                                                if (folder.synchronize && !folder.poll && EntityFolder.USER.equals(folder.type)) {
+                                                    user++;
+                                                    db.folder().setFolderPoll(folder.id, true);
+                                                }
+                                            if (user == 0)
+                                                for (EntityFolder folder : folders)
+                                                    if (folder.synchronize && !folder.poll && !EntityFolder.INBOX.equals(folder.type)) {
+                                                        system++;
+                                                        db.folder().setFolderPoll(folder.id, true);
+                                                    }
+                                        }
+
+                                        if (user > 0 || system > 0) {
+                                            Log.e("Autofix user=" + user + " system=" + system + " host=" + account.host);
+                                            EntityLog.log(this, account.name + " set poll user=" + user + " system=" + system);
+                                        }
                                     }
                                 }
                             }
