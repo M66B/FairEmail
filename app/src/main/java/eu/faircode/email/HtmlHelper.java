@@ -107,6 +107,7 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -320,6 +321,10 @@ public class HtmlHelper {
             0x21E8, 0x21E7, 0x21E9, 0x2B04, 0x21F3, 0x2B00, 0x2B01, 0x2B03,
             0x2B02, 0x1F8AC, 0x1F8AD, 0x1F5F6, 0x2714, 0x1F5F7, 0x1F5F9, 0x0077
     };
+
+    private static final List<String> TRACKING_HOSTS = Collections.unmodifiableList(Arrays.asList(
+            "www.google-analytics.com"
+    ));
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
@@ -1533,6 +1538,17 @@ public class HtmlHelper {
     }
 
     private static boolean isTrackingPixel(Element img) {
+        String src = img.attr("src");
+        if (!TextUtils.isEmpty(src))
+            try {
+                Uri uri = Uri.parse(src);
+                String host = uri.getHost();
+                if (!TextUtils.isEmpty(host) && TRACKING_HOSTS.contains(host))
+                    return true;
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
         String width = img.attr("width").trim();
         String height = img.attr("height").trim();
 
