@@ -1717,9 +1717,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     long missing = (fail_threshold - avg_fail) * fast_fails;
                                     int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
                                     if (compensate > 0) {
+                                        if (account.last_connected != null &&
+                                                now - account.last_connected < 60 * 1000L)
+                                            compensate = 1;
+
                                         int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
                                         if (backoff > CONNECT_BACKOFF_ALARM_MAX)
                                             backoff = CONNECT_BACKOFF_ALARM_MAX;
+
                                         String msg = "Fast" +
                                                 " fails=" + fast_fails +
                                                 " first=" + ((now - first_fail) / 1000L) +
@@ -1731,6 +1736,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " ex=" + Log.formatThrowable(last_fail, false);
                                         Log.e(msg);
                                         EntityLog.log(this, msg);
+
                                         state.setBackoff(backoff * 60);
                                     }
                                 }
