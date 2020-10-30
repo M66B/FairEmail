@@ -7647,7 +7647,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(getContext());
+                    DB db = DB.getInstance(context);
                     return db.identity().getComposableIdentities(null);
                 }
 
