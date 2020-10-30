@@ -243,6 +243,15 @@ public class EntityMessage implements Serializable {
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));
 
+        // Filter from
+        if (from != null)
+            for (Address address : new ArrayList<>(addresses))
+                for (Address f : from)
+                    if (MessageHelper.equalEmail(address, f)) {
+                        addresses.remove(address);
+                        break;
+                    }
+
         // Filter self
         if (identities != null)
             for (Address address : new ArrayList<>(addresses))
