@@ -130,7 +130,9 @@ public class FragmentOperations extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
+            final Context context = getContext();
+
+            return new AlertDialog.Builder(context)
                     .setMessage(R.string.title_delete_operation)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -154,7 +156,7 @@ public class FragmentOperations extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getActivity(), new Bundle(), "operations:delete");
+                            }.execute(context, getActivity(), new Bundle(), "operations:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

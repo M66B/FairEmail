@@ -1418,7 +1418,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
+            final Context context = getContext();
+
+            LayoutInflater inflater = LayoutInflater.from(context);
             View dview = inflater.inflate(R.layout.dialog_first, null);
             Button btnBatteryInfo = dview.findViewById(R.id.btnBatteryInfo);
             Button btnReformatInfo = dview.findViewById(R.id.btnReformatInfo);
@@ -1426,23 +1428,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             btnBatteryInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 39);
+                    Helper.viewFAQ(context, 39);
                 }
             });
 
             btnReformatInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 35);
+                    Helper.viewFAQ(context, 35);
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("first", false).apply();
                         }
                     })
@@ -1455,18 +1457,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
+            final Context context = getContext();
+
+            return new AlertDialog.Builder(context)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.viewFAQ(getContext(), 0);
+                            Helper.viewFAQ(context, 0);
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), Helper.getIntentRate(getContext()));
+                            Helper.view(context, Helper.getIntentRate(context));
                         }
                     })
                     .create();

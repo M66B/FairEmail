@@ -430,7 +430,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             Bundle args = getArguments();
             boolean start = args.getBoolean("start");
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final Context context = getContext();
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int minutes = prefs.getInt("schedule_" + (start ? "start" : "end"), 0);
 
             Calendar cal = Calendar.getInstance();
@@ -439,10 +441,10 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             cal.set(Calendar.SECOND, 0);
             cal.set(Calendar.MILLISECOND, 0);
 
-            return new TimePickerDialog(getContext(), this,
+            return new TimePickerDialog(context, this,
                     cal.get(Calendar.HOUR_OF_DAY),
                     cal.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(getContext()));
+                    DateFormat.is24HourFormat(context));
         }
 
         public void onTimeSet(TimePicker view, int hour, int minute) {

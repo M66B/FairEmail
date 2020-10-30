@@ -465,20 +465,22 @@ public class FragmentAnswer extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+
             Spanned spanned = HtmlHelper.fromHtml("<p>" +
                     getString(R.string.title_answer_template_name) +
                     "<br>" +
                     getString(R.string.title_answer_template_email) +
-                    "</p>", false, getContext());
+                    "</p>", false, context);
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
             TextView tvMessage = dview.findViewById(R.id.tvMessage);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvMessage.setText(spanned);
             cbNotAgain.setVisibility(View.GONE);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();

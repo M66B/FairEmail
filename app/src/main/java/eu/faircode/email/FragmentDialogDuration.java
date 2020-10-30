@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -57,7 +58,9 @@ public class FragmentDialogDuration extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         String title = getArguments().getString("title");
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
+        final Context context = getContext();
+
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_duration, null);
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final Button btn1hour = dview.findViewById(R.id.btn1hour);
         final Button btn1day = dview.findViewById(R.id.btn1day);
@@ -71,10 +74,10 @@ public class FragmentDialogDuration extends FragmentDialogBase {
             cal.setTimeInMillis(savedInstanceState.getLong("fair:time"));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
-        final DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
+        final DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
         tvDuration.setText(DTF.format(cal.getTime()));
 
-        timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(getContext()));
+        timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(context));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
             timePicker.setCurrentMinute(cal.get(Calendar.MINUTE));
@@ -83,7 +86,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
             timePicker.setMinute(cal.get(Calendar.MINUTE));
         }
 
-        Dialog dialog = new AlertDialog.Builder(getContext())
+        Dialog dialog = new AlertDialog.Builder(context)
                 .setTitle(title)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -174,8 +177,9 @@ public class FragmentDialogDuration extends FragmentDialogBase {
     @Override
     protected void sendResult(int result) {
         if (result == RESULT_OK) {
-            if (!ActivityBilling.isPro(getContext())) {
-                startActivity(new Intent(getContext(), ActivityBilling.class));
+            final Context context = getContext();
+            if (!ActivityBilling.isPro(context)) {
+                startActivity(new Intent(context, ActivityBilling.class));
                 result = RESULT_CANCELED;
             }
         }

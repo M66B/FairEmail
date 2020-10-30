@@ -77,7 +77,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 }
             });
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

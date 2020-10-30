@@ -40,13 +40,15 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_markdown, null);
+        final Context context = getContext();
+
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_markdown, null);
         final TextView tvMarkdown = dview.findViewById(R.id.tvMarkdown);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
         tvMarkdown.setText(null);
 
-        Dialog dialog = new Dialog(getContext());
+        Dialog dialog = new Dialog(context);
         //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(dview);
         dialog.getWindow().setLayout(

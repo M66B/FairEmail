@@ -44,9 +44,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final long account = getArguments().getLong("account", -1);
         final long folder = getArguments().getLong("folder", -1);
 
-        boolean pro = ActivityBilling.isPro(getContext());
+        final Context context = getContext();
+        boolean pro = ActivityBilling.isPro(context);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
         boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
         boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
@@ -55,7 +56,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean last_search_message = prefs.getBoolean("last_search_message", true);
         String last_search = prefs.getString("last_search", null);
 
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
         final ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
@@ -83,18 +84,18 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final TextView tvAfter = dview.findViewById(R.id.tvAfter);
         final Group grpMore = dview.findViewById(R.id.grpMore);
 
-        final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
-                Helper.viewFAQ(getContext(), 13);
+                Helper.viewFAQ(context, 13);
             }
         });
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                getContext(),
+                context,
                 R.layout.search_suggestion,
                 null,
                 new String[]{"suggestion"},
@@ -110,7 +111,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     return cursor;
 
                 String query = "%" + typed + "%";
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
                 return db.message().getSuggestions(
                         account < 0 ? null : account,
                         folder < 0 ? null : folder,
@@ -250,7 +251,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         etQuery.requestFocus();
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
-        final AlertDialog dialog = new AlertDialog.Builder(getContext())
+        final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
@@ -322,7 +323,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                 @Override
                                 protected void onExecuted(Bundle args, EntityFolder archive) {
                                     FragmentMessages.search(
-                                            getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                            context, getViewLifecycleOwner(), getParentFragmentManager(),
                                             account,
                                             archive == null ? folder : archive.id,
                                             archive != null,
@@ -333,10 +334,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getViewLifecycleOwner(), getArguments(), "search:raw");
+                            }.execute(context, getViewLifecycleOwner(), getArguments(), "search:raw");
                         else
                             FragmentMessages.search(
-                                    getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                    context, getViewLifecycleOwner(), getParentFragmentManager(),
                                     account, folder, false, criteria);
                     }
                 })
@@ -371,7 +372,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 }
 
                 FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                        context, getViewLifecycleOwner(), getParentFragmentManager(),
                         account, folder, false, criteria);
             }
         };
@@ -404,7 +405,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         Object tag = tv.getTag();
         final Calendar cal = (tag == null ? Calendar.getInstance() : (Calendar) tag);
 
-        DatePickerDialog picker = new DatePickerDialog(getContext(),
+        final Context context = getContext();
+
+        DatePickerDialog picker = new DatePickerDialog(context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -412,7 +415,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         cal.set(Calendar.MONTH, month);
                         cal.set(Calendar.DAY_OF_MONTH, day);
 
-                        DateFormat DF = Helper.getDateInstance(getContext());
+                        DateFormat DF = Helper.getDateInstance(context);
 
                         tv.setTag(cal);
                         tv.setText(DF.format(cal.getTime()));

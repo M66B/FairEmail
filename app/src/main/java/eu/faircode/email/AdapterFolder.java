@@ -1169,14 +1169,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             String name = getArguments().getString("name");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
+            final Context context = getContext();
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_sync, null);
             final TextView tvFolder = view.findViewById(R.id.tvFolder);
             final EditText etMonths = view.findViewById(R.id.etMonths);
 
             tvFolder.setText(name);
             etMonths.setText(null);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

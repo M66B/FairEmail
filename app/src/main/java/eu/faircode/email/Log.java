@@ -1190,7 +1190,9 @@ public class Log {
             final Throwable ex = (Throwable) getArguments().getSerializable("ex");
             boolean report = getArguments().getBoolean("report", true);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+            final Context context = getContext();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(R.string.title_unexpected_error)
                     .setMessage(Log.formatThrowable(ex, false))
                     .setPositiveButton(android.R.string.cancel, null);
@@ -1199,9 +1201,6 @@ public class Log {
                 builder.setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Dialog will be dismissed
-                        final Context context = getContext();
-
                         new SimpleTask<Long>() {
                             @Override
                             protected Long onExecute(Context context, Bundle args) throws Throwable {
@@ -1222,7 +1221,7 @@ public class Log {
                                 else
                                     ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                             }
-                        }.execute(getContext(), getActivity(), new Bundle(), "error:unexpected");
+                        }.execute(context, getActivity(), new Bundle(), "error:unexpected");
                     }
                 });
 

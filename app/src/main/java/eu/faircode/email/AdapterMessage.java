@@ -5927,8 +5927,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 _title = null;
             final String title = _title;
 
+            final Context context = getContext();
+
             // Preload web view
-            Helper.customTabsWarmup(getContext());
+            Helper.customTabsWarmup(context);
 
             // Process link
             final Uri sanitized;
@@ -5947,7 +5949,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 uriTitle = null;
 
             // Get views
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
             final TextView tvTitle = dview.findViewById(R.id.tvTitle);
             final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
             final EditText etLink = dview.findViewById(R.id.etLink);
@@ -5966,7 +5968,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             ibDifferent.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -5998,7 +6000,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     cbSecure.setText(
                             secure ? R.string.title_link_https : R.string.title_link_http);
-                    cbSecure.setTextColor(Helper.resolveColor(getContext(),
+                    cbSecure.setTextColor(Helper.resolveColor(context,
                             secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
                     cbSecure.setTypeface(
                             secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
@@ -6035,12 +6037,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onClick(View v) {
                     ClipboardManager clipboard =
-                            (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                            (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                     if (clipboard != null) {
                         ClipData clip = ClipData.newPlainText(title, etLink.getText().toString());
                         clipboard.setPrimaryClip(clip);
 
-                        ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -6074,7 +6076,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
-            cbNotAgain.setText(getContext().getString(R.string.title_no_ask_for_again, uri.getHost()));
+            cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
             cbNotAgain.setVisibility(
                     "https".equals(uri.getScheme()) && !TextUtils.isEmpty(uri.getHost())
                             ? View.VISIBLE : View.GONE);
@@ -6145,8 +6147,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvDisconnectCategories.setText(TextUtils.join(", ", categories));
             tvDisconnect.setVisibility(categories == null ? View.GONE : View.VISIBLE);
             tvDisconnectCategories.setVisibility(categories == null ? View.GONE : View.VISIBLE);
-
-            final Context context = getContext();
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
@@ -6265,7 +6265,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final String type = args.getString("type");
             final String from = args.getString("from");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
+            final Context context = getContext();
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
             final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
@@ -6277,11 +6279,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Helper.viewFAQ(getContext(), 92);
+                    Helper.viewFAQ(context, 92);
                 }
             });
 
-            cbBlockSender.setEnabled(ActivityBilling.isPro(getContext()));
+            cbBlockSender.setEnabled(ActivityBilling.isPro(context));
             cbBlockDomain.setEnabled(false);
 
             cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -6294,7 +6296,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnEditRules.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", account)
@@ -6305,7 +6307,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -6326,22 +6328,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
 
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_manage, null);
+            final Context context = getContext();
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_manage, null);
             final RecyclerView rvKeyword = dview.findViewById(R.id.rvKeyword);
             final TextView tvPro = dview.findViewById(R.id.tvPro);
             final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             rvKeyword.setHasFixedSize(false);
-            final LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            final LinearLayoutManager llm = new LinearLayoutManager(context);
             rvKeyword.setLayoutManager(llm);
 
-            final AdapterKeyword adapter = new AdapterKeyword(getContext(), getViewLifecycleOwner());
+            final AdapterKeyword adapter = new AdapterKeyword(context, getViewLifecycleOwner());
             rvKeyword.setAdapter(adapter);
 
             Helper.linkPro(tvPro);
 
-            fabAdd.setEnabled(ActivityBilling.isPro(getContext()));
+            fabAdd.setEnabled(ActivityBilling.isPro(context));
             fabAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -6356,16 +6360,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbWait.setVisibility(View.VISIBLE);
 
-            DB db = DB.getInstance(getContext());
+            DB db = DB.getInstance(context);
             db.message().liveMessageKeywords(id).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
                 @Override
                 public void onChanged(TupleKeyword.Persisted data) {
                     pbWait.setVisibility(View.GONE);
-                    adapter.set(id, TupleKeyword.from(getContext(), data));
+                    adapter.set(id, TupleKeyword.from(context, data));
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setTitle(R.string.title_manage_keywords)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, null)
@@ -6379,11 +6383,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_add, null);
+            final Context context = getContext();
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_add, null);
             final EditText etKeyword = view.findViewById(R.id.etKeyword);
             etKeyword.setText(null);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -6424,7 +6430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     protected void onException(Bundle args, Throwable ex) {
                                         Log.unexpectedError(getParentFragmentManager(), ex);
                                     }
-                                }.execute(getContext(), getActivity(), args, "keyword:add");
+                                }.execute(context, getActivity(), args, "keyword:add");
                             }
                         }
                     })
@@ -6453,7 +6459,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (l.contains(folders[i]))
                     checked[i] = true;
 
-            return new AlertDialog.Builder(getContext())
+            final Context context = getContext();
+
+            return new AlertDialog.Builder(context)
                     .setTitle(R.string.title_manage_labels)
                     .setMultiChoiceItems(folders, checked, new DialogInterface.OnMultiChoiceClickListener() {
                         @Override

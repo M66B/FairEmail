@@ -388,12 +388,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pin_set, null);
+            final Context context = getContext();
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_pin_set, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -402,12 +404,12 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                             if (TextUtils.isEmpty(pin))
                                 prefs.edit().remove("pin").apply();
                             else {
-                                boolean pro = ActivityBilling.isPro(getContext());
+                                boolean pro = ActivityBilling.isPro(context);
                                 if (pro) {
-                                    Helper.setAuthenticated(getContext());
+                                    Helper.setAuthenticated(context);
                                     prefs.edit().putString("pin", pin).apply();
                                 } else
-                                    startActivity(new Intent(getContext(), ActivityBilling.class));
+                                    startActivity(new Intent(context, ActivityBilling.class));
                             }
                         }
                     })

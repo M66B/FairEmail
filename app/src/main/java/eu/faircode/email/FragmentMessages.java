@@ -7498,22 +7498,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_error_reporting, null);
             Button btnInfo = dview.findViewById(R.id.btnInfo);
 
             btnInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 104);
+                    Helper.viewFAQ(context, 104);
                 }
             });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("crash_reports", true).apply();
                             Log.setCrashReporting(true);
                         }
@@ -7521,7 +7523,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("crash_reports_asked", true).apply();
                         }
                     })
@@ -7533,29 +7535,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review, null);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("review_asked", true).apply();
-                            startActivity(Helper.getIntentRate(getContext()));
+                            startActivity(Helper.getIntentRate(context));
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putBoolean("review_asked", true).apply();
                         }
                     })
                     .setNeutralButton(R.string.title_later, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             prefs.edit().putLong("review_later", new Date().getTime()).apply();
                         }
                     })
@@ -7567,7 +7570,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
+            final Context context = getContext();
+            final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1);
 
             // TODO: spinner
             new SimpleTask<List<EntityAccount>>() {
@@ -7588,7 +7592,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
             }.execute(this, new Bundle(), "messages:accounts");
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -7606,7 +7610,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_identity, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_identity, null);
             final Spinner spIdentity = dview.findViewById(R.id.spIdentity);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final Button btnFix = dview.findViewById(R.id.btnFix);
@@ -7617,7 +7623,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     prefs.edit().putBoolean("identities_asked", isChecked).apply();
                 }
             });
@@ -7625,7 +7631,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             btnFix.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getContext(), ActivitySetup.class));
+                    startActivity(new Intent(context, ActivitySetup.class));
                     getActivity().finish();
                     dismiss();
                 }
@@ -7647,13 +7653,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(getContext());
+                    DB db = DB.getInstance(context);
                     return db.identity().getComposableIdentities(null);
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
-                    AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
+                    AdapterIdentitySelect iadapter = new AdapterIdentitySelect(context, identities);
                     spIdentity.setAdapter(iadapter);
 
                     Integer fallback = null;
@@ -7683,14 +7689,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
             }.execute(this, new Bundle(), "identity:select");
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getSelectedItem();
                             if (identity != null)
-                                startActivity(new Intent(getContext(), ActivityCompose.class)
+                                startActivity(new Intent(context, ActivityCompose.class)
                                         .putExtra("action", "new")
                                         .putExtra("account", identity.account)
                                         .putExtra("identity", identity.id)
@@ -7708,12 +7714,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             String error = getArguments().getString("error");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_boundary_error, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_boundary_error, null);
             TextView tvError = dview.findViewById(R.id.tvError);
 
             tvError.setText(error);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(R.string.title_boundary_retry, new DialogInterface.OnClickListener() {
                         @Override
@@ -7738,7 +7746,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             String notagain = getArguments().getString("notagain");
             ArrayList<MessageTarget> result = getArguments().getParcelableArrayList("result");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_move, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_move, null);
             TextView tvMessages = dview.findViewById(R.id.tvMessages);
             TextView tvSourceFolders = dview.findViewById(R.id.tvSourceFolders);
             TextView tvTargetFolders = dview.findViewById(R.id.tvTargetFolders);
@@ -7782,12 +7792,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         prefs.edit().putBoolean(notagain, isChecked).apply();
                     }
                 });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

@@ -1038,7 +1038,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null);
             itten = dview.findViewById(R.id.itten);
             rgTheme = dview.findViewById(R.id.rgTheme);
             swReverse = dview.findViewById(R.id.swReverse);
@@ -1046,14 +1048,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swBlack = dview.findViewById(R.id.swBlack);
             tvSystem = dview.findViewById(R.id.tvSystem);
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String theme = prefs.getString("theme", "light");
 
             itten.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Uri uri = Uri.parse("https://en.wikipedia.org/wiki/Johannes_Itten");
-                    Helper.view(getContext(), uri, false);
+                    Helper.view(context, uri, false);
                 }
             });
 
@@ -1158,14 +1160,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                     break;
             }
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             getActivity().getIntent().putExtra("tab", "display");
 
-                            ContactInfo.clearCache(getContext());
+                            ContactInfo.clearCache(context);
 
                             int optionId = rgThemeOptions.getCheckedRadioButtonId();
                             boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());

@@ -491,17 +491,19 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_swipes, null);
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_swipes, null);
             spLeft = dview.findViewById(R.id.spLeft);
             spRight = dview.findViewById(R.id.spRight);
 
-            adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+            adapter = new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
             adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
             spLeft.setAdapter(adapter);
             spRight.setAdapter(adapter);
 
-            List<EntityFolder> folders = FragmentAccount.getFolderActions(getContext());
+            List<EntityFolder> folders = FragmentAccount.getFolderActions(context);
 
             EntityFolder trash = new EntityFolder();
             trash.id = 2L;
@@ -515,14 +517,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
             adapter.addAll(folders);
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
             int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
 
             spLeft.setSelection(leftPos);
             spRight.setSelection(rightPos);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -534,8 +536,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
                             EntityFolder left = (EntityFolder) spLeft.getSelectedItem();
                             EntityFolder right = (EntityFolder) spRight.getSelectedItem();
-
-                            final Context context = getContext();
 
                             Bundle args = new Bundle();
                             args.putLong("left", left == null ? 0 : left.id);
@@ -589,7 +589,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
                                         return (archive == null ? null : archive.id);
                                     }
                                 }
-                            }.execute(getContext(), getViewLifecycleOwner(), args, "dialog:swipe");
+                            }.execute(context, getViewLifecycleOwner(), args, "dialog:swipe");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
