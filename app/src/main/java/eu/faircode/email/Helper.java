@@ -570,6 +570,11 @@ public class Helper {
     }
 
     static void view(Context context, Uri uri, boolean browse, boolean task) {
+        if (context == null) {
+            Log.e(new Throwable("view"));
+            return;
+        }
+
         boolean has = hasCustomTabs(context, uri);
         Log.i("View=" + uri + " browse=" + browse + " task=" + task + " has=" + has);
 
@@ -634,10 +639,6 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question) {
-        if (context == null) {
-            Log.e(new Throwable("FAQ"));
-            return;
-        }
         if (question == 0)
             view(context, Uri.parse(FAQ_URI), false);
         else
