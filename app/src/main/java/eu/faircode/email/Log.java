@@ -1005,6 +1005,9 @@ public class Log {
     }
 
     static String formatThrowable(Throwable ex, String separator, boolean sanitize) {
+        if (ex == null)
+            return null;
+
         if (sanitize) {
             if (ex instanceof MessageRemovedException)
                 return null;
