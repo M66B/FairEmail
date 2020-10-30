@@ -379,44 +379,54 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Map<String, String> crumb = new HashMap<>();
-                        crumb.put("account", accountNetworkState.accountState.id.toString());
-                        crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
-                        crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
-                        crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
-                        crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
-                        crumb.put("lastLost", new Date(lastLost).toString());
-                        Log.breadcrumb("start", crumb);
+                        try {
+                            Map<String, String> crumb = new HashMap<>();
+                            crumb.put("account", accountNetworkState.accountState.id.toString());
+                            crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
+                            crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
+                            crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
+                            crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
+                            crumb.put("lastLost", new Date(lastLost).toString());
+                            Log.breadcrumb("start", crumb);
 
-                        Log.i("### start=" + accountNetworkState + " sync=" + sync);
-                        astate.start();
-                        EntityLog.log(ServiceSynchronize.this, "### started=" + accountNetworkState);
+                            Log.i("### start=" + accountNetworkState + " sync=" + sync);
+                            astate.start();
+                            EntityLog.log(ServiceSynchronize.this, "### started=" + accountNetworkState);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 });
             }
 
             private void stop(final TupleAccountNetworkState accountNetworkState) {
-                EntityLog.log(ServiceSynchronize.this, "Service stop=" + accountNetworkState);
-
                 final Core.State state = coreStates.get(accountNetworkState.accountState.id);
+                if (state == null)
+                    return;
                 coreStates.remove(accountNetworkState.accountState.id);
+
+                EntityLog.log(ServiceSynchronize.this, "Service stop=" + accountNetworkState);
 
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Map<String, String> crumb = new HashMap<>();
-                        crumb.put("account", accountNetworkState.accountState.id.toString());
-                        crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
-                        crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
-                        crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
-                        crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
-                        crumb.put("lastLost", new Date(lastLost).toString());
-                        Log.breadcrumb("stop", crumb);
+                        try {
+                            Map<String, String> crumb = new HashMap<>();
+                            crumb.put("account", accountNetworkState.accountState.id.toString());
+                            crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
+                            crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
+                            crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
+                            crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
+                            crumb.put("lastLost", new Date(lastLost).toString());
+                            Log.breadcrumb("stop", crumb);
 
-                        Log.i("### stop=" + accountNetworkState);
-                        state.stop();
-                        state.join();
-                        EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
+                            Log.i("### stop=" + accountNetworkState);
+                            state.stop();
+                            state.join();
+                            EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 });
             }
@@ -427,12 +437,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        DB db = DB.getInstance(ServiceSynchronize.this);
-                        db.account().deleteAccount(accountNetworkState.accountState.id);
+                        try {
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+                            db.account().deleteAccount(accountNetworkState.accountState.id);
 
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.deleteNotificationChannel(EntityAccount.getNotificationChannelId(accountNetworkState.accountState.id));
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.deleteNotificationChannel(EntityAccount.getNotificationChannelId(accountNetworkState.accountState.id));
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 });
@@ -442,32 +456,36 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        EntityLog.log(ServiceSynchronize.this, "### quit eventId=" + eventId);
+                        try {
+                            EntityLog.log(ServiceSynchronize.this, "### quit eventId=" + eventId);
 
-                        if (eventId == null) {
-                            // Service destroy
-                            DB db = DB.getInstance(ServiceSynchronize.this);
-                            List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
-                            for (EntityOperation op : ops)
-                                db.folder().setFolderSyncState(op.folder, null);
-                        } else {
-                            // Yield update notifications/widgets
-                            try {
-                                Thread.sleep(QUIT_DELAY);
-                            } catch (InterruptedException ex) {
-                                Log.w(ex);
+                            if (eventId == null) {
+                                // Service destroy
+                                DB db = DB.getInstance(ServiceSynchronize.this);
+                                List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
+                                for (EntityOperation op : ops)
+                                    db.folder().setFolderSyncState(op.folder, null);
+                            } else {
+                                // Yield update notifications/widgets
+                                try {
+                                    Thread.sleep(QUIT_DELAY);
+                                } catch (InterruptedException ex) {
+                                    Log.w(ex);
+                                }
+
+                                if (!eventId.equals(lastEventId)) {
+                                    EntityLog.log(ServiceSynchronize.this, "### quit cancelled eventId=" + eventId + "/" + lastEventId);
+                                    return;
+                                }
+
+                                // Stop service
+                                stopSelf();
+                                EntityLog.log(ServiceSynchronize.this, "### stop self eventId=" + eventId);
+
+                                WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
                             }
-
-                            if (!eventId.equals(lastEventId)) {
-                                EntityLog.log(ServiceSynchronize.this, "### quit cancelled eventId=" + eventId + "/" + lastEventId);
-                                return;
-                            }
-
-                            // Stop service
-                            stopSelf();
-                            EntityLog.log(ServiceSynchronize.this, "### stop self eventId=" + eventId);
-
-                            WorkerCleanup.cleanupConditionally(ServiceSynchronize.this);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 });
