@@ -269,6 +269,7 @@
     <string name="title_advanced_roaming">Baixar mensaxes e anexos con roaming</string>
     <string name="title_advanced_rlah">Usar o roaming da U.E.</string>
     <string name="title_advanced_timeout">Caducidade da conexión (segundos)</string>
+    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Preferir IPv4 no canto de IPv6</string>
     <string name="title_advanced_ssl_harden">Asegurar máis as conexións SSL</string>
     <string name="title_advanced_manage_connectivity">Configurar a conectividade</string>
     <string name="title_advanced_caption_general">Xeral</string>
@@ -364,6 +365,7 @@
     <string name="title_advanced_notifications">Xestionar notificacións</string>
     <string name="title_advanced_notifications_default">Canal por omisión</string>
     <string name="title_advanced_notifications_service">Canal de recepción</string>
+    <string name="title_advanced_notifications_newest_first">Amosar as notificacións novas primeiro</string>
     <string name="title_advanced_notifications_background">Usar o servizo de fondo para sincronizar as mensaxes</string>
     <string name="title_advanced_notifications_background_hint">Un servizo de fondo pode ser detido por Android en calquera momento, pero non require unha notificación na barra de estado</string>
     <string name="title_advanced_badge">Mostrar a icona de lanzamento co número de novas mensaxes</string>
@@ -386,7 +388,8 @@
     <string name="title_advanced_notify_action_snooze">Adiar</string>
     <string name="title_advanced_notify_remove">Eliminar as notificacións de mensaxes novas premendo na notificación</string>
     <string name="title_advanced_notify_clear">Eliminar as notificación de novas mensaxes ao velas na lista de mensaxes</string>
-    <string name="title_advanced_wearable_preview">Mostrar soamente as notificacións con previsualización nos dispositivos como reloxos</string>
+    <string name="title_advanced_wearable_preview">Mostrar soamente as notificacións con previsualización nos aparellos vestibles como reloxos</string>
+    <string name="title_advanced_notify_messaging">Usar o formato de notificacións de Android \'estilo de mensaxe\'</string>
     <string name="title_advanced_biometrics_notify">Mostrar o contido das notificacións cando se use a autenticación biométrica</string>
     <string name="title_advanced_light">Usar a luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar son de notificación</string>
@@ -487,9 +490,10 @@
     <string name="title_advanced_notify_manage_hint">Premer no nome da canle para axustar as súas propiedades</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar os sons predeterminados, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificación de \'monitorización\'</string>
-    <string name="title_advanced_notify_preview_all_hint">Para que os reloxos e similares poidan mostrar o texto completo (até 5.000 caracteres)</string>
+    <string name="title_advanced_notify_preview_all_hint">Para que os aparellos vestibles poidan mostrar o texto completo (até 5.000 caracteres)</string>
     <string name="title_advanced_notify_preview_only_hint">Isto adía a mostra de notificacións até que o texto da mensaxe sexa descargado</string>
-    <string name="title_advanced_wearable_hint">As notificacións só se envían ao reloxo ou similar despois de que o texto da mensaxe sexa descargado</string>
+    <string name="title_advanced_wearable_hint">As notificacións só se envían aos aparellos vestibles despois de que o texto da mensaxe sexa descargado</string>
+    <string name="title_advanced_messaging_hint">É un requisito para o soporte de Android Auto</string>
     <string name="title_advanced_move_hint">O cartafol de destino pódese configurar na configuración das contas</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android non pode agrupar as notificacións</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android non admite canles de notificación</string>
@@ -1052,6 +1056,7 @@
     <string name="title_legend_download_off">Descargar contidos das mensaxes manualmente</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
+    <string name="title_legend_synchronize_poll">Sincronizar periodicamente</string>
     <string name="title_legend_disconnected">Desconectado</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
