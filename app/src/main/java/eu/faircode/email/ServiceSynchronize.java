@@ -923,6 +923,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             int fast_fails = 0;
             long first_fail = 0;
+            Throwable last_fail = null;
             state.setBackoff(CONNECT_BACKOFF_START);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
@@ -1609,6 +1610,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
+                    last_fail = ex;
                     Log.e(account.name, ex);
                     EntityLog.log(
                             ServiceSynchronize.this,
@@ -1737,7 +1739,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " missing=" + (missing / 1000L) +
                                                 " compensate=" + compensate +
                                                 " backoff=" + backoff +
-                                                " host=" + account.host;
+                                                " host=" + account.host +
+                                                " ex=" + Log.formatThrowable(last_fail, false);
                                         Log.e(msg);
                                         EntityLog.log(this, msg);
                                         state.setBackoff(backoff * 60);
