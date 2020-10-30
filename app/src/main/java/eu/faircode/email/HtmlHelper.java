@@ -1494,7 +1494,8 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
                 Uri uri = Uri.parse(img.attr("src"));
                 String host = uri.getHost();
-                if (host != null && !hosts.contains(host))
+                if (host != null && !hosts.contains(host) &&
+                        !isTrackingHost(host, disconnect_images))
                     hosts.add(host);
             }
         }
@@ -1525,8 +1526,7 @@ public class HtmlHelper {
                 continue;
             }
 
-            if (isTrackingPixel(img) ||
-                    (disconnect_images && DisconnectBlacklist.isTracking(host))) {
+            if (isTrackingPixel(img) || isTrackingHost(host, disconnect_images)) {
                 img.attr("src", sb.toString());
                 img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                 img.attr("height", "24");
@@ -1538,17 +1538,6 @@ public class HtmlHelper {
     }
 
     private static boolean isTrackingPixel(Element img) {
-        String src = img.attr("src");
-        if (!TextUtils.isEmpty(src))
-            try {
-                Uri uri = Uri.parse(src);
-                String host = uri.getHost();
-                if (!TextUtils.isEmpty(host) && TRACKING_HOSTS.contains(host))
-                    return true;
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-
         String width = img.attr("width").trim();
         String height = img.attr("height").trim();
 
@@ -1560,6 +1549,14 @@ public class HtmlHelper {
         } catch (NumberFormatException ignored) {
             return false;
         }
+    }
+
+    private static boolean isTrackingHost(String host, boolean disconnect_images) {
+        if (TRACKING_HOSTS.contains(host))
+            return true;
+        if (disconnect_images && DisconnectBlacklist.isTracking(host))
+            return true;
+        return false;
     }
 
     static void embedInlineImages(Context context, long id, Document document, boolean local) throws IOException {
