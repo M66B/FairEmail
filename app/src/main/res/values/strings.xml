@@ -700,7 +700,7 @@
     <string name="title_edit_html">Edit as HTML</string>
     <string name="title_sign_key">Sign key: %1$s</string>
     <string name="title_last_connected">Last connected: %1$s</string>
-    <string name="title_backoff_until">Waiting until: %1$s</string>
+    <string name="title_backoff_until">Waiting after failure until: %1$s</string>
     <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>
     <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
     <string name="title_oauth_support">OAuth is not supported</string>
@@ -1206,7 +1206,7 @@
     <string name="title_legend_synchronize_off">Synchronize off</string>
     <string name="title_legend_synchronize_poll">Synchronize periodically</string>
     <string name="title_legend_disconnected">Disconnected</string>
-    <string name="title_legend_backoff">Waiting</string>
+    <string name="title_legend_backoff">Waiting after failure</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
     <string name="title_legend_executing">Executing operations</string>
