@@ -1444,12 +1444,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 }
                                                                 db.folder().setFolderState(folder.id, null);
                                                             }
-
-                                                            try {
-                                                                System.gc();
-                                                            } catch (Throwable ex) {
-                                                                Log.e(ex);
-                                                            }
                                                         }
                                                     } finally {
                                                         wlOperations.release();
