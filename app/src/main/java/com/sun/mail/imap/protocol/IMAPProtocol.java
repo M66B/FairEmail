@@ -2953,7 +2953,10 @@ public class IMAPProtocol extends Protocol {
 		long usage = r.readLong();
 		long limit = r.readLong();
 		Quota.Resource res = new Quota.Resource(name, usage, limit);
-		v.add(res);
+		if ("STORAGE".equals(name) && v.size() < 32)
+			v.add(res);
+		else
+			eu.faircode.email.Log.w("Dropping QUOTA " + name + "/" + usage + "/" + limit + " count=" + v.size());
 	    }
 	}
 	q.resources = v.toArray(new Quota.Resource[v.size()]);
