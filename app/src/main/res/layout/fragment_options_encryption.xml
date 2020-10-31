@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_info"
             android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
             app:srcCompat="@drawable/twotone_info_24" />
