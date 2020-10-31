@@ -918,9 +918,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (account.notify)
-                    account.createNotificationChannel(ServiceSynchronize.this);
+                    account.createNotificationChannel(this);
                 else
-                    account.deleteNotificationChannel(ServiceSynchronize.this);
+                    account.deleteNotificationChannel(this);
             }
 
             int fast_fails = 0;
@@ -1088,7 +1088,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Open synchronizing folders
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
                     if (folders.size() > 0)
-                        Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
+                        Collections.sort(folders, folders.get(0).getComparator(this));
 
                     for (final EntityFolder folder : folders) {
                         if (folder.synchronize && !folder.poll && capIdle && sync) {
@@ -1466,7 +1466,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 !account.keep_alive_ok && account.poll_interval > 9 &&
                                 Math.abs(idleTime - account.poll_interval * 60 * 1000L) < 60 * 1000L);
                         if (tune_keep_alive && !first && !account.keep_alive_ok)
-                            EntityLog.log(ServiceSynchronize.this, account.name +
+                            EntityLog.log(this, account.name +
                                     " Tune interval=" + account.poll_interval +
                                     " idle=" + idleTime + "/" + tune);
                         try {
@@ -1477,19 +1477,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         new Exception(state.getUnrecoverable()));
 
                             // Sends store NOOP
-                            EntityLog.log(ServiceSynchronize.this, account.name + " checking store");
+                            EntityLog.log(this, account.name + " checking store");
                             if (!iservice.getStore().isConnected())
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
 
-                            if (!ServiceSynchronize.this.getMainLooper().getThread().isAlive()) {
+                            if (!getMainLooper().getThread().isAlive()) {
                                 Log.e("App died");
-                                EntityLog.log(ServiceSynchronize.this, account.name + " app died");
+                                EntityLog.log(this, account.name + " app died");
                                 state.stop();
                                 throw new StoreClosedException(iservice.getStore(), "App died");
                             }
 
                             if (sync) {
-                                EntityLog.log(ServiceSynchronize.this, account.name + " checking folders");
+                                EntityLog.log(this, account.name + " checking folders");
                                 for (EntityFolder folder : mapFolders.keySet())
                                     if (folder.synchronize)
                                         if (!folder.poll && capIdle) {
@@ -1515,7 +1515,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                                 db.account().setAccountKeepAliveValues(account.id,
                                         account.keep_alive_failed, account.keep_alive_succeeded);
-                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive" +
+                                EntityLog.log(this, account.name + " keep alive" +
                                         " failed=" + account.keep_alive_failed +
                                         " succeeded=" + account.keep_alive_succeeded +
                                         " interval=" + account.poll_interval +
@@ -1535,9 +1535,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 db.account().setAccountKeepAliveOk(account.id, true);
                                 if (!BuildConfig.PLAY_STORE_RELEASE)
                                     Log.w(account.host + " set keep-alive=" + account.poll_interval);
-                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive ok");
+                                EntityLog.log(this, account.name + " keep alive ok");
                             } else
-                                EntityLog.log(ServiceSynchronize.this, account.name + " keep alive" +
+                                EntityLog.log(this, account.name + " keep alive" +
                                         " failed=" + account.keep_alive_failed +
                                         " succeeded=" + account.keep_alive_succeeded +
                                         " interval=" + account.poll_interval +
@@ -1584,7 +1584,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         nm.cancel("alert:" + account.id, 1);
 
                         // Schedule keep alive alarm
-                        Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+                        Intent intent = new Intent(this, ServiceSynchronize.class);
                         intent.setAction("keepalive:" + account.id);
                         PendingIntent pi = PendingIntentCompat.getForegroundService(
                                 this, PI_KEEPALIVE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -1617,8 +1617,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 } catch (Throwable ex) {
                     last_fail = ex;
                     Log.e(account.name, ex);
-                    EntityLog.log(
-                            ServiceSynchronize.this,
+                    EntityLog.log(this,
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
@@ -1810,7 +1809,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
 
                         // Long back-off period, let device sleep
-                        Intent intent = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+                        Intent intent = new Intent(this, ServiceSynchronize.class);
                         intent.setAction("backoff:" + account.id);
                         PendingIntent pi = PendingIntentCompat.getForegroundService(
                                 this, PI_BACKOFF, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -1888,7 +1887,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
         } else if (pollInterval <= 60 && account.poll_exempted) {
             db.account().setAccountPollExempted(account.id, false);
-            ServiceSynchronize.eval(ServiceSynchronize.this, "Optimize=" + reason);
+            ServiceSynchronize.eval(this, "Optimize=" + reason);
         }
     }
 
