@@ -207,7 +207,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvBackoff.setText(context.getString(R.string.title_backoff_until,
                     account.backoff_until == null ? "-" : DTF.format(account.backoff_until)));
-            tvBackoff.setVisibility(account.backoff_until == null && !BuildConfig.DEBUG ? View.GONE : View.VISIBLE);
+            tvBackoff.setVisibility(account.backoff_until == null || !settings ? View.GONE : View.VISIBLE);
 
             Integer percent = null;
             if (!settings && account.quota_usage != null && account.quota_limit != null)
