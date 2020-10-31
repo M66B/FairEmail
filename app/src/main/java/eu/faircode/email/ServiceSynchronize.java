@@ -1738,7 +1738,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " backoff=" + backoff +
                                                 " host=" + account.host +
                                                 " ex=" + Log.formatThrowable(last_fail, false);
-                                        Log.e(msg);
+                                        if (compensate > 1)
+                                            Log.e(msg);
                                         EntityLog.log(this, msg);
 
                                         state.setBackoff(backoff * 60);
