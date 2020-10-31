@@ -1711,7 +1711,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     long fail_threshold = account.poll_interval * 60 * 1000L * 2 / 3;
                     if (account.last_connected == null ||
                             now - account.last_connected < fail_threshold) {
-                        if (state.getBackoff() == CONNECT_BACKOFF_START) {
+                        if (state.getBackoff() == CONNECT_BACKOFF_START &&
+                                !Helper.isCharging(this)) {
                             fast_fails++;
                             if (fast_fails == 1)
                                 first_fail = now;
@@ -1838,9 +1839,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     if (backoff < max)
                         state.setBackoff(backoff * 2);
-                    else if (backoff == max)
-                        state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
-                    else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
+                    else if (backoff == max) {
+                        if (!Helper.isCharging(this))
+                            state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
+                    } else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
                         state.setBackoff(backoff * 2);
                 }
 

@@ -37,6 +37,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -421,6 +422,18 @@ public class Helper {
             return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         }
         return null;
+    }
+
+    static boolean isCharging(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return false;
+        try {
+            BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+            return bm.isCharging();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static boolean isPlayStoreInstall() {

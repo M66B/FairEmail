@@ -1292,6 +1292,7 @@ public class Log {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
+        sb.append(String.format("Charging: %b\r\n", Helper.isCharging(context)));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
