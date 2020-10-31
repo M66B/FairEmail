@@ -186,8 +186,13 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.twotone_cancel_24);
                 ivState.setContentDescription(context.getString(R.string.title_legend_closing));
             } else {
-                ivState.setImageResource(R.drawable.twotone_cloud_off_24);
-                ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
+                if (account.backoff_until == null) {
+                    ivState.setImageResource(R.drawable.twotone_cloud_off_24);
+                    ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
+                } else {
+                    ivState.setImageResource(R.drawable.twotone_update_24);
+                    ivState.setContentDescription(context.getString(R.string.title_legend_backoff));
+                }
             }
             ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
 
@@ -456,7 +461,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
-        this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
+        this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
 
         setHasStableIds(true);
 

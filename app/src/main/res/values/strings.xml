@@ -1206,6 +1206,7 @@
     <string name="title_legend_synchronize_off">Synchronize off</string>
     <string name="title_legend_synchronize_poll">Synchronize periodically</string>
     <string name="title_legend_disconnected">Disconnected</string>
+    <string name="title_legend_backoff">Waiting</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
     <string name="title_legend_executing">Executing operations</string>

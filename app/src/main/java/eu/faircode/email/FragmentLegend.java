@@ -58,8 +58,18 @@ public class FragmentLegend extends FragmentBase {
             pager = view.findViewById(R.id.pager);
             adapter = new PagerAdapter(getChildFragmentManager());
             pager.setAdapter(adapter);
-        } else
+        } else {
             view = inflater.inflate(layout, container, false);
+
+            if (layout == R.layout.fragment_legend_synchronization) {
+                view.findViewById(R.id.ibInfoBackoff).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Helper.viewFAQ(getContext(), 123);
+                    }
+                });
+            }
+        }
 
         return view;
     }

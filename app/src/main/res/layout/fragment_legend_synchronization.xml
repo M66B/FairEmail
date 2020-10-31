@@ -211,13 +211,46 @@
             app:layout_constraintTop_toTopOf="@id/ivDisconnected" />
 
         <ImageView
+            android:id="@+id/ivBackoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_backoff"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDisconnected"
+            app:srcCompat="@drawable/twotone_update_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBackoff"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_backoff"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivBackoff"
+            app:layout_constraintEnd_toStartOf="@id/ibInfoBackoff"
+            app:layout_constraintStart_toEndOf="@id/ivBackoff"
+            app:layout_constraintTop_toTopOf="@id/ivBackoff" />
+
+        <ImageButton
+            android:id="@+id/ibInfoBackoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@id/ivBackoff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivBackoff"
+            app:srcCompat="@drawable/twotone_info_24" />
+
+        <ImageView
             android:id="@+id/ivConnecting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_connecting"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivDisconnected"
+            app:layout_constraintTop_toBottomOf="@id/ivBackoff"
             app:srcCompat="@drawable/twotone_cloud_queue_24" />
 
         <eu.faircode.email.FixedTextView
