@@ -114,7 +114,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int CONNECT_BACKOFF_ALARM_START = 15; // minutes
     private static final int CONNECT_BACKOFF_ALARM_MAX = 60; // minutes
     private static final long CONNECT_BACKOFF_GRACE = 2 * 60 * 1000L; // milliseconds
-    private static final long RECONNECT_BACKOFF = (4 + 8 + 16 + 32 + 64) * 1000L; // milliseconds
+    private static final long LOST_RECENTLY = 150 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
@@ -1783,14 +1783,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     int backoff = state.getBackoff();
-                    int max = CONNECT_BACKOFF_MAX * (lastLost + RECONNECT_BACKOFF < now ? 1 : 2);
-                    EntityLog.log(this, account.name + " backoff=" + backoff + " max=" + max);
+                    int recently = (lastLost + LOST_RECENTLY < now ? 1 : 2);
+                    EntityLog.log(this, account.name + " backoff=" + backoff + " recently=" + recently);
 
-                    if (backoff <= max) {
+                    if (backoff <= CONNECT_BACKOFF_MAX) {
                         // Short back-off period, keep device awake
                         try {
-                            db.account().setAccountBackoff(account.id, System.currentTimeMillis() + backoff * 1000L);
-                            state.acquire(backoff * 1000L, true);
+                            db.account().setAccountBackoff(account.id, System.currentTimeMillis() + backoff * 1000L * recently);
+                            state.acquire(backoff * 1000L * recently, true);
                         } catch (InterruptedException ex) {
                             Log.w(account.name + " backoff " + ex.toString());
                         } finally {
@@ -1837,9 +1837,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     }
 
-                    if (backoff < max)
+                    if (backoff < CONNECT_BACKOFF_MAX)
                         state.setBackoff(backoff * 2);
-                    else if (backoff == max) {
+                    else if (backoff == CONNECT_BACKOFF_MAX) {
                         if (!Helper.isCharging(this))
                             state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
                     } else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
