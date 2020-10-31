@@ -113,6 +113,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int CONNECT_BACKOFF_MAX = 32; // seconds (totally 4+8+16+32=1 minute)
     private static final int CONNECT_BACKOFF_ALARM_START = 15; // minutes
     private static final int CONNECT_BACKOFF_ALARM_MAX = 60; // minutes
+    private static final long CONNECT_BACKOFF_GRACE = 2 * 60 * 1000L; // milliseconds
     private static final long RECONNECT_BACKOFF = (4 + 8 + 16 + 32 + 64) * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
@@ -1721,7 +1722,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     int compensate = (int) (missing / (CONNECT_BACKOFF_ALARM_START * 60 * 1000L));
                                     if (compensate > 0) {
                                         if (account.last_connected != null &&
-                                                now - account.last_connected < 60 * 1000L)
+                                                now - account.last_connected < CONNECT_BACKOFF_GRACE)
                                             compensate = 1;
 
                                         int backoff = compensate * CONNECT_BACKOFF_ALARM_START;
