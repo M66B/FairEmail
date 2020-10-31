@@ -1839,10 +1839,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     if (backoff < CONNECT_BACKOFF_MAX)
                         state.setBackoff(backoff * 2);
-                    else if (backoff == CONNECT_BACKOFF_MAX) {
-                        if (!Helper.isCharging(this))
+                    else if (backoff == CONNECT_BACKOFF_MAX)
+                        if (Helper.isCharging(this))
+                            EntityLog.log(this, "Device is charging");
+                        else
                             state.setBackoff(CONNECT_BACKOFF_ALARM_START * 60);
-                    } else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
+                    else if (backoff < CONNECT_BACKOFF_ALARM_MAX * 60)
                         state.setBackoff(backoff * 2);
                 }
 
