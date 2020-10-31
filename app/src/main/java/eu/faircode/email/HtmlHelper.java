@@ -2317,6 +2317,8 @@ public class HtmlHelper {
                             case "strike":
                                 setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                 break;
+                            case "style":
+                                break;
                             case "tt":
                                 setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                                 break;
