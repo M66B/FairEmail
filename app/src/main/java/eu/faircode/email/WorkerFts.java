@@ -43,7 +43,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
     private static final int INDEX_DELAY = 30; // seconds
-    private static final int INDEX_BATCH_SIZE = 500;
+    private static final int INDEX_BATCH_SIZE = 100;
 
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
