@@ -280,6 +280,7 @@
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
+    <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
     <string name="title_advanced_notifications_default">Canal implicit</string>
     <string name="title_advanced_notifications_service">Canal primire</string>
+    <string name="title_advanced_notifications_newest_first">Arată mai întâi cele mai noi notificări</string>
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
@@ -398,6 +400,7 @@
     <string name="title_advanced_notify_remove">Elimina notificarea de mesaj nou dacă se atinge</string>
     <string name="title_advanced_notify_clear">Elimină notificările mesajelor noi când se vizualizează lista de mesaje</string>
     <string name="title_advanced_wearable_preview">Trimite la portabile doar notificările cu previzualizare mesaj</string>
+    <string name="title_advanced_notify_messaging">Utilizaţi formatul de notificare Android \'stil de mesaj\'</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
@@ -502,6 +505,7 @@
     <string name="title_advanced_notify_preview_all_hint">Pentru accesoriile de purtat care pot arăta textul complet (până la 5000 caractere)</string>
     <string name="title_advanced_notify_preview_only_hint">Aceasta întârzie notificările până când textul mesajului a fost descărcat</string>
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
+    <string name="title_advanced_messaging_hint">Acest lucru este necesar pentru suport Android Auto</string>
     <string name="title_advanced_move_hint">Dosarul țintă poate fi configurat în setările contului</string>
     <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
     <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
@@ -1064,6 +1068,7 @@
     <string name="title_legend_download_off">Descarcă mesajul complet, la cerere </string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
+    <string name="title_legend_synchronize_poll">Sincronizează periodic</string>
     <string name="title_legend_disconnected">Deconectat</string>
     <string name="title_legend_connecting">Conectare în curs</string>
     <string name="title_legend_connected">Conectat</string>

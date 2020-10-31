@@ -269,7 +269,7 @@
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
-    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Föredra IPv4 över IPv6</string>
+    <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>

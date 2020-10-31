@@ -392,43 +392,43 @@ Alternativamente, puede aceptar la huella dactilar de certificados de servidores
 
 1. Asegúrese de estar usando una conexión a internet de confianza (no redes Wi-Fi publicas, etc.)
 1. Ve a la pantalla de configuración a través del menú de navegación (deslice desde el lado izquierdo hacia adentro)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. En los pasos 1 y 2 toque *Administrar* y toque la cuenta e identidad defectuosas
 1. Comprobar/guardar la cuenta y la identidad
-1. Tick the checkbox below the error message and save again
+1. Marque la casilla debajo del mensaje de error y guarde de nuevo
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Esto "fijará" el certificado del servidor para prevenir ataques man-in-the-middle.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Tenga en cuenta que las versiones antiguas de Android podrían no reconocer las nuevas autoridades de certificación como Let’s Encrypt que causan que las conexiones se consideren inseguras, vea también [aquí](https://developer.android.com/training/articles/security-ssl).
 
 *Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* significa que el administrador de confianza por defecto de Android no pudo verificar la cadena de certificados del servidor.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Debería reparar la configuración del servidor o aceptar la huella digital mostrada debajo del mensaje de error.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Tenga en cuenta que este problema también puede ser causado por el servidor no enviando todos los certificados intermedios.
 
-*Empty password*
+*Contraseña vacía*
 
-Your username is likely easily guessed, so this is insecure.
+Su nombre de usuario probablemente sea fácilmente adivinado, por lo que esto es inseguro.
 
-*Plain text connection*
+*Conexión de texto plano*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Su nombre de usuario y contraseña y todos los mensajes serán enviados y recibidos sin cifrar, lo que es **muy inseguro** porque un [ataque de intermediario](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) es muy simple en una conexión no cifrada.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si todavía desea utilizar un certificado de seguridad no válido, una contraseña vacía o una conexión de texto plano necesitará habilitar conexiones insecuras en la cuenta y/o configuración de identidad. STARTTLS debería ser seleccionado para conexiones de texto simple. Si activa conexiones insecuras, sólo debe conectarse a través de redes privadas y confiables y nunca a través de redes públicas, como las ofrecidas en hoteles, aeropuertos, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) ¿Cómo puedo personalizar la vista del mensaje?**
 
-In the three dot overflow menu you can enable or disable or select:
+En el menú de tres puntos puede activar o desactivar o seleccionar:
 
 * *tamaño de texto*: para tres tamaños de fuente diferentes
 * *vista compacta*: para elementos de mensaje más condensados y una fuente de texto más pequeña
 
-In the display section of the settings you can enable or disable:
+En la sección de visualización de los ajustes puede activar o desactivar:
 
 * *Bandeja de entrada unificada*: para desactivar la bandeja de entrada unificada y para listar las carpetas seleccionadas para la bandeja de entrada unificada en su lugar
 * *Agrupar por fecha*: mostrar el encabezado de fecha sobre los mensajes con la misma fecha
@@ -445,7 +445,7 @@ In the display section of the settings you can enable or disable:
 * *Mostrar automáticamente el mensaje original para los contactos conocidos*: para mostrar automáticamente los mensajes originales para los contactos en su dispositivo, por favor lea [estas Preguntas Frecuentes](#user-content-faq35)
 * *Barra de acción de conversación*: para desactivar la barra de navegación inferior
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Tenga en cuenta que los mensajes sólo se pueden previsualizar cuando se haya descargado el texto del mensaje. Los textos de mensajes más grandes no se descargan por defecto en redes medidas (generalmente móviles). Puede cambiar esto en la configuración.
 
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 

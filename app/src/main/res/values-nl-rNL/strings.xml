@@ -269,7 +269,7 @@
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
-    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Geef de voorkeur aan IPv4 boven IPv6</string>
+    <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
@@ -596,6 +596,7 @@
     <string name="title_edit_html">Bewerk als HTML</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
+    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Wachten na fout tot: %1$s</string>
     <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
     <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 zal meer batterijvermogen en -gegevens gebruiken dan IMAP. Overweeg dus om het IMAP-protocol waar mogelijk te gebruiken.</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
@@ -1059,6 +1060,7 @@
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
     <string name="title_legend_synchronize_poll">Periodiek synchroniseren</string>
     <string name="title_legend_disconnected">Verbinding verbroken</string>
+    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Wachten na fout</string>
     <string name="title_legend_connecting">Verbinding maken</string>
     <string name="title_legend_connected">Verbonden</string>
     <string name="title_legend_executing">Bewerkingen uitvoeren</string>

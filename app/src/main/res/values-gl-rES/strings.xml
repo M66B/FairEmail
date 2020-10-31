@@ -269,7 +269,7 @@
     <string name="title_advanced_roaming">Baixar mensaxes e anexos con roaming</string>
     <string name="title_advanced_rlah">Usar o roaming da U.E.</string>
     <string name="title_advanced_timeout">Caducidade da conexión (segundos)</string>
-    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Preferir IPv4 no canto de IPv6</string>
+    <string name="title_advanced_prefer_ip4">Preferir IPv4 no canto de IPv6</string>
     <string name="title_advanced_ssl_harden">Asegurar máis as conexións SSL</string>
     <string name="title_advanced_manage_connectivity">Configurar a conectividade</string>
     <string name="title_advanced_caption_general">Xeral</string>

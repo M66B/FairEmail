@@ -253,7 +253,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_roaming">Unduh pesan dan lampiran saat roaming</string>
     <string name="title_advanced_rlah">Berkeliaran seperti di rumah</string>
     <string name="title_advanced_timeout">Batas waktu terhubung (detik)</string>
-    <string name="title_advanced_prefer_ip4" comment="title_advanced_prefer_ip4&#10;https://en.wikipedia.org/wiki/IP_address">Direkomendasikan IPv4 daripada IPv6</string>
+    <string name="title_advanced_prefer_ip4">Direkomendasikan IPv4 daripada IPv6</string>
     <string name="title_advanced_ssl_harden">Perkuat dengan koneksi SSL</string>
     <string name="title_advanced_manage_connectivity">Mengelola Koneksi</string>
     <string name="title_advanced_caption_general">Umum</string>
