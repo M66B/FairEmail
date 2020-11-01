@@ -715,8 +715,14 @@ class Core {
         if (message.uid == null)
             throw new IllegalArgumentException("keyword/uid");
 
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+            if ("$Forwarded".equals(keyword) && false) {
+                JSONArray janswered = new JSONArray();
+                janswered.put(true);
+                onAnswered(context, janswered, folder, message, ifolder);
+            }
             return;
+        }
 
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
