@@ -119,6 +119,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
+    private SwitchCompat swMonospacedPre;
     private SwitchCompat swTextColor;
     private SwitchCompat swTextSize;
     private SwitchCompat swTextFont;
@@ -142,7 +143,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
             "addresses",
-            "message_zoom", "overview_mode", "contrast", "monospaced",
+            "message_zoom", "overview_mode", "contrast", "monospaced", "monospaced_pre",
             "text_color", "text_size", "text_font", "text_align", "text_separators",
             "inline_images", "collapse_quotes", "attachments_alt", "thumbnails",
             "parse_classes", "authentication"
@@ -213,6 +214,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
+        swMonospacedPre = view.findViewById(R.id.swMonospacedPre);
         swTextColor = view.findViewById(R.id.swTextColor);
         swTextSize = view.findViewById(R.id.swTextSize);
         swTextFont = view.findViewById(R.id.swTextFont);
@@ -716,6 +718,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swMonospacedPre.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("monospaced_pre", checked).apply();
+            }
+        });
+
         swTextColor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -952,6 +961,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
+        swMonospacedPre.setChecked(prefs.getBoolean("monospaced_pre", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swTextFont.setChecked(prefs.getBoolean("text_font", true));

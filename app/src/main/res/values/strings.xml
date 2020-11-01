@@ -385,6 +385,7 @@
     <string name="title_advanced_overview_mode">Zoom original messages to fit the screen</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text by default</string>
+    <string name="title_advanced_monospaced_pre">Use monospaced font for preformatted text</string>
     <string name="title_advanced_text_color">Use text colors</string>
     <string name="title_advanced_text_size">Use text sizes</string>
     <string name="title_advanced_text_font">Use fonts</string>

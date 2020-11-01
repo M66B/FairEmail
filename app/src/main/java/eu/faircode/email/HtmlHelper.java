@@ -1897,6 +1897,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
         boolean text_separators = prefs.getBoolean("text_separators", false);
+        boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
@@ -2043,7 +2044,12 @@ public class HtmlHelper {
                         ssb.append("[" + element.tagName() + ":" + element.attr("style") + "]");
                 } else if (node instanceof TextNode) {
                     tnode = (TextNode) node;
-                    ssb.append(tnode.getWholeText());
+                    String text = tnode.getWholeText();
+                    ssb.append(text);
+                    if (monospaced_pre &&
+                            node.parent() instanceof Element &&
+                            "true".equals(((Element) node.parent()).attr("x-plain")))
+                        setSpan(ssb, new TypefaceSpan("monospace"), ssb.length() - text.length(), ssb.length());
                 }
             }
 
