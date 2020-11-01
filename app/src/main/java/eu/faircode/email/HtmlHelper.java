@@ -1816,42 +1816,36 @@ public class HtmlHelper {
     }
 
     static boolean truncate(Document d, boolean reformat) {
+        final int[] length = new int[1];
         int max = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
 
-        int length = 0;
-        int images = 0;
-        for (Element elm : d.select("*")) {
-            if ("img".equals(elm.tagName()))
-                images++;
-
-            boolean skip = false;
-            for (Node child : elm.childNodes()) {
-                if (child instanceof TextNode) {
-                    TextNode tnode = ((TextNode) child);
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                if (length[0] >= max)
+                    return FilterResult.REMOVE;
+                else if (node instanceof TextNode) {
+                    TextNode tnode = ((TextNode) node);
                     String text = tnode.getWholeText();
-
-                    if (length < max) {
-                        if (length + text.length() >= max) {
-                            text = text.substring(0, max - length) + " ...";
-                            tnode.text(text);
-                            skip = true;
-                        }
-                    } else {
-                        if (skip)
-                            tnode.text("");
-                    }
-
-                    length += text.length();
+                    if (length[0] + text.length() >= max) {
+                        text = text.substring(0, max - length[0]) + " ...";
+                        tnode.text(text);
+                        length[0] += text.length();
+                        return FilterResult.SKIP_ENTIRELY;
+                    } else
+                        length[0] += text.length();
                 }
+                return FilterResult.CONTINUE;
             }
 
-            if (length >= max && !skip)
-                elm.remove();
-        }
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                return FilterResult.CONTINUE;
+            }
+        }, d);
 
-        Log.i("Message size=" + length + " images=" + images);
-
-        return (length >= max);
+        Log.i("Message size=" + length[0]);
+        return (length[0] > max);
     }
 
     static boolean contains(Document d, String[] texts) {
