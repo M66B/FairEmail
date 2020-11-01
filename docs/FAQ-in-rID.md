@@ -421,7 +421,7 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Bagaimana cara saya mengatur tampilan pesan?**
 
 In the three dot overflow menu you can enable or disable or select:
 
@@ -445,24 +445,24 @@ In the display section of the settings you can enable or disable:
 * *Tampilkan gambar secara otomatis untuk kontak yang diketahui*: untuk menampilkan gambar secara otomatis bagi kontak yang dalam perangkat anda, sila baca [FAQ ini](#user-content-faq35)
 * *Bilah aksi percakapan*: untuk menonaktifkan bilah navigasi bawah
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Perhatikan bahwa pesan dapat ditampilkan hanya ketika teks pesan telah diunduh. Teks pesan yang lebih besar tidak dapat diunduh secara otomatis dalam jaringan terukur (biasanya perangkat seluler). Anda dapat mengubahnya dalam pengaturan.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Jika daftar alamat terlalu panjang, anda dapat meruntuhkan bagian alamat dengan ikon *kurangi* pada bagian alamat paling atas.
 
-Some people ask:
+Beberapa orang bertanya:
 
 * untuk menampilkan judul yang dicetak tebal, namun cetak tebal telah digunakan untuk menyoroti pesan yang belum dibaca
 * untuk menampilkan alamat atau judul lebih kecil/lebih besar, namun hal ini dapat mengganggu opsi ukuran teks
 * untuk memindahkan bintang ke kiri, namun lebih mudah untuk mengoperasikan bintang di bagian kanan
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Sayangnya, kami tidak mungkin dapat membuat semua orang senang dan dengan menambahkan pengaturan yang banyak akan membuat anda bingung, dan juga tidak akan pernah cukup.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Bagaimana cara saya masuk ke Gmail / G suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Anda dapat menggunakan wizard pengaturan cepat untuk mengatur akun Gmail dan identitas dengan mudah.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
@@ -685,7 +685,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Bagaimana cara kerja pencarian dalam perangkat/server?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -732,20 +732,20 @@ Searching on the device is a free feature, using the search index and searching 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Bagaimana cara saya mengatur akun Outlook / Live / Hotmail?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. Lihat [di sini](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) untuk rincian lebih lanjut.
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Lihat [di sini](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) untuk melihat instruksi dari Microsoft.
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+Untuk mengatur akun Office 365, sila lihat [FAQ ini](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Mengapa teks pesan terus menerus dimuat?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
@@ -760,7 +760,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Mengapa pesan tidak tersingkronisasi?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -783,7 +783,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Mengapa singkronisasi manual tidak bekerja?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -792,14 +792,14 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Mengapa tampilan pesan tidak selalu terlihat?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Mengapa fitur pro sangat mahal?**
 
 The right question is "*why are there so many taxes and fees?*":
 
@@ -819,9 +819,9 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Apakah dana saya dapat dikembalikan?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Jika fitur pro yang telah dibeli tidak dapat bekerja seperti seharusnya dan hal ini tidak dikarenakan oleh masalah yang terdapat dalam fitur gratis dan saya tidak dapat memperbaiki masalah ini dalam waktu yang tepat, dana anda akan dikembalikan. Dalam kasus lainnya, mungkin tidak akan ada pengembalian dana. Dalam keadaan apa pun, tidak ada pengembalian dana untuk masalah apa pun yang terkait dengan fitur gratis, karena fitur tersebut tidak memiliki bayaran apa pun dan dapat dievaluasi tanpa batasan apa pun. Saya bertanggung jawab sebagai penjual untuk memberikan apa yang telah saya janjikan dan saya harap anda bertanggung jawab untuk mengetahui dengan jelas apa yang anda beli.
 
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
@@ -965,7 +965,7 @@ Browse messages on the server will fetch messages from the email server in real 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Mengapa saya tidak dapat memilih/membuka/menyimpan gambar, lampiran atau berkas?**
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
@@ -984,11 +984,11 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Apakah saya dapat membantu menerjemahkan FairEmail ke dalam bahasa saya?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Iya, anda dapat menerjemahkan FairEmail ke dalam bahasa anda [di Crowdin](https://crowdin.com/project/open-source-email). Pendaftaran gratis.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Jika anda menginginkan nama atau alias anda dimasukkan ke dalam daftar kontribusi dalam bagian *Tentang* aplikasi, sila [hubungi saya](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
@@ -1113,9 +1113,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identity: abc@example.com; regex: **(?i)abc**
-* Identity: xyz@example.com; regex: **(?i)xyz**
-* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identitas: abc@contoh.com; regex: **(?i)abc**
+* Identitas: xyz@contoh.com; regex: **(?i)xyz**
+* Identitas: main@contoh.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
@@ -1145,9 +1145,9 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
 
-Short version: AES 256 bit
+Versi singkat: AES 256 bit
 
-Long version:
+Versi panjang:
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
@@ -1164,7 +1164,7 @@ If the device is secured with a PIN, pattern or password, you can make the accou
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Bagaimana cara saya mereduksi penggunaan baterai untuk FairEmail?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
@@ -1606,7 +1606,7 @@ The following rule conditions are available:
 * Sender contains
 * Recipient contains
 * Subject contains
-* Has attachments
+* Memiliki lampiran
 * Header contains
 * Day/time between
 
@@ -2012,7 +2012,7 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Bagaimana cara saya mensingkronisasikan kategori Gmail?**
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
@@ -2036,7 +2036,7 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Apa yang dimaksud dengan titik yang berwarna biru/oranye yang berada dibawah percakapan?**
 
 The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
 
@@ -2045,7 +2045,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Bagaimana cara saya mengaktifkan rotasi otomatis untuk gambar?**
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
 
@@ -2054,7 +2054,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq103"></a>
-**(103) How can I record audio?**
+**(103) Bagaimana cara saya merekam audio?**
 
 You can record audio if you have a recording app installed which supports the [RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION) intent. If no supported app is installed, FairEmail will not show a record audio action/icon.
 
@@ -2063,7 +2063,7 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Apa yang harus saya ketahui tentang pelaporan eror?**
 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in
@@ -2086,7 +2086,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show a badge count with the number of unread messages?**
+**(106) Peluncur mana yang dapat menampilkan lencana hitungan dengan jumlah pesan yang belum dibaca?**
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
@@ -2113,7 +2113,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Bagaimana cara saya menggunakan bintang berwarna?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
@@ -2131,7 +2131,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~(109) Mengapa 'pilih akun' hanya tersedia di versi resmi saja?~~**
 
 ~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
 
@@ -2145,7 +2145,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq110"></a>
-**(110) Why are (some) messages empty and/or attachments corrupt?**
+**(110) Mengapa terdapat (beberapa) pesan kosong dan/atau lampiran yang rusak?**
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
@@ -2158,7 +2158,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) Apakah OAuth tersedia?**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
 

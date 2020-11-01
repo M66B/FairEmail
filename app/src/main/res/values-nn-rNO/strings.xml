@@ -7,7 +7,7 @@
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
-    <string name="channel_service">Motta</string>
+    <string name="channel_service">Tak imot</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Varsler</string>
     <string name="channel_update">Oppdateringer</string>
@@ -16,7 +16,7 @@
     <string name="channel_alert">Servervarsler</string>
     <string name="channel_group_contacts">Kontakter</string>
     <string name="channel_service_description">Synkronisering og overvåking av kontoer</string>
-    <string name="channel_send_description">Sending av meldinger</string>
+    <string name="channel_send_description">Sending av meldingar</string>
     <string name="channel_notification_description">Varsler om nye meldinger</string>
     <plurals name="page_conversation">
         <item quantity="one">Samtale</item>
@@ -58,8 +58,8 @@
         <item quantity="other">Valgte %1$d samtaler</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Vil du flytte %1$d melding?</item>
-        <item quantity="other">Vil du flytte %1$d meldinger?</item>
+        <item quantity="one">Flyt %1$d melding?</item>
+        <item quantity="other">Flyt %1$d meldingar?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Slette %1$d melding permanent?</item>

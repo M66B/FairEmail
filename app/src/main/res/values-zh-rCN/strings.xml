@@ -585,6 +585,7 @@
     <string name="title_edit_html">以HTML格式编辑</string>
     <string name="title_sign_key">签名密钥:%1$s</string>
     <string name="title_last_connected">上次连接%1$s前</string>
+    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">连接失败后等待: %1$s 秒</string>
     <string name="title_storage_quota">服务器存储用量： %1$s/%2$s</string>
     <string name="title_pop_support">POP3协议仅支持从收件箱下载并删除消息。POP3无法标记消息为已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
     <string name="title_oauth_support">不支持OAuth</string>
@@ -1048,6 +1049,7 @@
     <string name="title_legend_synchronize_off">同步关闭</string>
     <string name="title_legend_synchronize_poll">定期同步</string>
     <string name="title_legend_disconnected">未连接</string>
+    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">连接失败后等待</string>
     <string name="title_legend_connecting">正在连接</string>
     <string name="title_legend_connected">已连接</string>
     <string name="title_legend_executing">执行操作</string>

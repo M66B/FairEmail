@@ -270,6 +270,7 @@
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
+    <string name="title_advanced_prefer_ip4">Preferisci IPv4 a IPv6</string>
     <string name="title_advanced_ssl_harden">Connessioni SSL Harden</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
@@ -596,6 +597,7 @@
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_sign_key">Firma chiave: %1$s</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
+    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attesa dopo il fallimento fino a: %1$s</string>
     <string name="title_storage_quota">Utilizzo archiviazione server: %1$s/%2$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
@@ -1059,6 +1061,7 @@
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_synchronize_poll">Sincronizza periodicamente</string>
     <string name="title_legend_disconnected">Disconnesso</string>
+    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attendi dopo il fallimento</string>
     <string name="title_legend_connecting">Connessione in corso</string>
     <string name="title_legend_connected">Connesso</string>
     <string name="title_legend_executing">Esecuzione operazioni</string>

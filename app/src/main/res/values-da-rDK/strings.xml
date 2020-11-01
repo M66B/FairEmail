@@ -594,6 +594,7 @@
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
+    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Ventetid efter fejl: %1$s</string>
     <string name="title_storage_quota">Serverlagerpladsforbrug: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder fra Indbakken. POP3 kan ikke markere beskeder som læste eller flytte dem mv. POP3 forbruger mere batteristrøm og data end IMAP, så overvej at benytte IMAP-protokollen, når det er muligt.</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
@@ -1052,6 +1053,7 @@
     <string name="title_legend_synchronize_off">Synkronisering slået fra</string>
     <string name="title_legend_synchronize_poll">Synkronisér periodisk</string>
     <string name="title_legend_disconnected">Afbrudt</string>
+    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Ventetid efter fejl</string>
     <string name="title_legend_connecting">Tilslutter</string>
     <string name="title_legend_connected">Tilsluttet</string>
     <string name="title_legend_executing">Eksekverer operationer</string>
