@@ -6,6 +6,8 @@ FairEmail might be for you if you value your privacy.
 
 <i>FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.</i>
 
+<i>Almost all features are free to use, but to maintain and support the app in the long term, not every feature can be for free. See below for a list of pro features.</i>
+
 <b>Main features</b>
 
 * Fully featured
