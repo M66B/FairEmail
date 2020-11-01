@@ -944,7 +944,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(ActivityView.this, "update")
-                                .setSmallIcon(R.drawable.twotone_get_app_24)
+                                .setSmallIcon(R.drawable.baseline_get_app_white_24)
                                 .setContentTitle(getString(R.string.title_updated, info.tag_name))
                                 .setContentText(info.html_url)
                                 .setAutoCancel(true)
