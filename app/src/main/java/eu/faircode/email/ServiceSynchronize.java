@@ -226,7 +226,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Log.d("### evaluating " + current);
                         if (current.accountState.shouldRun(current.enabled))
                             runService = true;
-                        if ("connected".equals(current.accountState.state))
+                        if (!isTransient(current.accountState) &&
+                                ("connected".equals(current.accountState.state) || current.accountState.backoff_until != null))
                             accounts++;
                         if (current.accountState.synchronize)
                             operations += current.accountState.operations;
