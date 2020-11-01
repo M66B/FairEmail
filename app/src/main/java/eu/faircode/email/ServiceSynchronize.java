@@ -1748,10 +1748,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
 
                                 // Autofix too many simultaneous connections
-                                boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                                if (auto_optimize &&
-                                        ConnectionHelper.isMaxConnections(last_fail)) {
-                                    if (account.last_connected == null ||
+                                if (ConnectionHelper.isMaxConnections(last_fail)) {
+                                    boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
+                                    if (auto_optimize ||
+                                            account.last_connected == null ||
                                             now - account.last_connected > AUTOFIX_TOO_MANY_FOLDERS) {
                                         int user = 0;
                                         int system = 0;
