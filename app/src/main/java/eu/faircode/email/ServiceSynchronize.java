@@ -118,6 +118,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
+    private static final int FAST_FAIL_THRESHOLD = 75; // percent
     private static final long AUTOFIX_TOO_MANY_FOLDERS = 3600 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
@@ -1707,9 +1708,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     long now = new Date().getTime();
 
                     // Check for fast successive server, connectivity, etc failures
-                    long fail_threshold = account.poll_interval * 60 * 1000L * 2 / 3;
-                    if (account.last_connected == null ||
-                            now - account.last_connected < fail_threshold) {
+                    long fail_threshold = account.poll_interval * 60 * 1000L * FAST_FAIL_THRESHOLD / 100;
+                    long was_connected = (account.last_connected == null ? 0 : now - account.last_connected);
+                    if (was_connected < fail_threshold) {
                         if (state.getBackoff() == CONNECT_BACKOFF_START &&
                                 !Helper.isCharging(this)) {
                             fast_fails++;
@@ -1731,6 +1732,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                         String msg = "Fast" +
                                                 " fails=" + fast_fails +
+                                                " was=" + (was_connected / 1000L) +
                                                 " first=" + ((now - first_fail) / 1000L) +
                                                 " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
                                                 " missing=" + (missing / 1000L) +
