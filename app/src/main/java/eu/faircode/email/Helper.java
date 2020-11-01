@@ -764,7 +764,7 @@ public class Helper {
     }
 
     static void hide(View view) {
-        view.setPadding(0, 0, 0, 0);
+        view.setPadding(0, 1, 0, 0);
 
         ViewGroup.LayoutParams lparam = view.getLayoutParams();
         lparam.width = 0;
