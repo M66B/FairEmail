@@ -738,8 +738,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         data.append(line);
                 }
 
+                String json = data.toString();
+                if (!json.startsWith("{") || !json.endsWith("}"))
+                    throw new BadPaddingException("JSON");
+
                 Log.i("Importing data");
-                JSONObject jimport = new JSONObject(data.toString());
+                JSONObject jimport = new JSONObject(json);
 
                 DB db = DB.getInstance(context);
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
