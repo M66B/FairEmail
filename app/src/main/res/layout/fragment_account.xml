@@ -224,14 +224,26 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvUser"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:labelFor="@+id/etUser"
             android:text="@string/title_user"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPort" />
+            app:layout_constraintBottom_toBottomOf="@id/ibAccount"
+            app:layout_constraintEnd_toStartOf="@+id/ibAccount"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ibAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingEnd="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPort"
+            app:srcCompat="@drawable/twotone_account_box_24" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etUser"
@@ -241,7 +253,7 @@
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUser" />
+            app:layout_constraintTop_toBottomOf="@id/ibAccount" />
 
         <!-- password -->
 
@@ -978,7 +990,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-                tvUser,etUser,tvPassword,tilPassword,tvCaseSensitive,btnCertificate,tvCertificate,tvRealm,etRealm,
+                tvUser,ibAccount,etUser,tvPassword,tilPassword,tvCaseSensitive,btnCertificate,tvCertificate,tvRealm,etRealm,
                 tvName,tvNameRemark,etName,
                 tvColor,btnColor,tvColorHint,tvColorPro" />
 

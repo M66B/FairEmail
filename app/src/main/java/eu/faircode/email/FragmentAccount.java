@@ -26,6 +26,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -43,6 +44,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -71,6 +73,7 @@ import javax.mail.Folder;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -89,6 +92,7 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private EditText etPort;
+    private ImageButton ibAccount;
     private EditText etUser;
     private TextInputLayout tilPassword;
     private TextView tvCharacters;
@@ -193,6 +197,7 @@ public class FragmentAccount extends FragmentBase {
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
+        ibAccount = view.findViewById(R.id.ibAccount);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
@@ -313,6 +318,16 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_ssl ? "993" : "143");
+            }
+        });
+
+        ibAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sync = new Intent(Settings.ACTION_SYNC_SETTINGS)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if (sync.resolveActivity(v.getContext().getPackageManager()) != null)
+                    v.getContext().startActivity(sync);
             }
         });
 
@@ -1494,6 +1509,7 @@ public class FragmentAccount extends FragmentBase {
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
+                ibAccount.setEnabled(auth == AUTH_TYPE_GMAIL);
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
