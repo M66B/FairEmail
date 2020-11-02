@@ -1087,11 +1087,13 @@ The error *... Authentication failed ... Account not found ...* means that a pre
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-The error *... Authentication failed ... Invalid credentials ... network error ...*
+The error *... Authentication failed ... network error ...*
 means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions.
-Just start the wizard (but do not select an account) to grant the required permissions again.
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password
+or by having revoked the required account/contacts permissions.
+In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again.
+In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/):
 "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*",
