@@ -1931,7 +1931,8 @@ public class HtmlHelper {
                         block.add((TextNode) node);
                 } else if (node instanceof Element) {
                     element = (Element) node;
-                    if ("true".equals(element.attr("x-plain")))
+                    if ("pre".equals(element.tagName()) ||
+                            "true".equals(element.attr("x-plain")))
                         plain++;
                     if (element.isBlock()) {
                         normalizeText(block);
@@ -1944,7 +1945,8 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
-                    if ("true".equals(element.attr("x-plain")))
+                    if ("pre".equals(element.tagName()) ||
+                            "true".equals(element.attr("x-plain")))
                         plain--;
                     if (element.isBlock() || "br".equals(element.tagName())) {
                         normalizeText(block);
