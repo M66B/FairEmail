@@ -653,6 +653,10 @@ public class HtmlHelper {
                                     Log.i("Removing display none " + element.tagName());
                                     element.remove();
                                 }
+
+                                if ("block".equals(value) || "inline-block".equals(value))
+                                    element.attr("x-block", "true");
+
                                 if ("inline".equals(value) || "inline-block".equals(value)) {
                                     if (element.nextSibling() != null)
                                         element.attr("x-inline", "true");
@@ -733,6 +737,9 @@ public class HtmlHelper {
                         Log.i("Style=" + sb);
                 }
             }
+
+            if (element.isBlock())
+                element.attr("x-block", "true");
         }
 
         // Remove trailing br from div
@@ -1917,7 +1924,7 @@ public class HtmlHelper {
             private int plain = 0;
             private List<TextNode> block = new ArrayList<>();
 
-            private String WHITESPACE = " \t\f\u00A0";
+            private String WHITESPACE = " \t\f";
             private String WHITESPACE_NL = WHITESPACE + "\r\n";
             private Pattern TRIM_WHITESPACE_NL =
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
@@ -1934,7 +1941,8 @@ public class HtmlHelper {
                     if ("pre".equals(element.tagName()) ||
                             "true".equals(element.attr("x-plain")))
                         plain++;
-                    if (element.isBlock()) {
+                    if (element.isBlock() ||
+                            "true".equals(element.attr("x-block"))) {
                         normalizeText(block);
                         block.clear();
                     }
@@ -1948,7 +1956,9 @@ public class HtmlHelper {
                     if ("pre".equals(element.tagName()) ||
                             "true".equals(element.attr("x-plain")))
                         plain--;
-                    if (element.isBlock() || "br".equals(element.tagName())) {
+                    if (element.isBlock() ||
+                            "true".equals(element.attr("x-block")) ||
+                            "br".equals(element.tagName())) {
                         normalizeText(block);
                         block.clear();
                     }
