@@ -326,6 +326,7 @@
     <string name="title_advanced_overview_mode">Hacer zoom en mensajes originales para ajustarse a la pantalla</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
+    <string name="title_advanced_monospaced_pre">Usar fuente monoespaciada para texto preformateado</string>
     <string name="title_advanced_text_color">Usar colores de texto</string>
     <string name="title_advanced_text_size">Usar tamaños de texto</string>
     <string name="title_advanced_text_font">Usar fuentes</string>
@@ -598,6 +599,7 @@
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
+    <string name="title_backoff_until">Esperando después de un error hasta: %1$s</string>
     <string name="title_storage_quota">Uso de almacenamiento del servidor: %1$s/%2$s</string>
     <string name="title_pop_support">El protocolo POP3 soporta descargar y eliminar mensajes de la bandeja de entrada únicamente. POP3 no puede marcar mensajes como leídos, mover mensajes, etc. POP3 utilizará más batería y datos que IMAP. Por lo tanto considera utilizar el protocolo IMAP cuando sea posible.</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
@@ -1061,6 +1063,7 @@
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_synchronize_poll">Sincronizar periódicamente</string>
     <string name="title_legend_disconnected">Desconectado</string>
+    <string name="title_legend_backoff">Esperando después de un error</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
     <string name="title_legend_executing">Ejecutando operaciones</string>

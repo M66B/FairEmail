@@ -596,7 +596,7 @@
     <string name="title_edit_html">Bewerk als HTML</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Wachten na fout tot: %1$s</string>
+    <string name="title_backoff_until">Wachten na fout tot: %1$s</string>
     <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
     <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 zal meer batterijvermogen en -gegevens gebruiken dan IMAP. Overweeg dus om het IMAP-protocol waar mogelijk te gebruiken.</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
@@ -1060,7 +1060,7 @@
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
     <string name="title_legend_synchronize_poll">Periodiek synchroniseren</string>
     <string name="title_legend_disconnected">Verbinding verbroken</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Wachten na fout</string>
+    <string name="title_legend_backoff">Wachten na fout</string>
     <string name="title_legend_connecting">Verbinding maken</string>
     <string name="title_legend_connected">Verbonden</string>
     <string name="title_legend_executing">Bewerkingen uitvoeren</string>

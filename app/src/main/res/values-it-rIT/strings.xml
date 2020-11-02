@@ -325,6 +325,7 @@
     <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa caratteri monospaziati per il testo del messaggio standard</string>
+    <string name="title_advanced_monospaced_pre">Usa il carattere monospazio per il testo del messaggio</string>
     <string name="title_advanced_text_color">Usa colori testo</string>
     <string name="title_advanced_text_size">Usa dimensioni testo</string>
     <string name="title_advanced_text_font">Usa i tipi di caratteri</string>
@@ -597,7 +598,7 @@
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_sign_key">Firma chiave: %1$s</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attesa dopo il fallimento fino a: %1$s</string>
+    <string name="title_backoff_until">Attesa dopo il fallimento fino a: %1$s</string>
     <string name="title_storage_quota">Utilizzo archiviazione server: %1$s/%2$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
@@ -1061,7 +1062,7 @@
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_synchronize_poll">Sincronizza periodicamente</string>
     <string name="title_legend_disconnected">Disconnesso</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attendi dopo il fallimento</string>
+    <string name="title_legend_backoff">Attendi dopo il fallimento</string>
     <string name="title_legend_connecting">Connessione in corso</string>
     <string name="title_legend_connected">Connesso</string>
     <string name="title_legend_executing">Esecuzione operazioni</string>

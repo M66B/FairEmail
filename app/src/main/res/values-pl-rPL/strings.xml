@@ -346,6 +346,7 @@
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
+    <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
     <string name="title_advanced_text_size">Użyj rozmiarów tekstu</string>
     <string name="title_advanced_text_font">Użyj czcionek</string>
@@ -618,7 +619,7 @@
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Oczekiwanie po niepowodzeniu do: %1$s</string>
+    <string name="title_backoff_until">Oczekiwanie po niepowodzeniu do: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
     <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
@@ -1082,7 +1083,7 @@
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
     <string name="title_legend_synchronize_poll">Synchronizuj okresowo</string>
     <string name="title_legend_disconnected">Rozłączony</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Oczekiwanie po niepowodzeniu</string>
+    <string name="title_legend_backoff">Oczekiwanie po niepowodzeniu</string>
     <string name="title_legend_connecting">‎Łączenie</string>
     <string name="title_legend_connected">Połączony</string>
     <string name="title_legend_executing">Wykonywanie operacji</string>

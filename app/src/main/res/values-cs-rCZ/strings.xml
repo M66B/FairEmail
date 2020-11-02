@@ -347,6 +347,7 @@
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
+    <string name="title_advanced_monospaced_pre">Použít neproporcionální písmo pro předformátovaný text</string>
     <string name="title_advanced_text_color">Použít barvy textu</string>
     <string name="title_advanced_text_size">Použít velikost textu</string>
     <string name="title_advanced_text_font">Použít fonty písma</string>
@@ -618,6 +619,7 @@
     <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
+    <string name="title_backoff_until">Čekání po selhání do: %1$s</string>
     <string name="title_storage_quota">Využití úložiště serveru: %1$s/%2$s</string>
     <string name="title_pop_support">Protokol POP3 podporuje stahování a odstraňování zpráv pouze ze složky doručené. POP3 neumí zprávu označit jako oblíbenou, přesouvat zprávy, atd. Oproti IMAP bude POP3 také více zatěžovat baterii. Zvažte tak použití protokolu IMAP, kdykoli to bude možné.</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
@@ -1081,6 +1083,7 @@
     <string name="title_legend_synchronize_off">Synchronizace vypnuta</string>
     <string name="title_legend_synchronize_poll">Synchronizovat pravidelně</string>
     <string name="title_legend_disconnected">Odpojeno</string>
+    <string name="title_legend_backoff">Čekání po selhání</string>
     <string name="title_legend_connecting">Připojování</string>
     <string name="title_legend_connected">Připojeno</string>
     <string name="title_legend_executing">Provádění operací</string>

@@ -78,7 +78,7 @@
     <string name="menu_operations">Operasi</string>
     <string name="menu_contacts">Kontak Lokal</string>
     <string name="menu_setup">Pengaturan</string>
-    <string name="menu_legend">Legenda</string>
+    <string name="menu_legend">Keterangan Simbol</string>
     <string name="menu_test">Uji program</string>
     <string name="menu_faq">Bantuan</string>
     <string name="menu_translate">Bantu menerjemahkan</string>
@@ -308,6 +308,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_overview_mode">Zoom pesan asli agar pas dengan layar</string>
     <string name="title_advanced_contrast">Gunakan kontras tinggi untuk teks pesan</string>
     <string name="title_advanced_monospaced">Gunakan huruf monospace untuk teks pesan secara standar</string>
+    <string name="title_advanced_monospaced_pre">Gunakan font monospace untuk pra-format teks</string>
     <string name="title_advanced_text_color">Gunakan warna teks</string>
     <string name="title_advanced_text_size">Gunakan ukuran teks</string>
     <string name="title_advanced_text_font">Gunakan huruf</string>
@@ -576,7 +577,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_edit_html">Sunting dalam HTML</string>
     <string name="title_sign_key">Kunci tanda tangan:% 1 $ s</string>
     <string name="title_last_connected">Terakhir tersambung: %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Menunggu setelah terjadi kegagalan koneksi sampai: %1$s</string>
+    <string name="title_backoff_until">Menunggu setelah terjadi kegagalan koneksi sampai: %1$s</string>
     <string name="title_storage_quota">Penggunaan penyimpanan server: %1$s/%2$s</string>
     <string name="title_pop_support">Protokol POP3 mendukung pengunduhan dan penghapusan pesan hanya dari kotak masuk. POP3 tidak dapat menandai pesan sebagai sudah dibaca, memindahkan pesan, dll. POP3 akan menggunakan lebih banyak daya baterai dan data daripada IMAP. Jadi, pertimbangkan dahulu sebelum menggunakan protokol IMAP.</string>
     <string name="title_oauth_support">Tidak terdukung OAuth</string>
@@ -745,29 +746,69 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_attachment_saved">Lampiran disimpan</string>
     <string name="title_attachments_saved">Lampiran disimpan</string>
     <string name="title_attachments_incomplete">Beberapa lampiran atau gambar tidak terunduh dan tidak dapat ditambahkan</string>
+    <string name="title_ask_save">Menyimpan perubahan?</string>
     <string name="title_ask_show_image_hint">Gambar yang dikenali sebagai gambar pelacakan tidak akan ditampilkan</string>
+    <string name="title_ask_reporting">Kirim laporan kesalahan?</string>
     <string name="title_compose">Menyusun</string>
     <string name="title_delivered_to">Dikirim ke:</string>
     <string name="title_from">Dari:</string>
     <string name="title_to">Kepada:</string>
     <string name="title_reply_to">Balas ke:</string>
     <string name="title_via_identity">Melalui:</string>
+    <string name="title_received">Diterima:</string>
+    <string name="title_size">Ukuran:</string>
+    <string name="title_subject">Perihal:</string>
+    <string name="title_body_hint">Pesanmu</string>
+    <string name="title_discard">Buang</string>
+    <string name="title_save">Simpan</string>
+    <string name="title_send">Kirim</string>
+    <string name="title_send_now">Kirim sekarang</string>
     <string name="title_send_via">Kirim melalui</string>
     <string name="title_style">Gaya teks</string>
     <string name="title_style_bold">Tebal</string>
     <string name="title_style_italic">Cetak miring</string>
     <string name="title_style_underline">Menggarisbawahi</string>
+    <string name="title_style_size">Ukuran</string>
     <string name="title_style_align_start">Mulai</string>
     <string name="title_style_list">Daftar</string>
     <string name="title_style_list_bullets">Bulatan</string>
     <string name="title_style_list_numbered">Penomoran</string>
+    <string name="title_style_clear">Bersihkan pemformatan</string>
     <string name="title_style_link">Sisipkan tautan</string>
+    <string name="title_add_image_resize">Ubah ukuran</string>
     <string name="title_attachment_file">Lampirkan berkas</string>
     <string name="title_attachment_photo">Ambil foto</string>
     <string name="title_attachment_audio">Rekam suara</string>
     <string name="title_show_addresses">Tampilkan CC / BCC</string>
+    <string name="title_save_drafts">Simpan konsep di server</string>
+    <string name="title_send_dialog">Tampilkan pilihan kirim</string>
+    <string name="title_media_toolbar">Tombol media</string>
+    <string name="title_insert_template">Sisipkan template</string>
+    <string name="title_send_reminder_remark">Pengingat dapat diaktifkan kembali di pengaturan kirim</string>
+    <string name="title_send_receipt_remark">Sebagian besar layanan penyedia dan klien email mengabaikan permintaan tanda terima</string>
     <string name="title_dialog_hint">Dialog ini dapat diaktifkan lagi melalui menu tiga titik di bilah aksi sebelah atas</string>
+    <string name="title_draft_saved">Konsep disimpan</string>
+    <string name="title_ask_send_via">Kirim pesan kepada %1$s melalui %2$s?</string>
+    <string name="title_queued">Mengirim pesan</string>
+    <string name="title_signature_sender">Tampilkan pilihan gambar</string>
+    <string name="title_search_hint">Pencarian pertamakali akan melihat pesan yang disimpan di perangkat Anda.
+        Untuk mencari di server juga, ketuk tombol \'cari lagi\'.    </string>
+    <string name="title_search_index_hint">Pencarian melalui indeks lebih cepat, tetapi akan menemukan kata secara keseluruhan</string>
+    <string name="title_search_more">Pilihan lainnya</string>
+    <string name="title_search_in_senders">Di pengirim (dari)</string>
+    <string name="title_search_in_recipients">Di penerima (kepada, cc)</string>
+    <string name="title_search_in_subject">Di perihal</string>
+    <string name="title_search_in_keywords">Dengan kata kunci (jika mendukung)</string>
+    <string name="title_search_in_message">Dalam teks pesan</string>
+    <string name="title_search_with">Batasi pencarian untuk</string>
+    <string name="title_search_with_unseen">Belum dibaca</string>
+    <string name="title_search_with_flagged">Berbintang</string>
     <string name="title_search_with_hidden">Tersembunyi (hanya di perangkat)</string>
+    <string name="title_search_with_encrypted">Dienkripsi (hanya di perangkat)</string>
+    <string name="title_search_with_attachments">Memiliki lampiran (hanya di perangkat)</string>
+    <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
+    <string name="title_search_with_before">Sebelum</string>
+    <string name="title_search_with_after">Sesudah</string>
     <string name="title_search_flag_unseen">belum dibaca</string>
     <string name="title_search_flag_flagged">berbintang</string>
     <string name="title_search_flag_hidden">tersembunyi</string>
@@ -796,6 +837,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_mark_all_read">Tandai semua sudah dibaca</string>
     <string name="title_force_sync">Paksa sinkronisasi</string>
     <string name="title_answer_hide">Sembunyikan dari menu</string>
+    <string name="title_rule_importance">Atur sebagai penting</string>
     <string name="title_rule_attachments">Memiliki lampiran</string>
     <string name="title_rule_forward_to">Diteruskan kepada</string>
     <string name="title_legend_section_synchronize">Sinkronisasi</string>
@@ -812,7 +854,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_legend_synchronize_off">Sinkronisasi tidak aktif</string>
     <string name="title_legend_synchronize_poll">Sinkronisasi secara berkala</string>
     <string name="title_legend_disconnected">Terputus</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Menunggu setelah terjadi kegagalan koneksi</string>
+    <string name="title_legend_backoff">Menunggu setelah terjadi kegagalan koneksi</string>
     <string name="title_legend_connecting">Menyambungkan</string>
     <string name="title_legend_connected">Tersambung</string>
     <string name="title_legend_executing">Menjalankan operasi</string>
@@ -878,6 +920,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_legend_create_rule">Buat aturan</string>
     <string name="title_legend_show_unsubscribe">Berhenti berlangganan dari daftar ini</string>
     <string name="title_legend_show_images">Tampilkan gambar</string>
+    <string name="title_legend_save">Simpan</string>
     <string name="title_legend_c">Menyusun</string>
     <string name="title_legend_d">Sampah (hapus)</string>
     <string name="title_legend_m">Menu (banyak pilihan)</string>
@@ -889,8 +932,11 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_hint_folder_actions">Tekan lama pada folder untuk pilihan, seperti menambahkan folder ke menu navigasi untuk akses cepat</string>
     <string name="title_hint_support">Jika Anda memiliki pertanyaan atau masalah, silakan gunakan menu bantuan untuk mendapatkan bantuan</string>
     <string name="title_hint_sync">Mendownload pesan dapat memakan waktu lama, tergantung pada kecepatan penyedia layanan, koneksi internet, perangkat dan jumlah pesan. Saat mengunduh pesan, mungkin aplikasi merespons lebih lambat.</string>
+    <string name="title_redo">Ulangi</string>
     <string name="title_default_changed">Judul Bawaan Diubah</string>
+    <string name="title_no_ask_for_again">Jangan tanya ini lagi untuk %1$s</string>
     <string name="title_via">Melalui: %1$s</string>
+    <string name="title_icalendar_decline">Tolak</string>
     <string name="title_pro_list">Daftar fitur pro</string>
     <string name="title_pro_purchase">Beli</string>
     <string name="title_pro_once">Hanya sekali</string>
@@ -913,6 +959,15 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_accessibility_show_snooze_time">Tampilkan waktu tunda</string>
     <string name="title_accessibility_show_addresses">Tampilkan alamat</string>
     <string name="title_accessibility_from">Pengirim</string>
+    <string-array name="sendDelayedNames">
+        <item>Jangan</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 menit</item>
+        <item>2 menit</item>
+        <item>5 menit</item>
+        <item>10 menit</item>
+    </string-array>
     <string-array name="startupNames">
         <item>Kotak masuk terpadu</item>
         <item>Folder terpadu</item>

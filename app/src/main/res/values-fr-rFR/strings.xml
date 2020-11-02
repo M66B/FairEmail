@@ -325,6 +325,7 @@
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
+    <string name="title_advanced_monospaced_pre">Utiliser la police à espacement fixe pour le texte préformaté</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
@@ -597,7 +598,7 @@
     <string name="title_edit_html">Modifier en HTML</string>
     <string name="title_sign_key">Clé de signature : %1$s</string>
     <string name="title_last_connected">Dernière connexion : %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attente après l\'échec jusqu\'à : %1$s</string>
+    <string name="title_backoff_until">Attente après l\'échec jusqu\'à : %1$s</string>
     <string name="title_storage_quota">Utilisation du stockage sur le serveur : %1$s/%2$s</string>
     <string name="title_pop_support">Le protocole POP3 prend en charge le téléchargement et la suppression des messages depuis la boîte de réception uniquement. POP3 ne permet pas de marquer les messages comme lus, de les déplacer, etc. POP3 utilisera davantage de batterie et de données qu’IMAP. Par conséquent, envisagez d’utiliser le protocole IMAP lorsque cela est possible.</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
@@ -1061,7 +1062,7 @@
     <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
     <string name="title_legend_synchronize_poll">Synchroniser périodiquement</string>
     <string name="title_legend_disconnected">Déconnecté</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Attente après l\'échec</string>
+    <string name="title_legend_backoff">Attente après l\'échec</string>
     <string name="title_legend_connecting">Connexion en cours</string>
     <string name="title_legend_connected">Connecté</string>
     <string name="title_legend_executing">Opérations en cours d\'exécution</string>

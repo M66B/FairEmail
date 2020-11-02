@@ -325,6 +325,7 @@
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
+    <string name="title_advanced_monospaced_pre">Χρήση γραμματοσειράς σταθερού πλάτους για προ-μορφοποιημένο κείμενο</string>
     <string name="title_advanced_text_color">Χρήση των χρωμάτων του κειμένου</string>
     <string name="title_advanced_text_size">Χρήση των μεγεθών του κειμένου</string>
     <string name="title_advanced_text_font">Χρήση των γραμματοσειρών</string>
@@ -595,7 +596,7 @@
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
     <string name="title_sign_key">Κλειδί υπογραφής: %1$s</string>
     <string name="title_last_connected">Τελευταία σύνδεση: %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
+    <string name="title_backoff_until">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
     <string name="title_storage_quota">Χρήση χωρητικότητας διακομιστή: %1$s/%2$s</string>
     <string name="title_pop_support">Το πρωτόκολλο POP3 υποστηρίζει το κατέβασμα και τη διαγραφή μηνυμάτων μόνον από τα εισερχόμενα. Το POP3 δεν μπορεί να επισημαίνει μηνύματα ως αναγνωσμένα, να τα μετακινεί, κλπ. Το POP3 καταναλώνει περισσότερη μπαταρία και δεδομένα από το IMAP. Συνεπώς, σκεφτείτε να χρησιμοποιείτε το πρωτόκολλο IMAP όποτε είναι δυνατόν.</string>
     <string name="title_oauth_support">Δεν υποστηρίζεται OAuth</string>
@@ -1057,7 +1058,7 @@
     <string name="title_legend_synchronize_off">Συγχρονισμός ανενεργός</string>
     <string name="title_legend_synchronize_poll">Περιοδικός συγχρονισμός</string>
     <string name="title_legend_disconnected">Αποσυνδέθηκε</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Αναμονή μετά από μία αποτυχία σύνδεσης</string>
+    <string name="title_legend_backoff">Αναμονή μετά από μία αποτυχία σύνδεσης</string>
     <string name="title_legend_connecting">Γίνεται σύνδεση</string>
     <string name="title_legend_connected">Συνδέθηκε</string>
     <string name="title_legend_executing">Δραστηριότητες σε εξέλιξη</string>

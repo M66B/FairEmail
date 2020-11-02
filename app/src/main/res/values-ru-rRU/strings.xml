@@ -347,6 +347,7 @@
     <string name="title_advanced_overview_mode">Изменить масштаб оригинальных сообщений к размеру экрана</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моношированный шрифт для текста сообщения</string>
+    <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
     <string name="title_advanced_text_color">Использовать цвета текста</string>
     <string name="title_advanced_text_size">Использовать размер текста</string>
     <string name="title_advanced_text_font">Использовать шрифты</string>
@@ -619,7 +620,7 @@
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_sign_key">Ключ подписи: %1$s</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
-    <string name="title_backoff_until" comment="title_backoff_until&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Ожидание после ошибки до: %1$s</string>
+    <string name="title_backoff_until">Ожидание после ошибки до: %1$s</string>
     <string name="title_storage_quota">Занято на сервере: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
@@ -1083,7 +1084,7 @@
     <string name="title_legend_synchronize_off">Синхронизация отключена</string>
     <string name="title_legend_synchronize_poll">Периодическая синхронизация</string>
     <string name="title_legend_disconnected">Отключено</string>
-    <string name="title_legend_backoff" comment="title_legend_backoff&#10;&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq123&#10;">Ожидание после ошибки</string>
+    <string name="title_legend_backoff">Ожидание после ошибки</string>
     <string name="title_legend_connecting">Подключение</string>
     <string name="title_legend_connected">Подключено</string>
     <string name="title_legend_executing">Выполнение операций</string>
