@@ -1390,7 +1390,11 @@ public class HtmlHelper {
     static String flow(String text) {
         boolean continuation = false;
         StringBuilder flowed = new StringBuilder();
-        for (String line : text.split("\\r?\\n")) {
+        String[] lines = text.split("\\r?\\n");
+        for (int l = 0; l < lines.length; l++) {
+            String line = lines[l];
+            lines[l] = null;
+
             if (continuation)
                 while (line.startsWith(">")) {
                     line = line.substring(1);
@@ -1415,7 +1419,10 @@ public class HtmlHelper {
         int level = 0;
         StringBuilder sb = new StringBuilder();
         String[] lines = text.split("\\r?\\n");
-        for (String line : lines) {
+        for (int l = 0; l < lines.length; l++) {
+            String line = lines[l];
+            lines[l] = null;
+
             // Opening quotes
             // https://tools.ietf.org/html/rfc3676#section-4.5
             if (quote) {
@@ -1441,17 +1448,17 @@ public class HtmlHelper {
             }
 
             // Tabs characters
-            StringBuilder l = new StringBuilder();
+            StringBuilder sbl = new StringBuilder();
             for (int j = 0; j < line.length(); j++) {
                 char kar = line.charAt(j);
                 if (kar == '\t') {
-                    l.append(' ');
-                    while (l.length() % TAB_SIZE != 0)
-                        l.append(' ');
+                    sbl.append(' ');
+                    while (sbl.length() % TAB_SIZE != 0)
+                        sbl.append(' ');
                 } else
-                    l.append(kar);
+                    sbl.append(kar);
             }
-            line = l.toString();
+            line = sbl.toString();
 
             // Html characters
             // This will handle spaces / word wrapping as well
