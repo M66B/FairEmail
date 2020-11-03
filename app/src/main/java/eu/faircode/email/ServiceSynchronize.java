@@ -1709,7 +1709,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     long now = new Date().getTime();
 
                     // Check for fast successive server, connectivity, etc failures
-                    long fail_threshold = account.poll_interval * 60 * 1000L * FAST_FAIL_THRESHOLD / 100;
+                    long poll_interval = Math.min(account.poll_interval, CONNECT_BACKOFF_ALARM_START);
+                    long fail_threshold = poll_interval * 60 * 1000L * FAST_FAIL_THRESHOLD / 100;
                     long was_connected = (account.last_connected == null ? 0 : now - account.last_connected);
                     if (was_connected < fail_threshold && !Helper.isCharging(this)) {
                         if (state.getBackoff() == CONNECT_BACKOFF_START) {
@@ -1734,6 +1735,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " fails=" + fast_fails +
                                                 " was=" + (was_connected / 1000L) +
                                                 " first=" + ((now - first_fail) / 1000L) +
+                                                " poll=" + poll_interval +
                                                 " avg=" + (avg_fail / 1000L) + "/" + (fail_threshold / 1000L) +
                                                 " missing=" + (missing / 1000L) +
                                                 " compensate=" + compensate +
