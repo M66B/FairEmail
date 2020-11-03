@@ -678,6 +678,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         // Check sent message
         if (sid != null) {
             try {
+                // Some email servers are slow with adding sent messages
                 Thread.sleep(EXISTS_DELAY);
             } catch (InterruptedException ex) {
                 Log.e(ex);
