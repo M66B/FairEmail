@@ -833,6 +833,20 @@ public class HtmlHelper {
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
+            // Clear columns with non breaking spaces
+            if (col.childNodeSize() == 1 &&
+                    col.childNode(0) instanceof TextNode) {
+                boolean nbsp = true;
+                String text = ((TextNode) col.childNode(0)).getWholeText();
+                for (int i = 0; i < text.length(); i++)
+                    if (text.charAt(i) != '\u00a0') {
+                        nbsp = false;
+                        break;
+                    }
+                if (nbsp)
+                    col.html("");
+            }
+
             // separate columns
             if (hasVisibleContent(col.childNodes()))
                 if (col.nextElementSibling() != null)
