@@ -447,24 +447,24 @@ En la sección de visualización de los ajustes puede activar o desactivar:
 
 Tenga en cuenta que los mensajes sólo se pueden previsualizar cuando se haya descargado el texto del mensaje. Los textos de mensajes más grandes no se descargan por defecto en redes medidas (generalmente móviles). Puede cambiar esto en la configuración.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Si la lista de direcciones es larga, puede colapsar la sección de direcciones con el icono *menos* en la parte superior de la sección de direcciones.
 
-Some people ask:
+Algunas personas piden:
 
 * mostrar la el asunto en negrita, pero la negrita ya está siendo usada para resaltar los mensajes no leídos
 * mostrar la dirección o el asunto más grande/más pequeño, pero esto interferiría con la opción de tamaño de texto
 * mover la estrella a la izquierda, pero es mucho más fácil tener la estrella en el lado derecho
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Por desgracia, es imposible hacer a todo el mundo feliz y añadir un montón de ajustes no sólo sería confuso, sino que nunca sería suficiente.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) ¿Cómo puedo iniciar sesión en Gmail / G suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Puede utilizar el asistente de configuración rápida para configurar fácilmente una cuenta e identidad de Gmail.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Si no quiere usar una cuenta Gmail del dispositivo, puede habilitar el acceso para "aplicaciones menos seguras" y utilizar la contraseña de su cuenta (no recomendado) o habilitar la autenticación de dos factores y utilizar una contraseña específica de la aplicación. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
