@@ -136,6 +136,8 @@ public class HtmlHelper {
     private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
+    private static String WHITESPACE = " \t\f";
+    private static String WHITESPACE_NL = WHITESPACE + "\r\n";
     private static final String LINE = "----------------------------------------";
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
@@ -833,17 +835,19 @@ public class HtmlHelper {
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
-            // Clear columns with non breaking spaces
+            // Clear blank columns
             if (col.childNodeSize() == 1 &&
                     col.childNode(0) instanceof TextNode) {
-                boolean nbsp = true;
+                boolean blank = true;
                 String text = ((TextNode) col.childNode(0)).getWholeText();
-                for (int i = 0; i < text.length(); i++)
-                    if (text.charAt(i) != '\u00a0') {
-                        nbsp = false;
+                for (int i = 0; i < text.length(); i++) {
+                    char kar = text.charAt(i);
+                    if (WHITESPACE.indexOf(kar) < 0 && kar != '\u00a0' /* nbsp */) {
+                        blank = false;
                         break;
                     }
-                if (nbsp)
+                }
+                if (blank)
                     col.html("");
             }
 
@@ -1938,8 +1942,6 @@ public class HtmlHelper {
             private int plain = 0;
             private List<TextNode> block = new ArrayList<>();
 
-            private String WHITESPACE = " \t\f";
-            private String WHITESPACE_NL = WHITESPACE + "\r\n";
             private Pattern TRIM_WHITESPACE_NL =
                     Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
 
