@@ -144,6 +144,7 @@ public class FragmentAnswer extends FragmentBase {
         // Initialize
         grpReady.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(View.GONE);
 
         pbWait.setVisibility(View.VISIBLE);
 
@@ -196,6 +197,7 @@ public class FragmentAnswer extends FragmentBase {
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 grpReady.setVisibility(View.VISIBLE);
+                bottom_navigation.setVisibility(View.VISIBLE);
             }
 
             @Override
