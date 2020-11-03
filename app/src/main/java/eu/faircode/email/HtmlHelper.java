@@ -77,6 +77,7 @@ import com.steadystate.css.parser.selectors.ClassConditionImpl;
 import com.steadystate.css.parser.selectors.ConditionalSelectorImpl;
 import com.steadystate.css.parser.selectors.ElementSelectorImpl;
 
+import org.jsoup.internal.StringUtil;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Document;
@@ -835,26 +836,10 @@ public class HtmlHelper {
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
-            // Clear blank columns
-            if (col.childNodeSize() == 1 &&
-                    col.childNode(0) instanceof TextNode) {
-                boolean blank = true;
-                String text = ((TextNode) col.childNode(0)).getWholeText();
-                for (int i = 0; i < text.length(); i++) {
-                    char kar = text.charAt(i);
-                    if (WHITESPACE.indexOf(kar) < 0 && kar != '\u00a0' /* nbsp */) {
-                        blank = false;
-                        break;
-                    }
-                }
-                if (blank)
-                    col.html("");
-            }
-
             // separate columns
             if (hasVisibleContent(col.childNodes()))
                 if (col.nextElementSibling() != null)
-                    col.appendText(" ");
+                    col.append("&nbsp;");
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
@@ -1394,9 +1379,15 @@ public class HtmlHelper {
 
     private static boolean hasVisibleContent(List<Node> nodes) {
         for (Node node : nodes)
-            if (node instanceof TextNode && !((TextNode) node).isBlank())
+            if (node instanceof TextNode) {
+                String text = ((TextNode) node).getWholeText();
+                for (int i = 0; i < text.length(); i++) {
+                    char kar = text.charAt(i);
+                    if (!StringUtil.isWhitespace(kar) && kar != '\u00a0' /* nbsp */)
+                        return true;
+                }
                 return true;
-            else if (node instanceof Element) {
+            } else if (node instanceof Element) {
                 Element element = (Element) node;
                 if (element.isBlock())
                     return false;
@@ -2034,6 +2025,22 @@ public class HtmlHelper {
                         tnode.text(text);
                     }
                 }
+
+                // Remove blank blocks
+                boolean blank = true;
+                for (int i = 0; i < block.size(); i++) {
+                    text = block.get(i).getWholeText();
+                    for (int j = 0; j < text.length(); j++) {
+                        char kar = text.charAt(j);
+                        if (WHITESPACE.indexOf(kar) < 0 && kar != '\u00a0' /* nbsp */) {
+                            blank = false;
+                            break;
+                        }
+                    }
+                }
+                if (blank)
+                    for (int i = 0; i < block.size(); i++)
+                        block.get(i).text("");
 
                 if (debug) {
                     if (block.size() > 0) {
