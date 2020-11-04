@@ -433,7 +433,7 @@ public class EmailService implements AutoCloseable {
             main = InetAddress.getByName(host);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", false);
+            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
             if (prefer_ip4 && main instanceof Inet6Address) {
                 for (InetAddress iaddr : InetAddress.getAllByName(host))
                     if (iaddr instanceof Inet4Address) {
