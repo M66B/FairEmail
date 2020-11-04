@@ -303,6 +303,11 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         }
 
         @Override
+        public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties linkProperties) {
+            showConnectionType();
+        }
+
+        @Override
         public void onLost(@NonNull Network network) {
             showConnectionType();
         }
