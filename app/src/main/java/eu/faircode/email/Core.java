@@ -2482,20 +2482,9 @@ class Core {
                     }
             }
 
-            // Add local sent messages to remote sent folder
-            if (EntityFolder.SENT.equals(folder.type)) {
-                List<EntityMessage> orphans = db.message().getOrphans(folder.id);
-                Log.i(folder.name + " sent orphans=" + orphans.size());
-                for (EntityMessage orphan : orphans) {
-                    Log.i(folder.name + " adding orphan id=" + orphan.id);
-                    if (orphan.content && !orphan.ui_hide)
-                        EntityOperation.queue(context, orphan, EntityOperation.ADD);
-                }
-            } else {
-                // Delete not synchronized messages without uid
-                if (!EntityFolder.DRAFTS.equals(folder.type))
-                    db.message().deleteOrphans(folder.id);
-            }
+            // Delete not synchronized messages without uid
+            if (!EntityFolder.isOutgoing(folder.type))
+                db.message().deleteOrphans(folder.id);
 
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);

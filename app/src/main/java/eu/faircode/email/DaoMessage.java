@@ -547,15 +547,6 @@ public interface DaoMessage {
     List<TupleUidl> getUidls(long folder);
 
     @Query("SELECT * FROM message" +
-            " WHERE folder = :folder" +
-            " AND uid IS NULL" +
-            " AND NOT EXISTS" +
-            "  (SELECT * FROM operation" +
-            "  WHERE operation.message = message.id" +
-            "  AND operation.name = '" + EntityOperation.ADD + "')")
-    List<EntityMessage> getOrphans(long folder);
-
-    @Query("SELECT * FROM message" +
             " WHERE (:folder IS NULL OR folder = :folder)" +
             " AND NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed(Long folder);
