@@ -427,6 +427,8 @@ public class Helper {
     static Integer getBatteryLevel(Context context) {
         try {
             BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+            if (bm == null)
+                return null;
             return bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
         } catch (Throwable ex) {
             Log.e(ex);
@@ -439,6 +441,8 @@ public class Helper {
             return false;
         try {
             BatteryManager bm = (BatteryManager) context.getSystemService(Context.BATTERY_SERVICE);
+            if (bm == null)
+                return false;
             return bm.isCharging();
         } catch (Throwable ex) {
             Log.e(ex);
