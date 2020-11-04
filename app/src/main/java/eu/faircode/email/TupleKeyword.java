@@ -53,6 +53,13 @@ public class TupleKeyword {
     }
 
     static List<TupleKeyword> from(Context context, Persisted data) {
+        if (data == null)
+            data = new Persisted();
+        if (data.selected == null)
+            data.selected = new String[0];
+        if (data.available == null)
+            data.available = new String[0];
+
         List<TupleKeyword> result = new ArrayList<>();
 
         List<String> keywords = new ArrayList<>();
