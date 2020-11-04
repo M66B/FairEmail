@@ -213,6 +213,7 @@ Error reporting is sponsored by:
 
 [Bugsnag](https://www.bugsnag.com/) monitors application stability
 and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
+Error reporting is disabled by default, see also [the privacy policy](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail).
 
 ## License
 
