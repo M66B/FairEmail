@@ -175,7 +175,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [~~(54) Wie benutze ich ein Namensraumpräfix?~~](#user-content-faq54)
 * [(55) Wie kann ich alle Nachrichten als gelesen markieren, verschieben oder löschen?](#user-content-faq55)
 * [(56) Können Sie Unterstützung für JMAP hinzufügen?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [(57) Kann ich HTML in Signaturen verwenden?](#user-content-faq57)
 * [(58) Was bedeutet ein geöffnetes/geschlossenes E-Mail-Symbol?](#user-content-faq58)
 * [(59) Können Original-Nachrichten im Browser geöffnet werden?](#user-content-faq59)
 * [(60) Wussten Sie …?](#user-content-faq60)

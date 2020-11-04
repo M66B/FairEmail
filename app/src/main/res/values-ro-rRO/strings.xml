@@ -335,6 +335,7 @@
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
+    <string name="title_advanced_monospaced_pre">Folosește fontul proporțional pentru textul preformatat</string>
     <string name="title_advanced_text_color">Folosește culori text</string>
     <string name="title_advanced_text_size">Folosește mărimi text</string>
     <string name="title_advanced_text_font">Folosește fonturi</string>
@@ -607,6 +608,7 @@
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_sign_key">Cheie semnatură: %1$s</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
+    <string name="title_backoff_until">Aşteptare după eşec până la: %1$s</string>
     <string name="title_storage_quota">Spațiu utilizat pe server: %1$s/%2$s</string>
     <string name="title_pop_support">Protocolul POP3 acceptă descărcarea și ștergerea mesajelor numai din căsuța de mesaje primite. POP3 nu poate marca mesajele drept citite, nu poate muta mesajele etc. POP3 va consuma mai multă baterie și date decât IMAP. Deci, luați în considerare utilizarea protocolului IMAP ori de câte ori este posibil.</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
@@ -1070,6 +1072,7 @@
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
     <string name="title_legend_synchronize_poll">Sincronizează periodic</string>
     <string name="title_legend_disconnected">Deconectat</string>
+    <string name="title_legend_backoff">Aşteptare după eşec</string>
     <string name="title_legend_connecting">Conectare în curs</string>
     <string name="title_legend_connected">Conectat</string>
     <string name="title_legend_executing">Executare operații</string>
