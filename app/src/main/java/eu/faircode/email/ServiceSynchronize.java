@@ -1497,7 +1497,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         if (!folder.poll && capIdle) {
                                             // Sends folder NOOP
                                             if (!mapFolders.get(folder).isOpen())
-                                                throw new StoreClosedException(iservice.getStore(), folder.name);
+                                                throw new StoreClosedException(iservice.getStore(), "NOOP " + folder.name);
                                         } else {
                                             if (folder.poll_count == 0)
                                                 EntityOperation.sync(this, folder.id, false);
