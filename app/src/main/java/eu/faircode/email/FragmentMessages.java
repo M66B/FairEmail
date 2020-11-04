@@ -1588,7 +1588,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void setExpanded(TupleMessageEx message, boolean value) {
+        public void setExpanded(TupleMessageEx message, boolean value, boolean scroll) {
             // Prevent flicker
             if (value && message.accountAutoSeen && !message.folderReadOnly) {
                 message.unseen = 0;
@@ -1598,6 +1598,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             setValue("expanded", message.id, value);
+            if (scroll)
+                setValue("scroll", message.id, true);
 
             final int p = adapter.getPositionForKey(message.id);
             if (p != NO_POSITION)
@@ -4683,7 +4685,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (expand != null &&
                         (expand.content || unmetered || (expand.size != null && expand.size < download)))
-                    iProperties.setExpanded(expand, true);
+                    iProperties.setExpanded(expand, true, false);
             }
 
             // Auto expand all seen messages
@@ -4695,7 +4697,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             !message.duplicate &&
                             !EntityFolder.DRAFTS.equals(message.folderType) &&
                             !EntityFolder.TRASH.equals(message.folderType))
-                        iProperties.setExpanded(message, true);
+                        iProperties.setExpanded(message, true, false);
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
                 List<MessageTarget> mt = new ArrayList<>();
