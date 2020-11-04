@@ -6,6 +6,7 @@
     <string name="app_limitations">Berjochten wurde bygelyks altyd herformateare om ûnfeilige eleminten te ferwiderjen en lêsberens te ferbetterjen, en iepeningslinks moatte wurde befestige foar feiligens.</string>
     <string name="app_crash">FailEmail wurdt net stipe op dit apparaat om\'t bugs yn Android crashes feroarsaakje</string>
     <string name="app_exit">Gean \'werom\' opnij om út te gean</string>
+    <string name="app_cake">Net genôch opslachromte oer</string>
     <string name="channel_service">Ûntfangen</string>
     <string name="channel_send">Stjoere</string>
     <string name="channel_notification">Notifikaasjes</string>
@@ -14,6 +15,8 @@
     <string name="channel_error">Flaters</string>
     <string name="channel_alert">Tsjinner warskôging</string>
     <string name="channel_group_contacts">Kontakten</string>
+    <string name="channel_service_description">Syngronisearjen en kontrolearjen fan akkounts</string>
+    <string name="channel_send_description">Ferstjoeren fan berjochten</string>
     <plurals name="page_conversation">
         <item quantity="one">Konversaasje</item>
         <item quantity="other">Konversaasjes</item>
@@ -214,11 +217,14 @@
     <string name="title_advanced_openpgp">OpenPGP-provider</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
     <string name="title_advanced_conversation_actions">Hannelje aksjes foar</string>
+    <string name="title_advanced_language">Taal</string>
+    <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
     <string name="title_advanced_more">Mear opsjes</string>
     <string name="title_advanced_bcc_hint">It adres wurdt net werjûn, mar wurdt tafoege by it ferstjoeren</string>
     <string name="title_advanced_never_favorite">Nea favoryt</string>
+    <string name="title_advanced_edit_name">Namme bewurkje</string>
     <string name="title_select">Selektearje &#8230;</string>
     <string name="title_identity_name">Jo namme</string>
     <string name="title_identity_email">Jo e-postadres</string>
@@ -237,10 +243,13 @@
     <string name="title_provider">Ynternetoanbieder</string>
     <string name="title_custom">Oanpast</string>
     <string name="title_host">Hostnamme</string>
+    <string name="title_encryption">Fersifering</string>
+    <string name="title_encryption_none">Gjin</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkernamme</string>
     <string name="title_password">Wachtwurd</string>
     <string name="title_realm">Ryk</string>
+    <string name="title_primary">Primêr</string>
     <string name="title_primary_account">Primêr (standert akkount)</string>
     <string name="title_check">Kontrolearje</string>
     <string name="title_no_name">Namme ûntbrekke</string>
@@ -252,8 +261,10 @@
     <string name="title_synchronize_enabled">Syngronisearje</string>
     <string name="title_empty_trash">Lege jiskefet</string>
     <string name="title_empty_spam">Spam leech</string>
+    <string name="title_edit_properties">Eigenskippen bewurkje</string>
     <string name="title_edit_rules">Bewurkje regel</string>
     <string name="title_insert_contact">Kontakt tafoegje</string>
+    <string name="title_edit_contact">Kontakt bewurkje</string>
     <string name="title_folder_name">Map namme</string>
     <string name="title_display_name">Display namme</string>
     <string name="title_show_folders">Sjoch ferburgen mappen</string>
@@ -278,6 +289,7 @@
     <string name="title_no_messages">Gjin berjochten</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Foarút: %1$s</string>
+    <string name="title_buttons">Knoppen</string>
     <string name="title_seen">Mark lêzen</string>
     <string name="title_unseen">Markearje as net lêzen</string>
     <string name="title_hide">Ferbergje</string>
@@ -309,6 +321,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Ferpleatse</string>
     <string name="title_copy_btn">Kopiearje</string>
+    <string name="title_keywords_btn">Kaaiwurden</string>
     <string name="title_no_junk">Net spam</string>
     <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_archive">Argyf</string>
@@ -328,6 +341,7 @@
     <string name="title_sent">Stjoerd:</string>
     <string name="title_received">Ûntfangen:</string>
     <string name="title_size">Grutte:</string>
+    <string name="title_language">Taal:</string>
     <string name="title_subject">Ûnderwerp:</string>
     <string name="title_attachment">Taheaksel:</string>
     <string name="title_body_hint">Jo berjocht</string>
@@ -336,6 +350,7 @@
     <string name="title_send">Stjoere</string>
     <string name="title_send_now">Stjoer no</string>
     <string name="title_send_via">Stjoer fia</string>
+    <string name="title_send_at">Stjoere by &#8230;</string>
     <string name="title_send_encryption">Fersifering</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_style">Styl</string>
@@ -346,9 +361,19 @@
     <string name="title_style_size_small">Lyts</string>
     <string name="title_style_size_medium">Medium</string>
     <string name="title_style_size_large">Grutte</string>
+    <string name="title_style_align">Rjochtsje</string>
+    <string name="title_style_align_start">Start</string>
+    <string name="title_style_align_center">Sintrum</string>
+    <string name="title_style_align_end">Ein</string>
+    <string name="title_style_list">List</string>
+    <string name="title_style_list_bullets">Kûgels</string>
+    <string name="title_style_list_numbered">Nûmer</string>
     <string name="title_style_font">Lettertypen</string>
     <string name="title_style_font_default">Standert</string>
     <string name="title_style_link">Link ynfoegje</string>
+    <string name="title_add_image_inline">Ynfoegje</string>
+    <string name="title_add_image_attach">Taheakje</string>
+    <string name="title_add_image_resize">Grutte feroarje</string>
     <string name="title_attachment_file">Heakje bestân ta</string>
     <string name="title_attachment_photo">Nim foto</string>
     <string name="title_attachment_audio">Audio opnimme</string>
@@ -356,6 +381,7 @@
     <string name="title_draft_saved">Untwerp opslein</string>
     <string name="title_queued">Ferstjoere berjochten</string>
     <string name="title_sign">Ûndertekenje</string>
+    <string name="title_verify">Ferifiearje</string>
     <string name="title_encrypt">Fersiferje</string>
     <string name="title_decrypt">Ûntsiferje</string>
     <string name="title_resync">Resync</string>
@@ -366,10 +392,15 @@
     <string name="title_search">Sykje</string>
     <string name="title_search_with_unseen">Net lêzen</string>
     <string name="title_search_with_flagged">Stjer</string>
+    <string name="title_search_with_before">Foar</string>
+    <string name="title_search_with_after">Efter</string>
     <string name="title_search_flag_unseen">net lêzen</string>
     <string name="title_search_flag_flagged">stjer</string>
     <string name="title_search_flag_hidden">ferburgen</string>
     <string name="title_search_flag_encrypted">fersifere</string>
+    <string name="title_search_flag_attachments">taheaksels</string>
+    <string name="title_search_flag_invite">útnoeging</string>
+    <string name="title_search_flag_size">grutte &gt; %1$s</string>
     <string name="title_search_in">Sykje yn</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
@@ -395,6 +426,7 @@
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
+    <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
     <string name="title_rule_noop">Gjin aksje</string>
     <string name="title_rule_seen">Mark lêzen</string>
@@ -537,6 +569,7 @@
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Belangryk</string>
     <string name="title_keyword_label2">Wurk</string>
+    <string name="title_keyword_label3">Persoanlik</string>
     <string name="title_keyword_label4">Dwaan</string>
     <string name="title_keyword_label5">Letter</string>
     <string name="title_accessibility_flagged">Stjer</string>
@@ -660,14 +693,14 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Út</item>
         <item>2.5 s</item>
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
     </string-array>
     <string-array name="fontNameNames">
-        <item>Cursive</item>
+        <item>Kursyf</item>
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
