@@ -2140,36 +2140,23 @@ public class HtmlHelper {
                                         setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                     break;
                                 case "text-align":
-                                    boolean table = false;
-                                    Element e = element;
-                                    while (e != null) {
-                                        if ("table".equals(e.tagName()) ||
-                                                "true".equals(e.attr("x-table"))) {
-                                            table = true;
+                                    // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+                                    Layout.Alignment alignment = null;
+                                    switch (value) {
+                                        case "left":
+                                        case "start":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
                                             break;
-                                        }
-                                        e = e.parent();
+                                        case "center":
+                                            alignment = Layout.Alignment.ALIGN_CENTER;
+                                            break;
+                                        case "right":
+                                        case "end":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                            break;
                                     }
-
-                                    if (!table) {
-                                        // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                        Layout.Alignment alignment = null;
-                                        switch (value) {
-                                            case "left":
-                                            case "start":
-                                                alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
-                                                break;
-                                            case "center":
-                                                alignment = Layout.Alignment.ALIGN_CENTER;
-                                                break;
-                                            case "right":
-                                            case "end":
-                                                alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
-                                                break;
-                                        }
-                                        if (alignment != null)
-                                            setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
-                                    }
+                                    if (alignment != null)
+                                        setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
                                     break;
                             }
                         }
