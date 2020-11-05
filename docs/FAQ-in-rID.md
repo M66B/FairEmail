@@ -10,7 +10,7 @@ Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan d
 * [Fitur yang direncanakan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Fitur yang sering diminta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Pertanyaan yang Sering Diajukan (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Dukungan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
+* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Memberi otorisasi akun
 
@@ -919,9 +919,9 @@ The error *... Authentication failed ... Account not found ...* means that a pre
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -1778,6 +1778,7 @@ It is possible to install FairEmail in multiple user profiles, for example a per
 
 It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
 
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific notifications.
 
 Scheduling is a pro feature.
 
@@ -2012,7 +2013,7 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 <br />
 
 <a name="faq100"></a>
-**(100) Bagaimana cara saya mensingkronisasikan kategori Gmail?**
+**(100) How can I synchronize Gmail categories?**
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
@@ -2036,7 +2037,7 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <br />
 
 <a name="faq101"></a>
-**(101) Apa yang dimaksud dengan titik yang berwarna biru/oranye yang berada dibawah percakapan?**
+**(101) What does the blue/orange dot at the bottom of the conversations mean?**
 
 The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
 
@@ -2045,7 +2046,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <br />
 
 <a name="faq102"></a>
-**(102) Bagaimana cara saya mengaktifkan rotasi otomatis untuk gambar?**
+**(102) How can I enable auto rotation of images?**
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
 
@@ -2054,7 +2055,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq103"></a>
-**(103) Bagaimana cara saya merekam audio?**
+**(103) How can I record audio?**
 
 You can record audio if you have a recording app installed which supports the [RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION) intent. If no supported app is installed, FairEmail will not show a record audio action/icon.
 
@@ -2063,7 +2064,7 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 <br />
 
 <a name="faq104"></a>
-**(104) Apa yang harus saya ketahui tentang pelaporan eror?**
+**(104) What do I need to know about error reporting?**
 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in
@@ -2086,7 +2087,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <br />
 
 <a name="faq106"></a>
-**(106) Peluncur mana yang dapat menampilkan lencana hitungan dengan jumlah pesan yang belum dibaca?**
+**(106) Which launchers can show a badge count with the number of unread messages?**
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
@@ -2113,7 +2114,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 <br />
 
 <a name="faq107"></a>
-**(107) Bagaimana cara saya menggunakan bintang berwarna?**
+**(107) How do I use colored stars?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
@@ -2131,7 +2132,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq109"></a>
-**~~(109) Mengapa 'pilih akun' hanya tersedia di versi resmi saja?~~**
+**~~(109) Why is 'select account' available in official versions only?~~**
 
 ~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
 
@@ -2145,7 +2146,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq110"></a>
-**(110) Mengapa terdapat (beberapa) pesan kosong dan/atau lampiran yang rusak?**
+**(110) Why are (some) messages empty and/or attachments corrupt?**
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
@@ -2158,7 +2159,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Apakah OAuth tersedia?**
+**(111) Is OAuth supported?**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
 
@@ -2785,9 +2786,15 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 
-## Bantuan
+## Get support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
+
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+
+There is no support on things that are not directly related to FairEmail.
+
+There is no support on building and developing things by yourself.
 
 Requested features should:
 
@@ -2796,10 +2803,12 @@ Requested features should:
 * cocok dengan filosofi FairEmail (berorientasi dengan privasi, berfikir keamanan)
 * memenuhi standar umum (IMAP, SMTP, dll)
 
-Fitur yang tidak memenuhi persyaratan ini kemungkinan besar akan ditolak. Hal ini juga untuk menjaga pemeliharaan dan dukungan dalam jangka panjang dapat terpenuhi.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Jika Anda memiliki pertanyaan, ingin meminta fitur atau melaporkan bug, silahkan gunakan [formulir ini](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Permasalahan di GitHub dinonaktifkan karena sering disalahgunakan.
+GitHub issues are disabled due to frequent misusage.
 
-Hak cipta &copy; 2018-2020 Marcel Bokhorst.
+<br />
+
+Copyright &copy; 2018-2020 Marcel Bokhorst.

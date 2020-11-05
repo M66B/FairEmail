@@ -675,6 +675,8 @@
     <string name="title_keep_days">Хранение сообщений (дн.)</string>
     <string name="title_keep_days_remark">Старые сообщения будут удалены с устройства, но останутся на сервере</string>
     <string name="title_keep_all">Хранить все сообщения</string>
+    <string name="title_poll_system">Установить системные папки для периодической проверки новых сообщений</string>
+    <string name="title_poll_user">Установить пользовательские папки для периодической проверки новых сообщений</string>
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>
     <string name="title_auto_delete">Автоматически навсегда удалять старые сообщения</string>
     <string name="title_auto_delete_hint">Старые сообщения — это сообщения, которые больше не хранятся на устройстве</string>

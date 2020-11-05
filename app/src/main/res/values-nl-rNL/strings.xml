@@ -603,7 +603,7 @@
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
-    <string name="title_service_auth">De e-mailserver zei: \'%1$s\'</string>
+    <string name="title_service_auth">De mailserver zei: \'%1$s\'</string>
     <string name="title_service_vpn">Dit kan worden veroorzaakt door de VPN die in gebruik is</string>
     <string name="title_service_port">Controleer het poortnummer a.u.b.</string>
     <string name="title_service_protocol">Controleer a.u.b. het protocol (SSL/TLS of STARTTLS)</string>
@@ -652,6 +652,8 @@
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
     <string name="title_keep_days_remark">Oude berichten worden verwijderd van het apparaat, maar blijven op de server</string>
     <string name="title_keep_all">Bewaar alle berichten</string>
+    <string name="title_poll_system">Stel systeemmappen in om periodiek op nieuwe berichten te controleren</string>
+    <string name="title_poll_user">Stel gebruikersmappen in om periodiek op nieuwe berichten te controleren</string>
     <string name="title_auto_trash">Automatisch oude berichten verplaatsen naar de prullenbak</string>
     <string name="title_auto_delete">Automatisch oude berichten definitief verwijderen</string>
     <string name="title_auto_delete_hint">Oude berichten zijn berichten die niet meer op het apparaat worden bewaard</string>

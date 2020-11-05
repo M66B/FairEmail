@@ -10,7 +10,7 @@ Har du et spørgsmål, så tjek venligst de ofte stillede spørgsmål nedenfor f
 * [Planlagte funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Hyppigt anmodede funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Ofte stillede spørgsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
+* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Godkendelse af konti
 
@@ -919,9 +919,9 @@ The error *... Authentication failed ... Account not found ...* means that a pre
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-The error *... Authentication failed ... Invalid credentials ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions. Just start the wizard (but do not select an account) to grant the required permissions again.
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -1778,6 +1778,7 @@ It is possible to install FairEmail in multiple user profiles, for example a per
 
 It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
 
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific notifications.
 
 Scheduling is a pro feature.
 
@@ -2785,9 +2786,15 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 
-## Support
+## Get support
 
-Only the latest Play store version and latest GitHub release are supported. This also means that downgrading is not supported.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
+
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+
+There is no support on things that are not directly related to FairEmail.
+
+There is no support on building and developing things by yourself.
 
 Requested features should:
 
@@ -2796,10 +2803,12 @@ Requested features should:
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long run feasible.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
 GitHub issues are disabled due to frequent misusage.
+
+<br />
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.
