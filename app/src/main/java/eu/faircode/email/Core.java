@@ -1169,6 +1169,8 @@ class Core {
 
         DB db = DB.getInstance(context);
         EntityAccount account = db.account().getAccount(folder.account);
+        if (account == null)
+            throw new IllegalArgumentException("account missing");
 
         try {
             if (removed) {
