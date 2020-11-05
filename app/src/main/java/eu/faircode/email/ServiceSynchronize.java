@@ -1480,6 +1480,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             // Sends store NOOP
                             EntityLog.log(this, account.name + " checking store" +
+                                    " memory=" + Log.getFreeMemMb() +
                                     " battery=" + Helper.getBatteryLevel(this));
                             if (!iservice.getStore().isConnected())
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
