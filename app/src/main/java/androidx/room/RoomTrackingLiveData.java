@@ -92,7 +92,7 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                                 try {
                                     value = mComputeFunction.call();
                                     done = true;
-                                } catch (Exception e) {
+                                } catch (Throwable e) {
                                     if (++retry > 10)
                                         throw new RuntimeException(
                                                 "Exception while computing database live data.", e);
