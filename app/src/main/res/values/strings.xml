@@ -737,7 +737,12 @@
     <string name="title_empty_trash_all_ask">Delete all trashed messages of all accounts permanently?</string>
     <string name="title_empty_spam_all_ask">Delete all spam messages of all accounts permanently?</string>
     <string name="title_empty_all">This will delete all messages both from the device and the server</string>
-    <string name="title_delete_operation">Delete operations with an error message?</string>
+    <string name="title_delete_operation_title">Delete operations</string>
+    <string name="title_delete_operation_error">With an error message</string>
+    <string name="title_delete_operation_fetch">Fetch operations</string>
+    <string name="title_delete_operation_move">Move operations</string>
+    <string name="title_delete_operation_flag">Flag operations</string>
+    <string name="title_delete_operation_delete">Delete operations</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_no_operations">No pending operations</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronization problems</string>

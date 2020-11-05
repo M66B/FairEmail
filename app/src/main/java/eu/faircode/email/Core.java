@@ -489,7 +489,7 @@ class Core {
                                 db.beginTransaction();
 
                                 // Cleanup operation
-                                op.cleanup(context);
+                                op.cleanup(context, true);
 
                                 // There is no use in repeating
                                 db.operation().deleteOperation(op.id);

@@ -441,7 +441,7 @@ public class EntityOperation {
         Log.i("Queued subscribe=" + subscribe + " folder=" + folder);
     }
 
-    void cleanup(Context context) {
+    void cleanup(Context context, boolean fetch) {
         DB db = DB.getInstance(context);
 
         if (message != null)
@@ -473,7 +473,7 @@ public class EntityOperation {
         if (EntityOperation.SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
-        if (message != null) {
+        if (fetch && message != null) {
             EntityMessage m = db.message().getMessage(message);
             if (m == null || m.uid == null)
                 return;
