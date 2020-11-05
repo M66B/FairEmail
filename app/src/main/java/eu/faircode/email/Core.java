@@ -150,6 +150,7 @@ class Core {
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
     private static final int MAX_PREVIEW = 5000; // characters
+    private static final int MAX_FETCH = 100;
 
     static void processOperations(
             Context context,
@@ -161,6 +162,28 @@ class Core {
             Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(context);
+
+            // Replace fetches by sync
+            List<EntityOperation> fetches = new ArrayList<>();
+            for (EntityOperation op : ops)
+                if (EntityOperation.FETCH.equals(op.name))
+                    fetches.add(op);
+            if (fetches.size() > MAX_FETCH) {
+                EntityLog.log(context, "Replacing fetches=" + fetches.size() + " by sync");
+                try {
+                    db.beginTransaction();
+
+                    for (EntityOperation op : fetches) {
+                        db.operation().deleteOperation(op.id);
+                        ops.remove(op);
+                    }
+                    EntityOperation.sync(context, folder.id, false);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+            }
 
             int retry = 0;
             boolean group = true;
