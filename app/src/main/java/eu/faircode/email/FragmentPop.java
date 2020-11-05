@@ -48,6 +48,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -97,6 +98,7 @@ public class FragmentPop extends FragmentBase {
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
+    private CheckBox cbIdentity;
     private TextView tvError;
     private Group grpError;
 
@@ -156,6 +158,7 @@ public class FragmentPop extends FragmentBase {
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+        cbIdentity = view.findViewById(R.id.cbIdentity);
 
         tvError = view.findViewById(R.id.tvError);
         grpError = view.findViewById(R.id.grpError);
@@ -444,6 +447,8 @@ public class FragmentPop extends FragmentBase {
                         db.account().updateAccount(account);
                     else
                         account.id = db.account().insertAccount(account);
+
+                    args.putLong("account", account.id);
                     EntityLog.log(context, (update ? "Updated" : "Added") + " account=" + account.name);
 
                     // Make sure the channel exists on commit
@@ -537,7 +542,24 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                getParentFragmentManager().popBackStack();
+                Context context = getContext();
+                if (context != null)
+                    WidgetUnified.updateData(context); // Update color stripe
+
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    getParentFragmentManager().popBackStack();
+
+                    if (cbIdentity.isChecked()) {
+                        Bundle aargs = new Bundle();
+                        aargs.putLong("account", args.getLong("account"));
+
+                        FragmentIdentity fragment = new FragmentIdentity();
+                        fragment.setArguments(aargs);
+                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+                        fragmentTransaction.commit();
+                    }
+                }
             }
 
             @Override
@@ -624,6 +646,7 @@ public class FragmentPop extends FragmentBase {
                                 ? EntityAccount.DEFAULT_MAX_MESSAGES : account.max_messages));
 
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
+                    cbIdentity.setChecked(account == null);
 
                     List<EntityFolder> folders = getSwipeActions();
                     for (int pos = 0; pos < folders.size(); pos++) {
