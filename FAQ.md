@@ -2140,6 +2140,8 @@ It is also possible to create [rules](#user-content-faq71) with a time condition
 This way it is possible to snooze business related messages until the start of the business hours.
 This also means that the messages will be on your device for when there is no internet connection, for example when flying.
 
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app,
+which could be used to (not) silence specific notifications.
 
 Scheduling is a pro feature.
 
