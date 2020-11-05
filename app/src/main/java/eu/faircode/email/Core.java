@@ -263,7 +263,8 @@ class Core {
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("name", op.name);
                         crumb.put("args", op.args);
-                        crumb.put("folder", op.account + ":" + op.folder + ":" + folder.type);
+                        crumb.put("account", op.account + ":" + account.protocol);
+                        crumb.put("folder", op.folder + ":" + folder.type);
                         if (op.message != null)
                             crumb.put("message", Long.toString(op.message));
                         crumb.put("similar", TextUtils.join(",", sids));
@@ -2423,9 +2424,12 @@ class Core {
 
                 int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
+                crumb.put("account", account.id + ":" + account.protocol);
+                crumb.put("folder", folder.id + ":" + folder.type);
                 crumb.put("start", Integer.toString(from));
                 crumb.put("end", Integer.toString(i));
                 crumb.put("free", Integer.toString(free));
+                crumb.put("partial", Boolean.toString(account.partial_fetch));
                 Log.breadcrumb("sync", crumb);
                 Log.i("Sync " + from + ".." + i + " free=" + free);
 
@@ -2505,6 +2509,8 @@ class Core {
 
                     int free = Log.getFreeMemMb();
                     Map<String, String> crumb = new HashMap<>();
+                    crumb.put("account", account.id + ":" + account.protocol);
+                    crumb.put("folder", folder.id + ":" + folder.type);
                     crumb.put("start", Integer.toString(from));
                     crumb.put("end", Integer.toString(i));
                     crumb.put("free", Integer.toString(free));
