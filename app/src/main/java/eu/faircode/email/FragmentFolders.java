@@ -797,6 +797,8 @@ public class FragmentFolders extends FragmentBase {
             final EditText etSyncDays = view.findViewById(R.id.etSyncDays);
             final EditText etKeepDays = view.findViewById(R.id.etKeepDays);
             final CheckBox cbKeepAll = view.findViewById(R.id.cbKeepAll);
+            final CheckBox cbPollSystem = view.findViewById(R.id.cbPollSystem);
+            final CheckBox cbPollUser = view.findViewById(R.id.cbPollUser);
 
             cbKeepAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -815,6 +817,8 @@ public class FragmentFolders extends FragmentBase {
                             args.putString("keep", cbKeepAll.isChecked()
                                     ? Integer.toString(Integer.MAX_VALUE)
                                     : etKeepDays.getText().toString());
+                            args.putBoolean("system", cbPollSystem.isChecked());
+                            args.putBoolean("user", cbPollUser.isChecked());
 
                             new SimpleTask<Void>() {
                                 @Override
@@ -822,6 +826,8 @@ public class FragmentFolders extends FragmentBase {
                                     long account = args.getLong("account");
                                     String sync = args.getString("sync");
                                     String keep = args.getString("keep");
+                                    boolean system = args.getBoolean("system");
+                                    boolean user = args.getBoolean("user");
 
                                     if (TextUtils.isEmpty(sync))
                                         sync = "7";
@@ -829,10 +835,29 @@ public class FragmentFolders extends FragmentBase {
                                         keep = "30";
 
                                     DB db = DB.getInstance(context);
-                                    db.folder().setFolderProperties(
-                                            account,
-                                            Integer.parseInt(sync),
-                                            Integer.parseInt(keep));
+                                    try {
+                                        db.beginTransaction();
+
+                                        db.folder().setFolderProperties(
+                                                account,
+                                                Integer.parseInt(sync),
+                                                Integer.parseInt(keep));
+
+                                        List<EntityFolder> folders = db.folder().getFolders(account, false, true);
+                                        if (folders != null)
+                                            for (EntityFolder folder : folders)
+                                                if (folder.synchronize && !folder.poll)
+                                                    if (EntityFolder.USER.equals(folder.type)
+                                                            ? user
+                                                            : system && !EntityFolder.INBOX.equals(folder.type))
+                                                        db.folder().setFolderPoll(folder.id, true);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    ServiceSynchronize.reload(context, account, false, "Apply");
 
                                     return null;
                                 }
