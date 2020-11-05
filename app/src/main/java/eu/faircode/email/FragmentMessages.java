@@ -201,11 +201,14 @@ import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import me.everything.android.ui.overscroll.IOverScrollDecor;
 import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
@@ -5968,6 +5971,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         MimeMessage imessage = new MimeMessage(isession, fis);
                                         MessageHelper helper = new MessageHelper(imessage, context);
                                         parts = helper.getMessageParts();
+
+                                        // https://github.com/autocrypt/protected-headers
+                                        try {
+                                            Object content = imessage.getContent();
+                                            if (content instanceof MimeMultipart) {
+                                                MimeMultipart mmp = (MimeMultipart) content;
+                                                if (mmp.getCount() > 0) {
+                                                    BodyPart bp = mmp.getBodyPart(0);
+                                                    ContentType ct = new ContentType(bp.getContentType());
+                                                    if ("v1".equals(ct.getParameter("protected-headers"))) {
+                                                        String[] subject = bp.getHeader("subject");
+                                                        if (subject != null && subject.length != 0)
+                                                            db.message().setMessageSubject(message.id, subject[0]);
+                                                    }
+                                                }
+                                            }
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
                                     }
 
                                     try {
