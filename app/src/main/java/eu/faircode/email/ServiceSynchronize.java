@@ -119,7 +119,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
-    private static final long AUTOFIX_TOO_MANY_FOLDERS = 3600 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -1749,36 +1748,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         EntityLog.log(this, msg);
 
                                         state.setBackoff(backoff * 60);
-                                    }
-                                }
-
-                                // Autofix too many simultaneous connections
-                                if (ConnectionHelper.isMaxConnections(last_fail)) {
-                                    boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
-                                    if (auto_optimize ||
-                                            account.last_connected == null ||
-                                            now - account.last_connected > AUTOFIX_TOO_MANY_FOLDERS) {
-                                        int user = 0;
-                                        int system = 0;
-                                        List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
-                                        if (folders != null) {
-                                            for (EntityFolder folder : folders)
-                                                if (folder.synchronize && !folder.poll && EntityFolder.USER.equals(folder.type)) {
-                                                    user++;
-                                                    db.folder().setFolderPoll(folder.id, true);
-                                                }
-                                            if (user == 0)
-                                                for (EntityFolder folder : folders)
-                                                    if (folder.synchronize && !folder.poll && !EntityFolder.INBOX.equals(folder.type)) {
-                                                        system++;
-                                                        db.folder().setFolderPoll(folder.id, true);
-                                                    }
-                                        }
-
-                                        if (user > 0 || system > 0) {
-                                            Log.e("Autofix user=" + user + " system=" + system + " host=" + account.host);
-                                            EntityLog.log(this, account.name + " set poll user=" + user + " system=" + system);
-                                        }
                                     }
                                 }
                             }
