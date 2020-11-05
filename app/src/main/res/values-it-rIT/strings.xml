@@ -631,7 +631,12 @@
     <string name="title_empty_trash_all_ask">Eliminare definitivamente tutti i messaggi cestinati di tutti gli account?</string>
     <string name="title_empty_spam_all_ask">Eliminare definitivamente tutti i messaggi di spam di tutti gli account?</string>
     <string name="title_empty_all">Questo eliminerà tutti i messaggi sia dal dispositivo che dal server</string>
-    <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
+    <string name="title_delete_operation_title">Elimina le operazioni</string>
+    <string name="title_delete_operation_error">Con un messaggio di errore</string>
+    <string name="title_delete_operation_fetch">Recupera le operazioni</string>
+    <string name="title_delete_operation_move">Operazioni di spostamento</string>
+    <string name="title_delete_operation_flag">Operazioni di segnalazione</string>
+    <string name="title_delete_operation_delete">Operazioni di eliminazione</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di cancellazione possono causare la scomparsa dei messaggi e problemi di sincronizzazione</string>
@@ -653,6 +658,8 @@
     <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
     <string name="title_keep_days_remark">I messaggi vecchi verranno rimossi dal dispositivo, ma rimarranno sul server</string>
     <string name="title_keep_all">Conserva tutti i messaggi</string>
+    <string name="title_poll_system">Imposta le cartelle di sistema per controllare periodicamente la presenza di nuovi messaggi</string>
+    <string name="title_poll_user">Imposta le cartelle utente per controllare periodicamente nuovi messaggi</string>
     <string name="title_auto_trash">Sposta automaticamente i vecchi messaggi nel cestino</string>
     <string name="title_auto_delete">Elimina automaticamente i vecchi messaggi</string>
     <string name="title_auto_delete_hint">I vecchi messaggi sono messaggi che non sono più conservati sul dispositivo</string>

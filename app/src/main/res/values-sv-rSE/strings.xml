@@ -412,6 +412,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
+    <string name="title_advanced_encrypt_subject">Kryptera ämne</string>
     <string name="title_advanced_check_certificate">Kontrollera offentlig nyckel när du skickar</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
@@ -630,7 +631,12 @@
     <string name="title_empty_trash_all_ask">Ta bort alla borttagna meddelanden från alla konton permanent?</string>
     <string name="title_empty_spam_all_ask">Ta bort all skräppost från alla konton permanent?</string>
     <string name="title_empty_all">Detta kommer att ta bort alla meddelanden både från enheten och servern</string>
-    <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
+    <string name="title_delete_operation_title">Ta bort åtgärder</string>
+    <string name="title_delete_operation_error">Med ett felmeddelande</string>
+    <string name="title_delete_operation_fetch">Hämta åtgärder</string>
+    <string name="title_delete_operation_move">Flytta åtgärder</string>
+    <string name="title_delete_operation_flag">Flagga åtgärder</string>
+    <string name="title_delete_operation_delete">Ta bort åtgärder</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
@@ -652,6 +658,8 @@
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>
     <string name="title_keep_days_remark">Gamla meddelanden kommer att tas bort från enheten, men kommer att finnas kvar på servern</string>
     <string name="title_keep_all">Behåll alla meddelanden</string>
+    <string name="title_poll_system">Ställ in systemmappar för att regelbundet söka efter nya meddelanden</string>
+    <string name="title_poll_user">Ställ in användarmappar för att regelbundet söka efter nya meddelanden</string>
     <string name="title_auto_trash">Flytta automatiskt gamla meddelanden till papperskorgen</string>
     <string name="title_auto_delete">Ta automatiskt bort gamla meddelanden permanent</string>
     <string name="title_auto_delete_hint">Gamla meddelanden är meddelanden som inte längre finns på enheten</string>

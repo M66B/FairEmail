@@ -533,7 +533,6 @@
     <string name="title_empty_spam_ask">Ezabatu spam mezu guztiak behin betiko?</string>
     <string name="title_empty_trash_all_ask">Ezabatu kontu guztietako zaborrontziko mezu guztiak behin betiko?</string>
     <string name="title_empty_spam_all_ask">Ezabatu kontu guztietako spam mezu guztiak behin betiko?</string>
-    <string name="title_delete_operation">Ezabatu errore mezua duten eragiketak?</string>
     <string name="title_delete_contacts">Ezabatu kontaktu lokal guztiak?</string>
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>
     <string name="title_hint_operations">Eragiketak ezabatzeak mezuen desagertzea eta sinkronizazio arazoak eragin ditzake</string>

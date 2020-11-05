@@ -551,7 +551,6 @@
     <string name="title_empty_spam_ask">Да се изтрият ли всички спам съобщения за постоянно?</string>
     <string name="title_empty_trash_all_ask">Да се изтрият ли завинаги всички изтрити съобщения от всички профили?</string>
     <string name="title_empty_spam_all_ask">Да се изтрият ли завинаги всички спам съобщения от всички профили?</string>
-    <string name="title_delete_operation">Да се изтрият ли операциите със съобщение за грешка?</string>
     <string name="title_delete_contacts">Изтрий локалните контакти?</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>

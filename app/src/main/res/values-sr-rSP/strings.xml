@@ -413,7 +413,6 @@
     <string name="title_create_sub_folder">Направи подфасциклу</string>
     <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>
     <string name="title_empty_spam_ask">Обрисати све нежељене поруке заувек?</string>
-    <string name="title_delete_operation">Обриши операције са поруком о грешци?</string>
     <string name="title_delete_contacts">Обриши све локалне контакте?</string>
     <string name="title_no_operations">Нема операција на чекању</string>
     <string name="title_hint_operations">Операције брисања могу довести до порука које нестају и синхронизационих проблема</string>

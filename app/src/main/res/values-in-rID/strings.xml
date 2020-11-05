@@ -610,7 +610,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_empty_trash_all_ask">Hapus semua pesan di kotak sampah dari semua akun secara permanen?</string>
     <string name="title_empty_spam_all_ask">Hapus semua pesan spam dari semua akun secara permanen?</string>
     <string name="title_empty_all">Ini akan menghapus semua pesan baik dari perangkat maupun server</string>
-    <string name="title_delete_operation">Hapus operasi pesan error?</string>
     <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>

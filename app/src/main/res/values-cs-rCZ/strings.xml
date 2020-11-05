@@ -652,7 +652,6 @@
     <string name="title_empty_trash_all_ask">Trvale smazat všechny zprávy v koši ze všech účtů?</string>
     <string name="title_empty_spam_all_ask">Trvale smazat všechny nevyžádané zprávy ze všech účtů?</string>
     <string name="title_empty_all">Tímto smažete všechny zprávy jak ze zařízení, tak i ze serveru</string>
-    <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>

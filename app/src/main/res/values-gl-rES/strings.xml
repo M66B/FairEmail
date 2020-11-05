@@ -627,7 +627,6 @@
     <string name="title_empty_trash_all_ask">Eliminar todas as mensaxes borradas de todas as contas de maneira permanente?</string>
     <string name="title_empty_spam_all_ask">Eliminar todas as mensaxes de spam de todas as contas de maneira permanente?</string>
     <string name="title_empty_all">Isto eliminará todas as mensaxes do dispositivo e do servidor</string>
-    <string name="title_delete_operation">Borrar operacións cunha mensaxe de erro?</string>
     <string name="title_delete_contacts">Eliminar todos os contactos locais?</string>
     <string name="title_no_operations">Sen operacións pendentes</string>
     <string name="title_hint_operations">Borrar operacións pode resultar en mensaxes desaparecidas e problemas de sincronización</string>

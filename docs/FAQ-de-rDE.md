@@ -90,7 +90,7 @@ Verwandte Fragen:
 * ~~Nachrichten zu einem Regel-Treffer anzeigen~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (es gibt keine gepflegten Java-Bibliotheken mit einer geeigneten Lizenz und ohne Abhängigkeiten und außerdem hat FairEmail eigene Filterregeln)
 * ~~Suche nach Nachrichten mit/ohne Anhänge~~ (dies kann nicht hinzugefügt werden, da IMAP die Suche nach Anhängen nicht unterstützt)
-* ~~Suche nach einem Ordner~~ (das Filtern einer hierarchischen Ordnerliste ist problematisch)
+* ~~Nach einem Ordner suchen~~ (das Filtern einer hierarchischen Ordnerliste ist problematisch)
 * ~~Suchvorschläge~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (Meiner Meinung nach ist es keine gute Idee, einen E-Mail-Client für einen Ausnahmefall sensible Verschlüsselungscodes verarbeiten zu lassen, während OpenKeychain auch Schlüssel exportieren kann)
 * ~~Generische vereinheitlichte Ordner~~
@@ -209,7 +209,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(89) Wie kann ich Nur-Text-Nachrichten senden?](#user-content-faq89)
 * [(90) Warum sind einige Texte als Link formatiert, ohne ein gültiger Link zu sein?](#user-content-faq90)
 * [~~(91) Gibt es eine periodische Synchronisierung, um Akkuleistung zu sparen?~~](#user-content-faq91)
-* [(92) Gibt es Spamfilter, Überprüfung der DKIM-Signatur und SPF-Autorisierung?](#user-content-faq92)
+* [(92) Können Sie Spamfilter, Überprüfung der DKIM-Signatur und SPF-Legitimierung hinzufügen?](#user-content-faq92)
 * [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?](#user-content-faq93)
 * [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Nachrichtenkopfes?](#user-content-faq94)
 * [(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?](#user-content-faq95)

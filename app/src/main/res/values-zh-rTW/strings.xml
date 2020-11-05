@@ -590,7 +590,6 @@
     <string name="title_empty_trash_all_ask">永久刪除所有帳號的垃圾桶訊息？</string>
     <string name="title_empty_spam_all_ask">永久刪除所有帳號的垃圾郵件訊息？</string>
     <string name="title_empty_all">這將從設備和服務器上刪除所有消息</string>
-    <string name="title_delete_operation">刪除操作並顯示錯誤消息？</string>
     <string name="title_delete_contacts">刪除所有本機聯絡人？</string>
     <string name="title_no_operations">沒有等待中的操作</string>
     <string name="title_hint_operations">刪除操作可能導致消息消失和同步問題</string>

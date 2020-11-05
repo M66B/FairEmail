@@ -532,7 +532,6 @@
     <string name="title_empty_spam_ask">Trajno izbriši vsiljena sporočila?</string>
     <string name="title_empty_trash_all_ask">Trajno izbriši sporočila iz smeti iz vseh računov?</string>
     <string name="title_empty_spam_all_ask">Trajno izbriši vsiljena sporočila iz vseh računov?</string>
-    <string name="title_delete_operation">Izbriši opravila s sporočilom o napaki?</string>
     <string name="title_delete_contacts">Izbriši vse krajevne stike?</string>
     <string name="title_no_operations">Ni opravil na čakanju.</string>
     <string name="title_hint_operations">Izbris opravil lahko povzroči izginjanje sporočil in težave s sinhronizacijo.</string>

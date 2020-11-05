@@ -619,7 +619,6 @@
     <string name="title_empty_trash_all_ask">是否永久删除所有账户的所有回收站的邮件？</string>
     <string name="title_empty_spam_all_ask">是否永久删除所有账户的所有垃圾邮件？</string>
     <string name="title_empty_all">这将删除设备和服务器上的所有消息</string>
-    <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_hint_operations">删除操作可能导致丢失消息和同步问题</string>

@@ -626,7 +626,6 @@
     <string name="title_empty_trash_all_ask">Poistetaanko kaikkien tilien kaikki roskakoriin siirretyt viestit pysyvästi?</string>
     <string name="title_empty_spam_all_ask">Poistetaanko kaikkien tilien kaikki paikalliset roskapostit pysyvästi?</string>
     <string name="title_empty_all">Tämä poistaa kaikki viestit sekä laitteesta että palvelimelta</string>
-    <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>

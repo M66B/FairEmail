@@ -487,7 +487,6 @@
     <string name="title_edit_channel">Uredi kanal obavijesti</string>
     <string name="title_delete_channel">Izbriši kanal obavijesti</string>
     <string name="title_create_sub_folder">Stvori podmapu</string>
-    <string name="title_delete_operation">Brisanje operacija s porukom o pogrešci?</string>
     <string name="title_delete_contacts">Želite li izbrisati sve lokalne kontakte?</string>
     <string name="title_no_operations">Nema operacija na čekanju</string>
     <string name="title_hint_operations">Brisanje operacija može rezultirati nestankom poruka i problemima sa sinkronizacijom</string>

@@ -414,6 +414,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_openpgp">OpenPGP-Anbieter</string>
     <string name="title_advanced_autocrypt">Autocrypt verwenden</string>
     <string name="title_advanced_autocrypt_mutual">Gegenseitiger Autocrypt-Modus</string>
+    <string name="title_advanced_encrypt_subject">Betreff verschlüsseln</string>
     <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
@@ -632,7 +633,12 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_empty_trash_all_ask">Alle in den Papierkorb verschobenen Nachrichten aller Konten endgültig löschen?</string>
     <string name="title_empty_spam_all_ask">Alle Spam-Nachrichten aller Konten endgültig löschen?</string>
     <string name="title_empty_all">Dies löscht alle Nachrichten sowohl vom Gerät als auch vom Server</string>
-    <string name="title_delete_operation">Vorgänge mit einer Fehlermeldung löschen?</string>
+    <string name="title_delete_operation_title">Operationen löschen</string>
+    <string name="title_delete_operation_error">Mit einer Fehlermeldung</string>
+    <string name="title_delete_operation_fetch">Fetch-Operationen</string>
+    <string name="title_delete_operation_move">Verschiebe-Operationen</string>
+    <string name="title_delete_operation_flag">Kennzeichnungs-Operationen</string>
+    <string name="title_delete_operation_delete">Lösch-Operationen</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
@@ -654,6 +660,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_keep_days_remark">Alte Nachrichten werden vom Gerät entfernt, aber auf dem Server belassen</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
+    <string name="title_poll_system">Systemordner so einstellen, dass periodisch nach neuen Nachrichten gesucht wird</string>
+    <string name="title_poll_user">Benutzetordner so einstellen, dass periodisch nach neuen Nachrichten gesucht wird</string>
     <string name="title_auto_trash">Alte Nachrichten automatisch in den Papierkorb verschieben</string>
     <string name="title_auto_delete">Automatisch alte Nachrichten dauerhaft löschen</string>
     <string name="title_auto_delete_hint">Alte Nachrichten sind Nachrichten, die nicht mehr auf dem Gerät vorgehalten werden</string>

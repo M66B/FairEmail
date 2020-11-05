@@ -628,7 +628,12 @@
     <string name="title_empty_trash_all_ask">Slet permanent alt indhold i papirkurven for alle konti?</string>
     <string name="title_empty_spam_all_ask">Slet permanent alle spam-beskeder for alle konti?</string>
     <string name="title_empty_all">Dette sletter alle beskeder fra såvel enheden som serveren</string>
-    <string name="title_delete_operation">Slet operationer med en fejlmeddelelse?</string>
+    <string name="title_delete_operation_title">Slet operationer</string>
+    <string name="title_delete_operation_error">Med en fejlmeddelelse</string>
+    <string name="title_delete_operation_fetch">Hent-operationer</string>
+    <string name="title_delete_operation_move">Flyt-operationer</string>
+    <string name="title_delete_operation_flag">Flagningsoperationer</string>
+    <string name="title_delete_operation_delete">Slet operationer</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>

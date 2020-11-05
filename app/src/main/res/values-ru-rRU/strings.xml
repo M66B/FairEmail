@@ -435,6 +435,7 @@
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
     <string name="title_advanced_autocrypt">Использовать Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Взаимный режим Autocrypt</string>
+    <string name="title_advanced_encrypt_subject">Зашифровать тему</string>
     <string name="title_advanced_check_certificate">Проверять публичный ключ при отправке</string>
     <string name="title_advanced_manage_certificates">Управление публичными ключами</string>
     <string name="title_advanced_import_key">Импорт приватного ключа</string>
@@ -653,7 +654,12 @@
     <string name="title_empty_trash_all_ask">Навсегда удалить все сообщения из корзин всех учётных записей?</string>
     <string name="title_empty_spam_all_ask">Навсегда удалить весь спам из всех учётных записей?</string>
     <string name="title_empty_all">Это действие удалит все сообщения и с устройства, и с сервера</string>
-    <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
+    <string name="title_delete_operation_title">Удалить операции</string>
+    <string name="title_delete_operation_error">С сообщением об ошибке</string>
+    <string name="title_delete_operation_fetch">Выборка операций</string>
+    <string name="title_delete_operation_move">Переместить операции</string>
+    <string name="title_delete_operation_flag">Пометить операции</string>
+    <string name="title_delete_operation_delete">Удалить операции</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_hint_operations">Удаление операций может привести к исчезновению сообщений и проблемам синхронизации.</string>

@@ -648,7 +648,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_empty_trash_all_ask">Natrvalo odstrániť všetky správy v košoch všetkých účtov?</string>
     <string name="title_empty_spam_all_ask">Natrvalo odstrániť všetky správy v spame všetkých účtov?</string>
     <string name="title_empty_all">Táto akcia vymaže všetky správy ako zo zariadenia, tak aj servera</string>
-    <string name="title_delete_operation">Vymazať operácie s chybovým hlásením?</string>
     <string name="title_delete_contacts">Odstrániť všetky lokálne kontakty?</string>
     <string name="title_no_operations">Žiadne prebiehajúce operácie</string>
     <string name="title_hint_operations">Mazanie operácií môže viesť k miznúcim správam a synchronizačným problémom</string>

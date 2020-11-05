@@ -412,6 +412,7 @@
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
+    <string name="title_advanced_encrypt_subject">Versleuteld onderwerp</string>
     <string name="title_advanced_check_certificate">Controleer de publieke sleutel bij verzenden</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
@@ -630,7 +631,12 @@
     <string name="title_empty_trash_all_ask">Alle weggegooide berichten van alle accounts definitief verwijderen?</string>
     <string name="title_empty_spam_all_ask">Alle spam berichten van alle accounts permanent verwijderen?</string>
     <string name="title_empty_all">Dit zal alle berichten van zowel het apparaat als de server verwijderen</string>
-    <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
+    <string name="title_delete_operation_title">Bewerkingen verwijderen</string>
+    <string name="title_delete_operation_error">Met een foutmelding</string>
+    <string name="title_delete_operation_fetch">Ophalen bewerkingen</string>
+    <string name="title_delete_operation_move">Verplaats bewerkingen</string>
+    <string name="title_delete_operation_flag">Vlag bewerkingen</string>
+    <string name="title_delete_operation_delete">Verwijder bewerkingen</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>

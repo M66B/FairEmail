@@ -413,6 +413,7 @@
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
+    <string name="title_advanced_encrypt_subject">Chiffrer l\'objet</string>
     <string name="title_advanced_check_certificate">Vérifier la clé publique lors de l\'envoi</string>
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
@@ -631,7 +632,12 @@
     <string name="title_empty_trash_all_ask">Supprimer définitivement tous les messages de la corbeille pour tous les comptes ?</string>
     <string name="title_empty_spam_all_ask">Supprimer définitivement tous les messages indésirables pour tous les comptes ?</string>
     <string name="title_empty_all">Ceci supprimera tous les messages à la fois de l\'appareil et du serveur</string>
-    <string name="title_delete_operation">Supprimer les opérations avec un message d’erreur ?</string>
+    <string name="title_delete_operation_title">Supprimer des opérations</string>
+    <string name="title_delete_operation_error">Avec un message d\'erreur</string>
+    <string name="title_delete_operation_fetch">Opérations de récupération</string>
+    <string name="title_delete_operation_move">Opérations de déplacement</string>
+    <string name="title_delete_operation_flag">Opérations de signalement</string>
+    <string name="title_delete_operation_delete">Opérations de suppression</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_hint_operations">La suppression d’opérations en attente peut provoquer la perte de messages ainsi que des problèmes de synchronisation</string>

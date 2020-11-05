@@ -539,7 +539,6 @@ back navigation</string>
     <string name="title_empty_spam_ask">全ての迷惑メールを削除しますか？</string>
     <string name="title_empty_trash_all_ask">全てのアカウントのゴミ箱メッセージを削除しますか？</string>
     <string name="title_empty_spam_all_ask">全てのアカウントの迷惑メールを削除しますか？</string>
-    <string name="title_delete_operation">エラーメッセージのある操作を削除しますか？</string>
     <string name="title_delete_contacts">ローカルにある全ての連絡先を削除しますか？</string>
     <string name="title_no_operations">保留中の操作は有りません</string>
     <string name="title_hint_operations">操作を削除するとメッセージが消え同期の問題が発生する可能性が有ります</string>
