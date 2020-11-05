@@ -150,7 +150,7 @@ class Core {
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
     private static final int MAX_PREVIEW = 5000; // characters
-    private static final int MAX_FETCH = 100;
+    static final int MAX_FETCH = 100;
 
     static void processOperations(
             Context context,
