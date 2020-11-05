@@ -5975,18 +5975,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         // https://github.com/autocrypt/protected-headers
                                         try {
                                             Object content = imessage.getContent();
+
+                                            BodyPart bp = null;
                                             if (content instanceof MimeMultipart) {
                                                 MimeMultipart mmp = (MimeMultipart) content;
-                                                if (mmp.getCount() > 0) {
-                                                    BodyPart bp = mmp.getBodyPart(0);
-                                                    ContentType ct = new ContentType(bp.getContentType());
-                                                    if ("v1".equals(ct.getParameter("protected-headers"))) {
-                                                        String[] subject = bp.getHeader("subject");
-                                                        if (subject != null && subject.length != 0)
-                                                            db.message().setMessageSubject(message.id, subject[0]);
-                                                    }
+                                                if (mmp.getCount() > 0)
+                                                    bp = mmp.getBodyPart(0);
+                                            } else if (content instanceof BodyPart)
+                                                bp = (BodyPart) content;
+
+                                            if (bp != null) {
+                                                ContentType ct = new ContentType(bp.getContentType());
+                                                if ("v1".equals(ct.getParameter("protected-headers"))) {
+                                                    String[] subject = bp.getHeader("subject");
+                                                    if (subject != null && subject.length != 0)
+                                                        db.message().setMessageSubject(message.id, subject[0]);
                                                 }
                                             }
+
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                         }
