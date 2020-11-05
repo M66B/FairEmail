@@ -11,7 +11,7 @@ At the bottom, you can find out how to ask other questions, request features, an
 * [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-support)
+* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Authorizing accounts
 
@@ -3356,10 +3356,17 @@ but unfortunately Android themes are fixed, see for example [here](https://stack
 <br />
 
 
-## Support
+## Get support
+
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
 Only the latest Play store version and latest GitHub release are supported.
+The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release.
 This also means that downgrading is not supported.
+
+There is no support on things that are not directly related to FairEmail.
+
+There is no support on building and developing things by yourself.
 
 Requested features should:
 
@@ -3369,10 +3376,12 @@ Requested features should:
 * comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected.
-This is also to keep maintenance and support in the long run feasible.
+This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
 GitHub issues are disabled due to frequent misusage.
+
+<br />
 
 Copyright &copy; 2018-2020 Marcel Bokhorst.
