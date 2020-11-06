@@ -746,13 +746,16 @@ public class HtmlHelper {
         }
 
         // Remove trailing br from div
-        for (Element div : document.select("div"))
-            if (div.children().select("div").size() == 0 &&
+        for (Element div : document.select("div")) {
+            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
+            if (!inline &&
+                    div.children().select("div").size() == 0 &&
                     hasVisibleContent(div)) {
                 Element last = div.lastElementSibling();
                 if (last != null && "br".equals(last.tagName()))
                     last.remove();
             }
+        }
 
         // Replace headings
         if (!text_size)
@@ -1013,7 +1016,9 @@ public class HtmlHelper {
         // Selective new lines
         for (Element div : document.select("div")) {
             boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (!inline && hasVisibleContent(div))
+            if (!inline &&
+                    div.children().select("div").size() == 0 &&
+                    hasVisibleContent(div))
                 div.attr("x-line-after", "true");
             div.tagName("span");
         }
