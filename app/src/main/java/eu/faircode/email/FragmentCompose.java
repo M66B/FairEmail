@@ -5075,9 +5075,9 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
-                if (scroll && text[0] != null)
-                    etBody.setSelection(text[0].length());
-                else
+                if (scroll)
+                    etBody.setSelection(text[0] == null ? 0 : text[0].length());
+                else if (state != State.LOADED)
                     etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
 
@@ -5097,6 +5097,8 @@ public class FragmentCompose extends FragmentBase {
 
                 setBodyPadding();
 
+                if (state == State.LOADED)
+                    return;
                 state = State.LOADED;
 
                 final Context context = getContext();
