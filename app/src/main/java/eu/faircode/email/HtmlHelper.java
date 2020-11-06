@@ -2129,23 +2129,36 @@ public class HtmlHelper {
                                         setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                     break;
                                 case "text-align":
-                                    // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                    Layout.Alignment alignment = null;
-                                    switch (value) {
-                                        case "left":
-                                        case "start":
-                                            alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                    boolean table = false;
+                                    Element e = element;
+                                    while (e != null) {
+                                        if ("table".equals(e.tagName()) ||
+                                                "true".equals(e.attr("x-table"))) {
+                                            table = true;
                                             break;
-                                        case "center":
-                                            alignment = Layout.Alignment.ALIGN_CENTER;
-                                            break;
-                                        case "right":
-                                        case "end":
-                                            alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
-                                            break;
+                                        }
+                                        e = e.parent();
                                     }
-                                    if (alignment != null)
-                                        setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
+
+                                    // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+                                    if (!table) {
+                                        Layout.Alignment alignment = null;
+                                        switch (value) {
+                                            case "left":
+                                            case "start":
+                                                alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                                break;
+                                            case "center":
+                                                alignment = Layout.Alignment.ALIGN_CENTER;
+                                                break;
+                                            case "right":
+                                            case "end":
+                                                alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                                break;
+                                        }
+                                        if (alignment != null)
+                                            setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
+                                    }
                                     break;
                             }
                         }
