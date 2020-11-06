@@ -842,7 +842,7 @@ public class HtmlHelper {
         }
 
         for (Element row : document.select("tr"))
-            row.tagName("span").attr("x-row", "true");
+            row.tagName("span").attr("x-row", Integer.toString(row.siblingElements().size()));
 
         document.select("caption").tagName("div");
 
@@ -2016,8 +2016,10 @@ public class HtmlHelper {
                                 ssb.append('\n');
                     }
 
-                    if ("true".equals(element.attr("x-row"))) {
-                        rows++;
+                    String xrow = element.attr("x-row");
+                    if (!TextUtils.isEmpty(xrow)) {
+                        if (Integer.parseInt(xrow) > 1)
+                            rows++;
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
                     }
@@ -2330,8 +2332,10 @@ public class HtmlHelper {
                                 ssb.charAt(ssb.length() - 1) != '\u2003')
                             ssb.append('\u2003'); // emsp
                     }
-                    if ("true".equals(element.attr("x-row"))) {
-                        rows--;
+                    String xrow = element.attr("x-row");
+                    if (!TextUtils.isEmpty(xrow)) {
+                        if (Integer.parseInt(xrow) > 1)
+                            rows--;
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
                     }
