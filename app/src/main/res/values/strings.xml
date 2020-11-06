@@ -744,6 +744,7 @@
     <string name="title_delete_operation_move">Move operations</string>
     <string name="title_delete_operation_flag">Flag operations</string>
     <string name="title_delete_operation_delete">Delete operations</string>
+    <string name="title_delete_operation_deleted">%1$d operations deleted</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_no_operations">No pending operations</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronization problems</string>

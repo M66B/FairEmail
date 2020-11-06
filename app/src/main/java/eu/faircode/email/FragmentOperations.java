@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -150,15 +151,21 @@ public class FragmentOperations extends FragmentBase {
                             args.putBoolean("flag", cbFlag.isChecked());
                             args.putBoolean("delete", cbDelete.isChecked());
 
-                            new SimpleTask<Void>() {
+                            new SimpleTask<Integer>() {
                                 @Override
-                                protected Void onExecute(Context context, Bundle args) {
+                                protected void onPostExecute(Bundle args) {
+                                    ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                protected Integer onExecute(Context context, Bundle args) {
                                     boolean error = args.getBoolean("error");
                                     boolean fetch = args.getBoolean("fetch");
                                     boolean move = args.getBoolean("move");
                                     boolean flag = args.getBoolean("flag");
                                     boolean delete = args.getBoolean("delete");
 
+                                    int deleted = 0;
                                     DB db = DB.getInstance(context);
                                     try {
                                         db.beginTransaction();
@@ -196,8 +203,10 @@ public class FragmentOperations extends FragmentBase {
 
                                         for (EntityOperation op : ops) {
                                             EntityLog.log(context, "Deleting operation=" + op.id + ":" + op.name + " error=" + op.error);
-                                            if (db.operation().deleteOperation(op.id) > 0)
+                                            if (db.operation().deleteOperation(op.id) > 0) {
                                                 op.cleanup(context, false);
+                                                deleted++;
+                                            }
                                         }
 
                                         db.setTransactionSuccessful();
@@ -205,7 +214,17 @@ public class FragmentOperations extends FragmentBase {
                                         db.endTransaction();
                                     }
 
-                                    return null;
+                                    return deleted;
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, Integer deleted) {
+                                    if (deleted == null)
+                                        deleted = -1;
+                                    ToastEx.makeText(
+                                            getContext(),
+                                            getString(R.string.title_delete_operation_deleted, deleted),
+                                            Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
