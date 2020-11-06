@@ -748,9 +748,7 @@ public class HtmlHelper {
         // Remove trailing br from div
         for (Element div : document.select("div")) {
             boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (!inline &&
-                    div.children().select("div").size() == 0 &&
-                    hasVisibleContent(div)) {
+            if (!inline && hasVisibleContent(div, true)) {
                 Element last = div.lastElementSibling();
                 if (last != null && "br".equals(last.tagName()))
                     last.remove();
@@ -842,7 +840,7 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
             // separate columns
-            if (hasVisibleContent(col))
+            if (hasVisibleContent(col, false))
                 if (col.nextElementSibling() != null)
                     col.append("&nbsp;");
 
@@ -854,7 +852,7 @@ public class HtmlHelper {
 
         for (Element row : document.select("tr")) {
             row.tagName("span");
-            if (hasVisibleContent(row)) {
+            if (hasVisibleContent(row, true)) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
                     if (text_separators && view)
@@ -1018,9 +1016,7 @@ public class HtmlHelper {
         // Selective new lines
         for (Element div : document.select("div")) {
             boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (!inline &&
-                    div.children().select("div").size() == 0 &&
-                    hasVisibleContent(div))
+            if (!inline && hasVisibleContent(div, true))
                 div.attr("x-line-after", "true");
             div.tagName("span");
         }
@@ -1373,7 +1369,7 @@ public class HtmlHelper {
         return (color & 0xFFFFFF);
     }
 
-    private static boolean hasVisibleContent(Element root) {
+    private static boolean hasVisibleContent(Element root, boolean block) {
         for (Node node : root.childNodes())
             if (node instanceof TextNode) {
                 String text = ((TextNode) node).getWholeText();
@@ -1386,6 +1382,8 @@ public class HtmlHelper {
                 Element element = (Element) node;
                 if (element.hasText())
                     return true;
+                if (block && "true".equals(element.attr("x-block")))
+                    return false;
                 if (element.selectFirst("img[src~=.+]") != null)
                     return true;
                 for (Element a : element.select("a[href~=.+]"))
