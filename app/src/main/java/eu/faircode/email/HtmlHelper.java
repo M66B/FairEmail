@@ -77,7 +77,6 @@ import com.steadystate.css.parser.selectors.ClassConditionImpl;
 import com.steadystate.css.parser.selectors.ConditionalSelectorImpl;
 import com.steadystate.css.parser.selectors.ElementSelectorImpl;
 
-import org.jsoup.internal.StringUtil;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Document;
@@ -442,7 +441,6 @@ public class HtmlHelper {
         // Limit length
         if (view && truncate(parsed, true)) {
             parsed.body()
-                    .appendElement("br")
                     .appendElement("p")
                     .appendElement("em")
                     .text(context.getString(R.string.title_too_large));
@@ -741,34 +739,18 @@ public class HtmlHelper {
                 }
             }
 
-            if (element.isBlock())
+            if (element.isBlock() &&
+                    !"true".equals(element.attr("x-inline")))
                 element.attr("x-block", "true");
         }
 
-        // Remove trailing br from div
-        for (Element div : document.select("div")) {
-            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (!inline && hasVisibleContent(div, true)) {
-                Element last = div.lastElementSibling();
-                if (last != null && "br".equals(last.tagName()))
-                    last.remove();
-            }
-        }
-
         // Replace headings
-        for (Element h : document.select("h1,h2,h3,h4,h5,h6")) {
-            if (!"false".equals(h.attr("x-line-after")))
-                h.appendElement("br");
-            if (!text_size) {
-                h.appendElement("br");
-                h.tagName("strong");
-            }
-        }
+        if (!text_size)
+            document.select("h1,h2,h3,h4,h5,h6").tagName("strong");
 
         // Paragraphs
         for (Element p : document.select("p")) {
-            if (!"false".equals(p.attr("x-line-after")))
-                p.appendElement("br");
+            p.attr("x-paragraph", "true");
             p.tagName("div");
         }
 
@@ -816,13 +798,11 @@ public class HtmlHelper {
         // Descriptions
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
         document.select("dl").tagName("div");
-        for (Element dt : document.select("dt")) {
+        for (Element dt : document.select("dt"))
             dt.tagName("strong");
-            dt.appendElement("br");
-        }
         for (Element dd : document.select("dd")) {
             dd.tagName("em");
-            dd.appendElement("br").appendElement("br");
+            dd.attr("x-line-after", "true");
         }
 
         // Abbreviations
@@ -839,10 +819,7 @@ public class HtmlHelper {
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
-            // separate columns
-            if (hasVisibleContent(col, false))
-                if (col.nextElementSibling() != null)
-                    col.append("&nbsp;");
+            col.attr("x-col", "true");
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
@@ -850,18 +827,8 @@ public class HtmlHelper {
                 col.tagName("span");
         }
 
-        for (Element row : document.select("tr")) {
-            row.tagName("span");
-            if (hasVisibleContent(row, true)) {
-                Element next = row.nextElementSibling();
-                if (next != null && "tr".equals(next.tagName()))
-                    if (text_separators && view)
-                        row.appendElement("hr")
-                                .attr("x-dashed", "true");
-                    else
-                        row.appendElement("br");
-            }
-        }
+        for (Element row : document.select("tr"))
+            row.tagName("span").attr("x-row", "true");
 
         document.select("caption").tagName("div");
 
@@ -1014,29 +981,8 @@ public class HtmlHelper {
         }
 
         // Selective new lines
-        for (Element div : document.select("div")) {
-            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (!inline && hasVisibleContent(div, true))
-                div.attr("x-line-after", "true");
+        for (Element div : document.select("div"))
             div.tagName("span");
-        }
-
-        for (Element e : document.select("*[x-line-before],*[x-line-after]")) {
-            if ("true".equals(e.attr("x-line-before"))) {
-                Element prev = e.previousElementSibling();
-                if (prev == null || !"br".equals(prev.tagName()))
-                    e.prependElement("br");
-            }
-
-            if ("true".equals(e.attr("x-line-after"))) {
-                Element next = e.nextElementSibling();
-                if (next == null || !"br".equals(next.tagName()))
-                    e.appendElement("br");
-            }
-
-            e.removeAttr("x-line-before");
-            e.removeAttr("x-line-after");
-        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             for (Element span : document.select("span"))
@@ -1367,30 +1313,6 @@ public class HtmlHelper {
             color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
 
         return (color & 0xFFFFFF);
-    }
-
-    private static boolean hasVisibleContent(Element root, boolean block) {
-        for (Node node : root.childNodes())
-            if (node instanceof TextNode) {
-                String text = ((TextNode) node).getWholeText();
-                for (int i = 0; i < text.length(); i++) {
-                    char kar = text.charAt(i);
-                    if (!StringUtil.isWhitespace(kar) && kar != '\u00a0' /* nbsp */)
-                        return true;
-                }
-            } else if (node instanceof Element) {
-                Element element = (Element) node;
-                if (element.hasText())
-                    return true;
-                if (block && "true".equals(element.attr("x-block")))
-                    return false;
-                if (element.selectFirst("img[src~=.+]") != null)
-                    return true;
-                for (Element a : element.select("a[href~=.+]"))
-                    if (a.childNodes().size() > 0)
-                        return true;
-            }
-        return false;
     }
 
     // https://tools.ietf.org/html/rfc3676
@@ -2061,12 +1983,39 @@ public class HtmlHelper {
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;
             private TextNode tnode;
+            private int rows = 0;
+            private int cols = 0;
 
             @Override
             public void head(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
+
+                    if (rows == 0) {
+                        if ("true".equals(element.attr("x-block")))
+                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                                ssb.append('\n');
+                        if ("true".equals(element.attr("x-paragraph")))
+                            if (ssb.length() > 2 &&
+                                    (ssb.charAt(ssb.length() - 2) != '\n' ||
+                                            ssb.charAt(ssb.length() - 1) != '\n'))
+                                ssb.append('\n');
+                    }
+
+                    if ("true".equals(element.attr("x-row"))) {
+                        rows++;
+                        if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                            ssb.append('\n');
+                    }
+                    if ("true".equals(element.attr("x-col")))
+                        cols++;
+
+                    if ("true".equals(element.attr("x-line-before")) &&
+                            ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
+                        ssb.append('\n');
+
                     element.attr("start-index", Integer.toString(ssb.length()));
+
                     if (debug)
                         ssb.append("[" + element.tagName() + ":" + element.attr("style") + "]");
                 } else if (node instanceof TextNode) {
@@ -2085,8 +2034,6 @@ public class HtmlHelper {
                 if (node instanceof Element) {
                     element = (Element) node;
                     int start = Integer.parseInt(element.attr("start-index"));
-                    if (debug)
-                        ssb.append("[/" + element.tagName() + "]");
 
                     // Apply style
                     String style = element.attr("style");
@@ -2131,19 +2078,8 @@ public class HtmlHelper {
                                         setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                     break;
                                 case "text-align":
-                                    boolean table = false;
-                                    Element e = element;
-                                    while (e != null) {
-                                        if ("table".equals(e.tagName()) ||
-                                                "true".equals(e.attr("x-table"))) {
-                                            table = true;
-                                            break;
-                                        }
-                                        e = e.parent();
-                                    }
-
                                     // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                    if (!table) {
+                                    if (rows == 0) {
                                         Layout.Alignment alignment = null;
                                         switch (value) {
                                             case "left":
@@ -2207,12 +2143,10 @@ public class HtmlHelper {
                                     setSpan(ssb, new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
-                                newline(ssb.length());
+                                ssb.append('\n');
                                 break;
                             case "div": // compose
                             case "p": // compose
-                                newline(ssb.length());
-                                newline(ssb.length());
                                 break;
                             case "i":
                             case "em":
@@ -2232,8 +2166,6 @@ public class HtmlHelper {
                                 int level = element.tagName().charAt(1) - '1';
                                 setSpan(ssb, new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length());
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
-                                newline(start);
-                                newline(ssb.length());
                                 break;
                             case "hr":
                                 if (text_separators) {
@@ -2365,6 +2297,37 @@ public class HtmlHelper {
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
+
+                    if (rows == 0) {
+                        if ("true".equals(element.attr("x-block")))
+                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                                ssb.append('\n');
+                        if ("true".equals(element.attr("x-paragraph")))
+                            if (ssb.length() > 2 &&
+                                    (ssb.charAt(ssb.length() - 2) != '\n' ||
+                                            ssb.charAt(ssb.length() - 1) != '\n'))
+                                ssb.append('\n');
+                    }
+
+                    if ("true".equals(element.attr("x-col"))) {
+                        cols--;
+                        if (ssb.length() > 0 &&
+                                ssb.charAt(ssb.length() - 1) != '\n' &&
+                                ssb.charAt(ssb.length() - 1) != '\u2003')
+                            ssb.append('\u2003'); // emsp
+                    }
+                    if ("true".equals(element.attr("x-row"))) {
+                        rows--;
+                        if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                            ssb.append('\n');
+                    }
+
+                    if ("true".equals(element.attr("x-line-after")) &&
+                            ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
+                        ssb.append('\n');
+
+                    if (debug)
+                        ssb.append("[/" + element.tagName() + "]");
                 }
             }
 
@@ -2380,25 +2343,6 @@ public class HtmlHelper {
                     ssb.setSpan(span, start, end, flags);
                 else
                     Log.e("Invalid span " + start + "..." + end + " len=" + len + " type=" + span.getClass().getName());
-            }
-
-            private void newline(int index) {
-                int count = 0;
-
-                if (compress) {
-                    int i = Math.min(index, ssb.length() - 1);
-                    while (i >= 0) {
-                        char kar = ssb.charAt(i);
-                        if (kar == '\n')
-                            count++;
-                        else if (kar != ' ' && kar != '\u00A0')
-                            break;
-                        i--;
-                    }
-                }
-
-                if (count < 2)
-                    ssb.insert(index, "\n");
             }
         }, document.body());
 
