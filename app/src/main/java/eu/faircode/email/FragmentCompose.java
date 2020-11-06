@@ -4256,6 +4256,7 @@ public class FragmentCompose extends FragmentBase {
             boolean notext = args.getBoolean("notext");
             Bundle extras = args.getBundle("extras");
 
+            boolean dirty = false;
             EntityMessage draft;
 
             DB db = DB.getInstance(context);
@@ -4274,6 +4275,7 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
 
                 if (action == R.id.action_delete) {
+                    dirty = true;
                     boolean discard_delete = prefs.getBoolean("discard_delete", false);
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     if (empty || trash == null || discard_delete)
@@ -4289,8 +4291,6 @@ public class FragmentCompose extends FragmentBase {
                         }
                     });
                 } else {
-                    boolean dirty = false;
-
                     // Move draft to new account
                     if (draft.account != aid && aid >= 0) {
                         Log.i("Account changed");
@@ -4777,7 +4777,8 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(context, "compose/action");
+            if (dirty)
+                ServiceSynchronize.eval(context, "compose/action");
 
             if (action == R.id.action_send)
                 if (draft.ui_snoozed == null)
