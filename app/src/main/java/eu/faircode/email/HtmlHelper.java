@@ -821,6 +821,20 @@ public class HtmlHelper {
         for (Element col : document.select("th,td")) {
             col.attr("x-col", "true");
 
+            String before = col.attr("x-line-before");
+            if (!TextUtils.isEmpty(before)) {
+                if ("true".equals(before) && col.parent() != null)
+                    col.parent().attr("x-line-before", "true");
+                col.removeAttr("x-line-before");
+            }
+
+            String after = col.attr("x-line-after");
+            if (!TextUtils.isEmpty(after)) {
+                if ("true".equals(after) && col.parent() != null)
+                    col.parent().attr("x-line-after", "true");
+                col.removeAttr("x-line-after");
+            }
+
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
             else
