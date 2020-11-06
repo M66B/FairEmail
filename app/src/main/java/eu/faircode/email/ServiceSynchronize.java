@@ -1295,27 +1295,31 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void onChanged(final List<TupleOperationEx> _operations) {
                                     // Get new operations
-                                    List<Long> ops = new ArrayList<>();
-                                    Map<EntityFolder, List<TupleOperationEx>> added = new HashMap<>();
+                                    List<Long> all = new ArrayList<>();
+                                    Map<Long, List<TupleOperationEx>> added = new HashMap<>();
                                     for (TupleOperationEx op : _operations) {
+                                        all.add(op.id);
                                         if (!handling.contains(op.id)) {
-                                            boolean found = false;
-                                            for (EntityFolder folder : mapFolders.keySet())
-                                                if (Objects.equals(folder.id, op.folder)) {
-                                                    found = true;
-                                                    if (!added.containsKey(folder))
-                                                        added.put(folder, new ArrayList<>());
-                                                    added.get(folder).add(op);
-                                                    break;
-                                                }
-                                            if (!found)
-                                                Log.w(account.name + " folder not found operation=" + op.name);
+                                            if (!added.containsKey(op.folder))
+                                                added.put(op.folder, new ArrayList<>());
+                                            added.get(op.folder).add(op);
                                         }
-                                        ops.add(op.id);
                                     }
-                                    handling = ops;
+                                    handling = all;
 
-                                    for (EntityFolder folder : added.keySet()) {
+                                    for (Long fid : added.keySet()) {
+                                        EntityFolder found = null;
+                                        for (EntityFolder f : mapFolders.keySet())
+                                            if (Objects.equals(fid, f.id)) {
+                                                found = f;
+                                                break;
+                                            }
+                                        if (found == null) {
+                                            Log.w(account.name + " folder not found operation=" + fid);
+                                            continue;
+                                        }
+
+                                        final EntityFolder folder = found;
                                         Log.i(folder.name + " queuing operations=" + added.size() +
                                                 " init=" + folder.initialize + " poll=" + folder.poll);
 
@@ -1323,7 +1327,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         boolean offline = (mapFolders.get(folder) == null);
                                         List<TupleOperationEx.PartitionKey> keys = new ArrayList<>();
                                         synchronized (partitions) {
-                                            for (TupleOperationEx op : added.get(folder)) {
+                                            for (TupleOperationEx op : added.get(folder.id)) {
                                                 TupleOperationEx.PartitionKey key = op.getPartitionKey(offline);
 
                                                 if (!partitions.containsKey(key)) {
