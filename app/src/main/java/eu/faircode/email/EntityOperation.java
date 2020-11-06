@@ -101,6 +101,8 @@ public class EntityOperation {
     static final String RULE = "rule";
     static final String PURGE = "purge";
 
+    private static final int MAX_FETCH = 100; // operations
+
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
 
@@ -315,6 +317,12 @@ public class EntityOperation {
                 }
 
                 return;
+            } else if (FETCH.equals(name)) {
+                int count = db.operation().getOperationCount(message.folder, name);
+                if (count >= MAX_FETCH) {
+                    sync(context, message.folder, false);
+                    return;
+                }
 
             } else if (DELETE.equals(name)) {
                 db.message().setMessageUiHide(message.id, true);
