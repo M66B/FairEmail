@@ -10,7 +10,7 @@ Har du et spørgsmål, så tjek venligst de ofte stillede spørgsmål nedenfor f
 * [Planlagte funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Hyppigt anmodede funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Ofte stillede spørgsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Få support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Godkendelse af konti
 
@@ -388,47 +388,47 @@ Operationer behandles kun, såfremt en forbindelse til e-mailserveren findes, el
 
 Du bør forsøge at løse dette ved at kontakte din udbyder eller ved at få et gyldigt sikkerhedscertifikat, da ugyldige sikkerhedscertifikater er usikre og tillader [mand-i-midten-angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Er penge en hindring, kan du få gratis sikkerhedscertifikater fra [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternativt kan du acceptere fingeraftryk på ugyldige servercertifikater som dette:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Sørg for at benytt en betroet Internetforbindelse (ingen offentlige Wi-Fi netværk mv.)
+1. Gå til opsætningsskærmen via navigeringsmenuen (stryg fra venstre side indad)
+1. Tryk i trin 1 og 2 på *Håndtér* og tryk på den defekte konto og identitet
+1. Tjek/gem kontoen og identiteten
+1. Markér afkrydsningsfeltet under fejlmeddelelsen og gem igen
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Dette vil "fastgøre" servercertifikatet for at forhindre man-in-the-middle angreb.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Bemærk, at ældre Android-versioner muligvis ikke genkender nyere certificeringsmyndigheder såsom Let’s Encrypt, hvorfor forbindelser kan blive betragtet som usikre, tjek også [hér](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Trust anchor til certificeringssti ikke fundet*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor til certificeringssti ikke fundet...* betyder, at Androids standard trust manager ikke var i stand til at bekræfte servercertifikatkæden.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Du bør enten rette serveropsætningen eller acceptere fingeraftrykket vist nedenfor fejlmeddelelsen.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Bemærk, at dette problem kan skyldes af, at serveren ikke sender alle mellemliggende certifikater også.
 
-*Empty password*
+*Ingen adgangskode*
 
-Your username is likely easily guessed, so this is insecure.
+Dit brugernavn er formentlig let at gætte, så dette er usikkert.
 
-*Plain text connection*
+*Simpel tekst-forbindelse*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Dit brugernavn, adgangskode samt alle beskeder sendes og modtages ukrypteret, hvilket er **meget usikkert**, da et [man-im-the-middle angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) nemt udføres på en ukrypteret forbindelse.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Vil du fortsat bruge et ugyldigt sikkerhedscertifikat, ingen adgangskode eller en simpel tekst-forbindelse, så skal usikre forbindelser aktiveres i konto- og/eller identitetsindstillingerne. STARTTLS bør vælges til simpel tekst-forbindelser. Aktiverer du usikre forbindelser, bør du kun oprette forbindelse via private, betroede netværk og aldrig via offentligt tilbudte netværk i lufthavne, hoteller mv.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Hvordan tilpasses beskedvisningen?**
 
-In the three dot overflow menu you can enable or disable or select:
+Via trepriksmenuen kan du aktivere/deaktivere eller vælge:
 
 * *tekststørrelse*: Til tre forskellige skriftstørrelser
 * *kompakt visning*: Til flere kondenserede beskedelementer og en mindre beskedtekst skrifttype
 
-In the display section of the settings you can enable or disable:
+I visningsafsnittet i indstillingerne kan du aktivere eller deaktivere:
 
 * *Fælles indbakke*: For at deaktivere den fælles indbakke og i stedet vise de valgte mapper fra den fælles indbakke
 * *Gruppér efter dato*: Vis datooverskrift over beskeder med den samme dato
@@ -445,9 +445,9 @@ In the display section of the settings you can enable or disable:
 * *Vis automatisk billeder for kendte kontakter*: Se venligst [denne FAQ](#user-content-faq35) for automatisk at få vist billeder for kontakter på din enhed
 * *Samtalehandlingsbjælke*: For at deaktivere navigeringsbjælken nederst
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Bemærk, at kun downloadede beskedtekster kan forhåndsvises. Større beskedtekster downloades som standard ikke på afregnede (primært mobile) netværk. Dette kan ændres under Indstillinger.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+I tilfælde af en lang adresseliste kan du benytte *mindre*-ikonet øverst i adresseseafsnittet til at kollapse den.
 
 Some people ask:
 
@@ -455,18 +455,18 @@ Some people ask:
 * at få adresse- eller emnevisningen gjort større/mindre, men dette vil forstyrre indstillingen for tekststørrelse
 * at få stjernen flyttet til venstre, men det er meget lettere at betjene stjernen på højre side
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Det er umuligt at stille alle tilpas, og at tilføje mange indstillinger ville ikke kun være forvirrende, men heller aldrig være tilstrækkeligt.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Hvordan logges ind på Gmail/G Suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Du kan benytte hurtig opsætningsguiden til nemt at opsætte en Gmail-konto og -identitet.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Ønsker du ikke at benytte en Gmail-konto på enheden, kan du enten aktivere adgang for "mindre sikre apps" og benytte din kontoadgangskode (ikke anbefalet) eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. For brug af en adgangskode skal du opsætte en konto og identitet via opsætningstrin 1 og 2 i stedet for via hurtigopsætningsguiden.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Tjek i [denne FAQ](#user-content-faq111), hvorfor kun konti på enheden kan benyttes.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -2235,7 +2235,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Sørg for, at Play Butik-appen er opdateret, [tjek hér](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Åbn Play Butik-appen, og vent mindst ét minut for at give den tid til at synkronisere med Google-serverne
-* Åbn FairEmail og gå til Pro-funktionssiden for at lade FairEmail tjekke købene
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 

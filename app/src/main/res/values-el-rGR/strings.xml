@@ -413,6 +413,7 @@
     <string name="title_advanced_openpgp">Πάροχος OpenPGP</string>
     <string name="title_advanced_autocrypt">Χρήση Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Αμοιβαία λειτουργία Autocrypt</string>
+    <string name="title_advanced_encrypt_subject">Κρυπτογράφηση θέματος</string>
     <string name="title_advanced_check_certificate">Επαλήθευση δημόσιου κλειδιού κατά την αποστολή</string>
     <string name="title_advanced_manage_certificates">Διαχείριση δημόσιων κλειδιών</string>
     <string name="title_advanced_import_key">Εισαγωγή ιδιωτικού κλειδιού</string>
@@ -629,6 +630,9 @@
     <string name="title_empty_trash_all_ask">Οριστική διαγραφή όλων των απορριμμάτων όλων των λογαριασμών;</string>
     <string name="title_empty_spam_all_ask">Οριστική διαγραφή όλων των ανεπιθύμητων όλων των λογαριασμών;</string>
     <string name="title_empty_all">Θα διαγράψει όλα τα μηνύματα και από τη συσκευή και από τον εξυπηρετητή</string>
+    <string name="title_delete_operation_title">Διαγραφή δραστηριοτήτων</string>
+    <string name="title_delete_operation_error">Με ένα μήνυμα σφάλματος</string>
+    <string name="title_delete_operation_deleted">%1$d δραστηριότητες διεγράφησαν</string>
     <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>

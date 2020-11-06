@@ -401,6 +401,7 @@
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
+    <string name="title_advanced_encrypt_subject">加密邮件主题</string>
     <string name="title_advanced_check_certificate">发送时检查公钥</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
@@ -619,6 +620,12 @@
     <string name="title_empty_trash_all_ask">是否永久删除所有账户的所有回收站的邮件？</string>
     <string name="title_empty_spam_all_ask">是否永久删除所有账户的所有垃圾邮件？</string>
     <string name="title_empty_all">这将删除设备和服务器上的所有消息</string>
+    <string name="title_delete_operation_title">删除操作</string>
+    <string name="title_delete_operation_error">含带一个错误消息</string>
+    <string name="title_delete_operation_fetch">获取操作</string>
+    <string name="title_delete_operation_move">移动操作</string>
+    <string name="title_delete_operation_flag">标记操作</string>
+    <string name="title_delete_operation_delete">删除操作</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_hint_operations">删除操作可能导致丢失消息和同步问题</string>
@@ -640,6 +647,8 @@
     <string name="title_keep_days">保留邮件(天)</string>
     <string name="title_keep_days_remark">旧消息将从设备移除，但会继续保留在服务器上</string>
     <string name="title_keep_all">保留所有邮件</string>
+    <string name="title_poll_system">设置系统文件夹以定期检查新消息</string>
+    <string name="title_poll_user">设置用户文件夹以定期检查新消息</string>
     <string name="title_auto_trash">自动移动旧消息到回收站</string>
     <string name="title_auto_delete">自动永久删除旧消息</string>
     <string name="title_auto_delete_hint">旧消息是不再保留在设备上的消息</string>

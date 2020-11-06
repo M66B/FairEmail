@@ -638,6 +638,7 @@
     <string name="title_delete_operation_move">Opérations de déplacement</string>
     <string name="title_delete_operation_flag">Opérations de signalement</string>
     <string name="title_delete_operation_delete">Supprimer les opérations</string>
+    <string name="title_delete_operation_deleted">%1$d opérations supprimées</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_hint_operations">La suppression d’opérations en attente peut entraîner la perte de messages ainsi que des problèmes de synchronisation</string>

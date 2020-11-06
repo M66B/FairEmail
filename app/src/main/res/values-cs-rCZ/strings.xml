@@ -434,6 +434,7 @@
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_autocrypt">Použít Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Vzájemný režim Autocrypt</string>
+    <string name="title_advanced_encrypt_subject">Šifrovat předmět</string>
     <string name="title_advanced_check_certificate">Zkontrolovat veřejný klíč při odesílání</string>
     <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
@@ -652,6 +653,11 @@
     <string name="title_empty_trash_all_ask">Trvale smazat všechny zprávy v koši ze všech účtů?</string>
     <string name="title_empty_spam_all_ask">Trvale smazat všechny nevyžádané zprávy ze všech účtů?</string>
     <string name="title_empty_all">Tímto smažete všechny zprávy jak ze zařízení, tak i ze serveru</string>
+    <string name="title_delete_operation_title">Smazat operace</string>
+    <string name="title_delete_operation_error">S chybovou hláškou</string>
+    <string name="title_delete_operation_fetch">Operace načítání</string>
+    <string name="title_delete_operation_move">Operace přesouvání</string>
+    <string name="title_delete_operation_delete">Operace mazání</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>

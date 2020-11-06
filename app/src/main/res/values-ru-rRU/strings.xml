@@ -660,6 +660,7 @@
     <string name="title_delete_operation_move">Переместить операции</string>
     <string name="title_delete_operation_flag">Пометить операции</string>
     <string name="title_delete_operation_delete">Удалить операции</string>
+    <string name="title_delete_operation_deleted">%1$d операций удалено</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_hint_operations">Удаление операций может привести к исчезновению сообщений и проблемам синхронизации.</string>

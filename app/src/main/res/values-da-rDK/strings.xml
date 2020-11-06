@@ -310,6 +310,7 @@
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
+    <string name="title_advanced_highlight_color">Fremhævelsesfarve</string>
     <string name="title_advanced_keywords">Vis nøgleord i beskedhovedet</string>
     <string name="title_advanced_labels">Vis Gmail-etiketter i beskedhoved</string>
     <string name="title_advanced_flags">Vis stjernemarkeringer</string>
@@ -412,6 +413,7 @@
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
+    <string name="title_advanced_encrypt_subject">Kryptér emne</string>
     <string name="title_advanced_check_certificate">Tjek offentlig nøgle ved afsendelse</string>
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
+    <string name="title_advanced_notify_manage_service_hint">For at deaktivere \'overvågningsnotifikationen\'</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables, som kan vise den fulde tekst (op til 5.000 tegn)</string>
     <string name="title_advanced_notify_preview_only_hint">Dette forsinker visning af notifikationer indtil beskedteksten er downloadet</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
@@ -573,6 +576,7 @@
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-mailadresse mangler</string>
     <string name="title_email_invalid">Ugyldig e-mailadresse: \'%1$s\'</string>
+    <string name="title_address_duplicate">Adressen \'%1$s\' er en dublet</string>
     <string name="title_address_parse_error">Ugyldig \'%1$s\'-adresse: %2$s</string>
     <string name="title_no_account">Konto mangler</string>
     <string name="title_no_host">Værtsnavn mangler</string>
@@ -655,6 +659,8 @@
     <string name="title_keep_days">Behold beskeder (dage)</string>
     <string name="title_keep_days_remark">Gamle beskeder fjernes fra enheden, men forbliver på serveren</string>
     <string name="title_keep_all">Behold alle beskeder</string>
+    <string name="title_poll_system">Opsæt systemmapper til periodisk at tjekke for nye beskeder</string>
+    <string name="title_poll_user">Opsæt brugermapper til periodisk at tjekke for nye beskeder</string>
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
     <string name="title_auto_delete_hint">Gamle beskeder er beskeder, som ikke længere opbevares på enheden</string>
@@ -837,6 +843,7 @@
     <string name="title_style_list_numbered">Nummereret</string>
     <string name="title_style_font">Skrifttype</string>
     <string name="title_style_font_default">Standard</string>
+    <string name="title_style_blockquote">Blokcitat</string>
     <string name="title_style_strikethrough">Gennemstreget</string>
     <string name="title_style_clear">Ryd formatering</string>
     <string name="title_style_link">Indsæt link</string>
@@ -845,6 +852,7 @@
     <string name="title_add_image_attach">Vedhæft</string>
     <string name="title_add_image_resize">Skalér</string>
     <string name="title_add_image_privacy">Fjern personsensitive data</string>
+    <string name="title_add_image_privacy_remark">Geografisk placering, serienumre, filnavne mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
@@ -1053,6 +1061,8 @@
     <string name="title_legend_section_compose">Skriv</string>
     <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth-godkendelse</string>
+    <string name="title_legend_folder_connected">Mappe forbundet</string>
+    <string name="title_legend_folder_disconnected">Mappe frakoblet</string>
     <string name="title_legend_download_on">Auto-download beskedindhold</string>
     <string name="title_legend_download_off">Download beskedindhold efter behov</string>
     <string name="title_legend_synchronize_on">Synkronisering slået til</string>

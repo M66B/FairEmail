@@ -434,6 +434,7 @@
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
+    <string name="title_advanced_encrypt_subject">Zaszyfruj temat</string>
     <string name="title_advanced_check_certificate">Sprawdź klucz publiczny podczas wysyłania</string>
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
@@ -652,6 +653,11 @@
     <string name="title_empty_trash_all_ask">Trwale usunąć wszystkie skasowane wiadomości z koszy dla wszystkich kont?</string>
     <string name="title_empty_spam_all_ask">Trwale usunąć wszystkie wiadomości spam dla wszystkich kont?</string>
     <string name="title_empty_all">Spowoduje to usunięcie wszystkich wiadomości zarówno z urządzenia, jak i serwera</string>
+    <string name="title_delete_operation_title">Usuń operacje</string>
+    <string name="title_delete_operation_error">Z komunikatem o błędzie</string>
+    <string name="title_delete_operation_fetch">Operacje pobierania</string>
+    <string name="title_delete_operation_move">Przenieś operacje</string>
+    <string name="title_delete_operation_delete">Usuń operacje</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
@@ -673,6 +679,8 @@
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
     <string name="title_keep_days_remark">Stare wiadomości zostaną usunięte z urządzenia, ale pozostaną na serwerze</string>
     <string name="title_keep_all">Zachowaj wszystkie wiadomości</string>
+    <string name="title_poll_system">Ustaw foldery systemowe, aby okresowo sprawdzać, czy są nowe wiadomości</string>
+    <string name="title_poll_user">Ustaw foldery użytkownika, aby okresowo sprawdzać, czy są nowe wiadomości</string>
     <string name="title_auto_trash">Automatycznie przenieś stare wiadomości do kosza</string>
     <string name="title_auto_delete">Automatycznie trwale usuwaj stare wiadomości</string>
     <string name="title_auto_delete_hint">Stare wiadomości to wiadomości, które nie są już przechowywane na urządzeniu</string>

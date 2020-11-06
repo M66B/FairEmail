@@ -413,6 +413,7 @@
     <string name="title_advanced_openpgp">Provider OpenPGP</string>
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt in modalità reciproca</string>
+    <string name="title_advanced_encrypt_subject">Cifra l\'oggetto</string>
     <string name="title_advanced_check_certificate">Controlla la chiave pubblica durante l\'invio</string>
     <string name="title_advanced_manage_certificates">Gestisci chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importa chiave privata</string>
@@ -637,6 +638,7 @@
     <string name="title_delete_operation_move">Operazioni di spostamento</string>
     <string name="title_delete_operation_flag">Operazioni di segnalazione</string>
     <string name="title_delete_operation_delete">Operazioni di eliminazione</string>
+    <string name="title_delete_operation_deleted">%1$d operazioni eliminate</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di cancellazione possono causare la scomparsa dei messaggi e problemi di sincronizzazione</string>

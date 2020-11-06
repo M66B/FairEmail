@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Kontakten</string>
     <string name="channel_service_description">Syngronisearjen en kontrolearjen fan akkounts</string>
     <string name="channel_send_description">Ferstjoeren fan berjochten</string>
+    <string name="channel_notification_description">Nij berjocht notifikaasjes</string>
     <plurals name="page_conversation">
         <item quantity="one">Konversaasje</item>
         <item quantity="other">Konversaasjes</item>
@@ -56,6 +57,10 @@
         <item quantity="one">%1$d petear is selekteare</item>
         <item quantity="other">%1$d petearen selekteare</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Berjocht %1$d ferpleatse?</item>
+        <item quantity="other">Berjochten %1$d ferpleatse?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ferwiderje %1$d berjocht permanint?</item>
         <item quantity="other">Ferwiderje %1$d berjochten permanint?</item>
@@ -65,6 +70,7 @@
         <item quantity="other">Behannelje %1$d berjochten as ûnpost?</item>
     </plurals>
     <string name="title_ask_spam_who">Berjocht fan %1$s behannelje as spam?</string>
+    <string name="title_junk_hint">Jo e-postprovider is ferantwurdlik foar filterjen fan spam. In e-postapp hat net alle gegevens nedich om dit betrouber te dwaan.</string>
     <string name="title_block">Blokkearje %1$s</string>
     <string name="title_block_sender">Stjoerder blokkearje</string>
     <string name="title_block_domain">Stjoerderdomein blokkearje</string>
@@ -76,6 +82,8 @@
     <string name="title_notification_idle">Ynaktyf</string>
     <string name="title_notification_failed">\'%1$s\' mislearre</string>
     <string name="title_notification_alert">\'%1$s\' tsjinner warskôging</string>
+    <string name="title_notification_sending_left">Pogingen lofts: %1$d</string>
+    <string name="title_notification_sending_failed">Stjoeren nei %1$s is mislearre</string>
     <string name="title_factor_minutes">%1$d minuten</string>
     <string name="menu_exit">Útgong</string>
     <string name="menu_answers">Sjabloanen</string>
@@ -106,11 +114,16 @@
     <string name="title_setup">Ynstellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Flugge opset</string>
+    <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
+    <string name="title_setup_quick_smtp">SMTP-tsjinner om berjochten te ferstjoeren</string>
     <string name="title_setup_wizard">Tsjoender</string>
+    <string name="title_setup_wizard_new">Ik haw in nij e-postadres nedich</string>
+    <string name="title_setup_wizard_remark">Gean \'werom\' om nei it postfak te gean</string>
     <string name="title_setup_other">Oare oanbieder</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
     <string name="title_setup_select_account">Selektearje akkount</string>
     <string name="title_setup_instructions">Ynstel ynstruksjes</string>
+    <string name="title_setup_no_inbox">Postfak net fûn</string>
     <string name="title_setup_manage">Beheare</string>
     <string name="title_setup_grant">Subsydzje</string>
     <string name="title_setup_grant_again">Subsydzje fereaske tagongsrjochten</string>
@@ -118,9 +131,14 @@
     <string name="title_setup_account_remark">Om e-post te ûntfangen</string>
     <string name="title_setup_identity">Opset identiteiten</string>
     <string name="title_setup_identity_remark">Om e-post te stjoeren</string>
+    <string name="title_setup_identity_what">Wat is in identiteit?</string>
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
+    <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
+    <string name="title_setup_doze">Batterij-optimisaasjes ynstelle</string>
+    <string name="title_setup_doze_remark">Om e-post betrouber te ûntfangen</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
+    <string name="title_setup_data">Data saver is ynskeakele</string>
     <string name="title_setup_advanced_options">Avansearre opsjes sjen litte</string>
     <string name="title_setup_inbox">Gean nei berjochten</string>
     <string name="title_setup_go">Gean</string>
@@ -128,6 +146,7 @@
     <string name="title_setup_done">Dien</string>
     <string name="title_setup_still">Noch te dwaan</string>
     <string name="title_setup_error">Fersin</string>
+    <string name="title_setup_configuring">Konfigurearje akkount &#8230;</string>
     <string name="title_setup_export">Ynstellings eksportearje</string>
     <string name="title_setup_import">Ynstellings ymportearje</string>
     <string name="title_setup_password">Wachtwurd</string>
@@ -137,6 +156,7 @@
     <string name="title_setup_password_invalid">Wachtwurd ûnjildich</string>
     <string name="title_setup_exported">Ynstellings eksporteare</string>
     <string name="title_setup_imported">Ynstellings ymporteare</string>
+    <string name="title_setup_import_invalid">Unjildich ynstellingsbestân</string>
     <string name="title_setup_reorder_accounts">Oarder akkounts</string>
     <string name="title_setup_reorder_folders">Oarder mappen</string>
     <string name="title_reset_order">Reset folchoarder</string>
@@ -151,6 +171,7 @@
     <string name="title_setup_theme_red_green">Rood/grien</string>
     <string name="title_setup_theme_grey">Griis</string>
     <string name="title_setup_theme_black">Swart</string>
+    <string name="title_setup_theme_black_and_white">Swart en wyt</string>
     <string name="title_setup_theme_reverse">Omkeare kleuren</string>
     <string name="title_setup_theme_light">Ljocht</string>
     <string name="title_setup_theme_dark">Tsjuster</string>
@@ -171,12 +192,15 @@
     <string name="title_advanced_section_encryption">Fersifering</string>
     <string name="title_advanced_section_notifications">Notifikaasjes</string>
     <string name="title_advanced_section_misc">Ferskate</string>
+    <string name="title_advanced_receive">Berjochten ûntfange foar alle akkounts</string>
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_schedule">Skema</string>
     <string name="title_advanced_advanced">Avansearre</string>
     <string name="title_advanced_unseen">Alle net-lêzen berjochten</string>
     <string name="title_advanced_flagged">Alle stjerberjochten</string>
     <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>
+    <string name="title_advanced_compose_font">Standert lettertype</string>
+    <string name="title_advanced_quote_reply">Sitaat antwurde tekst</string>
     <string name="title_advanced_signature_location">Hantekening posysje</string>
     <string name="title_advanced_send_reminders">Sjoch herinneringen</string>
     <string name="title_advanced_manage_connectivity">Konnektivität beheare</string>
@@ -187,6 +211,7 @@
     <string name="title_advanced_caption_message_header">Berjochtkoptekst</string>
     <string name="title_advanced_caption_message_body">Berjochtynhâld</string>
     <string name="title_advanced_startup">Sjoch op it startskerm</string>
+    <string name="title_advanced_highlight_subject">Underwerp markearje</string>
     <string name="title_advanced_color_stripe">Sjoch lit streep</string>
     <string name="title_advanced_avatars">Sjoch kontaktfoto\'s</string>
     <string name="title_advanced_gravatars">Sjoch gravatars</string>
@@ -196,8 +221,14 @@
     <string name="title_advanced_color_saturation">Sêding</string>
     <string name="title_advanced_color_value">Dúdlikens</string>
     <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
+    <string name="title_advanced_highlight_color">Kleur markearje</string>
     <string name="title_advanced_flags">Sjoch stjerren</string>
     <string name="title_advanced_preview">Sjoch berjochtfoarbyld</string>
+    <string name="title_advanced_text_color">Brûk tekstkleuren</string>
+    <string name="title_advanced_text_size">Brûk tekstgrutte</string>
+    <string name="title_advanced_text_font">Brûk lettertypen</string>
+    <string name="title_advanced_text_align">Brûk tekstôfstimming</string>
+    <string name="title_advanced_text_separators">Brûk skiedingslinen</string>
     <string name="title_advanced_images_inline">Inline ôfbyldings automatysk sjen litte</string>
     <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
@@ -229,6 +260,7 @@
     <string name="title_identity_name">Jo namme</string>
     <string name="title_identity_email">Jo e-postadres</string>
     <string name="title_advanced_sender_regex">Regex om oerien te nimmen mei brûkersnamme fan ynkommende e-postadressen</string>
+    <string name="title_identity_reply_to">Antwurdzje op adres</string>
     <string name="title_optional">Opsjonele</string>
     <string name="title_recommended">Oanrikkemandearre</string>
     <string name="title_account_linked">Keppele akkount</string>
@@ -326,6 +358,10 @@
     <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_archive">Argyf</string>
     <string name="title_reply">Antwurdzje</string>
+    <string name="title_reply_to_sender">Antwurdzje op stjoerder</string>
+    <string name="title_reply_to_all">Antwurdzje allegear</string>
+    <string name="title_reply_list">Antwurdzje op list</string>
+    <string name="title_reply_template">Antwurdzje mei sjabloan</string>
     <string name="title_open_with">Iepenje mei</string>
     <string name="title_authentication_failed">%1$s ferifikaasje mislearre</string>
     <string name="title_show_full">Sjoch folsleine berjocht</string>
@@ -426,6 +462,7 @@
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
+    <string name="title_answer_reply">Antwurd sjabloan</string>
     <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
     <string name="title_rule_noop">Gjin aksje</string>
@@ -449,6 +486,7 @@
     <string name="title_rule_hours">Oeren</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_identity">Identiteit</string>
+    <string name="title_rule_template">Antwurd sjabloan</string>
     <string name="title_rule_execute">No útfiere</string>
     <string name="title_rule_check">Kontrolearje</string>
     <string name="title_rule_tts_from">Fan</string>

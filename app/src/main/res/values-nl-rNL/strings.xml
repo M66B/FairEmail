@@ -637,6 +637,7 @@
     <string name="title_delete_operation_move">Verplaats bewerkingen</string>
     <string name="title_delete_operation_flag">Vlag bewerkingen</string>
     <string name="title_delete_operation_delete">Verwijder bewerkingen</string>
+    <string name="title_delete_operation_deleted">%1$d bewerkingen verwijderd</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>

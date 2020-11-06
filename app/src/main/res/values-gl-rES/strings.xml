@@ -324,6 +324,7 @@
     <string name="title_advanced_overview_mode">Ampliar as mensaxes orixinais para encher a pantalla</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto das mensaxes</string>
     <string name="title_advanced_monospaced">Usar fontes de ancho fixo para o texto das mensaxes por defecto</string>
+    <string name="title_advanced_monospaced_pre">Usar unha fonte de espazo fixo para o texto pre-formatado</string>
     <string name="title_advanced_text_color">Usar cores de texto</string>
     <string name="title_advanced_text_size">Usar tamaños de texto</string>
     <string name="title_advanced_text_font">Usar fontes</string>
@@ -411,6 +412,7 @@
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo de Autocrypt</string>
+    <string name="title_advanced_encrypt_subject">Cifrar asunto</string>
     <string name="title_advanced_check_certificate">Verificar chave pública ao enviar</string>
     <string name="title_advanced_manage_certificates">Xestionar as chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
@@ -595,6 +597,7 @@
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_sign_key">Chave para asinar: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
+    <string name="title_backoff_until">Agardar despois dun fallo até: %1$s</string>
     <string name="title_storage_quota">Uso de almacenaxe do servidor: %1$s/%2$s</string>
     <string name="title_pop_support">O protocolo POP3 só admite baixar e borrar mensaxes desde o cartafol principal. POP3 non pode marcar as mensaxes como lidas, movelas, etc. POP3 vai usar máis batería e datos que IMAP. Polo tanto, pense en usar o protocolo IMAP na medida do posible.</string>
     <string name="title_oauth_support">Non se soporta OAuth</string>
@@ -627,6 +630,13 @@
     <string name="title_empty_trash_all_ask">Eliminar todas as mensaxes borradas de todas as contas de maneira permanente?</string>
     <string name="title_empty_spam_all_ask">Eliminar todas as mensaxes de spam de todas as contas de maneira permanente?</string>
     <string name="title_empty_all">Isto eliminará todas as mensaxes do dispositivo e do servidor</string>
+    <string name="title_delete_operation_title">Eliminar operacións</string>
+    <string name="title_delete_operation_error">Cunha mensaxe de erro</string>
+    <string name="title_delete_operation_fetch">Obter operacións</string>
+    <string name="title_delete_operation_move">Mover operacións</string>
+    <string name="title_delete_operation_flag">Marcar operacións</string>
+    <string name="title_delete_operation_delete">Eliminar operacións</string>
+    <string name="title_delete_operation_deleted">%1$d operacións borradas</string>
     <string name="title_delete_contacts">Eliminar todos os contactos locais?</string>
     <string name="title_no_operations">Sen operacións pendentes</string>
     <string name="title_hint_operations">Borrar operacións pode resultar en mensaxes desaparecidas e problemas de sincronización</string>
@@ -648,6 +658,8 @@
     <string name="title_keep_days">Manter mensaxes (días)</string>
     <string name="title_keep_days_remark">As vellas mensaxes serán eliminadas do dispositivo, pero permanecerán no servidor</string>
     <string name="title_keep_all">Manter todas as mensaxes</string>
+    <string name="title_poll_system">Estabeleza os cartafoles de sistema para mirar periodicamente se teñen novas mensaxes</string>
+    <string name="title_poll_user">Estabeleza os cartafoles de usuario para mirar periodicamente se teñen novas mensaxes</string>
     <string name="title_auto_trash">Mover automaticamente as mensaxes vellas ao lixo</string>
     <string name="title_auto_delete">Borrar permanentemente de maneira automática as mensaxes vellas</string>
     <string name="title_auto_delete_hint">As mensaxes vellas son mensaxes que non están a ser almacenadas no dispositivo</string>
@@ -1057,6 +1069,7 @@
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_synchronize_poll">Sincronizar periodicamente</string>
     <string name="title_legend_disconnected">Desconectado</string>
+    <string name="title_legend_backoff">Esperar despois dun fallo</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
     <string name="title_legend_executing">Executando as operacións</string>
