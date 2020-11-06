@@ -687,7 +687,7 @@ public class HtmlHelper {
                             case "padding-bottom":
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
                                 // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
-                                if (element.isBlock() && hasVisibleContent(element.childNodes())) {
+                                if (element.isBlock()) {
                                     Float[] p = new Float[4];
 
                                     String[] v = value.split(" ");
@@ -748,9 +748,9 @@ public class HtmlHelper {
         // Remove trailing br from div
         for (Element div : document.select("div"))
             if (div.children().select("div").size() == 0 &&
-                    hasVisibleContent(div.childNodes())) {
-                Node last = div.childNode(div.childNodeSize() - 1);
-                if (last != null && "br".equals(last.nodeName()))
+                    hasVisibleContent(div)) {
+                Element last = div.lastElementSibling();
+                if (last != null && "br".equals(last.tagName()))
                     last.remove();
             }
 
@@ -837,7 +837,7 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element col : document.select("th,td")) {
             // separate columns
-            if (hasVisibleContent(col.childNodes()))
+            if (hasVisibleContent(col))
                 if (col.nextElementSibling() != null)
                     col.append("&nbsp;");
 
@@ -849,7 +849,7 @@ public class HtmlHelper {
 
         for (Element row : document.select("tr")) {
             row.tagName("span");
-            if (hasVisibleContent(row.childNodes())) {
+            if (hasVisibleContent(row)) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
                     if (text_separators && view)
@@ -1010,24 +1010,13 @@ public class HtmlHelper {
             }, document);
         }
 
-        for (Element div : document.select("div")) {
-            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
-            if (inline)
-                div.tagName("span");
-        }
-
         // Selective new lines
         for (Element div : document.select("div")) {
-            Node prev = div.previousSibling();
-            if (prev != null && hasVisibleContent(Arrays.asList(prev)))
-                div.prependElement("br");
-
-            if (hasVisibleContent(div.childNodes()))
-                div.appendElement("br");
-        }
-
-        for (Element div : document.select("div"))
+            boolean inline = Boolean.parseBoolean(div.attr("x-inline"));
+            if (!inline && hasVisibleContent(div))
+                div.attr("x-line-after", "true");
             div.tagName("span");
+        }
 
         for (Element e : document.select("*[x-line-before],*[x-line-after]")) {
             if ("true".equals(e.attr("x-line-before"))) {
@@ -1377,8 +1366,8 @@ public class HtmlHelper {
         return (color & 0xFFFFFF);
     }
 
-    private static boolean hasVisibleContent(List<Node> nodes) {
-        for (Node node : nodes)
+    private static boolean hasVisibleContent(Element root) {
+        for (Node node : root.childNodes())
             if (node instanceof TextNode) {
                 String text = ((TextNode) node).getWholeText();
                 for (int i = 0; i < text.length(); i++) {
@@ -1386,10 +1375,10 @@ public class HtmlHelper {
                     if (!StringUtil.isWhitespace(kar) && kar != '\u00a0' /* nbsp */)
                         return true;
                 }
-                return true;
             } else if (node instanceof Element) {
                 Element element = (Element) node;
-                if (element.isBlock())
+                if (element.isBlock() ||
+                        "true".equals(element.attr("x-block")))
                     return false;
                 if (element.hasText())
                     return true;
