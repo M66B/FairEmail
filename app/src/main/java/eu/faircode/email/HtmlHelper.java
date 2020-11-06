@@ -1377,9 +1377,6 @@ public class HtmlHelper {
                 }
             } else if (node instanceof Element) {
                 Element element = (Element) node;
-                if (element.isBlock() ||
-                        "true".equals(element.attr("x-block")))
-                    return false;
                 if (element.hasText())
                     return true;
                 if (element.selectFirst("img[src~=.+]") != null)
