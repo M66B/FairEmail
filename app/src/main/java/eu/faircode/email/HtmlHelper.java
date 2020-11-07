@@ -55,6 +55,7 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextLanguage;
@@ -830,13 +831,15 @@ public class HtmlHelper {
                 Element table = tables.get(t);
 
                 // Get rows and caption
+                boolean titles = false;
                 Elements rows = new Elements();
                 Elements extras = new Elements();
                 for (Element child : table.children()) {
                     switch (child.tagName()) {
                         case "thead":
-                        case "tbody":
                         case "tfoot":
+                            titles = true;
+                        case "tbody":
                             for (Element sub : child.children())
                                 if ("tr".equals(sub.tagName()))
                                     rows.add(sub);
@@ -854,6 +857,8 @@ public class HtmlHelper {
 
                 // Process column spans
                 int maxcols = 0;
+                int mincols = Integer.MAX_VALUE;
+                SparseBooleanArray nomerge = new SparseBooleanArray();
                 for (Element row : rows) {
                     int cols = 0;
                     for (Element col : row.children()) {
@@ -861,8 +866,20 @@ public class HtmlHelper {
 
                         switch (col.tagName()) {
                             case "td":
+                                if (!titles && col.childNodeSize() == 1) {
+                                    Node first = col.childNode(0);
+                                    if (first instanceof TextNode) {
+                                        if (((TextNode) first).text().length() != 1)
+                                            nomerge.put(cols - 1, true);
+                                    } else {
+                                        if (!"img".equals(first.nodeName()))
+                                            nomerge.put(cols - 1, true);
+                                    }
+                                } else
+                                    nomerge.put(cols - 1, true);
                                 break;
                             case "th":
+                                nomerge.put(cols - 1, true);
                                 Element strong = new Element("strong");
                                 for (Node child : new ArrayList<>(col.childNodes())) {
                                     child.remove();
@@ -900,7 +917,23 @@ public class HtmlHelper {
                     }
                     if (cols > maxcols)
                         maxcols = cols;
+                    if (cols < mincols)
+                        mincols = cols;
                 }
+                if (mincols > maxcols)
+                    mincols = maxcols;
+
+                // Merge columns
+                if (mincols > 1)
+                    for (int col = 0; col < mincols - 1; col++)
+                        if (!nomerge.get(col))
+                            for (Element row : rows) {
+                                Node node = row.child(col).childNode(0);
+                                node.remove();
+                                if (node instanceof Element)
+                                    node.removeAttr("x-block");
+                                row.child(col + 1).prependText(" ").prependChild(node);
+                            }
 
                 // Rebuild table
                 table.tagName("div");
@@ -917,6 +950,8 @@ public class HtmlHelper {
                 for (int c = 0; c < maxcols; c++) {
                     Element col = document.createElement("div")
                             .attr("x-block", "true");
+                    if (tdebug)
+                        col.appendText("merge=" + !nomerge.get(c));
                     int r = 0;
                     for (Element row : rows) {
                         r++;
