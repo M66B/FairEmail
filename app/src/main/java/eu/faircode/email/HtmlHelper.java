@@ -2289,13 +2289,14 @@ public class HtmlHelper {
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
                                 break;
                             case "hr":
+                                boolean dashed = "true".equals(element.attr("x-dashed"));
                                 LineSpan[] lines = null;
-                                if (ssb.length() > 0)
+                                if (dashed && ssb.length() > 0)
                                     lines = ssb.getSpans(ssb.length() - 1, ssb.length() - 1, LineSpan.class);
                                 if (lines == null || lines.length == 0) {
                                     ssb.append(LINE);
                                     float stroke = context.getResources().getDisplayMetrics().density;
-                                    float dash = ("true".equals(element.attr("x-dashed")) ? dp3 : 0f);
+                                    float dash = (dashed ? dp3 : 0f);
                                     setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 }
                                 break;
