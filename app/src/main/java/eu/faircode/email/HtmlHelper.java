@@ -754,7 +754,8 @@ public class HtmlHelper {
 
         // Paragraphs
         for (Element p : document.select("p")) {
-            p.attr("x-paragraph", "true");
+            if (p.childNodeSize() != 0)
+                p.attr("x-paragraph", "true");
             p.tagName("div");
         }
 
@@ -2045,7 +2046,7 @@ public class HtmlHelper {
                     text = block.get(i).getWholeText();
                     for (int j = 0; j < text.length(); j++) {
                         char kar = text.charAt(j);
-                        if (WHITESPACE.indexOf(kar) < 0 && kar != '\u00a0' /* nbsp */) {
+                        if (WHITESPACE.indexOf(kar) < 0) {
                             blank = false;
                             break;
                         }
@@ -2093,7 +2094,8 @@ public class HtmlHelper {
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
 
-                    if ("true".equals(element.attr("x-paragraph")))
+                    if ("true".equals(element.attr("x-paragraph")) &&
+                            !"false".equals(element.attr("x-line-before")))
                         if (ssb.length() > 2 &&
                                 (ssb.charAt(ssb.length() - 2) != '\n' ||
                                         ssb.charAt(ssb.length() - 1) != '\n'))
@@ -2356,7 +2358,8 @@ public class HtmlHelper {
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
 
-                    if ("true".equals(element.attr("x-paragraph")))
+                    if ("true".equals(element.attr("x-paragraph")) &&
+                            !"false".equals(element.attr("x-line-after")))
                         if (ssb.length() > 2 &&
                                 (ssb.charAt(ssb.length() - 2) != '\n' ||
                                         ssb.charAt(ssb.length() - 1) != '\n'))
