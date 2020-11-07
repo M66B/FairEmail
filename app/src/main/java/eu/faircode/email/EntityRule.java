@@ -725,6 +725,7 @@ public class EntityRule {
         JSONObject jaction = new JSONObject();
         jaction.put("type", TYPE_MOVE);
         jaction.put("target", junk.id);
+        jaction.put("seen", true);
 
         EntityRule rule = new EntityRule();
         rule.folder = message.folder;
