@@ -464,8 +464,9 @@ public class HtmlHelper {
                 .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
-                .removeAttributes("td", "colspan", "rowspan", "width")
-                .removeAttributes("th", "colspan", "rowspan", "width")
+                .addAttributes("tr", "height")
+                .removeAttributes("td", "rowspan", "width")
+                .removeAttributes("th", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")
                 .removeProtocols("a", "href", "ftp")
@@ -627,8 +628,11 @@ public class HtmlHelper {
                                     Integer fweight = getFontWeight(value);
                                     if (fweight != null && fweight >= 600) {
                                         Element strong = new Element("strong");
-                                        element.replaceWith(strong);
-                                        strong.appendChild(element);
+                                        for (Node child : new ArrayList<>(element.childNodes())) {
+                                            child.remove();
+                                            strong.appendChild(child);
+                                        }
+                                        element.appendChild(strong);
                                     }
                                 }
                                 break;
@@ -818,43 +822,124 @@ public class HtmlHelper {
 
         // Tables
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
-        for (Element col : document.select("th,td")) {
-            col.attr("x-col", "true");
+        boolean tdebug = BuildConfig.DEBUG && false;
+        Elements tables = document.select("table");
+        if (tables.size() > 0)
+            for (int t = tables.size() - 1; t >= 0; t--) {
+                Element table = tables.get(t);
 
-            String before = col.attr("x-line-before");
-            if (!TextUtils.isEmpty(before)) {
-                if ("true".equals(before) && col.parent() != null)
-                    col.parent().attr("x-line-before", "true");
-                col.removeAttr("x-line-before");
-            }
+                // Get rows and caption
+                Elements rows = new Elements();
+                Elements extras = new Elements();
+                for (Element child : table.children()) {
+                    switch (child.tagName()) {
+                        case "thead":
+                        case "tbody":
+                        case "tfoot":
+                            for (Element sub : child.children())
+                                if ("tr".equals(sub.tagName()))
+                                    rows.add(sub);
+                                else
+                                    extras.add(sub);
+                            break;
+                        case "tr":
+                            rows.add(child);
+                            break;
+                        default: // caption
+                            extras.add(child);
+                            break;
+                    }
+                }
 
-            String after = col.attr("x-line-after");
-            if (!TextUtils.isEmpty(after)) {
-                if ("true".equals(after) && col.parent() != null)
-                    col.parent().attr("x-line-after", "true");
-                col.removeAttr("x-line-after");
-            }
+                // Process column spans
+                int maxcols = 0;
+                for (Element row : rows) {
+                    int cols = 0;
+                    for (Element col : row.children()) {
+                        cols++;
 
-            if ("th".equals(col.tagName()))
-                col.tagName("strong");
-            else
-                col.tagName("span");
-        }
+                        if (!"td".equals(col.tagName()) && !"th".equals(col.tagName())) {
+                            Log.w("Column expected tag=" + col.tagName());
+                            if (tdebug) {
+                                col.prependText("COLUMN=" + col.tagName() + "[");
+                                col.appendText("]");
+                            }
+                            col.attr("x-block", "true");
+                        }
 
-        for (Element row : document.select("tr"))
-            row.tagName("span").attr("x-row", Integer.toString(row.siblingElements().size()));
+                        String span = col.attr("colspan");
+                        if (!TextUtils.isEmpty(span))
+                            try {
+                                int colspan = Integer.parseInt(span);
+                                if (colspan > 1) {
+                                    if (tdebug)
+                                        col.prependText("SPAN=" + colspan);
+                                    for (int s = 1; s < colspan; s++) {
+                                        cols++;
+                                        Element clone = col.clone();
+                                        clone.children().remove();
+                                        if (tdebug)
+                                            clone.prependText("(" + s + ")");
+                                        clone.append("&nbsp;");
+                                        col.after(clone);
+                                    }
+                                }
+                            } catch (NumberFormatException ex) {
+                                Log.w(ex);
+                            }
+                    }
+                    if (cols > maxcols)
+                        maxcols = cols;
+                }
 
-        document.select("caption").tagName("div");
-
-        for (Element table : document.select("table")) {
-            table.attr("x-table", "true");
-            if (table.parent() != null && "a".equals(table.parent().tagName()))
-                table.tagName("span"); // Links cannot contain tables
-            else
+                // Rebuild table
                 table.tagName("div");
-        }
-        for (Element hf : document.select("thead,tfoot"))
-            hf.tagName("span");
+                table.children().remove(); // leaves nodes
+                for (int c = 0; c < maxcols; c++) {
+                    Element col = document.createElement("div")
+                            .attr("x-block", "true");
+                    int r = 0;
+                    for (Element row : rows) {
+                        r++;
+                        Elements rowcol = row.children();
+                        if (c < rowcol.size()) {
+                            Element cell = rowcol.get(c).clone().tagName("div");
+                            if (tdebug) {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(rowcol.get(c).tagName() + "=" + rowcol.get(c).className());
+                                for (Node node : rowcol.get(c).childNodes()) {
+                                    sb.append(':');
+                                    if (node instanceof Element)
+                                        sb.append(node.nodeName());
+                                    else if (node instanceof TextNode)
+                                        sb.append("~");
+                                    else
+                                        sb.append(node.getClass().getSimpleName());
+                                }
+                                cell.prependText("CELL=" + (t + 1) +
+                                        ":" + r + "/" + rows.size() +
+                                        ":" + (c + 1) + "/" + maxcols + "/" +
+                                        sb.toString() + "[");
+                                cell.appendText("]");
+                            }
+                            col.appendChild(cell);
+                        }
+                    }
+
+                    if (text_separators && view)
+                        col.appendElement("hr").attr("x-dashed", "true");
+
+                    table.appendChild(col);
+                }
+
+                for (Element extra : extras) {
+                    if (tdebug) {
+                        extra.prependText("EXTRA=" + extra.tagName() + "[");
+                        extra.appendText("]");
+                    }
+                    table.appendChild(extra.tagName("div").attr("x-block", "true"));
+                }
+            }
 
         // Images
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
@@ -1997,34 +2082,21 @@ public class HtmlHelper {
         NodeTraversor.traverse(new NodeVisitor() {
             private Element element;
             private TextNode tnode;
-            private int rows = 0;
-            private int cols = 0;
 
             @Override
             public void head(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
 
-                    if (rows == 0) {
-                        if ("true".equals(element.attr("x-block")))
-                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
-                                ssb.append('\n');
-                        if ("true".equals(element.attr("x-paragraph")))
-                            if (ssb.length() > 2 &&
-                                    (ssb.charAt(ssb.length() - 2) != '\n' ||
-                                            ssb.charAt(ssb.length() - 1) != '\n'))
-                                ssb.append('\n');
-                    }
-
-                    String xrow = element.attr("x-row");
-                    if (!TextUtils.isEmpty(xrow)) {
-                        if (Integer.parseInt(xrow) > 1)
-                            rows++;
+                    if ("true".equals(element.attr("x-block")))
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
-                    }
-                    if ("true".equals(element.attr("x-col")))
-                        cols++;
+
+                    if ("true".equals(element.attr("x-paragraph")))
+                        if (ssb.length() > 2 &&
+                                (ssb.charAt(ssb.length() - 2) != '\n' ||
+                                        ssb.charAt(ssb.length() - 1) != '\n'))
+                            ssb.append('\n');
 
                     if ("true".equals(element.attr("x-line-before")) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
@@ -2095,24 +2167,22 @@ public class HtmlHelper {
                                     break;
                                 case "text-align":
                                     // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                    if (rows == 0) {
-                                        Layout.Alignment alignment = null;
-                                        switch (value) {
-                                            case "left":
-                                            case "start":
-                                                alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
-                                                break;
-                                            case "center":
-                                                alignment = Layout.Alignment.ALIGN_CENTER;
-                                                break;
-                                            case "right":
-                                            case "end":
-                                                alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
-                                                break;
-                                        }
-                                        if (alignment != null)
-                                            setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
+                                    Layout.Alignment alignment = null;
+                                    switch (value) {
+                                        case "left":
+                                        case "start":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
+                                            break;
+                                        case "center":
+                                            alignment = Layout.Alignment.ALIGN_CENTER;
+                                            break;
+                                        case "right":
+                                        case "end":
+                                            alignment = (ltr ? Layout.Alignment.ALIGN_OPPOSITE : Layout.Alignment.ALIGN_NORMAL);
+                                            break;
                                     }
+                                    if (alignment != null)
+                                        setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
                                     break;
                             }
                         }
@@ -2314,31 +2384,15 @@ public class HtmlHelper {
                         Log.e(ex);
                     }
 
-                    if (rows == 0) {
-                        if ("true".equals(element.attr("x-block")))
-                            if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
-                                ssb.append('\n');
-                        if ("true".equals(element.attr("x-paragraph")))
-                            if (ssb.length() > 2 &&
-                                    (ssb.charAt(ssb.length() - 2) != '\n' ||
-                                            ssb.charAt(ssb.length() - 1) != '\n'))
-                                ssb.append('\n');
-                    }
-
-                    if ("true".equals(element.attr("x-col"))) {
-                        cols--;
-                        if (ssb.length() > 0 &&
-                                ssb.charAt(ssb.length() - 1) != '\n' &&
-                                ssb.charAt(ssb.length() - 1) != '\u2003')
-                            ssb.append('\u2003'); // emsp
-                    }
-                    String xrow = element.attr("x-row");
-                    if (!TextUtils.isEmpty(xrow)) {
-                        if (Integer.parseInt(xrow) > 1)
-                            rows--;
+                    if ("true".equals(element.attr("x-block")))
                         if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
-                    }
+
+                    if ("true".equals(element.attr("x-paragraph")))
+                        if (ssb.length() > 2 &&
+                                (ssb.charAt(ssb.length() - 2) != '\n' ||
+                                        ssb.charAt(ssb.length() - 1) != '\n'))
+                            ssb.append('\n');
 
                     if ("true".equals(element.attr("x-line-after")) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
