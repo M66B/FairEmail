@@ -1014,7 +1014,7 @@ class Core {
             itarget.appendMessages(icopies.toArray(new Message[0]));
         } else {
             for (Message imessage : map.keySet()) {
-                Log.i("Move seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags() + " can=" + canMove);
+                Log.i((copy ? "Copy" : "Move") + " seen=" + seen + " unflag=" + unflag + " flags=" + imessage.getFlags() + " can=" + canMove);
 
                 // Mark read
                 if (seen && !imessage.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
@@ -1047,7 +1047,7 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        boolean fetch = !"connected".equals(target.state);
+        boolean fetch = (copy || !"connected".equals(target.state));
         if (draft || fetch)
             try {
                 Log.i(target.name + " moved message fetch=" + fetch);
@@ -1060,8 +1060,10 @@ class Core {
                             if (uid != null) {
                                 if (draft) {
                                     Message icopy = itarget.getMessageByUID(uid);
-                                    if (icopy == null)
+                                    if (icopy == null) {
+                                        Log.w(target.name + " Gone uid=" + uid);
                                         continue;
+                                    }
 
                                     // Mark read
                                     if (seen && !icopy.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
@@ -1077,6 +1079,7 @@ class Core {
                                 }
 
                                 if (fetch) {
+                                    Log.w(target.name + " Fetching uid=" + uid);
                                     JSONArray fargs = new JSONArray();
                                     fargs.put(uid);
                                     onFetch(context, fargs, target, istore, itarget, state);
