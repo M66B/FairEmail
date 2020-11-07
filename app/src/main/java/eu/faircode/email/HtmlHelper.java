@@ -924,10 +924,12 @@ public class HtmlHelper {
                         }
                     }
 
-                    if (text_separators && view)
-                        col.appendElement("hr").attr("x-dashed", "true");
-
                     table.appendChild(col);
+
+                    if (text_separators && view)
+                        col.appendElement("hr")
+                                .attr("x-block", "true")
+                                .attr("x-dashed", "true");
                 }
 
                 for (Element extra : extras) {
@@ -2261,33 +2263,15 @@ public class HtmlHelper {
                                 }
                                 break;
                             case "hr":
-                                if (text_separators) {
-                                    int lhr = 0;
-                                    for (LineSpan ls : ssb.getSpans(0, ssb.length(), LineSpan.class)) {
-                                        int end = ssb.getSpanEnd(ls);
-                                        if (end > lhr)
-                                            lhr = end;
-                                    }
-
-                                    boolean nls = true;
-                                    for (int i = lhr; i < ssb.length(); i++)
-                                        if (ssb.charAt(i) != '\n') {
-                                            nls = false;
-                                            break;
-                                        }
-                                    if (nls)
-                                        break;
-
-                                    while (ssb.length() > 1 &&
-                                            ssb.charAt(ssb.length() - 2) == '\n' &&
-                                            ssb.charAt(ssb.length() - 1) == '\n')
-                                        ssb.delete(ssb.length() - 1, ssb.length());
+                                LineSpan[] lines = null;
+                                if (ssb.length() > 0)
+                                    lines = ssb.getSpans(ssb.length() - 1, ssb.length() - 1, LineSpan.class);
+                                if (lines == null || lines.length == 0) {
+                                    ssb.append(LINE);
+                                    float stroke = context.getResources().getDisplayMetrics().density;
+                                    float dash = ("true".equals(element.attr("x-dashed")) ? dp3 : 0f);
+                                    setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 }
-
-                                ssb.append("\n" + LINE + "\n");
-                                float stroke = context.getResources().getDisplayMetrics().density;
-                                float dash = ("true".equals(element.attr("x-dashed")) ? dp3 : 0f);
-                                setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), ssb.length() - 1 - LINE.length(), ssb.length() - 1);
                                 break;
                             case "img":
                                 String src = element.attr("src");
