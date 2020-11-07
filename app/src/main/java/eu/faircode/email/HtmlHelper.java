@@ -2233,6 +2233,11 @@ public class HtmlHelper {
                                 break;
                             case "div": // compose
                             case "p": // compose
+                                if (!"true".equals(element.attr("x-block")) &&
+                                        !"true".equals(element.attr("x-paragraph"))) {
+                                    newline(ssb.length());
+                                    newline(ssb.length());
+                                }
                                 break;
                             case "i":
                             case "em":
@@ -2252,6 +2257,10 @@ public class HtmlHelper {
                                 int level = element.tagName().charAt(1) - '1';
                                 setSpan(ssb, new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length());
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
+                                if (!"true".equals(element.attr("x-block"))) {
+                                    newline(start);
+                                    newline(ssb.length());
+                                }
                                 break;
                             case "hr":
                                 if (text_separators) {
@@ -2415,6 +2424,25 @@ public class HtmlHelper {
                     ssb.setSpan(span, start, end, flags);
                 else
                     Log.e("Invalid span " + start + "..." + end + " len=" + len + " type=" + span.getClass().getName());
+            }
+
+            private void newline(int index) {
+                int count = 0;
+
+                if (compress) {
+                    int i = Math.min(index, ssb.length() - 1);
+                    while (i >= 0) {
+                        char kar = ssb.charAt(i);
+                        if (kar == '\n')
+                            count++;
+                        else if (kar != ' ' && kar != '\u00A0')
+                            break;
+                        i--;
+                    }
+                }
+
+                if (count < 2)
+                    ssb.insert(index, "\n");
             }
         }, document.body());
 
