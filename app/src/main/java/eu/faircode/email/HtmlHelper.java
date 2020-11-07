@@ -462,7 +462,7 @@ public class HtmlHelper {
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("div", "x-plain")
-                .removeTags("col", "colgroup", "thead", "tbody")
+                .removeTags("col", "colgroup")
                 .removeAttributes("table", "width")
                 .addAttributes("tr", "height")
                 .removeAttributes("td", "rowspan", "width")
@@ -858,13 +858,24 @@ public class HtmlHelper {
                     for (Element col : row.children()) {
                         cols++;
 
-                        if (!"td".equals(col.tagName()) && !"th".equals(col.tagName())) {
-                            Log.e("Column expected tag=" + col.tagName());
-                            if (tdebug) {
-                                col.prependText("COLUMN=" + col.tagName() + "[");
-                                col.appendText("]");
-                            }
-                            col.attr("x-block", "true");
+                        switch (col.tagName()) {
+                            case "td":
+                                break;
+                            case "th":
+                                Element strong = new Element("strong");
+                                for (Node child : new ArrayList<>(col.childNodes())) {
+                                    child.remove();
+                                    strong.appendChild(child);
+                                }
+                                col.appendChild(strong);
+                                break;
+                            default:
+                                Log.e("Column expected tag=" + col.tagName());
+                                if (tdebug) {
+                                    col.prependText("COLUMN=" + col.tagName() + "[");
+                                    col.appendText("]");
+                                }
+                                col.attr("x-block", "true");
                         }
 
                         String span = col.attr("colspan");
@@ -893,6 +904,15 @@ public class HtmlHelper {
                 // Rebuild table
                 table.tagName("div");
                 table.children().remove(); // leaves nodes
+
+                for (Element extra : extras) {
+                    if (tdebug) {
+                        extra.prependText("EXTRA=" + extra.tagName() + "[");
+                        extra.appendText("]");
+                    }
+                    table.appendChild(extra.tagName("div").attr("x-block", "true"));
+                }
+
                 for (int c = 0; c < maxcols; c++) {
                     Element col = document.createElement("div")
                             .attr("x-block", "true");
@@ -930,14 +950,6 @@ public class HtmlHelper {
                         col.appendElement("hr")
                                 .attr("x-block", "true")
                                 .attr("x-dashed", "true");
-                }
-
-                for (Element extra : extras) {
-                    if (tdebug) {
-                        extra.prependText("EXTRA=" + extra.tagName() + "[");
-                        extra.appendText("]");
-                    }
-                    table.appendChild(extra.tagName("div").attr("x-block", "true"));
                 }
             }
 
