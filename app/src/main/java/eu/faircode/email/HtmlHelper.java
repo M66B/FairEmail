@@ -2091,12 +2091,12 @@ public class HtmlHelper {
                     element = (Element) node;
 
                     if ("true".equals(element.attr("x-block")))
-                        if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                        if (ssb.length() > 0 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
 
                     if ("true".equals(element.attr("x-paragraph")) &&
                             !"false".equals(element.attr("x-line-before")))
-                        if (ssb.length() > 2 &&
+                        if (ssb.length() > 1 &&
                                 (ssb.charAt(ssb.length() - 2) != '\n' ||
                                         ssb.charAt(ssb.length() - 1) != '\n'))
                             ssb.append('\n');
@@ -2355,12 +2355,12 @@ public class HtmlHelper {
                     }
 
                     if ("true".equals(element.attr("x-block")))
-                        if (ssb.length() > 1 && ssb.charAt(ssb.length() - 1) != '\n')
+                        if (ssb.length() > 0 && ssb.charAt(ssb.length() - 1) != '\n')
                             ssb.append('\n');
 
                     if ("true".equals(element.attr("x-paragraph")) &&
                             !"false".equals(element.attr("x-line-after")))
-                        if (ssb.length() > 2 &&
+                        if (ssb.length() > 1 &&
                                 (ssb.charAt(ssb.length() - 2) != '\n' ||
                                         ssb.charAt(ssb.length() - 1) != '\n'))
                             ssb.append('\n');
