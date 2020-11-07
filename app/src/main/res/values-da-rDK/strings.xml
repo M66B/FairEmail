@@ -638,6 +638,7 @@
     <string name="title_delete_operation_move">Flyt-operationer</string>
     <string name="title_delete_operation_flag">Flagningsoperationer</string>
     <string name="title_delete_operation_delete">Slet operationer</string>
+    <string name="title_delete_operation_deleted">%1$d operationer slettet</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>

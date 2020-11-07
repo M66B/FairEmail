@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_search">FairEmail தேடல்</string>
+    <string name="app_changelog">மாற்றப்பதிவேடு</string>
+    <string name="app_welcome">FairEmail என்பது தனியுரிமை மற்றும் பாதுகாப்பை மையமாகக் கொண்ட ஒரு திறந்த மூல மின்னஞ்சல் பயன்பாடாகும். இதன் காரணமாக சில அம்சங்கள் நீங்கள் பழகியதிலிருந்து வேறுப்படக்கூடும்.</string>
+    <string name="app_limitations">எடுத்துக்காட்டாக, பாதுகாப்பற்ற கூறுகளை அகற்றுவதற்கும் வாசிப்பை மேம்படுத்துவதற்கும் செய்திகளை எப்போதும் மறுவடிவமைக்கப்படும் மற்றும் பாதுகாப்புக்காக தொடக்க இணைப்புகளை உறுதிப்படுத்த வேண்டியிருக்கும்.</string>
+    <string name="app_crash">இந்த சாதனத்தில் FairEmail ஆதரிக்கப்படவில்லை, ஏனெனில் Android-ல் உள்ள பிழைகளால் இச்செயலி செயலிழக்கின்றது</string>
+    <string name="app_exit">வெளியேற \'பின்\' விசையை மீண்டும் அழுத்தவும்</string>
+    <string name="app_cake">சேமிப்பிடம் போதுமானதாகயில்லை</string>
+    <string name="channel_service">பெறுபவை</string>
+    <string name="channel_send">அனுப்புபவை</string>
+    <string name="channel_notification">அறிவிப்புகள்</string>
+    <string name="channel_update">புதுப்பித்தல்கள்</string>
+    <string name="channel_warning">எச்சரிக்கைகள்</string>
+    <string name="channel_error">பிழைகள்</string>
+    <string name="channel_alert">சேவையக எச்சரிக்கைகள்</string>
+    <string name="channel_group_contacts">தொடர்புகள்</string>
+    <string name="channel_service_description">கணக்குகள் ஒத்திசைத்தல் மற்றும் கண்காணித்தல்</string>
+    <string name="channel_send_description">செய்திகளை அனுப்புதல்</string>
+    <string name="channel_notification_description">புது செய்தி அறிவிப்புகள்</string>
+    <plurals name="page_conversation">
+        <item quantity="one">உரையாடல்</item>
+        <item quantity="other">உரையாடல்கள்</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">அஞ்சல்</item>
+        <item quantity="other">அஞ்சல்கள்</item>
+    </plurals>
+    <string name="page_folders">கோப்புறைகள்</string>
+    <string name="page_compose">இயற்றுக</string>
+    <string name="tile_synchronize">ஒத்திசைத்தல்</string>
+    <string name="tile_unseen">புது அஞ்சல்கள்</string>
+    <string name="shortcut_refresh">புதுப்பி</string>
+    <string name="shortcut_compose">இயற்றுக</string>
+    <string name="shortcut_setup">அமைப்புகள்</string>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d செயல்பாடு நிலுவையில்</item>
+        <item quantity="other">%1$d செயல்பாடுகள் நிலுவையில்</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="one">%1$d அஞ்சல் அனுப்பப்படும்</item>
+        <item quantity="other">%1$d அஞ்சல்கள் அனுப்பப்படும்</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d புதிது</item>
+        <item quantity="other">%1$d புதியவை</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d உரையாடல் தேர்ந்தெடுக்கப்பட்டது</item>
+        <item quantity="other">%1$d உரையாடல்கள் தேர்ந்தெடுக்கப்பட்டது</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">%1$d அஞ்சலை நகர்த்தவா?</item>
+        <item quantity="other">%1$d அஞ்சல்களை நகர்த்தவா?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="one">%1$d அஞ்சலை நிரந்தரமாக நீக்கவா?</item>
+        <item quantity="other">%1$d அஞ்சல்களை நிரந்தரமாக நீக்கவா?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="one">%1$d அஞ்சல் வேண்டப்படாதென குறிக்கவா?</item>
+        <item quantity="other">%1$d அஞ்சல்கள் வேண்டப்படாதென குறிக்கவா?</item>
+    </plurals>
+    <string name="title_ask_spam_who">%1$s இடமிருந்து வரும் அஞ்சல் வேண்டப்படாதென குறிக்கவா?</string>
+    <string name="title_junk_hint">வேண்டாதவற்றை வடிகட்டுவது உங்கள் மின்னஞ்சல் வழங்குநரின் பொறுப்பு. இதை நம்பத்தகுந்த முறையில் செயலாற்ற தரவுகள் இம்மின்னஞ்சல் செயலியில் இல்லை.</string>
+    <string name="title_block">%1$s-ஐ தடுக்கவும்</string>
+    <string name="title_block_sender">அனுப்புனரை தடுக்கவும்</string>
+    <string name="title_block_domain">அனுப்புநர் களத்தைத் தடுக்கவும்</string>
+    <string name="title_block_sender_hint">அனுப்புநரைத் தடுப்பது எதிர்கால செய்திகளை ஸ்பேம் கோப்புறையில் தானாக நகர்த்துவதற்கான விதியை உருவாக்கும்.
+        விதிகளை உருவாக்குவதும் பயன்படுத்துவதும் ஒரு விலையுள்ள அம்சமாகும்.
+    </string>
+    <string name="title_notification_sending">செய்திகள் அனுப்பப்படுகின்றது</string>
+    <string name="title_notification_waiting">தகுந்த இணைப்பிற்காகக் காத்திருக்கிறது</string>
+    <string name="title_notification_idle">செயலற்ற</string>
+    <string name="title_notification_failed">\'%1$s\' தோல்வியுற்றது</string>
+    <string name="title_notification_alert">\'%1$s\' சேவையக எச்சரிக்கை</string>
+    <string name="title_notification_sending_left">மீதமுள்ள முயற்சிகள்: %1$d</string>
+    <string name="title_notification_sending_failed">%1$s-க்கு அனுப்புதல் தோல்வியுற்றது</string>
+    <!-- Thunderbird -->
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+</resources>

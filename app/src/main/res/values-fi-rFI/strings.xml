@@ -323,6 +323,7 @@
     <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
+    <string name="title_advanced_monospaced_pre">Käytä tasavälistä kirjasinta esimuotoillulle tekstille</string>
     <string name="title_advanced_text_color">Käytä tekstin värejä</string>
     <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
     <string name="title_advanced_text_font">Käytä kirjasimia</string>
@@ -410,6 +411,7 @@
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_autocrypt">Käytä Autocryptiä</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
+    <string name="title_advanced_encrypt_subject">Salaa aihe</string>
     <string name="title_advanced_check_certificate">Tarkista julkinen avain lähetettäessä</string>
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
@@ -472,7 +474,7 @@
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
-    <string name="title_advanced_overview_mode_hint">Tämä voi johtaa hyvin pieniin fontteihin</string>
+    <string name="title_advanced_overview_mode_hint">Tämä voi aiheuttaa hyvin pieniä kirjasimia</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
@@ -594,6 +596,7 @@
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
+    <string name="title_backoff_until">Odottaa epäonnistumisen jälkeen ajanhetkeen: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. POP3 ei merkitse viestejä luetuksi, siirrä niitä, jne. POP3 käyttää enemmän akkua ja dataa kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
@@ -626,6 +629,13 @@
     <string name="title_empty_trash_all_ask">Poistetaanko kaikkien tilien kaikki roskakoriin siirretyt viestit pysyvästi?</string>
     <string name="title_empty_spam_all_ask">Poistetaanko kaikkien tilien kaikki paikalliset roskapostit pysyvästi?</string>
     <string name="title_empty_all">Tämä poistaa kaikki viestit sekä laitteesta että palvelimelta</string>
+    <string name="title_delete_operation_title">Poista toimenpiteet</string>
+    <string name="title_delete_operation_error">Virheviestilliset</string>
+    <string name="title_delete_operation_fetch">Hakutoimenpiteet</string>
+    <string name="title_delete_operation_move">Siirtotoimenpiteet</string>
+    <string name="title_delete_operation_flag">Merkitsemistoimenpiteet</string>
+    <string name="title_delete_operation_delete">Poistotoimenpiteet</string>
+    <string name="title_delete_operation_deleted">%1$d toimenpidettä poistettu</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>
@@ -647,6 +657,8 @@
     <string name="title_keep_days">Viestien säilyttäminen (päivää)</string>
     <string name="title_keep_days_remark">Vanhat viestit poistetaan laitteesta mutta säilytetään palvelimella</string>
     <string name="title_keep_all">Säilytä kaikki viestit</string>
+    <string name="title_poll_system">Aseta viestien tarkistaminen väliajoin järjestelmäkansioille</string>
+    <string name="title_poll_user">Aseta viestien tarkistaminen väliajoin käyttäjän kansioille</string>
     <string name="title_auto_trash">Siirrä vanhat viestit automaattisesti roskakoriin</string>
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
     <string name="title_auto_delete_hint">Vanhoilla viesteillä tarkoitetaan viestejä, joita ei enää pidetä laitteessa</string>
@@ -1056,6 +1068,7 @@
     <string name="title_legend_synchronize_off">Synkronointi pois käytöstä</string>
     <string name="title_legend_synchronize_poll">Synkronoi väliajoin</string>
     <string name="title_legend_disconnected">Yhteys katkaistu</string>
+    <string name="title_legend_backoff">Odottaa epäonnistumisen jälkeen</string>
     <string name="title_legend_connecting">Yhdistetään</string>
     <string name="title_legend_connected">Yhdistetty</string>
     <string name="title_legend_executing">Suoritetaan toimenpiteitä</string>

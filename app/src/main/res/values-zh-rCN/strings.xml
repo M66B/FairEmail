@@ -279,7 +279,7 @@
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_highlight_subject">高亮邮件主题</string>
-    <string name="title_advanced_color_stripe">头像前显示色彩条纹</string>
+    <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
     <string name="title_advanced_favicons">显示网页图标</string>
@@ -626,6 +626,7 @@
     <string name="title_delete_operation_move">移动操作</string>
     <string name="title_delete_operation_flag">标记操作</string>
     <string name="title_delete_operation_delete">删除操作</string>
+    <string name="title_delete_operation_deleted">%1$d 个操作已删除</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_hint_operations">删除操作可能导致丢失消息和同步问题</string>

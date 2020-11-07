@@ -657,7 +657,9 @@
     <string name="title_delete_operation_error">S chybovou hláškou</string>
     <string name="title_delete_operation_fetch">Operace načítání</string>
     <string name="title_delete_operation_move">Operace přesouvání</string>
+    <string name="title_delete_operation_flag">Operace značení</string>
     <string name="title_delete_operation_delete">Operace mazání</string>
+    <string name="title_delete_operation_deleted">Smazáno %1$d operací</string>
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>
@@ -679,6 +681,8 @@
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
     <string name="title_keep_days_remark">Staré zprávy budou ze zařízení odstraněny, na serveru však zůstanou</string>
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
+    <string name="title_poll_system">Nastavit systémové složky pro pravidelnou kontrolu nových zpráv</string>
+    <string name="title_poll_user">Nastavit uživatelské složky pro pravidelnou kontrolu nových zpráv</string>
     <string name="title_auto_trash">Automaticky přesouvat staré zprávy do koše</string>
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>
     <string name="title_auto_delete_hint">Staré zprávy jsou zprávy, které již nejsou uchovány v zařízení</string>

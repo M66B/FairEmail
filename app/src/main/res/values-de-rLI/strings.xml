@@ -164,6 +164,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
     <string name="title_setup_doze">Akkuoptimierungen einrichten</string>
     <string name="title_setup_doze_remark">Um Nachrichten zuverlässig abzurufen</string>
+    <string name="title_setup_doze_hint">Auch wenn dies widersprüchlich klingt, wird das Ausschalten der Batterieoptimierung zu weniger Akkuverbrauch führen</string>
     <string name="title_setup_doze_instructions">Bitte oben im folgenden Auswahldialog »Alle Apps« aufrufen und anschließend FairEmail auswählen, danach die Option »Nicht optimieren« mit »Fertig« bestätigen.</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
@@ -639,7 +640,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_delete_operation_move">Verschiebe-Operationen</string>
     <string name="title_delete_operation_flag">Kennzeichnungs-Operationen</string>
     <string name="title_delete_operation_delete">Lösch-Operationen</string>
-    <string name="title_delete_operation_deleted">%1$d Operationen gelöscht</string>
+    <string name="title_delete_operation_deleted">%1$d Vorgänge gelöscht</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>

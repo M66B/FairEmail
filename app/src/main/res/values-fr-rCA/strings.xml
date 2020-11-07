@@ -163,6 +163,7 @@
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
     <string name="title_setup_doze">Configurer les optimisations de la pile</string>
     <string name="title_setup_doze_remark">Recevoir des courriels de manière fiable</string>
+    <string name="title_setup_doze_hint">Bien que cela puisse paraître contradictoire, désactiver les optimisations de la pile réduira l\'utilisation de la pile</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez « Toutes les applications » en haut, recherchez cette application puis sélectionnez et validez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la pile?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée?</string>
