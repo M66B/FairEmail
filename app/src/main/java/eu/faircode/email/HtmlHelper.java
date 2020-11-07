@@ -2229,6 +2229,9 @@ public class HtmlHelper {
                             case "br":
                                 ssb.append('\n');
                                 break;
+                            case "body":
+                                // Do nothing
+                                break;
                             case "i":
                             case "em":
                                 setSpan(ssb, new StyleSpan(Typeface.ITALIC), start, ssb.length());
