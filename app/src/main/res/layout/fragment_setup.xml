@@ -494,6 +494,16 @@
             app:layout_constraintTop_toTopOf="@id/tvDozeDone" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDozeHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_doze_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBatteryUsage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -502,7 +512,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+            app:layout_constraintTop_toBottomOf="@id/tvDozeHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncStopped"
