@@ -859,7 +859,7 @@ public class HtmlHelper {
                         cols++;
 
                         if (!"td".equals(col.tagName()) && !"th".equals(col.tagName())) {
-                            Log.w("Column expected tag=" + col.tagName());
+                            Log.e("Column expected tag=" + col.tagName());
                             if (tdebug) {
                                 col.prependText("COLUMN=" + col.tagName() + "[");
                                 col.appendText("]");
@@ -871,19 +871,17 @@ public class HtmlHelper {
                         if (!TextUtils.isEmpty(span))
                             try {
                                 int colspan = Integer.parseInt(span);
-                                if (colspan > 1) {
-                                    if (tdebug)
-                                        col.prependText("SPAN=" + colspan);
+                                if (colspan > 1)
                                     for (int s = 1; s < colspan; s++) {
                                         cols++;
-                                        Element clone = col.clone();
-                                        clone.children().remove();
+                                        Element fill = document.createElement("td");
+                                        for (Attribute attr : col.attributes())
+                                            fill.attr(attr.getKey(), attr.getValue());
                                         if (tdebug)
-                                            clone.prependText("(" + s + ")");
-                                        clone.append("&nbsp;");
-                                        col.after(clone);
+                                            fill.prependText("(" + cols + "+" + s + "/" + (colspan - 1) + ")");
+                                        fill.append("&emsp;");
+                                        col.after(fill);
                                     }
-                                }
                             } catch (NumberFormatException ex) {
                                 Log.w(ex);
                             }
