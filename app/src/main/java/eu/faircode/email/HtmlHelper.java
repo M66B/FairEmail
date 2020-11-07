@@ -1761,11 +1761,11 @@ public class HtmlHelper {
 
     @NonNull
     static String getText(Context context, String html) {
-        Document d = JsoupEx.parse(html);
+        Document d = sanitizeCompose(context, html, false);
 
         truncate(d, true);
 
-        SpannableStringBuilder ssb = fromDocument(context, d, false, true, null, null);
+        SpannableStringBuilder ssb = fromDocument(context, d, true, null, null);
 
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
             String url = span.getURL();
@@ -1916,13 +1916,6 @@ public class HtmlHelper {
     static SpannableStringBuilder fromDocument(
             Context context, @NonNull Document document, boolean compress,
             @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        return fromDocument(context, document, true, compress, imageGetter, tagHandler);
-    }
-
-    private static SpannableStringBuilder fromDocument(
-            Context context, @NonNull Document document,
-            final boolean warn, final boolean compress,
-            @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
         boolean text_separators = prefs.getBoolean("text_separators", false);
@@ -1957,11 +1950,9 @@ public class HtmlHelper {
                         block.add((TextNode) node);
                 } else if (node instanceof Element) {
                     element = (Element) node;
-                    if ("pre".equals(element.tagName()) ||
-                            "true".equals(element.attr("x-plain")))
+                    if ("true".equals(element.attr("x-plain")))
                         plain++;
-                    if (element.isBlock() ||
-                            "true".equals(element.attr("x-block"))) {
+                    if ("true".equals(element.attr("x-block"))) {
                         normalizeText(block);
                         block.clear();
                     }
@@ -1972,11 +1963,9 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
-                    if ("pre".equals(element.tagName()) ||
-                            "true".equals(element.attr("x-plain")))
+                    if ("true".equals(element.attr("x-plain")))
                         plain--;
-                    if (element.isBlock() ||
-                            "true".equals(element.attr("x-block")) ||
+                    if ("true".equals(element.attr("x-block")) ||
                             "br".equals(element.tagName())) {
                         normalizeText(block);
                         block.clear();
@@ -2209,9 +2198,6 @@ public class HtmlHelper {
                                 if (!TextUtils.isEmpty(href))
                                     setSpan(ssb, new URLSpan(href), start, ssb.length());
                                 break;
-                            case "body":
-                                // Do nothing
-                                break;
                             case "big":
                                 setSpan(ssb, new RelativeSizeSpan(FONT_LARGE), start, ssb.length());
                                 break;
@@ -2231,14 +2217,6 @@ public class HtmlHelper {
                             case "br":
                                 ssb.append('\n');
                                 break;
-                            case "div": // compose
-                            case "p": // compose
-                                if (!"true".equals(element.attr("x-block")) &&
-                                        !"true".equals(element.attr("x-paragraph"))) {
-                                    newline(ssb.length());
-                                    newline(ssb.length());
-                                }
-                                break;
                             case "i":
                             case "em":
                                 setSpan(ssb, new StyleSpan(Typeface.ITALIC), start, ssb.length());
@@ -2257,10 +2235,6 @@ public class HtmlHelper {
                                 int level = element.tagName().charAt(1) - '1';
                                 setSpan(ssb, new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length());
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
-                                if (!"true".equals(element.attr("x-block"))) {
-                                    newline(start);
-                                    newline(ssb.length());
-                                }
                                 break;
                             case "hr":
                                 LineSpan[] lines = null;
@@ -2327,15 +2301,6 @@ public class HtmlHelper {
                                 if (llevel > 0)
                                     setSpan(ssb, new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length());
                                 break;
-                            case "meta":
-                                // Do nothing
-                                break;
-                            case "pre":
-                                setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
-                                break;
-                            case "script":
-                                // Do nothing
-                                break;
                             case "small":
                                 setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
                                 break;
@@ -2359,8 +2324,6 @@ public class HtmlHelper {
                             case "strike":
                                 setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                 break;
-                            case "style":
-                                break;
                             case "tt":
                                 setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                                 break;
@@ -2368,8 +2331,7 @@ public class HtmlHelper {
                                 setSpan(ssb, new UnderlineSpan(), start, ssb.length());
                                 break;
                             default:
-                                if (warn)
-                                    Log.e("Unknown tag=" + element.tagName());
+                                Log.e("Unknown tag=" + element.tagName());
                         }
                     } catch (Throwable ex) {
                         Log.e(ex);
@@ -2474,7 +2436,7 @@ public class HtmlHelper {
 
     static Spanned fromHtml(@NonNull String html, boolean compress, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler, Context context) {
         Document document = JsoupEx.parse(html);
-        return fromDocument(context, document, false, compress, imageGetter, tagHandler);
+        return fromDocument(context, document, compress, imageGetter, tagHandler);
     }
 
     static String toHtml(Spanned spanned, Context context) {
