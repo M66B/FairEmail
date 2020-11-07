@@ -798,7 +798,7 @@ public interface DaoMessage {
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
-            " AND (NOT ui_browsed OR stored < :before)" +
+            " AND stored < :before" + // moved, browsed
             " AND ui_snoozed IS NULL")
     int deleteMessagesBefore(long folder, long before, boolean unseen);
 }

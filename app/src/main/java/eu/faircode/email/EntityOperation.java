@@ -238,6 +238,7 @@ public class EntityOperation {
                     Long identity = message.identity;
                     long uid = message.uid;
                     Boolean raw = message.raw;
+                    Long stored = message.stored;
                     int notifying = message.notifying;
                     boolean fts = message.fts;
                     Integer importance = message.importance;
@@ -256,6 +257,7 @@ public class EntityOperation {
                     message.identity = null;
                     message.uid = null;
                     message.raw = null;
+                    message.stored = new Date().getTime();
                     message.notifying = 0;
                     message.fts = false;
                     if (reset_importance)
@@ -273,6 +275,7 @@ public class EntityOperation {
                     message.ui_browsed = false;
                     message.error = null;
                     message.id = db.message().insertMessage(message);
+
                     File mtarget = message.getFile(context);
                     long tmpid = message.id;
                     jargs.put(2, tmpid);
@@ -283,6 +286,7 @@ public class EntityOperation {
                     message.identity = identity;
                     message.uid = uid;
                     message.raw = raw;
+                    message.stored = stored;
                     message.notifying = notifying;
                     message.fts = fts;
                     message.importance = importance;
