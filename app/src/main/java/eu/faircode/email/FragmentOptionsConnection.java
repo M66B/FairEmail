@@ -295,7 +295,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
         swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
-        swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", true));
+        swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
     }
 

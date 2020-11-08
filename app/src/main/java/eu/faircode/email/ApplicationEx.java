@@ -90,7 +90,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
 
         try {
-            boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", true);
+            boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
             System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
         } catch (Throwable ex) {
             Log.e(ex);
