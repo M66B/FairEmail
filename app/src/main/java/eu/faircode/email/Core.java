@@ -32,6 +32,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
 import android.os.SystemClock;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Pair;
 
@@ -3707,10 +3708,10 @@ class Core {
                     for (EntityMessage message : messages) {
                         Address[] afrom = messageFrom.get(message.id);
                         String from = MessageHelper.formatAddresses(afrom, name_email, false);
-                        sb.append("<strong>").append(from).append("</strong>");
+                        sb.append("<strong>").append(Html.escapeHtml(from)).append("</strong>");
                         if (!TextUtils.isEmpty(message.subject))
-                            sb.append(": ").append(message.subject);
-                        sb.append(" ").append(DTF.format(message.received));
+                            sb.append(": ").append(Html.escapeHtml(message.subject));
+                        sb.append(" ").append(Html.escapeHtml(DTF.format(message.received)));
                         sb.append("<br>");
                     }
 
@@ -4050,10 +4051,10 @@ class Core {
                 if (!notify_messaging) {
                     StringBuilder sbm = new StringBuilder();
                     if (!TextUtils.isEmpty(message.subject))
-                        sbm.append("<em>").append(message.subject).append("</em>").append("<br>");
+                        sbm.append("<em>").append(Html.escapeHtml(message.subject)).append("</em>").append("<br>");
 
                     if (!TextUtils.isEmpty(preview))
-                        sbm.append(preview);
+                        sbm.append(Html.escapeHtml(preview));
 
                     if (sbm.length() > 0) {
                         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
