@@ -831,20 +831,28 @@ public class HtmlHelper {
                 Element table = tables.get(t);
 
                 // Get rows and caption
-                boolean titles = false;
+                Boolean heading = null;
                 Elements rows = new Elements();
                 Elements extras = new Elements();
                 for (Element child : table.children()) {
                     switch (child.tagName()) {
                         case "thead":
                         case "tfoot":
-                            titles = true;
                         case "tbody":
                             for (Element sub : child.children())
-                                if ("tr".equals(sub.tagName()))
+                                if ("tr".equals(sub.tagName())) {
                                     rows.add(sub);
-                                else
+                                    if (!"tbody".equals(child.tagName()) &&
+                                            (heading == null || heading))
+                                        for (Element col : sub.children()) {
+                                            heading = "th".equals(col.tagName());
+                                            if (!heading)
+                                                break;
+                                        }
+                                } else {
+                                    Log.e("Row unexpected tag=" + sub.tagName());
                                     extras.add(sub);
+                                }
                             break;
                         case "tr":
                             rows.add(child);
@@ -866,7 +874,8 @@ public class HtmlHelper {
 
                         switch (col.tagName()) {
                             case "td":
-                                if (!titles && col.childNodeSize() == 1) {
+                                if (col.childNodeSize() == 1 &&
+                                        (heading == null || !heading)) {
                                     Node first = col.childNode(0);
                                     if (first instanceof TextNode) {
                                         if (((TextNode) first).text().length() != 1)
@@ -888,7 +897,7 @@ public class HtmlHelper {
                                 col.appendChild(strong);
                                 break;
                             default:
-                                Log.e("Column expected tag=" + col.tagName());
+                                Log.e("Column unexpected tag=" + col.tagName());
                                 if (tdebug) {
                                     col.prependText("COLUMN=" + col.tagName() + "[");
                                     col.appendText("]");
@@ -932,60 +941,79 @@ public class HtmlHelper {
                                 node.remove();
                                 if (node instanceof Element)
                                     node.removeAttr("x-block");
-                                row.child(col + 1).prependText(" ").prependChild(node);
+                                row.child(col + 1).prependText("\u00a0").prependChild(node);
                             }
 
                 // Rebuild table
                 table.tagName("div");
                 table.children().remove(); // leaves nodes
 
+                // Process extras: caption, etc
                 for (Element extra : extras) {
                     if (tdebug) {
                         extra.prependText("EXTRA=" + extra.tagName() + "[");
                         extra.appendText("]");
                     }
-                    table.appendChild(extra.tagName("div").attr("x-block", "true"));
+                    table.appendChild(extra.tagName("div")
+                            .attr("x-block", "true"));
                 }
 
-                for (int c = 0; c < maxcols; c++) {
-                    Element col = document.createElement("div")
-                            .attr("x-block", "true");
-                    if (tdebug)
-                        col.appendText("merge=" + !nomerge.get(c));
-                    int r = 0;
+                if (heading == null || !heading) {
                     for (Element row : rows) {
-                        r++;
-                        Elements rowcol = row.children();
-                        if (c < rowcol.size()) {
-                            Element cell = rowcol.get(c).clone().tagName("div");
-                            if (tdebug) {
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(rowcol.get(c).tagName() + "=" + rowcol.get(c).className());
-                                for (Node node : rowcol.get(c).childNodes()) {
-                                    sb.append(':');
-                                    if (node instanceof Element)
-                                        sb.append(node.nodeName());
-                                    else if (node instanceof TextNode)
-                                        sb.append("~");
-                                    else
-                                        sb.append(node.getClass().getSimpleName());
-                                }
-                                cell.prependText("CELL=" + (t + 1) +
-                                        ":" + r + "/" + rows.size() +
-                                        ":" + (c + 1) + "/" + maxcols + "/" +
-                                        sb.toString() + "[");
-                                cell.appendText("]");
-                            }
-                            col.appendChild(cell);
-                        }
+                        Element line = document.createElement("div")
+                                .attr("x-block", "true");
+                        for (Element col : row.children())
+                            line.appendChild(col.tagName("div"));
+
+                        table.appendChild(line);
+
+                        if (text_separators && view)
+                            line.appendElement("hr")
+                                    .attr("x-block", "true")
+                                    .attr("x-dashed", "true");
                     }
+                } else {
+                    // Process columns
+                    for (int c = 0; c < maxcols; c++) {
+                        Element col = document.createElement("div")
+                                .attr("x-block", "true");
+                        if (tdebug)
+                            col.appendText("merge=" + !nomerge.get(c));
+                        int r = 0;
+                        for (Element row : rows) {
+                            r++;
+                            Elements rowcol = row.children();
+                            if (c < rowcol.size()) {
+                                Element cell = rowcol.get(c).clone().tagName("div");
+                                if (tdebug) {
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.append(rowcol.get(c).tagName() + "=" + rowcol.get(c).className());
+                                    for (Node node : rowcol.get(c).childNodes()) {
+                                        sb.append(':');
+                                        if (node instanceof Element)
+                                            sb.append(node.nodeName());
+                                        else if (node instanceof TextNode)
+                                            sb.append("~");
+                                        else
+                                            sb.append(node.getClass().getSimpleName());
+                                    }
+                                    cell.prependText("CELL=" + (t + 1) +
+                                            ":" + r + "/" + rows.size() +
+                                            ":" + (c + 1) + "/" + maxcols + "/" +
+                                            sb.toString() + "[");
+                                    cell.appendText("]");
+                                }
+                                col.appendChild(cell);
+                            }
+                        }
 
-                    table.appendChild(col);
+                        table.appendChild(col);
 
-                    if (text_separators && view)
-                        col.appendElement("hr")
-                                .attr("x-block", "true")
-                                .attr("x-dashed", "true");
+                        if (text_separators && view)
+                            col.appendElement("hr")
+                                    .attr("x-block", "true")
+                                    .attr("x-dashed", "true");
+                    }
                 }
             }
 
