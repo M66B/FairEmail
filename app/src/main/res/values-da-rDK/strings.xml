@@ -163,6 +163,7 @@
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Opsæt batterioptimering</string>
     <string name="title_setup_doze_remark">For pålidelig modtagelse af e-mail</string>
+    <string name="title_setup_doze_hint">Selv om dette kan lyde selvmodsigende, vil deaktivering af batterioptimering resultere i lavere batteriforbrug</string>
     <string name="title_setup_doze_instructions">Vælg \"Alle apps\" øverst i næste dialogboks, vælg denne app og vælg \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>

@@ -151,6 +151,7 @@
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">设置电池优化</string>
     <string name="title_setup_doze_remark">使接收邮件更可靠</string>
+    <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但关闭电池优化会减少电池用量。</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">耗电量高？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>

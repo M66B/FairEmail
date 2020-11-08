@@ -184,6 +184,7 @@
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
     <string name="title_setup_doze_remark">Aby niezawodnie odbierać wiadomości e-mail</string>
+    <string name="title_setup_doze_hint">Może to brzmieć sprzecznie, ale wyłączenie optymalizacji baterii spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj FairEmail i zaznacz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
@@ -653,11 +654,13 @@
     <string name="title_empty_trash_all_ask">Trwale usunąć wszystkie skasowane wiadomości z koszy dla wszystkich kont?</string>
     <string name="title_empty_spam_all_ask">Trwale usunąć wszystkie wiadomości spam dla wszystkich kont?</string>
     <string name="title_empty_all">Spowoduje to usunięcie wszystkich wiadomości zarówno z urządzenia, jak i serwera</string>
-    <string name="title_delete_operation_title">Usuń operacje</string>
+    <string name="title_delete_operation_title">Operacje usuwania</string>
     <string name="title_delete_operation_error">Z komunikatem o błędzie</string>
     <string name="title_delete_operation_fetch">Operacje pobierania</string>
-    <string name="title_delete_operation_move">Przenieś operacje</string>
-    <string name="title_delete_operation_delete">Usuń operacje</string>
+    <string name="title_delete_operation_move">Operacje przenoszenia</string>
+    <string name="title_delete_operation_flag">Operacje flagowania</string>
+    <string name="title_delete_operation_delete">Operacje usuwania</string>
+    <string name="title_delete_operation_deleted">Usunięto %1$d operacji</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>

@@ -163,6 +163,7 @@
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_doze">Ställ in batterioptimering</string>
     <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt ta emot e-post</string>
+    <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, att stänga av batterioptimeringar kommer att resultera i mindre batterianvändning</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
@@ -637,6 +638,7 @@
     <string name="title_delete_operation_move">Flytta åtgärder</string>
     <string name="title_delete_operation_flag">Flagga åtgärder</string>
     <string name="title_delete_operation_delete">Ta bort åtgärder</string>
+    <string name="title_delete_operation_deleted">%1$d åtgärder raderade</string>
     <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
