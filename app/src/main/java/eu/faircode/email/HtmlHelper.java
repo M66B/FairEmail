@@ -2176,7 +2176,12 @@ public class HtmlHelper {
                     element.attr("start-index", Integer.toString(ssb.length()));
 
                     if (debug)
-                        ssb.append("[" + element.tagName() + ":" + element.attr("style") + "]");
+                        ssb.append("[" + element.tagName() + "/" + element.className() +
+                                ":" + "bl=" + element.attr("x-block") +
+                                ":" + "pa=" + element.attr("x-paragraph") +
+                                ":" + "fo=" + element.attr("x-line-before") +
+                                ":" + "af=" + element.attr("x-line-after") +
+                                ":" + element.attr("style") + "]");
                 } else if (node instanceof TextNode) {
                     tnode = (TextNode) node;
                     String text = tnode.getWholeText();
