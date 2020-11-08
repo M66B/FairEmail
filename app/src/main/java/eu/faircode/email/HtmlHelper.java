@@ -837,8 +837,8 @@ public class HtmlHelper {
                 for (Element child : table.children()) {
                     switch (child.tagName()) {
                         case "thead":
-                        case "tfoot":
                         case "tbody":
+                        case "tfoot":
                             for (Element sub : child.children())
                                 if ("tr".equals(sub.tagName())) {
                                     rows.add(sub);
@@ -1016,6 +1016,9 @@ public class HtmlHelper {
                     }
                 }
             }
+
+        // Fix dangling table elements
+        document.select("tbody,thead,tfoot,tr,th,td").tagName("div");
 
         // Images
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
