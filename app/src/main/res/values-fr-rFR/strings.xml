@@ -434,7 +434,7 @@
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
-    <string name="title_advanced_updates">Rechercher des mises à jour</string>
+    <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
@@ -443,7 +443,7 @@
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
-    <string name="title_advanced_app">Paramètres Android de l\'application</string>
+    <string name="title_advanced_app">Paramètres l\'application</string>
     <string name="title_advanced_more">Plus d\'options</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
@@ -576,7 +576,7 @@
     <string name="title_trust">Faire confiance au certificat du serveur avec l\'empreinte digitale %1$s</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
-    <string name="title_email_invalid">Adresse e-mail non valide : \'%1$s\'</string>
+    <string name="title_email_invalid">Adresse électronique invalide : \'%1$s\'</string>
     <string name="title_address_duplicate">Duplication de l\'adresse « %1$s »</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' non valide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
@@ -814,6 +814,7 @@
     <string name="title_via_identity">Via :</string>
     <string name="title_sent">Envoyé :</string>
     <string name="title_received">Reçu :</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Stocké :</string>
     <string name="title_size">Taille :</string>
     <string name="title_language">Langue :</string>
     <string name="title_subject">Objet :</string>

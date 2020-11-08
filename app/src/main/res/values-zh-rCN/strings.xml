@@ -422,7 +422,7 @@
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_optimize">自动优化</string>
-    <string name="title_advanced_updates">检查更新</string>
+    <string name="title_advanced_updates">检查 GitHub 更新</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_query_threads">限制并行数据库访问</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
@@ -802,6 +802,7 @@
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">消息存储于：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>
     <string name="title_subject">主题：</string>

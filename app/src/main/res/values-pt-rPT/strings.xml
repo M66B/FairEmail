@@ -386,7 +386,6 @@
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
-    <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_query_threads">Limitar acesso paralelo à base de dados</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>

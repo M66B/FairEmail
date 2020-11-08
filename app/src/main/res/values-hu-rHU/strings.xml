@@ -429,7 +429,6 @@
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
     <string name="title_advanced_optimize">Automatikus optimizálás</string>
-    <string name="title_advanced_updates">Frissítések keresése</string>
     <string name="title_advanced_experiments">Kísérleti funkciók kipróbálása</string>
     <string name="title_advanced_query_threads">Párhuzamos adatbázis hozzáférés korlátozása</string>
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>

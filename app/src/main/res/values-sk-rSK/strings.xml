@@ -450,7 +450,6 @@
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
     <string name="title_advanced_optimize">Automaticky optimalizovať</string>
-    <string name="title_advanced_updates">Kontrolovať aktualizácie</string>
     <string name="title_advanced_experiments">Vyskúšať experimentálne vlastnosti</string>
     <string name="title_advanced_query_threads">Obmedziť viacnásobný prístup k databáze</string>
     <string name="title_advanced_crash_reports">Odosielať hlásenia o chybách</string>

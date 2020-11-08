@@ -434,7 +434,6 @@
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_optimize">Optimér automatisk</string>
-    <string name="title_advanced_updates">Søg efter opdateringer</string>
     <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
     <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>

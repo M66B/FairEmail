@@ -434,7 +434,7 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
-    <string name="title_advanced_updates">Controlla aggiornamenti</string>
+    <string name="title_advanced_updates">Controlla gli aggiornamenti su GitHub</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_query_threads">Limita l\'accesso alla banca dati parallela</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
@@ -814,6 +814,7 @@
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Archiviato:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_language">Lingua:</string>
     <string name="title_subject">Oggetto:</string>

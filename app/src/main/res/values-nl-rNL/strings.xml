@@ -433,7 +433,7 @@
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_optimize">Automatisch optimaliseren</string>
-    <string name="title_advanced_updates">Controleren op updates</string>
+    <string name="title_advanced_updates">Controleren op GitHub updates</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_query_threads">Beperk parallelle database toegang</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -813,6 +813,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Verzonden:</string>
     <string name="title_received">Ontvangen:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Opgeslagen:</string>
     <string name="title_size">Grootte:</string>
     <string name="title_language">Taal:</string>
     <string name="title_subject">Onderwerp:</string>

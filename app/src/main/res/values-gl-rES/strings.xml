@@ -432,7 +432,6 @@
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se FairEmail aínda está activo</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
-    <string name="title_advanced_updates">Comprobar actualizacións</string>
     <string name="title_advanced_experiments">Probar características experimentais</string>
     <string name="title_advanced_query_threads">Limitar o acceso simultáneo á base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de erros</string>

@@ -191,7 +191,6 @@
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja ön baxışı göstər</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>
-    <string name="title_advanced_updates">Yeniləmələri yoxla</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_schedule_hint">Bir vaxt tənzimləmək üçün vaxta toxun</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>

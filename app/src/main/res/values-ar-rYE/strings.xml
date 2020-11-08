@@ -205,7 +205,6 @@
     <string name="title_advanced_notify_action_reply">رد</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
-    <string name="title_advanced_updates">فحص التحديثات</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
     <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>
