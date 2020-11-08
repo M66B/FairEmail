@@ -374,6 +374,31 @@
         app:layout_constraintTop_toBottomOf="@id/tvSent" />
 
     <eu.faircode.email.FixedTextView
+        android:id="@+id/tvStoredTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:labelFor="@+id/tvStored"
+        android:text="@string/title_stored"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvStored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="12:34:56"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
+        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
+
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvSizeExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -383,7 +408,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
+        app:layout_constraintTop_toBottomOf="@id/tvStored" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvSizeEx"
@@ -396,7 +421,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
-        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
+        app:layout_constraintTop_toBottomOf="@id/tvStored" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvLanguageTitle"
@@ -433,7 +458,7 @@
             tvFromExTitle,tvToTitle,tvReplyToTitle,
             tvCcTitle,tvBccTitle,
             tvIdentityTitle,
-            tvSentTitle,tvReceivedTitle,
+            tvSentTitle,tvReceivedTitle,tvStoredTitle,
             tvSizeExTitle, tvLanguageTitle" />
 
     <eu.faircode.email.FixedTextView

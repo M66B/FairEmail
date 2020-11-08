@@ -933,6 +933,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sent:</string>
     <string name="title_received">Received:</string>
+    <string name="title_stored">Stored:</string>
     <string name="title_size">Size:</string>
     <string name="title_language">Language:</string>
     <string name="title_subject">Subject:</string>
