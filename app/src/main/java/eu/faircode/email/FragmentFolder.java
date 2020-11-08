@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -605,7 +606,7 @@ public class FragmentFolder extends FragmentBase {
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof SQLiteConstraintException));
             }
         }.execute(this, args, "folder:save");
     }
