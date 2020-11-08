@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.ParcelFileDescriptor;
 import android.security.KeyChain;
+import android.system.ErrnoException;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -130,6 +131,8 @@ public class EmailService implements AutoCloseable {
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
+
+    private final static int TCP_KEEP_ALIVE_INTERVAL = 9 * 60; // seconds
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
 
@@ -1047,10 +1050,21 @@ public class EmailService implements AutoCloseable {
             socket.setSoLinger(false, -1);
         }
 
-        int fd = ParcelFileDescriptor.fromSocket(socket).getFd();
-        int errno = jni_socket_keep_alive(fd, 9 * 60);
-        if (errno != 0)
-            Log.e("Socket TCP_KEEPIDLE=" + errno);
+        try {
+            boolean tcp_keep_alive = Boolean.parseBoolean(System.getProperty("fairemail.tcp_keep_alive"));
+            if (tcp_keep_alive) {
+                Log.i("Enabling TCP keep alive");
+
+                int fd = ParcelFileDescriptor.fromSocket(socket).getFd();
+                int errno = jni_socket_keep_alive(fd, TCP_KEEP_ALIVE_INTERVAL);
+                if (errno != 0)
+                    throw new ErrnoException("TCP_KEEPIDLE", errno);
+
+                socket.setKeepAlive(true);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     class UntrustedException extends MessagingException {

@@ -61,6 +61,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swRlah;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
+    private SwitchCompat swTcpKeepAlive;
     private SwitchCompat swSslHarden;
     private Button btnManage;
     private TextView tvNetworkMetered;
@@ -68,7 +69,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvNetworkInfo;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "ssl_harden"
+            "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "tcp_keep_alive", "ssl_harden"
     };
 
     @Override
@@ -87,6 +88,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swRlah = view.findViewById(R.id.swRlah);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
+        swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         btnManage = view.findViewById(R.id.btnManage);
 
@@ -163,6 +165,18 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefer_ip4", checked).apply();
+            }
+        });
+
+        swTcpKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                try {
+                    System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(checked));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+                prefs.edit().putBoolean("tcp_keep_alive", checked).apply();
             }
         });
 
@@ -281,6 +295,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
         swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
+        swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", true));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
     }
 

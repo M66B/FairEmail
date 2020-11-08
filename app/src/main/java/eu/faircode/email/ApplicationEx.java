@@ -88,6 +88,14 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+
+        try {
+            boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", true);
+            System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
