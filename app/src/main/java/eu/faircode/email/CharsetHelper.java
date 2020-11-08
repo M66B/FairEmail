@@ -40,7 +40,7 @@ class CharsetHelper {
     ));
 
     static {
-        System.loadLibrary("compact_enc_det");
+        System.loadLibrary("fairemail");
     }
 
     private static native DetectResult jni_detect(byte[] octets);

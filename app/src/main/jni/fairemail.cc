@@ -1,6 +1,11 @@
 #include <jni.h>
 #include <android/log.h>
 #include <cstdio>
+
+#include <errno.h>
+#include <sys/socket.h>
+#include <netinet/tcp.h>
+
 #include "compact_enc_det/compact_enc_det.h"
 
 void log_android(int prio, const char *fmt, ...) {
@@ -50,4 +55,21 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
             (jint) len,
             (jint) bytes_consumed,
             (jboolean) is_reliable);
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_eu_faircode_email_EmailService_jni_1socket_1keep_1alive(
+        JNIEnv *env, jclass clazz,
+        jint fd, jint seconds) {
+    // https://linux.die.net/man/2/setsockopt
+    // https://linux.die.net/man/3/setsockopt
+    // https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#setsockopt
+    int value = seconds;
+
+    int res = setsockopt(fd, SOL_TCP, TCP_KEEPIDLE, (void *) &value, sizeof(value));
+    if (res < 0)
+        res = errno;
+
+    return res;
 }

@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.ParcelFileDescriptor;
 import android.security.KeyChain;
 import android.text.TextUtils;
 
@@ -143,6 +144,12 @@ public class EmailService implements AutoCloseable {
 
     // TLS_FALLBACK_SCSV https://tools.ietf.org/html/rfc7507
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
+
+    static {
+        System.loadLibrary("fairemail");
+    }
+
+    private static native int jni_socket_keep_alive(int fd, int seconds);
 
     private EmailService() {
         // Prevent instantiation
@@ -1032,13 +1039,18 @@ public class EmailService implements AutoCloseable {
 
         if (keepAlive) {
             Log.e("Socket keep-alive=" + keepAlive);
-            socket.setKeepAlive(false);
+            socket.setKeepAlive(false); // sets SOL_SOCKET/SO_KEEPALIVE
         }
 
         if (linger >= 0) {
             Log.e("Socket linger=" + linger);
             socket.setSoLinger(false, -1);
         }
+
+        int fd = ParcelFileDescriptor.fromSocket(socket).getFd();
+        int errno = jni_socket_keep_alive(fd, 9 * 60);
+        if (errno != 0)
+            Log.e("Socket TCP_KEEPIDLE=" + errno);
     }
 
     class UntrustedException extends MessagingException {
