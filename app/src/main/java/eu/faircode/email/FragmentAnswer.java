@@ -186,7 +186,7 @@ public class FragmentAnswer extends FragmentBase {
                     if (answer == null)
                         etText.setText(null);
                     else
-                        etText.setText(HtmlHelper.fromHtml(answer.text, false, new Html.ImageGetter() {
+                        etText.setText(HtmlHelper.fromHtml(answer.text, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 return ImageHelper.decodeImage(getContext(), -1, source, true, 0, 1.0f, etText);
@@ -471,7 +471,7 @@ public class FragmentAnswer extends FragmentBase {
                     getString(R.string.title_answer_template_name) +
                     "<br>" +
                     getString(R.string.title_answer_template_email) +
-                    "</p>", false, getContext());
+                    "</p>", getContext());
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
             TextView tvMessage = dview.findViewById(R.id.tvMessage);

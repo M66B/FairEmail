@@ -972,7 +972,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSupport.setVisibility(View.VISIBLE);
 
         if (provider != null && provider.documentation != null) {
-            tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString(), true, getContext()));
+            tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString(), getContext()));
             tvInstructions.setVisibility(View.VISIBLE);
         }
 

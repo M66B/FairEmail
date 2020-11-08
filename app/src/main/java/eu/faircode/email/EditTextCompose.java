@@ -135,7 +135,7 @@ public class EditTextCompose extends FixedEditText {
                                 ssb = new SpannableStringBuilder(html);
                             else {
                                 Document document = HtmlHelper.sanitizeCompose(context, html, false);
-                                Spanned paste = HtmlHelper.fromDocument(context, document, true, new Html.ImageGetter() {
+                                Spanned paste = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {
                                     @Override
                                     public Drawable getDrawable(String source) {
                                         return ImageHelper.decodeImage(context,

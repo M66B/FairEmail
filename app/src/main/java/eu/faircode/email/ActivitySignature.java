@@ -190,7 +190,7 @@ public class ActivitySignature extends ActivityBase {
         else if (etText.getRaw())
             etText.setText(html);
         else
-            etText.setText(HtmlHelper.fromHtml(html, false, new Html.ImageGetter() {
+            etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
                     return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, 1.0f, etText);
