@@ -38,6 +38,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cbError" />
 
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvFetch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:fontFamily="monospace"
+        android:text="FETCH, BODY, ATTACHMENT, HEADERS, SYNC"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbFetch" />
+
     <CheckBox
         android:id="@+id/cbMove"
         android:layout_width="wrap_content"
@@ -46,25 +58,61 @@
         android:text="@string/title_delete_operation_move"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbFetch" />
+        app:layout_constraintTop_toBottomOf="@id/tvFetch" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvMove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="MOVE, COPY"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbMove" />
 
     <CheckBox
         android:id="@+id/cbFlag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
         android:text="@string/title_delete_operation_flag"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbMove" />
+        app:layout_constraintTop_toBottomOf="@id/tvMove" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="SEEN, ANSWERED, FLAG, KEYWORD, LABEL"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbFlag" />
 
     <CheckBox
         android:id="@+id/cbDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
         android:text="@string/title_delete_operation_delete"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbFlag" />
+        app:layout_constraintTop_toBottomOf="@id/tvFlag" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:fontFamily="monospace"
+        android:text="DELETE, PURGE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbDelete" />
 </androidx.constraintlayout.widget.ConstraintLayout>
