@@ -2000,7 +2000,8 @@ public class HtmlHelper {
                     element = (Element) node;
                     if ("true".equals(element.attr("x-plain")))
                         plain++;
-                    if ("true".equals(element.attr("x-block"))) {
+                    if (element.isBlock() /* x-block is never false */ ||
+                            "true".equals(element.attr("x-block"))) {
                         normalizeText(block);
                         block.clear();
                     }
@@ -2013,7 +2014,8 @@ public class HtmlHelper {
                     element = (Element) node;
                     if ("true".equals(element.attr("x-plain")))
                         plain--;
-                    if ("true".equals(element.attr("x-block")) ||
+                    if (element.isBlock() /* x-block is never false */ ||
+                            "true".equals(element.attr("x-block")) ||
                             "br".equals(element.tagName())) {
                         normalizeText(block);
                         block.clear();
