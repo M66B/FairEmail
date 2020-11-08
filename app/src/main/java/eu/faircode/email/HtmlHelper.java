@@ -755,9 +755,16 @@ public class HtmlHelper {
 
         // Paragraphs
         for (Element p : document.select("p")) {
-            if (p.childNodeSize() != 0)
-                p.attr("x-paragraph", "true");
             p.tagName("div");
+            if (p.childNodeSize() != 0) {
+                if (p.childNodeSize() == 1) {
+                    Node lonely = p.childNode(0);
+                    if (lonely instanceof TextNode &&
+                            "\u00a0".equals(((TextNode) lonely).getWholeText()))
+                        continue;
+                }
+                p.attr("x-paragraph", "true");
+            }
         }
 
         // Short inline quotes
