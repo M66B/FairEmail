@@ -635,10 +635,10 @@
     <string name="title_empty_all">Ceci supprimera tous les messages à la fois de l\'appareil et du serveur</string>
     <string name="title_delete_operation_title">Supprimer les opérations</string>
     <string name="title_delete_operation_error">Avec un message d\'erreur</string>
-    <string name="title_delete_operation_fetch">Récupérer les opérations</string>
+    <string name="title_delete_operation_fetch">Opérations de récupération</string>
     <string name="title_delete_operation_move">Opérations de déplacement</string>
     <string name="title_delete_operation_flag">Opérations de signalement</string>
-    <string name="title_delete_operation_delete">Supprimer les opérations</string>
+    <string name="title_delete_operation_delete">Opérations de suppression</string>
     <string name="title_delete_operation_deleted">%1$d opérations supprimées</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux?</string>
     <string name="title_no_operations">Aucune opération en attente</string>

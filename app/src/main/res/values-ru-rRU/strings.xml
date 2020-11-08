@@ -456,6 +456,7 @@
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
+    <string name="title_advanced_updates">Проверка обновлений на GitHub</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -835,6 +836,7 @@
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Сохранено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_language">Язык:</string>
     <string name="title_subject">Тема:</string>

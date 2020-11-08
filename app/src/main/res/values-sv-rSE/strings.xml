@@ -433,6 +433,7 @@
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_optimize">Optimera automatiskt</string>
+    <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
@@ -812,6 +813,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Skickat:</string>
     <string name="title_received">Mottaget:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Lagrad:</string>
     <string name="title_size">Storlek:</string>
     <string name="title_language">Språk:</string>
     <string name="title_subject">Ämne:</string>

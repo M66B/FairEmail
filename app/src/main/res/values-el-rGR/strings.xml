@@ -433,6 +433,7 @@
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
+    <string name="title_advanced_updates">Έλεγχος για ενημερώσεις στο GitHub</string>
     <string name="title_advanced_experiments">Δοκιμή πειραματικών χαρακτηριστικών</string>
     <string name="title_advanced_query_threads">Περιορισμός παράλληλων προσβάσεων στη βάση δεδομένων</string>
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
@@ -806,6 +807,7 @@
     <string name="title_via_identity">Μέσω:</string>
     <string name="title_sent">Απεστάλη:</string>
     <string name="title_received">Λήφθηκε:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Αποθηκεύτηκε:</string>
     <string name="title_size">Μέγεθος:</string>
     <string name="title_language">Γλώσσα:</string>
     <string name="title_subject">Θέμα:</string>

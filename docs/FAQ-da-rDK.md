@@ -668,48 +668,48 @@ Bemærk, at en certifikatkæde altid er ugyldig, hvis intet ankercertifikat find
 
 Tjek [hér](https://support.google.com/pixelphone/answer/2844832?hl=en), hvordan certifikater kan importeres til Android-nøglelageret.
 
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
+Brug af udløbne nøgler, inline-krypterede/signerede beskeder samt hardwaresikkerhedstokens er uunderstøttet.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+Kigger du efter et gratis (test) S/MIME-certifikat, så tjek [hér](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for muligheder. Sørg for at [læse dette først](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) ved anmodning om et S/MIME Actalis-certifikat. Kigger du efter et billigt S/MIME-certifikat, havde jeg en god oplevelse med [Certum](https://www.certum.eu/en/smime-certificates/).
 
-How to extract a public key from a S/MIME certificate:
+Sådan udtrækkes en offentlig nøgle fra et S/MIME-certifikat:
 
 ```
 openssl pkcs12 -in filenavn.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Du kan afkode S/MIME-signaturer mv. [hér](https://lapo.it/asn1js/).
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+S/MIME-signering/kryptering er en Pro-funktion, men alle øvrige PGP- og S/MIME-operationer er gratis at benytte.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Hvordan fungerer søgning på en enhed/server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Du kan begynde beskedsøgning efter Afsender (fra), Modtager (til, kopi, bcc), Emne, nøgleord eller beskedtekst vha. forstørrelsesglasset i handlingslbjælken i en mappe. Du kan også søge fra enhver app ved at vælge *Søg e-mail * i popup-menuen kopiér/indsæt.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Søgning i den fælles indbakke udføres i alle mapper på alle konti, søgning i mappelisten udføres kun for den tilknyttede konto og søgning i en mappe udføres kun i dén mappe.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Beskedsøgning sker først på enheden. Der vil være en handlingsknap med et Søg igen-ikon i bunden for at fortsætte søgningen på serveren. Du kan vælge, i hvilken mappe, søgningen skal fortsætte.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+IMAP-protokollen understøtter ikke søgning i flere end én mappe ad gangen. Søgning på serveren er en ressourcekrævende operation, hvorfor valg af flere mapper ikke er muligt.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Søgning i lokale beskeder er versal/minuskel ufølsom på deltekst. Lokale beskedtekster gennemsøges kun, hvis selve beskedteksterne er blevet downloadet. Serversøning kan være både versal/minuskel følsom/ufølsom og kan være på deltekst eller hele ord afhængigt af udbyderen.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Visse servere kan ikke håndtere søgning i beskedtekst ifm. et stort beskedantal. For sådanne tilfælde findes en mulighed for at deaktivere beskedtekstsøgning.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+Det er muligt at bruge Gmail-søgeoperatører vha. søgekommandopræfikset *raw:*. Har du kun opsat én Gmail-konto, kan du starte en raw søgning direkte på serveren ved at søge fra den fælles indbakke. Har du opsat flere Gmail-konti, skal du først gå til mappelisten eller arkivmappen (alle beskeder) for den Gmail-konto, du vil gennemsøge. [Tjek hér](https://support.google.com/mail/answer/7190) ang. de mulige søgeoperatører. F.eks.:
 
 `
 raw:larger:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+Gennemsøgning af et stort beskedantal på enheden sker ikke særligt hurtigt grundet to begrænsninger:
 
 * [sqlite](https://www.sqlite.org/), Androids databasemotor har en poststørrelsesbegrænsning, der forhindrer, at beskedtekster gemmes i databasen
 * Android-apps får kun begrænset hukommelse at arbejde med, selv hvis enheden har masser af hukommelse til rådighed
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Dette betyder, at søgning efter en beskedtekst kræver, at filer indeholdende beskedteksterne skal åbnes én efter én for at tjekke, om den søgte tekst optræder i filen, hvilket er en relativt ressourcekrævende proces.
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
 

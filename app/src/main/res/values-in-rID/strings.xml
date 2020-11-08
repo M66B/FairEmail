@@ -788,6 +788,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_via_identity">Melalui:</string>
     <string name="title_sent">Dikirim:</string>
     <string name="title_received">Diterima:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Disimpan:</string>
     <string name="title_size">Ukuran:</string>
     <string name="title_language">Bahasa:</string>
     <string name="title_subject">Subjek:</string>

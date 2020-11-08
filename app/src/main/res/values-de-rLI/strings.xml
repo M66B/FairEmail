@@ -435,7 +435,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_optimize">Automatisch optimieren</string>
-    <string name="title_advanced_updates">Nach Aktualisierungen auf GitHub suchen</string>
+    <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_query_threads">Parallelen Datenbankzugriff beschränken</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
@@ -814,6 +814,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Gespeichert:</string>
     <string name="title_size">Größe:</string>
     <string name="title_language">Sprache:</string>
     <string name="title_subject">Betreff:</string>

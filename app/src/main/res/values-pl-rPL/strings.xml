@@ -455,6 +455,7 @@
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
+    <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
     <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
@@ -653,13 +654,13 @@
     <string name="title_empty_trash_all_ask">Trwale usunąć wszystkie skasowane wiadomości z koszy dla wszystkich kont?</string>
     <string name="title_empty_spam_all_ask">Trwale usunąć wszystkie wiadomości spam dla wszystkich kont?</string>
     <string name="title_empty_all">Spowoduje to usunięcie wszystkich wiadomości zarówno z urządzenia, jak i serwera</string>
-    <string name="title_delete_operation_title">Operacje usuwania</string>
+    <string name="title_delete_operation_title">Operacje do usunięcia</string>
     <string name="title_delete_operation_error">Z komunikatem o błędzie</string>
     <string name="title_delete_operation_fetch">Operacje pobierania</string>
     <string name="title_delete_operation_move">Operacje przenoszenia</string>
     <string name="title_delete_operation_flag">Operacje flagowania</string>
     <string name="title_delete_operation_delete">Operacje usuwania</string>
-    <string name="title_delete_operation_deleted">Usunięto %1$d operacji</string>
+    <string name="title_delete_operation_deleted">Usuniętych operacji - %1$d</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
@@ -834,6 +835,7 @@
     <string name="title_via_identity">Przez:</string>
     <string name="title_sent">Wysłano:</string>
     <string name="title_received">Odebrano:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Przechowywane:</string>
     <string name="title_size">Rozmiar:</string>
     <string name="title_language">Język:</string>
     <string name="title_subject">Temat:</string>

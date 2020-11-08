@@ -185,6 +185,7 @@
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Nastavit optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Pro spolehlivý příjem e-mailu</string>
+    <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -454,6 +455,7 @@
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_optimize">Automaticky optimalizovat</string>
+    <string name="title_advanced_updates">Zkontrolovat aktualizace na GitHubu</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -833,6 +835,7 @@
     <string name="title_via_identity">Přes:</string>
     <string name="title_sent">Odesláno:</string>
     <string name="title_received">Přijato:</string>
+    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Uloženo:</string>
     <string name="title_size">Velikost:</string>
     <string name="title_language">Jazyk:</string>
     <string name="title_subject">Předmět:</string>

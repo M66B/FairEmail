@@ -2235,7 +2235,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
+* Öppna FairEmail och navigera till skärmen pro funktioner för att låta FairEmail kontrollera köpen; ibland hjälper det att trycka på *köpa* -knappen
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
