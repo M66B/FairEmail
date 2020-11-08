@@ -539,7 +539,7 @@ public class HtmlHelper {
         for (Element element : document.select("*")) {
             // Class style
             String tag = element.tagName();
-            String clazz = element.attr("class");
+            String clazz = element.className();
             String style = processStyles(tag, clazz, null, sheets);
 
             // Element style
