@@ -927,6 +927,24 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IndexOutOfBoundsException) {
+            for (StackTraceElement ste : stack)
+                if ("android.widget.NumberPicker$SetSelectionCommand".equals(ste.getClassName()) &&
+                        "run".equals(ste.getMethodName()))
+                    return false;
+            /*
+                java.lang.IndexOutOfBoundsException: setSpan (2 ... 2) ends beyond length 0
+                  at android.text.SpannableStringBuilder.checkRange(SpannableStringBuilder.java:1265)
+                  at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:684)
+                  at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:677)
+                  at android.text.Selection.setSelection(Selection.java:76)
+                  at android.widget.TextView.semSetSelection(TextView.java:11550)
+                  at android.widget.EditText.setSelection(EditText.java:118)
+                  at android.widget.NumberPicker$SetSelectionCommand.run(NumberPicker.java:2246)
+                  at android.os.Handler.handleCallback(Handler.java:751)
+             */
+        }
+
         if (stack.length > 0 &&
                 "android.text.method.WordIterator".equals(stack[0].getClassName()) &&
                 "checkOffsetIsValid".equals(stack[0].getMethodName()))
