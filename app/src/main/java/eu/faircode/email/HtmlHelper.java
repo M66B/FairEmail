@@ -464,10 +464,12 @@ public class HtmlHelper {
                 .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup")
                 .removeTags("thead", "tbody", "tfoot")
-                .removeAttributes("table", "width")
-                .addAttributes("tr", "height") // to do
-                .removeAttributes("td", "rowspan", "width")
-                .removeAttributes("th", "rowspan", "width")
+                .addAttributes("td", "width")
+                .addAttributes("td", "height")
+                .addAttributes("tr", "width")
+                .addAttributes("tr", "height")
+                .removeAttributes("td", "colspan", "rowspan", "width")
+                .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data")
                 .removeProtocols("a", "href", "ftp")
@@ -834,6 +836,7 @@ public class HtmlHelper {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
         for (Element table : document.select("table")) {
             table.tagName("div");
+            // Ignore summary attribute
             for (Element row : table.children()) {
                 row.tagName("div");
 
