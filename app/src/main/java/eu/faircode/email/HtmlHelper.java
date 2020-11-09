@@ -55,7 +55,6 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextLanguage;
@@ -872,8 +871,6 @@ public class HtmlHelper {
 
                 // Process column spans
                 int maxcols = 0;
-                int mincols = Integer.MAX_VALUE;
-                SparseBooleanArray nomerge = new SparseBooleanArray();
                 for (Element row : rows) {
                     int cols = 0;
                     for (Element col : row.children()) {
@@ -881,21 +878,8 @@ public class HtmlHelper {
 
                         switch (col.tagName()) {
                             case "td":
-                                if (col.childNodeSize() == 1 &&
-                                        (heading == null || !heading)) {
-                                    Node first = col.childNode(0);
-                                    if (first instanceof TextNode) {
-                                        if (((TextNode) first).text().length() != 1)
-                                            nomerge.put(cols - 1, true);
-                                    } else {
-                                        if (!"img".equals(first.nodeName()))
-                                            nomerge.put(cols - 1, true);
-                                    }
-                                } else
-                                    nomerge.put(cols - 1, true);
                                 break;
                             case "th":
-                                nomerge.put(cols - 1, true);
                                 Element strong = new Element("strong");
                                 for (Node child : new ArrayList<>(col.childNodes())) {
                                     child.remove();
@@ -933,23 +917,7 @@ public class HtmlHelper {
                     }
                     if (cols > maxcols)
                         maxcols = cols;
-                    if (cols < mincols)
-                        mincols = cols;
                 }
-                if (mincols > maxcols)
-                    mincols = maxcols;
-
-                // Merge columns
-                if (mincols > 1)
-                    for (int col = 0; col < mincols - 1; col++)
-                        if (!nomerge.get(col))
-                            for (Element row : rows) {
-                                Node node = row.child(col).childNode(0);
-                                node.remove();
-                                if (node instanceof Element)
-                                    node.removeAttr("x-block");
-                                row.child(col + 1).prependText("\u00a0").prependChild(node);
-                            }
 
                 // Rebuild table
                 table.tagName("div");
@@ -966,11 +934,42 @@ public class HtmlHelper {
                 }
 
                 if (heading == null || !heading) {
+                    // Process rows
                     for (Element row : rows) {
                         Element line = document.createElement("div")
                                 .attr("x-block", "true");
-                        for (Element col : row.children())
-                            line.appendChild(col.tagName("div"));
+
+                        Elements tds = row.children();
+                        List<Node> merge = new ArrayList<>();
+                        for (int c = 0; c < tds.size(); c++) {
+                            Element td = tds.get(c);
+
+                            if (c + 1 < tds.size()) // has next column
+                                if (td.childNodeSize() == 1) {
+                                    Node lonely = td.childNode(0);
+                                    if (lonely instanceof TextNode) {
+                                        merge.add(lonely);
+                                        continue;
+                                    } else if ("img".equals(lonely.nodeName())) {
+                                        lonely.removeAttr("x-block");
+                                        merge.add(lonely);
+                                        continue;
+                                    }
+                                }
+
+                            if (merge.size() > 0) {
+                                Element merged = document.createElement("div");
+                                for (Node m : merge)
+                                    merged.appendChild(m).appendText("\u00a0");
+                                td.prependChild(merged);
+                                merge.clear();
+                            }
+
+                            line.appendChild(td.tagName("div"));
+                        }
+
+                        if (merge.size() > 0)
+                            throw new AssertionError("merge=" + merge.size());
 
                         table.appendChild(line);
 
@@ -984,8 +983,6 @@ public class HtmlHelper {
                     for (int c = 0; c < maxcols; c++) {
                         Element col = document.createElement("div")
                                 .attr("x-block", "true");
-                        if (tdebug)
-                            col.appendText("merge=" + !nomerge.get(c));
                         int r = 0;
                         for (Element row : rows) {
                             r++;
