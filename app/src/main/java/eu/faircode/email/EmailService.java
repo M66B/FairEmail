@@ -1035,7 +1035,7 @@ public class EmailService implements AutoCloseable {
         boolean keepAlive = socket.getKeepAlive();
         int linger = socket.getSoLinger();
 
-        Log.i("Socket type=" + socket.getClass() +
+        Log.i("Socket type=" + socket.getClass().getName() +
                 " timeout=" + timeout +
                 " keep-alive=" + keepAlive +
                 " linger=" + linger);
