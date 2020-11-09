@@ -840,7 +840,27 @@ public class HtmlHelper {
             for (Element row : table.children()) {
                 row.tagName("div");
 
+                List<Node> merge = new ArrayList<>();
                 for (Element col : row.children()) {
+                    Element next = col.nextElementSibling();
+                    if (col.childNodeSize() == 1) {
+                        Node lonely = col.childNode(0);
+                        if (lonely instanceof Element &&
+                                "img".equals(lonely.nodeName())) {
+                            lonely.remove();
+                            lonely.removeAttr("x-block");
+                            merge.add(lonely);
+                            if (next != null)
+                                continue;
+                        }
+                    }
+
+                    if (merge.size() > 0) {
+                        for (int m = merge.size() - 1; m >= 0; m--)
+                            col.prependChild(merge.get(m));
+                        merge.clear();
+                    }
+
                     if ("th".equals(col.tagName())) {
                         Element strong = new Element("strong");
                         for (Node child : new ArrayList<>(col.childNodes())) {
@@ -856,10 +876,12 @@ public class HtmlHelper {
                             "start".equals(align))
                         col.tagName("div").removeAttr("x-block");
 
-                    if (col.childNodeSize() > 0 &&
-                            col.nextElementSibling() != null)
+                    if (next != null && col.childNodeSize() > 0)
                         col.appendText("\u2002"); // ensp
                 }
+
+                if (merge.size() != 0)
+                    throw new AssertionError("merge");
 
                 if (text_separators && view)
                     row.appendElement("hr")
