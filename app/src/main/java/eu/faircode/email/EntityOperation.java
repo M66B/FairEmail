@@ -321,13 +321,6 @@ public class EntityOperation {
                 }
 
                 return;
-            } else if (FETCH.equals(name)) {
-                int count = db.operation().getOperationCount(message.folder, name);
-                if (count >= MAX_FETCH) {
-                    sync(context, message.folder, false);
-                    return;
-                }
-
             } else if (DELETE.equals(name)) {
                 db.message().setMessageUiHide(message.id, true);
 /*
@@ -349,43 +342,30 @@ public class EntityOperation {
         }
     }
 
-    private static void queue(Context context, Long account, long folder, long message, String name, JSONArray jargs) {
+    static void queue(Context context, EntityFolder folder, String name, Object... values) {
+        JSONArray jargs = new JSONArray();
+        for (Object value : values)
+            jargs.put(value);
+
+        queue(context, folder.account, folder.id, null, name, jargs);
+    }
+
+    private static void queue(Context context, Long account, long folder, Long message, String name, JSONArray jargs) {
         DB db = DB.getInstance(context);
+
+        if (FETCH.equals(name)) {
+            int count = db.operation().getOperationCount(folder, name);
+            if (count >= MAX_FETCH) {
+                Log.i("Replacing fetch by sync folder=" + folder + " args=" + jargs + " count=" + count);
+                sync(context, folder, false);
+                return;
+            }
+        }
 
         EntityOperation op = new EntityOperation();
         op.account = account;
         op.folder = folder;
         op.message = message;
-        op.name = name;
-        op.args = jargs.toString();
-        op.created = new Date().getTime();
-        op.id = db.operation().insertOperation(op);
-
-        Log.i("Queued op=" + op.id + "/" + op.name +
-                " folder=" + op.folder + " msg=" + op.message +
-                " args=" + op.args);
-
-        Map<String, String> crumb = new HashMap<>();
-        crumb.put("name", op.name);
-        crumb.put("args", op.args);
-        crumb.put("folder", op.account + ":" + op.folder);
-        if (op.message != null)
-            crumb.put("message", Long.toString(op.message));
-        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-        Log.breadcrumb("queued", crumb);
-    }
-
-    static void queue(Context context, EntityFolder folder, String name, Object... values) {
-        DB db = DB.getInstance(context);
-
-        JSONArray jargs = new JSONArray();
-        for (Object value : values)
-            jargs.put(value);
-
-        EntityOperation op = new EntityOperation();
-        op.account = folder.account;
-        op.folder = folder.id;
-        op.message = null;
         op.name = name;
         op.args = jargs.toString();
         op.created = new Date().getTime();
