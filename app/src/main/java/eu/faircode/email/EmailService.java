@@ -1057,10 +1057,10 @@ public class EmailService implements AutoCloseable {
 
                 int fd = ParcelFileDescriptor.fromSocket(socket).getFd();
                 int errno = jni_socket_keep_alive(fd, TCP_KEEP_ALIVE_INTERVAL);
-                if (errno != 0)
-                    throw new ErrnoException("TCP_KEEPIDLE", errno);
-
-                socket.setKeepAlive(true);
+                if (errno == 0)
+                    Log.i("Enabled TCP keep alive");
+                else
+                    throw new ErrnoException("jni_socket_keep_alive", errno);
             }
         } catch (Throwable ex) {
             Log.e(ex);
