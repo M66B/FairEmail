@@ -835,7 +835,7 @@
     <string name="title_via_identity">Przez:</string>
     <string name="title_sent">Wysłano:</string>
     <string name="title_received">Odebrano:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Przechowywane:</string>
+    <string name="title_stored">Przechowywane:</string>
     <string name="title_size">Rozmiar:</string>
     <string name="title_language">Język:</string>
     <string name="title_subject">Temat:</string>

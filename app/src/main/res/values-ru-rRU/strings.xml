@@ -485,6 +485,7 @@
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с соединением на некоторых устройствах</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания соединения. Ещё большие значения могут увеличить расход аккумулятора.</string>
     <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и алгоритмы SSL, что может привести к проблемам с соединением</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
@@ -836,7 +837,7 @@
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Сохранено:</string>
+    <string name="title_stored">Сохранено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_language">Язык:</string>
     <string name="title_subject">Тема:</string>

@@ -463,6 +463,7 @@
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Abilitare questo può causare problemi di connessione su alcuni dispositivi</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura verrà impostato sul doppio del timeout di connessione. Valori più alti comporteranno più utilizzo della batteria.</string>
     <string name="title_advanced_ssl_harden_hint">Abilitando questa opzione disabiliterai i protocolli SSL e i cifrari deboli, che possono causare problemi di connessione</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate quando in roaming. Puoi utilizzare le impostazioni di roaming del dispositivo per disabilitare internet durante il roaming.</string>
@@ -814,7 +815,7 @@
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Archiviato:</string>
+    <string name="title_stored">Archiviato:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_language">Lingua:</string>
     <string name="title_subject">Oggetto:</string>

@@ -835,7 +835,7 @@
     <string name="title_via_identity">Přes:</string>
     <string name="title_sent">Odesláno:</string>
     <string name="title_received">Přijato:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Uloženo:</string>
+    <string name="title_stored">Uloženo:</string>
     <string name="title_size">Velikost:</string>
     <string name="title_language">Jazyk:</string>
     <string name="title_subject">Předmět:</string>

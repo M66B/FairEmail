@@ -813,7 +813,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sendt:</string>
     <string name="title_received">Modtaget:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Gemt:</string>
+    <string name="title_stored">Gemt:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_language">Sprog:</string>
     <string name="title_subject">Emne:</string>

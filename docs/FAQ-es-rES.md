@@ -774,16 +774,16 @@ Por lo tanto, compruebe la configuración de su cuenta y carpetas y compruebe si
 
 Si hay algún mensaje de error, por favor consulte [estas Preguntas Frecuentes](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+En algunos dispositivos, donde hay muchas aplicaciones que compiten por la memoria, Android puede detener el servicio de sincronización como último recurso.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Algunas versiones de Android detienen aplicaciones y servicios en forma demasiado agresiva. Vea [este sitio web dedicado](https://dontkillmyapp.com/) y [este problema de Android](https://issuetracker.google.com/issues/122098785) para más información.
 
-Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+Deshabilitar optimizaciones de batería (configuración del paso 4) reduce la posibilidad de que Android detenga el servicio de sincronización.
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) ¿Por qué no funciona la sincronización manual?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 

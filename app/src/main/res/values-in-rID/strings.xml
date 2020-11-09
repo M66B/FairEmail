@@ -443,6 +443,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_metered_hint">Koneksi yang diukur umumnya koneksi data seluler atau hotspot Wi-Fi berbayar</string>
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat menyebabkan masalah koneksi pada beberapa perangkat</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
     <string name="title_advanced_ssl_harden_hint">Mengaktifkan ini akan menonaktifkan protokol dan cipher SSL yang lemah, yang biasanya menyebabkan masalah koneksi</string>
     <string name="title_advanced_roaming_hint">Header pesan akan selalu diambil saat roaming. Anda dapat menggunakan pengaturan roaming perangkat untuk menonaktifkan Internet saat roaming.</string>
@@ -788,7 +789,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_via_identity">Melalui:</string>
     <string name="title_sent">Dikirim:</string>
     <string name="title_received">Diterima:</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">Disimpan:</string>
+    <string name="title_stored">Disimpan:</string>
     <string name="title_size">Ukuran:</string>
     <string name="title_language">Bahasa:</string>
     <string name="title_subject">Subjek:</string>

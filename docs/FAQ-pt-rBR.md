@@ -277,7 +277,7 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(157) Como posso configurar uma conta do Free.fr?](#user-content-faq157)
 * [(158) Qual câmera / gravador de áudio você recomenda?](#user-content-faq158)
 * [(159) O que são listas de proteção de rastreador de desconexão?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
+* [(160) Vocês podem adicionar a exclusão permanente de mensagens sem confirmação?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 
 [Eu tenho outra pergunta.](#user-content-support)

@@ -802,7 +802,7 @@
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>
-    <string name="title_stored" comment="title_stored&#10;The date/time a message was stored on the device.&#10;This is mainly for debugging purposes.">消息存储于：</string>
+    <string name="title_stored">消息存储于：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>
     <string name="title_subject">主题：</string>
