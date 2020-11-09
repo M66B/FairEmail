@@ -2314,6 +2314,9 @@ public class HtmlHelper {
                             case "body":
                                 // Do nothing
                                 break;
+                            case "div": // signature
+                                // Do nothing
+                                break;
                             case "i":
                             case "em":
                                 setSpan(ssb, new StyleSpan(Typeface.ITALIC), start, ssb.length());
