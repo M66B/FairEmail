@@ -367,7 +367,7 @@ public class HtmlHelper {
         boolean text_align = prefs.getBoolean("text_align", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
-        boolean parse_classes = prefs.getBoolean("parse_classes", false);
+        boolean parse_classes = prefs.getBoolean("parse_classes", true);
         boolean inline_images = prefs.getBoolean("inline_images", false);
         boolean text_separators = prefs.getBoolean("text_separators", false);
 
