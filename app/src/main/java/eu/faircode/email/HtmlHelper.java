@@ -986,13 +986,13 @@ public class HtmlHelper {
                         int r = 0;
                         for (Element row : rows) {
                             r++;
-                            Elements rowcol = row.children();
-                            if (c < rowcol.size()) {
-                                Element cell = rowcol.get(c).clone().tagName("div");
+                            Elements cols = row.children();
+                            if (c < cols.size()) {
+                                Element cell = cols.get(c).clone().tagName("div");
                                 if (tdebug) {
                                     StringBuilder sb = new StringBuilder();
-                                    sb.append(rowcol.get(c).tagName() + "=" + rowcol.get(c).className());
-                                    for (Node node : rowcol.get(c).childNodes()) {
+                                    sb.append(cols.get(c).tagName() + "=" + cols.get(c).className());
+                                    for (Node node : cols.get(c).childNodes()) {
                                         sb.append(':');
                                         if (node instanceof Element)
                                             sb.append(node.nodeName());
