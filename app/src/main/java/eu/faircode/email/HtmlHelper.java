@@ -2065,10 +2065,6 @@ public class HtmlHelper {
                     tnode = (TextNode) node;
                     String text = tnode.getWholeText();
                     ssb.append(text);
-                    if (monospaced_pre &&
-                            node.parent() instanceof Element &&
-                            "true".equals(((Element) node.parent()).attr("x-plain")))
-                        setSpan(ssb, new TypefaceSpan("monospace"), ssb.length() - text.length(), ssb.length());
                 }
             }
 
@@ -2309,6 +2305,10 @@ public class HtmlHelper {
                             default:
                                 Log.e("Unknown tag=" + element.tagName());
                         }
+
+                        if (monospaced_pre &&
+                                "true".equals(element.attr("x-plain")))
+                            setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
