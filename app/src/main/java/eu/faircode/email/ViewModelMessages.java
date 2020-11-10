@@ -76,7 +76,7 @@ public class ViewModelMessages extends ViewModel {
     private static final int THREAD_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int SEARCH_PAGE_SIZE = 10;
-    private static final int MAX_SIZE_FACTOR = 20;
+    private static final int MAX_CACHED_ITEMS = LOCAL_PAGE_SIZE * 50;
 
     Model getModel(
             final Context context, final LifecycleOwner owner,
@@ -112,7 +112,7 @@ public class ViewModelMessages extends ViewModel {
                 case UNIFIED:
                     PagedList.Config configUnified = new PagedList.Config.Builder()
                             .setPageSize(LOCAL_PAGE_SIZE)
-                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
+                            .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedUnified(
@@ -134,7 +134,7 @@ public class ViewModelMessages extends ViewModel {
                             .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
+                            .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(
@@ -169,7 +169,7 @@ public class ViewModelMessages extends ViewModel {
                     PagedList.Config configSearch = new PagedList.Config.Builder()
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                            .setMaxSize(LOCAL_PAGE_SIZE * MAX_SIZE_FACTOR)
+                            .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
                     if (args.folder < 0)
                         builder = new LivePagedListBuilder<>(
