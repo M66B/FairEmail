@@ -843,7 +843,12 @@ public class HtmlHelper {
                 List<Node> merge = new ArrayList<>();
                 for (Element col : row.children()) {
                     Element next = col.nextElementSibling();
-                    if (col.childNodeSize() == 1) {
+
+                    // Merge single images into next column
+                    if (col.childNodeSize() == 1 &&
+                            (next == null ||
+                                    next.attr("x-align")
+                                            .equals(col.attr("x-align")))) {
                         Node lonely = col.childNode(0);
                         if (lonely instanceof Element &&
                                 "img".equals(lonely.nodeName())) {
@@ -870,6 +875,7 @@ public class HtmlHelper {
                         col.appendChild(strong);
                     }
 
+                    // Flow not / left aligned columns
                     String align = col.attr("x-align");
                     if (TextUtils.isEmpty(align) ||
                             "left".equals(align) ||
