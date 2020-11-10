@@ -34,7 +34,6 @@ public interface DaoOperation {
             " WHEN operation.name = '" + EntityOperation.ATTACHMENT + "' THEN -3" +
             " WHEN operation.name = '" + EntityOperation.HEADERS + "' THEN -2" +
             " WHEN operation.name = '" + EntityOperation.RAW + "' THEN -2" +
-            " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN -2" +
             " WHEN operation.name = '" + EntityOperation.SYNC + "' AND folder.account IS NULL THEN -1" + // Outbox
             " WHEN operation.name = '" + EntityOperation.SYNC + "' AND folder.account IS NOT NULL THEN 1" +
             // Other operations: add, delete, seen, answered, flag, keyword, label, subscribe, send
@@ -42,6 +41,7 @@ public interface DaoOperation {
             " WHEN operation.name = '" + EntityOperation.EXISTS + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.MOVE + "' THEN 4" +
             " WHEN operation.name = '" + EntityOperation.COPY + "' THEN 4" +
+            " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN 5" +
             " ELSE 0" +
             " END";
 

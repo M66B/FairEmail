@@ -742,7 +742,7 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "delete");
+                ServiceSynchronize.eval(context, "purge");
 
                 return null;
             }
