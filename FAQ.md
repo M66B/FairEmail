@@ -2294,6 +2294,9 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too,
 but links for less usual or less safe protocols like telnet and ftp will not be recognized.
+The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+<br />
 
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
@@ -2302,7 +2305,6 @@ but links for less usual or less safe protocols like telnet and ftp will not be 
 ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
 ~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
-
 
 <br />
 
