@@ -333,17 +333,26 @@
     <string name="title_host">Hostnamme</string>
     <string name="title_encryption">Fersifering</string>
     <string name="title_encryption_none">Gjin</string>
+    <string name="title_allow_insecure">Unfeilige ferbiningen tastean</string>
+    <string name="title_insecure_remark">Unfeilige ferbiningen moatte allinich wurde tastien op fertroude netwurken en nea op iepenbiere netwurken</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkernamme</string>
     <string name="title_password">Wachtwurd</string>
+    <string name="title_case_sensitive">Brûkersnammen en wachtwurden binne meastal grutte letters</string>
+    <string name="title_client_certificate">Kliïntsertifikaat</string>
     <string name="title_realm">Ryk</string>
+    <string name="title_use_ip">Brûk lokaal IP-adres ynstee fan hostnamme</string>
+    <string name="title_ehlo">Oanpaste HELO / EHLO identifikaasje</string>
     <string name="title_primary">Primêr</string>
     <string name="title_primary_account">Primêr (standert akkount)</string>
     <string name="title_check">Kontrolearje</string>
     <string name="title_no_name">Namme ûntbrekke</string>
     <string name="title_no_account">Ûntbrekke akkount</string>
+    <string name="title_no_host">Hostnamme ûntbrekt</string>
     <string name="title_no_user">Brûkersnamme ûntbrekt</string>
     <string name="title_no_password">Wachtwurd ûntbrekt</string>
+    <string name="title_no_inbox">Postfak net fûn</string>
+    <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_review">Resinsje</string>
     <string name="title_synchronize_now">Syngronisearje no</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
@@ -444,16 +453,24 @@
     <string name="title_attachments_saved">Taheaksels bewarre</string>
     <string name="title_ask_save">Feroarings bewarje?</string>
     <string name="title_ask_delete">Ferwiderje berjocht permanint?</string>
+    <string name="title_ask_once">Dit berjocht sil mar ien kear ferskine, útsein as jo \'Letter\' selektearje</string>
+    <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
+    <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil downloade %1$s</string>
+    <string name="title_download_message">Ynladen &#8230;</string>
+    <string name="title_reformatted">Dit is de werfoarme berjochtenwerjefte. Jo kinne tikje op \'e &#x26F6; ikoan om it orizjinele berjocht te besjen en dit berjocht te ferbergjen.</string>
     <string name="title_compose">Gearstalle</string>
     <string name="title_submitter">Stjoerd troch:</string>
+    <string name="title_delivered_to">Ôflevere by:</string>
     <string name="title_from">Fan:</string>
     <string name="title_to">Aon:</string>
     <string name="title_reply_to">Antwurdzje op:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_recipients">%1$d ûntfangers</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Stjoerd:</string>
     <string name="title_received">Ûntfangen:</string>
+    <string name="title_stored">Opslein:</string>
     <string name="title_size">Grutte:</string>
     <string name="title_language">Taal:</string>
     <string name="title_subject">Ûnderwerp:</string>
@@ -467,6 +484,7 @@
     <string name="title_send_at">Stjoere by &#8230;</string>
     <string name="title_send_encryption">Fersifering</string>
     <string name="title_send_priority">Prioriteit</string>
+    <string name="title_no_server">Gjin server fûn op \'%1$s\'</string>
     <string name="title_style">Styl</string>
     <string name="title_style_bold">Dryst</string>
     <string name="title_style_italic">Kursyf</string>
@@ -475,6 +493,7 @@
     <string name="title_style_size_small">Lyts</string>
     <string name="title_style_size_medium">Medium</string>
     <string name="title_style_size_large">Grutte</string>
+    <string name="title_style_color">Kleur &#8230;</string>
     <string name="title_style_align">Rjochtsje</string>
     <string name="title_style_align_start">Start</string>
     <string name="title_style_align_center">Sintrum</string>
@@ -517,6 +536,8 @@
     <string name="title_search_flag_attachments">taheaksels</string>
     <string name="title_search_flag_invite">útnoeging</string>
     <string name="title_search_flag_size">grutte &gt; %1$s</string>
+    <string name="title_search_device">Sykje op apparaat</string>
+    <string name="title_search_server">Sykje op server</string>
     <string name="title_search_in">Sykje yn</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
@@ -532,19 +553,30 @@
     <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
     <string name="title_filter_unflagged">Unstjerre</string>
+    <string name="title_filter_unknown">Unbekende stjoerders</string>
     <string name="title_filter_hidden">Ferburgen</string>
     <string name="title_filter_duplicates">Duplikaten</string>
     <string name="title_compact">Kompakt werjefte</string>
     <string name="title_zoom">Tekstgrutte</string>
+    <string name="title_select_language">Selektearje taal</string>
     <string name="title_select_all">Alles selektearje</string>
     <string name="title_select_found">Selektearje fûn</string>
+    <string name="title_mark_all_read">Markearje alles lêzen</string>
     <string name="title_force_sync">Krêft syngronisearje</string>
+    <string name="title_force_send">Stjoere twinge</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
+    <string name="title_edit_signature">Hântekening bewurkje</string>
+    <string name="title_edit_signature_text">Hantekeningstekst</string>
+    <string name="title_edit_signature_image">Ofbylding ynfoegje</string>
+    <string name="title_answer_caption">Sjabloan bewurkje</string>
     <string name="title_answer_reply">Antwurd sjabloan</string>
+    <string name="title_answer_name">Sjabloanamme</string>
+    <string name="title_answer_group">Sjabloangroep (opsjoneel)</string>
     <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
+    <string name="title_answer_hide">Ferbergje foar menu\'s</string>
     <string name="title_rule_noop">Gjin aksje</string>
     <string name="title_rule_seen">Mark lêzen</string>
     <string name="title_rule_unseen">Markearje as net lêzen</string>
@@ -669,12 +701,25 @@
     <string name="title_log">Lochboek</string>
     <string name="title_auto_scroll">Auto skowe</string>
     <string name="title_log_clear">Wiskje</string>
+    <string name="title_rules_delete_all">Wiskje alle regels</string>
+    <string name="title_rules_delete_junk">Ferwiderje spamregels</string>
+    <string name="title_rules_delete_all_confirm">Wiskje alle regels?</string>
+    <string name="title_rules_delete_junk_confirm">Alle regels wiskje dy\'t berjochten ferpleatse nei de spam-map?</string>
     <string name="title_debug_info">Debug-ynfo</string>
+    <string name="title_debug_info_remark">Beskriuw it probleem asjebleaft en jouwe de tiid fan it probleem oan:</string>
+    <string name="title_crash_info_remark">Beskriuw asjebleaft wat jo diene doe\'t de app ferûngelokke:</string>
+    <string name="title_unexpected_info_remark">Beskriuw asjebleaft wat jo dien doe\'t de app ferûngelokke:</string>
+    <string name="title_widget_title_count">Nij berjochten tellen</string>
     <string name="title_widget_title_list">Berjochtlist</string>
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
+    <string name="title_widget_folder_unified">Ferienige mappen ynbox</string>
+    <string name="title_widget_unseen">Allinne net-lêzen berjochten</string>
+    <string name="title_widget_flagged">Allinich stjerre berjochten</string>
     <string name="title_widget_font_size">Tekstgrutte</string>
+    <string name="title_widget_padding">Paddinggrutte</string>
+    <string name="title_widget_semi_transparent">Semy transparante eftergrûn</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
     <string name="title_accessibility_collapsed">Ynsakje</string>
     <string name="title_accessibility_expanded">Utwreidzje</string>
@@ -702,6 +747,9 @@
     <string name="title_accessibility_answered">Antwurde</string>
     <string name="title_accessibility_scroll_down">Rôlje nei ûnderen</string>
     <string name="title_accessibility_scroll_up">Rôlje omheech</string>
+    <string name="title_accessibility_filter_out_seen">Wikselje lês berjochten filter</string>
+    <string name="title_accessibility_filter_out_unflagged">Wikselje filter mei stjerre berjochten</string>
+    <string name="title_accessibility_filter_out_snoozed">Wikselje ynskeakele berjochten filter</string>
     <string name="title_accessibility_edit">Bewurkje</string>
     <string name="title_accessibility_show_addresses">Sjoch adressen</string>
     <string name="title_accessibility_hide_addresses">Adressen ferbergje</string>
@@ -710,12 +758,12 @@
     <string name="title_accessibility_to">Ûntfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
+        <item>Elke 15 minuten</item>
+        <item>Elke 30 minuten</item>
         <item>Elk oere</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Elke 2 uren</item>
+        <item>Elke 4 uren</item>
+        <item>Elke 8 uren</item>
         <item>Eltse dei</item>
     </string-array>
     <string-array name="sendDelayedNames">
@@ -729,7 +777,7 @@
     </string-array>
     <string-array name="startupNames">
         <item>Unifieare postfak</item>
-        <item>Unified folders</item>
+        <item>Unifoarme mappen</item>
         <item>Primêr akkount mappen</item>
         <item>Akkounts</item>
     </string-array>
@@ -746,8 +794,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>Neat dwaan</item>
-        <item>Go to previous conversation</item>
-        <item>Go to next conversation</item>
+        <item>Gean nei foarige konversaasje</item>
+        <item>Gean nei folgjende petear</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Lyts</item>
@@ -771,9 +819,9 @@
     </string-array>
     <string-array name="ellipsizeNames">
         <item>Oan it begjin</item>
-        <item>In the middle</item>
+        <item>Yn it midden</item>
         <item>Oan de ein</item>
-        <item>Show untruncated</item>
+        <item>Net ôfkoarte sjen litte</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Leech</item>
@@ -792,12 +840,22 @@
         <item>Medium</item>
         <item>Grutte</item>
     </string-array>
+    <string-array name="receiptNames">
+        <item>Allinich lêsbewiis</item>
+        <item>Leveringskwitânsje allinich</item>
+        <item>Lês + leveringskwitânsje</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Boppe de tekst</item>
+        <item>Under de tekst</item>
+        <item>Op \'e boaiem</item>
+    </string-array>
     <string-array name="encryptNames">
         <item>Gjin</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>PGP allinich teken</item>
+        <item>PGP-teken + fersifere</item>
+        <item>S/MIME allinich oanmeld</item>
+        <item>S/MIME tekenje + fersiferje</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
