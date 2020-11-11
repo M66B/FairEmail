@@ -844,19 +844,42 @@ public class HtmlHelper {
                 for (Element col : row.children()) {
                     Element next = col.nextElementSibling();
 
+                    // Get nodes with content
+                    List<Node> nodes = new ArrayList<>(col.childNodes());
+                    while (nodes.size() > 0) {
+                        Node first = nodes.get(0);
+                        if (first instanceof TextNode && ((TextNode) first).isBlank()) {
+                            nodes.remove(0);
+                            continue;
+                        }
+
+                        Node last = nodes.get(nodes.size() - 1);
+                        if (last instanceof TextNode && ((TextNode) last).isBlank()) {
+                            nodes.remove(nodes.size() - 1);
+                            continue;
+                        }
+
+                        break;
+                    }
+
                     // Merge single images into next column
-                    if (col.childNodeSize() == 1 &&
-                            (next == null ||
-                                    next.attr("x-align")
-                                            .equals(col.attr("x-align")))) {
-                        Node lonely = col.childNode(0);
-                        if (lonely instanceof Element &&
-                                "img".equals(lonely.nodeName())) {
-                            lonely.remove();
-                            lonely.removeAttr("x-block");
-                            merge.add(lonely);
-                            if (next != null)
-                                continue;
+                    if (nodes.size() == 1) {
+                        Node lonely = nodes.get(0);
+
+                        // prevent extra newlines
+                        lonely.removeAttr("x-paragraph");
+
+                        if (next == null ||
+                                next.attr("x-align")
+                                        .equals(col.attr("x-align"))) {
+                            if (lonely instanceof Element &&
+                                    "img".equals(lonely.nodeName())) {
+                                lonely.remove();
+                                lonely.removeAttr("x-block");
+                                merge.add(lonely);
+                                if (next != null)
+                                    continue;
+                            }
                         }
                     }
 
