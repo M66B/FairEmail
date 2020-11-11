@@ -633,6 +633,8 @@ public class EmailService implements AutoCloseable {
     }
 
     static String getDefaultEhlo() {
+        if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
+            return "dummy.faircode.eu";
         String[] c = BuildConfig.APPLICATION_ID.split("\\.");
         Collections.reverse(Arrays.asList(c));
         return TextUtils.join(".", c);
