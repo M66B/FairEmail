@@ -39,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,6 +88,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swNotifyPreviewAll;
     private SwitchCompat swNotifyPreviewOnly;
     private SwitchCompat swWearablePreview;
+    private ImageButton ibWearable;
     private SwitchCompat swMessagingStyle;
     private SwitchCompat swBiometricsNotify;
     private SwitchCompat swAlertOnce;
@@ -155,6 +157,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreviewAll = view.findViewById(R.id.swNotifyPreviewAll);
         swNotifyPreviewOnly = view.findViewById(R.id.swNotifyPreviewOnly);
         swWearablePreview = view.findViewById(R.id.swWearablePreview);
+        ibWearable = view.findViewById(R.id.ibWearable);
         swMessagingStyle = view.findViewById(R.id.swMessagingStyle);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
@@ -400,6 +403,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("wearable_preview", checked).apply();
+            }
+        });
+
+        ibWearable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 126);
             }
         });
 
