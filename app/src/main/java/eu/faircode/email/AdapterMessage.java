@@ -6290,8 +6290,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    Helper.viewFAQ(getContext(), 92);
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 92);
                 }
             });
 

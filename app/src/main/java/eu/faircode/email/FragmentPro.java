@@ -129,16 +129,16 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPriceHint.setPaintFlags(tvPriceHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPriceHint.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 19);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 19);
             }
         });
 
         tvRestoreHint.setPaintFlags(tvRestoreHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvRestoreHint.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 117);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 117);
             }
         });
 

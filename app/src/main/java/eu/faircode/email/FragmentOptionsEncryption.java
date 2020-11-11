@@ -142,7 +142,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(getContext(), 12);
+                Helper.viewFAQ(v.getContext(), 12);
             }
         });
 

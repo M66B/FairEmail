@@ -383,7 +383,7 @@ public class FragmentAnswer extends FragmentBase {
             sb.setAction(R.string.title_info, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 49);
+                    Helper.viewFAQ(v.getContext(), 49);
                 }
             });
             sb.show();

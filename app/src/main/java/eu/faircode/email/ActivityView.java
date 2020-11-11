@@ -1426,14 +1426,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             btnBatteryInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 39);
+                    Helper.viewFAQ(v.getContext(), 39);
                 }
             });
 
             btnReformatInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 35);
+                    Helper.viewFAQ(v.getContext(), 35);
                 }
             });
 

@@ -1731,7 +1731,7 @@ public class FragmentCompose extends FragmentBase {
             snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 158);
+                    Helper.viewFAQ(v.getContext(), 158);
                 }
             });
             snackbar.show();
@@ -1779,7 +1779,7 @@ public class FragmentCompose extends FragmentBase {
         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(getContext(), 25);
+                Helper.viewFAQ(v.getContext(), 25);
             }
         });
         snackbar.show();
@@ -1969,7 +1969,7 @@ public class FragmentCompose extends FragmentBase {
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Helper.viewFAQ(getContext(), 12);
+                        Helper.viewFAQ(v.getContext(), 12);
                     }
                 });
                 snackbar.show();
@@ -2147,7 +2147,7 @@ public class FragmentCompose extends FragmentBase {
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Helper.viewFAQ(getContext(), 158);
+                        Helper.viewFAQ(v.getContext(), 158);
                     }
                 });
                 snackbar.show();
@@ -4218,7 +4218,7 @@ public class FragmentCompose extends FragmentBase {
         sb.setAction(R.string.title_info, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(getContext(), 49);
+                Helper.viewFAQ(v.getContext(), 49);
             }
         });
         sb.show();
@@ -5695,7 +5695,7 @@ public class FragmentCompose extends FragmentBase {
             ibEncryption.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(getContext(), 12);
+                    Helper.viewFAQ(v.getContext(), 12);
                 }
             });
 

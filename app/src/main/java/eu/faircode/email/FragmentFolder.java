@@ -173,8 +173,8 @@ public class FragmentFolder extends FragmentBase {
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 39);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 39);
             }
         });
 

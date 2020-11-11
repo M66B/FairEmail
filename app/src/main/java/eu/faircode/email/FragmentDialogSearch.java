@@ -89,7 +89,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
-                Helper.viewFAQ(getContext(), 13);
+                Helper.viewFAQ(v.getContext(), 13);
             }
         });
 

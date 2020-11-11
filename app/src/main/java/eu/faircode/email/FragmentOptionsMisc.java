@@ -274,8 +274,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvExperimentsHint.setPaintFlags(tvExperimentsHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvExperimentsHint.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 125);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 125);
             }
         });
 

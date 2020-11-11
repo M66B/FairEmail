@@ -252,8 +252,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 159);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 159);
             }
         });
 

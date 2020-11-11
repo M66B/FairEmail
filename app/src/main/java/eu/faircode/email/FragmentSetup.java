@@ -222,8 +222,8 @@ public class FragmentSetup extends FragmentBase {
         tvQuickNew.setPaintFlags(tvQuickNew.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvQuickNew.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 112);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 112);
             }
         });
 
@@ -246,8 +246,8 @@ public class FragmentSetup extends FragmentBase {
         tvIdentityWhat.setPaintFlags(tvIdentityWhat.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvIdentityWhat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 9);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 9);
             }
         });
 
@@ -270,16 +270,16 @@ public class FragmentSetup extends FragmentBase {
         tvBatteryUsage.setPaintFlags(tvBatteryUsage.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvBatteryUsage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 39);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 39);
             }
         });
 
         tvSyncStopped.setPaintFlags(tvSyncStopped.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvSyncStopped.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 16);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 16);
             }
         });
 

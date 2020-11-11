@@ -416,8 +416,8 @@ public class FragmentAccount extends FragmentBase {
         tvLeave.getPaint().setUnderlineText(true);
         tvLeave.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 134);
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 134);
             }
         });
 

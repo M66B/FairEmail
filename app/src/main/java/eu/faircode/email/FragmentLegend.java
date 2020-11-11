@@ -65,7 +65,7 @@ public class FragmentLegend extends FragmentBase {
                 view.findViewById(R.id.ibInfoBackoff).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Helper.viewFAQ(getContext(), 123);
+                        Helper.viewFAQ(v.getContext(), 123);
                     }
                 });
             }
