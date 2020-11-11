@@ -2811,7 +2811,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-* Mark clicked links by changing the link color
+* ...
 
 <br />
 

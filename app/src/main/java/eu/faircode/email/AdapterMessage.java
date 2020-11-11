@@ -4117,15 +4117,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (url.equals(title))
                             title = null;
 
-                        if (onOpenLink(uri, title)) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(widget.getContext());
-                            boolean experiments = prefs.getBoolean("experiments", false);
-                            if (experiments) {
-                                int colorPrimary = Helper.resolveColor(widget.getContext(), android.R.attr.textColorPrimary);
-                                buffer.setSpan(new ForegroundColorSpan(colorPrimary), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            }
+                        if (onOpenLink(uri, title))
                             return true;
-                        }
                     }
 
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
