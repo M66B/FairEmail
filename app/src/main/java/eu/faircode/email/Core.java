@@ -3800,10 +3800,17 @@ class Core {
 
             if (notify_messaging) {
                 // https://developer.android.com/training/cars/messaging
-                Person.Builder me = new Person.Builder()
-                        .setName(MessageHelper.formatAddresses(message.to, name_email, false));
-                Person.Builder you = new Person.Builder()
-                        .setName(MessageHelper.formatAddresses(message.from, name_email, false));
+                String meName = MessageHelper.formatAddresses(message.to, name_email, false);
+                String youName = MessageHelper.formatAddresses(message.from, name_email, false);
+
+                // Names cannot be empty
+                if (TextUtils.isEmpty(meName))
+                    meName = "-";
+                if (TextUtils.isEmpty(youName))
+                    youName = "-";
+
+                Person.Builder me = new Person.Builder().setName(meName);
+                Person.Builder you = new Person.Builder().setName(youName);
 
                 if (info[0].hasPhoto())
                     you.setIcon(IconCompat.createWithBitmap(info[0].getPhotoBitmap()));
