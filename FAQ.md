@@ -1410,6 +1410,7 @@ If you have at least once a day internet connectivity, it is sufficient to synch
 Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for.
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
 In the receive settings you can enable to always synchronize starred messages,
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
