@@ -904,6 +904,10 @@ public class HtmlHelper {
                             "left".equals(align) ||
                             "start".equals(align))
                         col.tagName("div").removeAttr("x-block");
+                    else {
+                        if ("true".equals(col.attr("x-line-before")))
+                            col.removeAttr("x-line-before");
+                    }
 
                     if (next != null && col.childNodeSize() > 0)
                         col.appendText("\u2002"); // ensp
