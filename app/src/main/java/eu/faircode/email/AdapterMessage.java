@@ -1857,7 +1857,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindBody(TupleMessageEx message, final boolean scroll) {
-            tvBody.setText(null);
+            if (!Objects.equals(tvBody.getTag(), message.id)) {
+                tvBody.setTag(message.id);
+                tvBody.setText(null);
+            }
             clearActions();
 
             ibSeenBottom.setImageResource(message.ui_seen
