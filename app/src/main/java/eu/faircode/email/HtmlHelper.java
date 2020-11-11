@@ -753,8 +753,16 @@ public class HtmlHelper {
         }
 
         // Replace headings
-        if (!text_size)
-            document.select("h1,h2,h3,h4,h5,h6").tagName("strong");
+        Elements hs = document.select("h1,h2,h3,h4,h5,h6");
+        if (text_size) {
+            if (text_separators && view)
+                for (Element h : hs)
+                    h.appendElement("hr")
+                            .attr("x-block", "true");
+            else
+                hs.attr("x-line-after", "true");
+        } else
+            hs.tagName("strong");
 
         // Paragraphs
         for (Element p : document.select("p")) {
