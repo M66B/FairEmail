@@ -30,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.PopupMenu;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
 import com.flask.colorpicker.ColorPickerView;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class StyleHelper {
-    static boolean apply(int action, View anchor, EditText etBody, Object... args) {
+    static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
         Log.i("Style action=" + action);
 
         try {
@@ -102,7 +103,7 @@ public class StyleHelper {
                     final int e = end;
                     final SpannableStringBuilder t = new SpannableStringBuilder(ss);
 
-                    PopupMenu popupMenu = new PopupMenu(anchor.getContext(), anchor);
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(anchor.getContext(), owner, anchor);
                     popupMenu.inflate(R.menu.popup_style);
 
                     String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
