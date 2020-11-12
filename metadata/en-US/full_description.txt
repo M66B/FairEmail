@@ -55,6 +55,7 @@ This app starts a foreground service with a low priority status bar notification
 * No advertisements
 * No analytics and no tracking (error reporting is opt-in)
 * No Google backup
+* No Firebase Cloud Messaging
 * FairEmail is an original work, not a fork or a clone
 
 <b>Efficient</b>
