@@ -467,16 +467,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
         TupleIdentityEx identity = items.get(position);
+        holder.powner.recreate(identity == null ? null : identity.id);
+
+        holder.unwire();
         holder.bindTo(identity);
-
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

@@ -320,14 +320,10 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         EntityAnswer answer = items.get(position);
+        holder.powner.recreate(answer == null ? null : answer.id);
 
         holder.unwire();
         holder.bindTo(answer);
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

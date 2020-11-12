@@ -247,16 +247,11 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
         EntityCertificate certificate = items.get(position);
+        holder.powner.recreate(certificate == null ? null : certificate.id);
+
+        holder.unwire();
         holder.bindTo(certificate);
-
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

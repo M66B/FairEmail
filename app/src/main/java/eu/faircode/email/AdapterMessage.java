@@ -5779,6 +5779,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private void _onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TupleMessageEx message = differ.getItem(position);
+        holder.powner.recreate(message == null ? null : message.id);
 
         if (message == null || context == null)
             return;
@@ -5837,7 +5838,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.cowner.stop();
-        holder.powner.recreate();
     }
 
     @Override

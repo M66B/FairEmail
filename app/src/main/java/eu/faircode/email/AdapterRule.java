@@ -533,14 +533,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
         TupleRuleEx rule = selected.get(position);
+        holder.powner.recreate(rule == null ? null : rule.id);
+
+        holder.unwire();
         holder.bindTo(rule);
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

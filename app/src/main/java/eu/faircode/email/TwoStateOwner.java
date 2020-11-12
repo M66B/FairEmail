@@ -26,10 +26,13 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import java.util.Objects;
+
 // This class can be used as an externally controlled standalone or child life cycle owner
 
 public class TwoStateOwner implements LifecycleOwner {
     private String name;
+    private Object condition;
     private LifecycleRegistry registry;
 
     // https://developer.android.com/topic/libraries/architecture/lifecycle#lc
@@ -85,6 +88,13 @@ public class TwoStateOwner implements LifecycleOwner {
     void recreate() {
         destroy();
         create();
+    }
+
+    void recreate(Object condition) {
+        if (!Objects.equals(this.condition, condition)) {
+            this.condition = condition;
+            recreate();
+        }
     }
 
     void destroy() {

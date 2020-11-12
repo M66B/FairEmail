@@ -557,16 +557,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
         TupleAccountEx account = items.get(position);
+        holder.powner.recreate(account == null ? null : account.id);
+
+        holder.unwire();
         holder.bindTo(account);
-
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

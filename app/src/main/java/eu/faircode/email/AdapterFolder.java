@@ -1146,17 +1146,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
         TupleFolderEx folder = items.get(position);
+        holder.powner.recreate(folder == null ? null : folder.id);
+
+        holder.unwire();
         holder.bindTo(folder);
-
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 
     interface IFolderSelectedListener {

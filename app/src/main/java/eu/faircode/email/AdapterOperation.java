@@ -349,16 +349,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
         TupleOperationEx operation = items.get(position);
+        holder.powner.recreate(operation == null ? null : operation.id);
+
+        holder.unwire();
         holder.bindTo(operation);
-
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 }

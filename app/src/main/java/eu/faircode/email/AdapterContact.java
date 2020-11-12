@@ -466,15 +466,12 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
         TupleContactEx contact = selected.get(position);
+        holder.powner.recreate(contact == null ? null : contact.id);
+
+        holder.unwire();
         holder.bindTo(contact);
         holder.wire();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
     }
 
     public static class FragmentEditName extends FragmentDialogBase {
