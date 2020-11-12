@@ -761,8 +761,10 @@ public class HtmlHelper {
                             .attr("x-block", "true");
             else
                 hs.attr("x-line-after", "true");
-        } else
+        } else {
             hs.tagName("strong");
+            hs.attr("x-line-after", "true");
+        }
 
         // Paragraphs
         for (Element p : document.select("p")) {
