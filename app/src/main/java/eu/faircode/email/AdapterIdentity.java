@@ -474,9 +474,4 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         holder.bindTo(identity);
         holder.wire();
     }
-
-    @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
-    }
 }

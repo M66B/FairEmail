@@ -564,9 +564,4 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         holder.bindTo(account);
         holder.wire();
     }
-
-    @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
-    }
 }

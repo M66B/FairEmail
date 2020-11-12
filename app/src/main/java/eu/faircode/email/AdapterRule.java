@@ -540,9 +540,4 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         holder.bindTo(rule);
         holder.wire();
     }
-
-    @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
-    }
 }
