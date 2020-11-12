@@ -1154,6 +1154,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         holder.wire();
     }
 
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
+    }
+
     interface IFolderSelectedListener {
         void onFolderSelected(TupleFolderEx folder);
     }

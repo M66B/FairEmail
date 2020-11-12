@@ -5842,6 +5842,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.cowner.recreate();
+        holder.powner.recreate();
+
         if (holder.ibAvatar != null)
             holder.ibAvatar.setImageDrawable(null);
         if (holder.tvBody != null)

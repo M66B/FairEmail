@@ -474,6 +474,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         holder.wire();
     }
 
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
+    }
+
     public static class FragmentEditName extends FragmentDialogBase {
         @NonNull
         @Override

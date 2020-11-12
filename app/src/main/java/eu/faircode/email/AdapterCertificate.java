@@ -254,4 +254,9 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         holder.bindTo(certificate);
         holder.wire();
     }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
+    }
 }

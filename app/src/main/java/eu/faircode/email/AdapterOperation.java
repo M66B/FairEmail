@@ -356,4 +356,9 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         holder.bindTo(operation);
         holder.wire();
     }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
+    }
 }
