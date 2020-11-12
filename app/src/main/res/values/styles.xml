@@ -444,4 +444,10 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+
+    <style name="popupMenuStyle" parent="Base.Widget.AppCompat.PopupMenu">
+        <item name="android:scrollbarSize">6dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb_popup</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_track_popup</item>
+    </style>
 </resources>

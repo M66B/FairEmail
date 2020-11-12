@@ -25,6 +25,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -34,7 +35,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
 
     public PopupMenuLifecycle(@NonNull Context context, LifecycleOwner owner, @NonNull View anchor) {
-        super(context, anchor);
+        super(new ContextThemeWrapper(context, R.style.popupMenuStyle), anchor);
         Log.i("Instantiate " + this);
 
         owner.getLifecycle().addObserver(this);
