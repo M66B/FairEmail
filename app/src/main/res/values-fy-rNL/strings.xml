@@ -609,6 +609,9 @@
     <string name="title_legend_section_messages">Berjochten</string>
     <string name="title_legend_section_compose">Gearstalle</string>
     <string name="title_legend_section_keyboard">Toetseboerd</string>
+    <string name="title_legend_synchronize_on">Syngronisearje oan</string>
+    <string name="title_legend_synchronize_off">Syngronisearje út</string>
+    <string name="title_legend_synchronize_poll">Syngronisearje periodyk</string>
     <string name="title_legend_disconnected">Verbroken ferbine</string>
     <string name="title_legend_connecting">Ferbining</string>
     <string name="title_legend_connected">Ferbûn</string>
@@ -698,9 +701,14 @@
     <string name="title_icalendar_calendar">Kalinder</string>
     <string name="title_pro_purchase">Keapje</string>
     <string name="title_pro_once">Allinne ien kear</string>
+    <string name="title_boundary_retry">Besykje opnij</string>
+    <string name="title_unexpected_error">Net ferwachte flater</string>
     <string name="title_log">Lochboek</string>
     <string name="title_auto_scroll">Auto skowe</string>
     <string name="title_log_clear">Wiskje</string>
+    <string name="title_rules_search_hint">Sykje namme as tastân</string>
+    <string name="title_rules_export">Eksportregels</string>
+    <string name="title_rules_import">Regels ymportearje</string>
     <string name="title_rules_delete_all">Wiskje alle regels</string>
     <string name="title_rules_delete_junk">Ferwiderje spamregels</string>
     <string name="title_rules_delete_all_confirm">Wiskje alle regels?</string>
