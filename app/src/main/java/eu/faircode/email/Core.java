@@ -47,8 +47,6 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailFolder;
 import com.sun.mail.gimap.GmailMessage;
-import com.sun.mail.iap.BadCommandException;
-import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
@@ -64,7 +62,6 @@ import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
 import com.sun.mail.pop3.POP3Store;
-import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -463,16 +460,13 @@ class Core {
 
                         if (op.tries >= TOTAL_RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
-                                ex instanceof MessageRemovedException ||
-                                ex instanceof MessageRemovedIOException ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex instanceof SQLiteConstraintException ||
-                                ex.getCause() instanceof MessageRemovedException ||
-                                ex.getCause() instanceof MessageRemovedIOException ||
-                                ex.getCause() instanceof BadCommandException ||
-                                ex.getCause() instanceof CommandFailedException ||
+                                //ex.getCause() instanceof BadCommandException || // BAD
+                                //ex.getCause() instanceof CommandFailedException || // NO
+                                MessageHelper.isRemoved(ex) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
                                 (ConnectionHelper.isIoError(ex) &&
                                         EntityFolder.DRAFTS.equals(folder.type) &&
@@ -483,7 +477,12 @@ class Core {
                             // Drafts: javax.mail.FolderClosedException: * BYE Jakarta Mail Exception:
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
-                            Log.w("Unrecoverable");
+                            String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
+                            EntityLog.log(context, msg +
+                                    " folder=" + folder.id + ":" + folder.name +
+                                    " message=" + (message == null ? null : message.id + ":" + message.subject) +
+                                    " reason=" + Log.formatThrowable(ex, false));
+                            Log.e(new Throwable(msg, ex));
 
                             try {
                                 db.beginTransaction();
