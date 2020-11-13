@@ -570,6 +570,9 @@ public class MessageHelper {
 
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
+        Element ref = null;
+        if (BuildConfig.DEBUG)
+            ref = document.select("div[fairemail=reference]").first();
 
         // When sending message
         if (identity != null && send) {
@@ -653,7 +656,15 @@ public class MessageHelper {
         String htmlContent = document.html();
         String htmlContentType = "text/html; charset=" + Charset.defaultCharset().name();
 
-        String plainContent = HtmlHelper.getText(context, htmlContent);
+        // Limit alternative plain content
+        if (ref != null &&
+                (message.plain_only == null || !message.plain_only)) {
+            Element first = ref.select("blockquote").first();
+            if (first != null)
+                first.children().select("blockquote").remove();
+        }
+
+        String plainContent = HtmlHelper.getText(context, document.html());
         String plainContentType = "text/plain; charset=" + Charset.defaultCharset().name();
 
         if (format_flowed) {
