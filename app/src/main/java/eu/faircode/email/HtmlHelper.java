@@ -2243,15 +2243,33 @@ public class HtmlHelper {
                                 break;
                             case "hr":
                                 boolean dashed = "true".equals(element.attr("x-dashed"));
-                                LineSpan[] lines = null;
-                                if (dashed && ssb.length() > 0)
-                                    lines = ssb.getSpans(ssb.length() - 1, ssb.length() - 1, LineSpan.class);
-                                if (lines == null || lines.length == 0) {
-                                    ssb.append(LINE);
-                                    float stroke = context.getResources().getDisplayMetrics().density;
-                                    float dash = (dashed ? dp3 : 0f);
-                                    setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
+                                if (dashed) {
+                                    LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
+                                    int last = -1;
+                                    for (LineSpan line : lines) {
+                                        int e = ssb.getSpanEnd(line);
+                                        if (e > last)
+                                            last = e;
+                                    }
+                                    if (last >= 0) {
+                                        boolean blank = true;
+                                        for (int i = last; i < ssb.length(); i++) {
+                                            char kar = ssb.charAt(i);
+                                            if (kar != ' ' && kar != '\n' && kar != '\u00a0') {
+                                                blank = false;
+                                                break;
+                                            }
+                                        }
+
+                                        if (blank)
+                                            break;
+                                    }
                                 }
+
+                                ssb.append(LINE);
+                                float stroke = context.getResources().getDisplayMetrics().density;
+                                float dash = (dashed ? dp3 : 0f);
+                                setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 break;
                             case "img":
                                 String src = element.attr("src");
