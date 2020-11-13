@@ -2318,6 +2318,16 @@ public class FragmentCompose extends FragmentBase {
 
         new SimpleTask<Object>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                setBusy(true);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                setBusy(false);
+            }
+
+            @Override
             protected Object onExecute(Context context, Bundle args) throws Throwable {
                 // Get arguments
                 Intent data = args.getParcelable("data");
@@ -2620,6 +2630,16 @@ public class FragmentCompose extends FragmentBase {
 
     private void onSmime(Bundle args, final int action, final Bundle extras) {
         new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                setBusy(true);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                setBusy(false);
+            }
+
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
@@ -4909,12 +4929,6 @@ public class FragmentCompose extends FragmentBase {
             }
         }
 
-        private void setBusy(boolean busy) {
-            state = (busy ? State.LOADING : State.LOADED);
-            Helper.setViewsEnabled(view, !busy);
-            getActivity().invalidateOptionsMenu();
-        }
-
         private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {
             if (addresses == null)
                 return;
@@ -4943,6 +4957,12 @@ public class FragmentCompose extends FragmentBase {
                 DnsHelper.checkMx(context, addresses);
         }
     };
+
+    private void setBusy(boolean busy) {
+        state = (busy ? State.LOADING : State.LOADED);
+        Helper.setViewsEnabled(view, !busy);
+        getActivity().invalidateOptionsMenu();
+    }
 
     private static String unprefix(String subject, String prefix) {
         subject = subject.trim();
