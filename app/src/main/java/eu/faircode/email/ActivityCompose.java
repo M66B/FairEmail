@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
-import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -28,6 +27,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 
 import androidx.core.app.TaskStackBuilder;
+import androidx.core.net.MailTo;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -89,12 +89,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             Uri uri = intent.getData();
             if (uri != null && "mailto".equals(uri.getScheme())) {
                 // https://www.ietf.org/rfc/rfc2368.txt
-                String url = uri.toString();
-                int query = url.indexOf('?', MailTo.MAILTO_SCHEME.length());
-                if (query > 0)
-                    url = url.substring(0, query) + url.substring(query).replace(":", "%3A");
-
-                MailTo mailto = MailTo.parse(url);
+                MailTo mailto = MailTo.parse(uri.toString());
 
                 String to = mailto.getTo();
                 if (to != null)

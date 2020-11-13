@@ -21,10 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.core.net.MailTo;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
 

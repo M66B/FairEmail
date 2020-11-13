@@ -20,10 +20,11 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.net.MailTo;
 import android.net.ParseException;
 import android.net.Uri;
 import android.util.Pair;
+
+import androidx.core.net.MailTo;
 
 import java.io.IOException;
 import java.net.InetAddress;
