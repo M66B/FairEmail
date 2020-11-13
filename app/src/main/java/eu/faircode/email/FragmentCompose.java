@@ -53,7 +53,6 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.security.KeyChain;
-import android.security.KeyChainException;
 import android.system.ErrnoException;
 import android.text.Editable;
 import android.text.Html;
@@ -1850,7 +1849,7 @@ public class FragmentCompose extends FragmentBase {
 
             new SimpleTask<EntityIdentity>() {
                 @Override
-                protected EntityIdentity onExecute(Context context, Bundle args) throws KeyChainException, InterruptedException {
+                protected EntityIdentity onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
