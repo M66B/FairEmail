@@ -26,7 +26,7 @@ Do autoryzacji:
 
 * Gmail / G suite, zob. [pytanie 6](#user-content-faq6)
 * Outlook / Live / Hotmail, zob. [pytanie 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
+* Office365, zob. [pytanie 14](#user-content-faq156)
 * Microsoft Exchange, zob. [pytanie 8](#user-content-faq8)
 * Yahoo, AOL i Sky, zobacz [pytanie 88](#user-content-faq88)
 * Apple iCloud, zob. [pytanie 148](#user-content-faq148)
@@ -75,9 +75,9 @@ Powiązane pytania:
 * ~~A [błąd w AndroidX](https://issuetracker.google.com/issues/64729576) utrudnia przechwytywanie szybkiego przewijania. Dodano obejście. ~~
 * ~~ Szyfrowanie za pomocą YubiKey skutkuje nieskończoną pętlą. Wydaje się, że jest to spowodowane błędem [w OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Przewijanie do wewnętrznie połączonej lokalizacji w oryginalnych wiadomościach nie działa. Nie można tego naprawić, ponieważ oryginalny widok wiadomości znajduje się w przewijanym widoku.
-* Podgląd tekstu wiadomości nie (zawsze) pojawia się na zegarku Samsung, ponieważ [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wydaje się być ignorowany. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. Zobacz również [ten FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Podgląd tekstu wiadomości nie (zawsze) pojawia się na zegarku Samsung, ponieważ [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wydaje się być ignorowany. Wiadomo, że podglądy wiadomości są wyświetlane poprawnie na Pebble 2, Fitbit Charge 3, Mi band 3 i Xiaomi Amazfit BIP. Zobacz również [ten FAQ](#user-content-faq126).
+* [błąd w Android 6.0](https://issuetracker.google.com/issues/37068143) powoduje awarię z *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Ten błąd został naprawiony w Androidzie 6.0.1.
+* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). Jest to ograniczenie Androida, które nie może być naprawione.
 
 ## Planowane funkcje
 
@@ -158,7 +158,7 @@ Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutowa
 * [(36) W jaki sposób zaszyfrowane są pliki ustawień?](#user-content-faq36)
 * [(37) Jak przechowywane są hasła?](#user-content-faq37)
 * [(39) Jak mogę zmniejszyć zużycie baterii przez FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
+* [(40) Jak mogę zmniejszyć użycie sieci przez FairEmail?](#user-content-faq40)
 * [(41) Jak mogę naprawić błąd "Handshake failed”?](#user-content-faq41)
 * [(42) Czy możesz dodać nowego dostawcę do listy dostawców?](#user-content-faq42)
 * [(43) Czy możesz pokazać oryginał...?](#user-content-faq43)
@@ -175,7 +175,7 @@ Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutowa
 * [~~ (54) Jak korzystać z prefiksu przestrzeni nazw? ~~](#user-content-faq54)
 * [(55) Jak mogę oznaczyć wszystkie wiadomości jako przeczytane / przeniesione lub usunąć wszystkie wiadomości?](#user-content-faq55)
 * [(56) Czy możesz dodać wsparcie dla JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [(57) Czy mogę użyć HTML w podpisach?](#user-content-faq57)
 * [(58) Co oznacza otwarta/zamknięta ikona e-mail?](#user-content-faq58)
 * [(59) Czy oryginalne wiadomości mogą być otwierane w przeglądarce?](#user-content-faq59)
 * [(60) Czy wiesz...?](#user-content-faq60)
@@ -224,8 +224,8 @@ Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutowa
 * [(104) Co muszę wiedzieć o zgłaszaniu błędów?](#user-content-faq104)
 * [(105) Jak działa opcja Roaming jak w domu?](#user-content-faq105)
 * [(106) Które launchery mogą pokazać licznik z liczbą nieprzeczytanych wiadomości?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [Jak używać kolorowych gwiazdek?](#user-content-faq107)
+* [~~(108) Czy można trwale usunąć wiadomości z dowolnego folderu?~~](#user-content-faq108)
 * [~~ (109) Dlaczego funkcja „wybierz konto” jest dostępna tylko w oficjalnych wersjach? ~~](#user-content-faq109)
 * [(110) Dlaczego (niektóre) wiadomości są puste i / lub załączniki są uszkodzone?](#user-content-faq110)
 * [(111) Czy OAuth jest wspierany?](#user-content-faq111)
@@ -273,11 +273,11 @@ Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutowa
 * [(153) Dlaczego trwale usunięcie wiadomości Gmaila nie działa?](#user-content-faq153)
 * [~~(154) Czy możesz dodać favikony jako zdjęcia kontaktowe?~~](#user-content-faq154)
 * [(155) Co to jest plik winmail.dat?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
+* [(156) Jak mogę założyć konto Office 365?](#user-content-faq156)
 * [(157) Jak mogę utworzyć konto Free.fr?](#user-content-faq157)
 * [(158) Którą kamerę / rejestrator audio rekomendujesz?](#user-content-faq158)
 * [(159) Czym są listy ochrony przed śledzeniem Disconnect?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
+* [(160) Czy możesz dodać trwałe usuwanie wiadomości bez potwierdzenia?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 
 [Mam kolejne pytanie.](#user-content-support)
@@ -997,15 +997,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Wbudowany obraz](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Uszkodzony obraz](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1435,11 +1435,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1822,7 +1822,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2557,7 +2557,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2786,29 +2786,29 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 
-## Get support
+## Wsparcie
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail jest obsługiwany tylko na smartfonach, tabletach i ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Obsługiwana jest tylko najnowsza wersja sklepu Play i najnowsze wydanie GitHub. Kompilacja F-Droid jest obsługiwana tylko wtedy, gdy numer wersji jest taki sam jak numer wersji najnowszej wersji GitHub. Oznacza to również, że obniżanie wersji nie jest wspierane.
 
-There is no support on things that are not directly related to FairEmail.
+Nie ma wsparcia dla rzeczy, które nie są bezpośrednio związane z FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Requested features should:
+Żądane funkcje powinny:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* być przydatny dla większości ludzi
+* nie komplikować użycia FairEmail
+* pasować do filozofii FairEmail (zorientowanej na prywatność i bezpieczeństwo)
+* być zgodne z popularnymi standardami (IMAP, SMTP, itp.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funkcje, które nie spełniają tych wymogów, zostaną prawdopodobnie odrzucone. This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Problemy z GitHub są wyłączone z powodu częstych nadużyć.
 
 <br />
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Prawa autorskie &copy; 2018-2020 Marcel Bokhorst.
