@@ -2710,7 +2710,9 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         chain[0].checkValidity();
                     } catch (CertificateException ex) {
-                        throw new IllegalArgumentException(context.getString(R.string.title_invalid_key), ex);
+                        String msg = ex.getMessage();
+                        throw new IllegalArgumentException(
+                                TextUtils.isEmpty(msg) ? Log.formatThrowable(ex) : msg);
                     }
 
                     // Check public key email
