@@ -58,6 +58,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.NumberFormat;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -678,9 +679,29 @@ public class FragmentFolders extends FragmentBase {
                 try {
                     db.beginTransaction();
 
-                    if (browsed)
-                        db.message().deleteBrowsedMessages(fid);
-                    else {
+                    if (browsed) {
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder == null)
+                            return null;
+
+                        int keep_days = folder.keep_days;
+                        if (keep_days == folder.sync_days &&
+                                keep_days != Integer.MAX_VALUE)
+                            keep_days++;
+
+                        Calendar cal_keep = Calendar.getInstance();
+                        cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
+                        cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                        cal_keep.set(Calendar.MINUTE, 0);
+                        cal_keep.set(Calendar.SECOND, 0);
+                        cal_keep.set(Calendar.MILLISECOND, 0);
+
+                        long keep_time = cal_keep.getTimeInMillis();
+                        if (keep_time < 0)
+                            keep_time = 0;
+
+                        db.message().deleteBrowsedMessages(fid, keep_time);
+                    } else {
                         db.message().deleteLocalMessages(fid);
                         db.folder().setFolderKeywords(fid, DB.Converters.fromStringArray(null));
                     }
