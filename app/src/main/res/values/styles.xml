@@ -449,5 +449,6 @@
         <item name="android:scrollbarSize">6dp</item>
         <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb_popup</item>
         <item name="android:scrollbarTrackVertical">@drawable/scroll_track_popup</item>
+        <item name="android:fadeScrollbars">false</item>
     </style>
 </resources>
