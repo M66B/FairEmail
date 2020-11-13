@@ -2246,11 +2246,12 @@ public class HtmlHelper {
                                 if (dashed) {
                                     LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
                                     int last = -1;
-                                    for (LineSpan line : lines) {
-                                        int e = ssb.getSpanEnd(line);
-                                        if (e > last)
-                                            last = e;
-                                    }
+                                    if (lines != null)
+                                        for (LineSpan line : lines) {
+                                            int e = ssb.getSpanEnd(line);
+                                            if (e > last)
+                                                last = e;
+                                        }
                                     if (last >= 0) {
                                         boolean blank = true;
                                         for (int i = last; i < ssb.length(); i++) {
