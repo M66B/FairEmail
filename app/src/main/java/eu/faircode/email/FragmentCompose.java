@@ -1371,6 +1371,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
+        int colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
+
         View v = menu.findItem(R.id.menu_encrypt).getActionView();
         ImageButton ib = v.findViewById(R.id.button);
         TextView tv = v.findViewById(R.id.text);
@@ -1388,6 +1390,8 @@ public class FragmentCompose extends FragmentBase {
             ib.setImageTintList(null);
             tv.setText(null);
         }
+        if (state != State.LOADED)
+            ib.setImageTintList(ColorStateList.valueOf(colorSeparator));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
