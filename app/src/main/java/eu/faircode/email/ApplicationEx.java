@@ -382,9 +382,8 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         else if (version < 1336) {
             if (!prefs.contains("beige"))
                 editor.putBoolean("beige", false);
-        } else if (version < 1385){
+        } else if (version < 1385)
             editor.remove("parse_classes");
-        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
