@@ -3784,59 +3784,60 @@ public class FragmentCompose extends FragmentBase {
                                 for (Element e : d.select("[x-plain=true]"))
                                     e.removeAttr("x-plain");
 
-                                // Remove signature separators
-                                boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
-                                if (remove_signatures)
-                                    d.body().filter(new NodeFilter() {
-                                        private boolean remove = false;
+                                if ("reply".equals(action) || "reply_all".equals(action)) {
+                                    // Remove signature separators
+                                    boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+                                    if (remove_signatures)
+                                        d.body().filter(new NodeFilter() {
+                                            private boolean remove = false;
 
-                                        @Override
-                                        public FilterResult head(Node node, int depth) {
-                                            if (node instanceof TextNode) {
-                                                TextNode tnode = (TextNode) node;
-                                                String text = tnode.getWholeText()
-                                                        .replaceAll("[\r\n]+$", "")
-                                                        .replaceAll("^[\r\n]+", "");
-                                                if ("-- ".equals(text)) {
-                                                    if (tnode.getWholeText().endsWith("\n"))
-                                                        remove = true;
-                                                    else {
-                                                        Node next = node.nextSibling();
-                                                        if (next == null) {
-                                                            Node parent = node.parent();
-                                                            if (parent != null)
-                                                                next = parent.nextSibling();
-                                                        }
-                                                        if (next != null && "br".equals(next.nodeName()))
+                                            @Override
+                                            public FilterResult head(Node node, int depth) {
+                                                if (node instanceof TextNode) {
+                                                    TextNode tnode = (TextNode) node;
+                                                    String text = tnode.getWholeText()
+                                                            .replaceAll("[\r\n]+$", "")
+                                                            .replaceAll("^[\r\n]+", "");
+                                                    if ("-- ".equals(text)) {
+                                                        if (tnode.getWholeText().endsWith("\n"))
                                                             remove = true;
+                                                        else {
+                                                            Node next = node.nextSibling();
+                                                            if (next == null) {
+                                                                Node parent = node.parent();
+                                                                if (parent != null)
+                                                                    next = parent.nextSibling();
+                                                            }
+                                                            if (next != null && "br".equals(next.nodeName()))
+                                                                remove = true;
+                                                        }
                                                     }
                                                 }
+
+                                                return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
                                             }
 
-                                            return (remove ? FilterResult.REMOVE : FilterResult.CONTINUE);
-                                        }
+                                            @Override
+                                            public FilterResult tail(Node node, int depth) {
+                                                return FilterResult.CONTINUE;
+                                            }
+                                        });
 
-                                        @Override
-                                        public FilterResult tail(Node node, int depth) {
-                                            return FilterResult.CONTINUE;
+                                    // Limit number of nested block quotes
+                                    boolean quote_limit = prefs.getBoolean("quote_limit", false);
+                                    if (quote_limit)
+                                        for (Element bq : d.select("blockquote")) {
+                                            int level = 1;
+                                            Element parent = bq.parent();
+                                            while (parent != null) {
+                                                if ("blockquote".equals(parent.tagName()))
+                                                    level++;
+                                                parent = parent.parent();
+                                            }
+                                            if (level >= MAX_QUOTE_LEVEL)
+                                                bq.html("&#8230;");
                                         }
-                                    });
-
-                                // Limit number of nested block quotes
-                                boolean quote_limit = prefs.getBoolean("quote_limit", false);
-                                if (quote_limit &&
-                                        ("reply".equals(action) || "reply_all".equals(action)))
-                                    for (Element bq : d.select("blockquote")) {
-                                        int level = 1;
-                                        Element parent = bq.parent();
-                                        while (parent != null) {
-                                            if ("blockquote".equals(parent.tagName()))
-                                                level++;
-                                            parent = parent.parent();
-                                        }
-                                        if (level >= MAX_QUOTE_LEVEL)
-                                            bq.html("&#8230;");
-                                    }
+                                }
                             } else {
                                 // Selected text
                                 d = Document.createShell("");
