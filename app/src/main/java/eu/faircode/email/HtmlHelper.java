@@ -368,7 +368,7 @@ public class HtmlHelper {
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", true);
         boolean inline_images = prefs.getBoolean("inline_images", false);
-        boolean text_separators = prefs.getBoolean("text_separators", false);
+        boolean text_separators = prefs.getBoolean("text_separators", !BuildConfig.PLAY_STORE_RELEASE);
 
         int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
@@ -1913,7 +1913,6 @@ public class HtmlHelper {
             @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
-        boolean text_separators = prefs.getBoolean("text_separators", false);
         boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
