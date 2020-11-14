@@ -55,6 +55,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
     private SwitchCompat swQuoteReply;
+    private SwitchCompat swQuoteLimit;
     private SwitchCompat swResizeReply;
     private Spinner spSignatureLocation;
     private SwitchCompat swSignatureReply;
@@ -72,7 +73,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "compose_font", "prefix_once", "separate_reply", "extended_reply", "quote_reply", "resize_reply",
+            "compose_font", "prefix_once", "separate_reply", "extended_reply", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "discard_delete",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -102,6 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
+        swQuoteLimit = view.findViewById(R.id.swQuoteLimit);
         swResizeReply = view.findViewById(R.id.swResizeReply);
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swSignatureReply = view.findViewById(R.id.swSignatureReply);
@@ -230,6 +232,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("quote_reply", checked).apply();
+                swQuoteLimit.setEnabled(checked);
+            }
+        });
+
+        swQuoteLimit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quote_limit", checked).apply();
             }
         });
 
@@ -401,6 +411,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
+        swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
+        swQuoteLimit.setEnabled(swQuoteReply.isChecked());
         swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
 
         int signature_location = prefs.getInt("signature_location", 1);

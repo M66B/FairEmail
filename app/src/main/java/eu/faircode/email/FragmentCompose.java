@@ -277,6 +277,8 @@ public class FragmentCompose extends FragmentBase {
 
     private static final int RECIPIENTS_WARNING = 10;
 
+    private static final int MAX_QUOTE_LEVEL = 5;
+
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
     private static final int REQUEST_CONTACT_BCC = 3;
@@ -3824,6 +3826,21 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             Element e = d.body();
+
+                            // Limit number of nested block quotes
+                            boolean quote_limit = prefs.getBoolean("quote_limit", true);
+                            if (quote_limit)
+                                for (Element bq : e.select("blockquote")) {
+                                    int level = 1;
+                                    Element parent = bq.parent();
+                                    while (parent != null) {
+                                        if ("blockquote".equals(parent.tagName()))
+                                            level++;
+                                        parent = parent.parent();
+                                    }
+                                    if (level >= MAX_QUOTE_LEVEL)
+                                        bq.html("&#8230;");
+                                }
 
                             // Apply styles
                             List<CSSStyleSheet> sheets = HtmlHelper.parseStyles(d.head().select("style"));
