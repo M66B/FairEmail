@@ -2404,13 +2404,17 @@ public class HtmlHelper {
         }, document.body());
 
         if (debug)
-            for (int i = ssb.length() - 1; i >= 0; i--)
-                if (ssb.charAt(i) == '\n')
+            for (int i = ssb.length() - 1; i >= 0; i--) {
+                char kar = ssb.charAt(i);
+                if (kar == '\n')
                     ssb.insert(i, "|");
-                else if (ssb.charAt(i) == ' ')
+                else if (kar == ' ')
                     ssb.replace(i, i + 1, "_");
-                else if (ssb.charAt(i) == '\u00A0')
+                else if (kar == '\u00A0')
                     ssb.replace(i, i + 1, "•");
+                else if (!Character.isLetterOrDigit(kar))
+                    ssb.replace(i, i + 1, "{" + Integer.toHexString((int) kar) + "}");
+            }
 
         Object[] spans = ssb.getSpans(0, ssb.length(), Object.class);
         Map<Object, Integer> start = new HashMap<>();
