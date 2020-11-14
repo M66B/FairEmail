@@ -2731,7 +2731,7 @@ public class FragmentCompose extends FragmentBase {
                     boolean known = false;
                     List<String> emails = EntityCertificate.getEmailAddresses(chain[0]);
                     for (String email : emails)
-                        if (email.equals(identity.email)) {
+                        if (email.equalsIgnoreCase(identity.email)) {
                             known = true;
                             break;
                         }
