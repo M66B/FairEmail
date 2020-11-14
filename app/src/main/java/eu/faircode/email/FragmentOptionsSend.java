@@ -411,7 +411,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
-        swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
+        swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", false));
         swQuoteLimit.setEnabled(swQuoteReply.isChecked());
         swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
 
