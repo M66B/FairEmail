@@ -919,8 +919,7 @@ public class HtmlHelper {
                             col.removeAttr("x-line-before");
                     }
 
-                    if (next != null && col.childNodeSize() > 0)
-                        col.appendText("\u2002"); // ensp
+                    col.attr("x-column", "true");
                 }
 
                 if (merge.size() != 0)
@@ -2382,6 +2381,12 @@ public class HtmlHelper {
                     if ("true".equals(element.attr("x-line-after")) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
                         ssb.append('\n');
+
+                    if ("true".equals(element.attr("x-column")) &&
+                            ssb.length() > 1 &&
+                            ssb.charAt(ssb.length() - 1) != '\n' &&
+                            ssb.charAt(ssb.length() - 1) != '\u2002')
+                        ssb.append('\u2002'); // ensp
 
                     if (debug)
                         ssb.append("[/" + element.tagName() + "]");
