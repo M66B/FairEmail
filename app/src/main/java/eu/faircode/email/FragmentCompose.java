@@ -3839,7 +3839,8 @@ public class FragmentCompose extends FragmentBase {
 
                             // Limit number of nested block quotes
                             boolean quote_limit = prefs.getBoolean("quote_limit", true);
-                            if (quote_limit)
+                            if (quote_limit &&
+                                    ("reply".equals(action) || "reply_all".equals(action)))
                                 for (Element bq : e.select("blockquote")) {
                                     int level = 1;
                                     Element parent = bq.parent();
