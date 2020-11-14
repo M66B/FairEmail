@@ -71,6 +71,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvScheduleStart;
     private TextView tvScheduleEnd;
     private CheckBox[] cbDay;
+    private ImageButton ibSchedules;
     private SwitchCompat swNodate;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
@@ -108,6 +109,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swOptimize = view.findViewById(R.id.swOptimize);
         ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
         spPollInterval = view.findViewById(R.id.spPollInterval);
+
         swSchedule = view.findViewById(R.id.swSchedule);
         rvExempted = view.findViewById(R.id.rvExempted);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
@@ -122,6 +124,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 view.findViewById(R.id.cbDay5),
                 view.findViewById(R.id.cbDay6)
         };
+        ibSchedules = view.findViewById(R.id.ibSchedules);
+
         swNodate = view.findViewById(R.id.swNodate);
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
@@ -235,6 +239,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 }
             });
         }
+
+        ibSchedules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 78);
+            }
+        });
 
         swNodate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
