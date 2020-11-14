@@ -929,6 +929,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             long first_fail = 0;
             Throwable last_fail = null;
             state.setBackoff(CONNECT_BACKOFF_START);
+            if (account.backoff_until != null)
+                db.account().setAccountBackoff(account.id, null);
             while (state.isRunning() &&
                     currentThread != null && currentThread.equals(thread)) {
                 state.reset();
@@ -2043,8 +2045,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         db.beginTransaction();
 
                         // Reset accounts
-                        for (EntityAccount account : db.account().getAccounts())
+                        for (EntityAccount account : db.account().getAccounts()) {
                             db.account().setAccountState(account.id, null);
+                            db.account().setAccountBackoff(account.id, null);
+                        }
 
                         // reset folders
                         for (EntityFolder folder : db.folder().getFolders()) {
