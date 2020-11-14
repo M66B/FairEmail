@@ -891,6 +891,10 @@ public class HtmlHelper {
                                     continue;
                             }
                         }
+
+                        if (lonely instanceof TextNode &&
+                                "\u00a0".equals(((TextNode) lonely).getWholeText()))
+                            lonely.remove(); // -> column separator
                     }
 
                     if (merge.size() > 0) {
