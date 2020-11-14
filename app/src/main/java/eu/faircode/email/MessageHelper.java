@@ -1282,6 +1282,8 @@ public class MessageHelper {
                     String unsubscribe = entry.substring(lt + 1, gt);
                     Uri uri = Uri.parse(unsubscribe);
                     String scheme = uri.getScheme();
+                    if (scheme != null)
+                        scheme = scheme.toLowerCase(Locale.ROOT);
                     if (mailto == null && "mailto".equals(scheme))
                         mailto = unsubscribe;
                     if (link == null && ("http".equals(scheme) || "https".equals(scheme)))
