@@ -1413,6 +1413,16 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_encrypt);
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
+
+        bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("force_dialog", true);
+                onAction(R.id.action_check, args, "force");
+                return true;
+            }
+        });
     }
 
     @Override
@@ -4882,6 +4892,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean send_dialog = prefs.getBoolean("send_dialog", true);
                 boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
+                boolean force_dialog = extras.getBoolean("force_dialog", false);
                 String address_error = args.getString("address_error");
                 String mx_error = args.getString("mx_error");
                 boolean remind_to = args.getBoolean("remind_to", false);
@@ -4896,7 +4907,8 @@ public class FragmentCompose extends FragmentBase {
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
-                if (send_dialog || address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_size ||
+                if (send_dialog || force_dialog ||
+                        address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_size ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
                                 (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
