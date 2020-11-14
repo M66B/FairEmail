@@ -1192,6 +1192,9 @@ public class Log {
     static void unexpectedError(FragmentManager manager, Throwable ex, boolean report) {
         Log.e(ex);
 
+        if (ex instanceof OutOfMemoryError)
+            report = false;
+
         Bundle args = new Bundle();
         args.putSerializable("ex", ex);
         args.putBoolean("report", report);
