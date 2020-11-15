@@ -2394,6 +2394,7 @@ public class HtmlHelper {
                     if ("true".equals(element.attr("x-column")) &&
                             ssb.length() > 1 &&
                             ssb.charAt(ssb.length() - 1) != '\n' &&
+                            ssb.charAt(ssb.length() - 1) != '\u00a0' &&
                             ssb.charAt(ssb.length() - 1) != '\u2002')
                         ssb.append('\u2002'); // ensp
 
