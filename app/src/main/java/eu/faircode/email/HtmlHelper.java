@@ -2427,7 +2427,7 @@ public class HtmlHelper {
                 else if (kar == '\u00A0')
                     ssb.replace(i, i + 1, "•");
                 else if (!Character.isLetterOrDigit(kar))
-                    ssb.replace(i, i + 1, "{" + Integer.toHexString((int) kar) + "}");
+                    ssb.replace(i, i + 1, "{" + Integer.toHexString(kar) + "}");
             }
 
         Object[] spans = ssb.getSpans(0, ssb.length(), Object.class);
