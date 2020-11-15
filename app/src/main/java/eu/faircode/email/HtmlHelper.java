@@ -924,13 +924,14 @@ public class HtmlHelper {
                     if (TextUtils.isEmpty(align) ||
                             "left".equals(align) ||
                             "start".equals(align))
-                        col.tagName("div").removeAttr("x-block");
+                        col.removeAttr("x-block");
                     else {
                         if ("true".equals(col.attr("x-line-before")))
                             col.removeAttr("x-line-before");
                     }
 
-                    col.attr("x-column", "true");
+                    col.tagName("div")
+                            .attr("x-column", "true");
                 }
 
                 if (merge.size() != 0)
