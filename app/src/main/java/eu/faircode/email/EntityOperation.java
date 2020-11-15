@@ -156,7 +156,8 @@ public class EntityOperation {
                     keywords.add(keyword);
                 Collections.sort(keywords);
 
-                db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+                message.keywords = keywords.toArray(new String[0]);
+                db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(message.keywords));
 
             } else if (LABEL.equals(name)) {
                 String label = jargs.getString(0);
