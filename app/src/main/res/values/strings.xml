@@ -297,6 +297,7 @@
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
+    <string name="title_advanced_sync_subscribed">Automatically synchronize subscribed folders</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_check_reply">Check reply email addresses on synchronizing messages</string>
     <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
