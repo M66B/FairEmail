@@ -463,6 +463,7 @@ class Core {
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
+                                ex instanceof IllegalStateException ||
                                 ex instanceof SQLiteConstraintException ||
                                 //ex.getCause() instanceof BadCommandException || // BAD
                                 //ex.getCause() instanceof CommandFailedException || // NO
