@@ -531,8 +531,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     if (!folder.read_only)
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
+                }
 
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
+
+                if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         String channelId = EntityFolder.getNotificationChannelId(folder.id);
                         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -771,7 +774,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                    .putExtra("id", folder.id));
+                                    .putExtra("id", folder.id)
+                                    .putExtra("imap", folder.accountProtocol == EntityAccount.TYPE_IMAP));
                 }
 
                 @RequiresApi(api = Build.VERSION_CODES.O)

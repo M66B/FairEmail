@@ -78,11 +78,13 @@ public class FragmentFolder extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private TextView tvInboxRootHint;
     private ContentLoadingProgressBar pbWait;
+    private Group grpImap;
     private Group grpParent;
     private Group grpPoll;
     private Group grpAutoDelete;
 
     private long id = -1;
+    private boolean imap = true;
     private long account = -1;
     private String parent = null;
     private boolean saving = false;
@@ -99,6 +101,7 @@ public class FragmentFolder extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         id = args.getLong("id", -1);
+        imap = args.getBoolean("imap", true);
         account = args.getLong("account", -1);
         parent = args.getString("parent");
     }
@@ -135,6 +138,7 @@ public class FragmentFolder extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
         tvInboxRootHint = view.findViewById(R.id.tvInboxRootHint);
         pbWait = view.findViewById(R.id.pbWait);
+        grpImap = view.findViewById(R.id.grpImap);
         grpParent = view.findViewById(R.id.grpParent);
         grpPoll = view.findViewById(R.id.grpPoll);
         grpAutoDelete = view.findViewById(R.id.grpAutoDelete);
@@ -160,14 +164,14 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(isChecked);
                 etPoll.setEnabled(isChecked);
                 tvPoll.setEnabled(isChecked);
-                grpPoll.setVisibility(isChecked && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && isChecked && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
             }
         });
 
         cbPoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                grpPoll.setVisibility(cbPoll.isEnabled() && isChecked ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && cbPoll.isEnabled() && isChecked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -207,9 +211,10 @@ public class FragmentFolder extends FragmentBase {
         });
 
         // Initialize
+        Helper.setViewsEnabled(view, false);
+        grpImap.setVisibility(imap ? View.VISIBLE : View.GONE);
         tvParent.setText(parent);
         grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
-        Helper.setViewsEnabled(view, false);
         grpAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
@@ -286,7 +291,7 @@ public class FragmentFolder extends FragmentBase {
                     else
                         etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
 
-                    if (folder != null && folder.read_only)
+                    if (!imap || (folder != null && folder.read_only))
                         grpAutoDelete.setVisibility(View.GONE);
                     else {
                         cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
@@ -306,7 +311,7 @@ public class FragmentFolder extends FragmentBase {
                 cbPoll.setEnabled(cbSynchronize.isChecked() && always);
                 etPoll.setEnabled(cbSynchronize.isChecked() && always);
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
-                grpPoll.setVisibility(cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
@@ -416,6 +421,7 @@ public class FragmentFolder extends FragmentBase {
                 : etKeepDays.getText().toString());
         args.putBoolean("auto_delete", cbAutoDelete.isChecked());
 
+        args.putBoolean("imap", imap);
         args.putBoolean("should", should);
 
         new SimpleTask<Boolean>() {
@@ -456,6 +462,7 @@ public class FragmentFolder extends FragmentBase {
                 boolean auto_delete = args.getBoolean("auto_delete");
 
                 boolean pro = ActivityBilling.isPro(context);
+                boolean imap = args.getBoolean("imap");
                 boolean should = args.getBoolean("should");
 
                 if (color == Color.TRANSPARENT || !pro)
@@ -467,6 +474,11 @@ public class FragmentFolder extends FragmentBase {
                 int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
                 if (keep_days < sync_days)
                     keep_days = sync_days;
+                if (!imap) {
+                    sync_days = Integer.MAX_VALUE;
+                    keep_days = Integer.MAX_VALUE;
+                }
+
                 int poll_factor = (TextUtils.isEmpty(factor) ? 1 : Integer.parseInt(factor));
                 if (poll_factor < 1)
                     poll_factor = 1;
@@ -498,18 +510,20 @@ public class FragmentFolder extends FragmentBase {
                             return true;
                         if (!Objects.equals(folder.synchronize, synchronize))
                             return true;
-                        if (!Objects.equals(folder.poll, poll))
-                            return true;
-                        if (!Objects.equals(folder.poll_factor, poll_factor))
-                            return true;
-                        if (!Objects.equals(folder.download, download))
-                            return true;
-                        if (!Objects.equals(folder.sync_days, sync_days))
-                            return true;
-                        if (!Objects.equals(folder.keep_days, keep_days))
-                            return true;
-                        if (!Objects.equals(folder.auto_delete, auto_delete))
-                            return true;
+                        if (imap) {
+                            if (!Objects.equals(folder.poll, poll))
+                                return true;
+                            if (!Objects.equals(folder.poll_factor, poll_factor))
+                                return true;
+                            if (!Objects.equals(folder.download, download))
+                                return true;
+                            if (!Objects.equals(folder.sync_days, sync_days))
+                                return true;
+                            if (!Objects.equals(folder.keep_days, keep_days))
+                                return true;
+                            if (!Objects.equals(folder.auto_delete, auto_delete))
+                                return true;
+                        }
 
                         return false;
                     }

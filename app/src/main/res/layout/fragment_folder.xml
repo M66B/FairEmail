@@ -351,6 +351,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpImap"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+            cbSynchronize,cbPoll,cbDownload,
+            tvSyncDays,tvSyncDaysRemark,btnInfo,etSyncDays,
+            tvKeepDays,tvKeepDaysRemark,etKeepDays,cbKeepAll" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpParent"
             android:layout_width="0dp"
             android:layout_height="0dp"
