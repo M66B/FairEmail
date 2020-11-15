@@ -57,6 +57,7 @@ import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.view.textclassifier.TextClassificationManager;
+import android.view.textclassifier.TextClassifier;
 import android.view.textclassifier.TextLanguage;
 
 import androidx.annotation.NonNull;
@@ -1678,6 +1679,8 @@ public class HtmlHelper {
             if (!language_detection)
                 return null;
 
+            // Why not ML kit? https://developers.google.com/ml-kit/terms
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 TextClassificationManager tcm =
                         (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
@@ -1689,7 +1692,8 @@ public class HtmlHelper {
                     return null;
 
                 TextLanguage.Request trequest = new TextLanguage.Request.Builder(text).build();
-                TextLanguage tlanguage = tcm.getTextClassifier().detectLanguage(trequest);
+                TextClassifier tc = tcm.getTextClassifier();
+                TextLanguage tlanguage = tc.detectLanguage(trequest);
                 if (tlanguage.getLocaleHypothesisCount() > 0)
                     return tlanguage.getLocale(0).toLocale().getLanguage();
             }
