@@ -955,6 +955,11 @@ public class HtmlHelper {
             String src = img.attr("src");
             String tracking = img.attr("x-tracking");
 
+            if (TextUtils.isEmpty(src)) {
+                img.remove();
+                continue;
+            }
+
             if (alt.length() > MAX_ALT)
                 alt = alt.substring(0, MAX_ALT) + "…";
 
@@ -1547,11 +1552,8 @@ public class HtmlHelper {
             img.removeAttr("x-tracking");
 
             String src = img.attr("src");
-            if (TextUtils.isEmpty(src)) {
-                if (!full)
-                    img.remove();
+            if (TextUtils.isEmpty(src))
                 continue;
-            }
 
             Uri uri = Uri.parse(src);
             String host = uri.getHost();
