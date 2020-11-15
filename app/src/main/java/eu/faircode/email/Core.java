@@ -463,7 +463,9 @@ class Core {
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
-                                ex instanceof IllegalStateException ||
+                                (ex instanceof IllegalStateException &&
+                                        EntityOperation.SYNC.equals(op.name) &&
+                                        "This operation is not allowed on a closed folder".equals(ex.getMessage())) ||
                                 ex instanceof SQLiteConstraintException ||
                                 //ex.getCause() instanceof BadCommandException || // BAD
                                 //ex.getCause() instanceof CommandFailedException || // NO
