@@ -1819,7 +1819,11 @@ class Core {
                     if (info.total > 0) {
                         MessageSet[] sets = new MessageSet[]{new MessageSet(1, info.total)};
                         EntityLog.log(context, folder.name + " purging=" + MessageSet.toString(sets));
-                        protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
+                        try {
+                            protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
+                        } catch (ProtocolException ex) {
+                            throw new ProtocolException("Purge=" + MessageSet.toString(sets), ex);
+                        }
                     }
                     return null;
                 }
