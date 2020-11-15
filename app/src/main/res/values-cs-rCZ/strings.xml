@@ -276,6 +276,7 @@
     <string name="title_advanced_separate_reply">Vložit vodorovnou čáru před hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku odpovědi/přeposlání</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
+    <string name="title_advanced_limit_reply">Omezit počet vnořených citací</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
