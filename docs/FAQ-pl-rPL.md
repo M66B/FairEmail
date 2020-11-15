@@ -10,7 +10,7 @@ Jeśli masz pytanie, najpierw sprawdź najczęściej zadawane pytania umieszczon
 * [Planowane funkcje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Często żądane funkcje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Najczęściej zadawane pytania (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Uzyskaj wsparcie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autoryzacja kont
 
@@ -1184,7 +1184,7 @@ Most of the battery usage, not considering viewing messages, is due to synchroni
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
 In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
@@ -1880,6 +1880,8 @@ If the account authorization has expired, you will have to select the account ag
 <a name="faq88"></a>
 **(88) How can I use a Yahoo, AOL or Sky account?**
 
+The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
+
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
@@ -1912,7 +1914,9 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized.
+Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+<br />
 
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
@@ -1920,7 +1924,6 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
 ~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
-
 
 <br />
 
@@ -2557,7 +2560,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Obraz zewnętrzny](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2788,27 +2791,27 @@ If I could, I would add a setting to select the primary and accent color right a
 
 ## Wsparcie
 
-FairEmail jest obsługiwany tylko na smartfonach, tabletach i ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Obsługiwana jest tylko najnowsza wersja sklepu Play i najnowsze wydanie GitHub. Kompilacja F-Droid jest obsługiwana tylko wtedy, gdy numer wersji jest taki sam jak numer wersji najnowszej wersji GitHub. Oznacza to również, że obniżanie wersji nie jest wspierane.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Nie ma wsparcia dla rzeczy, które nie są bezpośrednio związane z FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Żądane funkcje powinny:
+Requested features should:
 
 * być przydatny dla większości ludzi
 * nie komplikować użycia FairEmail
 * pasować do filozofii FairEmail (zorientowanej na prywatność i bezpieczeństwo)
 * być zgodne z popularnymi standardami (IMAP, SMTP, itp.)
 
-Funkcje, które nie spełniają tych wymogów, zostaną prawdopodobnie odrzucone. This is also to keep maintenance and support in the long term feasible.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Problemy z GitHub są wyłączone z powodu częstych nadużyć.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Prawa autorskie &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2020 Marcel Bokhorst.

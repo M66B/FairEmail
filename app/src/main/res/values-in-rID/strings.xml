@@ -237,6 +237,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
     <string name="title_advanced_extended_reply">Gunakan header balasan/penerusan yang diperpanjang</string>
     <string name="title_advanced_quote_reply">Kutip teks balasan</string>
+    <string name="title_advanced_limit_reply">Batasi jumlah kutipan bertingkat</string>
     <string name="title_advanced_resize_reply">Ubah ukuran gambar dalam teks balasan</string>
     <string name="title_advanced_signature_location">Posisi tanda tangan</string>
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
@@ -1107,16 +1108,41 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_pro_invalid">Respon tidak valid</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
+    <string name="title_widget_title_list">Daftar pesan</string>
+    <string name="title_widget_account">Akun</string>
+    <string name="title_widget_account_all">Semua</string>
+    <string name="title_widget_folder">Folder</string>
     <string name="title_widget_folder_unified">Folder kotak masuk terpadu</string>
+    <string name="title_widget_unseen">Hanya pesan yang belum dibaca</string>
     <string name="title_widget_font_size">Ukuran teks</string>
+    <string name="title_accessibility_expanded">Perluas</string>
     <string name="title_accessibility_seen">Sudah dibaca</string>
+    <string name="title_accessibility_unseen">Belum dibaca</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="other">%1$d pesan</item>
+    </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Penting</string>
+    <string name="title_keyword_label2">Kerja</string>
+    <string name="title_keyword_label3">Pribadi</string>
+    <string name="title_keyword_label5">Nanti</string>
     <string name="title_accessibility_unflagged">Tidak berbintang</string>
+    <string name="title_accessibility_collapse">Ciutkan</string>
+    <string name="title_accessibility_expand">Memperluas</string>
+    <string name="title_accessibility_view_contact">Lihat Kontak</string>
     <string name="title_accessibility_show_authentication_result">Tampilkan hasil otentikasi</string>
     <string name="title_accessibility_show_snooze_time">Tampilkan waktu tunda</string>
+    <string name="title_accessibility_view_help">Lihat bantuan</string>
+    <string name="title_accessibility_selected">Dipilih</string>
+    <string name="title_accessibility_answered">Balasan</string>
+    <string name="title_accessibility_scroll_down">Gulir ke bawah</string>
+    <string name="title_accessibility_scroll_up">Gulir ke atas</string>
+    <string name="title_accessibility_edit">Sunting</string>
     <string name="title_accessibility_show_addresses">Tampilkan alamat</string>
+    <string name="title_accessibility_hide_addresses">Sembunyikan alamat</string>
     <string name="title_accessibility_attachment">Lampiran</string>
     <string name="title_accessibility_from">Pengirim</string>
+    <string name="title_accessibility_to">Penerima</string>
     <string-array name="pollIntervalNames">
         <item>Selalu</item>
         <item>Setiap 15 menit</item>
@@ -1140,16 +1166,48 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
         <item>Kotak masuk terpadu</item>
         <item>Folder terpadu</item>
         <item>Folder akun utama</item>
-        <item>Accounts</item>
+        <item>Akun</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Biarkan</item>
+        <item>Percakapan sebelumnya</item>
+        <item>Percakapan selanjutnya</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Kepada</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
     <string-array name="biometricsTimeoutNames">
         <item>1 menit</item>
         <item>2 menit</item>
         <item>5 menit</item>
         <item>10 menit</item>
         <item>20 menit</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Di atas</item>
+        <item>Di tengah</item>
+        <item>Di akhir</item>
+        <item>Tampilkan lengkap</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Rendah</item>
+        <item>Normal</item>
+        <item>Tinggi</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>

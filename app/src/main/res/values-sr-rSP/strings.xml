@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail претрага</string>
-    <string name="app_changelog">Евиденција измена</string>
+    <string name="app_changelog">Дневник измена</string>
     <string name="app_welcome">FairEmail е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
     <string name="app_limitations">Нпр. поруке ће увек бити форматиране тако да се уклоне небезбедни елементи и да се побољша читљивост, а отварање веза мора да се, ради безбедности, потврди.</string>
     <string name="app_crash">FairEmail није подржан на овом уређају пошто Андроид грешке изазивају рушења апликације</string>

@@ -1184,7 +1184,7 @@ Most of the battery usage, not considering viewing messages, is due to synchroni
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. Setelah mengurangi jumlah hari untuk menyimpan pesan, Anda mungkin ingin menjalankan pembersihan di pengaturan lain-lain untuk menghapus file lama.
 
 In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
@@ -1880,17 +1880,19 @@ If the account authorization has expired, you will have to select the account ag
 <a name="faq88"></a>
 **(88) How can I use a Yahoo, AOL or Sky account?**
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
+Mengatur akun Yahoo lebih diutamakan menggunakan pengaturan cepat, yang mana menggunakan OAuth bukan dengan kata sandi oleh karena itu lebih aman (dan juga lebih mudah).
+
+Untuk mengotorisasi akun Yahoo, AOL, atau Sky, Anda perlu membuat kata sandi aplikasi. Untuk petunjuk, silakan lihat di sini:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Silakan lihat [ FAQ ini ](#user-content-faq111) tentang bantuan OAuth.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Untuk diperhatikan, bahwa Yahoo, AOL, dan Sky tidak mendukung standar pesan dorong. Aplikasi email Yahoo menggunakan protokol paten dan tidak ada dokumentasi untuk pesan dorong.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Pesan dorong memerlukan [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) dan server email Yahoo tidak melaporkan IDLE sebagai kapabilitas:
 
 ```
 Y1 CAPABILITY
@@ -1903,7 +1905,7 @@ Y1 OK CAPABILITY completed
 <a name="faq89"></a>
 **(89) How can I send plain text only messages?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+Secara standar, FairEmail mengirim setiap pesan baik sebagai teks biasa dan teks berformat HTML karena hampir setiap penerima mengharapkan pesan yang diformat saat ini. Jika Anda ingin / perlu mengirim pesan teks biasa saja, Anda dapat mengaktifkannya di opsi identitas lanjutan. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
 <br />
 
@@ -1912,7 +1914,9 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized.
+Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+<br />
 
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
@@ -1920,7 +1924,6 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
 ~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
-
 
 <br />
 
@@ -1946,9 +1949,9 @@ If legitimate messages are failing authentication, you should notify the sender 
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Lihat juga [di sini](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Pesan, lampiran, dll. yang disimpan di media penyimpanan eksternal, seperti kartu memori, dapat diakses oleh aplikasi lain oleh karena itu tidak aman. Lihat [di sini](https://developer.android.com/training/data-storage) untuk lebih lanjut.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 

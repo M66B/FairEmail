@@ -153,7 +153,7 @@
     <string name="title_setup_doze_remark">使接收邮件更可靠</string>
     <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但关闭电池优化将减少电池用量</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
-    <string name="title_setup_doze_battery">耗电量高？</string>
+    <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_advanced_options">显示高级选项</string>
@@ -242,6 +242,7 @@
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
+    <string name="title_advanced_limit_reply">限制嵌套引用数量</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>

@@ -254,6 +254,7 @@
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima dell\'intestazione di una risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposta/inoltro</string>
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
+    <string name="title_advanced_limit_reply">Limita il numero di citazioni annidate</string>
     <string name="title_advanced_resize_reply">Ridimensiona le immagini nel testo di risposta</string>
     <string name="title_advanced_signature_location">Posizione della firma</string>
     <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>

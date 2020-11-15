@@ -275,6 +275,7 @@
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
+    <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych ofert</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
