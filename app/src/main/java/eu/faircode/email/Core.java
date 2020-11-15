@@ -704,7 +704,6 @@ class Core {
 
     private static void onKeyword(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
         // Set/reset user flag
-        DB db = DB.getInstance(context);
         // https://tools.ietf.org/html/rfc3501#section-2.3.2
         String keyword = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
