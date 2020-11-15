@@ -57,6 +57,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.MailboxInfo;
 import com.sun.mail.imap.protocol.MessageSet;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
@@ -1810,13 +1811,16 @@ class Core {
     private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
         // Delete all messages from folder
         try {
-            final MessageSet[] sets = new MessageSet[]{new MessageSet(1, ifolder.getMessageCount())};
-
-            Log.i(folder.name + " purge " + MessageSet.toString(sets));
+            Log.i(folder.name + " purge=" + ifolder.getMessageCount());
             ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                 @Override
                 public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                    protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
+                    MailboxInfo info = protocol.select(ifolder.getFullName());
+                    if (info.total > 0) {
+                        MessageSet[] sets = new MessageSet[]{new MessageSet(1, info.total)};
+                        EntityLog.log(context, folder.name + " purging=" + MessageSet.toString(sets));
+                        protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
+                    }
                     return null;
                 }
             });
