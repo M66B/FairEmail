@@ -77,6 +77,17 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvLanguageDetectionHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_language_detection_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDelayHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -87,7 +98,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swLanguageDetection" />
+            app:layout_constraintTop_toBottomOf="@id/tvLanguageDetectionHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDefaultSnooze"
