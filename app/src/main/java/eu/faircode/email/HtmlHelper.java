@@ -602,7 +602,14 @@ public class HtmlHelper {
                                 if (!text_size)
                                     continue;
 
-                                float current = 1.0f;
+                                float current;
+                                if (tag.length() == 2 &&
+                                        tag.charAt(0) == 'h' &&
+                                        Character.isDigit(tag.charAt(1)))
+                                    current = HEADING_SIZES[tag.charAt(1) - '1'];
+                                else
+                                    current = 1.0f;
+
                                 Element parent = element.parent();
                                 while (parent != null) {
                                     String xFontSize = parent.attr("x-font-size");
@@ -2239,8 +2246,7 @@ public class HtmlHelper {
                             case "h4":
                             case "h5":
                             case "h6":
-                                int level = element.tagName().charAt(1) - '1';
-                                setSpan(ssb, new RelativeSizeSpan(HEADING_SIZES[level]), start, ssb.length());
+                                // Font size is already set
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
                                 break;
                             case "hr":
