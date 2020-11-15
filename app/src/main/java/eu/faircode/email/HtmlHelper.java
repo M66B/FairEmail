@@ -2250,34 +2250,33 @@ public class HtmlHelper {
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
                                 break;
                             case "hr":
-                                boolean dashed = "true".equals(element.attr("x-dashed"));
-                                if (dashed) {
-                                    LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
-                                    int last = -1;
-                                    if (lines != null)
-                                        for (LineSpan line : lines) {
-                                            int e = ssb.getSpanEnd(line);
-                                            if (e > last)
-                                                last = e;
-                                        }
-                                    if (last >= 0) {
-                                        boolean blank = true;
-                                        for (int i = last; i < ssb.length(); i++) {
-                                            char kar = ssb.charAt(i);
-                                            if (kar != ' ' && kar != '\n' && kar != '\u00a0') {
-                                                blank = false;
-                                                break;
-                                            }
-                                        }
-
-                                        if (blank)
-                                            break;
+                                // Suppress succesive lines
+                                LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
+                                int last = -1;
+                                if (lines != null)
+                                    for (LineSpan line : lines) {
+                                        int e = ssb.getSpanEnd(line);
+                                        if (e > last)
+                                            last = e;
                                     }
+                                if (last >= 0) {
+                                    boolean blank = true;
+                                    for (int i = last; i < ssb.length(); i++) {
+                                        char kar = ssb.charAt(i);
+                                        if (kar != ' ' && kar != '\n' && kar != '\u00a0') {
+                                            blank = false;
+                                            break;
+                                        }
+                                    }
+
+                                    if (blank)
+                                        break;
                                 }
 
-                                ssb.append(LINE);
+                                boolean dashed = "true".equals(element.attr("x-dashed"));
                                 float stroke = context.getResources().getDisplayMetrics().density;
                                 float dash = (dashed ? dp3 : 0f);
+                                ssb.append(LINE);
                                 setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 break;
                             case "img":
