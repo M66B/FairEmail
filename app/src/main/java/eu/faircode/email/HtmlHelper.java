@@ -56,9 +56,6 @@ import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
-import android.view.textclassifier.TextClassificationManager;
-import android.view.textclassifier.TextClassifier;
-import android.view.textclassifier.TextLanguage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1686,26 +1683,9 @@ public class HtmlHelper {
             if (!language_detection)
                 return null;
 
-            // Why not ML kit? https://developers.google.com/ml-kit/terms
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                TextClassificationManager tcm =
-                        (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
-                if (tcm == null)
-                    return null;
-
-                String text = getPreview(body);
-                if (text == null)
-                    return null;
-
-                TextLanguage.Request trequest = new TextLanguage.Request.Builder(text).build();
-                TextClassifier tc = tcm.getTextClassifier();
-                TextLanguage tlanguage = tc.detectLanguage(trequest);
-                if (tlanguage.getLocaleHypothesisCount() > 0)
-                    return tlanguage.getLocale(0).toLocale().getLanguage();
-            }
-
-            return null;
+            String text = getPreview(body);
+            Locale locale = TextHelper.detectLanguage(context, text);
+            return (locale == null ? null : locale.getLanguage());
         } catch (Throwable ex) {
             Log.e(ex);
             return null;
