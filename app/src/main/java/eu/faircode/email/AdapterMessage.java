@@ -27,7 +27,6 @@ import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.Person;
 import android.app.RemoteAction;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -94,8 +93,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
-import android.view.textclassifier.TextClassificationManager;
-import android.view.textclassifier.TextClassifier;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -160,20 +157,16 @@ import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
@@ -2415,48 +2408,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!conversation_actions)
                         return null;
 
-                    TextClassificationManager tcm = (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
-                    if (tcm == null)
-                        return null;
-
-                    Person author = isOutgoing(message)
-                            ? ConversationActions.Message.PERSON_USER_SELF
-                            : ConversationActions.Message.PERSON_USER_OTHERS;
-                    ZonedDateTime dt = new Date(message.received)
-                            .toInstant()
-                            .atZone(ZoneId.systemDefault());
-                    List<ConversationActions.Message> input = new ArrayList<>();
+                    List<String> texts = new ArrayList<>();
                     if (!TextUtils.isEmpty(message.subject))
-                        input.add(new ConversationActions.Message.Builder(author)
-                                .setReferenceTime(dt)
-                                .setText(message.subject)
-                                .build());
-                    input.add(new ConversationActions.Message.Builder(author)
-                            .setReferenceTime(dt)
-                            .setText(document.text())
-                            .build());
+                        texts.add(message.subject);
+                    texts.add(document.text());
 
-                    Set<String> excluded = new HashSet<>(Arrays.asList(
-                            ConversationAction.TYPE_OPEN_URL,
-                            ConversationAction.TYPE_SEND_EMAIL
-                    ));
-                    if (!conversation_actions_replies)
-                        excluded.add(ConversationAction.TYPE_TEXT_REPLY);
-                    TextClassifier.EntityConfig config =
-                            new TextClassifier.EntityConfig.Builder()
-                                    .setExcludedTypes(excluded)
-                                    .build();
-
-                    List<String> hints = Collections.unmodifiableList(Arrays.asList(
-                            ConversationActions.Request.HINT_FOR_IN_APP
-                    ));
-                    ConversationActions.Request crequest =
-                            new ConversationActions.Request.Builder(input)
-                                    .setTypeConfig(config)
-                                    .setHints(hints)
-                                    .build();
-
-                    return tcm.getTextClassifier().suggestConversationActions(crequest);
+                    return TextHelper.getConversationActions(
+                            context,
+                            texts.toArray(new String[0]),
+                            conversation_actions_replies,
+                            isOutgoing(message),
+                            message.received);
                 }
             }.setCount(false).execute(context, owner, args, "message:body");
         }
