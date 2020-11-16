@@ -335,6 +335,7 @@
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
     <string name="title_advanced_text_separators">Utiliser des lignes de séparation</string>
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
+    <string name="title_advanced_image_placeholders">Afficher les espaces réservés aux images</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
@@ -482,6 +483,7 @@
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_preview_issue">Le défilement peut être lent lorsqu’il y a plus d’une ligne en raison d’un bogue dans certaines versions d’Android</string>
     <string name="title_advanced_overview_mode_hint">Ceci peut afficher de très petites polices de caractères</string>
+    <string name="title_advanced_placeholders_hint">Ceci s\'applique uniquement aux messages reformatés</string>
     <string name="title_advanced_inline_hint">Les images incluses dans le message peuvent être affichées sans téléchargement supplémentaire</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
     <string name="title_advanced_language_detection_hint">La prise en charge de la détection de la langue dépend du fabricant de l\'appareil</string>

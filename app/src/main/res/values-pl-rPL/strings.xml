@@ -356,6 +356,7 @@
     <string name="title_advanced_text_align">Użyj wyrównania tekstu</string>
     <string name="title_advanced_text_separators">Użyj linii separatora</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
+    <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
@@ -503,6 +504,7 @@
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jedna</string>
     <string name="title_advanced_overview_mode_hint">Może to skutkować bardzo małymi czcionkami</string>
+    <string name="title_advanced_placeholders_hint">Dotyczy to tylko przeformatowanych wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_language_detection_hint">Obsługa wykrywania języków zależy od producenta urządzenia</string>

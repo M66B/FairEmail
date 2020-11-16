@@ -336,6 +336,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_text_align">Textausrichtung verwenden</string>
     <string name="title_advanced_text_separators">Trennlinien verwenden</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
+    <string name="title_advanced_image_placeholders">Platzhalter für Bilder anzeigen</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
@@ -483,6 +484,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
+    <string name="title_advanced_placeholders_hint">Dies gilt nur für neu formatierte Nachrichten</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>

@@ -241,6 +241,7 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi di cartelle condovise</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_sync_subscribed">Sincronizza automaticamente le cartelle sottoscritte</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_text_align">Usa l\'allineamento testo</string>
     <string name="title_advanced_text_separators">Usa linee di separatore</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
+    <string name="title_advanced_image_placeholders">Mostra segnaposti immagine</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un punto</string>
     <string name="title_advanced_actionbar">Mostra barra azione conversazione</string>
@@ -481,8 +483,10 @@
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può essere lento a causa di un bug in alcune versioni di Android quando il numero di righe è più di uno</string>
     <string name="title_advanced_overview_mode_hint">Questo può portare a caratteri molto piccoli</string>
+    <string name="title_advanced_placeholders_hint">Questo vale solo per i messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
     <string name="title_advanced_parse_classes_hint">Questo mostrerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
+    <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento linguistico dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>

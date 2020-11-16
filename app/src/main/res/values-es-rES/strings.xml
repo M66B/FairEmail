@@ -336,6 +336,7 @@
     <string name="title_advanced_text_align">Usar alineación de texto</string>
     <string name="title_advanced_text_separators">Usar líneas separadoras</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
+    <string name="title_advanced_image_placeholders">Mostrar lugar reservados de imágenes</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
@@ -483,6 +484,7 @@
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_preview_issue">El desplazamiento puede ser lento debido a un error en algunas versiones de Android cuando el número de líneas es más de una</string>
     <string name="title_advanced_overview_mode_hint">Esto puede resultar en fuentes muy pequeñas</string>
+    <string name="title_advanced_placeholders_hint">Esto sólo se aplica a los mensajes reformateados</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
     <string name="title_advanced_language_detection_hint">El soporte de detección de idiomas depende del fabricante del dispositivo</string>
@@ -1126,7 +1128,7 @@
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_hide">Ocultar contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
-    <string name="title_legend_external_image">Imagen externa</string>
+    <string name="title_legend_external_image">Lugar reservado de imagen externa</string>
     <string name="title_legend_embedded_image">Lugar reservado de imagen incrustada</string>
     <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
     <string name="title_legend_broken_image">Imagen rota</string>

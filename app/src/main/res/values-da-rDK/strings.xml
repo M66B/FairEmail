@@ -333,6 +333,7 @@
     <string name="title_advanced_text_align">Benyt tekstjustering</string>
     <string name="title_advanced_text_separators">Benyt separatorlinjer</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
+    <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
@@ -480,6 +481,7 @@
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
     <string name="title_advanced_overview_mode_hint">Dette kan resultere i meget små skrifttyper</string>
+    <string name="title_advanced_placeholders_hint">Dette gælder kun omformaterede beskeder</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
