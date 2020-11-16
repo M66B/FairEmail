@@ -1723,9 +1723,15 @@ FairEmail is based on the state-of-the-art [Android architecture components](htt
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the receive settings you can enable scheduling and set the time period and the day of weeks when messages should be received.
+In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
-Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+
+It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+
+It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
 For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
 
@@ -1771,14 +1777,6 @@ Ekstra: konto:Gmail
 ```
 
 Account names are case sensitive.
-
-Automation can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
-
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
-
-It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
-
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific notifications.
 
 Scheduling is a pro feature.
 

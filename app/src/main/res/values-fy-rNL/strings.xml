@@ -241,6 +241,7 @@
     <string name="title_advanced_sync_folders">Maplist syngronisearje</string>
     <string name="title_advanced_sync_shared_folders">Syngronisearje dielde maplisten</string>
     <string name="title_advanced_subscriptions">Mapabonneminten beheare</string>
+    <string name="title_advanced_sync_subscribed">Syngroniseare mappen automatysk syngronisearje</string>
     <string name="title_advanced_check_mx">Kontrolearje e-postadressen fan stjoerder op syngronisearjen fan berjochten</string>
     <string name="title_advanced_check_reply">Kontrolearje e-postadressen foar antwurd op berjochten syngronisearje</string>
     <string name="title_advanced_tune_keep_alive">Tune it ynterval foar libbenhâlden automatysk</string>
@@ -352,6 +353,7 @@
     <string name="title_advanced_undo">Timeout ûngedien meitsje</string>
     <string name="title_advanced_quick_filter">Lit net-opfallende rappe filterikoanen sjen</string>
     <string name="title_advanced_star_snoozed">Foegje stjer automatysk ta by slûgjen fan berjochten</string>
+    <string name="title_advanced_auto_important">Meitsje automatyske berjochten wichtich</string>
     <string name="title_advanced_reset_importance">Belang werstelle by it ferpleatsen fan berjochten</string>
     <string name="title_advanced_discard_delete">By ûntwerp ferwiderje konsept permanint</string>
     <string name="title_advanced_default_snooze">Standert sluimertiid</string>
@@ -375,6 +377,7 @@
     <string name="title_advanced_notify_action_seen">Lêze</string>
     <string name="title_advanced_notify_action_snooze">Snooze</string>
     <string name="title_advanced_notify_remove">Ferwiderje nije berjochtenferklearring by tikken op notifikaasje</string>
+    <string name="title_advanced_notify_messaging">Brûk notifikaasjeformaat fan \'berjochtenstyl\' fan Android</string>
     <string name="title_advanced_light">Brûk notifikaasje ljocht</string>
     <string name="title_advanced_sound">Selektearje meldingslûd</string>
     <string name="title_advanced_confirm_links">Befestigings foar iepenjen befestigje</string>
@@ -406,6 +409,7 @@
     <string name="title_advanced_conversation_actions_replies">Antwurdteksten foarstelle</string>
     <string name="title_advanced_language_detection">Teksttaal fan berjocht opspoare</string>
     <string name="title_advanced_fts">Sykje-yndeks bouwe</string>
+    <string name="title_advanced_fts_indexed">%1$d / %2$d berjochten yndekseare (%3$s)</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Kontrolearje periodyk as FairEmail noch aktyf is</string>
@@ -423,11 +427,13 @@
     <string name="title_advanced_schedule_hint">Tikje op in tiid om in tiid yn te stellen</string>
     <string name="title_advanced_lookup_mx_hint">Kontrolearje periodyk lykas FairEmail noch aktyf is</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin swalkjen binnen de EU</string>
+    <string name="title_advanced_browse_hint">Helje mear berjochten as jo omleech scrollen</string>
     <string name="title_advanced_beige_hint">Allinich ljochte tema\'s</string>
     <string name="title_advanced_threading_hint">Groepberjochten relatearre oan elkoar</string>
     <string name="title_advanced_gravatars_hint">D\'r kin in privacy risiko wêze</string>
     <string name="title_advanced_overview_mode_hint">Dit kin resultearje yn heul lytse lettertypen</string>
     <string name="title_advanced_bcc_hint">It adres wurdt net werjûn, mar wurdt tafoege by it ferstjoeren</string>
+    <string name="title_advanced_display_hidden_hint">Dit kin resultearje yn ûneven uterlike en dûbele teksten</string>
     <string name="title_advanced_badge_hint">Allinich beskikber op stipe lansearders</string>
     <string name="title_advanced_notify_action_hint">Op syn meast wurde trije aksjes werjûn</string>
     <string name="title_advanced_notify_manage_default_hint">Om it standertlûd yn te stellen, ensfh</string>
@@ -481,6 +487,7 @@
     <string name="title_primary">Primêr</string>
     <string name="title_primary_account">Primêr (standert akkount)</string>
     <string name="title_primary_identity">Primêr (standert identiteit)</string>
+    <string name="title_self_identity">Ferwider e-postadres as jo antwurdzje</string>
     <string name="title_leave_on_server">Berjochten efterlitte op server</string>
     <string name="title_leave_deleted">Wiskje berjochten op de server litte</string>
     <string name="title_leave_on_device">Berjochten litte op apparaat</string>
@@ -491,8 +498,12 @@
     <string name="title_date_remark">Feroarings sille allinich tapast wurde op nije berjochten</string>
     <string name="title_related_identity">Ferlykbere identiteit tafoegje</string>
     <string name="title_check">Kontrolearje</string>
+    <string name="title_trust">Serversertifikaat fertrouwe mei fingerprint %1$s</string>
     <string name="title_no_name">Namme ûntbrekke</string>
     <string name="title_no_email">E-postadres ûntbrekt</string>
+    <string name="title_email_invalid">E-postadres ûnjildich: \'%1$s\'</string>
+    <string name="title_address_duplicate">Adres \'%1$s\' duplikaat</string>
+    <string name="title_address_parse_error">Adres \'%1$s\' ûnjildich: %2$s</string>
     <string name="title_no_account">Ûntbrekke akkount</string>
     <string name="title_no_host">Hostnamme ûntbrekt</string>
     <string name="title_no_user">Brûkersnamme ûntbrekt</string>
@@ -500,14 +511,19 @@
     <string name="title_no_inbox">Postfak net fûn</string>
     <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>
+    <string name="title_no_sync">Syngronisaasjefouten sûnt %1$s</string>
     <string name="title_identity_required">In identiteit is ferplicht om e-post te stjoeren</string>
     <string name="title_drafts_required">In map foar ûntwerpen is ferplicht om e-post te ferstjoeren</string>
     <string name="title_account_delete">Dit akkount permanint wiskje?</string>
     <string name="title_identity_delete">Dizze identiteit permanint wiskje?</string>
     <string name="title_edit_html">Bewurkje as HTML</string>
     <string name="title_sign_key">Undertekenkaai: %1$s</string>
+    <string name="title_last_connected">Lêst ferbûn: %1$s</string>
+    <string name="title_backoff_until">Wachtsje nei mislearring oant: %1$s</string>
+    <string name="title_storage_quota">Tsjinner opslach gebrûk: %1$s/%2$s</string>
     <string name="title_oauth_support">OAuth wurdt net stipe</string>
     <string name="title_review">Resinsje</string>
+    <string name="title_service_auth">De e-posttsjinner sei: \'%1$s\'</string>
     <string name="title_service_port">Dubbel kontrolearje it poartenûmer</string>
     <string name="title_advanced_browse">Blêdzje berjochten op de server</string>
     <string name="title_advanced_expand_read">Markearje berjochten lêzen as útwreidzjen</string>
@@ -535,6 +551,7 @@
     <string name="title_delete_operation_move">Bewurkje ferpleatse</string>
     <string name="title_delete_operation_flag">Flagge operaasjes</string>
     <string name="title_delete_operation_delete">Bedriuwen wiskje</string>
+    <string name="title_delete_operation_deleted">%1$d operaasjes wiske</string>
     <string name="title_delete_contacts">Alle lokale kontakten wiskje?</string>
     <string name="title_no_operations">Gjin wachtsjende operaasjes</string>
     <string name="title_folder_name">Map namme</string>
@@ -542,6 +559,7 @@
     <string name="title_show_folders">Sjoch ferburgen mappen</string>
     <string name="title_show_flagged">Toant stjerre berjochten</string>
     <string name="title_subscribed_only">Ynskriuwe allinich</string>
+    <string name="title_apply_to_all">Tapasse op allegear &#8230;</string>
     <string name="title_hide_folder">Map ferbergje</string>
     <string name="title_unified_folder">Lit sjen yn unifoarme postfak</string>
     <string name="title_navigation_folder">Lit sjen yn navigaasjemenu</string>
@@ -552,6 +570,7 @@
     <string name="title_keep_all">Bewarje alle berjochten</string>
     <string name="title_auto_trash">Alde berjochten automatysk nei jiskefet ferpleatse</string>
     <string name="title_folder_name_missing">Mapnamme ûntbrekt</string>
+    <string name="title_folder_exists">Map %1$s bestiet</string>
     <string name="title_months">Moanne</string>
     <string name="title_months_all">Alle</string>
     <string name="title_folder_unified">Unifieare postfak</string>
@@ -570,6 +589,7 @@
     <string name="title_no_folders">Gjin mappen</string>
     <string name="title_no_messages">Gjin berjochten</string>
     <string name="title_filters_active">Ien of mear filters aktyf</string>
+    <string name="title_duplicate_in">Berjocht duplisearje yn %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Foarút: %1$s</string>
     <string name="title_buttons">Knoppen</string>
@@ -630,13 +650,17 @@
     <string name="title_reply_list">Antwurdzje op list</string>
     <string name="title_reply_receipt">Stjoer lêsbewiis</string>
     <string name="title_reply_template">Antwurdzje mei sjabloan</string>
+    <string name="title_move_undo">Bewege nei %1$s (%2$d)</string>
     <string name="title_open_with">Iepenje mei</string>
     <string name="title_authentication_failed">%1$s ferifikaasje mislearre</string>
+    <string name="title_receipt_subject">Untfang lêze: %1$s</string>
     <string name="title_no_answers">Gjin antwurd sjabloanen definieare</string>
+    <string name="title_no_viewer">Gjin sjogger-app beskikber foar %1$s</string>
     <string name="title_no_recorder">Gjin geskikte app foar audio-recorder beskikber</string>
     <string name="title_no_camera">Gjin geskikte kamera-app beskikber</string>
     <string name="title_no_saf">Ramt opslach tagong net beskikber</string>
     <string name="title_no_internet">Gjin as gjin gaadlike ynternetferbining</string>
+    <string name="title_no_connection">Ferbine mei ien of meardere akkounts &#8230;</string>
     <string name="title_no_folder">Map bestiet net</string>
     <string name="title_no_format">It oarspronklik ûntfangen berjocht sil wurde opnommen</string>
     <string name="title_no_image">Ofbylding koe net dekodearre wurde</string>
@@ -719,6 +743,7 @@
     <string name="title_add_image_attach">Taheakje</string>
     <string name="title_add_image_resize">Grutte feroarje</string>
     <string name="title_add_image_privacy">Fuortsmite privacy gefoelige gegevens</string>
+    <string name="title_add_resize_pixels">&lt; %1$d piksels</string>
     <string name="title_add_image_select">Selektearje bestân</string>
     <string name="title_add_attachment">Taheakje tafoegje</string>
     <string name="title_attachment_file">Heakje bestân ta</string>
@@ -734,8 +759,12 @@
     <string name="title_edit_plain_text">Bewurkje as platte tekst</string>
     <string name="title_edit_formatted_text">Bewurkje as herfoarme tekst</string>
     <string name="title_select_certificate">Selektearje iepenbiere kaai</string>
+    <string name="title_certificate_missing">Gjin iepenbiere kaai foar %1$s</string>
+    <string name="title_certificate_invalid">Iepenbiere kaai fan %1$s is ûnjildich</string>
     <string name="title_no_key">Gjin privee kaai</string>
     <string name="title_invalid_key">Unjildige priveekaai</string>
+    <string name="title_unknown_key">Private kaai komt net oerien mei alle kodearingskaaien</string>
+    <string name="title_key_missing">Gjin kaai foar %1$s</string>
     <string name="title_send_plain_text">Platte tekst allinich</string>
     <string name="title_send_receipt">Untfange oanfreegje</string>
     <string name="title_from_missing">Ofstjoerder mist</string>
@@ -747,10 +776,13 @@
     <string name="title_attachment_keywords">taheakke,taheaksel,taheaksels,opnommen</string>
     <string name="title_attachment_reminder">Wiene jo fan doel in bylage ta te foegjen?</string>
     <string name="title_plain_reminder">Alle opmaak sil ferlern gean</string>
+    <string name="title_size_reminder">Berjocht (%1$s) grutter dan serverlimyt (%2$s)</string>
     <string name="title_attachments_missing">Net alle bylagen binne ynladen</string>
     <string name="title_draft_deleted">Untwerp ferwidere</string>
     <string name="title_draft_saved">Untwerp opslein</string>
+    <string name="title_ask_send_via">Berjocht ferstjoere nei %1$s fia %2$s?</string>
     <string name="title_queued">Ferstjoere berjochten</string>
+    <string name="title_queued_at">Berjocht sil rûnom ferstjoerd wurde %1$s</string>
     <string name="title_sign">Ûndertekenje</string>
     <string name="title_verify">Ferifiearje</string>
     <string name="title_encrypt">Fersiferje</string>
@@ -1023,6 +1055,7 @@
     <string name="title_check_owner">Kontrolearje eigner</string>
     <string name="title_ip_owner">Eigner IP adres</string>
     <string name="title_select_app">App selektearje</string>
+    <string name="title_updated">D\'r is in update foar ferzje %1$s beskikber</string>
     <string name="title_issue">Hawwe jo in fraach of probleem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
@@ -1044,7 +1077,9 @@
     <string name="title_clipboard_copied">Kopiearre nei klamboerd</string>
     <string name="title_ask_what">Freegje wat te dwaan</string>
     <string name="title_no_ask_again">Freegje dit net wer</string>
+    <string name="title_no_ask_for_again">Freegje dit net wer foar %1$s</string>
     <string name="title_no_body">Gjin berjochttekst fûn</string>
+    <string name="title_no_charset">Net stipe kodearring: %1$s</string>
     <string name="title_via">Fia: %1$s</string>
     <string name="title_1hour">1 oere</string>
     <string name="title_1day">1 dei</string>
@@ -1059,6 +1094,7 @@
     <string name="title_loading">Oan it laden &#8230;</string>
     <string name="title_fetching_again">Berjocht werheljen fan de server</string>
     <string name="title_conversation_actions">Aksje</string>
+    <string name="title_conversation_action_reply">Antwurdzje mei: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiearje: %1$s</string>
     <string name="title_icalendar_accept">Akseptearje</string>
     <string name="title_icalendar_decline">Efterútgong</string>
@@ -1068,6 +1104,7 @@
     <string name="title_pro_list">List fan pro-funksjes</string>
     <string name="title_pro_purchase">Keapje</string>
     <string name="title_pro_once">Allinne ien kear</string>
+    <string name="title_pro_hide">Ferbergje lyts berjocht foar %1$d wiken</string>
     <string name="title_pro_hint">Mei pro-funksjes keapje kinne jo alle aktuele en takomstige pro-funksjes brûke, sil dizze app ûnderhâlde en stipe wurde.</string>
     <string name="title_pro_price">Wêrom binne de pro-funksjes sa djoer?</string>
     <string name="title_pro_restore">Hoe kin ik in oankeap werstelle?</string>

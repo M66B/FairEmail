@@ -229,6 +229,7 @@
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_sync_subscribed">自动同步订阅的文件夹</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
@@ -471,6 +472,7 @@
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
+    <string name="title_advanced_language_detection_hint">语言检测支持取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>

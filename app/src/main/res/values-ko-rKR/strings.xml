@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail 검색</string>
+    <string name="app_changelog">변경 로그</string>
+    <string name="app_welcome">FairEmail은 프라이버시와 보안을 위한 오픈 소스 이메일 앱입니다. 그렇기에 몇몇 기능은 당신이 지금까지 써왔던 것과 조금 다르게 작동할 수 있습니다.</string>
+    <string name="app_limitations">예를 들어, 안전하지 않은 요소들을 지우고 가독성을 높이기 위해 메세지들은 항상 재포맷될 것이며 링크를 여는 것은 안전을 위해 항상 수락 과정을 거칩니다.</string>
+    <string name="app_crash">Android가 충돌을 일으키기 때문에 이 기기에서는 FailEmail이 지원되지 않습니다.</string>
+    <string name="app_exit">나가려면 뒤로 버튼을 한번 더 누르세요</string>
+    <string name="app_cake">저장 공간 부족</string>
+    <string name="channel_service">수신</string>
+    <string name="channel_send">발신</string>
+    <string name="channel_notification">알림</string>
+    <string name="channel_update">업데이트</string>
+    <string name="channel_warning">경고</string>
+    <string name="channel_error">오류</string>
+    <string name="channel_alert">서버 알림</string>
+    <string name="channel_group_contacts">연락</string>
+    <string name="channel_service_description">계정 동기화 및 모니터링</string>
+    <string name="channel_send_description">메시지 전송 중</string>
+    <string name="channel_notification_description">새 메시지 알림</string>
+    <plurals name="page_conversation">
+        <item quantity="other">대화</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="other">메시지</item>
+    </plurals>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

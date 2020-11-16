@@ -1723,9 +1723,15 @@ FairEmail is based on the state-of-the-art [Android architecture components](htt
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the receive settings you can enable scheduling and set the time period and the day of weeks when messages should be received.
+In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
-Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+
+It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+
+It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
 For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
 
@@ -1771,14 +1777,6 @@ Extras: account:Gmail
 ```
 
 Account names are case sensitive.
-
-Automation can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
-
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
-
-It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
-
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific notifications.
 
 Scheduling is a pro feature.
 
@@ -1880,19 +1878,19 @@ If the account authorization has expired, you will have to select the account ag
 <a name="faq88"></a>
 **(88) How can I use a Yahoo, AOL or Sky account?**
 
-Mengatur akun Yahoo lebih diutamakan menggunakan pengaturan cepat, yang mana menggunakan OAuth bukan dengan kata sandi oleh karena itu lebih aman (dan juga lebih mudah).
+The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
 
-Untuk mengotorisasi akun Yahoo, AOL, atau Sky, Anda perlu membuat kata sandi aplikasi. Untuk petunjuk, silakan lihat di sini:
+To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Silakan lihat [ FAQ ini ](#user-content-faq111) tentang bantuan OAuth.
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
-Untuk diperhatikan, bahwa Yahoo, AOL, dan Sky tidak mendukung standar pesan dorong. Aplikasi email Yahoo menggunakan protokol paten dan tidak ada dokumentasi untuk pesan dorong.
+Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
 
-Pesan dorong memerlukan [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) dan server email Yahoo tidak melaporkan IDLE sebagai kapabilitas:
+Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
 ```
 Y1 CAPABILITY
@@ -1905,7 +1903,7 @@ Y1 OK CAPABILITY completed
 <a name="faq89"></a>
 **(89) How can I send plain text only messages?**
 
-Secara standar, FairEmail mengirim setiap pesan baik sebagai teks biasa dan teks berformat HTML karena hampir setiap penerima mengharapkan pesan yang diformat saat ini. Jika Anda ingin / perlu mengirim pesan teks biasa saja, Anda dapat mengaktifkannya di opsi identitas lanjutan. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
 <br />
 
@@ -1949,9 +1947,9 @@ If legitimate messages are failing authentication, you should notify the sender 
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Lihat juga [di sini](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
 
-Pesan, lampiran, dll. yang disimpan di media penyimpanan eksternal, seperti kartu memori, dapat diakses oleh aplikasi lain oleh karena itu tidak aman. Lihat [di sini](https://developer.android.com/training/data-storage) untuk lebih lanjut.
+Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 

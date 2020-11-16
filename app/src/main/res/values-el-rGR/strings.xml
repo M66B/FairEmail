@@ -241,6 +241,7 @@
     <string name="title_advanced_sync_folders">Συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_shared_folders">Συγχρονισμός της λίστας κοινών φακέλων</string>
     <string name="title_advanced_subscriptions">Διαχείριση συνδρομών σε φακέλους</string>
+    <string name="title_advanced_sync_subscribed">Αυτόματος συγχρονισμός των φακέλων με συνδρομή</string>
     <string name="title_advanced_check_mx">Έλεγχος διευθύνσεων των αποστολέων κατά τον συγχρονισμό μηνυμάτων</string>
     <string name="title_advanced_check_reply">Έλεγχος διευθύνσεων των απαντήσεων κατά τον συγχρονισμό μηνυμάτων</string>
     <string name="title_advanced_tune_keep_alive">Αυτόματη ρύθμιση του χρονικού διαστήματος για διατήρηση ενεργής σύνδεσης</string>
@@ -481,6 +482,7 @@
     <string name="title_advanced_overview_mode_hint">Μπορεί να προκαλέσει πολύ μικρές γραμματοσειρές</string>
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
+    <string name="title_advanced_language_detection_hint">Η υποστήριξη αναγνώρισης γλώσσας εξαρτάται από τον κατασκευαστή της συσκευής</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
     <string name="title_advanced_autoseen_hint">Η αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους, μπορεί να απενεργοποιηθεί στις επιμέρους ρυθμίσεις καθενός λογαριασμού</string>
     <string name="title_advanced_autoclose_hint">Αυτόματο κλείσιμο των συζητήσεων όταν όλα τα μηνύματα έχουν αρχειοθετηθεί, διαβαστεί ή διαγραφεί</string>

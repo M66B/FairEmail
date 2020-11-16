@@ -264,6 +264,7 @@
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
+    <string name="title_advanced_limit_reply">Limitează numărul de citate imbricate</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
     <string name="title_advanced_signature_location">Poziție semnătură</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>

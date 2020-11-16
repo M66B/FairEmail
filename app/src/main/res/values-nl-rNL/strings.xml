@@ -240,6 +240,7 @@
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
+    <string name="title_advanced_sync_subscribed">Geabonneerde mappen automatisch synchroniseren</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
     <string name="title_advanced_check_reply">Controleer antwoordadressen bij het synchroniseren van berichten</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
@@ -333,6 +334,7 @@
     <string name="title_advanced_text_align">Gebruik tekst uitlijning</string>
     <string name="title_advanced_text_separators">Gebruik scheidingslijnen</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
+    <string name="title_advanced_image_placeholders">Plaatsvervangers van afbeelding weergeven</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
@@ -480,8 +482,10 @@
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
+    <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw geformatteerde berichten</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
+    <string name="title_advanced_language_detection_hint">Ondersteuning van taaldetectie is afhankelijk van de fabrikant van het apparaat</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autoseen_hint">Berichten automatisch markeren als gelezen bij uitvouwen, kan worden uitgeschakeld in de individuele accountinstellingen</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>

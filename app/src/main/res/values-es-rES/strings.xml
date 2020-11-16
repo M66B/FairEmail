@@ -242,6 +242,7 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de carpetas</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de carpetas compartidas</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar automáticamente las carpetas suscritas</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
     <string name="title_advanced_check_reply">Comprobar direcciones de correo de respuesta al sincronizar mensajes</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
@@ -484,6 +485,7 @@
     <string name="title_advanced_overview_mode_hint">Esto puede resultar en fuentes muy pequeñas</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
+    <string name="title_advanced_language_detection_hint">El soporte de detección de idiomas depende del fabricante del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autoseen_hint">El marcado automático de los mensajes como leídos al expandirlos se puede desactivar en la configuración individual de la cuenta</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>

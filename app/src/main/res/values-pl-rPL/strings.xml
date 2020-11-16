@@ -262,6 +262,7 @@
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
     <string name="title_advanced_sync_shared_folders">Synchronizuj listy udostępnionych folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
+    <string name="title_advanced_sync_subscribed">Automatycznie synchronizuj subskrybowane foldery</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_reply">Sprawdź adresy e-mail odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
@@ -275,7 +276,7 @@
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
-    <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych ofert</string>
+    <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych cytatów</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
@@ -504,6 +505,7 @@
     <string name="title_advanced_overview_mode_hint">Może to skutkować bardzo małymi czcionkami</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
+    <string name="title_advanced_language_detection_hint">Obsługa wykrywania języków zależy od producenta urządzenia</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoseen_hint">Automatyczne oznaczanie wiadomości czytanych podczas rozwijania można wyłączyć w ustawieniach poszczególnych kont</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>

@@ -242,6 +242,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_sync_shared_folders">Listen der freigegebenen Ordner synchronisieren</string>
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
+    <string name="title_advanced_sync_subscribed">Abonnierte Ordner automatisch synchronisieren</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_reply">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
@@ -484,6 +485,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
+    <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einem Thema enthalten ist</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Themen automatisch schließen, wenn alle Nachrichten archiviert, gesendet oder gelöscht werden</string>

@@ -1,6 +1,6 @@
 # Assistance FairEmail
 
-Sie vous avez des questions, veuillez d'abord consulter la foire aux questions. En bas, vous pouvez trouver comment poser d'autres questions, demander des fonctionnalités et signaler des bugs.
+Sie vous avez des questions, veuillez d'abord consulter la foire aux questions. En bas de cette page, vous trouverez comment poser d'autres questions, suggérer des fonctionnalités et signaler des bugs.
 
 ## Index
 
@@ -14,15 +14,15 @@ Sie vous avez des questions, veuillez d'abord consulter la foire aux questions. 
 
 ## Autorisation des comptes
 
-Dans la plupart des cas, la configuration rapide sera capable d'identifier automatiquement la bonne configuration.
+En temps normal, la configuration rapide sera capable d'identifier automatiquement la bonne configuration.
 
-Si la configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin des adresses de serveur IMAP et SMTP et des numéros de port, si SSL/TLS ou STARTTLS doivent être utilisés et votre nom d'utilisateur (généralement mais pas toujours, votre adresse électronique) et votre mot de passe.
+Si la configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin des adresses du serveur IMAP et SMTP, des numéros de port, de savoir si SSL/TLS ou STARTTLS doivent être utilisés, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
 
-La recherche de *IMAP* et le nom du fournisseur est généralement suffisant pour trouver la bonne documentation.
+Faire une recherche avec *IMAP* et le nom du fournisseur est généralement suffisant pour trouver la documentation appropriée.
 
-Dans certains cas, vous devrez activer l'accès externe à votre compte ou utiliser un mot de passe spécial (application), par exemple lorsque l'authentification à deux facteurs est activée.
+Dans certains cas, vous aurez besoin d'activer l'accès externe à votre compte ou d'utiliser un mot de passe spécial (mots de passe d'application). Par exemple lorsque l'authentification à deux facteurs est activée.
 
-Pour l'autorisation :
+Pour l'autorisation de :
 
 * Gmail / G suite, voir [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, voir [question 14](#user-content-faq14)
@@ -32,9 +32,9 @@ Pour l'autorisation :
 * Apple iCloud, voir [question 148](#user-content-faq148)
 * Free.fr, voir [question 157](#user-content-faq157)
 
-Veuillez consulter [ici](#user-content-faq22) pour les messages d'erreur courants et les solutions.
+Vous trouverez [ici](#user-content-faq22) les messages d'erreur fréquents leurs solutions.
 
-Questions connexes :
+Questions liées:
 
 * [OAuth est-il pris en charge ?](#user-content-faq111)
 * [Pourquoi ActiveSync n'est-il pas pris en charge ?](#user-content-faq133)
@@ -76,7 +76,7 @@ Questions connexes :
 * ~~Le chiffrement avec YubiKey se traduit par une boucle infinie. Cela semble être causé par un [bug dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Le défilement vers un emplacement lié en interne dans les messages originaux ne fonctionne pas. Ceci ne peut pas être corrigé car la vue du message d'origine est contenue dans une vue déroulante.
 * Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation des messages sont censés être affichés correctement sur les objets connectés Pebble 2, Fitbit Charge 3, Mi band 3 et Xiaomi Amazfit BIP. Voir aussi [cette FAQ](#user-content-faq126).
-* Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Ce bogue a été corrigé dans Android 6.0.1.
+* Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* lorsque du texte est sélectionné et en tapotant à côté de ce dernier. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancrés) ne fonctionneront pas parce que les messages originaux sont affichés dans une WebView intégrée dans une vue défilante (la liste des conversations). Il s'agit d'une limitation Android qui ne peut être ni corrigée ni contournée.
 
 ## Fonctionnalités prévues
@@ -120,10 +120,10 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 
 ## Foire aux questions
 
-* [(1) Quelles autorisations sont nécessaires et pourquoi ?](#user-content-faq1)
-* [(2) Pourquoi y a t'il une notification permanente affichée ?](#user-content-faq2)
+* [(1) Quelles autorisations Android sont nécessaires et pourquoi ?](#user-content-faq1)
+* [(2) Pourquoi y a t'il une notification permanente ?](#user-content-faq2)
 * [(3) Que sont les opérations et pourquoi sont-elles en attente ?](#user-content-faq3)
-* [(4) Comment puis-je utiliser un certificat de sécurité invalide / un mot de passe vide / une connexion en clair ?](#user-content-faq4)
+* [(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en clair ?](#user-content-faq4)
 * [(5) Comment puis-je paramétrer la vue des messages ?](#user-content-faq5)
 * [(6) Comment puis-je me connecter à to Gmail / G suite?](#user-content-faq6)
 * [(7) Pourquoi les messages envoyés n'apparaissent pas (directement) dans le dossier Envoyés ?](#user-content-faq7)
@@ -283,26 +283,26 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 [J’ai une autre question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Quelles permissions sont nécessaires et pourquoi?**
+**(1) Quelles autorisations Android sont nécessaires et pourquoi ?**
 
 Les autorisations Android suivantes sont nécessaires:
 
-* *ont un accès complet au réseau* (INTERNET): pour envoyer et recevoir des emails
-* *afficher les connexions réseau* (ACCESS_NETWORK_STATE): pour surveiller les changements de connectivité internet
-* *exécuter au démarrage* (RECEIVE_BOOT_COMPLETED) : pour démarrer la surveillance au démarrage de l'appareil
-* *service de premier plan* (FOREGROUND_SERVICE) : pour exécuter un service de premier plan sur Android 9 Pie et plus tard, voir aussi la question suivante
-* *Empêcher l'appareil de dormir* (WAKE_LOCK): pour garder l'appareil éveillé lors de la synchronisation des messages
-* *Facturation dans l'application* (BILLING): pour autoriser les achats in-app
-* Facultatif : *lisez vos contacts* (READ_CONTACTS): pour compléter automatiquement les adresses et afficher les photos
-* Facultatif : *lire le contenu de votre carte SD* (READ_EXTERNAL_STORAGE): pour accepter des fichiers provenant d'autres applications obsolètes, voir aussi [cette FAQ](#user-content-faq49)
-* Facultatif : *utiliser le matériel d'empreinte digitale* (USE_FINGERPRINT) et utiliser *matériel biométrique* (USE_BIOMETRIC): pour utiliser l'authentification biométrique
-* Facultatif : *trouver des comptes sur l'appareil* (GET_ACCOUNTS): pour sélectionner un compte lors de la configuration rapide de Gmail
-* Android 5.1 Lollipop et avant : *utiliser les comptes sur l'appareil* (USE_CREDENTIALS): pour sélectionner un compte lors de la configuration rapide de Gmail (non demandée sur les versions ultérieures d'Android)
-* Android 5.1 Lollipop et avant : *Lire le profil* (READ_PROFILE): pour lire votre nom lorsque vous utilisez la configuration rapide de Gmail (non demandée sur les versions ultérieures d'Android)
+* *bénéficier d'un accès complet au réseau* (INTERNET) : pour envoyer et recevoir des e-mails
+* *afficher les connexions réseau* (ACCESS_NETWORK_STATE): pour surveiller les changements de connectivité à internet
+* *s'exécuter au démarrage* (RECEIVE_BOOT_COMPLETED) : pour commencer la surveillance au démarrage de l'appareil
+* *exécuter un service de premier plan* (FOREGROUND_SERVICE) : pour exécuter un service de premier plan sur Android 9 Pie et ultérieur. Voir aussi la question suivante
+* *empêcher le téléphone de passer en mode veille* (WAKE_LOCK): pour garder l'appareil éveillé lors de la synchronisation des messages
+* *Service de facturation Google Play* (BILLING): pour permettre les achats dans l'application
+* Facultatif : *voir les contacts* (READ_CONTACTS): pour compléter automatiquement les adresses et afficher les photos de profil
+* Facultatif : *lire le contenu de votre carte SD* (READ_EXTERNAL_STORAGE): pour accepter des fichiers provenant d'autres applications obsolètes, voir aussi [cette question](#user-content-faq49)
+* Facultatif : *utiliser le matériel d'empreintes digitales* (USE_FINGERPRINT) et *utiliser les composants biométriques* (USE_BIOMETRIC): pour utiliser l'authentification biométrique
+* Facultatif : *rechercher des comptes sur l'appareil* (GET_ACCOUNTS): pour sélectionner un compte lors de la configuration rapide de Gmail
+* Android 5.1 Lollipop et antérieur: *utiliser les comptes sur l'appareil* (USE_CREDENTIALS): pour sélectionner un compte lors de la configuration rapide de Gmail (non demandée pour les versions ultérieures d'Android)
+* Android 5.1 Lollipop et antérieur : *Lire le profil* (READ_PROFILE): pour lire votre nom lorsque vous utilisez la configuration rapide de Gmail (non demandée pour les versions ultérieures d'Android)
 
-[Autorisations optionnelles](https://developer.android.com/training/permissions/requesting) ne sont prises en charge que sur Android 6 Marshmallow et plus tard. Sur les versions antérieures d'Android, il vous sera demandé d'accorder les autorisations facultatives sur l'installation de FairEmail.
+[Les autorisations facultatives](https://developer.android.com/training/permissions/requesting) ne sont prises en charge que sur Android 6 Marshmallow et ultérieur. Sur les versions antérieures d'Android, il vous sera demandé d'accorder les autorisations facultatives à l'installation de FairEmail.
 
-Les autorisations suivantes sont nécessaires pour afficher le nombre de messages non lus comme un badge (voir aussi [ceci dans FAQ](#user-content-faq106)) :
+Les autorisations suivantes sont nécessaires pour afficher le nombre de messages non lus comme un badge (voir aussi [cette question](#user-content-faq106)) :
 
 * *cOM.sec.android.provider.badge.permission.READ*
 * *com.sec.android provider.badge.permission.WRITE*
@@ -321,29 +321,29 @@ Les autorisations suivantes sont nécessaires pour afficher le nombre de message
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail conservera une liste d'adresses depuis lesquelles vous recevez des messages et enverrez des messages à et utilisera cette liste pour des suggestions de contacts quand aucune autorisation de contact n'est accordée à FairEmail. Cela signifie que vous pouvez utiliser FairEmail sans le fournisseur de contacts Android (carnet d'adresses). Notez que vous pouvez toujours choisir des contacts sans accorder les autorisations de contact à FairEmail, seul suggérer que les contacts ne fonctionneront pas sans les autorisations de contacts.
+FairEmail tiendra une liste des adresses venant des messages que vous recevez et envoyez, et utilisera cette liste pour faire des suggestions de contacts lorsqu'aucune autorisation d'accès aux contacts n'est accordée à FairEmail. Cela signifie que vous pouvez utiliser FairEmail sans le fournisseur de contacts d'Android (carnet d'adresses). Notez que vous pouvez toujours choisir des contacts sans accorder les autorisations de contact à FairEmail, seul la suggestion de contacts ne fonctionneront pas sans les autorisations.
 
 <br />
 
 <a name="faq2"></a>
 **(2) Pourquoi y a-t-il une notification permanente ?**
 
-Une notification de la barre d'état permanente de faible priorité avec le nombre de comptes surveillés et le nombre d'opérations en attente (voir la question suivante) est montrée pour empêcher Android de tuer le service qui prend en charge la réception continue d'e-mail. Ceci était [déjà nécessaire](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), mais avec l'introduction du [mode doze](https://developer.android.com/training/monitoring-device-state/doze-standby) dans Android 6 Marshmallow c'est plus que jamais nécessaire. Le mode Veille arrêtera toutes les applications lorsque l'écran est éteint pendant un certain temps, sauf si l'application a démarré un service de premier plan, ce qui nécessite l'affichage d'une notification dans la barre d'état.
+Une notification de la barre d'état, permanente, de faible priorité, avec le nombre de comptes surveillés et le nombre d'opérations en attente (voir la question suivante) est montrée pour empêcher Android de tuer le service qui prend en charge la réception continue d'e-mail. Ceci était auparavant [déjà nécessaire](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), mais avec l'introduction du [mode Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) dans Android 6 Marshmallow, c'est plus que jamais nécessaire. Le mode Doze arrêtera toutes les applications lorsque l'écran est éteint pendant un certain temps, sauf si l'application a démarré un service de premier plan, ce qui nécessite l'affichage d'une notification dans la barre d'état.
 
-La plupart, sinon tous, les autres applications de messagerie n'affichent pas de notification avec l'effet secondaire que les nouveaux messages ne sont souvent pas signalés ou en retard et que les messages ne sont pas envoyés ou en retard.
+La plupart, sinon la totalité, des autres applications de messagerie électronique n'affichent pas de notification avec pour "effet secondaire" que les nouveaux messages ne sont souvent pas signalés ou le sont avec retard et que les messages ne sont pas envoyés ou le sont avec retard.
 
-Android affiche d'abord les icônes des notifications de la barre d'état de haute priorité et masquera l'icône de notification de FairEmail s'il n'y a plus d'espace pour afficher les icônes. En pratique, cela signifie que la notification de la barre d'état ne prend pas de place dans la barre d'état, à moins qu'il n'y ait de place disponible.
+Android affiche en priorité les icônes des notifications de la barre d'état de haute priorité et masquera l'icône de notification de FairEmail s'il n'y a plus d'espace pour afficher les icônes. En pratique, cela signifie que la notification ne prend pas de place dans la barre d'état, à moins qu'il n'y ait de la place disponible.
 
 La notification de la barre d'état peut être désactivée via les paramètres de notification de FairEmail:
 
 * Android 8 Oreo et supérieur : appuyez sur le bouton *Canal de réception* et désactivez le canal via les paramètres Android (cela ne désactivera pas les notifications de nouveaux messages)
-* Android 7 Nougat et avant : activé *Utiliser le service d'arrière-plan pour synchroniser les messages*, mais n'oubliez pas de lire la remarque en dessous du paramètre
+* Android 7 Nougat et inférieur : activez *Utiliser le service d'arrière-plan pour synchroniser les messages*, mais veillez à lire la remarque en dessous du paramètre
 
-Vous pouvez basculer vers la synchronisation périodique des messages dans les paramètres de réception pour supprimer la notification, mais sachez que cela peut consommer plus de batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
+Vous pouvez changer pour une synchronisation périodique des messages dans les paramètres de réception de FairEmail, pour supprimer la notification, mais sachez que cela peut augmenter la consommation de la batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
 
-Android 8 Oreo pourrait également afficher une notification dans la barre d'état avec le texte *Les applications sont en cours d'exécution en arrière-plan*. Veuillez voir [ici](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) comment désactiver cette notification.
+Android 8 Oreo pourrait également afficher une notification dans la barre d'état avec le texte *Les applications sont en cours d'exécution en arrière-plan*. Veuillez voir [ici](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) pour savoir comment désactiver cette notification.
 
-Certaines personnes ont suggéré d'utiliser [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) au lieu d'un service Android avec une notification de la barre d'état, mais cela nécessite que les fournisseurs de messagerie envoient des messages FCM ou un serveur central où tous les messages sont collectés envoyant des messages FCM. La première ne se produira pas et la dernière aurait des implications significatives sur la vie privée.
+Certaines personnes ont suggéré d'utiliser [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) au lieu d'un service Android avec une notification dans la barre d'état, mais cela nécessite que les fournisseurs de messagerie envoient des messages FCM, ou un serveur central où tous les messages sont collectés puis qui renvoie des messages FCM. Le premier cas ne se produira pas et le second aurait des implications significatives sur la vie privée.
 
 Si vous êtes arrivé·e ici en cliquant sur la notification, vous devez savoir que le prochain clic ouvrira la boîte de réception unifiée.
 
@@ -357,52 +357,52 @@ La notification de la barre d'état de faible priorité montre le nombre d'opér
 * *ajouter* : ajouter un message au dossier distant
 * *déplacer* : déplacer le message vers un autre dossier distant
 * *copie* : copier le message dans un autre dossier distant
-* *recuperer* : message de récupération modifié (préssé)
+* *récupérer* : récupérer un message modifié (poussé)
 * *supprimer* : supprimer le message du dossier distant
 * *vu* : marquer le message comme lu/non lu dans le dossier distant
 * *répondu* : marquer le message comme répondu dans le dossier distant
-* *Drapeau* : ajouter/supprimer une étoile dans le dossier distant
+* *drapeau* : ajouter/supprimer une étoile dans le dossier distant
 * *mot-clé* : ajouter/supprimer le drapeau IMAP dans le dossier distant
 * *label*: définir/réinitialiser le label Gmail dans le dossier distant
 * *en-têtes* : télécharger les en-têtes de message
-* *crue* : télécharger le message brut
-* *body* : télécharger le texte du message
+* *brut* : télécharger le message brut
+* *corps* : télécharger le texte du message
 * *pièce jointe* : télécharger la pièce jointe
 * *Sync* : synchroniser les messages locaux et distants
-* *abonnez-vous* : abonnez-vous au dossier distant
-* *purge* : supprimer tous les messages du dossier distant
-* *Envoyer* : envoyer un message
+* *s'abonner* : s'abonner au dossier distant
+* *purger* : supprimer tous les messages du dossier distant
+* *envoyer* : envoyer un message
 * *existe* : vérifiez si le message existe
 * *règle* : exécute la règle sur le corps du texte
 
-Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de messagerie ou lors de la synchronisation manuelle. Voir aussi [cette FAQ](#user-content-faq16).
+Les opérations ne sont effectuées que lorsqu'il y a une connexion au serveur de messagerie ou lors de la synchronisation manuelle. Voir aussi [cette question](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Comment puis-je utiliser un certificat de sécurité non valide / mot de passe vide / connexion en texte brut ?**
+**(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en clair ?**
 
 *... Non fiable ... pas dans le certificat ...*
 <br />
 *... Certificat de sécurité invalide (impossible de vérifier l'identité du serveur) ...*
 
-Vous devriez essayer de résoudre ce problème en contactant votre fournisseur ou en obtenant un certificat de sécurité valide car les certificats de sécurité non valides sont non sécurisés et autorisent [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si l'argent est un obstacle, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Crypt](https://letsencrypt.org).
+Vous devriez essayer de résoudre ce problème en contactant votre fournisseur ou en obtenant un certificat de sécurité valide. Car les certificats de sécurité non valides ne sont pas sécurisés et permettent [une attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si l'argent est un problème, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Crypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Autrement, vous pouvez accepter l'empreinte digitale des certificats de serveur non valides comme ceci :
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Assurez-vous que vous utilisez une connexion internet fiable (pas de réseaux Wi-Fi publics, etc)
+1. Aller à l'écran de configuration rapide via le menu de navigation (Faites glisser depuis le côté gauche vers l'intérieur)
+1. À l'étape 1 et 2 appuyez sur *Gérer* et sélectionnez le compte et l'identité qui pose problème
+1. Contrôlez/enregistrez le compte et l'identité
+1. Cochez la case en dessous du message d'erreur et enregistrez à nouveau
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Ceci va "épingler" le certificat du serveur pour éviter les attaques de l'homme du milieu.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvelles autorités de certification comme Let's Encrypt qui peuvent considérer les connexions comme non sécurisées, voir aussi [ici](https://developer.android.com/training/articles/security-ssl).
 
 *Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* signifie que le gestionnaire de confiance Android par défaut n'était pas en mesure de vérifier la chaîne de certificats du serveur.
 
 You should either fix the server configuration or accept the fingerprint shown below the error message.
 
@@ -421,14 +421,14 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Comment puis-je personnaliser la vue des messages ?**
 
-In the three dot overflow menu you can enable or disable or select:
+Dans le menu à trois points, vous pouvez activer ou désactiver ou sélectionner :
 
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-In the display section of the settings you can enable or disable:
+Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver :
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Grouper par date*: Affiche la date en en-tête au dessus des messages ayant la même date
@@ -449,7 +449,7 @@ Note that messages can be previewed only when the message text was downloaded. L
 
 If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
 
-Some people ask:
+Certaines personnes demandent :
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * d'afficher l'adresse ou l'objet en plus grand/plus petit, mais cela interférerait avec l'option de taille de texte
@@ -460,7 +460,7 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
 You can use the quick setup wizard to easily setup a Gmail account and identity.
 
@@ -478,7 +478,7 @@ See [here](https://support.google.com/accounts/answer/185833) about how to gener
 
 <br />
 
-*Enable "Less secure apps"*
+*Activer les "Applications moins sécurisées"*
 
 **Important**: using this method is not recommended because it is less reliable.
 
@@ -500,7 +500,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
 
 <br />
 
@@ -997,15 +997,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Image intégrée](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Image cassée](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1435,11 +1435,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1723,9 +1723,15 @@ FairEmail is based on the state-of-the-art [Android architecture components](htt
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-In the receive settings you can enable scheduling and set the time period and the day of weeks when messages should be received.
+In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
-Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+
+It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+
+It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
 For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
 
@@ -1772,14 +1778,6 @@ Extras: account:Gmail
 
 Account names are case sensitive.
 
-Automation can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
-
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
-
-It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to snooze business related messages until the start of the business hours. This also means that the messages will be on your device for when there is no internet connection, for example when flying.
-
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific notifications.
-
 Scheduling is a pro feature.
 
 <br />
@@ -1795,7 +1793,7 @@ You can use pull-down-to-refresh in a message list or use the folder menu *Synch
 
 If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
 
-You'll likely want to disabled [browse on server](#user-content-faq24) too.
+Vous voudrez probablement aussi désactiver [naviguer sur le serveur](#user-content-faq24).
 
 <br />
 
@@ -1822,14 +1820,14 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+La reconnaissance automatique des images de suivi peut être désactivée dans les paramètres de confidentialité.
 
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) À quoi servent les contacts locaux ?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -1884,15 +1882,15 @@ The preferred way to set up a Yahoo account is by using the quick setup wizard, 
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
-* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
+* [pour Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [pour AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [pour Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (sous *d'autres applications de messagerie*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Veuillez consulter [cette FAQ](#user-content-faq111) sur le support OAuth.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Notez que Yahoo, AOL et Sky ne prennent pas en charge les messages push standard. L'application de messagerie Yahoo utilise un protocole propriétaire et non documenté pour les messages push.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Les messages push requièrent [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) et le serveur de messagerie Yahoo ne rapporte pas IDLE comme "capability":
 
 ```
 Y1 CAPABILITY
@@ -1903,14 +1901,14 @@ Y1 OK CAPABILITY completed
 <br />
 
 <a name="faq89"></a>
-**(89) How can I send plain text only messages?**
+**(89) Comment puis-je envoyer uniquement des messages en texte brut ?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+Par défaut, FairEmail envoie chaque message en texte brut et en texte formaté en HTML, car presque chaque destinataire attend des messages formatés ces jours-ci. Si vous voulez/avez besoin d'envoyer uniquement des messages en texte brut, vous pouvez l'activer dans les options d'identité avancées. Vous pouvez créer une nouvelle identité si vous voulez/avez besoin de sélectionner l'envoi de messages en texte brut au cas par cas.
 
 <br />
 
 <a name="faq90"></a>
-**(90) Why are some texts linked while not being a link?**
+**(90) Pourquoi certains sont des liens sans être un lien ?**
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
@@ -1923,12 +1921,12 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Voir [cette FAQ](#user-content-faq39) sur l'optimisation de l'utilisation de la batterie.~~
 
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
+**(92) Pouvez-vous ajouter le filtrage de spam, la vérification de la signature DKIM et l'autorisation SPF ?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
@@ -2560,7 +2558,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2764,53 +2762,53 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Cette commande peut être envoyée à FairEmail depuis une application d'automatisation pour mettre à jour les listes de protection :
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+Mettre à jour une fois par semaine sera probablement suffisant, veuillez consulter [ici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pour la liste des modifications récentes.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Pouvez-vous ajouter une suppression permanente des messages sans confirmation ?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+La suppression permanente signifie que les messages seront *irréversiblement* perdus, et pour éviter que cela ne se produise accidentellement, cela doit toujours être confirmé. Même avec confirmation, certaines personnes très en colère qui ont perdu certains de leurs messages par leur propre faute m'ont contacté, qui a été une expérience plutôt désagréable :-(
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Peux-tu ajouter un paramètre pour changer la couleur primaire et d'accentuation ?***
 
-If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+Si je le pouvais, j'ajouterais un paramètre pour sélectionner la couleur primaire et de l'accent tout de suite, mais malheureusement les thèmes Android sont fixes, voir par exemple [ici](https://stackoverflow.com/a/26511725/1794097), donc ce n'est pas possible.
 
 <br />
 
 
-## Get support
+## Obtenir de l'aide
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si le numéro de version est le même que le numéro de version de la dernière version de GitHub. Cela signifie également que la rétrogradation n'est pas prise en charge.
 
-There is no support on things that are not directly related to FairEmail.
+Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
 
-There is no support on building and developing things by yourself.
+Il n'y a aucun soutien pour construire et développer les choses par vous-même.
 
-Requested features should:
+Les fonctionnalités demandées doivent :
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* être utile à la plupart des gens
+* ne pas compliquer l'utilisation de FairEmail
+* s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
+* se conformer aux normes communes (IMAP, SMTP, etc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Les caractéristiques qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de maintenir la maintenance et le soutien à long terme réalisable.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Les "issues"/tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
 
 <br />
 
