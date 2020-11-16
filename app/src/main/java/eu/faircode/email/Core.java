@@ -486,7 +486,8 @@ class Core {
                                     " folder=" + folder.id + ":" + folder.name +
                                     " message=" + (message == null ? null : message.id + ":" + message.subject) +
                                     " reason=" + Log.formatThrowable(ex, false));
-                            Log.e(new Throwable(msg, ex));
+                            if (op.tries > 1)
+                                Log.e(new Throwable(msg, ex));
 
                             try {
                                 db.beginTransaction();
