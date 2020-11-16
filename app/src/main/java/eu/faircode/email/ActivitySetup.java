@@ -739,8 +739,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 }
 
                 String json = data.toString();
-                if (!json.startsWith("{") || !json.endsWith("}"))
-                    throw new BadPaddingException("JSON");
+                if (!json.startsWith("{") || !json.endsWith("}")) {
+                    Log.i("Invalid JSON");
+                    throw new IllegalArgumentException(context.getString(R.string.title_setup_password_invalid));
+                }
 
                 Log.i("Importing data");
                 JSONObject jimport = new JSONObject(json);
