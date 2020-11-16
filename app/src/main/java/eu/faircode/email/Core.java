@@ -1529,6 +1529,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sync_folders = (prefs.getBoolean("sync_folders", true) || force);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
+        boolean subscriptions = prefs.getBoolean("subscriptions", false);
         boolean sync_subscribed = prefs.getBoolean("sync_subscribed", false);
 
         // Get folder names
@@ -1710,7 +1711,7 @@ class Core {
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = (subscribed && sync_subscribed);
+                        folder.synchronize = (subscribed && subscriptions && sync_subscribed);
                         folder.subscribed = subscribed;
                         folder.poll = true;
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
