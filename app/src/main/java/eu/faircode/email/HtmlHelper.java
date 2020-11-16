@@ -490,7 +490,7 @@ public class HtmlHelper {
 
         // Remove tracking pixels
         if (disable_tracking)
-            removeTrackingPixels(context, document, false);
+            removeTrackingPixels(context, document);
 
         // Font
         for (Element font : document.select("font")) {
@@ -954,12 +954,28 @@ public class HtmlHelper {
             String tracking = img.attr("x-tracking");
 
             if (TextUtils.isEmpty(src)) {
+                Log.i("Removing empty image");
                 img.remove();
                 continue;
             }
-            if (!show_images && !image_placeholders) {
+
+            if (!show_images && !inline_images && !image_placeholders) {
+                Log.i("Removing placeholder");
                 img.removeAttr("src");
                 continue;
+            }
+
+            // Remove spacer, etc
+            if (!show_images && !inline_images &&
+                    TextUtils.isEmpty(img.attr("x-tracking"))) {
+                Log.i("Removing small image");
+                Integer width = Helper.parseInt(img.attr("width").trim());
+                Integer height = Helper.parseInt(img.attr("height").trim());
+                if ((width != null && width <= SMALL_IMAGE_SIZE) ||
+                        (height != null && height <= SMALL_IMAGE_SIZE)) {
+                    img.remove();
+                    continue;
+                }
             }
 
             if (alt.length() > MAX_ALT)
@@ -1517,7 +1533,7 @@ public class HtmlHelper {
         return sb.toString();
     }
 
-    static void removeTrackingPixels(Context context, Document document, boolean full) {
+    static void removeTrackingPixels(Context context, Document document) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disconnect_images = prefs.getBoolean("disconnect_images", false);
 
@@ -1559,18 +1575,8 @@ public class HtmlHelper {
 
             Uri uri = Uri.parse(src);
             String host = uri.getHost();
-            if (host == null || hosts.contains(host)) {
-                if (!full) {
-                    // Remove spacer, etc
-                    Integer width = Helper.parseInt(img.attr("width").trim());
-                    Integer height = Helper.parseInt(img.attr("height").trim());
-                    if ((width != null && width <= SMALL_IMAGE_SIZE) ||
-                            (height != null && height <= SMALL_IMAGE_SIZE))
-                        img.remove();
-                }
-
+            if (host == null || hosts.contains(host))
                 continue;
-            }
 
             if (isTrackingPixel(img) || isTrackingHost(host, disconnect_images)) {
                 img.attr("src", sb.toString());
