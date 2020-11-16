@@ -44,7 +44,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:tint="?android:attr/textColorSecondary"
+            app:tint="?android:attr/textColorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSourceFolders"
