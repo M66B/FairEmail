@@ -369,7 +369,7 @@ public class HtmlHelper {
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         boolean parse_classes = prefs.getBoolean("parse_classes", true);
         boolean inline_images = prefs.getBoolean("inline_images", false);
-        boolean text_separators = prefs.getBoolean("text_separators", true);
+        boolean text_separators = prefs.getBoolean("text_separators", false);
 
         int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
