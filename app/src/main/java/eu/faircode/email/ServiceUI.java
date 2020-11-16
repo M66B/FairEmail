@@ -288,6 +288,9 @@ public class ServiceUI extends IntentService {
         if (body != null)
             body = "<p>" + body.replaceAll("\\r?\\n", "<br>") + "</p>";
 
+        String language = HtmlHelper.getLanguage(this, body);
+        String preview = HtmlHelper.getPreview(body);
+
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -330,9 +333,9 @@ public class ServiceUI extends IntentService {
 
             db.message().setMessageContent(reply.id,
                     true,
-                    HtmlHelper.getLanguage(this, body),
+                    language,
                     plain_only || ref.plain_only,
-                    HtmlHelper.getPreview(body),
+                    preview,
                     null);
 
             EntityOperation.queue(this, reply, EntityOperation.SEND);

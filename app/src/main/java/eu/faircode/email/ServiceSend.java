@@ -534,6 +534,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if (plain != null && plain)
                 body = body.replace("<div x-plain=\"true\">", "<div>");
 
+            String language = HtmlHelper.getLanguage(this, body);
+            String preview = HtmlHelper.getPreview(body);
+
             try {
                 db.beginTransaction();
 
@@ -557,9 +560,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 Helper.writeText(file, body);
                 db.message().setMessageContent(message.id,
                         true,
-                        HtmlHelper.getLanguage(this, body),
+                        language,
                         parts.isPlainOnly(),
-                        HtmlHelper.getPreview(body),
+                        preview,
                         parts.getWarnings(message.warning));
 
                 EntityAttachment.copy(this, id, message.id);
