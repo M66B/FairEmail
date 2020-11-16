@@ -123,7 +123,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(1) Quelles autorisations Android sont nécessaires et pourquoi ?](#user-content-faq1)
 * [(2) Pourquoi y a t'il une notification permanente ?](#user-content-faq2)
 * [(3) Que sont les opérations et pourquoi sont-elles en attente ?](#user-content-faq3)
-* [(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en clair ?](#user-content-faq4)
+* [(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en texte clair ?](#user-content-faq4)
 * [(5) Comment puis-je paramétrer la vue des messages ?](#user-content-faq5)
 * [(6) Comment puis-je me connecter à to Gmail / G suite?](#user-content-faq6)
 * [(7) Pourquoi les messages envoyés n'apparaissent pas (directement) dans le dossier Envoyés ?](#user-content-faq7)
@@ -380,7 +380,7 @@ Les opérations ne sont effectuées que lorsqu'il y a une connexion au serveur d
 <br />
 
 <a name="faq4"></a>
-**(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en clair ?**
+**(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en texte clair ?**
 
 *... Non fiable ... pas dans le certificat ...*
 <br />
@@ -400,23 +400,23 @@ Ceci va "épingler" le certificat du serveur pour éviter les attaques de l'homm
 
 Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvelles autorités de certification comme Let's Encrypt qui peuvent considérer les connexions comme non sécurisées, voir aussi [ici](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Ancre de confiance pour le chemin de certification introuvable*
 
 *... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* signifie que le gestionnaire de confiance Android par défaut n'était pas en mesure de vérifier la chaîne de certificats du serveur.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Vous devez soit corriger la configuration du serveur ou accepter l'empreinte digitale indiqué sous le message d'erreur.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Notez que ce problème peut être également causé par le serveur qui n'envoie pas tous les certificats intermédiaires.
 
-*Empty password*
+*Mot de passe vide*
 
-Your username is likely easily guessed, so this is insecure.
+Votre nom d'utilisateur est probablement facile à deviner, donc ce n'est pas sécurisé.
 
-*Plain text connection*
+*Connexion en texte clair*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Votre nom d'utilisateur, votre mot de passe et tous vos messages envoyés et reçus seront non chiffrés, ce qui est **très peu sécurisé**. Car une [attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est simple à réaliser sur une connexion non chiffrée.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si vous souhaitez tous de même utiliser un certificat de sécurité non valide, un mot de passe vide ou une connexion en texte clair, Vous aurez besoin d'activer les connexions non sécurisée dans la configuration du compte et/ou de l'identité. Le paramètre STARTTLS doit être sélectionné pour les connexions en texte claire. Si vous utilisez les connexions non sécurisées, vous devriez vous connecter uniquement sur des réseaux de confiance et jamais sur des réseaux public. Comme ceux offerts dans les hôtels, les aéroports, etc.
 
 <br />
 
@@ -445,9 +445,9 @@ Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver 
 * *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 * *Barre d'action de conversation*: pour désactiver la barre de navigation du bas
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Notez que les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez modifier cela dans les paramètres.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Si la liste des adresses est longue, vous pouvez réduire la section des adresses avec l'icône *moins* en haut de la section.
 
 Certaines personnes demandent :
 
@@ -455,7 +455,7 @@ Certaines personnes demandent :
 * d'afficher l'adresse ou l'objet en plus grand/plus petit, mais cela interférerait avec l'option de taille de texte
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Malheureusement, il est impossible de contenter tout le monde et ajouter tout un lot de réglages serait non seulement déroutant, mais également jamais suffisant.
 
 <br />
 
