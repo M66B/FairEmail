@@ -975,7 +975,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swTextFont.setChecked(prefs.getBoolean("text_font", true));
         swTextAlign.setChecked(prefs.getBoolean("text_align", true));
-        swTextSeparators.setChecked(prefs.getBoolean("text_separators", false));
+        swTextSeparators.setChecked(prefs.getBoolean("text_separators", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
