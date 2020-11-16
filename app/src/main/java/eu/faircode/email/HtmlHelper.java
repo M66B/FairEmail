@@ -952,6 +952,7 @@ public class HtmlHelper {
             String alt = img.attr("alt");
             String src = img.attr("src");
             String tracking = img.attr("x-tracking");
+            boolean isInline = src.startsWith("cid:");
 
             if (TextUtils.isEmpty(src)) {
                 Log.i("Removing empty image");
@@ -959,14 +960,14 @@ public class HtmlHelper {
                 continue;
             }
 
-            if (!show_images && !inline_images && !image_placeholders) {
+            if (!show_images && !(inline_images && isInline) && !image_placeholders) {
                 Log.i("Removing placeholder");
                 img.removeAttr("src");
                 continue;
             }
 
             // Remove spacer, etc
-            if (!show_images && !inline_images &&
+            if (!show_images && !(inline_images && isInline) &&
                     TextUtils.isEmpty(img.attr("x-tracking"))) {
                 Log.i("Removing small image");
                 Integer width = Helper.parseInt(img.attr("width").trim());
@@ -981,7 +982,7 @@ public class HtmlHelper {
             if (alt.length() > MAX_ALT)
                 alt = alt.substring(0, MAX_ALT) + "…";
 
-            if (!show_images && !(inline_images && src.startsWith("cid:")) && !TextUtils.isEmpty(alt))
+            if (!show_images && !(inline_images && isInline) && !TextUtils.isEmpty(alt))
                 if (TextUtils.isEmpty(tracking))
                     img.appendText("[" + alt + "]");
                 else {
