@@ -347,7 +347,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
                 ivSync.setImageTintList(ColorStateList.valueOf(
-                        folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
+                        folder.synchronize && folder.initialize != 0 &&
+                                !EntityFolder.OUTBOX.equals(folder.type) &&
+                                folder.accountProtocol == EntityAccount.TYPE_IMAP
                                 ? textColorPrimary : textColorSecondary));
 
                 tvKeywords.setText(BuildConfig.DEBUG ? TextUtils.join(" ", folder.keywords) : null);
