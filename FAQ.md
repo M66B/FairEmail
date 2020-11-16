@@ -2613,14 +2613,9 @@ The Android account manager will be used to fetch and refresh OAuth tokens for s
 OAuth for non on-device accounts is not supported
 because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
 
-OAuth for Yandex is supported via the quick setup wizard.
+OAuth for Yandex and Yahoo is supported via the quick setup wizard.
 
 OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
-
-OAuth access for Yahoo was requested, but Yahoo never responded to the request.
-OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL.
-Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media).
-So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
 <br />
 
