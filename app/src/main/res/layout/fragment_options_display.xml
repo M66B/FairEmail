@@ -1008,6 +1008,30 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swImagesPlaceholders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_image_placeholders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvImagesPlaceholdersHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_placeholders_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swImagesPlaceholders" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swImagesInline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1015,7 +1039,7 @@
             android:text="@string/title_advanced_images_inline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
+            app:layout_constraintTop_toBottomOf="@id/tvImagesPlaceholdersHint"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

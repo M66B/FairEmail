@@ -396,6 +396,7 @@
     <string name="title_advanced_text_align">Use text alignment</string>
     <string name="title_advanced_text_separators">Use separator lines</string>
     <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
+    <string name="title_advanced_image_placeholders">Show image placeholders</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">Show conversation action bar</string>
@@ -572,6 +573,7 @@
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
     <string name="title_advanced_overview_mode_hint">This can result in very small fonts</string>
+    <string name="title_advanced_placeholders_hint">This applies to reformatted messages only</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
     <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
 

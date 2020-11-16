@@ -370,6 +370,7 @@ public class HtmlHelper {
         boolean parse_classes = prefs.getBoolean("parse_classes", true);
         boolean inline_images = prefs.getBoolean("inline_images", false);
         boolean text_separators = prefs.getBoolean("text_separators", false);
+        boolean image_placeholders = prefs.getBoolean("image_placeholders", true);
 
         int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
@@ -957,6 +958,10 @@ public class HtmlHelper {
 
             if (TextUtils.isEmpty(src)) {
                 img.remove();
+                continue;
+            }
+            if (!show_images && !image_placeholders) {
+                img.removeAttr("src");
                 continue;
             }
 
@@ -2288,11 +2293,13 @@ public class HtmlHelper {
                                 break;
                             case "img":
                                 String src = element.attr("src");
-                                Drawable d = (imageGetter == null
-                                        ? context.getDrawable(R.drawable.twotone_broken_image_24)
-                                        : imageGetter.getDrawable(src));
-                                ssb.insert(start, "\uFFFC"); // Object replacement character
-                                setSpan(ssb, new ImageSpan(d, src), start, start + 1);
+                                if (!TextUtils.isEmpty(src)) {
+                                    Drawable d = (imageGetter == null
+                                            ? context.getDrawable(R.drawable.twotone_broken_image_24)
+                                            : imageGetter.getDrawable(src));
+                                    ssb.insert(start, "\uFFFC"); // Object replacement character
+                                    setSpan(ssb, new ImageSpan(d, src), start, start + 1);
+                                }
                                 break;
                             case "li":
                                 if (start == 0 || ssb.charAt(start - 1) != '\n')
