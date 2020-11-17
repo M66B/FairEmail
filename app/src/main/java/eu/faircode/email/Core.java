@@ -461,14 +461,15 @@ class Core {
                             db.endTransaction();
                         }
 
+                        if (ifolder != null && !ifolder.isOpen())
+                            break;
+
                         if (op.tries >= TOTAL_RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex instanceof SQLiteConstraintException ||
-                                (ex instanceof IllegalStateException &&
-                                        EntityOperation.SYNC.equals(op.name)) ||
                                 (!ConnectionHelper.isIoError(ex) &&
                                         (ex.getCause() instanceof BadCommandException ||
                                                 ex.getCause() instanceof CommandFailedException /* NO */)) ||
