@@ -131,7 +131,7 @@ public class StyleHelper {
                                     case R.id.group_style_font:
                                         return setFont(item);
                                     case R.id.group_style_blockquote:
-                                        return setBlockquote(item);
+                                        return setBlockQuote(item);
                                     case R.id.group_style_strikethrough:
                                         return setStrikethrough(item);
                                     case R.id.group_style_clear:
@@ -308,12 +308,16 @@ public class StyleHelper {
                             return true;
                         }
 
-                        private boolean setBlockquote(MenuItem item) {
+                        private boolean setBlockQuote(MenuItem item) {
                             Context context = etBody.getContext();
 
                             int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
                             int dp3 = Helper.dp2pixels(context, 3);
                             int dp6 = Helper.dp2pixels(context, 6);
+
+                            Pair<Integer, Integer> paragraph = ensureParagraph(t, s, e);
+                            int start = paragraph.first;
+                            int end = paragraph.second;
 
                             QuoteSpan[] spans = t.getSpans(s, e, QuoteSpan.class);
                             for (QuoteSpan span : spans)
@@ -324,10 +328,10 @@ public class StyleHelper {
                                 q = new QuoteSpan(colorPrimary);
                             else
                                 q = new QuoteSpan(colorPrimary, dp3, dp6);
-                            t.setSpan(q, s, e, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                            t.setSpan(q, start, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
                             etBody.setText(t);
-                            etBody.setSelection(s, e);
+                            etBody.setSelection(start, end);
 
                             return true;
                         }
@@ -366,41 +370,6 @@ public class StyleHelper {
                             etBody.setSelection(s, e);
 
                             return true;
-                        }
-
-                        private Pair<Integer, Integer> ensureParagraph(SpannableStringBuilder t, int s, int e) {
-                            int start = s;
-                            int end = e;
-
-                            // Expand selection at start
-                            while (start > 0 && t.charAt(start - 1) != '\n')
-                                start--;
-
-                            // Expand selection at end
-                            while (end > 0 && end < t.length() && t.charAt(end - 1) != '\n')
-                                end++;
-
-                            // Nothing to do
-                            if (start == end)
-                                return null;
-
-                            // Create paragraph at start
-                            if (start == 0 && t.charAt(start) != '\n') {
-                                t.insert(0, "\n");
-                                start++;
-                                end++;
-                            }
-
-                            // Create paragraph at end
-                            if (end == t.length() && t.charAt(end - 1) != '\n') {
-                                t.append("\n");
-                                end++;
-                            }
-
-                            if (end == t.length())
-                                t.append("\n"); // workaround Android bug
-
-                            return new Pair(start, end);
                         }
                     });
 
@@ -463,9 +432,45 @@ public class StyleHelper {
         if (span instanceof CharacterStyle)
             ss.setSpan(CharacterStyle.wrap((CharacterStyle) span), start, end, flags);
         else if (span instanceof QuoteSpan) {
-            ParagraphStyle p = (ParagraphStyle) span;
-            ss.setSpan(clone(span, p.getClass(), context), start, end, flags);
+            ParagraphStyle ps = (ParagraphStyle) span;
+            Pair<Integer, Integer> p = ensureParagraph(ss, start, end);
+            ss.setSpan(clone(span, ps.getClass(), context), p.first, p.second, flags);
         }
+    }
+
+    static private Pair<Integer, Integer> ensureParagraph(SpannableStringBuilder t, int s, int e) {
+        int start = s;
+        int end = e;
+
+        // Expand selection at start
+        while (start > 0 && t.charAt(start - 1) != '\n')
+            start--;
+
+        // Expand selection at end
+        while (end > 0 && end < t.length() && t.charAt(end - 1) != '\n')
+            end++;
+
+        // Nothing to do
+        if (start == end)
+            return null;
+
+        // Create paragraph at start
+        if (start == 0 && t.charAt(start) != '\n') {
+            t.insert(0, "\n");
+            start++;
+            end++;
+        }
+
+        // Create paragraph at end
+        if (end == t.length() && t.charAt(end - 1) != '\n') {
+            t.append("\n");
+            end++;
+        }
+
+        if (end == t.length())
+            t.append("\n"); // workaround Android bug
+
+        return new Pair(start, end);
     }
 
     static <T extends ParagraphStyle> T clone(Object span, Class<T> type, Context context) {
