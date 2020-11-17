@@ -1019,8 +1019,9 @@ or something between the email server and the app, like a firewall, actively ref
 The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection,
 for example because internet traffic is restricted to local traffic only.
 
-The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved.
-This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...*
+means that the address of the email server could not be resolved into an IP address.
+This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...*
 means that the email server or something between FairEmail and the email server actively terminated an existing connection.
