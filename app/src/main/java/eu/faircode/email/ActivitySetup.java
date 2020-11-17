@@ -78,7 +78,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.security.SecureRandom;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
@@ -1121,14 +1120,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    if (ex instanceof IllegalArgumentException)
-                        ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                    else if (ex instanceof IllegalStateException ||
-                            ex instanceof FileNotFoundException ||
-                            ex instanceof CertificateException)
-                        ToastEx.makeText(ActivitySetup.this, R.string.title_invalid_key, Toast.LENGTH_LONG).show();
-                    else
-                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex, false);
                 }
             }.execute(this, args, "setup:cert");
         }
