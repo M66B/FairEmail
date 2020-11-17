@@ -440,19 +440,12 @@ public class StyleHelper {
                 }
 
                 case R.id.menu_clear: {
-                    boolean selected = (start != end);
-                    if (start == end) {
-                        start = 0;
-                        end = etBody.length();
-                    }
-
-                    for (Object span : ss.getSpans(start, end, Object.class))
+                    for (Object span : ss.getSpans(0, etBody.length(), Object.class))
                         if (!(span instanceof ImageSpan))
                             ss.removeSpan(span);
 
                     etBody.setText(ss);
-                    if (selected)
-                        etBody.setSelection(start, end);
+                    etBody.setSelection(start, end);
 
                     return true;
                 }
