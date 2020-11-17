@@ -953,6 +953,20 @@ public class HtmlHelper {
         // Fix dangling table elements
         document.select("tr,th,td").tagName("div");
 
+        // Lists
+        for (Element e : document.select("ol,ul")) {
+            if (view) {
+                if (!"false".equals(e.attr("x-line-before")))
+                    e.attr("x-line-before", "true");
+                if (!"false".equals(e.attr("x-line-after")))
+                    e.attr("x-line-after", "true");
+            } else {
+                String style = e.attr("style");
+                e.attr("style",
+                        mergeStyles(style, "margin:0"));
+            }
+        }
+
         // Images
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
         for (Element img : document.select("img")) {
