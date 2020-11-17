@@ -3348,6 +3348,10 @@ please see [here](https://github.com/disconnectme/disconnect-tracking-protection
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed.
 Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
+Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable
+because both email servers and not all people can handle this, risking unexpected loss of messages.
+A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+
 <br />
 
 <a name="faq161"></a>
