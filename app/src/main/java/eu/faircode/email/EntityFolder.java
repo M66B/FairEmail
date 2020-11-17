@@ -215,9 +215,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
             JUNK
     ));
     private static final List<Boolean> SYSTEM_FOLDER_POLL = Collections.unmodifiableList(Arrays.asList(
-            false, // inbox
-            false, // drafts
-            false, // sent
+            false, // inbox = push messages
+            true, // drafts
+            true, // sent
             true, // archive
             true, // trash
             true // junk
