@@ -133,7 +133,7 @@ public class StyleHelper {
                                     case R.id.group_style_blockquote:
                                         return setBlockQuote(item);
                                     case R.id.group_style_strikethrough:
-                                        return setStrikethrough(item);
+                                        return setStrikeThrough(item);
                                     case R.id.group_style_clear:
                                         return clear(item);
                                     default:
@@ -336,7 +336,7 @@ public class StyleHelper {
                             return true;
                         }
 
-                        private boolean setStrikethrough(MenuItem item) {
+                        private boolean setStrikeThrough(MenuItem item) {
                             boolean has = false;
                             for (StrikethroughSpan span : t.getSpans(s, e, StrikethroughSpan.class)) {
                                 has = true;
