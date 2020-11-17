@@ -208,6 +208,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             try {
                 File file = attachment.getFile(context);
                 Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                // TODO: consider using getUriForFile(..., displayName)
 
                 Intent send = new Intent();
                 send.setAction(Intent.ACTION_SEND);
