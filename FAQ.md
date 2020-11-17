@@ -2782,9 +2782,6 @@ for example when the internet connection is bad or a firewall or a VPN is blocki
 FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect.
 If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep (=no battery usage).
 
-Between connectivity changes there is a wait of 90 seconds to give the email server the opportunity to discover the old connection is broken.
-This is necessary because the internet connection of a mobile device is often lost abruptly and to prevent the problem described in [this FAQ](#user-content-faq23).
-
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
 does not allow to wake the device earlier than after 15 minutes.
 
