@@ -61,6 +61,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -990,7 +991,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 });
 
-                final Map<EntityFolder, IMAPFolder> mapFolders = new HashMap<>();
+                final Map<EntityFolder, IMAPFolder> mapFolders = new LinkedHashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 try {
                     // Initiate connection
@@ -1305,7 +1306,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void onChanged(final List<TupleOperationEx> _operations) {
                                     // Get new operations
                                     List<Long> all = new ArrayList<>();
-                                    Map<Long, List<TupleOperationEx>> added = new HashMap<>();
+                                    Map<Long, List<TupleOperationEx>> added = new LinkedHashMap<>();
                                     for (TupleOperationEx op : _operations) {
                                         all.add(op.id);
                                         if (!handling.contains(op.id)) {
