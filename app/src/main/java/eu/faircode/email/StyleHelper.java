@@ -353,15 +353,22 @@ public class StyleHelper {
                         }
 
                         private boolean clear(MenuItem item) {
-                            for (Object span : t.getSpans(s, e, Object.class))
+                            int start = s;
+                            int end = e;
+
+                            // Expand to paragraph (block quotes)
+                            if (end + 1 < t.length() && t.charAt(end) == '\n')
+                                end++;
+
+                            for (Object span : t.getSpans(start, end, Object.class))
                                 if (!(span instanceof ImageSpan)) {
-                                    int start = t.getSpanStart(span);
-                                    int end = t.getSpanEnd(span);
+                                    int sstart = t.getSpanStart(span);
+                                    int send = t.getSpanEnd(span);
                                     int flags = t.getSpanFlags(span);
-                                    if (start < s && end > s)
-                                        setSpan(t, span, start, s, flags, etBody.getContext());
-                                    if (start < e && end > e)
-                                        setSpan(t, span, e, end, flags, etBody.getContext());
+                                    if (sstart < start && send > start)
+                                        setSpan(t, span, sstart, start, flags, etBody.getContext());
+                                    if (sstart < end && send > end)
+                                        setSpan(t, span, end, send, flags, etBody.getContext());
 
                                     t.removeSpan(span);
                                 }
