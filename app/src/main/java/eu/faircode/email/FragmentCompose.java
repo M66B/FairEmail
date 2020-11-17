@@ -536,11 +536,11 @@ public class FragmentCompose extends FragmentBase {
                                     text.charAt(added) == '\n' && text.charAt(e - 1) == '\n') {
                                 broken = true;
 
-                                QuoteSpan q1 = clone(span, QuoteSpan.class, etBody.getContext());
+                                QuoteSpan q1 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
                                 text.setSpan(q1, s, added, f);
                                 Log.i("Span " + s + "..." + added);
 
-                                QuoteSpan q2 = clone(span, QuoteSpan.class, etBody.getContext());
+                                QuoteSpan q2 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
                                 text.setSpan(q2, added + 1, e, f);
                                 Log.i("Span " + (added + 1) + "..." + e);
 
@@ -584,11 +584,11 @@ public class FragmentCompose extends FragmentBase {
                                     added + 1 > s && e > added + 1 &&
                                     text.charAt(s - 1) == '\n' && text.charAt(e - 1) == '\n') {
                                 if (e - s > 2) {
-                                    BulletSpan b1 = clone(span, span.getClass(), etBody.getContext());
+                                    BulletSpan b1 = StyleHelper.clone(span, span.getClass(), etBody.getContext());
                                     text.setSpan(b1, s, added + 1, f);
                                     Log.i("Span " + s + "..." + (added + 1));
 
-                                    BulletSpan b2 = clone(b1, span.getClass(), etBody.getContext());
+                                    BulletSpan b2 = StyleHelper.clone(b1, span.getClass(), etBody.getContext());
                                     text.setSpan(b2, added + 1, e, f);
                                     Log.i("Span " + (added + 1) + "..." + e);
                                 }
@@ -599,7 +599,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         if (renum)
-                            renumber(text, false);
+                            StyleHelper.renumber(text, false, etBody.getContext());
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -607,81 +607,9 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 if (removed != null) {
-                    renumber(text, true);
+                    StyleHelper.renumber(text, true, etBody.getContext());
                     removed = null;
                 }
-
-                //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
-            }
-
-            public void renumber(Editable text, boolean clean) {
-                Context context = etBody.getContext();
-                int dp6 = Helper.dp2pixels(context, 6);
-                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-
-                Log.i("Renumber clean=" + clean + " text=" + text);
-
-                int next;
-                int index = 1;
-                int pos = -1;
-                for (int i = 0; i < text.length(); i = next) {
-                    next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
-                    Log.i("Bullet span next=" + next);
-
-                    BulletSpan[] spans = text.getSpans(i, next, BulletSpan.class);
-                    for (BulletSpan span : spans) {
-                        int start = text.getSpanStart(span);
-                        int end = text.getSpanEnd(span);
-                        int flags = text.getSpanFlags(span);
-                        Log.i("Bullet span " + start + "..." + end);
-
-                        if (clean && start == end) {
-                            text.removeSpan(span);
-                            continue;
-                        }
-
-                        if (span instanceof NumberSpan) {
-                            if (start == pos)
-                                index++;
-                            else
-                                index = 1;
-
-                            NumberSpan ns = (NumberSpan) span;
-                            if (index != ns.getIndex()) {
-                                NumberSpan clone = new NumberSpan(dp6, colorAccent, ns.getTextSize(), index);
-                                text.removeSpan(span);
-                                text.setSpan(clone, start, end, flags);
-                            }
-
-                            pos = end;
-                        }
-                    }
-                }
-            }
-
-            public <T extends ParagraphStyle> T clone(Object span, Class<T> type, Context context) {
-                if (QuoteSpan.class.isAssignableFrom(type)) {
-                    QuoteSpan q = (QuoteSpan) span;
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                        return (T) new QuoteSpan(q.getColor());
-                    else
-                        return (T) new QuoteSpan(q.getColor(), q.getStripeWidth(), q.getGapWidth());
-                } else if (NumberSpan.class.isAssignableFrom(type)) {
-                    NumberSpan n = (NumberSpan) span;
-                    int dp6 = Helper.dp2pixels(context, 6);
-                    int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                    return (T) new NumberSpan(dp6, colorAccent, n.getTextSize(), n.getIndex() + 1);
-                } else if (BulletSpan.class.isAssignableFrom(type)) {
-                    BulletSpan b = (BulletSpan) span;
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                        int dp6 = Helper.dp2pixels(context, 6);
-                        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                        return (T) new BulletSpan(dp6, colorAccent);
-                    } else
-                        return (T) new BulletSpan(b.getGapWidth(), b.getColor(), b.getBulletRadius());
-
-                } else
-                    throw new IllegalArgumentException(type.getName());
             }
         });
 

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.text.Editable;
 import android.text.Layout;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -15,6 +16,7 @@ import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
@@ -453,4 +455,75 @@ public class StyleHelper {
             return false;
         }
     }
+
+    static <T extends ParagraphStyle> T clone(Object span, Class<T> type, Context context) {
+        if (QuoteSpan.class.isAssignableFrom(type)) {
+            QuoteSpan q = (QuoteSpan) span;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                return (T) new QuoteSpan(q.getColor());
+            else
+                return (T) new QuoteSpan(q.getColor(), q.getStripeWidth(), q.getGapWidth());
+        } else if (NumberSpan.class.isAssignableFrom(type)) {
+            NumberSpan n = (NumberSpan) span;
+            int dp6 = Helper.dp2pixels(context, 6);
+            int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+            return (T) new NumberSpan(dp6, colorAccent, n.getTextSize(), n.getIndex() + 1);
+        } else if (BulletSpan.class.isAssignableFrom(type)) {
+            BulletSpan b = (BulletSpan) span;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+                int dp6 = Helper.dp2pixels(context, 6);
+                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                return (T) new BulletSpan(dp6, colorAccent);
+            } else
+                return (T) new BulletSpan(b.getGapWidth(), b.getColor(), b.getBulletRadius());
+
+        } else
+            throw new IllegalArgumentException(type.getName());
+    }
+
+    static void renumber(Editable text, boolean clean, Context context) {
+        int dp6 = Helper.dp2pixels(context, 6);
+        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+
+        Log.i("Renumber clean=" + clean + " text=" + text);
+
+        int next;
+        int index = 1;
+        int pos = -1;
+        for (int i = 0; i < text.length(); i = next) {
+            next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
+            Log.i("Bullet span next=" + next);
+
+            BulletSpan[] spans = text.getSpans(i, next, BulletSpan.class);
+            for (BulletSpan span : spans) {
+                int start = text.getSpanStart(span);
+                int end = text.getSpanEnd(span);
+                int flags = text.getSpanFlags(span);
+                Log.i("Bullet span " + start + "..." + end);
+
+                if (clean && start == end) {
+                    text.removeSpan(span);
+                    continue;
+                }
+
+                if (span instanceof NumberSpan) {
+                    if (start == pos)
+                        index++;
+                    else
+                        index = 1;
+
+                    NumberSpan ns = (NumberSpan) span;
+                    if (index != ns.getIndex()) {
+                        NumberSpan clone = new NumberSpan(dp6, colorAccent, ns.getTextSize(), index);
+                        text.removeSpan(span);
+                        text.setSpan(clone, start, end, flags);
+                    }
+
+                    pos = end;
+                }
+            }
+        }
+    }
+
+    //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
 }
