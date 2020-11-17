@@ -760,6 +760,7 @@ public class HtmlHelper {
 
         // Replace headings
         Elements hs = document.select("h1,h2,h3,h4,h5,h6");
+        hs.attr("x-line-before", "true");
         if (text_size) {
             if (text_separators && view)
                 for (Element h : hs)
