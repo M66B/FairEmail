@@ -404,7 +404,7 @@ Notez que les anciennes versions d'Android peuvent ne pas reconnaître de nouvel
 
 *... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* signifie que le gestionnaire de confiance Android par défaut n'était pas en mesure de vérifier la chaîne de certificats du serveur.
 
-Vous devez soit corriger la configuration du serveur ou accepter l'empreinte digitale indiqué sous le message d'erreur.
+Vous devez soit corriger la configuration du serveur soit accepter l'empreinte indiquée sous le message d'erreur.
 
 Notez que ce problème peut être également causé par le serveur qui n'envoie pas tous les certificats intermédiaires.
 
@@ -414,9 +414,9 @@ Votre nom d'utilisateur est probablement facile à deviner, donc ce n'est pas s�
 
 *Connexion en texte clair*
 
-Votre nom d'utilisateur, votre mot de passe et tous vos messages envoyés et reçus seront non chiffrés, ce qui est **très peu sécurisé**. Car une [attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est simple à réaliser sur une connexion non chiffrée.
+Votre nom d'utilisateur, votre mot de passe et tous vos messages envoyés et reçus seront non chiffrés, ce qui est **très peu sécurisé** car une [attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est simple à réaliser sur une connexion non chiffrée.
 
-Si vous souhaitez tous de même utiliser un certificat de sécurité non valide, un mot de passe vide ou une connexion en texte clair, Vous aurez besoin d'activer les connexions non sécurisée dans la configuration du compte et/ou de l'identité. Le paramètre STARTTLS doit être sélectionné pour les connexions en texte claire. Si vous utilisez les connexions non sécurisées, vous devriez vous connecter uniquement sur des réseaux de confiance et jamais sur des réseaux public. Comme ceux offerts dans les hôtels, les aéroports, etc.
+Si vous souhaitez tout de même utiliser un certificat de sécurité non valide, un mot de passe vide ou une connexion en texte clair, vous devrez activer les connexions non sécurisées dans la configuration du compte et/ou de l'identité. Le paramètre STARTTLS doit être sélectionné pour les connexions en texte clair. Si vous utilisez les connexions non sécurisées, vous devriez vous connecter uniquement sur des réseaux de confiance et jamais sur des réseaux publics comme ceux offerts dans les hôtels, les aéroports, etc.
 
 <br />
 

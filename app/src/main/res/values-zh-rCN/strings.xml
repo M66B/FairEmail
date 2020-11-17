@@ -323,6 +323,7 @@
     <string name="title_advanced_text_align">使用文本对齐</string>
     <string name="title_advanced_text_separators">使用分隔线</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
+    <string name="title_advanced_image_placeholders">显示图像占位符</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
@@ -470,6 +471,7 @@
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
+    <string name="title_advanced_placeholders_hint">这只适用于重新格式化的消息</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_language_detection_hint">语言检测支持取决于设备制造商</string>
