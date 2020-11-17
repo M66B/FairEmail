@@ -14,6 +14,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
+import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
@@ -349,8 +350,17 @@ public class StyleHelper {
 
                         private boolean clear(MenuItem item) {
                             for (Object span : t.getSpans(s, e, Object.class))
-                                if (!(span instanceof ImageSpan))
+                                if (!(span instanceof ImageSpan)) {
+                                    int start = t.getSpanStart(span);
+                                    int end = t.getSpanEnd(span);
+                                    int flags = t.getSpanFlags(span);
+                                    if (start < s && end > s)
+                                        setSpan(t, span, start, s, flags, etBody.getContext());
+                                    if (start < e && end > e)
+                                        setSpan(t, span, e, end, flags, etBody.getContext());
+
                                     t.removeSpan(span);
+                                }
 
                             etBody.setText(t);
                             etBody.setSelection(s, e);
@@ -453,6 +463,15 @@ public class StyleHelper {
         } catch (Throwable ex) {
             Log.e(ex);
             return false;
+        }
+    }
+
+    static void setSpan(SpannableStringBuilder ss, Object span, int start, int end, int flags, Context context) {
+        if (span instanceof CharacterStyle)
+            ss.setSpan(CharacterStyle.wrap((CharacterStyle) span), start, end, flags);
+        else if (span instanceof QuoteSpan) {
+            ParagraphStyle p = (ParagraphStyle) span;
+            ss.setSpan(clone(span, p.getClass(), context), start, end, flags);
         }
     }
 
