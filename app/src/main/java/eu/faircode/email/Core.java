@@ -467,6 +467,8 @@ class Core {
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex instanceof SQLiteConstraintException ||
+                                (ex instanceof IllegalStateException &&
+                                        EntityOperation.SYNC.equals(op.name)) ||
                                 (!ConnectionHelper.isIoError(ex) &&
                                         (ex.getCause() instanceof BadCommandException ||
                                                 ex.getCause() instanceof CommandFailedException /* NO */)) ||
