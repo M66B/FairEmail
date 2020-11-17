@@ -51,6 +51,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -116,6 +117,8 @@ public class EntityRule {
     static final String EXTRA_RECEIVED = "received";
 
     private static final long SEND_DELAY = 5000L; // milliseconds
+
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "rule");
 
     boolean matches(Context context, EntityMessage message, Message imessage) throws MessagingException {
         try {
@@ -411,11 +414,6 @@ public class EntityRule {
 
     private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException, AddressException {
         DB db = DB.getInstance(context);
-
-        long iid = jargs.getLong("identity");
-        long aid = jargs.getLong("answer");
-        String to = jargs.optString("to");
-        boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
 
         if (message.auto_submitted != null && message.auto_submitted) {
@@ -439,13 +437,38 @@ public class EntityRule {
             return true;
         }
 
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    answer(context, EntityRule.this, message, jargs);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
+        return true;
+    }
+
+    private static void answer(Context context, EntityRule rule, EntityMessage message, JSONObject jargs) throws JSONException, AddressException, IOException {
+        Log.i("Answering name=" + rule.name);
+
+        DB db = DB.getInstance(context);
+
+        long iid = jargs.getLong("identity");
+        long aid = jargs.getLong("answer");
+        String to = jargs.optString("to");
+        boolean cc = jargs.optBoolean("cc");
+        boolean attachments = jargs.optBoolean("attachments");
+
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
-            throw new IllegalArgumentException("Rule identity not found name=" + name);
+            throw new IllegalArgumentException("Rule identity not found name=" + rule.name);
 
         EntityAnswer answer = db.answer().getAnswer(aid);
         if (answer == null)
-            throw new IllegalArgumentException("Rule answer not found name=" + name);
+            throw new IllegalArgumentException("Rule answer not found name=" + rule.name);
 
         EntityFolder outbox = db.folder().getOutbox();
         if (outbox == null) {
@@ -464,7 +487,7 @@ public class EntityRule {
                 EntityLog.log(context, "Answer loop" +
                         " name=" + answer.name +
                         " from=" + MessageHelper.formatAddresses(from));
-                return false;
+                return;
             }
 
         EntityMessage reply = new EntityMessage();
@@ -537,8 +560,6 @@ public class EntityRule {
 
         // Batch send operations, wait until after commit
         ServiceSend.schedule(context, SEND_DELAY);
-
-        return true;
     }
 
     private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs) {
@@ -569,6 +590,22 @@ public class EntityRule {
             return true;
         }
 
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    speak(context, EntityRule.this, message);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
+        return true;
+    }
+
+    private static void speak(Context context, EntityRule rule, EntityMessage message) throws IOException {
+        Log.i("Speaking name=" + rule.name);
         Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
 
         Configuration configuration = new Configuration(context.getResources().getConfiguration());
@@ -593,8 +630,6 @@ public class EntityRule {
                     .append(' ').append(preview);
 
         TTSHelper.speak(context, "rule:" + message.id, sb.toString(), locale);
-
-        return true;
     }
 
     private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
