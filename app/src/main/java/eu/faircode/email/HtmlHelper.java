@@ -921,6 +921,12 @@ public class HtmlHelper {
 
                     // Flow not / left aligned columns
                     String align = col.attr("x-align");
+                    //if (next == null && row.childrenSize() == 2) {
+                    //    align = "end";
+                    //    String style = col.attr("style");
+                    //    col.attr("style",
+                    //            mergeStyles(style, "text-align:" + align));
+                    //}
                     if (TextUtils.isEmpty(align) ||
                             "left".equals(align) ||
                             "start".equals(align))
