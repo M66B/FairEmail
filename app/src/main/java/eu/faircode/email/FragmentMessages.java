@@ -3423,6 +3423,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     // Insert into drafts
                     EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
+                    if (drafts == null)
+                        return null;
+
                     message.id = null;
                     message.folder = drafts.id;
                     message.fts = false;
