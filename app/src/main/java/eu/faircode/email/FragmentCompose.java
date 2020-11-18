@@ -500,7 +500,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void beforeTextChanged(CharSequence text, int start, int count, int after) {
-                if (count == 1 && after == 0 && text.charAt(start) == '\n') {
+                if (count == 1 && after == 0 && (start == 0 || text.charAt(start) == '\n')) {
                     Log.i("Removed=" + start);
                     removed = start;
                 }
@@ -607,7 +607,17 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 if (removed != null) {
+                    ParagraphStyle[] ps = text.getSpans(removed, removed + 1, ParagraphStyle.class);
+                    if (ps != null)
+                        for (ParagraphStyle p : ps) {
+                            int start = text.getSpanStart(p);
+                            int end = text.getSpanEnd(p);
+                            if (start == removed && end == removed + 1)
+                                text.removeSpan(p);
+                        }
+
                     StyleHelper.renumber(text, true, etBody.getContext());
+
                     removed = null;
                 }
             }
