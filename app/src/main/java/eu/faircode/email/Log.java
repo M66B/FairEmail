@@ -849,7 +849,8 @@ public class Log {
             return false;
 
         StackTraceElement[] stack = ex.getStackTrace();
-        if (stack.length > 0 &&
+        if (ex instanceof IndexOutOfBoundsException &&
+                stack.length > 0 &&
                 "android.text.TextLine".equals(stack[0].getClassName()) &&
                 "measure".equals(stack[0].getMethodName()))
             /*
@@ -868,7 +869,8 @@ public class Log {
              */
             return false;
 
-        if (stack.length > 0 &&
+        if (ex instanceof IllegalArgumentException &&
+                stack.length > 0 &&
                 "android.os.Parcel".equals(stack[0].getClassName()) &&
                 ("createException".equals(stack[0].getMethodName()) ||
                         "readException".equals(stack[0].getMethodName())))
@@ -892,7 +894,8 @@ public class Log {
              */
             return false;
 
-        if (stack.length > 0 &&
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
                 "android.hardware.biometrics.BiometricPrompt".equals(stack[0].getClassName()))
             /*
                 java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.hardware.fingerprint.FingerprintManager.getErrorString(int, int)' on a null object reference
@@ -902,8 +905,26 @@ public class Log {
              */
             return false;
 
-        if (stack.length > 0 &&
-                "android.text.SpannableStringInternal".equals(stack[0].getClassName()))
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
+                "android.graphics.Rect".equals(stack[0].getClassName()) &&
+                "set".equals(stack[0].getMethodName()))
+            /*
+                java.lang.NullPointerException: Attempt to read from field 'int android.graphics.Rect.left' on a null object reference
+                  at android.graphics.Rect.set(Rect.java:371)
+                  at android.view.InsetsState.readFromParcel(InsetsState.java:453)
+                  at android.view.IWindowSession$Stub$Proxy.addToDisplay(IWindowSession.java:1264)
+                  at android.view.ViewRootImpl.setView(ViewRootImpl.java:865)
+                  at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:387)
+                  at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:96)
+                  at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:4297)
+             */
+            return false;
+
+        if (ex instanceof IndexOutOfBoundsException &&
+                stack.length > 0 &&
+                "android.text.SpannableStringInternal".equals(stack[0].getClassName()) &&
+                "checkRange".equals(stack[0].getMethodName()))
             /*
                 java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
                   at android.text.SpannableStringInternal.checkRange(SpannableStringInternal.java:478)
@@ -945,7 +966,8 @@ public class Log {
              */
         }
 
-        if (stack.length > 0 &&
+        if (ex instanceof IllegalArgumentException &&
+                stack.length > 0 &&
                 "android.text.method.WordIterator".equals(stack[0].getClassName()) &&
                 "checkOffsetIsValid".equals(stack[0].getMethodName()))
             /*
@@ -969,7 +991,8 @@ public class Log {
              */
             return false;
 
-        if (stack.length > 0 &&
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
                 "view.AccessibilityInteractionController".equals(stack[0].getClassName()) &&
                 "applyAppScaleAndMagnificationSpecIfNeeded".equals(stack[0].getMethodName()))
             /*
