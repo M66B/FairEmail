@@ -4467,7 +4467,9 @@ public class FragmentCompose extends FragmentBase {
                         if (file.exists())
                             body = Helper.readText(file);
                         else
-                            Log.e("Missing revision=" + file);
+                            Log.e("Missing" +
+                                    " revision=" + draft.revision + "/" + draft.revisions +
+                                    " action=" + getActionName(action));
 
                         dirty = true;
                     }
