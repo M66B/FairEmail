@@ -547,6 +547,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 message.cc = helper.getCc();
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
+                message.subject = helper.getSubject(); // Subject encryption
                 message.encrypt = parts.getEncryption();
                 message.ui_encrypt = message.encrypt;
                 message.received = new Date().getTime();
