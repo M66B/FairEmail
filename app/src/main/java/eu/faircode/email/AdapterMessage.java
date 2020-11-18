@@ -118,8 +118,8 @@ import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.util.PatternsCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -3718,7 +3718,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onActionOpenFull(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
-            args.putString("subject", message.subject);
 
             new SimpleTask<String>() {
                 @Override
@@ -3744,14 +3743,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, String html) {
                     Bundle fargs = new Bundle();
                     fargs.putString("html", html);
-                    fargs.putString("subject", args.getString("subject"));
 
-                    FragmentOpenFull fragment = new FragmentOpenFull();
-                    fragment.setArguments(fargs);
-
-                    FragmentTransaction fragmentTransaction = parentFragment.getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("open");
-                    fragmentTransaction.commit();
+                    FragmentDialogOpenFull dialog = new FragmentDialogOpenFull();
+                    dialog.setArguments(fargs);
+                    dialog.show(parentFragment.getParentFragmentManager(), "open");
                 }
 
                 @Override
@@ -6522,17 +6517,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentOpenFull extends FragmentBase {
+    public static class FragmentDialogOpenFull extends FragmentDialogBase {
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setStyle(DialogFragment.STYLE_NORMAL, R.style.fullScreenDialog);
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+            Dialog dialog = getDialog();
+            if (dialog != null)
+                dialog.getWindow().setLayout(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             String html = getArguments().getString("html");
-            String subject = getArguments().getString("subject");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean overview_mode = prefs.getBoolean("overview_mode", false);
             boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
-
-            setSubtitle(subject);
 
             View view = inflater.inflate(R.layout.fragment_open_full, container, false);
             WebView wv = view.findViewById(R.id.wv);

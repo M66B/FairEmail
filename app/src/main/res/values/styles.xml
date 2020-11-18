@@ -453,4 +453,9 @@
         <item name="android:scrollbarTrackVertical">@drawable/scroll_track_popup</item>
         <item name="android:fadeScrollbars">false</item>
     </style>
+
+    <style name="fullScreenDialog" parent="android:Theme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
 </resources>
