@@ -41,6 +41,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -495,8 +496,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 for (TupleFolderEx child : folder.child_refs)
                     if (child.selectable)
                         childs++;
-            if (childs > 0)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_childs, order++, R.string.title_synchronize_childs);
+            if (childs > 0) {
+                SubMenu submenu = popupMenu.getMenu()
+                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_childs);
+
+                submenu.add(Menu.FIRST, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
+                submenu.add(Menu.FIRST, R.string.title_enable, 2, R.string.title_enable);
+                submenu.add(Menu.FIRST, R.string.title_disable, 3, R.string.title_disable);
+            }
 
             if (folder.selectable) {
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
@@ -566,12 +573,25 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
+                    if (item.getGroupId() == Menu.FIRST) {
+                        switch (item.getItemId()) {
+                            case R.string.title_synchronize_now:
+                                onActionSync(true);
+                                return true;
+                            case R.string.title_enable:
+                                onActionEnable(true);
+                                return true;
+                            case R.string.title_disable:
+                                onActionEnable(false);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+
                     switch (item.getItemId()) {
                         case R.string.title_synchronize_now:
                             onActionSync(false);
-                            return true;
-                        case R.string.title_synchronize_childs:
-                            onActionSync(true);
                             return true;
 
                         case R.string.title_synchronize_more:
@@ -650,6 +670,46 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     Intent data = new Intent();
                     data.putExtra("args", args);
                     parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
+                }
+
+                private void onActionEnable(boolean enabled) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putLong("account", folder.account);
+                    args.putBoolean("enabled", enabled);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            long aid = args.getLong("account");
+                            boolean enabled = args.getBoolean("enabled");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+                                List<EntityFolder> childs = db.folder().getChildFolders(id);
+                                if (childs == null)
+                                    return null;
+
+                                for (EntityFolder child : childs)
+                                    db.folder().setFolderSynchronize(child.id, enabled);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            ServiceSynchronize.reload(context, aid, false, "child sync=" + enabled);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "enable");
                 }
 
                 private void onActionSyncMore() {
