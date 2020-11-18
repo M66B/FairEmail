@@ -83,6 +83,7 @@ public class FragmentFolders extends FragmentBase {
     private boolean compact;
 
     private long account;
+    private boolean imap = false;
     private boolean primary;
     private boolean show_hidden = false;
     private boolean show_flagged;
@@ -302,6 +303,8 @@ public class FragmentFolders extends FragmentBase {
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(@Nullable EntityAccount account) {
+                    imap = (account != null && account.protocol == EntityAccount.TYPE_IMAP);
+
                     if (account != null && account.quota_usage != null && account.quota_limit != null) {
                         int percent = Math.round((float) account.quota_usage * 100 / account.quota_limit);
                         setSubtitle(getString(R.string.title_name_count,
@@ -453,7 +456,7 @@ public class FragmentFolders extends FragmentBase {
         menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
         menu.findItem(R.id.menu_subscribed_only).setChecked(subscribed_only);
         menu.findItem(R.id.menu_subscribed_only).setVisible(subscriptions);
-        menu.findItem(R.id.menu_apply_all).setVisible(account >= 0);
+        menu.findItem(R.id.menu_apply_all).setVisible(account >= 0 && imap);
 
         super.onPrepareOptionsMenu(menu);
     }
