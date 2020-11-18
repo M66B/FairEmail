@@ -89,15 +89,6 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
 
-        try {
-            boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
-            System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        prefs.registerOnSharedPreferenceChangeListener(this);
-
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
@@ -122,6 +113,15 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         Log.setup(this);
 
         upgrade(this);
+
+        try {
+            boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
+            System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        prefs.registerOnSharedPreferenceChangeListener(this);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
             NotificationHelper.createNotificationChannels(this);
@@ -384,6 +384,8 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
                 editor.putBoolean("beige", false);
         } else if (version < 1385)
             editor.remove("parse_classes");
+        else if (version < 1401)
+            editor.remove("tcp_keep_alive");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

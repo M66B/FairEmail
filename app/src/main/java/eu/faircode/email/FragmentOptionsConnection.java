@@ -62,6 +62,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
     private SwitchCompat swTcpKeepAlive;
+    private TextView tvTcpKeepAliveHint;
     private SwitchCompat swSslHarden;
     private Button btnManage;
     private TextView tvNetworkMetered;
@@ -89,6 +90,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
+        tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         btnManage = view.findViewById(R.id.btnManage);
 
@@ -167,6 +169,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 prefs.edit().putBoolean("prefer_ip4", checked).apply();
             }
         });
+
+        boolean debug = prefs.getBoolean("debug", false);
+        swTcpKeepAlive.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        tvTcpKeepAliveHint.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         swTcpKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
