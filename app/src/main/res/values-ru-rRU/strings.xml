@@ -185,7 +185,7 @@
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_doze">Настроить энергосбережение</string>
     <string name="title_setup_doze_remark">Для надёжного получения электронной почты</string>
-    <string name="title_setup_doze_hint">Хотя это звучит нелогично, отключение оптимизации батареи приведёт к меньшему потреблению заряда батареи</string>
+    <string name="title_setup_doze_hint">Хотя это звучит нелогично, отключение оптимизации батареи приведёт к меньшему потреблению заряда</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне выберите \"Все приложения\" вверху, выберите это приложение, выберите и подтвердите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
@@ -472,7 +472,7 @@
     <string name="title_advanced_more">Другие возможности</string>
     <string name="title_advanced_manual_hint">Если получение сообщений отключено, его можно выполнить вручную, потянув вниз список сообщений</string>
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
-    <string name="title_advanced_optimize_hint">Это может изменить частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
+    <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_no_date_hint">Некоторые провайдеры хранят сообщения с неизвестными, недействительными или будущими датами как сообщения без даты</string>
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают эту функцию правильно, что может привести к синхронизации всех или ни одного сообщения</string>
@@ -504,7 +504,7 @@
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
-    <string name="title_advanced_overview_mode_hint">Это может привести к очень маленьким шрифтам</string>
+    <string name="title_advanced_overview_mode_hint">Может привести к очень маленьким шрифтам</string>
     <string name="title_advanced_placeholders_hint">Относится только к изменённым сообщениям</string>
     <string name="title_advanced_inline_hint">Встроенные изображения — это изображения, включённые в само сообщение</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
@@ -515,7 +515,7 @@
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
     <string name="title_advanced_display_harmful_hint">Отключение этой функции может навредить вашей конфиденциальности</string>
-    <string name="title_advanced_display_hidden_hint">Это может вызвать странное отображение и дублирование текста</string>
+    <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
@@ -635,7 +635,7 @@
     <string name="title_review">Пересмотр</string>
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
     <string name="title_service_auth">Сервер электронной почты сообщил: \"%1$s\"</string>
-    <string name="title_service_vpn">Это может быть вызвано использованием VPN</string>
+    <string name="title_service_vpn">Может быть вызвано использованием VPN</string>
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>

@@ -41,14 +41,14 @@
 
 <a name="howto">
 
-## 如何操作 ...?
+## 如何 ...?
 
 * 更改账户名称：设置，步骤1，管理，点击帐户
 * 更改左/右滑动目标：设置，行为，设置滑动操作
 * 更改密码: 设置, 步骤1, 管理, 点击帐户, 更改密码
 * 设置签名：设置，第二步，管理，点击身份，编辑签名。
 * 添加抄送和密送地址：点击主题末尾的联系人图标
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
+* 归档/删除后转到下/上一条消息: 在行为设置中禁用 *自动关闭会话* 并且在 *关闭会话时* 中选择 *转到下/上一个会话*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Synchronize more messages*
