@@ -3414,6 +3414,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     message = db.message().getMessage(id);
                     if (message == null)
                         return null;
+                    if (message.account == null)
+                        throw new IllegalStateException("Account missing");
 
                     db.folder().setFolderError(message.folder, null);
                     if (message.identity != null)
@@ -3424,7 +3426,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     // Insert into drafts
                     EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
                     if (drafts == null)
-                        return null;
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
                     message.id = null;
                     message.folder = drafts.id;
@@ -3469,7 +3471,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(manager, ex);
+                Log.unexpectedError(manager, ex, !(ex instanceof IllegalArgumentException));
             }
         }.execute(context, owner, args, "message:move:draft");
     }
