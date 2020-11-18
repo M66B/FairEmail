@@ -93,6 +93,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -118,6 +119,7 @@ import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.util.PatternsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -730,6 +732,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDownloadAttachments.setOnClickListener(this);
 
                 ibFull.setOnClickListener(this);
+                ibFull.setOnLongClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
@@ -838,6 +841,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDownloadAttachments.setOnClickListener(null);
 
                 ibFull.setOnClickListener(null);
+                ibFull.setOnLongClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
@@ -3094,6 +3098,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 case R.id.ibFlagged:
                     onMenuColoredStar(message);
                     return true;
+                case R.id.ibFull:
+                    onActionOpenFull(message);
+                    return true;
                 case R.id.ibTrash:
                 case R.id.ibTrashBottom:
                     if (EntityFolder.OUTBOX.equals(message.folderType))
@@ -3706,6 +3713,52 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowImagesConfirmed(TupleMessageEx message) {
             bindBody(message, false);
+        }
+
+        private void onActionOpenFull(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putString("subject", message.subject);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean overview_mode = prefs.getBoolean("overview_mode", false);
+                    boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+
+                    long id = args.getLong("id");
+                    File file = EntityMessage.getFile(context, id);
+                    Document document = JsoupEx.parse(file);
+
+                    HtmlHelper.cleanup(document);
+                    HtmlHelper.setViewport(document, overview_mode);
+                    HtmlHelper.embedInlineImages(context, message.id, document, true);
+                    if (disable_tracking)
+                        HtmlHelper.removeTrackingPixels(context, document);
+
+                    return document.html();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    Bundle fargs = new Bundle();
+                    fargs.putString("html", html);
+                    fargs.putString("subject", args.getString("subject"));
+
+                    FragmentOpenFull fragment = new FragmentOpenFull();
+                    fragment.setArguments(fargs);
+
+                    FragmentTransaction fragmentTransaction = parentFragment.getParentFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("open");
+                    fragmentTransaction.commit();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "open");
         }
 
         private void onActionUnsubscribe(TupleMessageEx message) {
@@ -6466,6 +6519,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .create();
+        }
+    }
+
+    public static class FragmentOpenFull extends FragmentBase {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            String html = getArguments().getString("html");
+            String subject = getArguments().getString("subject");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean overview_mode = prefs.getBoolean("overview_mode", false);
+            boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+
+            setSubtitle(subject);
+
+            View view = inflater.inflate(R.layout.fragment_open_full, container, false);
+            WebView wv = view.findViewById(R.id.wv);
+
+            WebSettings settings = wv.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(overview_mode);
+
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+
+            settings.setAllowFileAccess(false);
+            settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                settings.setSafeBrowsingEnabled(safe_browsing);
+
+            settings.setLoadsImagesAutomatically(true);
+            settings.setBlockNetworkLoads(false);
+            settings.setBlockNetworkImage(false);
+
+            wv.loadDataWithBaseURL(null, html, "text/html", StandardCharsets.UTF_8.name(), null);
+
+            return view;
         }
     }
 }
