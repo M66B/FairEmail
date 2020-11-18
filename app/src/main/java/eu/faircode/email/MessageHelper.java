@@ -169,6 +169,7 @@ public class MessageHelper {
         boolean hide_timezone = prefs.getBoolean("hide_timezone", true);
         boolean autocrypt = prefs.getBoolean("autocrypt", true);
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
+        boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
 
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
@@ -400,6 +401,9 @@ public class MessageHelper {
                 multipart.addBodyPart(bpHeader);
                 multipart.addBodyPart(bpContent);
                 imessage.setContent(multipart);
+
+                if (encrypt_subject)
+                    imessage.setSubject("...");
 
                 return imessage;
             } else if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption)) {
@@ -1636,10 +1640,15 @@ public class MessageHelper {
     }
 
     class MessageParts {
+        private String protected_subject;
         private List<PartHolder> text = new ArrayList<>();
         private List<PartHolder> extra = new ArrayList<>();
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
+
+        String getProtectedSubject() {
+            return protected_subject;
+        }
 
         Boolean isPlainOnly() {
             if (text.size() + extra.size() == 0)
@@ -2299,6 +2308,19 @@ public class MessageHelper {
     private void getMessageParts(Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
         try {
             Log.d("Part class=" + part.getClass() + " type=" + part.getContentType());
+
+            // https://github.com/autocrypt/protected-headers
+            try {
+                ContentType ct = new ContentType(part.getContentType());
+                if ("v1".equals(ct.getParameter("protected-headers"))) {
+                    String[] subject = part.getHeader("subject");
+                    if (subject != null && subject.length != 0)
+                        parts.protected_subject = subject[0];
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart;
                 Object content = part.getContent();

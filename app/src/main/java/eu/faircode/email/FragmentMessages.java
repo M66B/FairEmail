@@ -201,14 +201,11 @@ import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import me.everything.android.ui.overscroll.IOverScrollDecor;
 import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
@@ -5972,36 +5969,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     MessageHelper.MessageParts parts;
                                     Properties props = MessageHelper.getSessionProperties();
                                     Session isession = Session.getInstance(props, null);
+                                    MimeMessage imessage;
                                     try (InputStream fis = new FileInputStream(plain)) {
-                                        MimeMessage imessage = new MimeMessage(isession, fis);
-                                        MessageHelper helper = new MessageHelper(imessage, context);
-                                        parts = helper.getMessageParts();
-
-                                        // https://github.com/autocrypt/protected-headers
-                                        try {
-                                            Object content = imessage.getContent();
-
-                                            BodyPart bp = null;
-                                            if (content instanceof MimeMultipart) {
-                                                MimeMultipart mmp = (MimeMultipart) content;
-                                                if (mmp.getCount() > 0)
-                                                    bp = mmp.getBodyPart(0);
-                                            } else if (content instanceof BodyPart)
-                                                bp = (BodyPart) content;
-
-                                            if (bp != null) {
-                                                ContentType ct = new ContentType(bp.getContentType());
-                                                if ("v1".equals(ct.getParameter("protected-headers"))) {
-                                                    String[] subject = bp.getHeader("subject");
-                                                    if (subject != null && subject.length != 0)
-                                                        db.message().setMessageSubject(message.id, subject[0]);
-                                                }
-                                            }
-
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
+                                        imessage = new MimeMessage(isession, fis);
                                     }
+
+                                    MessageHelper helper = new MessageHelper(imessage, context);
+                                    parts = helper.getMessageParts();
+                                    String subject = parts.getProtectedSubject();
+                                    if (subject != null)
+                                        db.message().setMessageSubject(message.id, subject);
 
                                     try {
                                         db.beginTransaction();

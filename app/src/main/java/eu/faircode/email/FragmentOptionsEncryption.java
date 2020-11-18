@@ -77,6 +77,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private TextView tvOpenPgpStatus;
     private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
+    private SwitchCompat swEncryptSubject;
 
     private SwitchCompat swCheckCertificate;
     private Button btnManageCertificates;
@@ -90,7 +91,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
 
     private final static String[] RESET_OPTIONS = new String[]{
             "sign_default", "encrypt_default", "auto_decrypt",
-            "openpgp_provider", "autocrypt", "autocrypt_mutual",
+            "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
             "check_certificate"
     };
 
@@ -113,6 +114,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         tvOpenPgpStatus = view.findViewById(R.id.tvOpenPgpStatus);
         swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
+        swEncryptSubject = view.findViewById(R.id.swEncryptSubject);
 
         swCheckCertificate = view.findViewById(R.id.swCheckCertificate);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
@@ -201,6 +203,13 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autocrypt_mutual", checked).apply();
+            }
+        });
+
+        swEncryptSubject.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("encrypt_subject", checked).apply();
             }
         });
 
@@ -367,6 +376,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
         swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
         swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
+        swEncryptSubject.setChecked(prefs.getBoolean("encrypt_subject", false));
 
         swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
     }

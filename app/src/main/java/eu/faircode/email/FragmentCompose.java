@@ -2336,9 +2336,33 @@ public class FragmentCompose extends FragmentBase {
                         }
                     } else {
                         // Serialize message
-                        try (OutputStream out = new FileOutputStream(input)) {
-                            imessage.writeTo(out);
-                        }
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
+                        if (encrypt_subject) {
+                            imessage.saveChanges();
+                            BodyPart bpContent = new MimeBodyPart() {
+                                @Override
+                                public void setContent(Object content, String type) throws MessagingException {
+                                    super.setContent(content, type);
+
+                                    updateHeaders();
+
+                                    ContentType ct = new ContentType(type);
+                                    ct.setParameter("protected-headers", "v1");
+                                    setHeader("Content-Type", ct.toString());
+                                    setHeader("Subject", draft.subject == null ? "" : draft.subject);
+                                }
+                            };
+
+                            bpContent.setContent(imessage.getContent(), imessage.getContentType());
+
+                            try (OutputStream out = new FileOutputStream(input)) {
+                                bpContent.writeTo(out);
+                            }
+                        } else
+                            try (OutputStream out = new FileOutputStream(input)) {
+                                imessage.writeTo(out);
+                            }
                     }
                 }
 
