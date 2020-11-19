@@ -1790,6 +1790,24 @@ public class MessageHelper {
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (h.part.isMimeType("text/html")) {
+                    // Fix incorrect UTF16
+                    if (charset != null)
+                        try {
+                            Charset c = Charset.forName(charset);
+                            if (CHARSET16.contains(c)) {
+                                Charset detected = CharsetHelper.detect(result);
+                                if (!CHARSET16.contains(detected))
+                                    Log.e(new Throwable("Charset=" + c + " detected=" + detected));
+                                if (StandardCharsets.US_ASCII.equals(detected) ||
+                                        StandardCharsets.UTF_8.equals(detected)) {
+                                    charset = null;
+                                    result = new String(result.getBytes(c), detected);
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
                     if (charset == null) {
                         // <meta charset="utf-8" />
                         // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
