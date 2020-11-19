@@ -502,6 +502,7 @@ public class EntityRule {
                 try {
                     answer(context, EntityRule.this, message, jargs);
                 } catch (Throwable ex) {
+                    db.message().setMessageError(message.id, Log.formatThrowable(ex));
                     Log.w(ex);
                 }
             }
@@ -643,6 +644,8 @@ public class EntityRule {
     }
 
     private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
+        DB db = DB.getInstance(context);
+
         if (!message.content) {
             EntityOperation.queue(context, message, EntityOperation.BODY);
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
@@ -655,6 +658,7 @@ public class EntityRule {
                 try {
                     speak(context, EntityRule.this, message);
                 } catch (Throwable ex) {
+                    db.message().setMessageError(message.id, Log.formatThrowable(ex));
                     Log.w(ex);
                 }
             }
