@@ -98,6 +98,7 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvError;
     private TextView tvGmailDraftsHint;
     private TextView tvOfficeAuthHint;
+    private TextView tvOfficeOutlookHint;
     private Button btnSupport;
 
     private Group grpError;
@@ -133,6 +134,7 @@ public class FragmentOAuth extends FragmentBase {
         tvError = view.findViewById(R.id.tvError);
         tvGmailDraftsHint = view.findViewById(R.id.tvGmailDraftsHint);
         tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
+        tvOfficeOutlookHint = view.findViewById(R.id.tvOfficeOutlookHint);
         btnSupport = view.findViewById(R.id.btnSupport);
 
         grpError = view.findViewById(R.id.grpError);
@@ -225,13 +227,6 @@ public class FragmentOAuth extends FragmentBase {
                     throw new IllegalArgumentException(getString(R.string.title_no_email));
                 if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(getString(R.string.title_email_invalid, email));
-
-                String e = email.toLowerCase();
-                if (e.contains("@outlook") ||
-                        e.contains("@live") ||
-                        e.contains("@hotmail") ||
-                        e.contains("@msn"))
-                    throw new IllegalArgumentException(getString(R.string.title_setup_office_remark));
             }
 
             etName.setEnabled(false);
@@ -640,8 +635,15 @@ public class FragmentOAuth extends FragmentBase {
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
         if ("office365".equals(id) &&
-                ex instanceof AuthenticationFailedException)
+                ex instanceof AuthenticationFailedException) {
             tvOfficeAuthHint.setVisibility(View.VISIBLE);
+            String e = etEmail.getText().toString().toLowerCase();
+            if (e.contains("@outlook") ||
+                    e.contains("@live") ||
+                    e.contains("@hotmail") ||
+                    e.contains("@msn"))
+                tvOfficeOutlookHint.setVisibility(View.VISIBLE);
+        }
 
         etName.setEnabled(true);
         etEmail.setEnabled(true);
@@ -660,5 +662,6 @@ public class FragmentOAuth extends FragmentBase {
         grpError.setVisibility(View.GONE);
         tvGmailDraftsHint.setVisibility(View.GONE);
         tvOfficeAuthHint.setVisibility(View.GONE);
+        tvOfficeOutlookHint.setVisibility(View.GONE);
     }
 }
