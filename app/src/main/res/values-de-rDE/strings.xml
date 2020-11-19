@@ -620,7 +620,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
-    <string name="title_synchronize_childs">Unterordner synchronisieren</string>
     <string name="title_synchronize_more">Weitere Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
@@ -1210,7 +1209,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
     <string name="title_enabled">Aktiviert</string>
-    <string name="title_disable">Deaktivieren</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_default_changed">Standard geändert</string>

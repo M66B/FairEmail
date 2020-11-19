@@ -498,11 +498,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         childs++;
             if (childs > 0) {
                 SubMenu submenu = popupMenu.getMenu()
-                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_childs);
+                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_subfolders);
 
                 submenu.add(Menu.FIRST, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
-                submenu.add(Menu.FIRST, R.string.title_enable, 2, R.string.title_enable);
-                submenu.add(Menu.FIRST, R.string.title_disable, 3, R.string.title_disable);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_enable, 2, R.string.title_synchronize_batch_enable);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_disable, 3, R.string.title_synchronize_batch_disable);
             }
 
             if (folder.selectable) {
@@ -578,10 +578,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             case R.string.title_synchronize_now:
                                 onActionSync(true);
                                 return true;
-                            case R.string.title_enable:
+                            case R.string.title_synchronize_batch_enable:
                                 onActionEnable(true);
                                 return true;
-                            case R.string.title_disable:
+                            case R.string.title_synchronize_batch_disable:
                                 onActionEnable(false);
                                 return true;
                             default:

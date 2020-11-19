@@ -725,9 +725,11 @@
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
-    <string name="title_synchronize_childs">Synchronize child folders</string>
+    <string name="title_synchronize_subfolders">Subfolders</string>
     <string name="title_synchronize_more">Synchronize more messages</string>
     <string name="title_synchronize_enabled">Synchronize</string>
+    <string name="title_synchronize_batch_enable">Enable synchronization</string>
+    <string name="title_synchronize_batch_disable">Disable synchronization</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
     <string name="title_empty_trash">Empty trash</string>
@@ -1366,7 +1368,6 @@
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
     <string name="title_enabled">Enabled</string>
-    <string name="title_disable">Disable</string>
     <string name="title_executing">Executing</string>
     <string name="title_completed">Completed</string>
     <string name="title_default_changed">Default changed</string>

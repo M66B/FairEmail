@@ -608,7 +608,6 @@
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
-    <string name="title_synchronize_childs">Synkronoi alikansiot</string>
     <string name="title_synchronize_more">Synkronoi lisää viestejä</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_delete_local">Poista paikalliset viestit</string>

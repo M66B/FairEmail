@@ -594,7 +594,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_browse">Jelajahi pesan di server</string>
     <string name="title_advanced_expand_read">Tandai pesan telah dibaca saat memperluas</string>
     <string name="title_synchronize_now">Sinkronkan sekarang</string>
-    <string name="title_synchronize_childs">Sinkronkan sub folder</string>
     <string name="title_synchronize_more">Sinkronkan pesan lebih banyak</string>
     <string name="title_synchronize_enabled">Mengsinkronisasikan</string>
     <string name="title_delete_local">Hapus pesan di perangkat</string>

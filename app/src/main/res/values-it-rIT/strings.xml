@@ -619,7 +619,6 @@
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
-    <string name="title_synchronize_childs">Sincronizza le sottocartelle</string>
     <string name="title_synchronize_more">Sincronizza altri messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>

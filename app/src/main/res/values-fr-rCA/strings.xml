@@ -619,7 +619,6 @@
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
-    <string name="title_synchronize_childs">Synchroniser les sous-dossiers</string>
     <string name="title_synchronize_more">Synchroniser davantage de messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
@@ -1212,7 +1211,6 @@
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
     <string name="title_enabled">Activé</string>
-    <string name="title_disable">Désactiver</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
     <string name="title_default_changed">Valeur par défaut modifiée</string>

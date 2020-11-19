@@ -607,7 +607,6 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">立即同步</string>
-    <string name="title_synchronize_childs">同步子文件夹</string>
     <string name="title_synchronize_more">同步更多消息</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
@@ -1200,7 +1199,6 @@
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
-    <string name="title_disable">禁用</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_default_changed">默认已更改</string>

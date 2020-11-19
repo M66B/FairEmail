@@ -641,7 +641,6 @@
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
-    <string name="title_synchronize_childs">Синхронизировать вложенные папки</string>
     <string name="title_synchronize_more">Синхронизировать ещё сообщения</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>

@@ -616,7 +616,6 @@
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
-    <string name="title_synchronize_childs">Synkronisér undermapper</string>
     <string name="title_synchronize_more">Synkronisér flere beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_delete_local">Slet lokale beskeder</string>

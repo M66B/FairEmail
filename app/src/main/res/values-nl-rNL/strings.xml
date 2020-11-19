@@ -618,9 +618,11 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
-    <string name="title_synchronize_childs">Synchroniseer onderliggende mappen</string>
+    <string name="title_synchronize_childs">Submappen</string>
     <string name="title_synchronize_more">Meer berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
+    <string name="title_synchronize_batch_enable">Synchronisatie inschakelen</string>
+    <string name="title_synchronize_batch_disable">Synchronisatie uitschakelen</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
@@ -1211,7 +1213,6 @@
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
     <string name="title_enabled">Ingeschakeld</string>
-    <string name="title_disable">Uitschakelen</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_default_changed">Standaard gewijzigd</string>

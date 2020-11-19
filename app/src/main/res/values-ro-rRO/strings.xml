@@ -629,7 +629,6 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
-    <string name="title_synchronize_childs">Sincronizare dosare secundare</string>
     <string name="title_synchronize_more">Sincronizează mai multe mesaje</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_delete_local">Șterge mesajul local</string>

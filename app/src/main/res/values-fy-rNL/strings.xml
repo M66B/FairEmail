@@ -566,7 +566,6 @@
     <string name="title_advanced_browse">Blêdzje berjochten op de server</string>
     <string name="title_advanced_expand_read">Markearje berjochten lêzen as útwreidzjen</string>
     <string name="title_synchronize_now">Syngronisearje no</string>
-    <string name="title_synchronize_childs">Syngronisearje bernemappen</string>
     <string name="title_synchronize_more">Syngronisearje mear berjochten</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
     <string name="title_delete_local">Lokale berjochten wiskje</string>

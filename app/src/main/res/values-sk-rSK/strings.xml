@@ -627,7 +627,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_browse">Prehliadať správy na serveri</string>
     <string name="title_advanced_expand_read">Označiť správy za prečítané po rozbalení</string>
     <string name="title_synchronize_now">Synchronizovať teraz</string>
-    <string name="title_synchronize_childs">Synchronizovať vnorené priečinky</string>
     <string name="title_synchronize_more">Synchronizovať viac správ</string>
     <string name="title_synchronize_enabled">Synchronizovať</string>
     <string name="title_delete_local">Vymazať lokálne správy</string>

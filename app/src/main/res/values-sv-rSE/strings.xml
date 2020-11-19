@@ -618,7 +618,6 @@
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
-    <string name="title_synchronize_childs">Synkronisera underordnade mappar</string>
     <string name="title_synchronize_more">Synkronisera fler meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
@@ -1211,7 +1210,6 @@
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
-    <string name="title_disable">Inaktivera</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>
     <string name="title_default_changed">Standard ändrad</string>

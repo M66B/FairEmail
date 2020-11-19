@@ -610,7 +610,6 @@
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
-    <string name="title_synchronize_childs">Alt klasörleri senkronize et</string>
     <string name="title_synchronize_more">Daha fazla ileti senkronize et</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_delete_local">Yerel iletileri sil</string>

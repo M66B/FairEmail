@@ -620,7 +620,6 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
-    <string name="title_synchronize_childs">Sincronizar carpetas hijas</string>
     <string name="title_synchronize_more">Sincronizar más mensajes</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
@@ -1213,7 +1212,6 @@
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
-    <string name="title_disable">Desactivar</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
     <string name="title_default_changed">Por defecto cambió</string>

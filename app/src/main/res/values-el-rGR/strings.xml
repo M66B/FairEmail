@@ -617,7 +617,6 @@
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
-    <string name="title_synchronize_childs">Συγχρονισμός υποφακέλων</string>
     <string name="title_synchronize_more">Συγχρονισμός περισσοτέρων μηνυμάτων</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>
@@ -1203,7 +1202,6 @@
     <string name="title_fix">Επιδιόρθωση</string>
     <string name="title_enable">Ενεργοποίηση</string>
     <string name="title_enabled">Ενεργοποιημένο</string>
-    <string name="title_disable">Απενεργοποίηση</string>
     <string name="title_executing">Εκτελείται</string>
     <string name="title_completed">Ολοκληρώθηκε</string>
     <string name="title_default_changed">Η προεπιλογή έχει αλλάξει</string>

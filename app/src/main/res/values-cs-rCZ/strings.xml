@@ -636,7 +636,6 @@
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
-    <string name="title_synchronize_childs">Synchronizovat podřízené složky</string>
     <string name="title_synchronize_more">Synchronizovat více zpráv</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_delete_local">Smazat lokální zprávy</string>

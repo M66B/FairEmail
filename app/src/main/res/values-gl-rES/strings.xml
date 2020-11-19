@@ -609,7 +609,6 @@
     <string name="title_advanced_browse">Mirar mensaxes no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensaxes como lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
-    <string name="title_synchronize_childs">Sincronizar os cartafoles derivados</string>
     <string name="title_synchronize_more">Sincronizar máis mensaxes</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_delete_local">Borrar mensaxes locais</string>
