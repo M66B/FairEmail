@@ -372,6 +372,7 @@ public class EntityRule {
                 String keyword = jargs.getString("keyword");
                 if (TextUtils.isEmpty(keyword))
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_keyword_missing));
+                return;
             case TYPE_MOVE:
             case TYPE_COPY:
                 long target = jargs.optLong("target", -1);
