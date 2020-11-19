@@ -491,20 +491,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, order++, R.string.title_synchronize_now);
             }
 
-            int childs = 0;
-            if (folder.child_refs != null)
-                for (TupleFolderEx child : folder.child_refs)
-                    if (child.selectable)
-                        childs++;
-            if (childs > 0) {
-                SubMenu submenu = popupMenu.getMenu()
-                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_subfolders);
-
-                submenu.add(Menu.FIRST, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
-                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_enable, 2, R.string.title_synchronize_batch_enable);
-                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_disable, 3, R.string.title_synchronize_batch_disable);
-            }
-
             if (folder.selectable) {
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_more, order++, R.string.title_synchronize_more);
@@ -561,6 +547,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
+
+            int childs = 0;
+            if (folder.child_refs != null)
+                for (TupleFolderEx child : folder.child_refs)
+                    if (child.selectable)
+                        childs++;
+            if (childs > 0) {
+                SubMenu submenu = popupMenu.getMenu()
+                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_subfolders);
+
+                submenu.add(Menu.FIRST, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_enable, 2, R.string.title_synchronize_batch_enable);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_batch_disable, 3, R.string.title_synchronize_batch_disable);
+            }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder)
