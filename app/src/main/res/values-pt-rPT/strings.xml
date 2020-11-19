@@ -15,6 +15,7 @@
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
     <string name="channel_group_contacts">Contactos</string>
+    <string name="channel_service_description">A sincronização e monitorização de contas</string>
     <string name="channel_send_description">Envio de mensagens</string>
     <string name="channel_notification_description">Notificações de novas mensagens</string>
     <plurals name="page_conversation">
@@ -193,6 +194,7 @@
     <string name="title_setup_theme_red_green">Vermelho/verde</string>
     <string name="title_setup_theme_grey">Cinzento</string>
     <string name="title_setup_theme_black">Preto</string>
+    <string name="title_setup_theme_black_and_white">Preto e Branco</string>
     <string name="title_setup_theme_reverse">Inverter cores</string>
     <string name="title_setup_theme_dark">Escuro</string>
     <string name="title_setup_theme_system">Seguir o sistema</string>
@@ -230,6 +232,7 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar lista de pastas partilhadas</string>
     <string name="title_advanced_subscriptions">Gerir subscrições de pastas</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar automaticamente as pastas subscritas</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente ao sincronizar mensagens</string>
     <string name="title_advanced_check_reply">Verificar endereços de e-mail de resposta ao sincronizar mensagens</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automaticamente o intervalo de manutenção de connexão</string>
@@ -384,8 +387,11 @@
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
+    <string name="title_advanced_language">Idioma</string>
+    <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
+    <string name="title_advanced_updates">Verificar atualizações do GitHub</string>
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_query_threads">Limitar acesso paralelo à base de dados</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>

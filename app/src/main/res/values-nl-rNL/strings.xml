@@ -1211,6 +1211,7 @@
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
     <string name="title_enabled">Ingeschakeld</string>
+    <string name="title_disable">Uitschakelen</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_default_changed">Standaard gewijzigd</string>

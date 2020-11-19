@@ -1212,6 +1212,7 @@
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
     <string name="title_enabled">Activé</string>
+    <string name="title_disable">Désactiver</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
     <string name="title_default_changed">Valeur par défaut modifiée</string>

@@ -1211,6 +1211,7 @@
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
+    <string name="title_disable">Inaktivera</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>
     <string name="title_default_changed">Standard ändrad</string>

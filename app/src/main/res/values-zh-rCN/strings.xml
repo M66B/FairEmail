@@ -1200,6 +1200,7 @@
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
+    <string name="title_disable">禁用</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_default_changed">默认已更改</string>

@@ -78,6 +78,7 @@ Questions liées:
 * Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation des messages sont censés être affichés correctement sur les objets connectés Pebble 2, Fitbit Charge 3, Mi band 3 et Xiaomi Amazfit BIP. Voir aussi [cette FAQ](#user-content-faq126).
 * Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* lorsque du texte est sélectionné et en tapotant à côté de ce dernier. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancres) ne fonctionnent pas, car les messages originaux sont affichés dans un composant WebView intégré à une vue défilante (la liste de la conversation). Il s'agit d'une limitation d'Android qui ne peut pas être corrigée ou contournée.
+* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 
 ## Fonctionnalités prévues
 
@@ -861,7 +862,7 @@ The error *... Connection refused ...* means that the email server or something 
 
 The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
-The error *... Host is unresolved ...* or "*... Unable to resolve host ...* means that the address of the email server could not be resolved. This might be caused by ad blocking or an unreachable or not properly working [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
@@ -2162,13 +2163,11 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Is OAuth supported?**
 
-OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this.
+OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex is supported via the quick setup wizard.
+OAuth for Yandex and Yahoo is supported via the quick setup wizard.
 
 OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
-
-OAuth access for Yahoo was requested, but Yahoo never responded to the request. OAuth for AOL [was deactivated](https://www.programmableweb.com/api/aol-open-auth) by AOL. Verizon owns both AOL and Yahoo, collectively named [Oath inc](https://en.wikipedia.org/wiki/Verizon_Media). So, it is reasonable to assume that OAuth is not supported by Yahoo anymore too.
 
 <br />
 
@@ -2301,8 +2300,6 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
 When FairEmail cannot connect to an email server to receive messages, for example when the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect. If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep (=no battery usage).
-
-Between connectivity changes there is a wait of 90 seconds to give the email server the opportunity to discover the old connection is broken. This is necessary because the internet connection of a mobile device is often lost abruptly and to prevent the problem described in [this FAQ](#user-content-faq23).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 
@@ -2558,7 +2555,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2762,53 +2759,55 @@ Tracking images will be disabled only if the corresponding main 'disable' option
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Cette commande peut être envoyée à FairEmail depuis une application d'automatisation pour mettre à jour les listes de protection :
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Mettre à jour une fois par semaine sera probablement suffisant, veuillez consulter [ici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pour la liste des modifications récentes.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Pouvez-vous ajouter une suppression permanente des messages sans confirmation ?**
+**(160) Can you add permanent deletion of messages without confirmation?**
 
-La suppression permanente signifie que les messages seront *irréversiblement* perdus, et pour éviter que cela ne se produise accidentellement, cela doit toujours être confirmé. Même avec confirmation, certaines personnes très en colère qui ont perdu certains de leurs messages par leur propre faute m'ont contacté, qui a été une expérience plutôt désagréable :-(
+Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+
+Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 <br />
 
 <a name="faq161"></a>
-**(161) Peux-tu ajouter un paramètre pour changer la couleur primaire et d'accentuation ?***
+**(161) Can you add a setting to change the primary and accent color?***
 
-Si je le pouvais, j'ajouterais un paramètre pour sélectionner la couleur primaire et de l'accent tout de suite, mais malheureusement les thèmes Android sont fixes, voir par exemple [ici](https://stackoverflow.com/a/26511725/1794097), donc ce n'est pas possible.
+If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
 <br />
 
 
 ## Obtenir de l'aide
 
-FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si le numéro de version est le même que le numéro de version de la dernière version de GitHub. Cela signifie également que la rétrogradation n'est pas prise en charge.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Il n'y a aucun soutien pour construire et développer les choses par vous-même.
+There is no support on building and developing things by yourself.
 
-Les fonctionnalités demandées doivent :
+Requested features should:
 
 * être utile à la plupart des gens
 * ne pas compliquer l'utilisation de FairEmail
 * s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
 * se conformer aux normes communes (IMAP, SMTP, etc.)
 
-Les caractéristiques qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de maintenir la maintenance et le soutien à long terme réalisable.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Les "issues"/tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

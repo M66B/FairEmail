@@ -1213,6 +1213,7 @@
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
+    <string name="title_disable">Desactivar</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
     <string name="title_default_changed">Por defecto cambió</string>
