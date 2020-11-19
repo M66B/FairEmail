@@ -5723,7 +5723,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     void setCompact(boolean compact) {
         if (this.compact != compact) {
             this.compact = compact;
-            notifyDataSetChanged();
+            properties.refresh();
         }
     }
 
@@ -5731,7 +5731,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (this.zoom != zoom) {
             this.zoom = zoom;
             textSize = Helper.getTextSize(context, zoom);
-            notifyDataSetChanged();
+            properties.refresh();
         }
     }
 
@@ -5742,7 +5742,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     void setSort(String sort) {
         if (!sort.equals(this.sort)) {
             this.sort = sort;
-            notifyDataSetChanged();
+            properties.refresh();
             // Needed to redraw item decorators / add/remove size
         }
     }
@@ -5762,7 +5762,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     void setFilterDuplicates(boolean filter_duplicates) {
         if (this.filter_duplicates != filter_duplicates) {
             this.filter_duplicates = filter_duplicates;
-            notifyDataSetChanged();
+            properties.refresh();
         }
     }
 
@@ -5966,6 +5966,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void move(long id, String type);
 
         void reply(TupleMessageEx message, String selected, View anchor);
+
+        void refresh();
 
         void finish();
     }

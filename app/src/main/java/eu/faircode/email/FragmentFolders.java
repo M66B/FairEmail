@@ -507,6 +507,16 @@ public class FragmentFolders extends FragmentBase {
 
         getActivity().invalidateOptionsMenu();
         adapter.setCompact(compact);
+        rvFolder.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    adapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void onMenuShowHidden() {
@@ -523,6 +533,16 @@ public class FragmentFolders extends FragmentBase {
 
         getActivity().invalidateOptionsMenu();
         adapter.setShowFlagged(show_flagged);
+        rvFolder.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    adapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void onMenuSubscribedOnly() {

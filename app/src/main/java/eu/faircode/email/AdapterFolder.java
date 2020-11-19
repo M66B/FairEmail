@@ -943,10 +943,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     void setCompact(boolean compact) {
-        if (this.show_compact != compact) {
+        if (this.show_compact != compact)
             this.show_compact = compact;
-            notifyDataSetChanged();
-        }
     }
 
     void setShowHidden(boolean show_hidden) {
@@ -957,10 +955,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     void setShowFlagged(boolean show_flagged) {
-        if (this.show_flagged != show_flagged) {
+        if (this.show_flagged != show_flagged)
             this.show_flagged = show_flagged;
-            notifyDataSetChanged();
-        }
     }
 
     void setSubscribedOnly(boolean subscribed_only) {

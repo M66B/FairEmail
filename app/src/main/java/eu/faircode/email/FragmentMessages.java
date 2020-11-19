@@ -1794,6 +1794,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
+        public void refresh() {
+            rvMessage.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        adapter.notifyDataSetChanged();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+        }
+
+        @Override
         public void finish() {
             FragmentMessages.this.finish();
         }
