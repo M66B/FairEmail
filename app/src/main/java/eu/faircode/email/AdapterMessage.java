@@ -3716,6 +3716,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionOpenFull(final TupleMessageEx message) {
+            boolean open_full_confirmed = prefs.getBoolean("open_full_confirmed", false);
+            if (open_full_confirmed)
+                onActionOpenFullConfirmed(message);
+            else {
+                LayoutInflater inflater = LayoutInflater.from(context);
+                View dview = inflater.inflate(R.layout.dialog_ask_again, null, false);
+                final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+                final TextView tvRemark = dview.findViewById(R.id.tvRemark);
+                final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+                tvMessage.setText(R.string.title_ask_show_html);
+                tvRemark.setText(R.string.title_ask_show_image_hint);
+
+                new AlertDialog.Builder(context)
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (cbNotAgain.isChecked())
+                                    prefs.edit().putBoolean("open_full_confirmed", true).apply();
+                                onActionOpenFullConfirmed(message);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+        }
+
+        private void onActionOpenFullConfirmed(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
