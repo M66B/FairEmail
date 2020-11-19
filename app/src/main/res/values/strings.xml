@@ -1194,6 +1194,10 @@
     <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>
     <string name="title_rule_name_missing">Rule name missing</string>
     <string name="title_rule_condition_missing">Condition missing</string>
+    <string name="title_rule_folder_missing">Folder missing</string>
+    <string name="title_rule_identity_missing">Identity missing</string>
+    <string name="title_rule_answer_missing">Template missing</string>
+    <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
 
     <string name="title_rule_execute">Execute now</string>

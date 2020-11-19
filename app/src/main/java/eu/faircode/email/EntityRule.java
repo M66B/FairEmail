@@ -371,12 +371,12 @@ public class EntityRule {
             case TYPE_KEYWORD:
                 String keyword = jargs.getString("keyword");
                 if (TextUtils.isEmpty(keyword))
-                    throw new IllegalArgumentException("Keyword missing");
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_keyword_missing));
             case TYPE_MOVE:
             case TYPE_COPY:
                 long target = jargs.optLong("target", -1);
                 if (target < 0)
-                    throw new IllegalArgumentException("Folder missing");
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_folder_missing));
                 EntityFolder folder = db.folder().getFolder(target);
                 if (folder == null)
                     throw new IllegalArgumentException("Folder not found");
@@ -384,14 +384,14 @@ public class EntityRule {
             case TYPE_ANSWER:
                 long iid = jargs.optLong("identity", -1);
                 if (iid < 0)
-                    throw new IllegalArgumentException("Identity missing");
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_identity_missing));
                 EntityIdentity identity = db.identity().getIdentity(iid);
                 if (identity == null)
                     throw new IllegalArgumentException("Identity not found");
 
                 long aid = jargs.optLong("answer", -1);
                 if (aid < 0)
-                    throw new IllegalArgumentException("Answer missing");
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_answer_missing));
                 EntityAnswer answer = db.answer().getAnswer(aid);
                 if (answer == null)
                     throw new IllegalArgumentException("Answer not found");
