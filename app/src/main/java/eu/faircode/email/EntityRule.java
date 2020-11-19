@@ -298,7 +298,7 @@ public class EntityRule {
         return matched;
     }
 
-    boolean execute(Context context, EntityMessage message) throws JSONException, IOException, AddressException {
+    boolean execute(Context context, EntityMessage message) throws JSONException {
         boolean executed = _execute(context, message);
         if (id != null && executed) {
             DB db = DB.getInstance(context);
@@ -307,7 +307,7 @@ public class EntityRule {
         return executed;
     }
 
-    private boolean _execute(Context context, EntityMessage message) throws JSONException, IOException, AddressException {
+    private boolean _execute(Context context, EntityMessage message) throws JSONException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
         Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
@@ -399,7 +399,7 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionCopy(Context context, EntityMessage message, JSONObject jargs) {
         long target = jargs.optLong("target", -1);
 
         DB db = DB.getInstance(context);
@@ -412,7 +412,7 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException, AddressException {
+    private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) {
         DB db = DB.getInstance(context);
         boolean attachments = jargs.optBoolean("attachments");
 
@@ -583,7 +583,7 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) throws IOException {
+    private boolean onActionTts(Context context, EntityMessage message, JSONObject jargs) {
         if (!message.content) {
             EntityOperation.queue(context, message, EntityOperation.BODY);
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);

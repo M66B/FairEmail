@@ -988,8 +988,6 @@ public class FragmentRule extends FragmentBase {
         }
 
         try {
-            Helper.setViewsEnabled(view, false);
-
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putLong("folder", folder);
