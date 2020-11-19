@@ -1051,6 +1051,7 @@ public class FragmentRule extends FragmentBase {
                         rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;
+                        rule.validate(context);
                         rule.id = db.rule().insertRule(rule);
                     } else {
                         EntityRule rule = db.rule().getRule(id);
@@ -1061,6 +1062,7 @@ public class FragmentRule extends FragmentBase {
                         rule.stop = stop;
                         rule.condition = condition;
                         rule.action = action;
+                        rule.validate((context));
                         db.rule().updateRule(rule);
                     }
 
