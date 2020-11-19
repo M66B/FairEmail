@@ -232,7 +232,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("quote_reply", checked).apply();
-                swQuoteLimit.setEnabled(checked);
             }
         });
 
@@ -412,7 +411,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
-        swQuoteLimit.setEnabled(swQuoteReply.isChecked());
         swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
 
         int signature_location = prefs.getInt("signature_location", 1);
