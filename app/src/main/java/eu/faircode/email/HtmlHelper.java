@@ -2355,8 +2355,11 @@ public class HtmlHelper {
                                 if (llevel > 0)
                                     setSpan(ssb, new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length());
                                 break;
-                            case "p": // signature
-                                // Do nothing
+                            case "meta":
+                                // Signature
+                                break;
+                            case "p":
+                                // Signature
                                 break;
                             case "small":
                                 setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
@@ -2371,6 +2374,12 @@ public class HtmlHelper {
                             case "sup":
                                 setSpan(ssb, new SuperscriptSpan(), start, ssb.length());
                                 setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
+                                break;
+                            case "table":
+                            case "tr":
+                            case "th":
+                            case "td":
+                                // Signature
                                 break;
                             case "b":
                             case "strong":
