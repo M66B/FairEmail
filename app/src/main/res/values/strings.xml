@@ -311,6 +311,7 @@
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_separate_reply">Insert a horizontal line before a reply/forward header</string>
     <string name="title_advanced_extended_reply">Use extended reply/forward header</string>
+    <string name="title_advanced_write_below">Write below the sender\'s text</string>
     <string name="title_advanced_quote_reply">Quote replied text</string>
     <string name="title_advanced_limit_reply">Limit the number of nested quotes</string>
     <string name="title_advanced_resize_reply">Resize images in replied text</string>
