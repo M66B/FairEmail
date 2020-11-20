@@ -54,6 +54,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
+    private SwitchCompat swWriteBelow;
     private SwitchCompat swQuoteReply;
     private SwitchCompat swQuoteLimit;
     private SwitchCompat swResizeReply;
@@ -73,7 +74,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
-            "compose_font", "prefix_once", "separate_reply", "extended_reply", "quote_reply", "quote_limit", "resize_reply",
+            "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "discard_delete",
             "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
@@ -102,6 +103,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
+        swWriteBelow = view.findViewById(R.id.swWriteBelow);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swQuoteLimit = view.findViewById(R.id.swQuoteLimit);
         swResizeReply = view.findViewById(R.id.swResizeReply);
@@ -225,6 +227,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("extended_reply", checked).apply();
+            }
+        });
+
+        swWriteBelow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("write_below", checked).apply();
             }
         });
 
@@ -409,6 +418,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
+        swWriteBelow.setChecked(prefs.getBoolean("write_below", false));
         swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
         swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
