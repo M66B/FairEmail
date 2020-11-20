@@ -3036,19 +3036,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
                         }, ViewConfiguration.getDoubleTapTimeout());
                     } else {
-                        message.ui_seen = !message.ui_seen;
-                        message.unseen = (message.ui_seen ? 0 : message.count);
+                        message.unseen = (message.unseen == 0 ? message.count : 0);
+                        message.ui_seen = (message.unseen == 0);
                         bindSeen(message);
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
-                        args.putInt("protocol", message.accountProtocol);
+                        args.putBoolean("seen", message.ui_seen);
 
                         new SimpleTask<Void>() {
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
-                                int protocol = args.getInt("protocol");
+                                boolean seen = args.getBoolean("seen");
 
                                 DB db = DB.getInstance(context);
                                 try {
@@ -3058,15 +3058,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     if (message == null)
                                         return null;
 
-                                    if (protocol != EntityAccount.TYPE_IMAP)
-                                        EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
-                                    else {
-                                        List<EntityMessage> messages = db.message().getMessagesByThread(
-                                                message.account, message.thread, threading ? null : id, message.ui_seen ? message.folder : null);
-                                        for (EntityMessage threaded : messages)
-                                            if (threaded.ui_seen == message.ui_seen)
-                                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, !message.ui_seen);
-                                    }
+                                    // When marking read: in all folders
+                                    List<EntityMessage> messages = db.message().getMessagesByThread(
+                                            message.account, message.thread, threading ? null : id, seen ? null : message.folder);
+                                    for (EntityMessage threaded : messages)
+                                        if (threaded.ui_seen != seen)
+                                            EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
 
                                     db.setTransactionSuccessful();
                                 } finally {
