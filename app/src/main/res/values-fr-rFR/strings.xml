@@ -619,8 +619,11 @@
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
+    <string name="title_synchronize_subfolders">Sous-dossiers</string>
     <string name="title_synchronize_more">Synchroniser davantage de messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
+    <string name="title_synchronize_batch_enable">Activer la synchronisation</string>
+    <string name="title_synchronize_batch_disable">Désactiver la synchronisation</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
     <string name="title_empty_trash">Vider la corbeille</string>
@@ -1050,6 +1053,10 @@
     <string name="title_rule_answer_remark">Une seule réponse par conversation sera envoyée afin d\'éviter les réponses en boucle</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>
     <string name="title_rule_condition_missing">Condition manquante</string>
+    <string name="title_rule_folder_missing">Dossier manquant</string>
+    <string name="title_rule_identity_missing">Identité manquante</string>
+    <string name="title_rule_answer_missing">Modèle manquant</string>
+    <string name="title_rule_keyword_missing">Mot-clé manquant</string>
     <string name="title_rule_automation_hint">Ceci enverra l\'intent \'%1$s\' avec les extras \'%2$s\'</string>
     <string name="title_rule_execute">Exécuter maintenant</string>
     <string name="title_rule_applied">Messages concernés : %1$d</string>

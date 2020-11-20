@@ -618,8 +618,11 @@
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
+    <string name="title_synchronize_subfolders">Undermappar</string>
     <string name="title_synchronize_more">Synkronisera fler meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
+    <string name="title_synchronize_batch_enable">Aktivera synkronisering</string>
+    <string name="title_synchronize_batch_disable">Inaktivera synkronisering</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
     <string name="title_empty_trash">Töm papperskorg</string>
@@ -1049,6 +1052,10 @@
     <string name="title_rule_answer_remark">Endast ett svar kommer att skickas för någon konversation, för att undvika svarsloopar</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>
     <string name="title_rule_condition_missing">Tillstånd saknas</string>
+    <string name="title_rule_folder_missing">Mapp saknas</string>
+    <string name="title_rule_identity_missing">Identitet saknas</string>
+    <string name="title_rule_answer_missing">Mall saknas</string>
+    <string name="title_rule_keyword_missing">Nyckelord saknas</string>
     <string name="title_rule_automation_hint">Detta kommer att skicka avsikten \'%1$s\' med extramaterial \'%2$s\'</string>
     <string name="title_rule_execute">Verkställ nu</string>
     <string name="title_rule_applied">Berörda meddelanden: %1$d</string>

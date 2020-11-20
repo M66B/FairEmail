@@ -2,6 +2,7 @@
 <resources>
     <string name="app_search">Kimngocdhkt@gmail.com </string>
     <string name="app_changelog">Kimngocdhkt@gmail. com</string>
+    <string name="app_limitations">For example, messages will always be reformatted to remove unsafe elements and to improve readability and opening links needs to be confirmed for safety.</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

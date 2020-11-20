@@ -641,8 +641,11 @@
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
+    <string name="title_synchronize_subfolders">Подпапки</string>
     <string name="title_synchronize_more">Синхронизировать ещё сообщения</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
+    <string name="title_synchronize_batch_enable">Включить синхронизацию</string>
+    <string name="title_synchronize_batch_disable">Отключить синхронизацию</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>
@@ -1072,6 +1075,10 @@
     <string name="title_rule_answer_remark">Только один ответ будет отправлен в каждый диалог, чтобы избежать петель ответов</string>
     <string name="title_rule_name_missing">Отсутствует название правила</string>
     <string name="title_rule_condition_missing">Отсутствует условие</string>
+    <string name="title_rule_folder_missing">Папка отсутствует</string>
+    <string name="title_rule_identity_missing">Идентификатор отсутствует</string>
+    <string name="title_rule_answer_missing">Шаблон отсутствует</string>
+    <string name="title_rule_keyword_missing">Ключевое слово отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \"%1$s\" с дополнениями \"%2$s\"</string>
     <string name="title_rule_execute">Выполнить</string>
     <string name="title_rule_applied">Затронутые сообщения: %1$d</string>

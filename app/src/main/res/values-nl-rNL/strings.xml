@@ -313,7 +313,7 @@
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_subject_elipsed">Wanneer nodig, verkort het onderwerp</string>
     <string name="title_advanced_highlight_color">Markeerkleur</string>
-    <string name="title_advanced_keywords">Toon trefwoorden in de berichtkop</string>
+    <string name="title_advanced_keywords">Toon sleutelwoorden in de berichtkop</string>
     <string name="title_advanced_labels">Toon Gmail labels in de berichtkop</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_flags_background">Toon gekleurde achtergrond in plaats van gekleurde sterren</string>
@@ -618,7 +618,7 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
-    <string name="title_synchronize_childs">Submappen</string>
+    <string name="title_synchronize_subfolders">Submappen</string>
     <string name="title_synchronize_more">Meer berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_synchronize_batch_enable">Synchronisatie inschakelen</string>
@@ -725,9 +725,9 @@
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>
-    <string name="title_manage_keywords">Trefwoorden beheren</string>
+    <string name="title_manage_keywords">Sleutelwoorden beheren</string>
     <string name="title_manage_labels">Gmail labels beheren</string>
-    <string name="title_add_keyword">Trefwoord toevoegen</string>
+    <string name="title_add_keyword">Sleutelwoord toevoegen</string>
     <string name="title_show_inline">Toon inline bijlagen</string>
     <string name="title_download_all">Alles downloaden</string>
     <string name="title_save_all">Alles opslaan</string>
@@ -741,7 +741,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
     <string name="title_copy_btn">Kopiëren</string>
-    <string name="title_keywords_btn">Trefwoorden</string>
+    <string name="title_keywords_btn">Sleutelwoorden</string>
     <string name="title_unsubscribe">Uitschrijven</string>
     <string name="title_message_rule">Maak regel</string>
     <string name="title_no_junk">Geen spam</string>
@@ -947,7 +947,7 @@
     <string name="title_search_in_senders">In afzenders (van)</string>
     <string name="title_search_in_recipients">In geadresseerden (aan, cc)</string>
     <string name="title_search_in_subject">In onderwerp</string>
-    <string name="title_search_in_keywords">In trefwoorden (indien ondersteund)</string>
+    <string name="title_search_in_keywords">In sleutelwoorden (indien ondersteund)</string>
     <string name="title_search_in_message">In bericht tekst</string>
     <string name="title_search_with">Zoekopdracht beperken tot</string>
     <string name="title_search_with_unseen">Ongelezen</string>
@@ -1052,6 +1052,10 @@
     <string name="title_rule_answer_remark">Slechts één antwoord zal worden verzonden voor elk gesprek, om lussen te voorkomen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>
     <string name="title_rule_condition_missing">Conditie ontbreekt</string>
+    <string name="title_rule_folder_missing">Map ontbreekt</string>
+    <string name="title_rule_identity_missing">Identiteit ontbreekt</string>
+    <string name="title_rule_answer_missing">Sjabloon ontbreekt</string>
+    <string name="title_rule_keyword_missing">Sleutelwoord ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
     <string name="title_rule_execute">Nu uitvoeren</string>
     <string name="title_rule_applied">Beïnvloede berichten: %1$d</string>

@@ -243,7 +243,7 @@
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展回复/转发头</string>
     <string name="title_advanced_quote_reply">引用回复文本</string>
-    <string name="title_advanced_limit_reply">限制嵌套引用数量</string>
+    <string name="title_advanced_limit_reply">限制嵌套引用层级</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
@@ -471,10 +471,10 @@
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
-    <string name="title_advanced_placeholders_hint">这只适用于重新格式化的消息</string>
+    <string name="title_advanced_placeholders_hint">这仅适用于重建格式的消息</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
-    <string name="title_advanced_language_detection_hint">语言检测支持取决于设备制造商</string>
+    <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
@@ -607,8 +607,11 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">立即同步</string>
+    <string name="title_synchronize_subfolders">子文件夹</string>
     <string name="title_synchronize_more">同步更多消息</string>
     <string name="title_synchronize_enabled">同步</string>
+    <string name="title_synchronize_batch_enable">启用同步</string>
+    <string name="title_synchronize_batch_disable">禁用同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_empty_trash">清空回收站</string>
@@ -1038,6 +1041,10 @@
     <string name="title_rule_answer_remark">(设置自动回复后)任何会话将仅发送一个回复，以避免回复循环</string>
     <string name="title_rule_name_missing">缺少规则名称</string>
     <string name="title_rule_condition_missing">条件缺失</string>
+    <string name="title_rule_folder_missing">缺少文件夹</string>
+    <string name="title_rule_identity_missing">缺少身份</string>
+    <string name="title_rule_answer_missing">缺少模板</string>
+    <string name="title_rule_keyword_missing">缺少关键词</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
     <string name="title_rule_execute">立即执行</string>
     <string name="title_rule_applied">受影响的消息: %1$d</string>

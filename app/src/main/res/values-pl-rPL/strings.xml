@@ -640,8 +640,11 @@
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
+    <string name="title_synchronize_subfolders">Podfoldery</string>
     <string name="title_synchronize_more">Synchronizuj więcej wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
+    <string name="title_synchronize_batch_enable">Włącz synchronizację</string>
+    <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
@@ -1071,6 +1074,10 @@
     <string name="title_rule_answer_remark">Dla każdej rozmowy zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
+    <string name="title_rule_folder_missing">Brak folderu</string>
+    <string name="title_rule_identity_missing">Brak tożsamości</string>
+    <string name="title_rule_answer_missing">Brak szablonu</string>
+    <string name="title_rule_keyword_missing">Brak słowa kluczowego</string>
     <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
     <string name="title_rule_execute">Wykonaj teraz</string>
     <string name="title_rule_applied">Problematycznych wiadomości: %1$d</string>

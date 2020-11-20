@@ -619,6 +619,8 @@
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
     <string name="title_synchronize_more">Συγχρονισμός περισσοτέρων μηνυμάτων</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
+    <string name="title_synchronize_batch_enable">Ενεργοποίηση συγχρονισμού</string>
+    <string name="title_synchronize_batch_disable">Απενεργοποίηση συγχρονισμού</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>
     <string name="title_delete_browsed">Διαγραφή των φυλλομετρημένων/αναζητημένων μηνυμάτων</string>
     <string name="title_empty_trash">Άδειασμα κάδου απορριμμάτων</string>

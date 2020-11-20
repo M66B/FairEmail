@@ -616,8 +616,11 @@
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
+    <string name="title_synchronize_subfolders">Undermapper</string>
     <string name="title_synchronize_more">Synkronisér flere beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
+    <string name="title_synchronize_batch_enable">Aktivér synkronisering</string>
+    <string name="title_synchronize_batch_disable">Deaktivér synkronisering</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
     <string name="title_empty_trash">Tøm papirkurv</string>
@@ -1046,6 +1049,10 @@
     <string name="title_rule_answer_remark">For at undgå svarsløjfer, sendes kun ét svar til en given samtale</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>
     <string name="title_rule_condition_missing">Betingelse mangler</string>
+    <string name="title_rule_folder_missing">Mappe manngler</string>
+    <string name="title_rule_identity_missing">Identitet mangler</string>
+    <string name="title_rule_answer_missing">Skabelon mangler</string>
+    <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
     <string name="title_rule_execute">Eksekvér nu</string>
     <string name="title_rule_applied">Berørte beskeder: %1$d</string>
