@@ -511,7 +511,8 @@ public class Log {
         if (!isSupportedDevice())
             return false;
 
-        if (ex instanceof OutOfMemoryError)
+        if (ex instanceof OutOfMemoryError ||
+                ex.getCause() instanceof OutOfMemoryError)
             return false;
 
         if (ex instanceof RemoteException)
