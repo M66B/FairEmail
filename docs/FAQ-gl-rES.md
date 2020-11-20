@@ -1224,6 +1224,11 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
+To reduce data usage, you could change these advanced receive settings:
+
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
+
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
@@ -2798,10 +2803,10 @@ There is no support on building and developing things by yourself.
 
 Requested features should:
 
-* ser de utilidade para a maioría da xente
-* non complicar o uso de FairEmail
-* encaixar na filosofía de FairEmail (orientado á privacidade e coa seguridade en mente)
-* cumprir cos estándares comúns (IMAP, SMTP, etc)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 

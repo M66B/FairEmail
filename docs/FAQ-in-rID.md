@@ -1224,6 +1224,11 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
+To reduce data usage, you could change these advanced receive settings:
+
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
+
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
@@ -1607,7 +1612,7 @@ The following rule conditions are available:
 * Sender contains
 * Recipient contains
 * Subject contains
-* Memiliki lampiran
+* Has attachments
 * Header contains
 * Day/time between
 
@@ -2235,7 +2240,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Buka FairEmail dan arahkan ke menu fitur pro agar FairEmail memeriksa pembelian; terkadang ada gunanya mengetuk tombol *beli*
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2798,10 +2803,10 @@ There is no support on building and developing things by yourself.
 
 Requested features should:
 
-* berguna untuk seluruh orang
-* tidak menyusahkan pengguna FairEmail
-* cocok dengan filosofi FairEmail (berorientasi dengan privasi, berfikir keamanan)
-* memenuhi standar umum (IMAP, SMTP, dll)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 

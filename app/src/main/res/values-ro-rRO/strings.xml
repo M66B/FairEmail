@@ -629,8 +629,11 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
+    <string name="title_synchronize_subfolders">Subdosare</string>
     <string name="title_synchronize_more">Sincronizează mai multe mesaje</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
+    <string name="title_synchronize_batch_enable">Activează sincronizarea</string>
+    <string name="title_synchronize_batch_disable">Dezactivează sincronizarea</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
@@ -1060,6 +1063,10 @@
     <string name="title_rule_answer_remark">Doar un singur răspuns va fi trimis pentru orice conversație, pentru a evita bucle de răspuns</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
     <string name="title_rule_condition_missing">Lipsește condiția</string>
+    <string name="title_rule_folder_missing">Dosar lipsă</string>
+    <string name="title_rule_identity_missing">Identitate lipsă</string>
+    <string name="title_rule_answer_missing">Șablon lipsă</string>
+    <string name="title_rule_keyword_missing">Lipsește cuvântul cheie</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
     <string name="title_rule_execute">Execută acum</string>
     <string name="title_rule_applied">Mesaje afectate: %1$d</string>

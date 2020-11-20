@@ -1224,7 +1224,12 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
+Um den Datenverbrauch zu reduzieren, könnten Sie diese erweiterten Empfangseinstellungen ändern:
+
+* Prüft, ob alte Nachrichten vom Server entfernt wurden: Deaktiviert
+* (freigegebene) Ordnerliste synchronisieren: Deaktiviert
+
+Standardmäßig lädt FairEmail keine Nachrichtentexte und Anhänge herunter, die größer als 256 KiB sind, wenn eine gebührenpflichtige (mobile oder kostenpflichtige WLAN-) Internetverbindung besteht. You can change this in the connection settings.
 
 <br />
 
@@ -2235,7 +2240,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Öffnen Sie FairEmail und wechseln Sie zum Bildschirm mit den Profifunktionen, damit FairEmail die Einkäufe überprüfen kann. Oftmals hilft es, auf die Schaltfläche *Kaufen* zu tippen.
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 

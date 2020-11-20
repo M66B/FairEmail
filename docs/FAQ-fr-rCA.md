@@ -1224,6 +1224,11 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
+To reduce data usage, you could change these advanced receive settings:
+
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
+
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
@@ -1436,11 +1441,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1794,7 +1799,7 @@ You can use pull-down-to-refresh in a message list or use the folder menu *Synch
 
 If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
 
-Vous voudrez probablement aussi désactiver [naviguer sur le serveur](#user-content-faq24).
+You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
 <br />
 
@@ -1821,14 +1826,14 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-La reconnaissance automatique des images de suivi peut être désactivée dans les paramètres de confidentialité.
+Automatic recognition of tracking images can be disabled in the privacy settings.
 
 <br />
 
 <a name="faq84"></a>
-**(84) À quoi servent les contacts locaux ?**
+**(84) What are local contacts for?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -1883,15 +1888,15 @@ The preferred way to set up a Yahoo account is by using the quick setup wizard, 
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
-* [pour Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [pour AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [pour Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (sous *d'autres applications de messagerie*)
+* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Veuillez consulter [cette FAQ](#user-content-faq111) sur le support OAuth.
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
-Notez que Yahoo, AOL et Sky ne prennent pas en charge les messages push standard. L'application de messagerie Yahoo utilise un protocole propriétaire et non documenté pour les messages push.
+Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
 
-Les messages push requièrent [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) et le serveur de messagerie Yahoo ne rapporte pas IDLE comme "capability":
+Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
 ```
 Y1 CAPABILITY
@@ -1902,14 +1907,14 @@ Y1 OK CAPABILITY completed
 <br />
 
 <a name="faq89"></a>
-**(89) Comment puis-je envoyer uniquement des messages en texte brut ?**
+**(89) How can I send plain text only messages?**
 
-Par défaut, FairEmail envoie chaque message en texte brut et en texte formaté en HTML, car presque chaque destinataire attend des messages formatés ces jours-ci. Si vous voulez/avez besoin d'envoyer uniquement des messages en texte brut, vous pouvez l'activer dans les options d'identité avancées. Vous pouvez créer une nouvelle identité si vous voulez/avez besoin de sélectionner l'envoi de messages en texte brut au cas par cas.
+By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
 <br />
 
 <a name="faq90"></a>
-**(90) Pourquoi certains sont des liens sans être un lien ?**
+**(90) Why are some texts linked while not being a link?**
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
@@ -1922,12 +1927,12 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
-~~Voir [cette FAQ](#user-content-faq39) sur l'optimisation de l'utilisation de la batterie.~~
+~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
 
 <br />
 
 <a name="faq92"></a>
-**(92) Pouvez-vous ajouter le filtrage de spam, la vérification de la signature DKIM et l'autorisation SPF ?**
+**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
@@ -2235,7 +2240,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Ouvrez FairEmail et accédez à l'écran des fonctionnalités Pro pour permettre à FairEmail de vérifier les achats ; parfois, appuyer sur le bouton *Acheter* peut vous aider
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2798,10 +2803,10 @@ There is no support on building and developing things by yourself.
 
 Requested features should:
 
-* être utile à la plupart des gens
-* ne pas compliquer l'utilisation de FairEmail
-* s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
-* se conformer aux normes communes (IMAP, SMTP, etc.)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 

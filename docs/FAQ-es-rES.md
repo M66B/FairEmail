@@ -1224,6 +1224,11 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
+To reduce data usage, you could change these advanced receive settings:
+
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
+
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
@@ -1239,11 +1244,11 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-Vea también [estas Preguntas Frecuentes](#user-content-faq4).
+See also [this FAQ](#user-content-faq4).
 
 El error '*Handshake falló ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
-El error '*Handshake falló ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
+The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
 The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
@@ -1312,7 +1317,7 @@ You'll get the message *This key is not available. To use it, you must import it
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server. You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
-The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take. Tenga en cuenta que no debería establecer el número de días para sincronizar mensajes a más de un día en la mayoría de los casos, vea también [estas Preguntas Frecuentes](#user-content-faq39).
+The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take. Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
 
 <br />
 
@@ -1323,7 +1328,7 @@ You'll get the error message *No primary account or no drafts folder* when tryin
 
 This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder while there is no primary account or when the primary account does not have a drafts folder.
 
-Consulte [estas Preguntas Frecuentes](#user-content-faq141) para obtener más información.
+Please see [this FAQ](#user-content-faq141) for some more information.
 
 <br />
 
@@ -1456,22 +1461,22 @@ For security reasons the files with the original message texts are not accessibl
 <a name="faq60"></a>
 **(60) Did you know ... ?**
 
-* ¿Sabía que los mensajes favoritos pueden sincronizarse/mantenerse siempre? (esto puede ser activado en la configuración de recepción)
-* ¿Sabía que puede mantener presionado el icono de 'redactar mensaje' para ir a la carpeta de borradores?
-* ¿Sabía que hay una opción avanzada para marcar mensajes leídos al ser movidos? (archivar y enviar a papelera también es moverlos)
-* ¿Sabía que puede seleccionar texto (o una dirección de correo electrónico) en cualquier aplicación en versiones recientes de Android y dejar que FairEmail lo busque?
-* ¿Sabía que FairEmail tiene un modo tablet? Gire su dispositivo a modo apaisado y los hilos de conversación se abrirán en una segunda columna si hay suficiente espacio en la pantalla.
-* ¿Sabía que puede mantener presionada una plantilla de respuesta para crear un borrador de mensaje a partir de la plantilla?
-* ¿Sabía que puede dejar pulsado, mantener y deslizar para seleccionar una gama de mensajes?
-* ¿Sabía que puede volver a intentar enviar mensajes tirando hacia abajo para actualizar en la bandeja de salida?
-* ¿Sabía que puede deslizar una conversación a la izquierda o a la derecha para ir a la conversación siguiente o anterior?
-* ¿Sabía que puede pulsar en una imagen para ver de dónde se descargará?
-* ¿Sabía que puede mantener pulsado el icono de la carpeta en la barra de acciones para seleccionar una cuenta?
-* ¿Sabía que puede mantener presionado el icono de la estrella en un hilo de conversación para establecer una estrella de color?
-* ¿Sabía que puede abrir el cajón de navegación deslizando desde la izquierda, incluso cuando ve una conversación?
-* ¿Sabía que puede mantener pulsado el icono de la persona para mostrar/ocultar los campos CC/CCO y recordar el estado de visibilidad para la próxima vez?
-* ¿Sabía que puede insertar las direcciones de correo electrónico de un grupo de contactos Android a través del menú de tres puntos?
-* ¿Sabía que si selecciona texto y pulsa responder, sólo se citará el texto seleccionado?
+* Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
+* Did you know that you can long press the 'write message' icon to go to the drafts folder?
+* Did you know there is an advanced option to mark messages read when they are moved? (archiving and trashing is also moving)
+* Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it?
+* Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
+* Did you know that you can long press a reply template to create a draft message from the template?
+* Did you know that you can long press, hold and swipe to select a range of messages?
+* Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
+* Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
+* Did you know that you can tap on an image to see where it will be downloaded from?
+* Did you know that you can long press the folder icon in the action bar to select an account?
+* Did you know that you can long press the star icon in a conversation thread to set a colored star?
+* Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
+* Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
+* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
+* Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 
 <br />
@@ -1498,7 +1503,7 @@ The following authentication methods are supported and used in this order:
 * PLAIN
 * CRAM-MD5
 * XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
-* NTLM (no probado)
+* NTLM (untested)
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
@@ -1522,7 +1527,7 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 
 ~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
 
-~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. Vea también [esta pregunta](#user-content-faq55).~~
+~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
 
 ~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~ ~~Note that there is an advanced option to mark messages automatically read on moving,~~ ~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~ ~~You can also mark messages read from new message notifications.~~
 
@@ -1533,7 +1538,7 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 <a name="faq65"></a>
 **(65) Why are some attachments shown dimmed?**
 
-Inline (image) attachments are shown dimmed. Se supone que [los adjuntos embebidos](https://tools.ietf.org/html/rfc2183) se descargarán y mostrarán automáticamente, pero dado que FairEmail no siempre descarga archivos adjuntos automáticamente, vea también [estas Preguntas Frecuentes](#user-content-faq40), FairEmail muestra todos los tipos de archivos adjuntos. To distinguish inline and regular attachments, inline attachments are shown dimmed.
+Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically, but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40), FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
 
 <br />
 
@@ -1580,8 +1585,8 @@ The message list is automatically scrolled up when navigating from a new message
 
 When navigation to a conversation one message will be expanded if:
 
-* Sólo hay un mensaje en la conversación
-* Hay exactamente un mensaje no leído en la conversación
+* There is just one message in the conversation
+* There is exactly one unread message in the conversation
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
 
@@ -1604,12 +1609,12 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* El remitente contiene
-* El destinatario contiene
-* El asunto contiene
-* Tiene archivos adjuntos
-* El encabezado contiene
-* Día/hora entre
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
+* Day/time between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
 
@@ -1631,20 +1636,20 @@ Note that [dot all mode](https://developer.android.com/reference/java/util/regex
 
 You can select one of these actions to apply to matching messages:
 
-* Ninguna acción (útil para *no*)
-* Marcar como leído
-* Marcar como no leído
-* Ocultar
-* Suprimir notificación
-* Posponer
-* Destacar
-* Establecer importancia (prioridad local)
-* Añadir palabra clave
-* Mover
-* Copiar (Gmail: etiqueta)
-* Responder (con plantilla)
-* Texto a voz (remitente y asunto)
-* Automatización (Tasker, etc.)
+* No action (useful for *not*)
+* Mark as read
+* Mark as unread
+* Hide
+* Suppress notification
+* Snooze
+* Add star
+* Set importance (local priority)
+* Add keyword
+* Move
+* Copy (Gmail: label)
+* Answer (with template)
+* Text-to-speech (sender and subject)
+* Automation (Tasker, etc)
 
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
@@ -1847,9 +1852,9 @@ By default only names and addresses to whom you send messages to will be recorde
 
 An identity is available for sending a new message or replying or forwarding an existing message only if:
 
-* la identidad está configurada para sincronizar (enviar mensajes)
-* la cuenta asociada está configurada para sincronizar (recibir mensajes)
-* la cuenta asociada tiene una carpeta de borradores
+* the identity is set to synchronize (send messages)
+* the associated account is set to synchronize (receive messages)
+* the associated account has a drafts folder
 
 FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
 
@@ -1860,8 +1865,8 @@ FairEmail will try to select the best identity based on the *to* address of the 
 
 ~~The advanced option *extra privacy features* enables:~~
 
-* ~~Buscar al dueño de la dirección IP de un enlace~~
-* ~~Detección y eliminación de [imágenes de seguimiento](#user-content-faq82)~~
+* ~~Looking up the owner of the IP address of a link~~
+* ~~Detection and removal of [tracking images](#user-content-faq82)~~
 
 <br />
 
@@ -1883,9 +1888,9 @@ The preferred way to set up a Yahoo account is by using the quick setup wizard, 
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
-* [para Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [para AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [para Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (bajo *Otras aplicaciones de correo*)
+* [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -1988,11 +1993,11 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 
 About each four hours FairEmail runs a cleanup job that:
 
-* Elimina los textos de mensajes antiguos
-* Elimina archivos adjuntos antiguos
-* Elimina archivos de imagen antiguos
-* Elimina contactos locales antiguos
-* Elimina entradas antiguas del log
+* Removes old message texts
+* Removes old attachment files
+* Removes old image files
+* Removes old local contacts
+* Removes old log entries
 
 Note that the cleanup job will only run when the synchronize service is active.
 
@@ -2019,9 +2024,9 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
-* Crear un nuevo filtro vía Gmail > Configuración > Ver toda la configuración > Filtros y Direcciones Bloqueadas > Crear un nuevo filtro
-* Introduzca una búsqueda de categoría (ver abajo) en el campo *Tiene las palabras* y haga clic en *Crear filtro*
-* Marque *Aplicar la etiqueta* y seleccione una etiqueta y haga clic en *Crear filtro*
+* Create a new filter via Gmail > Settings (wheel) > Filters and Blocked Addresses > Create a new filter
+* Enter a category search (see below) in the *Has the words* field and click *Create filter*
+* Check *Apply the label* and select a label and click *Create filter*
 
 Possible categories:
 
@@ -2068,14 +2073,14 @@ Unfortunately and surprisingly, most recording apps do not seem to support this 
 <a name="faq104"></a>
 **(104) What do I need to know about error reporting?**
 
-* Los informes de error ayudarán a mejorar FairEmail
-* El reporte de errores es opcional y opt-in
-* El informe de errores puede ser activado/desactivado en la configuración, sección miscelánea
-* Los informes de error se enviarán automáticamente de forma anónima a [Bugsnag](https://www.bugsnag.com/)
-* Bugsnag para Android es [código abierto](https://github.com/bugsnag/bugsnag-android)
-* Mire [aquí](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) sobre qué datos se enviarán en caso de errores
-* Vea [aquí](https://docs.bugsnag.com/legal/privacy-policy/) para ver la política de privacidad de Bugsnag
-* Los informes de error se enviarán a *sessions.bugsnag.com:443* y *notify.bugsnag.com:443*
+* Error reports will help improve FairEmail
+* Error reporting is optional and opt-in
+* Error reporting can be enabled/disabled in the settings, section miscellaneous
+* Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
+* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
+* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
+* See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
+* Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
 
 <br />
 
@@ -2140,8 +2145,8 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 ~~You can solve this in two ways:~~
 
-* ~~Cambiar a la versión oficial de FairEmail, vea [aquí](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) para las opciones~~
-* ~~Use contraseñas específicas de aplicación, vea [estas Preguntas Frecuentes](#user-content-faq6)~~
+* ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for the options~~
+* ~~Use app specific passwords, see [this FAQ](#user-content-faq6)~~
 
 ~~Using *select account* in third party builds is not possible in recent versions anymore.~~ ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
 
@@ -2230,24 +2235,24 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
-* Asegúrese de tener una conexión activa a internet
-* Asegúrese de que ha iniciado sesión con la cuenta de Google correcta y de que no hay ningún problema con su cuenta de Google
-* Asegúrese de instalar FairEmail a través de la cuenta de Google correcta si configuró varias cuentas de Google en su dispositivo
-* Asegúrese de que la aplicación Play Store está actualizada, por favor [ver aquí](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Abra la aplicación Play Store y espere al menos un minuto para darle tiempo para sincronizar con los servidores de Google
+* Make sure you have an active, working internet connection
+* Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
+* Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
+* Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
 Note that:
 
-* Si obtiene *ITEM_ALREADY_OWNED*, la aplicación Play Store probablemente necesite ser actualizada, por favor [vea aquí](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Las compras se almacenan en la nube de Google y no se pueden perder
-* No hay límite de tiempo en las compras, por lo que no pueden expirar
-* Google no expone detalles (nombre, correo electrónico, etc.) sobre los compradores a los desarrolladores
-* Una aplicación como FairEmail no puede seleccionar qué cuenta de Google utilizar
-* Puede tomar un tiempo hasta que la aplicación Play Store haya sincronizado una compra a otro dispositivo
-* Las compras en Play Store no se pueden utilizar sin la Play Store, que tampoco está permitido por las reglas de la Play Store
+* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Purchases are stored in the Google cloud and cannot get lost
+* There is no time limit on purchases, so they cannot expire
+* Google does not expose details (name, e-mail, etc) about buyers to developers
+* An app like FairEmail cannot select which Google account to use
+* It may take a while until the Play store app has synchronized a purchase to another device
+* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
@@ -2451,9 +2456,9 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Cuenta: Configurar > Paso 1 > Administrar > Tocar cuenta
-* Identidad: Configurar > Paso 2 > Administrar > Tocar cuenta
-* Carpeta: mantenga pulsada la carpeta en la lista de carpetas > Editar propiedades
+* Account: Setup > Step 1 > Manage > Tap account
+* Identity: Setup > Step 2 > Manage > Tap identity
+* Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
 
@@ -2489,10 +2494,10 @@ In fact this Microsoft Exchange specific error is an incorrect error message cau
 
 The error *User is authenticated but not connected* might occur if:
 
-* Los mensajes push están habilitados para demasiadas carpetas: vea [estas Preguntas Frecuentes](#user-content-faq23) para más información y una solución
-* La contraseña de la cuenta fue cambiada: cambiarla en FairEmail también debería solucionar el problema
-* Una dirección de correo electrónico de alias se está utilizando como nombre de usuario en lugar de la dirección de correo principal
-* Se está utilizando un esquema de inicio de sesión incorrecto para un buzón compartido: el esquema correcto es *usuario@dominio\AliasBuzónCompartido*
+* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* The account password was changed: changing it in FairEmail too should fix the problem
+* An alias email address is being used as username instead of the primary email address
+* An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
 
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
@@ -2570,19 +2575,19 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Habilitar *notificaciones separadas* en la configuración avanzada de la cuenta (configuración, paso 1, administrar, tocar cuenta, tocar avanzado)
-* Mantenga presionada la cuenta en la lista de cuentas (Configuración, paso 1, Administrar) y seleccione *Editar canal de notificación* para cambiar el sonido de notificación
+* Enable *Separate notifications* in the advanced account settings (Setup, step 1, Manage, tap account, tap Advanced)
+* Long press the account in the account list (Setup, step 1, Manage) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
-* Mantenga pulsado la carpeta en la lista de carpetas y seleccione *Crear canal de notificación*
-* Mantenga presionado la carpeta en la lista de carpetas y seleccione *Editar canal de notificación* para cambiar el sonido de notificación
+* Long press the folder in the folder list and select *Create notification channel*
+* Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
 Sender:
 
-* Abra un mensaje del remitente y expándalo
-* Expanda la sección de direcciones tocando en la flecha hacia abajo
-* Toca el icono de la campana para crear o editar un canal de notificación y cambiar el sonido de notificación
+* Open a message from the sender and expand it
+* Expand the addresses section by tapping on the down arrow
+* Tap on the bell icon to create or edit a notification channel and to change the notification sound
 
 The order of precendence is: sender sound, folder sound, account sound and default sound.
 
@@ -2640,9 +2645,9 @@ The unread message count widget shows the number of unread messages either for a
 
 Tapping on the notification will synchronize all folders for which synchronization is enabled and will open:
 
-* la pantalla de inicio cuando todas las cuentas fueron seleccionadas
-* una lista de carpetas cuando una cuenta específica fue seleccionada y cuando las notificaciones de mensajes nuevos están habilitadas para múltiples carpetas
-* una lista de mensajes cuando una cuenta específica fue seleccionada y cuando las notificaciones de mensajes nuevos están habilitadas para una carpeta
+* the start screen when all accounts were selected
+* a folder list when a specific account was selected and when new message notifications are enabled for multiple folders
+* a list of messages when a specific account was selected and when new message notifications are enabled for one folder
 
 <br />
 
@@ -2684,8 +2689,8 @@ You can define contact groups with the Android contacts app, please see [here](h
 
 You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
 
-* Cuando marco un mensaje en IMAP como eliminado: Auto-Expunge off - Espere a que el cliente actualice el servidor.
-* Cuando un mensaje está marcado como borrado y eliminado de la última carpeta IMAP visible: Borrar el mensaje inmediatamente para siempre
+* When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
+* When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
 Note that archived messages can be deleted only by moving them to the trash folder first.
 
@@ -2752,8 +2757,8 @@ Please see [here](https://disconnect.me/trackerprotection) for more information 
 
 After downloading the lists in the privacy settings, the lists can optionally be used:
 
-* para avisar sobre el enlaces de seguimiento al abrir enlaces
-* para reconocer imágenes de seguimiento en los mensajes
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
 Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
@@ -2798,10 +2803,10 @@ There is no support on building and developing things by yourself.
 
 Requested features should:
 
-* ser útiles para la mayoría de la gente
-* no complicar el uso de FairEmail
-* encajar dentro de la filosofía de FairEmail (orientado a la privacidad, pensando en seguridad)
-* cumplir con estándares comunes (IMAP, SMTP, etc.)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 

@@ -27,8 +27,8 @@
     <plurals name="page_message">
         <item quantity="one">Zpráva</item>
         <item quantity="few">Zprávy</item>
-        <item quantity="many">Zpráv</item>
-        <item quantity="other">Zpráv</item>
+        <item quantity="many">Zprávy</item>
+        <item quantity="other">Zprávy</item>
     </plurals>
     <string name="page_folders">Složky</string>
     <string name="page_compose">Napsat zprávu</string>

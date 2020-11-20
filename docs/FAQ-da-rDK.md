@@ -1224,6 +1224,11 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
+To reduce data usage, you could change these advanced receive settings:
+
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
+
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
@@ -2233,21 +2238,21 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
-* Sørg for, at Play Butik-appen er opdateret, [tjek hér](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Åbn Play Butik-appen, og vent mindst ét minut for at give den tid til at synkronisere med Google-serverne
-* Åbn FairEmail og gå til Pro-funktionsskærmen for at lade FairEmail tjekke købet. Nogle gange hjælper det at trykke på knappen *Køb*
+* Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
 Note that:
 
-* Ser du *VARE ALLEREDE KØBT*, skal Play Butik-appen sandsynligvis opdateres, [tjek hér](https://support.google.com/googleplay/answer/1050566?hl=en)
-* Køb gemmes i Google-skyen og kan ikke gå tabt
-* Der er ingen tidsbegrænsning på køb, hvorfor de aldrig udløber
-* Google afslører ikke oplysninger (navn, e-mail mv.) om købere til udviklere
-* En app såsom FairEmail kan ikke vælge, hvilken Google-konto, der skal benyttes
-* Der kan gå et stykke tid, før Play Butik-appen har synkroniseret et køb til en anden enhed
-* Play Butik-køb kan ikke anvendes uden Play Butik, hvilket heller ikke er tilladt jf. Play Butik-reglerne
+* If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
+* Purchases are stored in the Google cloud and cannot get lost
+* There is no time limit on purchases, so they cannot expire
+* Google does not expose details (name, e-mail, etc) about buyers to developers
+* An app like FairEmail cannot select which Google account to use
+* It may take a while until the Play store app has synchronized a purchase to another device
+* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
