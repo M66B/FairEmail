@@ -954,7 +954,7 @@ public class HtmlHelper {
         document.select("tr,th,td").tagName("div");
 
         // Lists
-        for (Element e : document.select("ol,ul")) {
+        for (Element e : document.select("ol,ul,blockquote")) {
             if (view) {
                 if (!"false".equals(e.attr("x-line-before")))
                     e.attr("x-line-before", "true");
@@ -963,7 +963,7 @@ public class HtmlHelper {
             } else {
                 String style = e.attr("style");
                 e.attr("style",
-                        mergeStyles(style, "margin:0"));
+                        mergeStyles(style, "margin-top:0;margin-bottom:0"));
             }
         }
 
