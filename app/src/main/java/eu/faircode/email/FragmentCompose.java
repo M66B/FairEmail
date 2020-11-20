@@ -4179,7 +4179,7 @@ public class FragmentCompose extends FragmentBase {
 
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE)
-                            showDraft(draft, false);
+                            showDraft(draft);
 
                         tvPlainTextOnly.setVisibility(
                                 draft.plain_only != null && draft.plain_only && !plain_only ? View.VISIBLE : View.GONE);
@@ -4839,9 +4839,8 @@ public class FragmentCompose extends FragmentBase {
 
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
-            boolean html = extras.containsKey("html");
             if (show)
-                showDraft(draft, html);
+                showDraft(draft);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
@@ -4862,7 +4861,7 @@ public class FragmentCompose extends FragmentBase {
                 finish();
 
             } else if (action == R.id.action_undo || action == R.id.action_redo) {
-                showDraft(draft, false);
+                showDraft(draft);
 
             } else if (action == R.id.action_save) {
                 // Do nothing
@@ -5018,7 +5017,7 @@ public class FragmentCompose extends FragmentBase {
                 ref.first().before(div);
     }
 
-    private void showDraft(final EntityMessage draft, final boolean scroll) {
+    private void showDraft(final EntityMessage draft) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
@@ -5113,9 +5112,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
-                if (scroll)
-                    etBody.setSelection(text[0] == null ? 0 : text[0].length());
-                else if (state != State.LOADED)
+                if (state != State.LOADED)
                     etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
 
