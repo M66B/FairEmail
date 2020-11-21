@@ -130,7 +130,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
-            error(args, ex);
+            Log.e(ex);
+            onException(args, ex);
         }
 
         future = getExecutor(context).submit(new Runnable() {
@@ -194,7 +195,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         try {
                             onPostExecute(args);
                         } catch (Throwable ex) {
-                            error(args, ex);
+                            Log.e(ex);
+                            onException(args, ex);
                         } finally {
                             try {
                                 if (ex == null) {
@@ -207,24 +209,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
                                     onExecuted(args, (T) data);
                                 } else
-                                    error(args, ex);
+                                    onException(args, ex);
                             } catch (Throwable ex) {
-                                error(args, ex);
+                                Log.e(ex);
+                                onException(args, ex);
                             }
                         }
                     }
                 });
             }
         });
-    }
-
-    void error(Bundle args, Throwable ex) {
-        try {
-            Log.e(ex);
-            onException(args, ex);
-        } catch (Throwable exex) {
-            Log.e(exex);
-        }
     }
 
     void cancel(Context context) {
