@@ -85,16 +85,28 @@
             app:layout_constraintTop_toBottomOf="@id/fast" />
 
         <Button
-            android:id="@+id/btnQuick"
+            android:id="@+id/btnHelp"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:backgroundTint="?attr/colorInfoBackground"
+            android:text="@string/title_setup_help"
+            android:textColor="?attr/colorInfoForeground"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
+
+        <Button
+            android:id="@+id/btnQuick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:backgroundTint="?attr/colorInfoBackground"
             android:text="@string/title_setup_wizard"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
         <eu.faircode.email.FixedTextView
@@ -108,20 +120,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnQuick" />
 
-        <Button
-            android:id="@+id/btnHelp"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorInfoBackground"
-            android:text="@string/title_setup_help"
-            android:textColor="?attr/colorInfoForeground"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuickRemarkMultiple" />
-
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvQuickNew"
             android:layout_width="wrap_content"
@@ -131,7 +129,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHelp" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuickRemarkMultiple" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvQuickRemark"
