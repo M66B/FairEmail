@@ -5010,9 +5010,9 @@ public class FragmentCompose extends FragmentBase {
             document.body().prependChild(div);
         else if (ref.size() == 0 || signature_location == 2) // bottom
             document.body().appendChild(div);
-        else if (signature_location == 1) // between
+        else if (signature_location == 1) // below text
             if (write_below)
-                ref.last().after(div);
+                document.body().appendChild(div);
             else
                 ref.first().before(div);
     }
