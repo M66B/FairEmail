@@ -276,6 +276,7 @@
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_separate_reply">Вставлять горизонтальную линию перед заголовком ответа/пересылки</string>
     <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
+    <string name="title_advanced_write_below">Писать под текстом отправителя</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
     <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
@@ -417,7 +418,7 @@
     <string name="title_advanced_notify_remove">Удалять уведомление о новом сообщении при нажатии на уведомление</string>
     <string name="title_advanced_notify_clear">Удалять уведомления о новых сообщениях при просмотре списка сообщений</string>
     <string name="title_advanced_wearable_preview">Отправлять уведомления на носимые устройства только с предпросмотром</string>
-    <string name="title_advanced_notify_messaging">Использовать Android-стиль уведомления о сообщении</string>
+    <string name="title_advanced_notify_messaging">Использовать стиль Android уведомления о сообщении</string>
     <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
@@ -499,7 +500,7 @@
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
-    <string name="title_advanced_highlight_hint">Цвет акцента темы будет использован для подсветки</string>
+    <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
@@ -524,7 +525,7 @@
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
     <string name="title_advanced_notify_manage_service_hint">Для отключения контролирующего уведомления</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>
-    <string name="title_advanced_notify_preview_only_hint">Это задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
+    <string name="title_advanced_notify_preview_only_hint">Задержит отображения уведомлений до тех пор, пока текст сообщения не будет загружен</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
     <string name="title_advanced_messaging_hint">Требуется поддержка Android Auto</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
@@ -1419,7 +1420,7 @@
         <item>В начале</item>
         <item>В середине</item>
         <item>В конце</item>
-        <item>Показать без сокращений</item>
+        <item>Не сокращать</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Низкий</item>

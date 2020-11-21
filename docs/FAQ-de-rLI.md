@@ -78,7 +78,7 @@ Verwandte Fragen:
 * Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3”, „Mi Band 3” und „Xiaomi Amazfit BIP” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
 * Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Ungültiger Offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
 * Interne (Anker-)Links funktionieren nicht, da die Originalnachrichten in einer eingebetteten Web-Ansicht in einer scrollenden Ansicht (der Konversationsliste) angezeigt werden. Dies ist eine Einschränkung von Android, die nicht behoben oder umgangen werden kann.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* Die Erkennung der Sprache [funktioniert nicht mehr](https://issuetracker.google.com/issues/173337263) auf Pixel-Geräten mit (Update auf?) Android 11
 
 ## Geplante Funktionen
 
@@ -278,8 +278,8 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(157) Wie kann ich ein Free.fr-Konto einrichten?](#user-content-faq157)
 * [(158) Welche/r Kamera/Audiorekorder ist empfehlenswert?](#user-content-faq158)
 * [(159) Was sind Disconnects Tracker-Schutzlisten?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
+* [(160) Kannst du eine dauerhafte Löschung von Nachrichten ohne Bestätigung hinzufügen?](#user-content-faq160)
+* [(161) Kannst du eine Einstellung zum Ändern der primären und akzentuierenden Farbe hinzufügen?](#user-content-faq161)
 
 [Ich habe eine weitere Frage.](#user-content-support)
 
@@ -371,7 +371,7 @@ Die Statusleistenbenachrichtigung mit niedriger Priorität zeigt die Anzahl der 
 * *Anhang*: Anhang herunterladen
 * *Synchronisation*: lokale und entfernte Nachrichten synchronisieren
 * *Abonnieren*: entfernten Ordner abonnieren
-* *purge*: delete all messages from remote folder
+* *Bereinigen*: Lösche alle Nachrichten aus dem entfernten Ordner
 * *Senden*: Nachricht senden
 * *Existiert*: Prüfen, ob Nachricht existiert
 * *Regel*: Regel im Text ausführen
@@ -409,7 +409,7 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*Leeres Passwort*
 
 Your username is likely easily guessed, so this is insecure.
 
@@ -422,14 +422,14 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Wie kann ich die Nachrichtenanzeige anpassen?**
 
 In the three dot overflow menu you can enable or disable or select:
 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-In the display section of the settings you can enable or disable:
+Im Bereich "Anzeige" der Einstellungen können Sie ein- oder ausschalten:
 
 * *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
 * *Nach Datum gruppieren*: Zeigt eine Kopfzeile für alle Nachrichten mit dem gleichen Datum anzeigen
@@ -573,23 +573,23 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Wie funktioniert die Ver- und Entschlüsselung?**
 
 *General*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+[Sehen Sie hier](https://en.wikipedia.org/wiki/Public-key_cryptography), wie die Verschlüsselung mit öffentlichen/privaten Schlüsseln funktioniert.
 
-Encryption in short:
+Verschlüsselung zusammengefasst:
 
 * **Ausgehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Empfängers verschlüsselt
 * **Eingehende** Nachrichten werden mit dem **privaten Schlüssel** des Empfängers entschlüsselt
 
-Signing in short:
+Signieren zusammengefasst:
 
 * **Ausgehende** Nachrichten sind mit dem **privaten Schlüssel** des Absenders signiert
 * **Eingehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Absenders überprüft
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Um eine Nachricht zu signieren/verschlüsseln, wählen Sie einfach die entsprechende Methode im Sendedialog aus. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
@@ -686,7 +686,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Wie funktioniert die Suche auf Gerät/Server?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
