@@ -131,7 +131,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             onPreExecute(args);
         } catch (Throwable ex) {
             Log.e(ex);
-            onException(args, ex);
+            try {
+                onException(args, ex);
+            } catch (Throwable exex) {
+                Log.e(exex);
+            }
         }
 
         future = getExecutor(context).submit(new Runnable() {
@@ -196,7 +200,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             onPostExecute(args);
                         } catch (Throwable ex) {
                             Log.e(ex);
-                            onException(args, ex);
+                            try {
+                                onException(args, ex);
+                            } catch (Throwable exex) {
+                                Log.e(exex);
+                            }
                         } finally {
                             try {
                                 if (ex == null) {
@@ -209,10 +217,18 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
                                     onExecuted(args, (T) data);
                                 } else
-                                    onException(args, ex);
+                                    try {
+                                        onException(args, ex);
+                                    } catch (Throwable exex) {
+                                        Log.e(exex);
+                                    }
                             } catch (Throwable ex) {
                                 Log.e(ex);
-                                onException(args, ex);
+                                try {
+                                    onException(args, ex);
+                                } catch (Throwable exex) {
+                                    Log.e(exex);
+                                }
                             }
                         }
                     }
