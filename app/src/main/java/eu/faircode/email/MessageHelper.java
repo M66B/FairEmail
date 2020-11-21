@@ -1848,7 +1848,10 @@ public class MessageHelper {
                                     Charset detected = CharsetHelper.detect(result);
                                     if (!(StandardCharsets.US_ASCII.equals(detected) &&
                                             StandardCharsets.UTF_8.equals(c)))
-                                        Log.e("Converting detected=" + detected + " meta=" + c);
+                                        if (BuildConfig.PLAY_STORE_RELEASE)
+                                            Log.w("Converting detected=" + detected + " meta=" + c);
+                                        else
+                                            Log.e("Converting detected=" + detected + " meta=" + c);
 
                                     // Convert
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
