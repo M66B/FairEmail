@@ -478,13 +478,14 @@ class Core {
                                 (ConnectionHelper.isIoError(ex) &&
                                         EntityFolder.DRAFTS.equals(folder.type) &&
                                         EntityOperation.ADD.equals(op.name))) {
-                            // com.sun.mail.iap.BadCommandException: B13 BAD [TOOBIG] Message too large
-                            // com.sun.mail.iap.CommandFailedException: AY3 NO [CANNOT] Cannot APPEND to a SPAM folder
-                            // com.sun.mail.iap.CommandFailedException: B16 NO [ALERT] Cannot MOVE messages out of the Drafts folder
-                            // com.sun.mail.iap.CommandFailedException: AV5 NO [OVERQUOTA] quota exceeded
+                            // com.sun.mail.iap.BadCommandException: BAD [TOOBIG] Message too large
+                            // com.sun.mail.iap.CommandFailedException: NO [CANNOT] Cannot APPEND to a SPAM folder
+                            // com.sun.mail.iap.CommandFailedException: NO [ALERT] Cannot MOVE messages out of the Drafts folder
+                            // com.sun.mail.iap.CommandFailedException: NO [OVERQUOTA] quota exceeded
                             // Drafts: javax.mail.FolderClosedException: * BYE Jakarta Mail Exception:
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
+                            // Move: NO No matching messages
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
                             EntityLog.log(context, msg +
                                     " folder=" + folder.id + ":" + folder.name +
