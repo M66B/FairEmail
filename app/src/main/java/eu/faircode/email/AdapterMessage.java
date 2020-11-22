@@ -23,6 +23,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -4750,10 +4751,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return;
             }
 
-            args.putString("question", context.getString(R.string.title_ask_show_html));
-            args.putString("notagain", "print_html_confirmed");
-
-            FragmentDialogAsk ask = new FragmentDialogAsk();
+            FragmentDialogPrint ask = new FragmentDialogPrint();
             ask.setArguments(args);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PRINT);
             ask.show(parentFragment.getParentFragmentManager(), "message:print");
@@ -6596,6 +6594,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             wv.loadDataWithBaseURL(null, html, "text/html", StandardCharsets.UTF_8.name(), null);
 
             return view;
+        }
+    }
+
+    public static class FragmentDialogPrint extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Bundle args = getArguments();
+
+            final Context context = getContext();
+
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_print, null);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    prefs.edit().putBoolean("print_html_confirmed", isChecked).apply();
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
         }
     }
 }
