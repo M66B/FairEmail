@@ -255,7 +255,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
-    <string name="title_advanced_write_below">Schreiben Sie unter den Text des Absenders</string>
+    <string name="title_advanced_write_below">Unter dem zitierten Text des Absenders schreiben</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_limit_reply">Anzahl der verschachtelten Zitate begrenzen</string>
     <string name="title_advanced_resize_reply">Bilder im Antworttext skalieren</string>
@@ -724,6 +724,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
     <string name="title_print">Drucken</string>
+    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Die E-Mail-Kopfzeile ausdrucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>

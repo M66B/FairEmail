@@ -10,7 +10,7 @@ Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysyty
 * [Suunnitellut ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Usein pyydetyt ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Usein Kysytyt Kysymykset](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Ota yhteyttä](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Tilien valtuutus
 
@@ -47,28 +47,28 @@ Aiheeseen liittyvät kysymykset:
 * Vaihda vasemmalle/oikealle pyyhkäisyn kohdetta: Asetukset, Toiminnot, Aseta pyyhkäisytoiminnot
 * Vaihda salasana: Asetukset, kohta 1, Muokkaa, napauta tiliä, vaihda salasana
 * Aseta allekirjoitus: Asetukset, kohta 2, Muokkaa, napauta identiteettiä, Muokkaa allekirjoitusta.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Lisää CC ja BCC osoitteet: napauta ihmisten kuvaketta aiheen lopussa
+* Mene seuraavaan tai edelliseen viestiin arkistossa/poistossa: käytösasetuksissa pois käytöstä *Sulje automaattisesti keskustelut* ja valitse *Siirry seuraavaan / edelliseen keskusteluun* *Keskustelun sulkemisen yhteydessä*
+* Lisää yhdistettyyn saapuneet-kansioon kansio: paina kansiota kansiolistassa pitkään ja valitse *Näytä yhdistetyssä saapuneet-kansiossa*
+* Lisää yhdistettyyn saapuneet-kansioon kansio: paina kansiota kansiolistassa pitkään ja valitse *Näytä yhdistetyssä saapuneet-kansiossa*
+* Lataa lisää viestejä: paina kansiota pitkään kansioluettelossa, valitse *Synkronoi lisää viestejä*
+* Poista viesti, ohita roskakori: 3-pisteen valikossa juuri viestin tekstin yläpuolella *Poista* tai vaihtoehtoisesti, poista roskapostin kansio tilin asetuksista
+* Poista tili/identiteetti: Aseta vaihe 1/2, Hallitse, napauta tiliä/identiteettiä, kolme-pistettä valikko, Poista
+* Poista kansio: paina kansiota pitkään kansioluettelossa, Muokkaa ominaisuuksia, kolme pistettä valikossa
+* Kumoa lähetetty: Lähtevä, napauta viestiä, napauta kumoa kuvaketta
+* Tallenna lähetetyt viestit saapuneet -kansioon: [katso tämä FAQ](#user-content-faq142)
+* Muuta järjestelmäkansioita: Aseta, vaihe 1, hallinta, napauta tiliä, alhaalla
+* Vienti/tuonti-asetukset: Asennus, navigointi/hamburger valikko
 
 ## Tunnetut ongelmat
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
+* ~~A [vika Android 5.1 ja 6](https://issuetracker.google.com/issues/37054851) aiheuttaa joskus sovellusten näyttämään väärän aikamuodon. Android-asetuksen vaihtaminen *Käytä 24-tunnin formaattia* saattaa tilapäisesti ratkaista ongelman. workaround lisättiin ~~
+* ~~A [vika Google Drivessa](https://issuetracker.google.com/issues/126362828) aiheuttaa sen, että Google Driveen vietävät tiedostot ovat tyhjiä. Google on korjannut tämän.~~
+* ~~A [vika AndroidX:ssa](https://issuetracker.google.com/issues/78495471) aiheuttaa joskus FairEmailin kaatumisen pitkään painamalla tai pyyhkäisemällä. Google on korjannut tämän.~~
+* ~~A [vika AndroidX ROOM:ssa](https://issuetracker.google.com/issues/138441698) aiheuttaa joskus kaatumisen "*... Exception while computing database live data ... Riviä ...* " ei voitu lukea. workaround lisättiin ~~
+* A [vika AndroidX ROOM:ssa](https://issuetracker.google.com/issues/119872129) aiheuttaa joskus kaatumisen "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
+* A [vika Androidissa](https://issuetracker.google.com/issues/62427912) aiheuttaa joskus kaatumisen "*... Aktiviteettitietuetta ei löydy ...*" FairEmailin päivityksen jälkeen. Uudelleenasennus ([lähde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) saattaa korjata ongelman.
+* A [vika Androidissa](https://issuetracker.google.com/issues/37018931) aiheuttaa joskus kaatumisen "*... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~

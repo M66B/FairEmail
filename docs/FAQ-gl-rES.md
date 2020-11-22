@@ -10,17 +10,17 @@ Se ten algunha pregunta, por favor mire primeiro na lista de preguntas frecuente
 * [Características planeadas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Características frecuentemente pedidas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Preguntas frecuentes](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Conseguir soporte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autorizando contas
 
 Na maioría dos casos, a configuración rápida é capaz de identificar a configuración correcta automaticamente.
 
-Se a configuración rápida fallara, terá que configurar unha conta manualmente (para recibir correo) e unha identidade (para enviar correo). Para iso, precisará coñecer os enderezos e os números de porto dos servidores IMAP e SMTP, se hai que usar SSL/TLS ou STARTTLS, ou seu nome de usuario (a maioría das veces é o seu enderezo de correo, pero non sempre) e o seu contrasinal.
+Se a configuración rápida fallase, terá que configurar unha conta manualmente (para recibir correo) e unha identidade (para enviar correo). Para iso, precisará coñecer os enderezos e os números de porto dos servidores IMAP e SMTP, se hai que usar SSL/TLS ou STARTTLS, ou seu nome de usuario (a maioría das veces é o seu enderezo de correo, pero non sempre) e o seu contrasinal.
 
 Soe chegar facer unha procura de *IMAP* e o nome do provedor para atopar a documentación axeitada.
 
-Nalgúns casos será preciso habilitar o acceso externo á súa conta e/ou usar un contrasinal especial da aplicación, por exemplo cando a autenticación de dos factores está activa.
+Nalgúns casos será preciso habilitar o acceso externo á súa conta e/ou usar un contrasinal especial (da aplicación), por exemplo cando a autenticación de dos factores está activa.
 
 Para autorizar:
 
