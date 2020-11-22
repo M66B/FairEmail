@@ -230,10 +230,10 @@ public class ConnectionHelper {
             return metered;
         }
 
+        // onLost [... state: SUSPENDED/SUSPENDED ... available: true]
         // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
         NetworkInfo ani = cm.getNetworkInfo(active);
-        if (ani == null || ani.getState() == NetworkInfo.State.DISCONNECTED) {
-            // State can incorrectly be SUSPENDED
+        if (ani == null || ani.getState() != NetworkInfo.State.CONNECTED) {
             Log.i("isMetered: no active info ani=" + ani);
             return null;
         }
