@@ -2799,7 +2799,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 return (message.identityEmail != null &&
                         message.from != null && message.from.length == 1 &&
-                        message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()));
+                        message.identityEmail.equalsIgnoreCase(((InternetAddress) message.from[0]).getAddress()));
         }
 
         private TupleMessageEx getMessage() {
