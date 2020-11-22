@@ -117,7 +117,7 @@
     </provider>
     <!-- no IMAP IDLE -->
     <provider
-        name="Yahoo"
+        name="Yahoo/AT&amp;T"
         appPassword="true"
         domain="yahoo\\..*"
         id="yahoo"
