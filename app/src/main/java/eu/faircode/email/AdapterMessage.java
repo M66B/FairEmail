@@ -6601,17 +6601,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Bundle args = getArguments();
-
             final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_print, null);
+            CheckBox cbHeader = dview.findViewById(R.id.cbHeader);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            cbHeader.setChecked(prefs.getBoolean("print_html_header", true));
+            cbHeader.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("print_html_header", isChecked).apply();
+                }
+            });
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     prefs.edit().putBoolean("print_html_confirmed", isChecked).apply();
                 }
             });

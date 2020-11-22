@@ -32,6 +32,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
         <CheckBox
+            android:id="@+id/cbHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_print_header"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemark" />
+
+        <CheckBox
             android:id="@+id/cbNotAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +49,6 @@
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemark" />
+            app:layout_constraintTop_toBottomOf="@id/cbHeader" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

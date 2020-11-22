@@ -7133,7 +7133,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return null;
 
                 Document document = JsoupEx.parse(file);
-                HtmlHelper.truncate(document, false);
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
                 // Prevent multiple pages for Microsoft Office
@@ -7141,88 +7140,92 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (section == null)
                     section = document.body();
 
-                Element header = document.createElement("p");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean print_html_header = prefs.getBoolean("print_html_header", true);
+                if (print_html_header) {
+                    Element header = document.createElement("p");
 
-                if (message.from != null && message.from.length > 0) {
-                    Element span = document.createElement("span");
-                    Element strong = document.createElement("strong");
-                    strong.text(context.getString(R.string.title_from));
-                    span.appendChild(strong);
-                    span.appendText(" " + MessageHelper.formatAddresses(message.from));
-                    span.appendElement("br");
-                    header.appendChild(span);
-                }
-
-                if (message.to != null && message.to.length > 0) {
-                    Element span = document.createElement("span");
-                    Element strong = document.createElement("strong");
-                    strong.text(context.getString(R.string.title_to));
-                    span.appendChild(strong);
-                    span.appendText(" " + MessageHelper.formatAddresses(message.to));
-                    span.appendElement("br");
-                    header.appendChild(span);
-                }
-
-                if (message.cc != null && message.cc.length > 0) {
-                    Element span = document.createElement("span");
-                    Element strong = document.createElement("strong");
-                    strong.text(context.getString(R.string.title_cc));
-                    span.appendChild(strong);
-                    span.appendText(" " + MessageHelper.formatAddresses(message.cc));
-                    span.appendElement("br");
-                    header.appendChild(span);
-                }
-
-                if (message.received != null) {
-                    DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
-
-                    Element span = document.createElement("span");
-                    Element strong = document.createElement("strong");
-                    strong.text(context.getString(R.string.title_received));
-                    span.appendChild(strong);
-                    span.appendText(" " + DTF.format(message.received));
-                    span.appendElement("br");
-                    header.appendChild(span);
-                }
-
-                if (!TextUtils.isEmpty(message.subject)) {
-                    Element span = document.createElement("span");
-                    span.appendText(message.subject);
-                    span.appendElement("br");
-                    header.appendChild(span);
-                }
-
-                if (headers && message.headers != null) {
-                    header.appendElement("hr");
-                    Element pre = document.createElement("pre");
-                    pre.text(message.headers);
-                    header.appendChild(pre);
-                }
-
-                header.appendElement("hr").appendElement("br");
-
-                section.prependChild(header);
-
-                boolean hasAttachments = false;
-                Element footer = document.createElement("p");
-                footer.appendElement("br").appendElement("hr");
-                for (EntityAttachment attachment : attachments)
-                    if (attachment.isAttachment()) {
-                        hasAttachments = true;
+                    if (message.from != null && message.from.length > 0) {
+                        Element span = document.createElement("span");
                         Element strong = document.createElement("strong");
-                        strong.text(context.getString(R.string.title_attachment));
-                        footer.appendChild(strong);
-                        if (!TextUtils.isEmpty(attachment.name))
-                            footer.appendText(" " + attachment.name);
-                        if (attachment.size != null)
-                            footer.appendText(" " + Helper.humanReadableByteCount(attachment.size));
-                        footer.appendElement("br");
+                        strong.text(context.getString(R.string.title_from));
+                        span.appendChild(strong);
+                        span.appendText(" " + MessageHelper.formatAddresses(message.from));
+                        span.appendElement("br");
+                        header.appendChild(span);
                     }
 
-                if (hasAttachments)
-                    section.appendChild(footer);
+                    if (message.to != null && message.to.length > 0) {
+                        Element span = document.createElement("span");
+                        Element strong = document.createElement("strong");
+                        strong.text(context.getString(R.string.title_to));
+                        span.appendChild(strong);
+                        span.appendText(" " + MessageHelper.formatAddresses(message.to));
+                        span.appendElement("br");
+                        header.appendChild(span);
+                    }
 
-                return new String[]{message.subject, document.html()};
+                    if (message.cc != null && message.cc.length > 0) {
+                        Element span = document.createElement("span");
+                        Element strong = document.createElement("strong");
+                        strong.text(context.getString(R.string.title_cc));
+                        span.appendChild(strong);
+                        span.appendText(" " + MessageHelper.formatAddresses(message.cc));
+                        span.appendElement("br");
+                        header.appendChild(span);
+                    }
+
+                    if (message.received != null) {
+                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+
+                        Element span = document.createElement("span");
+                        Element strong = document.createElement("strong");
+                        strong.text(context.getString(R.string.title_received));
+                        span.appendChild(strong);
+                        span.appendText(" " + DTF.format(message.received));
+                        span.appendElement("br");
+                        header.appendChild(span);
+                    }
+
+                    if (!TextUtils.isEmpty(message.subject)) {
+                        Element span = document.createElement("span");
+                        span.appendText(message.subject);
+                        span.appendElement("br");
+                        header.appendChild(span);
+                    }
+
+                    if (headers && message.headers != null) {
+                        header.appendElement("hr");
+                        Element pre = document.createElement("pre");
+                        pre.text(message.headers);
+                        header.appendChild(pre);
+                    }
+
+                    header.appendElement("hr").appendElement("br");
+
+                    section.prependChild(header);
+
+                    boolean hasAttachments = false;
+                    Element footer = document.createElement("p");
+                    footer.appendElement("br").appendElement("hr");
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.isAttachment()) {
+                            hasAttachments = true;
+                            Element strong = document.createElement("strong");
+                            strong.text(context.getString(R.string.title_attachment));
+                            footer.appendChild(strong);
+                            if (!TextUtils.isEmpty(attachment.name))
+                                footer.appendText(" " + attachment.name);
+                            if (attachment.size != null)
+                                footer.appendText(" " + Helper.humanReadableByteCount(attachment.size));
+                            footer.appendElement("br");
+                        }
+
+                    if (hasAttachments)
+                        section.appendChild(footer);
+                }
+
+                return new String[]{message.subject, section.html()};
             }
 
             @Override
