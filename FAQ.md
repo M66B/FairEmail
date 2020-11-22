@@ -1386,7 +1386,8 @@ The real battery usage can be seen by navigating to this screen:
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
 As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
-If this isn't the case, please let me know.
+If this isn't the case, please turn on *Auto optimize* in the receive settings.
+If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
