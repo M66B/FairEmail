@@ -618,6 +618,7 @@
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
+    <string name="title_synchronize_subfolders">Υποφάκελοι</string>
     <string name="title_synchronize_more">Συγχρονισμός περισσοτέρων μηνυμάτων</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_synchronize_batch_enable">Ενεργοποίηση συγχρονισμού</string>
@@ -1046,6 +1047,10 @@
     <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>
     <string name="title_rule_name_missing">Λείπει το όνομα του κανόνα</string>
     <string name="title_rule_condition_missing">Λείπει συνθήκη</string>
+    <string name="title_rule_folder_missing">Λείπει φάκελος</string>
+    <string name="title_rule_identity_missing">Λείπει ταυτότητα</string>
+    <string name="title_rule_answer_missing">Λείπει πρότυπο</string>
+    <string name="title_rule_keyword_missing">Λείπει λέξη-κλειδί</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>
     <string name="title_rule_applied">Μηνύματα που αφορά: %1$d</string>
     <string name="title_rule_check">Έλεγχος</string>

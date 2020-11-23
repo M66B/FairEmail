@@ -126,7 +126,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(3) Que sont les opérations et pourquoi sont-elles en attente ?](#user-content-faq3)
 * [(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en texte clair ?](#user-content-faq4)
 * [(5) Comment puis-je paramétrer la vue des messages ?](#user-content-faq5)
-* [(6) Comment puis-je me connecter à to Gmail / G suite?](#user-content-faq6)
+* [(6) Comment puis-je me connecter à Gmail / G suite?](#user-content-faq6)
 * [(7) Pourquoi les messages envoyés n'apparaissent pas (directement) dans le dossier Envoyés ?](#user-content-faq7)
 * [(8) Puis-je utiliser un compte Microsoft Exchange ?](#user-content-faq8)
 * [(9) Que sont les identités / comment ajouter un alias ?](#user-content-faq9)
@@ -463,27 +463,27 @@ Malheureusement, il est impossible de contenter tout le monde et ajouter tout un
 <a name="faq6"></a>
 **(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Si vous ne souhaitez pas utiliser un compte Gmail de l'appareil, vous pouvez soit activer l'accès aux "applications moins sécurisées" et utiliser le mot de passe de votre compte (déconseillé) ou activer l'authentification à deux facteurs et utiliser un mot de passe spécifique à l'application. Pour utiliser un mot de passe, vous devrez configurer un compte et une identité via les étapes de configuration 1 et 2, au lieu de l'assistant de configuration rapide.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Veuillez voir [cette question](#user-content-faq111) sur les raisons pour lesquelles seuls les comptes de l'appareil peuvent être utilisés.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Notez qu'un mot de passe spécifique à l'application est nécessaire lorsque l'authentification à deux facteurs est activée.
 
 <br />
 
-*App specific password*
+*Mot de passe spécifique à l'application*
 
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de générer un mot de passe spécifique à l'application.
 
 <br />
 
 *Activer les "Applications moins sécurisées"*
 
-**Important**: using this method is not recommended because it is less reliable.
+**Important**: l'utilisation de cette méthode n'est pas recommandée car elle est moins fiable.
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+**Important**: Les comptes Gsuite autorisés avec un nom d'utilisateur/mot de passe cesseront de fonctionner [dans un avenir proche](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
 

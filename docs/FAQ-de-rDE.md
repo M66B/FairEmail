@@ -1226,10 +1226,10 @@ If the connection to the email server is lost, FairEmail will always synchronize
 
 Um den Datenverbrauch zu reduzieren, könnten Sie diese erweiterten Empfangseinstellungen ändern:
 
-* Prüft, ob alte Nachrichten vom Server entfernt wurden: Deaktiviert
-* (freigegebene) Ordnerliste synchronisieren: Deaktiviert
+* prüfen, ob alte Nachrichten vom Server entfernt wurden: deaktivieren
+* (freigegebene) Ordnerliste synchronisieren: deaktivieren
 
-Standardmäßig lädt FairEmail keine Nachrichtentexte und Anhänge herunter, die größer als 256 KiB sind, wenn eine gebührenpflichtige (mobile oder kostenpflichtige WLAN-) Internetverbindung besteht. You can change this in the connection settings.
+Standardmäßig lädt FairEmail keine Nachrichtentexte und Anhänge herunter, die größer als 256 KiB sind, wenn eine gebührenpflichtige Internetverbindung (mobil oder kostenpflichtiges WLAN) besteht. Sie können das in den Verbindungseinstellungen ändern.
 
 <br />
 
