@@ -1294,6 +1294,7 @@ public class FragmentAccount extends FragmentBase {
                             FragmentIdentity fragment = new FragmentIdentity();
                             fragment.setArguments(aargs);
                             FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.leave_to_left);
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                             fragmentTransaction.commit();
                         }
