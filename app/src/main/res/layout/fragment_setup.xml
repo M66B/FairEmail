@@ -175,11 +175,12 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/title_setup_account"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/one"
             app:layout_constraintEnd_toStartOf="@+id/tvImap"
-            app:layout_constraintStart_toEndOf="@id/one" />
+            app:layout_constraintStart_toEndOf="@id/one"
+            app:layout_constraintTop_toTopOf="@id/one" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvImap"
@@ -273,11 +274,12 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/title_setup_identity"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/two"
             app:layout_constraintEnd_toStartOf="@+id/tvSmtp"
-            app:layout_constraintStart_toEndOf="@id/two" />
+            app:layout_constraintStart_toEndOf="@id/two"
+            app:layout_constraintTop_toTopOf="@id/two" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSmtp"
@@ -392,11 +394,12 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/title_setup_permissions"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/three"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/three" />
+            app:layout_constraintStart_toEndOf="@id/three"
+            app:layout_constraintTop_toTopOf="@id/three" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPermissions"
@@ -455,15 +458,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/title_setup_doze"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/four"
+            app:layout_constraintBottom_toBottomOf="@+id/four"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/four" />
+            app:layout_constraintStart_toEndOf="@id/four"
+            app:layout_constraintTop_toTopOf="@id/four" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDoze"
@@ -574,15 +577,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@string/title_setup_inbox"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/five"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/five" />
+            app:layout_constraintStart_toEndOf="@id/five"
+            app:layout_constraintTop_toTopOf="@id/five" />
 
         <Button
             android:id="@+id/btnInbox"
