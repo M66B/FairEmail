@@ -84,18 +84,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fast" />
 
-        <Button
-            android:id="@+id/btnHelp"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorInfoBackground"
-            android:text="@string/title_setup_help"
-            android:textColor="?attr/colorInfoForeground"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
+        <ImageButton
+            android:id="@+id/ibHelp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_setup_help"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tint="?attr/colorWarning"
+            android:tooltipText="@string/title_setup_help"
+            app:layout_constraintBottom_toBottomOf="@id/btnQuick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnQuick"
+            app:srcCompat="@drawable/twotone_help_24" />
 
         <Button
             android:id="@+id/btnQuick"
@@ -107,6 +109,7 @@
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
         <eu.faircode.email.FixedTextView

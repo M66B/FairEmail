@@ -60,7 +60,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvWelcome;
     private ImageButton ibWelcome;
 
-    private Button btnHelp;
+    private ImageButton ibHelp;
     private Button btnQuick;
     private TextView tvQuickNew;
     private TextView tvQuickRemark;
@@ -107,7 +107,7 @@ public class FragmentSetup extends FragmentBase {
         tvWelcome = view.findViewById(R.id.tvWelcome);
         ibWelcome = view.findViewById(R.id.ibWelcome);
 
-        btnHelp = view.findViewById(R.id.btnHelp);
+        ibHelp = view.findViewById(R.id.ibHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
         tvQuickRemark = view.findViewById(R.id.tvQuickRemark);
@@ -151,7 +151,7 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnHelp.setOnClickListener(new View.OnClickListener() {
+        ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
