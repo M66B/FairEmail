@@ -238,7 +238,6 @@
 
         <Button
             android:id="@+id/btnAccount"
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_setup_manage"
@@ -338,7 +337,6 @@
 
         <Button
             android:id="@+id/btnIdentity"
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_setup_manage"
@@ -428,7 +426,6 @@
 
         <Button
             android:id="@+id/btnPermissions"
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_setup_grant"
@@ -496,7 +493,6 @@
 
         <Button
             android:id="@+id/btnDoze"
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_setup_manage"
@@ -593,7 +589,6 @@
 
         <Button
             android:id="@+id/btnInbox"
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
