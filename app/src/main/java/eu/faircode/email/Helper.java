@@ -760,6 +760,8 @@ public class Helper {
     static void setViewsEnabled(ViewGroup view, boolean enabled) {
         for (int i = 0; i < view.getChildCount(); i++) {
             View child = view.getChildAt(i);
+            if ("ignore".equals(child.getTag()))
+                continue;
             if (child instanceof Spinner ||
                     child instanceof EditText ||
                     child instanceof CheckBox ||
