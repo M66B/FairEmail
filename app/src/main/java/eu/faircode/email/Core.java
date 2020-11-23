@@ -486,6 +486,7 @@ class Core {
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
                             // Move: NO No matching messages
+                            // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
                             EntityLog.log(context, msg +
                                     " folder=" + folder.id + ":" + folder.name +
