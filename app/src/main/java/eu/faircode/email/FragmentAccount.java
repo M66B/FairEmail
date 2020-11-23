@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.Account;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -63,6 +64,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -70,9 +72,11 @@ import java.util.Objects;
 
 import javax.mail.Folder;
 
+import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
@@ -162,7 +166,8 @@ public class FragmentAccount extends FragmentBase {
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE = 2;
-    private static final int REQUEST_DELETE = 3;
+    private static final int REQUEST_ACCOUNT = 3;
+    private static final int REQUEST_DELETE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -321,13 +326,21 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        ibAccount.setEnabled(id >= 0 && auth == AUTH_TYPE_GMAIL);
         ibAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sync = new Intent(Settings.ACTION_SYNC_SETTINGS)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (sync.resolveActivity(v.getContext().getPackageManager()) != null)
-                    v.getContext().startActivity(sync);
+                Account account = new Account(etUser.getText().toString(), TYPE_GOOGLE);
+                Intent intent = newChooseAccountIntent(
+                        account,
+                        new ArrayList(Arrays.asList(account)),
+                        new String[]{TYPE_GOOGLE},
+                        false,
+                        null,
+                        null,
+                        null,
+                        null);
+                startActivityForResult(intent, REQUEST_ACCOUNT);
             }
         });
 
@@ -1627,6 +1640,10 @@ public class FragmentAccount extends FragmentBase {
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getParentFragmentManager().popBackStack();
                     break;
+                case REQUEST_ACCOUNT:
+                    if (resultCode == RESULT_OK)
+                        onAccount();
+                    break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
@@ -1635,6 +1652,13 @@ public class FragmentAccount extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onAccount() {
+        Intent sync = new Intent(Settings.ACTION_SYNC_SETTINGS)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (sync.resolveActivity(getContext().getPackageManager()) != null)
+            startActivity(sync);
     }
 
     private void onDelete() {
