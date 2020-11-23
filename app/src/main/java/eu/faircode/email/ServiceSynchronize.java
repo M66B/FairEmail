@@ -964,7 +964,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
 
                             // Store NOOP
-                            //iservice.getStore().isConnected();
+                            iservice.getStore().isConnected();
 
                             if ("Still here".equals(message) && !isTransient(account)) {
                                 long now = new Date().getTime();
