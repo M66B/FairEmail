@@ -3816,6 +3816,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
+                        boolean inline = true;
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                        for (EntityAttachment attachment : attachments) {
+                            if (attachment.encryption != null) {
+                                inline = false;
+                                break;
+                            }
+                        }
+
+                        if (inline) {
+                            if (message.uid == null)
+                                return null;
+
+                            EntityFolder folder = db.folder().getFolder(message.folder);
+                            if (folder == null)
+                                return null;
+
+                            db.message().deleteMessage(id);
+                            EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
+
+                            return null;
+                        }
+
                         File file = message.getFile(context);
                         Helper.writeText(file, null);
                         db.message().setMessageContent(message.id, true, null, null, null, null);
