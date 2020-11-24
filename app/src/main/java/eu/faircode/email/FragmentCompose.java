@@ -155,6 +155,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
@@ -194,6 +195,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
 
@@ -2360,7 +2362,13 @@ public class FragmentCompose extends FragmentBase {
                                     ContentType ct = new ContentType(type);
                                     ct.setParameter("protected-headers", "v1");
                                     setHeader("Content-Type", ct.toString());
-                                    setHeader("Subject", draft.subject == null ? "" : draft.subject);
+                                    String subject = draft.subject == null ? "" : draft.subject;
+                                    try {
+                                        setHeader("Subject", MimeUtility.encodeWord(subject));
+                                    } catch (UnsupportedEncodingException ex) {
+                                        Log.e(ex);
+                                        setHeader("Subject", subject);
+                                    }
                                 }
                             };
 

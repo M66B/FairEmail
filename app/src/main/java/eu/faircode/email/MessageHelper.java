@@ -2336,7 +2336,7 @@ public class MessageHelper {
                 if ("v1".equals(ct.getParameter("protected-headers"))) {
                     String[] subject = part.getHeader("subject");
                     if (subject != null && subject.length != 0)
-                        parts.protected_subject = subject[0];
+                        parts.protected_subject = decodeMime(subject[0]);
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
