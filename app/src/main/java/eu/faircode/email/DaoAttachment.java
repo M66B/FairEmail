@@ -123,6 +123,7 @@ public interface DaoAttachment {
     int deleteAttachment(long id);
 
     @Query("DELETE FROM attachment" +
-            " WHERE message = :message")
+            " WHERE message = :message" +
+            " AND encryption IS NULL")
     int deleteAttachments(long message);
 }
