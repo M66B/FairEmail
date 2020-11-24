@@ -2386,6 +2386,7 @@ public class HtmlHelper {
                                 // Signature
                                 break;
                             case "b":
+                            case "code": // Signature
                             case "strong":
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
                                 break;
