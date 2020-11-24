@@ -2343,6 +2343,10 @@ public class HtmlHelper {
                                     setSpan(ssb, new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length());
                                 }
                                 break;
+                            case "pre":
+                                // Signature
+                                setSpan(ssb, new TypefaceSpan("monospace"), start, ssb.length());
+                                break;
                             case "ol":
                             case "ul":
                                 int llevel = 0;
