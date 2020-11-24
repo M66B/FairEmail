@@ -1182,6 +1182,8 @@ public class Log {
 
             EntityIdentity identity = identities.get(0);
             EntityFolder drafts = db.folder().getFolderByType(identity.account, EntityFolder.DRAFTS);
+            if (drafts == null)
+                throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
             draft = new EntityMessage();
             draft.account = drafts.account;
