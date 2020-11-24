@@ -1008,6 +1008,23 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IllegalStateException &&
+                stack.length > 0 &&
+                "android.database.sqlite.SQLiteSession".equals(stack[0].getClassName()) &&
+                "throwIfNoTransaction".equals(stack[0].getMethodName()))
+            /*
+                java.lang.IllegalStateException: Cannot perform this operation because there is no current transaction.
+                  at android.database.sqlite.SQLiteSession.throwIfNoTransaction(SQLiteSession.java:917)
+                  at android.database.sqlite.SQLiteSession.endTransaction(SQLiteSession.java:400)
+                  at android.database.sqlite.SQLiteDatabase.endTransaction(SQLiteDatabase.java:585)
+                  at androidx.sqlite.db.framework.FrameworkSQLiteDatabase.endTransaction(SourceFile:1)
+                  at androidx.room.RoomDatabase.endTransaction(SourceFile:1)
+                  at androidx.work.impl.WorkerWrapper.runWorker(SourceFile:66)
+                  at androidx.work.impl.WorkerWrapper.run(SourceFile:3)
+                  at androidx.work.impl.utils.SerialExecutor$Task.run(SourceFile:1)
+             */
+            return false;
+
         if (ex instanceof InflateException)
             /*
                 android.view.InflateException: Binary XML file line #7: Binary XML file line #7: Error inflating class <unknown>
