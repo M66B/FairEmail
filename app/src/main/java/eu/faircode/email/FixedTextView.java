@@ -218,6 +218,31 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        try {
+            super.onWindowFocusChanged(hasWindowFocus);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                        at android.text.SpannableStringInternal.checkRange(SpannableStringInternal.java:434)
+                        at android.text.SpannableStringInternal.setSpan(SpannableStringInternal.java:155)
+                        at android.text.SpannableString.setSpan(SpannableString.java:46)
+                        at android.text.Selection.setSelection(Selection.java:76)
+                        at android.widget.Editor$SelectionModifierCursorController.resetDragAcceleratorState(Editor.java:5613)
+                        at android.widget.Editor$SelectionModifierCursorController.resetTouchOffsets(Editor.java:5603)
+                        at android.widget.Editor$SelectionModifierCursorController.<init>(Editor.java:5286)
+                        at android.widget.Editor.getSelectionController(Editor.java:2253)
+                        at android.widget.Editor.refreshTextActionMode(Editor.java:1922)
+                        at android.widget.Editor.onWindowFocusChanged(Editor.java:1314)
+                        at android.widget.TextView.onWindowFocusChanged(TextView.java:8735)
+                        at android.view.View.dispatchWindowFocusChanged(View.java:10246)
+                        at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1196)
+             */
+        }
+    }
+
+    @Override
     public boolean performLongClick() {
         try {
             return super.performLongClick();
