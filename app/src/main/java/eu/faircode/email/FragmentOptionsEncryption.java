@@ -72,6 +72,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
     private SwitchCompat swAutoDecrypt;
+    private SwitchCompat swAutoUndoDecrypt;
 
     private Spinner spOpenPgp;
     private TextView tvOpenPgpStatus;
@@ -90,7 +91,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "sign_default", "encrypt_default", "auto_decrypt",
+            "sign_default", "encrypt_default", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
             "check_certificate"
     };
@@ -109,6 +110,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
+        swAutoUndoDecrypt = view.findViewById(R.id.swAutoUndoDecrypt);
 
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
         tvOpenPgpStatus = view.findViewById(R.id.tvOpenPgpStatus);
@@ -167,6 +169,13 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_decrypt", checked).apply();
+            }
+        });
+
+        swAutoUndoDecrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_undecrypt", checked).apply();
             }
         });
 
@@ -363,6 +372,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
         swSign.setEnabled(!swEncrypt.isChecked());
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
+        swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
 
         String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
         spOpenPgp.setTag(provider);

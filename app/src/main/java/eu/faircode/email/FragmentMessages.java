@@ -4991,6 +4991,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
+    private void handleExit() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean auto_undecrypt = prefs.getBoolean("auto_undecrypt", false);
+        if (auto_undecrypt) {
+            List<Long> ids = new ArrayList<>();
+            for (int i = 0; i < adapter.getItemCount(); i++) {
+                TupleMessageEx message = adapter.getItemAtPosition(i);
+                if (message == null)
+                    continue;
+                if ((EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                        !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
+                        (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)))
+                    ids.add(message.id);
+            }
+
+            Bundle args = new Bundle();
+            args.putLongArray("ids", Helper.toLongArray(ids));
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long[] ids = args.getLongArray("ids");
+
+                    for (long id : ids)
+                        lockMessage(id);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "messages:lock");
+        }
+    }
+
     private void navigate(long id, final boolean left) {
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
@@ -5449,6 +5486,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 });
                 return true;
             }
+
+            handleExit();
 
             return false;
         }
