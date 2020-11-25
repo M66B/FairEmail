@@ -426,6 +426,7 @@ public class HtmlHelper {
             String tag = e.tagName();
             if (tag.contains(":")) {
                 if (display_hidden ||
+                        "body".equals(tag) ||
                         ns == null || tag.startsWith(ns)) {
                     String[] nstag = tag.split(":");
                     e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
