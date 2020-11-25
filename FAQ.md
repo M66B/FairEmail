@@ -639,6 +639,10 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
+Communication with email servers is always encrypted, unless you explicitly turned this off.
+This question is about optional end-to-end encryption with PGP or S/MIME.
+The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+
 *General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
