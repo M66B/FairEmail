@@ -475,9 +475,8 @@ class Core {
                                                 ex.getCause() instanceof CommandFailedException /* NO */)) ||
                                 MessageHelper.isRemoved(ex) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
-                                (ConnectionHelper.isIoError(ex) &&
-                                        EntityFolder.DRAFTS.equals(folder.type) &&
-                                        EntityOperation.ADD.equals(op.name))) {
+                                (EntityOperation.ADD.equals(op.name) &&
+                                        EntityFolder.DRAFTS.equals(folder.type))) {
                             // com.sun.mail.iap.BadCommandException: BAD [TOOBIG] Message too large
                             // com.sun.mail.iap.CommandFailedException: NO [CANNOT] Cannot APPEND to a SPAM folder
                             // com.sun.mail.iap.CommandFailedException: NO [ALERT] Cannot MOVE messages out of the Drafts folder
