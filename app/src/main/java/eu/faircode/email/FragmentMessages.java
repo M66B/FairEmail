@@ -1794,6 +1794,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
+        public void lock(long id) {
+            Bundle args = new Bundle();
+            args.putLong("id", id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    lockMessage(id);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "message:lock");
+        }
+
+        @Override
         public void refresh() {
             rvMessage.post(new Runnable() {
                 @Override
@@ -5274,6 +5294,56 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Collections.sort(displays, collator);
 
         return TextUtils.join(", ", displays);
+    }
+
+    private void lockMessage(long id) throws IOException {
+        Context context = getContext();
+        if (context == null)
+            return;
+
+        DB db = DB.getInstance(context);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            boolean inline = true;
+            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+            for (EntityAttachment attachment : attachments) {
+                if (attachment.encryption != null) {
+                    inline = false;
+                    break;
+                }
+            }
+
+            if (inline) {
+                if (message.uid == null)
+                    return;
+
+                EntityFolder folder = db.folder().getFolder(message.folder);
+                if (folder == null)
+                    return;
+
+                db.message().deleteMessage(id);
+                EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
+
+                return;
+            }
+
+            File file = message.getFile(context);
+            Helper.writeText(file, null);
+            db.message().setMessageContent(message.id, true, null, null, null, null);
+            //db.message().setMessageSubject(id, subject);
+            db.attachment().deleteAttachments(message.id);
+            db.message().setMessageEncrypt(message.id, message.ui_encrypt);
+            db.message().setMessageStored(message.id, new Date().getTime());
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {

@@ -2894,7 +2894,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
                                                 !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
                         if (lock)
-                            onActionLock(message);
+                            properties.lock(message.id);
                         else
                             onActionDecrypt(message, false);
                         break;
@@ -3797,69 +3797,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
                             .putExtra("type", encrypt));
-        }
-
-        private void onActionLock(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            return null;
-
-                        boolean inline = true;
-                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                        for (EntityAttachment attachment : attachments) {
-                            if (attachment.encryption != null) {
-                                inline = false;
-                                break;
-                            }
-                        }
-
-                        if (inline) {
-                            if (message.uid == null)
-                                return null;
-
-                            EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (folder == null)
-                                return null;
-
-                            db.message().deleteMessage(id);
-                            EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
-
-                            return null;
-                        }
-
-                        File file = message.getFile(context);
-                        Helper.writeText(file, null);
-                        db.message().setMessageContent(message.id, true, null, null, null, null);
-                        //db.message().setMessageSubject(id, subject);
-                        db.attachment().deleteAttachments(message.id);
-                        db.message().setMessageEncrypt(message.id, message.ui_encrypt);
-                        db.message().setMessageStored(message.id, new Date().getTime());
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:lock");
         }
 
         private void onActionAnswer(TupleMessageEx message, View anchor) {
@@ -6024,6 +5961,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void move(long id, String type);
 
         void reply(TupleMessageEx message, String selected, View anchor);
+
+        void lock(long id);
 
         void refresh();
 
