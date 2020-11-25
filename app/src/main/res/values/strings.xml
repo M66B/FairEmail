@@ -12,7 +12,7 @@
 
     <string name="channel_service">Receive</string>
     <string name="channel_send">Send</string>
-    <string name="channel_notification">Notifications</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Updates</string>
     <string name="channel_warning">Warnings</string>
     <string name="channel_error">Errors</string>
