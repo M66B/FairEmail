@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2020 by Marcel Bokhorst (M66B)
 */
 
-import android.accounts.Account;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +26,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -45,7 +43,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -64,7 +61,6 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -72,12 +68,9 @@ import java.util.Objects;
 
 import javax.mail.Folder;
 
-import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.GmailState.TYPE_GOOGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -96,7 +89,6 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private EditText etPort;
-    private ImageButton ibAccount;
     private EditText etUser;
     private TextInputLayout tilPassword;
     private TextView tvCharacters;
@@ -166,8 +158,7 @@ public class FragmentAccount extends FragmentBase {
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE = 2;
-    private static final int REQUEST_ACCOUNT = 3;
-    private static final int REQUEST_DELETE = 4;
+    private static final int REQUEST_DELETE = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -202,7 +193,6 @@ public class FragmentAccount extends FragmentBase {
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
-        ibAccount = view.findViewById(R.id.ibAccount);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
@@ -323,24 +313,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_ssl ? "993" : "143");
-            }
-        });
-
-        ibAccount.setEnabled(id >= 0 && auth == AUTH_TYPE_GMAIL);
-        ibAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Account account = new Account(etUser.getText().toString(), TYPE_GOOGLE);
-                Intent intent = newChooseAccountIntent(
-                        account,
-                        new ArrayList(Arrays.asList(account)),
-                        new String[]{TYPE_GOOGLE},
-                        false,
-                        null,
-                        null,
-                        null,
-                        null);
-                startActivityForResult(intent, REQUEST_ACCOUNT);
             }
         });
 
@@ -1523,7 +1495,6 @@ public class FragmentAccount extends FragmentBase {
                     tilPassword.setEnabled(false);
                     btnCertificate.setEnabled(false);
                 }
-                ibAccount.setEnabled(auth == AUTH_TYPE_GMAIL);
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
@@ -1640,10 +1611,6 @@ public class FragmentAccount extends FragmentBase {
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getParentFragmentManager().popBackStack();
                     break;
-                case REQUEST_ACCOUNT:
-                    if (resultCode == RESULT_OK)
-                        onAccount();
-                    break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
@@ -1652,13 +1619,6 @@ public class FragmentAccount extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
-    }
-
-    private void onAccount() {
-        Intent sync = new Intent(Settings.ACTION_SYNC_SETTINGS)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (sync.resolveActivity(getContext().getPackageManager()) != null)
-            startActivity(sync);
     }
 
     private void onDelete() {

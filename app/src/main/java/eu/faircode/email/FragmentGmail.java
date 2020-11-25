@@ -396,72 +396,80 @@ public class FragmentGmail extends FragmentBase {
                 try {
                     db.beginTransaction();
 
-                    EntityAccount primary = db.account().getPrimaryAccount();
+                    EntityAccount update = db.account().getAccount(user, AUTH_TYPE_GMAIL);
+                    if (update == null) {
+                        EntityAccount primary = db.account().getPrimaryAccount();
 
-                    // Create account
-                    EntityAccount account = new EntityAccount();
+                        // Create account
+                        EntityAccount account = new EntityAccount();
 
-                    account.host = provider.imap.host;
-                    account.encryption = aencryption;
-                    account.port = provider.imap.port;
-                    account.auth_type = AUTH_TYPE_GMAIL;
-                    account.user = user;
-                    account.password = password;
+                        account.host = provider.imap.host;
+                        account.encryption = aencryption;
+                        account.port = provider.imap.port;
+                        account.auth_type = AUTH_TYPE_GMAIL;
+                        account.user = user;
+                        account.password = password;
 
-                    account.name = provider.name + "/" + username;
+                        account.name = provider.name + "/" + username;
 
-                    account.synchronize = true;
-                    account.primary = (primary == null);
+                        account.synchronize = true;
+                        account.primary = (primary == null);
 
-                    account.created = new Date().getTime();
-                    account.last_connected = account.created;
+                        account.created = new Date().getTime();
+                        account.last_connected = account.created;
 
-                    account.id = db.account().insertAccount(account);
-                    args.putLong("account", account.id);
-                    EntityLog.log(context, "Gmail account=" + account.name);
+                        account.id = db.account().insertAccount(account);
+                        args.putLong("account", account.id);
+                        EntityLog.log(context, "Gmail account=" + account.name);
 
-                    // Create folders
-                    for (EntityFolder folder : folders) {
-                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                        if (existing == null) {
-                            folder.account = account.id;
-                            folder.id = db.folder().insertFolder(folder);
-                            EntityLog.log(context, "Gmail folder=" + folder.name + " type=" + folder.type);
-                            if (folder.synchronize)
-                                EntityOperation.sync(context, folder.id, false);
+                        // Create folders
+                        for (EntityFolder folder : folders) {
+                            EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                            if (existing == null) {
+                                folder.account = account.id;
+                                folder.id = db.folder().insertFolder(folder);
+                                EntityLog.log(context, "Gmail folder=" + folder.name + " type=" + folder.type);
+                                if (folder.synchronize)
+                                    EntityOperation.sync(context, folder.id, false);
+                            }
                         }
+
+                        // Set swipe left/right folder
+                        for (EntityFolder folder : folders)
+                            if (EntityFolder.TRASH.equals(folder.type))
+                                account.swipe_left = folder.id;
+                            else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                account.swipe_right = folder.id;
+
+                        db.account().updateAccount(account);
+
+                        if (TextUtils.isEmpty(name))
+                            name = user.split("@")[0];
+
+                        // Create identity
+                        EntityIdentity identity = new EntityIdentity();
+                        identity.name = name;
+                        identity.email = user;
+                        identity.account = account.id;
+
+                        identity.host = provider.smtp.host;
+                        identity.encryption = iencryption;
+                        identity.port = provider.smtp.port;
+                        identity.auth_type = AUTH_TYPE_GMAIL;
+                        identity.user = user;
+                        identity.password = password;
+                        identity.synchronize = true;
+                        identity.primary = true;
+                        identity.max_size = max_size;
+
+                        identity.id = db.identity().insertIdentity(identity);
+                        EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
+                    } else {
+                        args.putLong("account", update.id);
+                        EntityLog.log(context, "Gmail update account=" + update.name);
+                        db.account().setAccountPassword(update.id, password);
+                        db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type);
                     }
-
-                    // Set swipe left/right folder
-                    for (EntityFolder folder : folders)
-                        if (EntityFolder.TRASH.equals(folder.type))
-                            account.swipe_left = folder.id;
-                        else if (EntityFolder.ARCHIVE.equals(folder.type))
-                            account.swipe_right = folder.id;
-
-                    db.account().updateAccount(account);
-
-                    if (TextUtils.isEmpty(name))
-                        name = user.split("@")[0];
-
-                    // Create identity
-                    EntityIdentity identity = new EntityIdentity();
-                    identity.name = name;
-                    identity.email = user;
-                    identity.account = account.id;
-
-                    identity.host = provider.smtp.host;
-                    identity.encryption = iencryption;
-                    identity.port = provider.smtp.port;
-                    identity.auth_type = AUTH_TYPE_GMAIL;
-                    identity.user = user;
-                    identity.password = password;
-                    identity.synchronize = true;
-                    identity.primary = true;
-                    identity.max_size = max_size;
-
-                    identity.id = db.identity().insertIdentity(identity);
-                    EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
                 } finally {
