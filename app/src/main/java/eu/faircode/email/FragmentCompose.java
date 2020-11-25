@@ -1460,6 +1460,18 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
+            protected void onExecuted(Bundle args, Void data) {
+                int encrypt = args.getInt("encrypt");
+                int[] values = getResources().getIntArray(R.array.encryptValues);
+                String[] names = getResources().getStringArray(R.array.encryptNames);
+                for (int i = 0; i < values.length; i++)
+                    if (values[i] == encrypt) {
+                        ToastEx.makeText(getContext(), names[i], Toast.LENGTH_LONG).show();
+                        break;
+                    }
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
