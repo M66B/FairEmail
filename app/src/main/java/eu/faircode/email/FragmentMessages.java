@@ -4994,7 +4994,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void handleExit() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean auto_undecrypt = prefs.getBoolean("auto_undecrypt", false);
-        if (auto_undecrypt) {
+
+        if (auto_undecrypt &&
+                viewType == AdapterMessage.ViewType.THREAD) {
             List<Long> ids = new ArrayList<>();
             for (int i = 0; i < adapter.getItemCount(); i++) {
                 TupleMessageEx message = adapter.getItemAtPosition(i);
