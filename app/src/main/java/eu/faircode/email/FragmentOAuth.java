@@ -38,9 +38,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -90,6 +92,7 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvGrantHint;
     private EditText etName;
     private EditText etEmail;
+    private CheckBox cbUpdate;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
     private TextView tvConfiguring;
@@ -126,6 +129,7 @@ public class FragmentOAuth extends FragmentBase {
         tvGrantHint = view.findViewById(R.id.tvGrantHint);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
+        cbUpdate = view.findViewById(R.id.cbUpdate);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
         tvConfiguring = view.findViewById(R.id.tvConfiguring);
@@ -231,6 +235,7 @@ public class FragmentOAuth extends FragmentBase {
 
             etName.setEnabled(false);
             etEmail.setEnabled(false);
+            cbUpdate.setEnabled(false);
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
@@ -318,6 +323,7 @@ public class FragmentOAuth extends FragmentBase {
         try {
             etName.setEnabled(true);
             etEmail.setEnabled(true);
+            cbUpdate.setEnabled(true);
 
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
             if (auth == null)
@@ -385,6 +391,7 @@ public class FragmentOAuth extends FragmentBase {
         args.putBoolean("askAccount", askAccount);
         args.putString("personal", etName.getText().toString().trim());
         args.putString("address", etEmail.getText().toString().trim());
+        args.putBoolean("update", cbUpdate.isChecked());
 
         new SimpleTask<Void>() {
             @Override
@@ -511,7 +518,9 @@ public class FragmentOAuth extends FragmentBase {
                 try {
                     db.beginTransaction();
 
-                    EntityAccount update = db.account().getAccount(username, AUTH_TYPE_OAUTH);
+                    EntityAccount update = null;
+                    if (args.getBoolean("update"))
+                        update = db.account().getAccount(username, AUTH_TYPE_OAUTH);
                     if (update == null) {
                         EntityAccount primary = db.account().getPrimaryAccount();
 
@@ -589,7 +598,7 @@ public class FragmentOAuth extends FragmentBase {
                             EntityLog.log(context, "OAuth identity=" + ident.name + " email=" + ident.email);
                         }
                     } else {
-                        args.putLong("account", update.id);
+                        args.putLong("account", -1);
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountPassword(update.id, state);
                         db.identity().setIdentityPassword(update.id, update.user, state, update.auth_type);
@@ -609,10 +618,15 @@ public class FragmentOAuth extends FragmentBase {
             protected void onExecuted(Bundle args, Void data) {
                 pbOAuth.setVisibility(View.GONE);
 
-                FragmentReview fragment = new FragmentReview();
-                fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentOAuth.this, ActivitySetup.REQUEST_DONE);
-                fragment.show(getParentFragmentManager(), "oauth:review");
+                if (args.getLong("account") < 0) {
+                    finish();
+                    ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
+                } else {
+                    FragmentReview fragment = new FragmentReview();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentOAuth.this, ActivitySetup.REQUEST_DONE);
+                    fragment.show(getParentFragmentManager(), "oauth:review");
+                }
             }
 
             @Override
@@ -625,6 +639,7 @@ public class FragmentOAuth extends FragmentBase {
     private void onHandleCancel() {
         etName.setEnabled(true);
         etEmail.setEnabled(true);
+        cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
     }
@@ -655,6 +670,7 @@ public class FragmentOAuth extends FragmentBase {
 
         etName.setEnabled(true);
         etEmail.setEnabled(true);
+        cbUpdate.setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
 
