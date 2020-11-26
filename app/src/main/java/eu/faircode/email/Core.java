@@ -1516,16 +1516,14 @@ class Core {
             } catch (MessagingException ex) {
                 Log.e(ex);
             }
-        if (imessages == null || imessages.length == 0)
-            EntityOperation.queue(context, message, EntityOperation.ADD);
-        else {
-            if (imessages.length == 1) {
-                long uid = ifolder.getUID(imessages[0]);
-                EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
-            } else {
+
+        if (imessages != null && imessages.length == 1) {
+            long uid = ifolder.getUID(imessages[0]);
+            EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
+        } else {
+            if (imessages != null && imessages.length > 1)
                 Log.e(folder.name + " EXISTS messages=" + imessages.length);
-                EntityOperation.sync(context, folder.id, false);
-            }
+            EntityOperation.queue(context, message, EntityOperation.ADD);
         }
     }
 
