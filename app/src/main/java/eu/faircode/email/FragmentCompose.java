@@ -208,6 +208,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_FIRST_USER;
 import static android.app.Activity.RESULT_OK;
 import static android.system.OsConstants.ENOSPC;
+import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
 import static android.widget.AdapterView.INVALID_POSITION;
 
 public class FragmentCompose extends FragmentBase {
@@ -753,6 +754,17 @@ public class FragmentCompose extends FragmentBase {
         //boolean beige = prefs.getBoolean("beige", true);
         //if (beige && !Helper.isDarkTheme(getContext()))
         //    view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+
+        boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
+        if (keyboard_no_fullscreen) {
+            // https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_FULLSCREEN
+            etExtra.setImeOptions(etExtra.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+            etTo.setImeOptions(etTo.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+            etCc.setImeOptions(etCc.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+            etBcc.setImeOptions(etBcc.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+            etSubject.setImeOptions(etSubject.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+            etBody.setImeOptions(etBody.getImeOptions() | IME_FLAG_NO_FULLSCREEN);
+        }
 
         etExtra.setHint("");
         tvDomain.setText(null);
