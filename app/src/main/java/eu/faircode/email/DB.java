@@ -81,8 +81,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
         views = {
                 TupleAccountView.class,
                 TupleIdentityView.class,
-                TupleFolderView.class,
-                TupleOperationView.class
+                TupleFolderView.class
         }
 )
 
@@ -217,32 +216,6 @@ public abstract class DB extends RoomDatabase {
                 }
             }
         });
-
-        db.operation().liveOperationView().observeForever(new Observer<List<TupleOperationView>>() {
-            private List<TupleOperationView> last = null;
-
-            @Override
-            public void onChanged(List<TupleOperationView> operations) {
-                if (operations == null)
-                    operations = new ArrayList<>();
-
-                boolean changed = false;
-                if (last == null || last.size() != operations.size())
-                    changed = true;
-                else
-                    for (int i = 0; i < operations.size(); i++)
-                        if (!operations.get(i).equals(last.get(i))) {
-                            changed = true;
-                            last = operations;
-                        }
-
-                if (changed) {
-                    Log.i("Invalidating operation view");
-                    last = operations;
-                    db.getInvalidationTracker().notifyObserversByTableNames("folder");
-                }
-            }
-        });
     }
 
     public static synchronized DB getInstance(Context context) {
@@ -261,7 +234,6 @@ public abstract class DB extends RoomDatabase {
                 mViewTables.get("account_view").clear();
                 mViewTables.get("identity_view").clear();
                 mViewTables.get("folder_view").clear();
-                mViewTables.get("operation_view").clear();
 
                 Log.i("Disabled view invalidation");
             } catch (ReflectiveOperationException ex) {
@@ -1777,13 +1749,6 @@ public abstract class DB extends RoomDatabase {
                                 " AND account IN" +
                                 "  (SELECT id FROM account" +
                                 "   WHERE host IN ('imap.arcor.de'))");
-                    }
-                })
-                .addMigrations(new Migration(178, 179) {
-                    @Override
-                    public void migrate(@NonNull SupportSQLiteDatabase db) {
-                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("CREATE VIEW IF NOT EXISTS `operation_view` AS " + TupleOperationView.query);
                     }
                 });
     }
