@@ -96,7 +96,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     interface IBoundaryCallbackMessages {
         void onLoading();
 
-        void onLoaded();
+        void onLoaded(int found);
 
         void onException(@NonNull Throwable ex);
     }
@@ -141,6 +141,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
+                int found = 0;
                 try {
                     if (state.destroyed || state.error)
                         return;
@@ -154,7 +155,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
                     if (server)
                         try {
-                            load_server(state);
+                            found = load_server(state);
                         } catch (Throwable ex) {
                             if (state.error || ex instanceof IllegalArgumentException)
                                 throw ex;
@@ -163,10 +164,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             close(state, true);
 
                             // Retry
-                            load_server(state);
+                            found = load_server(state);
                         }
                     else
-                        load_device(state);
+                        found = load_device(state);
                 } catch (final Throwable ex) {
                     state.error = true;
                     Log.e("Boundary", ex);
@@ -178,13 +179,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                 } finally {
-                    if (intf != null)
+                    if (intf != null) {
+                        final int f = found;
                         ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
                             public void run() {
-                                intf.onLoaded();
+                                intf.onLoaded(f);
                             }
                         });
+                    }
                 }
             }
         });

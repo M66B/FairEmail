@@ -4537,9 +4537,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void onLoaded() {
+        public void onLoaded(int found) {
             loading = false;
-            updateListState("Loaded", SimpleTask.getCount(), adapter.getItemCount());
+            updateListState("Loaded found=" + found, SimpleTask.getCount(), adapter.getItemCount() + found);
         }
 
         @Override
