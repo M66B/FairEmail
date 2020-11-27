@@ -70,6 +70,9 @@ public interface DaoOperation {
             " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations(long account);
 
+    @Query(TupleOperationView.query)
+    LiveData<List<TupleOperationView>> liveOperationView();
+
     @Transaction
     @Query("SELECT operation.*" +
             " FROM operation" +

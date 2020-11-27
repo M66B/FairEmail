@@ -48,7 +48,7 @@ public interface DaoFolder {
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " LEFT JOIN rule ON rule.folder = folder.id" +
-            " LEFT JOIN operation ON operation.folder = folder.id" +
+            " LEFT JOIN operation_view AS operation ON operation.folder = folder.id" +
             " WHERE folder.account = :account AND account.synchronize" +
             " GROUP BY folder.id")
     List<TupleFolderEx> getFoldersEx(long account);
@@ -87,7 +87,7 @@ public interface DaoFolder {
             " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id" +
             " LEFT JOIN rule ON rule.folder = folder.id" +
-            " LEFT JOIN operation ON operation.folder = folder.id" +
+            " LEFT JOIN operation_view AS operation ON operation.folder = folder.id" +
             " WHERE CASE WHEN :primary THEN account.`primary` ELSE" +
             "  CASE WHEN :account IS NULL" +
             "   THEN folder.unified AND account.synchronize" +
@@ -110,7 +110,7 @@ public interface DaoFolder {
             " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " LEFT JOIN rule ON rule.folder = folder.id" +
-            " LEFT JOIN operation ON operation.folder = folder.id" +
+            " LEFT JOIN operation_view AS operation ON operation.folder = folder.id" +
             " WHERE account.`synchronize`" +
             " AND ((:type IS NULL AND folder.unified) OR folder.type = :type)" +
             " GROUP BY folder.id")
@@ -148,7 +148,7 @@ public interface DaoFolder {
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " LEFT JOIN rule ON rule.folder = folder.id" +
-            " LEFT JOIN operation ON operation.folder = folder.id" +
+            " LEFT JOIN operation_view AS operation ON operation.folder = folder.id" +
             " WHERE folder.id = :id" +
             " GROUP BY folder.id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
