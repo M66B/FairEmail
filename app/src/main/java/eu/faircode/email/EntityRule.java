@@ -214,16 +214,17 @@ public class EntityRule {
 
                 if (jcondition.has("mimetype")) {
                     String mimeType = jcondition.getString("mimetype");
+                    if (!TextUtils.isEmpty(mimeType)) {
+                        boolean found = false;
+                        for (EntityAttachment attachment : attachments)
+                            if (mimeType.equalsIgnoreCase(attachment.getMimeType())) {
+                                found = true;
+                                break;
+                            }
 
-                    boolean found = false;
-                    for (EntityAttachment attachment : attachments)
-                        if (mimeType.equalsIgnoreCase(attachment.getMimeType())) {
-                            found = true;
-                            break;
-                        }
-
-                    if (!found)
-                        return false;
+                        if (!found)
+                            return false;
+                    }
                 }
             }
 
