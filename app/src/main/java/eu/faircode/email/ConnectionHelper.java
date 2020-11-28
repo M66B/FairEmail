@@ -234,11 +234,8 @@ public class ConnectionHelper {
         // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
         NetworkInfo ani = cm.getNetworkInfo(active);
         if (ani == null || ani.getState() != NetworkInfo.State.CONNECTED) {
-            Log.i("isMetered: no/connected active info ani=" + ani);
-            if (ani == null ||
-                    ani.getState() != NetworkInfo.State.SUSPENDED ||
-                    ani.getType() != ConnectivityManager.TYPE_VPN)
-                return null;
+            Log.i("isMetered: no active info ani=" + ani);
+            return null;
         }
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
