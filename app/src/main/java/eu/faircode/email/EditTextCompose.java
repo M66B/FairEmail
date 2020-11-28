@@ -62,6 +62,15 @@ public class EditTextCompose extends FixedEditText {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    protected void onAttachedToWindow() {
+        // Spellchecker workaround
+        boolean enabled = isEnabled();
+        super.setEnabled(true);
+        super.onAttachedToWindow();
+        super.setEnabled(enabled);
+    }
+
     public void setRaw(boolean raw) {
         this.raw = raw;
     }

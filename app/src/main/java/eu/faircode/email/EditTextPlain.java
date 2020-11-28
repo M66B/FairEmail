@@ -38,6 +38,15 @@ public class EditTextPlain extends FixedEditText {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        // Spellchecker workaround
+        boolean enabled = isEnabled();
+        super.setEnabled(true);
+        super.onAttachedToWindow();
+        super.setEnabled(enabled);
+    }
+
+    @Override
     public boolean onTextContextMenuItem(int id) {
         try {
             if (id == android.R.id.paste) {
