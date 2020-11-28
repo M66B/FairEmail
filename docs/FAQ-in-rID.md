@@ -155,7 +155,7 @@ Desain ini bersadarkan dari banyak diskusi dan anda dapat mendiskusikannya [di f
 * [(32) Bagaimana cara saya memeriksa jika membaca pesan ini aman?](#user-content-faq32)
 * [(33) Mengapa alamat pengirim yang telah disunting tidak dapat bekerja?](#user-content-faq33)
 * [(34) Bagaimana identitas cocok?](#user-content-faq34)
-* [(35) Mengapa saya harus berhati-hati dalam melihat gambar, lampiran dan pesan orisinil?](#user-content-faq35)
+* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
 * [(36) Bagaimana pegaturan berkas terenkripsi?](#user-content-faq36)
 * [(37) Bagaimana kata sandi disimpan?](#user-content-faq37)
 * [(39) Bagaimana cara saya mereduksi penggunaan baterai dari FairEmail?](#user-content-faq39)
@@ -575,6 +575,8 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
+Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+
 *General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
@@ -686,7 +688,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) Bagaimana cara kerja pencarian dalam perangkat/server?**
+**(13) How does search on device/server work?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -733,20 +735,20 @@ Searching on the device is a free feature, using the search index and searching 
 <br />
 
 <a name="faq14"></a>
-**(14) Bagaimana cara saya mengatur akun Outlook / Live / Hotmail?**
+**(14) How can I set up an Outlook / Live / Hotmail account?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. Lihat [di sini](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) untuk rincian lebih lanjut.
+To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
-Lihat [di sini](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) untuk melihat instruksi dari Microsoft.
+See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-Untuk mengatur akun Office 365, sila lihat [FAQ ini](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Mengapa teks pesan terus menerus dimuat?**
+**(15) Why does the message text keep loading?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
@@ -761,7 +763,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Mengapa pesan tidak tersingkronisasi?**
+**(16) Why are messages not being synchronized?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -784,7 +786,7 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq17"></a>
-**~~(17) Mengapa singkronisasi manual tidak bekerja?~~**
+**~~(17) Why does manual synchronize not work?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -793,14 +795,14 @@ Disabling battery optimizations (setup step 4) reduces the chance Android will s
 <br />
 
 <a name="faq18"></a>
-**(18) Mengapa tampilan pesan tidak selalu terlihat?**
+**(18) Why is the message preview not always shown?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Mengapa fitur pro sangat mahal?**
+**(19) Why are the pro features so expensive?**
 
 The right question is "*why are there so many taxes and fees?*":
 
@@ -820,9 +822,9 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <br />
 
 <a name="faq20"></a>
-**(20) Apakah dana saya dapat dikembalikan?**
+**(20) Can I get a refund?**
 
-Jika fitur pro yang telah dibeli tidak dapat bekerja seperti seharusnya dan hal ini tidak dikarenakan oleh masalah yang terdapat dalam fitur gratis dan saya tidak dapat memperbaiki masalah ini dalam waktu yang tepat, dana anda akan dikembalikan. Dalam kasus lainnya, mungkin tidak akan ada pengembalian dana. Dalam keadaan apa pun, tidak ada pengembalian dana untuk masalah apa pun yang terkait dengan fitur gratis, karena fitur tersebut tidak memiliki bayaran apa pun dan dapat dievaluasi tanpa batasan apa pun. Saya bertanggung jawab sebagai penjual untuk memberikan apa yang telah saya janjikan dan saya harap anda bertanggung jawab untuk mengetahui dengan jelas apa yang anda beli.
+If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
@@ -956,6 +958,8 @@ The maximum number of simultaneous folder connections for Gmail is 15, so you ca
 
 When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
+Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+
 <br />
 
 <a name="faq24"></a>
@@ -966,7 +970,7 @@ Browse messages on the server will fetch messages from the email server in real 
 <br />
 
 <a name="faq25"></a>
-**(25) Mengapa saya tidak dapat memilih/membuka/menyimpan gambar, lampiran atau berkas?**
+**(25) Why can't I select/open/save an image, attachment or a file?**
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
@@ -985,11 +989,11 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Apakah saya dapat membantu menerjemahkan FairEmail ke dalam bahasa saya?**
+**(26) Can I help to translate FairEmail in my own language?**
 
-Iya, anda dapat menerjemahkan FairEmail ke dalam bahasa anda [di Crowdin](https://crowdin.com/project/open-source-email). Pendaftaran gratis.
+Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
-Jika anda menginginkan nama atau alias anda dimasukkan ke dalam daftar kontribusi dalam bagian *Tentang* aplikasi, sila [hubungi saya](https://contact.faircode.eu/?product=fairemailsupport).
+If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
@@ -1123,9 +1127,9 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
@@ -1146,9 +1150,9 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
 
-Versi singkat: AES 256 bit
+Short version: AES 256 bit
 
-Versi panjang:
+Long version:
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
@@ -1165,13 +1169,13 @@ If the device is secured with a PIN, pattern or password, you can make the accou
 <br />
 
 <a name="faq39"></a>
-**(39) Bagaimana cara saya mereduksi penggunaan baterai untuk FairEmail?**
+**(39) How can I reduce the battery usage of FairEmail?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
@@ -1185,7 +1189,7 @@ Most of the battery usage, not considering viewing messages, is due to synchroni
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. Setelah mengurangi jumlah hari untuk menyimpan pesan, Anda mungkin ingin menjalankan pembersihan di pengaturan lain-lain untuk menghapus file lama.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
 In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
@@ -1478,6 +1482,8 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Did you know that you can long press the send action to show the send dialog, even if it was disabled?
+* Did you know that you can long press the full screen icon to show the original message text only?
 
 <br />
 

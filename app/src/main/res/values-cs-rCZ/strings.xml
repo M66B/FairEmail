@@ -9,7 +9,7 @@
     <string name="app_cake">Nedostatek místa v úložišti</string>
     <string name="channel_service">Příjem</string>
     <string name="channel_send">Odesílání</string>
-    <string name="channel_notification">Oznámení</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Aktualizace</string>
     <string name="channel_warning">Upozornění</string>
     <string name="channel_error">Chyby</string>
@@ -745,7 +745,7 @@
     <string name="title_event">Přidat do kalendáře</string>
     <string name="title_pin">Přidat zkratku</string>
     <string name="title_print">Tisk</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Vytisknout hlavičku</string>
+    <string name="title_print_header">Vytisknout hlavičku</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
     <string name="title_raw_send">Odeslat jako přílohu</string>

@@ -9,7 +9,7 @@
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
     <string name="channel_service">Modtagelse</string>
     <string name="channel_send">Send</string>
-    <string name="channel_notification">Notifikationer</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Opdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Fejl</string>
@@ -412,6 +412,7 @@
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
+    <string name="title_advanced_auto_undo_decrypt">Fortryd dekryptering ved lukning af samtale</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_autocrypt">Benyt Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokrypt gensidig tilstand</string>
@@ -720,7 +721,7 @@
     <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>
     <string name="title_print">Udskriv</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Udskriv header</string>
+    <string name="title_print_header">Udskriv header</string>
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_raw_save">Gem besked i råformat</string>
     <string name="title_raw_send">Send som vedhæftning</string>

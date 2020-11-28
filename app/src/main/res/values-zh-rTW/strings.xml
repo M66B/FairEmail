@@ -9,7 +9,6 @@
     <string name="app_cake">儲存空間不足</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">寄送</string>
-    <string name="channel_notification">通知</string>
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">錯誤</string>

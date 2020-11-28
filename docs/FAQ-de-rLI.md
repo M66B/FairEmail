@@ -1,4 +1,4 @@
-# FairEmail – Unterstützung
+# FairEmail - Support
 
 Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig gestellten Fragen. Im unteren Bereich finden Sie die Möglichkeit, weitere Fragen zu stellen, Funktionen anzufordern und Fehler zu melden.
 
@@ -155,7 +155,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(32) Wie kann ich überprüfen, ob das Lesen von E-Mails wirklich sicher ist?](#user-content-faq32)
 * [(33) Warum funktionieren bearbeitete Absenderadressen nicht?](#user-content-faq33)
 * [(34) Wie werden Identitäten abgeglichen?](#user-content-faq34)
-* [(35) Warum sollte ich bei ansehen von Bildern, Anhängen und der Original-Nachricht vorsichtig sein?](#user-content-faq35)
+* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
 * [(36) Wie werden Einstellungsdateien verschlüsselt?](#user-content-faq36)
 * [(37) Wie werden Passwörter gespeichert?](#user-content-faq37)
 * [(39) Wie kann ich den Akkuverbrauch von FairEmail verringern?](#user-content-faq39)
@@ -575,21 +575,23 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) Wie funktioniert die Ver- und Entschlüsselung?**
 
+Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+
 *General*
 
-[Sehen Sie hier](https://en.wikipedia.org/wiki/Public-key_cryptography), wie die Verschlüsselung mit öffentlichen/privaten Schlüsseln funktioniert.
+Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
-Verschlüsselung zusammengefasst:
+Encryption in short:
 
 * **Ausgehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Empfängers verschlüsselt
 * **Eingehende** Nachrichten werden mit dem **privaten Schlüssel** des Empfängers entschlüsselt
 
-Signieren zusammengefasst:
+Signing in short:
 
 * **Ausgehende** Nachrichten sind mit dem **privaten Schlüssel** des Absenders signiert
 * **Eingehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Absenders überprüft
 
-Um eine Nachricht zu signieren/verschlüsseln, wählen Sie einfach die entsprechende Methode im Sendedialog aus. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
@@ -686,7 +688,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) Wie funktioniert die Suche auf Gerät/Server?**
+**(13) How does search on device/server work?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -956,6 +958,8 @@ The maximum number of simultaneous folder connections for Gmail is 15, so you ca
 
 When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
+Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+
 <br />
 
 <a name="faq24"></a>
@@ -1123,9 +1127,9 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
@@ -1171,7 +1175,7 @@ Recent Android versions by default report *app usage* as a percentage in the And
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
@@ -1224,12 +1228,12 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
-Um den Datenverbrauch zu reduzieren, könnten Sie diese erweiterten Empfangseinstellungen ändern:
+To reduce data usage, you could change these advanced receive settings:
 
 * prüfen, ob alte Nachrichten vom Server entfernt wurden: deaktivieren
 * (freigegebene) Ordnerliste synchronisieren: deaktivieren
 
-Standardmäßig lädt FairEmail keine Nachrichtentexte und Anhänge herunter, die größer als 256 KiB sind, wenn eine gebührenpflichtige Internetverbindung (mobil oder kostenpflichtiges WLAN) besteht. Sie können das in den Verbindungseinstellungen ändern.
+By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
 
@@ -1478,6 +1482,8 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Did you know that you can long press the send action to show the send dialog, even if it was disabled?
+* Did you know that you can long press the full screen icon to show the original message text only?
 
 <br />
 

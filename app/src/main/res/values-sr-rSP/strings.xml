@@ -7,7 +7,6 @@
     <string name="app_crash">FairEmail није подржан на овом уређају пошто Андроид грешке изазивају рушења апликације</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
     <string name="channel_send">Пошаљи</string>
-    <string name="channel_notification">Обавештења</string>
     <string name="channel_update">Ажурирања</string>
     <string name="channel_warning">Упозорења</string>
     <string name="channel_error">Грешке</string>

@@ -9,7 +9,7 @@
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
     <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
-    <string name="channel_notification">Notificaciones</string>
+    <string name="channel_notification">Correo electrónico</string>
     <string name="channel_update">Actualizaciones</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
@@ -416,6 +416,7 @@
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
+    <string name="title_advanced_auto_undo_decrypt">Deshacer descifrado al cerrar la conversación</string>
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modo mutuo Autocrypt</string>
@@ -725,7 +726,7 @@
     <string name="title_event">Añadir al calendario</string>
     <string name="title_pin">Añadir acceso directo</string>
     <string name="title_print">Imprimir</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Imprimir encabezado</string>
+    <string name="title_print_header">Imprimir encabezado</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_save">Guardar mensaje raw</string>
     <string name="title_raw_send">Enviar como adjunto</string>

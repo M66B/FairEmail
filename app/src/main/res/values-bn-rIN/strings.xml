@@ -9,7 +9,6 @@
     <string name="app_cake">অপর্যাপ্ত জায়গা খালি রয়েছে</string>
     <string name="channel_service">প্রাপ্তি</string>
     <string name="channel_send">পাঠান</string>
-    <string name="channel_notification">বিজ্ঞপ্তি</string>
     <string name="channel_update">আপডেট</string>
     <string name="channel_warning">সতর্কতা</string>
     <string name="channel_error">ত্রুটি</string>

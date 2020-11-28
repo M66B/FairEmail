@@ -9,7 +9,7 @@
     <string name="app_cake">Espace de stockage restant insuffisant</string>
     <string name="channel_service">Réception</string>
     <string name="channel_send">Envoi</string>
-    <string name="channel_notification">Notifications</string>
+    <string name="channel_notification">Courriel</string>
     <string name="channel_update">Mises à jour</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
@@ -138,6 +138,8 @@
     <string name="title_setup_office_remark">Microsoft ne fournit pas ce type d\'autorisation pour les comptes Outlook, Live, Hotmail, etc.</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur</string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
+    <string name="title_setup_oauth_update">Autoriser de nouveau le compte existant</string>
+    <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
@@ -246,6 +248,7 @@
     <string name="title_advanced_check_reply">Vérifier les adresses courriel de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
     <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
     <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
     <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
@@ -415,6 +418,7 @@
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
+    <string name="title_advanced_auto_undo_decrypt">Annuler le déchiffrement lors de la fermeture de la conversation</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
     <string name="title_advanced_autocrypt">Utiliser Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Mode Autocrypt mutuel</string>
@@ -724,7 +728,7 @@
     <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
     <string name="title_print">Imprimer</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Imprimer l\'en-tête</string>
+    <string name="title_print_header">Imprimer l\'en-tête</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce-jointe</string>

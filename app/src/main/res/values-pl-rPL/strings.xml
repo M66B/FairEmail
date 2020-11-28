@@ -9,7 +9,7 @@
     <string name="app_cake">Za mało miejsca w pamięci</string>
     <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
-    <string name="channel_notification">Powiadomienia</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Aktualizacje</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
@@ -436,6 +436,7 @@
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
+    <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu rozmowy</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
@@ -745,6 +746,7 @@
     <string name="title_event">Dodaj do kalendarza</string>
     <string name="title_pin">Dodaj skrót</string>
     <string name="title_print">Drukuj</string>
+    <string name="title_print_header">Wydrukuj nagłówek</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>

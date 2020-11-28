@@ -9,7 +9,6 @@
     <string name="app_cake">Nincs elég tárhely</string>
     <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
-    <string name="channel_notification">Értesítések</string>
     <string name="channel_update">Frissítések</string>
     <string name="channel_warning">Figyelmeztetések</string>
     <string name="channel_error">Hibák</string>

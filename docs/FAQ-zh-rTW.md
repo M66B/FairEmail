@@ -34,7 +34,7 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Related questions:
+相關問題
 
 * [Is OAuth supported?](#user-content-faq111)
 * [Why is ActiveSync not supported?](#user-content-faq133)
@@ -60,7 +60,7 @@ Related questions:
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
-## Known problems
+## 已知的問題
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -80,7 +80,7 @@ Related questions:
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 
-## Planned features
+## 計畫中的功能
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -92,7 +92,7 @@ Related questions:
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* 搜尋建議
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
@@ -115,11 +115,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## 經常請求的功能
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Frequently Asked Questions
+## 常見問題
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -155,7 +155,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(32) How can I check if reading email is really safe?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, and the original message?](#user-content-faq35)
+* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)
 * [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
@@ -221,7 +221,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq103)
+* [(103) 我是否可以錄音？](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
@@ -409,9 +409,9 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*空白的密碼*
 
-Your username is likely easily guessed, so this is insecure.
+您的使用者名稱太容易猜中了，所以並不安全。
 
 *Plain text connection*
 
@@ -497,7 +497,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*General*
+*一般*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -574,6 +574,8 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
+
+Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
 *General*
 
@@ -956,6 +958,8 @@ The maximum number of simultaneous folder connections for Gmail is 15, so you ca
 
 When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
+Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+
 <br />
 
 <a name="faq24"></a>
@@ -1123,9 +1127,9 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
@@ -1171,7 +1175,7 @@ Recent Android versions by default report *app usage* as a percentage in the And
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
@@ -1478,6 +1482,8 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Did you know that you can long press the send action to show the send dialog, even if it was disabled?
+* Did you know that you can long press the full screen icon to show the original message text only?
 
 <br />
 

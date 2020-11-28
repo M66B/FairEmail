@@ -9,7 +9,6 @@
     <string name="app_cake">Non hai espazo abondo</string>
     <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
-    <string name="channel_notification">Notificacións</string>
     <string name="channel_update">Actualizar</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>

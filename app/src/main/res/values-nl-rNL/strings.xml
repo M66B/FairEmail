@@ -9,7 +9,7 @@
     <string name="app_cake">Onvoldoende opslagruimte over</string>
     <string name="channel_service">Ontvangen</string>
     <string name="channel_send">Verzenden</string>
-    <string name="channel_notification">Meldingen</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Updates</string>
     <string name="channel_warning">Waarschuwingen</string>
     <string name="channel_error">Foutmeldingen</string>
@@ -137,6 +137,8 @@
     <string name="title_setup_office_remark">Microsoft biedt dit type autorisatie niet aan voor Outlook, Live, Hotmail, etc accounts</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
+    <string name="title_setup_oauth_update">Autoriseer bestaande account opnieuw</string>
+    <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
@@ -245,6 +247,7 @@
     <string name="title_advanced_check_reply">Controleer antwoordadressen bij het synchroniseren van berichten</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
     <string name="title_advanced_suggest_local">Suggereer lokaal opgeslagen contacten</string>
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
@@ -414,6 +417,7 @@
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
+    <string name="title_advanced_auto_undo_decrypt">Maak het ontsleutelen ongedaan bij het sluiten van het gesprek</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_autocrypt">Gebruik Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt wederzijdse modus</string>
@@ -723,7 +727,7 @@
     <string name="title_event">Toevoegen aan agenda</string>
     <string name="title_pin">Snelkoppeling toevoegen</string>
     <string name="title_print">Afdrukken</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Kop afdrukken</string>
+    <string name="title_print_header">Kop afdrukken</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>

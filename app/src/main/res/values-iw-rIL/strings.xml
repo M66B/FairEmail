@@ -7,7 +7,6 @@
     <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
     <string name="channel_send">שלח</string>
-    <string name="channel_notification">התראות</string>
     <string name="channel_update">עדכונים</string>
     <string name="channel_warning">אזהרות</string>
     <string name="channel_error">שגיאות</string>

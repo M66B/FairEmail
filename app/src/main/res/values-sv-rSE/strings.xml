@@ -9,7 +9,7 @@
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
     <string name="channel_service">Ta emot</string>
     <string name="channel_send">Skicka</string>
-    <string name="channel_notification">Aviseringar</string>
+    <string name="channel_notification">E-post</string>
     <string name="channel_update">Uppdateringar</string>
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
@@ -414,6 +414,7 @@
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
+    <string name="title_advanced_auto_undo_decrypt">Ångra dekryptering vid stängning av konversation</string>
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_autocrypt">Använd Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autokryptera ömsesidigt läge</string>
@@ -723,7 +724,7 @@
     <string name="title_event">Lägg till i kalender</string>
     <string name="title_pin">Lägg till genväg</string>
     <string name="title_print">Skriv ut</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Visa header</string>
+    <string name="title_print_header">Visa header</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>

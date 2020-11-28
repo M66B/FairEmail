@@ -7,7 +7,6 @@
     <string name="app_crash">FairEmail, Android-in çökmə səbəbli xətalarına görə bu cihazda dəstəklənmir</string>
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
     <string name="channel_send">Göndər</string>
-    <string name="channel_notification">Bildirişlər</string>
     <string name="channel_update">Yenilənmələr</string>
     <string name="channel_warning">Xəbərdarlıqlar</string>
     <string name="channel_error">Xətalar</string>

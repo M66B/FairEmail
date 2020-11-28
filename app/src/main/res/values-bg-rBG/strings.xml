@@ -8,7 +8,6 @@
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
     <string name="channel_service">Получаване</string>
     <string name="channel_send">Изпращане</string>
-    <string name="channel_notification">Известия</string>
     <string name="channel_update">Обновявания</string>
     <string name="channel_warning">Внимание</string>
     <string name="channel_error">Грешки</string>

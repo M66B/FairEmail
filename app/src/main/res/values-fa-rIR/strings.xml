@@ -8,7 +8,6 @@
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
     <string name="channel_service">دریافت</string>
     <string name="channel_send">ارسال</string>
-    <string name="channel_notification">اعلان‌ها</string>
     <string name="channel_update">به‌روزرسانی‌ها</string>
     <string name="channel_warning">هشدارها</string>
     <string name="channel_error">خطاها</string>

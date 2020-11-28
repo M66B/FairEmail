@@ -9,7 +9,7 @@
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
     <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
-    <string name="channel_notification">Ilmoitukset</string>
+    <string name="channel_notification">Sähköposti</string>
     <string name="channel_update">Päivitykset</string>
     <string name="channel_warning">Varoitukset</string>
     <string name="channel_error">Virheet</string>
@@ -334,6 +334,7 @@
     <string name="title_advanced_text_align">Käytä tekstin tasausta</string>
     <string name="title_advanced_text_separators">Käytä erotinrivejä</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
+    <string name="title_advanced_image_placeholders">Näytä kuvien paikkamerkit</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
@@ -412,6 +413,7 @@
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
+    <string name="title_advanced_auto_undo_decrypt">Kumoa salauksen purku keskustelua suljettaessa</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_autocrypt">Käytä Autocryptiä</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
@@ -720,7 +722,7 @@
     <string name="title_event">Lisää kalenteriin</string>
     <string name="title_pin">Lisää pikakuvake</string>
     <string name="title_print">Tulosta</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Tulosteen otsikko</string>
+    <string name="title_print_header">Tulosteen otsikko</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>

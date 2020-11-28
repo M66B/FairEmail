@@ -7,7 +7,6 @@
     <string name="app_crash">FairEmail na tej napravi ni podprt, ker hrošči v Androidu povzročajo sesutja.</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
     <string name="channel_send">Pošlji</string>
-    <string name="channel_notification">Obvestila</string>
     <string name="channel_update">Posodobitve</string>
     <string name="channel_warning">Opozorila</string>
     <string name="channel_error">Napake</string>

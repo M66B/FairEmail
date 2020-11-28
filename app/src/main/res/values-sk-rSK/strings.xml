@@ -9,7 +9,7 @@
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
     <string name="channel_service">Prijať</string>
     <string name="channel_send">Odoslať</string>
-    <string name="channel_notification">Oznámenia</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Aktualizácie</string>
     <string name="channel_warning">Upozornenia</string>
     <string name="channel_error">Chyby</string>
@@ -434,6 +434,7 @@
     <string name="title_advanced_sign_default">Predvolene podpisovať správy</string>
     <string name="title_advanced_encrypt_default">Predvolene šifrovať správy</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovať správy</string>
+    <string name="title_advanced_auto_undo_decrypt">Vrátiť späť šifrovanie po zatvorení konverzácii</string>
     <string name="title_advanced_openpgp">OpenPGP poskytovateľ</string>
     <string name="title_advanced_autocrypt">Použiť Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt obojstranný mód</string>
@@ -741,7 +742,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_event">Pridať do kalendára</string>
     <string name="title_pin">Pripnúť</string>
     <string name="title_print">Tlačiť</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Tlačiť hlavičku</string>
+    <string name="title_print_header">Tlačiť hlavičku</string>
     <string name="title_show_headers">Zobraziť hlavičky</string>
     <string name="title_raw_save">Uložiť surovú správu</string>
     <string name="title_raw_send">Preposlať ako prílohu</string>

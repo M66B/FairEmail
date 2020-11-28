@@ -9,7 +9,7 @@
     <string name="app_cake">剩余存储空间不足</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
-    <string name="channel_notification">通知</string>
+    <string name="channel_notification">电子邮件</string>
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
@@ -126,6 +126,8 @@
     <string name="title_setup_office_remark">微软不为 Outlook, Live, Hotmail 等账户提供此类型授权</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
+    <string name="title_setup_oauth_update">再次授权现有账户</string>
+    <string name="title_setup_oauth_updated">帐户授权已更新</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -234,6 +236,7 @@
     <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
+    <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
@@ -403,6 +406,7 @@
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
+    <string name="title_advanced_auto_undo_decrypt">关闭对话时撤销解密</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_autocrypt">使用Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">自动双向加密模式</string>
@@ -712,7 +716,7 @@
     <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">打印邮件标题</string>
+    <string name="title_print_header">打印邮件头</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>

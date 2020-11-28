@@ -9,7 +9,7 @@
     <string name="app_cake">Spațiu de stocare insuficient rămas</string>
     <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
-    <string name="channel_notification">Notificări</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Actualizări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
@@ -264,6 +264,7 @@
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
     <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
+    <string name="title_advanced_write_below">Scrie sub textul expeditorului</string>
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
     <string name="title_advanced_limit_reply">Limitează numărul de citate imbricate</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
@@ -424,6 +425,7 @@
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
+    <string name="title_advanced_auto_undo_decrypt">Anulează decriptarea la închiderea conversației</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
     <string name="title_advanced_autocrypt">Folosește Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Modul mutual Autocrypt</string>
@@ -733,6 +735,7 @@
     <string name="title_event">Adaugă în calendar</string>
     <string name="title_pin">Adaugă scurtătură</string>
     <string name="title_print">Tipărire</string>
+    <string name="title_print_header">Tipărire antet</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>

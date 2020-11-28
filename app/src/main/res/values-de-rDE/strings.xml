@@ -9,7 +9,7 @@
     <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="channel_service">Empfangen</string>
     <string name="channel_send">Senden</string>
-    <string name="channel_notification">Benachrichtigungen</string>
+    <string name="channel_notification">E-Mail</string>
     <string name="channel_update">Aktualisierungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
@@ -139,6 +139,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_office_remark">Microsoft stellt diese Art der Autorisierung für Outlook-, Live-, Hotmail-Konten usw. nicht zur Verfügung.</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
+    <string name="title_setup_oauth_update">Vorhandenes Konto erneut autorisieren</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
@@ -416,6 +417,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
+    <string name="title_advanced_auto_undo_decrypt">Unterhaltung beim Schließen erneut verschlüsseln</string>
     <string name="title_advanced_openpgp">OpenPGP-Anbieter</string>
     <string name="title_advanced_autocrypt">Autocrypt verwenden</string>
     <string name="title_advanced_autocrypt_mutual">Gegenseitiger Autocrypt-Modus</string>
@@ -724,7 +726,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
     <string name="title_print">Drucken</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Kopfzeilen mit drucken</string>
+    <string name="title_print_header">Kopfzeilen mit drucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>

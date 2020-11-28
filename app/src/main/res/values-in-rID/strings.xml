@@ -9,7 +9,7 @@
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
     <string name="channel_service">Menerima</string>
     <string name="channel_send">Kirim</string>
-    <string name="channel_notification">Pemberitahuan</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Pembaruan</string>
     <string name="channel_warning">Peringatan</string>
     <string name="channel_error">Kesalahan/Error</string>
@@ -123,6 +123,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_office_remark">Microsoft tidak akan memberikan tipe otorisasi ini untuk akun Outlook, Live, Hotmail, dan lainnya</string>
     <string name="title_setup_office_auth">Kesalahan \'AUTHENTICATE Failed\' bisa disebabkan oleh IMAP/SMTP yang dinon-aktifkan oleh administrator sistem.</string>
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
+    <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>
     <string name="title_setup_select_account">Pilih Akun</string>
     <string name="title_setup_instructions">Instruksi Penyiapan</string>
@@ -224,10 +225,12 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_sync_folders">Sinkronkan daftar folder</string>
     <string name="title_advanced_sync_shared_folders">Sinkronkan daftar folder bersama</string>
     <string name="title_advanced_subscriptions">Kelola folder langganan</string>
+    <string name="title_advanced_sync_subscribed">Sinkronisasi folder langganan secara otomatis</string>
     <string name="title_advanced_check_mx">Periksa alamat email pengirim di sinkronisasi pesan</string>
     <string name="title_advanced_check_reply">Periksa alamat email balasan pada sinkronisasi pesan</string>
     <string name="title_advanced_tune_keep_alive">Secara otomatis mengatur interval tetap-hidup</string>
     <string name="title_advanced_keyboard">Tampilkan keyboard secara bawaan</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Nonaktifkan keyboard layar penuh</string>
     <string name="title_advanced_suggest_local">Sarankan kontak yang disimpan secara lokal</string>
     <string name="title_advanced_suggest_sent">Sarankan alamat yang ditemukan dalam pesan terkirim</string>
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
@@ -236,6 +239,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_prefix_once">Awali subjek hanya sekali saat membalas atau meneruskan</string>
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
     <string name="title_advanced_extended_reply">Gunakan header balasan/penerusan yang diperpanjang</string>
+    <string name="title_advanced_write_below">Tulis di bawah teks pengirim</string>
     <string name="title_advanced_quote_reply">Kutip teks balasan</string>
     <string name="title_advanced_limit_reply">Batasi jumlah kutipan bertingkat</string>
     <string name="title_advanced_resize_reply">Ubah ukuran gambar dalam teks balasan</string>
@@ -317,6 +321,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_text_align">Gunakan perata teks</string>
     <string name="title_advanced_text_separators">Gunakan garis pemisah</string>
     <string name="title_advanced_collapse_quotes">Ciutkan teks kutipan</string>
+    <string name="title_advanced_image_placeholders">Tampilkan lokasi gambar</string>
     <string name="title_advanced_images_inline">Tampilkan gambar sebaris secara otomatis</string>
     <string name="title_advanced_seekbar">Tunjukkan posisi percakapan relatif dengan titik</string>
     <string name="title_advanced_actionbar">Tampilkan percakapan pada status bar</string>
@@ -395,6 +400,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_sign_default">Masuk secara bawaan</string>
     <string name="title_advanced_encrypt_default">Enkripsi secara bawaan</string>
     <string name="title_advanced_auto_decrypt">Mendekripsi pesan secara otomatis</string>
+    <string name="title_advanced_auto_undo_decrypt">Batalkan dekripsi saat menutup percakapan</string>
     <string name="title_advanced_openpgp">Penyedia OpenPGP (Open Source Pretty Good Privacy)</string>
     <string name="title_advanced_autocrypt">Pakai enkripsi otomatis</string>
     <string name="title_advanced_autocrypt_mutual">Mode saling enkripsi otomatis</string>

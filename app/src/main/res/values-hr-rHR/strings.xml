@@ -9,7 +9,6 @@
     <string name="app_cake">Nedovoljno mjesta u memoriji</string>
     <string name="channel_service">Primanje</string>
     <string name="channel_send">Pošalji</string>
-    <string name="channel_notification">Obavijesti</string>
     <string name="channel_update">Ažuriranja</string>
     <string name="channel_warning">Upozorenja</string>
     <string name="channel_error">Greške</string>

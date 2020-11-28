@@ -9,7 +9,6 @@
     <string name="app_cake">சேமிப்பிடம் போதுமானதாகயில்லை</string>
     <string name="channel_service">பெறுபவை</string>
     <string name="channel_send">அனுப்புபவை</string>
-    <string name="channel_notification">அறிவிப்புகள்</string>
     <string name="channel_update">புதுப்பித்தல்கள்</string>
     <string name="channel_warning">எச்சரிக்கைகள்</string>
     <string name="channel_error">பிழைகள்</string>

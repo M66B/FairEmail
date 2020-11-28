@@ -7,7 +7,6 @@
     <string name="app_crash">فيرميل غير متوافق مع هذا الجهاز وقد تتسبب الأخطاء في حدوث أعطال</string>
     <string name="app_exit">أنقر مرة أخرى للخروج من التطبيق</string>
     <string name="channel_send">أرسل</string>
-    <string name="channel_notification">الاشعارات</string>
     <string name="channel_update">التحديثات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>

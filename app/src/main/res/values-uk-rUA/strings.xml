@@ -2,7 +2,6 @@
 <resources>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="channel_send">Надіслати</string>
-    <string name="channel_notification">Сповіщення</string>
     <string name="channel_update">Оновлення</string>
     <string name="channel_warning">Попередження</string>
     <string name="channel_error">Помилки</string>

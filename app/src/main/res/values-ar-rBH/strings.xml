@@ -6,7 +6,6 @@
     <string name="app_crash">فيرميل ليس مدعومًا على هذا الجهاز لأن أخطاء في نظام الأندرويد تسبب تعطّلات</string>
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
     <string name="channel_send">أرسل</string>
-    <string name="channel_notification">الاشعارات</string>
     <string name="channel_update">التحديثات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>

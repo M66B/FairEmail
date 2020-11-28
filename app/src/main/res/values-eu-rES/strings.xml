@@ -8,7 +8,6 @@
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
     <string name="channel_service">Jaso</string>
     <string name="channel_send">Bidali</string>
-    <string name="channel_notification">Jakinarazpenak</string>
     <string name="channel_update">Eguneraketak</string>
     <string name="channel_warning">Abisuak</string>
     <string name="channel_error">Erroreak</string>

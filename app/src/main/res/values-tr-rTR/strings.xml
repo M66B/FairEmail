@@ -9,7 +9,6 @@
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
     <string name="channel_service">Al</string>
     <string name="channel_send">Gönder</string>
-    <string name="channel_notification">Bildirimler</string>
     <string name="channel_update">Güncellemeler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>

@@ -2,14 +2,14 @@
 <resources>
     <string name="app_search">Ricerca in FairEmail</string>
     <string name="app_changelog">Changelog</string>
-    <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
+    <string name="app_welcome">FairEmail è un\'applicazione con codice aperto di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="app_exit">Premi di nuovo «indietro» per uscire</string>
     <string name="app_cake">Spazio di archiviazione insufficiente</string>
     <string name="channel_service">Ricevi</string>
     <string name="channel_send">Invia</string>
-    <string name="channel_notification">Notifiche</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Aggiornamenti</string>
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
@@ -153,16 +153,16 @@
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_grant_again">Concedi le autorizzazioni richieste</string>
     <string name="title_setup_account">Imposta account</string>
-    <string name="title_setup_account_remark">Per ricevere email</string>
+    <string name="title_setup_account_remark">Per ricevere e-mail</string>
     <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc</string>
     <string name="title_setup_identity">Imposta identità</string>
-    <string name="title_setup_identity_remark">Per inviare email</string>
+    <string name="title_setup_identity_remark">Per inviare e-mail</string>
     <string name="title_setup_identity_hint">Per cambiare nome, colore, firma, ecc</string>
     <string name="title_setup_identity_what">Che cos\'è un\'identità?</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Imposta ottimizzazioni della batteria</string>
-    <string name="title_setup_doze_remark">Per ricevere email in modo affidabile</string>
+    <string name="title_setup_doze_remark">Per ricevere e-mail in modo affidabile</string>
     <string name="title_setup_doze_hint">Anche se questo può sembrare contraddittorio, spegnere le ottimizzazioni della batteria si tradurrà in un minore utilizzo della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra, seleziona \"Tutte le app\" in alto, seleziona questa app e seleziona e conferma \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
@@ -242,8 +242,8 @@
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi di cartelle condovise</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza automaticamente le cartelle sottoscritte</string>
-    <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
-    <string name="title_advanced_check_reply">Controlla gli indirizzi email di risposta alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_mx">Controlla gli indirizzi e-mail mittente alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_reply">Controlla gli indirizzi e-mail di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
@@ -267,7 +267,7 @@
     <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi firme riconosciute</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
-    <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
+    <string name="title_advanced_lookup_mx">Controlla gli indirizzi e-mail dei destinatari prima di inviare</string>
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
@@ -415,6 +415,7 @@
     <string name="title_advanced_sign_default">Firma in modo predefinito</string>
     <string name="title_advanced_encrypt_default">Cripta in modo predefinito</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
+    <string name="title_advanced_auto_undo_decrypt">Annulla la decifratura alla chiusura della conversazione</string>
     <string name="title_advanced_openpgp">Provider OpenPGP</string>
     <string name="title_advanced_autocrypt">Usa Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt in modalità reciproca</string>
@@ -523,7 +524,7 @@
     <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione per lo swipe a sinistra e a destra per tutti gli account IMAP</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
-    <string name="title_identity_email">Il tuo indirizzo email</string>
+    <string name="title_identity_email">Il tuo indirizzo e-mail</string>
     <string name="title_identity_color_hint">I colori dell\'identità hanno precedenza sui colori di cartella e account</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
@@ -582,8 +583,8 @@
     <string name="title_check">Controlla</string>
     <string name="title_trust">Certificato server fidato con impronta digitale %1$s</string>
     <string name="title_no_name">Nome mancante</string>
-    <string name="title_no_email">Indirizzo email mancante</string>
-    <string name="title_email_invalid">Indirizzo email non valido: \'%1$s\'</string>
+    <string name="title_no_email">Indirizzo e-mail mancante</string>
+    <string name="title_email_invalid">Indirizzo e-mail non valido: «%1$s»</string>
     <string name="title_address_duplicate">Indirizzo «%1$s» duplicato</string>
     <string name="title_address_parse_error">Indirizzo \'%1$s\' non valido: %2$s</string>
     <string name="title_no_account">Account mancante</string>
@@ -724,7 +725,7 @@
     <string name="title_event">Aggiungi al calendario</string>
     <string name="title_pin">Aggiungi collegamento</string>
     <string name="title_print">Stampa</string>
-    <string name="title_print_header" comment="title_print_header&#10;Title for option to enable/disable printing sender, subject, etc above message text">Stampa l\'intestazione</string>
+    <string name="title_print_header">Stampa l\'intestazione</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
@@ -932,7 +933,7 @@
     <string name="title_signature_certificate_invalid">Catena di certificati non valida</string>
     <string name="title_signature_sender">Indirizzo del mittente</string>
     <string name="title_signature_email">Indirizzo della firma</string>
-    <string name="title_signature_mismatch">L\'indirizzo email del mittente e la firma non corrispondono</string>
+    <string name="title_signature_mismatch">L\'indirizzo e-mail del mittente e la firma non corrispondono</string>
     <string name="title_signature_subject">Oggetto</string>
     <string name="title_signature_validity">Validità</string>
     <string name="title_signature_outdated">Questa chiave pubblica non è attualmente valida</string>

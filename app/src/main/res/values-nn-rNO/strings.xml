@@ -9,7 +9,6 @@
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
     <string name="channel_service">Tak imot</string>
     <string name="channel_send">Send</string>
-    <string name="channel_notification">Varsler</string>
     <string name="channel_update">Oppdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>

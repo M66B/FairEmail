@@ -8,7 +8,6 @@
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="channel_service">Rebre</string>
     <string name="channel_send">Enviar</string>
-    <string name="channel_notification">Notificacions</string>
     <string name="channel_update">Actualitzacions</string>
     <string name="channel_warning">Advertències</string>
     <string name="channel_error">Errors</string>

@@ -155,7 +155,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(32) Comment puis-je vérifier si la lecture des courriels est vraiment sécurisé?](#user-content-faq32)
 * [(33) Pourquoi la modification des adresses de l'expéditeur ne fonctionne-t-elle pas?](#user-content-faq33)
 * [(34) Comment les identités correspondent-elles?](#user-content-faq34)
-* [(35) Pourquoi devrais-je faire attention à la visualisation des images, des pièces jointes et du message original ?](#user-content-faq35)
+* [(35) Pourquoi devrais-je faire attention à la visualisation des images, des pièces jointes, du message original et à l'ouverture des liens ?](#user-content-faq35)
 * [(36) Comment les fichiers de configuration sont-ils chiffrés ?](#user-content-faq36)
 * [(37) Comment les mots de passe sont-ils stockés?](#user-content-faq37)
 * [(39) Comment puis-je réduire l'utilisation de la batterie de FairEmail?](#user-content-faq39)
@@ -164,11 +164,11 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(42) Pouvez-vous ajouter un nouveau fournisseur à la liste des fournisseurs ?](#user-content-faq42)
 * [(43) Pouvez-vous montrer l'original ... ?](#user-content-faq43)
 * [(44) Pouvez-vous montrer les photos / identicons de contact dans le dossier envoyé?](#user-content-faq44)
-* [(45) Comment puis-je corriger 'Cette clé n'est pas disponible. Pour l'utiliser, vous devez l'importer comme l'un des votres !" ?](#user-content-faq45)
-* [(46) Pourquoi la liste des messages continue-t-elle à se rafraîchir?](#user-content-faq46)
-* [(47) Comment puis-je résoudre l'erreur "Aucun compte principal ou aucun dossier brouillon" ?](#user-content-faq47)
-* [~~(48) Comment résoudre l'erreur "Aucun compte principal ou aucun dossier d'archives" ?~~](#user-content-faq48)
-* [(49) Comment puis-je réparer "Une application obsolète a envoyé un chemin de fichier au lieu d'un flux de fichiers" ?](#user-content-faq49)
+* [(45) Comment puis-je corriger « Cette clé n'est pas disponible. Pour l'utiliser, vous devez l'importer comme l'un des vôtres ! » ?](#user-content-faq45)
+* [(46) Pourquoi la liste des messages continue-t-elle à se rafraîchir ?](#user-content-faq46)
+* [(47) Comment puis-je résoudre l'erreur « Aucun compte principal ou aucun dossier brouillon » ?](#user-content-faq47)
+* [~~(48) Comment résoudre l'erreur « Aucun compte principal ou aucun dossier d'archives » ?~~](#user-content-faq48)
+* [(49) Comment puis-je réparer « Une application obsolète a envoyé un chemin de fichier au lieu d'un flux de fichiers » ?](#user-content-faq49)
 * [(50) Pouvez-vous ajouter une option pour synchroniser tous les messages ?](#user-content-faq50)
 * [(51) Comment les dossiers sont-ils triés ?](#user-content-faq51)
 * [(52) Pourquoi faut-il un peu de temps pour se reconnecter à un compte ?](#user-content-faq52)
@@ -575,6 +575,8 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
+Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+
 *General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
@@ -956,6 +958,8 @@ The maximum number of simultaneous folder connections for Gmail is 15, so you ca
 
 When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
+Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+
 <br />
 
 <a name="faq24"></a>
@@ -998,15 +1002,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Image intégrée](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Image cassée](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1123,9 +1127,9 @@ Matched identities can be used to color code messages. The identity color takes 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, and the original message?**
+**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message, but will also leak your IP address.
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
@@ -1171,7 +1175,7 @@ Recent Android versions by default report *app usage* as a percentage in the And
 
 *Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please let me know.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
@@ -1478,6 +1482,8 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Saviez-vous que vous pouvez appuyer longuement sur l'action Envoyer pour afficher la boîte de dialogue d'envoi, même si elle était désactivée ?
+* Saviez-vous que vous pouvez appuyer longuement sur l'icône en plein écran pour n'afficher que le texte original du message ?
 
 <br />
 

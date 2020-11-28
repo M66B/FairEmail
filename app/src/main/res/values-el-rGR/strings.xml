@@ -9,7 +9,7 @@
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
     <string name="channel_service">Λήψη</string>
     <string name="channel_send">Αποστολή</string>
-    <string name="channel_notification">Ειδοποιήσεις</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Ενημερώσεις</string>
     <string name="channel_warning">Προειδοποιήσεις</string>
     <string name="channel_error">Σφάλματα</string>
@@ -415,6 +415,7 @@
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>
+    <string name="title_advanced_auto_undo_decrypt">Αναίρεση αποκρυπτογράφησης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_openpgp">Πάροχος OpenPGP</string>
     <string name="title_advanced_autocrypt">Χρήση Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Αμοιβαία λειτουργία Autocrypt</string>

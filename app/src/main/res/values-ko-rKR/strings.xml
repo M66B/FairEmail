@@ -9,7 +9,6 @@
     <string name="app_cake">저장 공간 부족</string>
     <string name="channel_service">수신</string>
     <string name="channel_send">발신</string>
-    <string name="channel_notification">알림</string>
     <string name="channel_update">업데이트</string>
     <string name="channel_warning">경고</string>
     <string name="channel_error">오류</string>
