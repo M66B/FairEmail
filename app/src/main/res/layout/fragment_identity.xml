@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/title_optional"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
