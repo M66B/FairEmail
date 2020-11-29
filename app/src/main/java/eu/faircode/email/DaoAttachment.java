@@ -64,47 +64,56 @@ public interface DaoAttachment {
 
     @Query("UPDATE attachment" +
             " SET message = :message" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND message <> :message")
     void setMessage(long id, long message);
 
     @Query("UPDATE attachment" +
             " SET error = NULL, progress = :progress, available = 0" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND (error IS NOT NULL OR progress <> :progress OR available <> 0)")
     void setProgress(long id, Integer progress);
 
     @Query("UPDATE attachment" +
             " SET size = :size, error = NULL, progress = NULL, available = 1" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND (size <> :size OR error IS NOT NULL OR progress IS NOT NULL OR available <> 1)")
     void setDownloaded(long id, Long size);
 
     @Query("UPDATE attachment" +
             " SET size = NULL, progress = NULL, available = :available" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND (size IS NOT NULL OR progress IS NOT NULL OR available <> :available)")
     void setAvailable(long id, boolean available);
 
     @Query("UPDATE attachment" +
             " SET size = NULL, progress = NULL, available = 0" +
-            " WHERE message = :message")
+            " WHERE message = :message" +
+            " AND (size IS NOT NULL OR progress IS NOT NULL OR available <> 0)")
     void resetAvailable(long message);
 
     @Query("UPDATE attachment" +
             " SET error = :error, progress = NULL, available = 0" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND (error <> :error OR progress IS NOT NULL OR available <> 0)")
     void setError(long id, String error);
 
     @Query("UPDATE attachment" +
             " SET disposition = :disposition" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND disposition <> :disposition")
     void setDisposition(long id, String disposition);
 
     @Query("UPDATE attachment" +
             " SET cid = :cid" +
-            " WHERE id = :id")
+            " WHERE id = :id" +
+            " AND cid <> :cid")
     void setCid(long id, String cid);
 
     @Query("UPDATE attachment" +
             " SET available = 0" +
-            " WHERE EXISTS" +
+            " WHERE available <> 0" +
+            " AND EXISTS" +
             "  (SELECT * FROM attachment a" +
             "   JOIN message ON message.id = a.message" +
             "   JOIN folder ON folder.id = message.folder" +
