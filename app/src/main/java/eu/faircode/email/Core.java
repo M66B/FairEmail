@@ -259,6 +259,8 @@ class Core {
                         if (similar.size() > 0)
                             Log.i(folder.name + " similar=" + TextUtils.join(",", sids));
 
+                        op.tries++;
+
                         // Leave crumb
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("name", op.name);
@@ -267,6 +269,7 @@ class Core {
                         crumb.put("folder", op.folder + ":" + folder.type);
                         if (op.message != null)
                             crumb.put("message", Long.toString(op.message));
+                        crumb.put("tries", Integer.toString(op.tries));
                         crumb.put("similar", TextUtils.join(",", sids));
                         crumb.put("thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
@@ -275,7 +278,6 @@ class Core {
                         try {
                             db.beginTransaction();
 
-                            db.operation().setOperationTries(op.id, ++op.tries);
                             db.operation().setOperationError(op.id, null);
 
                             if (message != null)
@@ -435,6 +437,8 @@ class Core {
                             ops.remove(s);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
+                        db.operation().setOperationTries(op.id, op.tries);
+
                         EntityLog.log(context, folder.name +
                                 " op=" + op.name +
                                 " try=" + op.tries +
