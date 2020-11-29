@@ -59,16 +59,16 @@ public interface DaoRule {
     @Update
     int updateRule(EntityRule rule);
 
-    @Query("UPDATE rule SET folder = :folder WHERE id = :id")
+    @Query("UPDATE rule SET folder = :folder WHERE id = :id AND folder <> :folder")
     int setRuleFolder(long id, long folder);
 
-    @Query("UPDATE rule SET enabled = :enabled WHERE id = :id")
+    @Query("UPDATE rule SET enabled = :enabled WHERE id = :id AND enabled <> :enabled")
     int setRuleEnabled(long id, boolean enabled);
 
     @Query("UPDATE rule SET applied = applied + 1 WHERE id = :id")
     int applyRule(long id);
 
-    @Query("UPDATE rule SET applied = 0 WHERE id = :id")
+    @Query("UPDATE rule SET applied = 0 WHERE id = :id AND applied <> 0")
     int resetRule(long id);
 
     @Query("DELETE FROM rule WHERE id = :id")
