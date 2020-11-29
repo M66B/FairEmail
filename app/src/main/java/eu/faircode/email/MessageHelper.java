@@ -55,6 +55,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
@@ -2388,6 +2389,7 @@ public class MessageHelper {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
                 String disposition;
                 try {
+                    // From the body structure
                     disposition = part.getDisposition();
                     if (disposition != null)
                         disposition = disposition.toLowerCase(Locale.ROOT);
@@ -2399,9 +2401,32 @@ public class MessageHelper {
 
                 String filename;
                 try {
+                    // From the body structure:
+                    // 1. disposition filename
+                    // 2. content type name
                     filename = part.getFileName();
-                    if (filename != null)
+                    if (filename != null) {
+                        // https://tools.ietf.org/html/rfc2231
+                        // http://kb.mozillazine.org/Attachments_renamed
+                        // https://blog.nodemailer.com/2017/01/27/the-mess-that-is-attachment-filenames/
+                        int q1 = filename.indexOf('\'');
+                        int q2 = filename.indexOf('\'', q1 + 1);
+                        if (q1 >= 0 && q2 > 0) {
+                            try {
+                                String charset = filename.substring(0, q1);
+                                String language = filename.substring(q1 + 1, q2);
+                                String name = filename.substring(q2 + 1)
+                                        .replace("+", "%2B");
+
+                                if (!TextUtils.isEmpty(charset))
+                                    filename = URLDecoder.decode(name, charset);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+
                         filename = decodeMime(filename);
+                    }
                 } catch (MessagingException ex) {
                     Log.w(ex);
                     parts.warnings.add(Log.formatThrowable(ex, false));
@@ -2410,6 +2435,7 @@ public class MessageHelper {
 
                 ContentType contentType;
                 try {
+                    // From the body structure
                     contentType = new ContentType(part.getContentType());
                 } catch (ParseException ex) {
                     if (part instanceof MimeMessage)
