@@ -587,7 +587,7 @@ public interface DaoMessage {
     int updateMessage(EntityMessage message);
 
     @Query("UPDATE message SET thread = :thread" +
-            " WHERE account = :account AND thread = :old AND NOT (thread IS :thread)")
+            " WHERE account = :account AND thread = :old AND NOT (:old IS :thread)")
     int updateMessageThread(long account, String old, String thread);
 
     @Query("UPDATE message SET uid = :uid WHERE id = :id AND NOT (uid IS :uid)")
