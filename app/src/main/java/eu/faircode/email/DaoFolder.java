@@ -218,59 +218,60 @@ public interface DaoFolder {
     @Insert
     long insertFolder(EntityFolder folder);
 
-    @Query("UPDATE folder SET unified = :unified WHERE id = :id AND unified <> :unified")
+    @Query("UPDATE folder SET unified = :unified WHERE id = :id AND NOT (unified IS :unified)")
     int setFolderUnified(long id, boolean unified);
 
-    @Query("UPDATE folder SET navigation = :navigation WHERE id = :id AND navigation <> :navigation")
+    @Query("UPDATE folder SET navigation = :navigation WHERE id = :id AND NOT (navigation IS :navigation)")
     int setFolderNavigation(long id, boolean navigation);
 
-    @Query("UPDATE folder SET notify = :notify WHERE id = :id AND notify <> :notify")
+    @Query("UPDATE folder SET notify = :notify WHERE id = :id AND NOT (notify IS :notify)")
     int setFolderNotify(long id, boolean notify);
 
-    @Query("UPDATE folder SET synchronize = :synchronize WHERE id = :id AND synchronize <> :synchronize")
+    @Query("UPDATE folder SET synchronize = :synchronize WHERE id = :id AND NOT (synchronize IS :synchronize)")
     int setFolderSynchronize(long id, boolean synchronize);
 
-    @Query("UPDATE folder SET state = :state WHERE id = :id AND state <> :state")
+    @Query("UPDATE folder SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setFolderState(long id, String state);
 
-    @Query("UPDATE folder SET state = :state WHERE account = :account AND state <> :state")
+    @Query("UPDATE folder SET state = :state WHERE account = :account AND NOT (state IS :state)")
     int setFolderStates(long account, String state);
 
-    @Query("UPDATE folder SET sync_state = :state WHERE id = :id AND sync_state <> :state")
+    @Query("UPDATE folder SET sync_state = :state WHERE id = :id AND NOT (sync_state IS :state)")
     int setFolderSyncState(long id, String state);
 
-    @Query("UPDATE folder SET total = :total WHERE id = :id AND total <> :total")
+    @Query("UPDATE folder SET total = :total WHERE id = :id AND NOT (total IS :total)")
     int setFolderTotal(long id, Integer total);
 
-    @Query("UPDATE folder SET error = :error WHERE id = :id AND error <> :error")
+    @Query("UPDATE folder SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setFolderError(long id, String error);
 
-    @Query("UPDATE folder SET subscribed = :subscribed WHERE id = :id AND subscribed <> :subscribed")
+    @Query("UPDATE folder SET subscribed = :subscribed WHERE id = :id AND NOT (subscribed IS :subscribed)")
     int setFolderSubscribed(long id, Boolean subscribed);
 
-    @Query("UPDATE folder SET selectable = :selectable WHERE id = :id AND selectable <> :selectable")
+    @Query("UPDATE folder SET selectable = :selectable WHERE id = :id AND NOT (selectable IS :selectable)")
     int setFolderSelectable(long id, Boolean selectable);
 
-    @Query("UPDATE folder SET inferiors = :inferiors WHERE id = :id AND inferiors <> :inferiors")
+    @Query("UPDATE folder SET inferiors = :inferiors WHERE id = :id AND NOT (inferiors IS :inferiors)")
     int setFolderInferiors(long id, Boolean inferiors);
 
-    @Query("UPDATE folder SET type = :type WHERE id = :id AND type <> :type")
+    @Query("UPDATE folder SET type = :type WHERE id = :id AND NOT (type IS :type)")
     int setFolderType(long id, String type);
 
-    @Query("UPDATE folder SET `order` = :order WHERE id = :id AND `order` <> :order")
+    @Query("UPDATE folder SET `order` = :order WHERE id = :id AND NOT (`order` IS :order)")
     int setFolderOrder(long id, Integer order);
 
-    @Query("UPDATE folder SET parent = :parent WHERE id = :id AND parent <> :parent")
+    @Query("UPDATE folder SET parent = :parent WHERE id = :id AND NOT (parent IS :parent)")
     int setFolderParent(long id, Long parent);
 
-    @Query("UPDATE folder SET collapsed = :collapsed WHERE id = :id AND collapsed <> :collapsed")
+    @Query("UPDATE folder SET collapsed = :collapsed WHERE id = :id AND NOT (collapsed IS :collapsed)")
     int setFolderCollapsed(long id, boolean collapsed);
 
     @Query("UPDATE folder" +
             " SET type = '" + EntityFolder.USER + "'" +
             " WHERE account = :account" +
             " AND type <> '" + EntityFolder.INBOX + "'" +
-            " AND type <> '" + EntityFolder.SYSTEM + "'")
+            " AND type <> '" + EntityFolder.SYSTEM + "'" +
+            " AND type <> '" + EntityFolder.USER + "'")
     int setFoldersUser(long account);
 
     @Query("UPDATE folder" +
@@ -298,46 +299,47 @@ public interface DaoFolder {
     @Query("UPDATE folder" +
             " SET sync_days = :sync_days, keep_days = :keep_days" +
             " WHERE account = :account" +
-            " AND type = '" + EntityFolder.USER + "'")
+            " AND type = '" + EntityFolder.USER + "'" +
+            " AND (NOT (sync_days IS :sync_days) OR NOT (keep_days IS :keep_days))")
     int setFolderProperties(long account, int sync_days, int keep_days);
 
-    @Query("UPDATE folder SET keywords = :keywords WHERE id = :id AND keywords <> :keywords")
+    @Query("UPDATE folder SET keywords = :keywords WHERE id = :id AND NOT (keywords IS :keywords)")
     int setFolderKeywords(long id, String keywords);
 
-    @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
+    @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old AND NOT (:old IS :name)")
     int renameFolder(long account, String old, String name);
 
-    @Query("UPDATE folder SET initialize = :days WHERE id = :id AND initialize <> :days")
+    @Query("UPDATE folder SET initialize = :days WHERE id = :id AND NOT (initialize IS :days)")
     int setFolderInitialize(long id, int days);
 
-    @Query("UPDATE folder SET keep_days = :days WHERE id = :id AND keep_days <> :days")
+    @Query("UPDATE folder SET keep_days = :days WHERE id = :id AND NOT (keep_days IS :days)")
     int setFolderKeep(long id, int days);
 
-    @Query("UPDATE folder SET uidv = :uidv WHERE id = :id AND uidv <> :uidv")
+    @Query("UPDATE folder SET uidv = :uidv WHERE id = :id AND NOT (uidv IS :uidv)")
     int setFolderUidValidity(long id, Long uidv);
 
-    @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id AND last_sync <> :last_sync")
+    @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id AND NOT (last_sync IS :last_sync)")
     int setFolderLastSync(long id, long last_sync);
 
-    @Query("UPDATE folder SET read_only = :read_only WHERE id = :id AND read_only <> :read_only")
+    @Query("UPDATE folder SET read_only = :read_only WHERE id = :id AND NOT (read_only IS :read_only)")
     int setFolderReadOnly(long id, boolean read_only);
 
-    @Query("UPDATE folder SET tbc = NULL WHERE id = :id")
+    @Query("UPDATE folder SET tbc = NULL WHERE id = :id AND tbc IS NOT NULL")
     int resetFolderTbc(long id);
 
-    @Query("UPDATE folder SET `rename` = NULL WHERE id = :id")
+    @Query("UPDATE folder SET `rename` = NULL WHERE id = :id AND `rename` IS NOT NULL")
     int resetFolderRename(long id);
 
-    @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
+    @Query("UPDATE folder SET tbd = 1 WHERE id = :id AND NOT (tbd IS 1)")
     int setFolderTbd(long id);
 
     @Query("UPDATE folder" +
             " SET poll = :poll, poll_count = 1" +
             " WHERE id = :id" +
-            " AND (poll <> :poll OR poll_count <> 1)")
+            " AND (NOT (poll IS :poll) OR NOT (poll_count IS 1))")
     int setFolderPoll(long id, boolean poll);
 
-    @Query("UPDATE folder SET poll_count = :count WHERE id = :id AND poll_count <> :count")
+    @Query("UPDATE folder SET poll_count = :count WHERE id = :id AND NOT (poll_count IS :count)")
     int setFolderPollCount(long id, int count);
 
     @Query("DELETE FROM folder WHERE id = :id")

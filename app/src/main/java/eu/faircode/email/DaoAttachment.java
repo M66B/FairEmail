@@ -65,54 +65,54 @@ public interface DaoAttachment {
     @Query("UPDATE attachment" +
             " SET message = :message" +
             " WHERE id = :id" +
-            " AND message <> :message")
+            " AND NOT (message IS :message)")
     void setMessage(long id, long message);
 
     @Query("UPDATE attachment" +
             " SET error = NULL, progress = :progress, available = 0" +
             " WHERE id = :id" +
-            " AND (error IS NOT NULL OR progress <> :progress OR available <> 0)")
+            " AND (error IS NOT NULL OR NOT (progress IS :progress) OR NOT (available IS 0))")
     void setProgress(long id, Integer progress);
 
     @Query("UPDATE attachment" +
             " SET size = :size, error = NULL, progress = NULL, available = 1" +
             " WHERE id = :id" +
-            " AND (size <> :size OR error IS NOT NULL OR progress IS NOT NULL OR available <> 1)")
+            " AND (NOT (size IS :size) OR error IS NOT NULL OR progress IS NOT NULL OR NOT (available IS 1))")
     void setDownloaded(long id, Long size);
 
     @Query("UPDATE attachment" +
             " SET size = NULL, progress = NULL, available = :available" +
             " WHERE id = :id" +
-            " AND (size IS NOT NULL OR progress IS NOT NULL OR available <> :available)")
+            " AND (size IS NOT NULL OR progress IS NOT NULL OR NOT (available IS :available))")
     void setAvailable(long id, boolean available);
 
     @Query("UPDATE attachment" +
             " SET size = NULL, progress = NULL, available = 0" +
             " WHERE message = :message" +
-            " AND (size IS NOT NULL OR progress IS NOT NULL OR available <> 0)")
+            " AND (size IS NOT NULL OR progress IS NOT NULL OR NOT (available IS 0))")
     void resetAvailable(long message);
 
     @Query("UPDATE attachment" +
             " SET error = :error, progress = NULL, available = 0" +
             " WHERE id = :id" +
-            " AND (error <> :error OR progress IS NOT NULL OR available <> 0)")
+            " AND (NOT (error IS :error) OR progress IS NOT NULL OR NOT (available IS 0))")
     void setError(long id, String error);
 
     @Query("UPDATE attachment" +
             " SET disposition = :disposition" +
             " WHERE id = :id" +
-            " AND disposition <> :disposition")
+            " AND NOT (disposition IS :disposition)")
     void setDisposition(long id, String disposition);
 
     @Query("UPDATE attachment" +
             " SET cid = :cid" +
             " WHERE id = :id" +
-            " AND cid <> :cid")
+            " AND NOT (cid IS :cid)")
     void setCid(long id, String cid);
 
     @Query("UPDATE attachment" +
             " SET available = 0" +
-            " WHERE available <> 0" +
+            " WHERE NOT (available IS 0)" +
             " AND EXISTS" +
             "  (SELECT * FROM attachment a" +
             "   JOIN message ON message.id = a.message" +

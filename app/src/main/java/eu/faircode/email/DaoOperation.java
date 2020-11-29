@@ -126,16 +126,16 @@ public interface DaoOperation {
             " AND name = :name")
     int getOperationCount(long folder, long message, String name);
 
-    @Query("UPDATE operation SET tries = :tries WHERE id = :id AND tries <> :tries")
+    @Query("UPDATE operation SET tries = :tries WHERE id = :id AND NOT (tries IS :tries)")
     int setOperationTries(long id, int tries);
 
-    @Query("UPDATE operation SET state = :state WHERE id = :id AND state <> :state")
+    @Query("UPDATE operation SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setOperationState(long id, String state);
 
     @Query("UPDATE operation SET state = NULL WHERE state IS NOT NULL")
     int resetOperationStates();
 
-    @Query("UPDATE operation SET error = :error WHERE id = :id AND error <> :error")
+    @Query("UPDATE operation SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setOperationError(long id, String error);
 
     @Insert

@@ -587,97 +587,101 @@ public interface DaoMessage {
     int updateMessage(EntityMessage message);
 
     @Query("UPDATE message SET thread = :thread" +
-            " WHERE account = :account AND thread = :old AND thread <> :thread")
+            " WHERE account = :account AND thread = :old AND NOT (thread IS :thread)")
     int updateMessageThread(long account, String old, String thread);
 
-    @Query("UPDATE message SET uid = :uid WHERE id = :id AND uid <> :uid")
+    @Query("UPDATE message SET uid = :uid WHERE id = :id AND NOT (uid IS :uid)")
     int setMessageUid(long id, Long uid);
 
-    @Query("UPDATE message SET msgid = :msgid WHERE id = :id AND msgid <> :msgid")
+    @Query("UPDATE message SET msgid = :msgid WHERE id = :id AND NOT (msgid IS :msgid)")
     int setMessageMsgId(long id, String msgid);
 
-    @Query("UPDATE message SET hash = :hash WHERE id = :id AND hash <> :hash")
+    @Query("UPDATE message SET hash = :hash WHERE id = :id AND NOT (hash IS :hash)")
     int setMessageHash(long id, String hash);
 
-    @Query("UPDATE message SET priority = :priority WHERE id = :id AND priority <> :priority")
+    @Query("UPDATE message SET priority = :priority WHERE id = :id AND NOT (priority IS :priority)")
     int setMessagePriority(long id, Integer priority);
 
-    @Query("UPDATE message SET importance = :importance WHERE id = :id AND importance <> :importance")
+    @Query("UPDATE message SET importance = :importance WHERE id = :id AND NOT (importance IS :importance)")
     int setMessageImportance(long id, Integer importance);
 
-    @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id AND receipt_request <> :receipt_request")
+    @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id AND NOT (receipt_request IS :receipt_request)")
     int setMessageReceiptRequest(long id, Boolean receipt_request);
 
-    @Query("UPDATE message SET notifying = :notifying WHERE id = :id AND notifying <> :notifying")
+    @Query("UPDATE message SET notifying = :notifying WHERE id = :id AND NOT (notifying IS :notifying)")
     int setMessageNotifying(long id, int notifying);
 
-    @Query("UPDATE message SET fts = :fts WHERE id = :id AND fts <> :fts")
+    @Query("UPDATE message SET fts = :fts WHERE id = :id AND NOT (fts IS :fts)")
     int setMessageFts(long id, boolean fts);
 
-    @Query("UPDATE message SET received = :received WHERE id = :id AND received <> :received")
+    @Query("UPDATE message SET received = :received WHERE id = :id AND NOT (received IS :received)")
     int setMessageReceived(long id, long received);
 
-    @Query("UPDATE message SET subject = :subject WHERE id = :id AND subject <> :subject")
+    @Query("UPDATE message SET subject = :subject WHERE id = :id AND NOT (subject IS :subject)")
     int setMessageSubject(long id, String subject);
 
-    @Query("UPDATE message SET seen = :seen WHERE id = :id AND seen <> :seen")
+    @Query("UPDATE message SET seen = :seen WHERE id = :id AND NOT (seen IS :seen)")
     int setMessageSeen(long id, boolean seen);
 
-    @Query("UPDATE message SET flagged = :flagged WHERE id = :id AND flagged <> :flagged")
+    @Query("UPDATE message SET flagged = :flagged WHERE id = :id AND NOT (flagged IS :flagged)")
     int setMessageFlagged(long id, boolean flagged);
 
-    @Query("UPDATE message SET answered = :answered WHERE id = :id AND answered <> :answered")
+    @Query("UPDATE message SET answered = :answered WHERE id = :id AND NOT (answered IS :answered)")
     int setMessageAnswered(long id, boolean answered);
 
-    @Query("UPDATE message SET keywords = :keywords WHERE id = :id AND keywords <> :keywords")
+    @Query("UPDATE message SET keywords = :keywords WHERE id = :id AND NOT (keywords IS :keywords)")
     int setMessageKeywords(long id, String keywords);
 
-    @Query("UPDATE message SET labels = :labels WHERE id = :id AND labels <> :labels")
+    @Query("UPDATE message SET labels = :labels WHERE id = :id AND NOT (labels IS :labels)")
     int setMessageLabels(long id, String labels);
 
-    @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id AND ui_seen <> :ui_seen")
+    @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id AND NOT (ui_seen IS :ui_seen)")
     int setMessageUiSeen(long id, boolean ui_seen);
 
     @Query("UPDATE message" +
             " SET ui_flagged = :ui_flagged, color = :color" +
             " WHERE id = :id" +
-            " AND (ui_flagged <> :ui_flagged OR color <> :color)")
+            " AND (NOT (ui_flagged IS :ui_flagged) OR NOT (color IS :color))")
     int setMessageUiFlagged(long id, boolean ui_flagged, Integer color);
 
-    @Query("UPDATE message SET ui_answered = :ui_answered WHERE id = :id AND ui_answered <> :ui_answered")
+    @Query("UPDATE message SET ui_answered = :ui_answered WHERE id = :id AND NOT (ui_answered IS :ui_answered)")
     int setMessageUiAnswered(long id, boolean ui_answered);
 
-    @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id AND ui_hide <> :ui_hide")
+    @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id AND NOT (ui_hide IS :ui_hide)")
     int setMessageUiHide(long id, Boolean ui_hide);
 
-    @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND ui_ignored <> :ui_ignored")
+    @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND NOT (ui_ignored IS :ui_ignored)")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
-    @Query("UPDATE message SET ui_busy = :busy WHERE id = :id AND ui_busy <> :busy")
+    @Query("UPDATE message SET ui_busy = :busy WHERE id = :id AND NOT (ui_busy IS :busy)")
     int setMessageUiBusy(long id, Long busy);
 
     @Query("UPDATE message" +
             " SET received = :sent, sent = :sent" +
             " WHERE id = :id" +
-            " AND (received <> :sent OR sent <> :sent)")
+            " AND (NOT (received IS :sent) OR NOT (sent IS :sent))")
     int setMessageSent(long id, Long sent);
 
-    @Query("UPDATE message SET error = :error WHERE id = :id AND error <> :error")
+    @Query("UPDATE message SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setMessageError(long id, String error);
 
-    @Query("UPDATE message SET identity = :identity WHERE id = :id AND identity <> :identity")
+    @Query("UPDATE message SET identity = :identity WHERE id = :id AND NOT (identity IS :identity)")
     int setMessageIdentity(long id, Long identity);
 
-    @Query("UPDATE message SET revision = :revision WHERE id = :id AND revision <> :revision")
+    @Query("UPDATE message SET revision = :revision WHERE id = :id AND NOT (revision IS :revision)")
     int setMessageRevision(long id, Integer revision);
 
-    @Query("UPDATE message SET revisions = :revisions WHERE id = :id AND revisions <> :revisions")
+    @Query("UPDATE message SET revisions = :revisions WHERE id = :id AND NOT (revisions IS :revisions)")
     int setMessageRevisions(long id, Integer revisions);
 
     @Query("UPDATE message" +
             " SET content = 0, fts = 0, language = NULL, plain_only = NULL, preview = NULL" +
             " WHERE id = :id" +
-            " AND (content <> 0 OR fts <> 0 OR language IS NOT NULL OR plain_only IS NOT NULL OR preview IS NOT NULL)")
+            " AND (NOT (content IS 0)" +
+            "  OR NOT (fts IS 0)" +
+            "  OR language IS NOT NULL" +
+            "  OR plain_only IS NOT NULL" +
+            "  OR preview IS NOT NULL)")
     int resetMessageContent(long id);
 
     @Query("UPDATE message" +
@@ -688,42 +692,42 @@ public interface DaoMessage {
             ", preview = :preview" +
             ", warning = :warning" +
             " WHERE id = :id" +
-            " AND (content <> :content" +
-            "  OR fts <> 0" +
-            "  OR language <> :language" +
-            "  OR plain_only <> :plain_only" +
-            "  OR preview <> :preview" +
-            "  OR warning <> :warning)")
+            " AND (NOT (content IS :content)" +
+            "  OR NOT (fts IS 0)" +
+            "  OR NOT (language IS :language)" +
+            "  OR NOT (plain_only IS :plain_only)" +
+            "  OR NOT (preview IS :preview)" +
+            "  OR NOT (warning IS :warning))")
     int setMessageContent(long id, boolean content, String language, Boolean plain_only, String preview, String warning);
 
     @Query("UPDATE message" +
             " SET size = :size, total = :total" +
             " WHERE id = :id" +
-            " AND (size <> :size OR total <> :total)")
+            " AND (NOT (size IS :size) OR NOT (total IS :total))")
     int setMessageSize(long id, Long size, Long total);
 
-    @Query("UPDATE message SET headers = :headers WHERE id = :id AND headers <> :headers")
+    @Query("UPDATE message SET headers = :headers WHERE id = :id AND NOT (headers IS :headers)")
     int setMessageHeaders(long id, String headers);
 
-    @Query("UPDATE message SET raw = :raw WHERE id = :id AND raw <> :raw")
+    @Query("UPDATE message SET raw = :raw WHERE id = :id AND NOT (raw IS :raw)")
     int setMessageRaw(long id, Boolean raw);
 
-    @Query("UPDATE message SET stored = :stored WHERE id = :id AND stored <> :stored")
+    @Query("UPDATE message SET stored = :stored WHERE id = :id AND NOT (stored IS :stored)")
     int setMessageStored(long id, long stored);
 
-    @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id AND plain_only <> :plain_only")
+    @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id AND NOT (plain_only IS :plain_only)")
     int setMessagePlainOnly(long id, boolean plain_only);
 
-    @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id AND encrypt <> :encrypt")
+    @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id AND NOT (encrypt IS :encrypt)")
     int setMessageEncrypt(long id, Integer encrypt);
 
-    @Query("UPDATE message SET ui_encrypt = :ui_encrypt WHERE id = :id AND ui_encrypt <> :ui_encrypt")
+    @Query("UPDATE message SET ui_encrypt = :ui_encrypt WHERE id = :id AND NOT (ui_encrypt IS :ui_encrypt)")
     int setMessageUiEncrypt(long id, Integer ui_encrypt);
 
-    @Query("UPDATE message SET verified = :verified WHERE id = :id AND verified <> :verified")
+    @Query("UPDATE message SET verified = :verified WHERE id = :id AND NOT (verified IS :verified)")
     int setMessageVerified(long id, boolean verified);
 
-    @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id AND last_attempt <> :last_attempt")
+    @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id AND NOT (last_attempt IS :last_attempt)")
     int setMessageLastAttempt(long id, long last_attempt);
 
     @Query("UPDATE message SET ui_ignored = 1" +
@@ -734,22 +738,22 @@ public interface DaoMessage {
             "  WHERE (:folder IS NULL AND folder.unified) OR id = :folder)")
     int ignoreAll(Long account, Long folder);
 
-    @Query("UPDATE message SET ui_found = 1 WHERE id = :id AND ui_found <> 1")
+    @Query("UPDATE message SET ui_found = 1 WHERE id = :id AND NOT (ui_found IS 1)")
     int setMessageFound(long id);
 
-    @Query("UPDATE message SET ui_found = 0 WHERE ui_found <> 0")
+    @Query("UPDATE message SET ui_found = 0 WHERE NOT (ui_found IS 0)")
     int resetSearch();
 
-    @Query("UPDATE message SET ui_snoozed = :wakeup WHERE id = :id AND ui_snoozed <> :wakeup")
+    @Query("UPDATE message SET ui_snoozed = :wakeup WHERE id = :id AND NOT (ui_snoozed IS :wakeup)")
     int setMessageSnoozed(long id, Long wakeup);
 
-    @Query("UPDATE message SET ui_unsnoozed = :unsnoozed WHERE id = :id AND ui_unsnoozed <> :unsnoozed")
+    @Query("UPDATE message SET ui_unsnoozed = :unsnoozed WHERE id = :id AND NOT (ui_unsnoozed IS :unsnoozed)")
     int setMessageUnsnoozed(long id, boolean unsnoozed);
 
-    @Query("UPDATE message SET uidl = :uidl WHERE id = :id AND uidl <> :uidl")
+    @Query("UPDATE message SET uidl = :uidl WHERE id = :id AND NOT (uidl IS :uidl)")
     int setMessageUidl(long id, String uidl);
 
-    @Query("UPDATE message SET notifying = 0 WHERE notifying <> 0")
+    @Query("UPDATE message SET notifying = 0 WHERE NOT (notifying IS 0)")
     int clearNotifyingMessages();
 
     @Query("UPDATE message SET headers = NULL" +
@@ -757,7 +761,7 @@ public interface DaoMessage {
             " AND account IN (SELECT id FROM account WHERE pop = " + EntityAccount.TYPE_IMAP + ")")
     int clearMessageHeaders();
 
-    @Query("UPDATE message SET fts = 0 WHERE fts <> 0")
+    @Query("UPDATE message SET fts = 0 WHERE NOT (fts IS 0)")
     int resetFts();
 
     @Query("DELETE FROM message WHERE id = :id")

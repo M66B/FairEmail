@@ -61,10 +61,10 @@ public interface DaoAnswer {
     @Update
     int updateAnswer(EntityAnswer answer);
 
-    @Query("UPDATE answer SET hide = :hide WHERE id = :id AND hide <> :hide")
+    @Query("UPDATE answer SET hide = :hide WHERE id = :id AND NOT (hide IS :hide)")
     int setAnswerHidden(long id, boolean hide);
 
-    @Query("UPDATE answer SET standard = 0 WHERE standard <> 0")
+    @Query("UPDATE answer SET standard = 0 WHERE NOT (standard IS 0)")
     void resetStandard();
 
     @Query("DELETE FROM answer WHERE id = :id")
