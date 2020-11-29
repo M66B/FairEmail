@@ -1082,6 +1082,7 @@ Too large messages and triggering the spam filter of an email server are the mos
 * *501 Syntax error - line too long* is often caused by using a long Autocrypt header
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 ... not permitted to relay* means that the email server does not recognize the username/email address. Please double check the host name and username/email address in the identity settings.
+* *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
 
 **Gmail errors**
 
