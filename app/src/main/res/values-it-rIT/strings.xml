@@ -138,6 +138,8 @@
     <string name="title_setup_office_remark">Microsoft non fornisce questo tipo di autorizzazione per gli account Outlook, Live, Hotmail, ecc.</string>
     <string name="title_setup_office_auth">L\'errore «AUTENTICA fallita» può essere causato dalla disattivazione di IMAP/SMTP da parte dell\'amministratore di sistema</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
+    <string name="title_setup_oauth_update">Autorizza nuovamente l\'account esistente</string>
+    <string name="title_setup_oauth_updated">Autorizzazione dell\'account aggiornata</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
@@ -246,6 +248,7 @@
     <string name="title_advanced_check_reply">Controlla gli indirizzi e-mail di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
