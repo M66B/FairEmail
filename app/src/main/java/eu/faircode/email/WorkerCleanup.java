@@ -305,9 +305,15 @@ public class WorkerCleanup extends Worker {
                     Log.w("Insufficient space for VACUUM" +
                             " size=" + Helper.humanReadableByteCount(size) +
                             "/" + Helper.humanReadableByteCount(available));
-
             }
 
+            if (BuildConfig.DEBUG) {
+                // https://sqlite.org/lang_analyze.html
+                Log.i("Analyze");
+                try (Cursor cursor = db.getOpenHelper().getWritableDatabase().query("PRAGMA analysis_limit=1000; PRAGMA optimize;")) {
+                    cursor.moveToNext();
+                }
+            }
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
