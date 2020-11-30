@@ -39,7 +39,7 @@ public class GmailState {
     private long acquired;
 
     static final String TYPE_GOOGLE = "com.google";
-    private static final long TOKEN_LIFETIME = 3600 * 1000L; // milliseconds
+    private static final long TOKEN_LIFETIME = 45 * 60 * 1000L; // milliseconds
 
     private GmailState(String token, long acquired) {
         this.token = token;
