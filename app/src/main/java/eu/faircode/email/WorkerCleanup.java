@@ -92,9 +92,10 @@ public class WorkerCleanup extends Worker {
         boolean fts = prefs.getBoolean("fts", true);
         boolean cleanup_attachments = prefs.getBoolean("cleanup_attachments", false);
 
+        long start = new Date().getTime();
         DB db = DB.getInstance(context);
         try {
-            Log.i("Start cleanup manual=" + manual);
+            EntityLog.log(context, "Start cleanup manual=" + manual);
 
             if (manual) {
                 // Check message files
@@ -295,11 +296,11 @@ public class WorkerCleanup extends Worker {
             if (BuildConfig.DEBUG) {
                 // https://sqlite.org/lang_analyze.html
                 Log.i("Analyze");
-                long start = new Date().getTime();
+                long analyze = new Date().getTime();
                 try (Cursor cursor = db.getOpenHelper().getWritableDatabase().query("PRAGMA analysis_limit=1000; PRAGMA optimize;")) {
                     cursor.moveToNext();
                 }
-                EntityLog.log(context, "Analyze=" + (new Date().getTime() - start) + " ms");
+                EntityLog.log(context, "Analyze=" + (new Date().getTime() - analyze) + " ms");
             }
 
             if (manual) {
@@ -319,7 +320,7 @@ public class WorkerCleanup extends Worker {
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
-            Log.i("End cleanup");
+            EntityLog.log(context, "End cleanup=" + (new Date().getTime() - start) + " ms");
 
             long now = new Date().getTime();
             prefs.edit()
