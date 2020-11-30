@@ -437,32 +437,33 @@ class Core {
                             ops.remove(s);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        db.operation().setOperationTries(op.id, op.tries);
-
                         EntityLog.log(context, folder.name +
                                 " op=" + op.name +
                                 " try=" + op.tries +
                                 " " + Log.formatThrowable(ex, false));
+
+                        try {
+                            db.beginTransaction();
+
+                            db.operation().setOperationTries(op.id, op.tries);
+
+                            op.error = Log.formatThrowable(ex);
+                            db.operation().setOperationError(op.id, op.error);
+
+                            if (message != null &&
+                                    !(ex instanceof IllegalArgumentException))
+                                db.message().setMessageError(message.id, op.error);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
 
                         if (similar.size() > 0) {
                             // Retry individually
                             group = false;
                             // Finally will reset state
                             continue;
-                        }
-
-                        try {
-                            db.beginTransaction();
-
-                            op.error = Log.formatThrowable(ex, false);
-                            db.operation().setOperationError(op.id, Log.formatThrowable(ex));
-
-                            if (message != null && !(ex instanceof IllegalArgumentException))
-                                db.message().setMessageError(message.id, Log.formatThrowable(ex));
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
                         }
 
                         if (ifolder != null && !ifolder.isOpen())
