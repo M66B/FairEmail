@@ -139,6 +139,8 @@
     <string name="title_setup_office_remark">Microsoft no proporciona este tipo de autorización para cuentas de Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
+    <string name="title_setup_oauth_update">Volver a autorizar cuenta existente</string>
+    <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
@@ -247,6 +249,7 @@
     <string name="title_advanced_check_reply">Comprobar direcciones de correo de respuesta al sincronizar mensajes</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Evitar teclado de pantalla completa</string>
     <string name="title_advanced_suggest_local">Sugerir contactos almacenados localmente</string>
     <string name="title_advanced_suggest_sent">Sugerir direcciones encontradas en mensajes enviados</string>
     <string name="title_advanced_suggest_received">Sugerir direcciones encontradas en mensajes recibidos</string>

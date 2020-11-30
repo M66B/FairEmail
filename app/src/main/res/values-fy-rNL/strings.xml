@@ -138,6 +138,8 @@
     <string name="title_setup_office_remark">Microsoft leveret dit type autorisaasje net foar akkounts foar Outlook, Live, Hotmail, ensfh</string>
     <string name="title_setup_office_auth">De flater \'AUTHENTICATE is mislearre\' kin wurde feroarsake troch IMAP / SMTP te wurden útskeakele troch de systeembehearder</string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s akkount</string>
+    <string name="title_setup_oauth_update">Autorisearje besteand account opnij</string>
+    <string name="title_setup_oauth_updated">Akkountautorisaasje is bywurke</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
     <string name="title_setup_select_account">Selektearje akkount</string>
     <string name="title_setup_instructions">Ynstel ynstruksjes</string>
@@ -246,6 +248,7 @@
     <string name="title_advanced_check_reply">Kontrolearje e-postadressen foar antwurd op berjochten syngronisearje</string>
     <string name="title_advanced_tune_keep_alive">Tune it ynterval foar libbenhâlden automatysk</string>
     <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Foarkom toetseboerd op folslein skerm</string>
     <string name="title_advanced_suggest_local">Lokaal opsleine kontakten foarstelle</string>
     <string name="title_advanced_suggest_sent">Suggestearje adressen fûn yn ferstjoerde berjochten</string>
     <string name="title_advanced_suggest_received">Suggestearje adressen fûn yn ûntfange berjochten</string>
@@ -546,6 +549,7 @@
     <string name="title_account_left">Veeg links</string>
     <string name="title_account_right">Veeg nei rjochts</string>
     <string name="title_account_move">Standert ferpleatse nei</string>
+    <string name="title_account_gmail">Foar betroubere syngronisaasje fan in Gmail akkount moat de wizard foar flugge ynstelling fan Gmail as mooglik wurde brûkt</string>
     <string name="title_domain">Domeinnamme</string>
     <string name="title_autoconfig">Krij ynstellings</string>
     <string name="title_aliases">Aliases</string>
@@ -592,6 +596,9 @@
     <string name="title_no_inbox">Postfak net fûn</string>
     <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_no_junk_folder">D\'r is gjin spam-map selektearre foar dit akkount</string>
+    <string name="title_no_composable">E-post ferstjoeren fereasket in identiteit te konfigurearjen, en in dampprogramma moat wurde selektearre yn \'e akkountynstellingen</string>
+    <string name="title_no_standard">Dizze provider brûkt in proprietêr e-postprotokol en dêrom is it net mooglik e-postkliïnten fan tredden te brûken</string>
+    <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
     <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>
     <string name="title_no_sync">Syngronisaasjefouten sûnt %1$s</string>
     <string name="title_reply_domain">De stjoerder (%1$s) en antwurddomein (%2$s) ferskille</string>
@@ -605,6 +612,7 @@
     <string name="title_last_connected">Lêst ferbûn: %1$s</string>
     <string name="title_backoff_until">Wachtsje nei mislearring oant: %1$s</string>
     <string name="title_storage_quota">Tsjinner opslach gebrûk: %1$s/%2$s</string>
+    <string name="title_pop_support">It POP3-protokol stipet allinich it downloaden en wiskjen fan berjochten út it postfak. POP3 kin gjin berjochten markearje as lêzen, berjochten ferpleatse, ensfh. POP3 sil mear batterijkrêft en gegevens brûke dan IMAP. Dus, beskôgje as it mooglik is it IMAP-protokol te brûken.</string>
     <string name="title_oauth_support">OAuth wurdt net stipe</string>
     <string name="title_review">Resinsje</string>
     <string name="title_hint_alias">Druk lang op in identiteit om opsjes wer te jaan, lykas kopiearje om aliasidentiteiten te meitsjen</string>
@@ -670,6 +678,9 @@
     <string name="title_auto_trash">Alde berjochten automatysk nei jiskefet ferpleatse</string>
     <string name="title_auto_delete">Alde berjochten automatysk permanint wiskje</string>
     <string name="title_auto_delete_hint">Alde berjochten binne berjochten dy\'t net langer op it apparaat wurde bewarre</string>
+    <string name="title_inbox_root_hint">        Guon oanbieders fereaskje dat nije mappen wurde oanmakke ûnder it postfak.
+        Yn dit gefal kinne jo lang yn it postfak drukke yn \'e maplist en selektearje\' Submap oanmeitsje \'.
+    </string>
     <string name="title_folder_name_missing">Mapnamme ûntbrekt</string>
     <string name="title_folder_exists">Map %1$s bestiet</string>
     <string name="title_folder_delete">Dizze map en alle berjochten dy \'t befettet permanint wiskje?</string>
@@ -931,7 +942,12 @@
     <string name="title_signature_store">Bewarje</string>
     <string name="title_search">Sykje</string>
     <string name="title_search_for_hint">Tekst ynfiere</string>
+    <string name="title_search_hint">        Sykje sil earst sjen nei berjochten dy\'t op jo apparaat binne opslein.
+        Om de server ek te sykjen, tikje op \'e knop\' opnij sykje \'.
+    </string>
     <string name="title_search_index_hint">Sykje fia de sykindeks is fluch, mar sil allinich hiele wurden fine</string>
+    <string name="title_search_text_hint">Sykje nei tekst yn berjochten, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
+    <string name="title_search_size_hint">Sykje nei berjochten op grutte, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
     <string name="title_search_more">Mear opsjes</string>
     <string name="title_search_use_index">Brûk sykindex</string>
     <string name="title_search_in_senders">Yn stjoerders (fan)</string>
@@ -1168,8 +1184,17 @@
     <string name="title_legend_r">Antwurdzje</string>
     <string name="title_legend_s">Selektearje/deselektearje</string>
     <string name="title_legend_t">Fokustekst</string>
+    <string name="title_hint_folder_actions">Druk lang op in map foar opsjes, lykas in map tafoegje oan it navigaasjemenu foar flugge tagong</string>
+    <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert wurde syngronisearre</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan asjebleaft it stipemenu om help te krijen</string>
+    <string name="title_hint_message_actions">Swipe lofts nei jiskefet; Swipe rjochts nei argyf (as beskikber); De swipe-aksjes kinne wurde ynsteld yn \'e akkountynstellingen</string>
+    <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
     <string name="title_hint_important">Belangryk</string>
+    <string name="title_hint_sync">Berjochten downloade kin wat tiid duorje, ôfhinklik fan de snelheid fan de oanbieder, ynternetferbining, it apparaat en fan it oantal berjochten. By it downloaden fan berjochten kin de app stadiger reagearje.</string>
+    <string name="title_hint_battery">Sûnt FairEmail standert altyd berjochten krijt, sil Android FairEmail rapportearje as altyd aktyf. Dêrom kin it derút sjen as FairEmail altyd batterijekrêft konsumeart hoewol dit eins net it gefal is.</string>
+    <string name="title_hint_reformat">Standert herformateart FairEmail berjochten om privacy en feiligens redenen. Om it orizjinele berjocht te besjen, tikje jo op it ikoan \'folslein skerm\' boppe de tekst fan it berjocht.</string>
+    <string name="title_hint_design">It ûntwerp is mei opsetsin net steurende, mar heul funksjoneel hâlden. D\'r binne in soad opsjes om it uterlik oan te passen, mar begryp asjebleaft dat it ûnmooglik is om elkenien tagelyk folslein lokkich te meitsjen.</string>
+    <string name="title_hint_junk">Spamfiltering moat wurde dien troch de e-postserver en kin net betrouber wurde dien op in batterij oandreaun apparaat mei beheinde mooglikheden.</string>
     <string name="title_hint_contact_actions">Lange parse foar opsjes</string>
     <string name="title_hint_eml">Dit is in gearfetting fan \'e ynhâld fan in rau berjochtbestân. Bewarje it rauwe berjocht mei it ikoan bewarje yn \'e aksjebalke om alle ynhâld te besjen.</string>
     <string name="title_open_link">Open link</string>
@@ -1232,6 +1257,11 @@
     <string name="title_pro_list">List fan pro-funksjes</string>
     <string name="title_pro_purchase">Keapje</string>
     <string name="title_pro_once">Allinne ien kear</string>
+    <string name="title_pro_info">        It ûntwikkeljen fan FairEmail hat letterlik tûzenen oeren duorre en, nettsjinsteande dat, binne de measte funksjes fergees te brûken.
+        FairEmail nimt jo privacy serieus en lit gjin advertinsjes sjen en brûkt tracking of analytics net om jild te fertsjinjen.
+        Om FairEmail op \'e lange termyn te behâlden en te stypjen, binne wat gemak en avansearre funksjes net fergees te brûken.
+        FairEmail lit in lyts berjocht sjen om jo hjirfan te ûnthâlden, dat sil wurde fuortsmiten as jo de pro-funksjes oanskaffe.
+    </string>
     <string name="title_pro_hide">Ferbergje lyts berjocht foar %1$d wiken</string>
     <string name="title_pro_hint">Mei pro-funksjes keapje kinne jo alle aktuele en takomstige pro-funksjes brûke, sil dizze app ûnderhâlde en stipe wurde.</string>
     <string name="title_pro_price">Wêrom binne de pro-funksjes sa djoer?</string>

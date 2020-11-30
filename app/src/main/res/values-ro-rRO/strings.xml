@@ -148,6 +148,8 @@
     <string name="title_setup_office_remark">Microsoft nu suportă acest tip de autorizare pentru conturile Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
+    <string name="title_setup_oauth_update">Autorizațî din nou contul existent</string>
+    <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
@@ -256,6 +258,7 @@
     <string name="title_advanced_check_reply">Verifică adresa destinatarului la sincronizarea mesajelor</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
     <string name="title_advanced_suggest_local">Sugerează contacte stocate local</string>
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>

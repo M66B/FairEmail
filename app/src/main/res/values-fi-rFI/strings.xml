@@ -137,6 +137,8 @@
     <string name="title_setup_office_remark">Microsoft ei tarjoa tällaista valtuutusta Outlook-, Live-, ja Hotmail-tileille (eikä muille vastaaville)</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
+    <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen</string>
+    <string name="title_setup_oauth_updated">Tilin valtuutus päivitettiin</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
@@ -244,6 +246,7 @@
     <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_tune_keep_alive">Säädä ylläpitokyselyn aikaväli automaattisesti</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Estä koko näytön näppäimistö</string>
     <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
@@ -530,7 +533,7 @@
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
-    <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
+    <string name="title_identity_use_ip_hint">Jos saat virheilmoituksen \'invalid greeting\', \'requires valid address\' tai vastaava, yritä muuttaa tätä asetusta</string>
     <string name="title_optional">Valinnainen</string>
     <string name="title_recommended">Suositeltu</string>
     <string name="title_account_linked">Linkitetty tili</string>
