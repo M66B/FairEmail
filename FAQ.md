@@ -2798,7 +2798,7 @@ because this could result in grouping unrelated messages and would be at the exp
 
 When FairEmail cannot connect to an email server to receive messages,
 for example when the internet connection is bad or a firewall or a VPN is blocking the connection,
-FairEmail will wait 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect.
+FairEmail will wait 4, 8, 16 and 32 seconds while keeping the device awake (=use battery power) and try again to connect.
 If this fails, FairEmail will schedule an alarm to retry after 15, 30 and 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)
@@ -2812,7 +2812,7 @@ to prevent the email server from blocking the connection permanently.
 You can pull down the outbox to retry manually.
 
 Note that sending will not be retried in case of authentication problems and when the server rejected the message.
-In this case you can open/expand the message and use the undo icon to move the message to the drafts folder, possible change it and send it again.
+In this case you can pull down the outbox to try again.
 
 <br />
 
