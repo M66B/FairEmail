@@ -159,6 +159,8 @@
     <string name="title_setup_office_remark">Microsoft neposkytuje tento typ autorizácie pre účty Outlook, Live, Hotmail a ďalších</string>
     <string name="title_setup_office_auth">Chyba \"OVERENIE zlyhalo\" môže byť zapríčinená zakázanými IMAP/SMTP správcom systému</string>
     <string name="title_setup_oauth_rationale">Autorizovať prístup do vášho %1$s účtu</string>
+    <string name="title_setup_oauth_update">Znovu autorizovať existujúci účet</string>
+    <string name="title_setup_oauth_updated">Autorizácia účtu bola aktualizovaná</string>
     <string name="title_setup_oauth_authorize">Autorizovať</string>
     <string name="title_setup_select_account">Vybrať účet</string>
     <string name="title_setup_instructions">Pokyny pre nastavenie</string>
@@ -265,6 +267,7 @@
     <string name="title_advanced_check_reply">Kontrolovať odpovede e-mailových adries pri synchronizácii správ</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Zabrániť zobrazeniu klávesnice na celú obrazovku</string>
     <string name="title_advanced_suggest_local">Navrhovať miestne kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovať adresy nájdené v odoslaných správach</string>
     <string name="title_advanced_suggest_received">Navrhovať adresy nájdené v prijatých správach</string>

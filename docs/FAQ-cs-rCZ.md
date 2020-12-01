@@ -1,6 +1,6 @@
 # FairEmail podpora
 
-Máte-li dotaz, nejprve se prosím podívejte na často kladené dotazy (FAQ). Ve spodní části se dozvíte, jak pokládat další dotazy, žádat o nové funkce a hlásit chyby.
+Máte-li dotaz, podívejte se prosím nejprve na často kladené dotazy. Ve spodní části se dozvíte, jak pokládat další dotazy, žádat o nové funkce a hlásit chyby.
 
 ## Obsah
 
@@ -10,7 +10,7 @@ Máte-li dotaz, nejprve se prosím podívejte na často kladené dotazy (FAQ). V
 * [Plánované funkce](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Často požadované funkce](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Často kladené dotazy](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Získat podporu](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autorizace účtů
 

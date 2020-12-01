@@ -126,7 +126,7 @@
     <string name="title_setup_office_remark">微软不为 Outlook, Live, Hotmail 等账户提供此类型授权</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
-    <string name="title_setup_oauth_update">再次授权现有账户</string>
+    <string name="title_setup_oauth_update">再次授权现有帐户</string>
     <string name="title_setup_oauth_updated">帐户授权已更新</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
