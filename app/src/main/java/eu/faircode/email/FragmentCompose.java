@@ -4386,6 +4386,8 @@ public class FragmentCompose extends FragmentBase {
                     Map<String, String> crumb = new HashMap<>();
                     crumb.put("draft", draft.folder + ":" + draft.id);
                     crumb.put("content", Boolean.toString(draft.content));
+                    crumb.put("revision", Integer.toString(draft.revision == null ? -1 : draft.revision));
+                    crumb.put("revisions", Integer.toString(draft.revisions == null ? -1 : draft.revisions));
                     crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
                     crumb.put("action", getActionName(action));
                     Log.breadcrumb("compose", crumb);
