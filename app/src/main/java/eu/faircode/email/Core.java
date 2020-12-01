@@ -1718,11 +1718,13 @@ class Core {
 
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
+                        boolean synchronize = "Unbekannt".equals(fullName);
+
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = (subscribed && subscriptions && sync_subscribed);
+                        folder.synchronize = (synchronize || (subscribed && subscriptions && sync_subscribed));
                         folder.subscribed = subscribed;
                         folder.poll = true;
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
