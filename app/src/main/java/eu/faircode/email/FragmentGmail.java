@@ -436,6 +436,7 @@ public class FragmentGmail extends FragmentBase {
                             EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                             if (existing == null) {
                                 folder.account = account.id;
+                                folder.setSpecials(account);
                                 folder.id = db.folder().insertFolder(folder);
                                 EntityLog.log(context, "Gmail folder=" + folder.name + " type=" + folder.type);
                                 if (folder.synchronize)

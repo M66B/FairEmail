@@ -1718,19 +1718,18 @@ class Core {
 
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
-                        boolean synchronize = "Unbekannt".equals(fullName);
-
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = (synchronize || (subscribed && subscriptions && sync_subscribed));
+                        folder.synchronize = (subscribed && subscriptions && sync_subscribed);
                         folder.subscribed = subscribed;
                         folder.poll = true;
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         folder.selectable = selectable;
                         folder.inferiors = inferiors;
+                        folder.setSpecials(account);
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type);
                     } else {

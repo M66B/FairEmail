@@ -260,6 +260,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
+    void setSpecials(EntityAccount account) {
+        if ("imap.web.de".equals(account.host) && "Unbekannt".equals(name))
+            synchronize = true;
+    }
+
     static boolean shouldPoll(String type) {
         int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
         return (sync < 0 || EntityFolder.SYSTEM_FOLDER_POLL.get(sync));
