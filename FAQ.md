@@ -3327,6 +3327,9 @@ The following apps are open source cameras and audio recorders:
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
+**Important**: recent versions of *Audio Recorder* [don't return the recorded audio anymore](https://gitlab.com/axet/android-audio-recorder/-/issues/182).
+This worked fine with version 3.3.13, which is still available on F-Droid.
+
 To record voice notes, etc, the audio recorder needs to support
 [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION).
 Oddly, most audio recorders seem not to support this standard Android action.
