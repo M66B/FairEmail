@@ -451,6 +451,7 @@ public class FragmentFolders extends FragmentBase {
         boolean subscriptions = prefs.getBoolean("subscriptions", false);
         boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
 
+        menu.findItem(R.id.menu_unified).setVisible(account < 0 && !primary);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
         menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
@@ -466,6 +467,9 @@ public class FragmentFolders extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_search:
                 onMenuSearch();
+                return true;
+            case R.id.menu_unified:
+                onMenuUnified();
                 return true;
             case R.id.menu_compact:
                 onMenuCompact();
@@ -497,6 +501,15 @@ public class FragmentFolders extends FragmentBase {
         FragmentDialogSearch fragment = new FragmentDialogSearch();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "search");
+    }
+
+    private void onMenuUnified() {
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(new Bundle());
+
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
+        fragmentTransaction.commit();
     }
 
     private void onMenuCompact() {

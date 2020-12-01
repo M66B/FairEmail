@@ -297,6 +297,7 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_search).setVisible(!settings);
+        menu.findItem(R.id.menu_unified).setVisible(!settings);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -306,6 +307,9 @@ public class FragmentAccounts extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_search:
                 onMenuSearch();
+                return true;
+            case R.id.menu_unified:
+                onMenuUnified();
                 return true;
             case R.id.menu_force_sync:
                 onMenuForceSync();
@@ -321,6 +325,15 @@ public class FragmentAccounts extends FragmentBase {
         FragmentDialogSearch fragment = new FragmentDialogSearch();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "search");
+    }
+
+    private void onMenuUnified() {
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(new Bundle());
+
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
+        fragmentTransaction.commit();
     }
 
     private void onMenuForceSync() {

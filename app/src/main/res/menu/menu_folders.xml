@@ -9,6 +9,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_unified"
+        android:icon="@drawable/twotone_all_inbox_24"
+        android:title="@string/title_folders_unified"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_compact"
         android:checkable="true"
         android:title="@string/title_compact"
