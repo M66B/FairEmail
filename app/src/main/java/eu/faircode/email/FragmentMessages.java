@@ -5954,10 +5954,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                         File file = attachment.getFile(context);
+                        Log.i("PGP in=" + file.getAbsolutePath() + " exist=" + file.exists() + "/" + file.length());
                         in = new FileInputStream(file);
 
-                        if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption))
+                        if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
+                            Log.i("PGP out=" + plain.getAbsolutePath());
                             out = new FileOutputStream(plain);
+                        }
 
                     } else if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
                         if (!attachment.available)
@@ -5993,6 +5996,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 String pgpMessage = TextUtils.join("\n\r", disarmored);
 
                                 inline = true;
+                                Log.i("PGP inline");
                                 in = new ByteArrayInputStream(pgpMessage.getBytes());
                                 out = new FileOutputStream(plain);
                             }
