@@ -1025,6 +1025,25 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IllegalArgumentException &&
+                stack.length > 0 &&
+                "android.widget.SmartSelectSprite".equals(stack[0].getClassName()) &&
+                "startAnimation".equals(stack[0].getMethodName()))
+            /*
+                java.lang.IllegalArgumentException: Center point is not inside any of the rectangles!
+                  at android.widget.SmartSelectSprite.startAnimation(SmartSelectSprite.java:392)
+                  at android.widget.SelectionActionModeHelper.startSelectionActionModeWithSmartSelectAnimation(SelectionActionModeHelper.java:319)
+                  at android.widget.SelectionActionModeHelper.lambda$l1f1_V5lw6noQxI_3u11qF753Iw(Unknown Source:0)
+                  at android.widget.-$$Lambda$SelectionActionModeHelper$l1f1_V5lw6noQxI_3u11qF753Iw.accept(Unknown Source:4)
+                  at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:910)
+                  at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:864)
+                  at android.os.AsyncTask.finish(AsyncTask.java:695)
+                  at android.os.AsyncTask.access$600(AsyncTask.java:180)
+                  at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:712)
+                  at android.os.Handler.dispatchMessage(Handler.java:106)
+             */
+            return false;
+
         if (ex instanceof InflateException)
             /*
                 android.view.InflateException: Binary XML file line #7: Binary XML file line #7: Error inflating class <unknown>
