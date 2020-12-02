@@ -2821,7 +2821,13 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 * [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support
 
-NOTIFY support means that notifications of *subscribed* folders will be requested and when a notification is received that the folder will be synchronized.
+IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested
+and if a notification is received for a subscribed folder, that the folder will be synchronized.
+Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+
+**Important**: push messages (=always sync) for the inbox needs to be enabled.
+
+**Important**: most email server do not support this!
 
 <br />
 
