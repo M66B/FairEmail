@@ -919,6 +919,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         try {
             wlAccount.acquire();
 
+            boolean forced = false;
             final DB db = DB.getInstance(this);
 
             long thread = Thread.currentThread().getId();
@@ -1123,7 +1124,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Update folder list
                     if (account.protocol == EntityAccount.TYPE_IMAP)
-                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state, force);
+                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state, force && !forced);
 
                     // Open synchronizing folders
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
@@ -1312,7 +1313,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             idlers.add(idler);
 
                             if (sync && folder.selectable)
-                                EntityOperation.sync(this, folder.id, false);
+                                EntityOperation.sync(this, folder.id, false, force && !forced);
 
                             if (capNotify && EntityFolder.INBOX.equals(folder.type))
                                 ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
@@ -1356,6 +1357,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         }
                     }
+
+                    forced = true;
 
                     Log.i(account.name + " observing operations");
                     getMainHandler().post(new Runnable() {

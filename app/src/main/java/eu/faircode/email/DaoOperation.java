@@ -143,4 +143,7 @@ public interface DaoOperation {
 
     @Query("DELETE FROM operation WHERE id = :id")
     int deleteOperation(long id);
+
+    @Query("DELETE FROM operation WHERE folder = :folder AND name = :name")
+    int deleteOperation(long folder, String name);
 }

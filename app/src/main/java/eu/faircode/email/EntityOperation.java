@@ -387,20 +387,27 @@ public class EntityOperation {
     }
 
     static void sync(Context context, long fid, boolean foreground) {
+        sync(context, fid, foreground, false);
+    }
+
+    static void sync(Context context, long fid, boolean foreground, boolean force) {
         DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(fid);
         if (folder == null)
             return;
 
+        if (force)
+            db.operation().deleteOperation(fid, SYNC);
+
         // TODO: replace sync parameters?
-        if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
+        if (db.operation().getOperationCount(fid, SYNC) == 0) {
             EntityOperation operation = new EntityOperation();
             operation.account = folder.account;
             operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = folder.getSyncArgs().toString();
+            operation.args = folder.getSyncArgs(force).toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 

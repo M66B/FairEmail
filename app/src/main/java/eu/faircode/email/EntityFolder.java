@@ -284,7 +284,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return "notification.folder." + id;
     }
 
-    JSONArray getSyncArgs() {
+    JSONArray getSyncArgs(boolean force) {
         int days = sync_days;
         if (last_sync != null) {
             int ago_days = (int) ((new Date().getTime() - last_sync) / (24 * 3600 * 1000L)) + 1;
@@ -298,6 +298,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         jargs.put(download);
         jargs.put(auto_delete);
         jargs.put(initialize);
+        jargs.put(force);
 
         return jargs;
     }

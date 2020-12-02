@@ -2167,13 +2167,14 @@ class Core {
 
             // Legacy
             if (jargs.length() == 0)
-                jargs = folder.getSyncArgs();
+                jargs = folder.getSyncArgs(false);
 
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
             boolean download = jargs.optBoolean(2, false);
             boolean auto_delete = jargs.optBoolean(3, false);
             int initialize = jargs.optInt(4, folder.initialize);
+            boolean force = jargs.optBoolean(5, false);
 
             if (keep_days == sync_days && keep_days != Integer.MAX_VALUE)
                 keep_days++;
@@ -2186,6 +2187,7 @@ class Core {
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
+                    " force=" + force +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
                     " delete unseen=" + delete_unseen + " kept=" + sync_kept);
 
@@ -2248,7 +2250,7 @@ class Core {
             }
 
             // Get list of local uids
-            final List<Long> uids = db.message().getUids(folder.id, sync_kept ? null : sync_time);
+            final List<Long> uids = db.message().getUids(folder.id, sync_kept || force ? null : sync_time);
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
