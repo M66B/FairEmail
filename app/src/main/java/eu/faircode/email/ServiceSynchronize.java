@@ -77,6 +77,7 @@ import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Quota;
 import javax.mail.ReadOnlyFolderException;
+import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.event.FolderAdapter;
 import javax.mail.event.FolderEvent;
@@ -1037,7 +1038,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountError(account.id, null);
                     db.account().setAccountWarning(account.id, null);
-                    EntityLog.log(this, account.name + " connected");
+
+                    Store istore = iservice.getStore();
+                    if (istore instanceof IMAPStore) {
+                        Map<String, String> caps = ((IMAPStore) istore).getCapabilities();
+                        EntityLog.log(this, account.name + " connected" +
+                                " caps=" + (caps == null ? null : TextUtils.join(" ", caps.keySet())));
+                    } else
+                        EntityLog.log(this, account.name + " connected");
 
                     db.account().setAccountMaxSize(account.id, iservice.getMaxSize());
 

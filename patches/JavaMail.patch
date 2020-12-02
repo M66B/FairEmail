@@ -379,3 +379,27 @@ diff -rupN /home/marcel/JavaMail/mail/src/main/java/com/sun/mail/imap/protocol/I
  	}
      }
  }
+diff --git a/app/src/main/java/com/sun/mail/imap/IMAPStore.java b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+index 087e5a6f5..5fa720f3d 100644
+--- a/app/src/main/java/com/sun/mail/imap/IMAPStore.java
++++ b/app/src/main/java/com/sun/mail/imap/IMAPStore.java
+@@ -1571,6 +1571,19 @@ public class IMAPStore extends Store
+         }
+     }
+ 
++	public synchronized Map<String, String> getCapabilities()
++			throws MessagingException {
++		IMAPProtocol p = null;
++		try {
++			p = getStoreProtocol();
++			return p.getCapabilities();
++		} catch (ProtocolException pex) {
++			throw new MessagingException(pex.getMessage(), pex);
++		} finally {
++			releaseStoreProtocol(p);
++		}
++	}
++
+     /**
+      * Set the user name to be used with the PROXYAUTH command.
+      * The PROXYAUTH user name can also be set using the

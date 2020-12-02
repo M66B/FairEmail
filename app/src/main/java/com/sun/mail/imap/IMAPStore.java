@@ -1571,6 +1571,19 @@ public class IMAPStore extends Store
         }
     }
 
+	public synchronized Map<String, String> getCapabilities()
+			throws MessagingException {
+		IMAPProtocol p = null;
+		try {
+			p = getStoreProtocol();
+			return p.getCapabilities();
+		} catch (ProtocolException pex) {
+			throw new MessagingException(pex.getMessage(), pex);
+		} finally {
+			releaseStoreProtocol(p);
+		}
+	}
+
     /**
      * Set the user name to be used with the PROXYAUTH command.
      * The PROXYAUTH user name can also be set using the
