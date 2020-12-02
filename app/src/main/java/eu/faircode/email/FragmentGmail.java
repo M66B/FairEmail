@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -73,6 +74,8 @@ public class FragmentGmail extends FragmentBase {
     private Button btnSelect;
     private ContentLoadingProgressBar pbSelect;
 
+    private TextView tvAppPassword;
+
     private TextView tvError;
     private Button btnSupport;
 
@@ -94,6 +97,8 @@ public class FragmentGmail extends FragmentBase {
         cbUpdate = view.findViewById(R.id.cbUpdate);
         btnSelect = view.findViewById(R.id.btnSelect);
         pbSelect = view.findViewById(R.id.pbSelect);
+
+        tvAppPassword = view.findViewById(R.id.tvAppPassword);
 
         tvError = view.findViewById(R.id.tvError);
         btnSupport = view.findViewById(R.id.btnSupport);
@@ -140,6 +145,14 @@ public class FragmentGmail extends FragmentBase {
                         tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+        tvAppPassword.setPaintFlags(tvAppPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvAppPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 6);
             }
         });
 
