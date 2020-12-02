@@ -646,7 +646,9 @@
     <string name="title_empty_all">Θα διαγράψει όλα τα μηνύματα και από τη συσκευή και από τον εξυπηρετητή</string>
     <string name="title_delete_operation_title">Διαγραφή δραστηριοτήτων</string>
     <string name="title_delete_operation_error">Με ένα μήνυμα σφάλματος</string>
+    <string name="title_delete_operation_fetch">Φέρε λειτουργίες</string>
     <string name="title_delete_operation_move">Δραστηριότητες μετακίνησης</string>
+    <string name="title_delete_operation_flag">Επισήμανση λειτουργιών</string>
     <string name="title_delete_operation_delete">Δραστηριότητες διαγραφής</string>
     <string name="title_delete_operation_deleted">%1$d δραστηριότητες διεγράφησαν</string>
     <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
@@ -670,6 +672,8 @@
     <string name="title_keep_days">Διατήρηση μηνυμάτων (ημέρες)</string>
     <string name="title_keep_days_remark">Τα παλιά μηνύματα θα διαγράφονται από τη συσκευή, αλλά θα παραμένουν στο διακομιστή</string>
     <string name="title_keep_all">Διατήρηση όλων των μηνυμάτων</string>
+    <string name="title_poll_system">Καθόρισε φακέλους συστήματος να ελέγχουν περιοδικά για νέα μηνύματα</string>
+    <string name="title_poll_user">Καθόρισε φακέλους συστήματος να ελέγχουν περιοδικά για νέα μηνύματα</string>
     <string name="title_auto_trash">Αυτόματη μεταφορά παλαιών μηνυμάτων στα απορρίμματα</string>
     <string name="title_auto_delete">Αυτόματη οριστική διαγραφή παλαιών μηνυμάτων</string>
     <string name="title_auto_delete_hint">Παλαιά μηνύματα είναι τα μηνύματα που δεν διατηρούνται πλέον στη συσκευή</string>
@@ -722,6 +726,7 @@
     <string name="title_event">Προσθήκη στο ημερολόγιο</string>
     <string name="title_pin">Προσθήκη συντόμευσης</string>
     <string name="title_print">Εκτύπωση</string>
+    <string name="title_print_header">Εκτύπωσε κεφαλίδα</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
     <string name="title_raw_send">Αποστολή ως συνημμένο</string>
@@ -767,6 +772,7 @@
     <string name="title_no_viewer">Καμία εφαρμογή διαθέσιμη για προβολή του %1$s</string>
     <string name="title_no_recorder">Δεν βρέθηκε καμία κατάλληλη εφαρμογή ηχογράφησης</string>
     <string name="title_no_camera">Καμία κατάλληλη εφαρμογή κάμερας δεν είναι διαθέσιμη</string>
+    <string name="title_no_saf">Πλαίσιο πρόσβασης αποθήκευσης δεν είναι διαθέσιμο</string>
     <string name="title_no_stream">Μία παρωχημένη εφαρμογή έστειλε διαδρομή αρχείου αντί για ροή αρχείου</string>
     <string name="title_no_internet">Καθόλου σύνδεση ή καμία κατάλληλη σύνδεση διαδικτύου</string>
     <string name="title_no_connection">Σύνδεση σε έναν ή περισσότερους λογαριασμούς &#8230;</string>
@@ -1055,6 +1061,7 @@
     <string name="title_rule_identity_missing">Λείπει ταυτότητα</string>
     <string name="title_rule_answer_missing">Λείπει πρότυπο</string>
     <string name="title_rule_keyword_missing">Λείπει λέξη-κλειδί</string>
+    <string name="title_rule_automation_hint">Αυτό θα στείλει την πρόθεση %1$s μαζί με τα έξτρα %2$s</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>
     <string name="title_rule_applied">Μηνύματα που αφορά: %1$d</string>
     <string name="title_rule_check">Έλεγχος</string>
@@ -1148,6 +1155,7 @@
     <string name="title_legend_metered">Η σύνδεση είναι με ογκοχρέωση</string>
     <string name="title_legend_unmetered">Η σύνδεση είναι χωρίς ογκοχρέωση</string>
     <string name="title_legend_roaming">Περιαγωγή</string>
+    <string name="title_legend_expander">Επέκταση</string>
     <string name="title_legend_avatar">Άβαταρ</string>
     <string name="title_legend_show_quotes">Προβολή παραθεμάτων</string>
     <string name="title_legend_show_junk">Αντιμετώπιση ως ανεπιθύμητο</string>

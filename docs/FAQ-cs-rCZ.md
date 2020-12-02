@@ -76,7 +76,7 @@ Související dotazy:
 * ~~Šifrování s YubiKey vyústí v nekonečnou smyčku. Toto je zdá se způsobeno [chybou v OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Posun na interně odkazovanou pozici v původních zprávách nefunguje. Toto nelze opravit, protože zobrazení původní zprávy je uvnitř posuvného náhledu.
 * Náhled textu zprávy se na Samsung hodinkách někdy (nikdy) nezobrazí, protože [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) se zdá být ignorován. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. Viz také [tento nejčastější dotaz](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
+* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Tato chyba byla opravena v Androidu 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 
