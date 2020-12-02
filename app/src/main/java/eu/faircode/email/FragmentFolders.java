@@ -451,7 +451,7 @@ public class FragmentFolders extends FragmentBase {
         boolean subscriptions = prefs.getBoolean("subscriptions", false);
         boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
 
-        menu.findItem(R.id.menu_unified).setVisible(account < 0 && !primary);
+        menu.findItem(R.id.menu_unified).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
         menu.findItem(R.id.menu_show_flagged).setChecked(show_flagged);
