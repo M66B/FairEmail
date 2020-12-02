@@ -335,14 +335,22 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     };
 
     private void showConnectionType() {
-        final ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
+        final Context context = getContext();
+        if (context == null) {
+            tvNetworkMetered.setVisibility(View.GONE);
+            tvNetworkRoaming.setVisibility(View.GONE);
+            tvNetworkInfo.setVisibility(View.GONE);
+            return;
+        }
+
+        final ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(context);
 
         final StringBuilder sb = new StringBuilder();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
         if ((debug || BuildConfig.DEBUG) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             try {
-                ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 Network active = (cm == null ? null : cm.getActiveNetwork());
                 if (active != null) {
                     NetworkInfo ni = cm.getNetworkInfo(active);
