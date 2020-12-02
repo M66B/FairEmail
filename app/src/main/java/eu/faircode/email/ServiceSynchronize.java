@@ -49,8 +49,13 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.iap.Argument;
+import com.sun.mail.iap.ProtocolException;
+import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.IMAPResponse;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -139,7 +144,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "sync_shared_folders",
             "prefer_ip4", "tcp_keep_alive", "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
-            "protocol", "debug", // force reconnect
+            "experiments", "debug", "protocol", // force reconnect
             "auth_plain",
             "auth_login",
             "auth_sasl"
@@ -944,6 +949,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                boolean experiments = prefs.getBoolean("experiments", false);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
                 final EmailService iservice = new EmailService(
@@ -1035,6 +1041,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
                         optimizeAccount(account, "IDLE");
 
+                    final boolean capNotify = (experiments && iservice.hasCapability("NOTIFY"));
+
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountError(account.id, null);
                     db.account().setAccountWarning(account.id, null);
@@ -1092,6 +1100,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 Log.i("Folder deleted=" + name);
                                 if (db.folder().getFolderByName(account.id, name) != null)
                                     reload(ServiceSynchronize.this, account.id, false, "folder deleted");
+                            } finally {
+                                wlFolder.release();
+                            }
+                        }
+
+                        @Override
+                        public void folderChanged(FolderEvent e) {
+                            try {
+                                wlFolder.acquire();
+
+                                String name = e.getFolder().getFullName();
+                                EntityLog.log(ServiceSynchronize.this, "Folder changed=" + name);
+                                EntityFolder folder = db.folder().getFolderByName(account.id, name);
+                                if (folder != null)
+                                    EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                             } finally {
                                 wlFolder.release();
                             }
@@ -1290,6 +1313,40 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if (sync && folder.selectable)
                                 EntityOperation.sync(this, folder.id, false);
+
+                            if (capNotify && EntityFolder.INBOX.equals(folder.type))
+                                ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                                    @Override
+                                    public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                        EntityLog.log(ServiceSynchronize.this, account.name + " NOTIFY enable");
+
+                                        // https://tools.ietf.org/html/rfc5465
+                                        Argument arg = new Argument();
+                                        arg.writeAtom("SET STATUS (subscribed (MessageNew MessageExpunge FlagChange))");
+
+                                        Response[] responses = protocol.command("NOTIFY", arg);
+
+                                        if (responses.length == 0)
+                                            throw new ProtocolException("No response");
+                                        if (!responses[responses.length - 1].isOK())
+                                            throw new ProtocolException(responses[responses.length - 1]);
+
+                                        for (int i = 0; i < responses.length - 1; i++) {
+                                            EntityLog.log(ServiceSynchronize.this, account.name + " " + responses[i]);
+                                            if (responses[i] instanceof IMAPResponse) {
+                                                IMAPResponse ir = (IMAPResponse) responses[i];
+                                                if (ir.keyEquals("STATUS")) {
+                                                    String mailbox = ir.readAtomString();
+                                                    EntityFolder f = db.folder().getFolderByName(account.id, mailbox);
+                                                    if (f != null)
+                                                        EntityOperation.sync(ServiceSynchronize.this, f.id, false);
+                                                }
+                                            }
+                                        }
+
+                                        return null;
+                                    }
+                                });
                         } else {
                             mapFolders.put(folder, null);
                             db.folder().setFolderState(folder.id, null);

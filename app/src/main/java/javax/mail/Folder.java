@@ -1469,6 +1469,10 @@ public abstract class Folder implements AutoCloseable {
 	store.notifyFolderRenamedListeners(this, folder);
     }
 
+    protected void notifyFolderChangeListeners(Folder folder) {
+        store.notifyFolderListeners(FolderEvent.CHANGED, folder);
+    }
+
     // Vector of MessageCount listeners
     private volatile Vector<MessageCountListener> messageCountListeners = null;
 

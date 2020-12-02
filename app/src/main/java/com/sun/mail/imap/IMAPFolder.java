@@ -3627,7 +3627,14 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	} else if (ir.keyEquals("RECENT")) {
 	    // update 'recent'
 	    recent = ir.getNumber();
-	}
+	} else if (ir.keyEquals("STATUS"))
+		try {
+			String mailbox = ir.readAtomString();
+			Folder f = store.getFolder(mailbox);
+			notifyFolderChangeListeners(f);
+		} catch (Throwable ex) {
+			eu.faircode.email.Log.e(ex);
+		}
     }
 
     /**

@@ -46,6 +46,8 @@ public class FolderEvent extends MailEvent {
     /** The folder was renamed. */
     public static final int RENAMED 		= 3;
 
+    public static final int CHANGED 		= 4;
+
     /**
      * The event type.
      *
@@ -140,5 +142,7 @@ public class FolderEvent extends MailEvent {
 	    ((FolderListener)listener).folderDeleted(this);
 	else if (type == RENAMED)
 	    ((FolderListener)listener).folderRenamed(this);
+    else if (type == CHANGED)
+        ((FolderListener)listener).folderChanged(this);
     }
 }

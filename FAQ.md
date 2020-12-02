@@ -2819,7 +2819,9 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-* ...
+* [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support
+
+NOTIFY support means that notifications of *subscribed* folders will be requested and when a notification is received that the folder will be synchronized.
 
 <br />
 

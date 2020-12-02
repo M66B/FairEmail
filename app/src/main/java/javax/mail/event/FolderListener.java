@@ -45,4 +45,6 @@ public interface FolderListener extends java.util.EventListener {
      * @param	e	the FolderEvent
      */
     public void folderRenamed(FolderEvent e);
+
+    public void folderChanged(FolderEvent e);
 }
