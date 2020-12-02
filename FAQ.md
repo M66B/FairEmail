@@ -1132,6 +1132,9 @@ First try to wait some time to see if the problem resolves itself, else:
 * either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
 * or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
+An easy way to configure periodically checking for messages for all folders except the inbox
+is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+
 The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
 For this reason Gmail *user* folders are set to poll by default instead of synchronize always.
