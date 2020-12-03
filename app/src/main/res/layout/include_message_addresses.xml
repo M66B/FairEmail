@@ -42,7 +42,6 @@
         android:layout_marginStart="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_receipt"
-        android:tint="?attr/colorWarning"
         android:tooltipText="@string/title_legend_receipt"
         app:layout_constraintStart_toEndOf="@id/ivPlain"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
