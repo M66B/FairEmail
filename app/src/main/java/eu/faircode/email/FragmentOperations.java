@@ -236,7 +236,7 @@ public class FragmentOperations extends FragmentBase {
                                     if (sublist != null)
                                         list.addAll(sublist);
                                 }
-                            }.execute(getContext(), getActivity(), new Bundle(), "operations:delete");
+                            }.execute(getContext(), getActivity(), args, "operations:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
