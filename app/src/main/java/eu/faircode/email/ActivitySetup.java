@@ -965,6 +965,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                             continue;
 
+                        if ("language".equals(key))
+                            continue; // language might not be supported
+
                         if (key != null && key.startsWith("widget."))
                             continue;
 
