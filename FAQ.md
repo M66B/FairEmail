@@ -2827,7 +2827,9 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 
 **Important**: push messages (=always sync) for the inbox needs to be enabled.
 
-**Important**: most email server do not support this!
+**Important**: most email server do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+You can enable experimental features in the miscellaneous settings.
 
 <br />
 
