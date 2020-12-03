@@ -103,7 +103,7 @@
             android:id="@+id/btnQuick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="?attr/colorInfoBackground"
             android:text="@string/title_setup_wizard"
             android:textColor="?attr/colorInfoForeground"
