@@ -947,10 +947,11 @@ class Core {
                 newuid = findUid(ifolder, message.msgid, true);
             if (newuid != null && (message.uid == null || newuid > message.uid))
                 try {
+                    Log.i(folder.name + " Fetching uid=" + newuid);
                     JSONArray fargs = new JSONArray();
                     fargs.put(newuid);
                     onFetch(context, fargs, folder, istore, ifolder, state);
-                } catch (JSONException ex) {
+                } catch (Throwable ex) {
                     Log.e(ex);
                 }
         } else {
@@ -1098,12 +1099,15 @@ class Core {
                                         icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
                                 }
 
-                                if (fetch) {
-                                    Log.w(target.name + " Fetching uid=" + uid);
-                                    JSONArray fargs = new JSONArray();
-                                    fargs.put(uid);
-                                    onFetch(context, fargs, target, istore, itarget, state);
-                                }
+                                if (fetch)
+                                    try {
+                                        Log.i(target.name + " Fetching uid=" + uid);
+                                        JSONArray fargs = new JSONArray();
+                                        fargs.put(uid);
+                                        onFetch(context, fargs, target, istore, itarget, state);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
