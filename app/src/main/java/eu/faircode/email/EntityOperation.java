@@ -482,7 +482,10 @@ public class EntityOperation {
             if (f == null)
                 return;
 
-            queue(context, f, FETCH, m.uid);
+            if (EntityOperation.FETCH.equals(name))
+                EntityOperation.sync(context, f.id, false);
+            else
+                queue(context, f, FETCH, m.uid);
         }
     }
 

@@ -451,6 +451,7 @@ class Core {
                             db.operation().setOperationError(op.id, op.error);
 
                             if (message != null &&
+                                    !EntityOperation.FETCH.equals(op.name) &&
                                     !(ex instanceof IllegalArgumentException))
                                 db.message().setMessageError(message.id, op.error);
 
