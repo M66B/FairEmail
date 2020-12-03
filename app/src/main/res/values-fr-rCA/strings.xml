@@ -135,6 +135,7 @@
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation de lire, rédiger, envoyer et supprimer définitivement tous vos courriels. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
     <string name="title_setup_gmail_drafts">Si le dossier brouillons n’est pas accessible par IMAP, ceci peut être corrigé dans les paramètres de libellé Gmail</string>
+    <string name="title_setup_gmail_password" comment="title_setup_gmail_password&#10;Points to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq6">Je veux autoriser un compte avec un mot de passe</string>
     <string name="title_setup_office_remark">Microsoft ne fournit pas ce type d\'autorisation pour les comptes Outlook, Live, Hotmail, etc.</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur</string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
