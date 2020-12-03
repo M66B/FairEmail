@@ -489,6 +489,8 @@ class Core {
                             // Drafts: javax.mail.FolderClosedException: * BYE Jakarta Mail Exception:
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
+                            // Seen: NO mailbox selected READ-ONLY
+                            // Fetch: BAD Error in IMAP command FETCH: Invalid messageset
                             // Fetch: NO all of the requested messages have been expunged
                             // Move: NO No matching messages
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
