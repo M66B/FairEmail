@@ -1323,7 +1323,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                         // https://tools.ietf.org/html/rfc5465
                                         Argument arg = new Argument();
-                                        arg.writeAtom("SET STATUS (subscribed (MessageNew MessageExpunge FlagChange))");
+                                        arg.writeAtom("SET STATUS" +
+                                                " (selected (MessageNew (uid) MessageExpunge FlagChange))" +
+                                                " (subscribed (MessageNew MessageExpunge FlagChange))");
 
                                         Response[] responses = protocol.command("NOTIFY", arg);
 
