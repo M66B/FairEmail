@@ -4452,7 +4452,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void updateMore() {
         if (selectionTracker != null && selectionTracker.hasSelection()) {
             fabMore.show();
-            tvSelectedCount.setText(NF.format(selectionTracker.getSelection().size()));
+
+            Context context = tvSelectedCount.getContext();
+            int count = selectionTracker.getSelection().size();
+            tvSelectedCount.setText(NF.format(count));
+            if (count > (BuildConfig.DEBUG ? 10 : MAX_MORE)) {
+                int ts = Math.round(tvSelectedCount.getTextSize());
+                Drawable w = context.getResources().getDrawable(R.drawable.twotone_warning_24, context.getTheme());
+                w.setBounds(0, 0, ts, ts);
+                w.setTint(tvSelectedCount.getCurrentTextColor());
+                tvSelectedCount.setCompoundDrawablesRelative(null, null, w, null);
+                tvSelectedCount.setCompoundDrawablePadding(ts / 2);
+            } else
+                tvSelectedCount.setCompoundDrawablesRelative(null, null, null, null);
             tvSelectedCount.setVisibility(View.VISIBLE);
         } else {
             fabMore.hide();
