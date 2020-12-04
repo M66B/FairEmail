@@ -89,10 +89,11 @@
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_bookmark_24" />
 
-            <ImageView
-                android:id="@+id/ivRule"
+            <ImageButton
+                android:id="@+id/ibRule"
                 android:layout_width="30dp"
                 android:layout_height="24dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_edit_rules"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
@@ -107,7 +108,7 @@
                 android:contentDescription="@string/title_legend_notify"
                 android:paddingEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintStart_toEndOf="@id/ivRule"
+                app:layout_constraintStart_toEndOf="@id/ibRule"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_notifications_24" />
 
