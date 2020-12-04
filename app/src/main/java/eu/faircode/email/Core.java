@@ -1902,7 +1902,7 @@ class Core {
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        Log.i(folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
+        EntityLog.log(context, folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
 
         if (!EntityFolder.INBOX.equals(folder.type)) {
             db.folder().setFolderSyncState(folder.id, null);
@@ -1915,10 +1915,10 @@ class Core {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
             Map<String, String> caps = istore.capabilities();
-            Log.i(folder.name + " POP capabilities= " + caps.keySet());
+            EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
 
             Message[] imessages = ifolder.getMessages();
-            Log.i(folder.name + " POP messages=" + imessages.length);
+            EntityLog.log(context, folder.name + " POP messages=" + imessages.length);
 
             if (account.max_messages != null && imessages.length > account.max_messages)
                 imessages = Arrays.copyOfRange(imessages,
@@ -1934,7 +1934,7 @@ class Core {
             }
 
             List<TupleUidl> ids = db.message().getUidls(folder.id);
-            Log.i(folder.name + " POP existing=" + ids.size() + " uidl=" + hasUidl);
+            EntityLog.log(context, folder.name + " POP existing=" + ids.size() + " uidl=" + hasUidl);
 
             // Index UIDLs
             Map<String, String> uidlMsgId = new HashMap<>();
@@ -1958,7 +1958,7 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values()) {
-                        Log.i(folder.name + " POP purging uidl=" + uidl.uidl);
+                        EntityLog.log(context, folder.name + " POP purging uidl=" + uidl.uidl);
                         db.message().deleteMessage(uidl.id);
                     }
                 } else {
@@ -1975,7 +1975,7 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values()) {
-                        Log.i(folder.name + " POP purging msgid=" + uidl.msgid);
+                        EntityLog.log(context, folder.name + " POP purging msgid=" + uidl.msgid);
                         db.message().deleteMessage(uidl.id);
                     }
                 }
@@ -1993,7 +1993,7 @@ class Core {
                     if (hasUidl) {
                         uidl = ifolder.getUID(imessage);
                         if (TextUtils.isEmpty(uidl)) {
-                            Log.w(folder.name + " POP no uidl");
+                            EntityLog.log(context,folder.name + " POP no uidl");
                             continue;
                         }
 
@@ -2025,12 +2025,12 @@ class Core {
                     }
 
                     if (TextUtils.isEmpty(msgid)) {
-                        Log.w(folder.name + " POP no msgid");
+                        EntityLog.log(context,folder.name + " POP no msgid");
                         continue;
                     }
 
                     try {
-                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
+                        EntityLog.log(context, folder.name + " POP sync=" + uidl + "/" + msgid);
 
                         Long sent = helper.getSent();
                         Long received = helper.getReceivedHeader();
@@ -2158,7 +2158,7 @@ class Core {
                 }
 
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
-            Log.i(folder.name + " POP done");
+            EntityLog.log(context, folder.name + " POP done");
         } finally {
             db.folder().setFolderSyncState(folder.id, null);
         }
