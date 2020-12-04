@@ -2165,32 +2165,36 @@ public class MessageHelper {
                     db.attachment().setDownloaded(attachment.id, (long) body.length());
                 }
 
-                for (org.apache.poi.hmef.Attachment at : msg.getAttachments()) {
-                    String filename = at.getLongFilename();
-                    if (filename == null)
-                        filename = at.getFilename();
-                    if (filename == null) {
-                        String ext = at.getExtension();
-                        if (ext != null)
-                            filename = "document." + ext;
+                for (org.apache.poi.hmef.Attachment at : msg.getAttachments())
+                    try {
+                        String filename = at.getLongFilename();
+                        if (filename == null)
+                            filename = at.getFilename();
+                        if (filename == null) {
+                            String ext = at.getExtension();
+                            if (ext != null)
+                                filename = "document." + ext;
+                        }
+
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = local.message;
+                        attachment.sequence = local.sequence;
+                        attachment.subsequence = ++subsequence;
+                        attachment.name = filename;
+                        attachment.type = Helper.guessMimeType(attachment.name);
+                        attachment.disposition = Part.ATTACHMENT;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                        byte[] data = at.getContents();
+                        try (OutputStream os = new FileOutputStream(attachment.getFile(context))) {
+                            os.write(data);
+                        }
+
+                        db.attachment().setDownloaded(attachment.id, (long) data.length);
+                    } catch (Throwable ex) {
+                        // java.lang.IllegalArgumentException: Attachment corrupt - no Data section
+                        Log.e(ex);
                     }
-
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = local.message;
-                    attachment.sequence = local.sequence;
-                    attachment.subsequence = ++subsequence;
-                    attachment.name = filename;
-                    attachment.type = Helper.guessMimeType(attachment.name);
-                    attachment.disposition = Part.ATTACHMENT;
-                    attachment.id = db.attachment().insertAttachment(attachment);
-
-                    byte[] data = at.getContents();
-                    try (OutputStream os = new FileOutputStream(attachment.getFile(context))) {
-                        os.write(data);
-                    }
-
-                    db.attachment().setDownloaded(attachment.id, (long) data.length);
-                }
 
                 StringBuilder sb = new StringBuilder();
                 for (org.apache.poi.hmef.attribute.TNEFAttribute attr : msg.getMessageAttributes())
