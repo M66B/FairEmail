@@ -117,7 +117,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private ImageView ivUnified;
         private ImageView ivSubscribed;
-        private ImageButton ibRule;
+        private ImageView ivRule;
         private ImageView ivNotify;
         private TextView tvName;
         private TextView tvMessages;
@@ -155,7 +155,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             ivUnified = itemView.findViewById(R.id.ivUnified);
             ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
-            ibRule = itemView.findViewById(R.id.ibRule);
+            ivRule = itemView.findViewById(R.id.ivRule);
             ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
@@ -181,8 +181,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void wire() {
             view.setOnClickListener(this);
             ibExpander.setOnClickListener(this);
-            if (ibRule != null)
-                ibRule.setOnClickListener(this);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(this);
             if (ibFlagged != null)
@@ -196,8 +194,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void unwire() {
             view.setOnClickListener(null);
             ibExpander.setOnClickListener(null);
-            if (ibRule != null)
-                ibRule.setOnClickListener(null);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(null);
             if (ibFlagged != null)
@@ -274,7 +270,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (listener == null && folder.selectable) {
                 ivUnified.setVisibility((account > 0 || primary) && folder.unified ? View.VISIBLE : View.GONE);
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
-                ibRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
+                ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             }
 
@@ -393,9 +389,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     case R.id.ibExpander:
                         onCollapse(folder);
                         break;
-                    case R.id.ibRule:
-                        onActionEditRules(folder);
-                        break;
                     case R.id.tvFlagged:
                     case R.id.ibFlagged:
                         onFlagged(folder);
@@ -450,16 +443,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "folder:collapse");
-        }
-
-        private void onActionEditRules(TupleFolderEx folder) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_EDIT_RULES)
-                            .putExtra("account", folder.account)
-                            .putExtra("protocol", folder.accountProtocol)
-                            .putExtra("folder", folder.id)
-                            .putExtra("type", folder.type));
         }
 
         private void onFlagged(TupleFolderEx folder) {
@@ -643,7 +626,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             return true;
 
                         case R.string.title_edit_rules:
-                            onActionEditRules(folder);
+                            onActionEditRules();
                             return true;
 
                         case R.string.title_edit_properties:
@@ -837,6 +820,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ask.setArguments(aargs);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EMPTY_FOLDER);
                     ask.show(parentFragment.getParentFragmentManager(), "folder:empty");
+                }
+
+                private void onActionEditRules() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_RULES)
+                                    .putExtra("account", folder.account)
+                                    .putExtra("protocol", folder.accountProtocol)
+                                    .putExtra("folder", folder.id)
+                                    .putExtra("type", folder.type));
                 }
 
                 private void onActionEditProperties() {
