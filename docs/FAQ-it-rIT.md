@@ -10,7 +10,7 @@ Se hai una domanda, controlla prima le domande frequenti qui sotto. In fondo puo
 * [Funzionalità pianificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Funzionalità richieste di frequente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Domande frequenti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Ricevi supporto](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autorizzare account
 
@@ -78,7 +78,7 @@ Domande correlate:
 * Un'anteprima di un testo di un messaggio non (sempre) appare negli orologi Samsung perché [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sembra venga ignorato. I testi di anteprima del messaggio sono noti per essere visualizzati correttamente sugli indossabili Pebble 2, Fitbit Charge 3, Mi band 3 e Xiaomi Amazfit BIP. Vedi anche [queste domande frequenti](#user-content-faq126).
 * Un [errore in Android](https://issuetracker.google.com/issues/37068143) a volte provoca un crash con *... Spostamento non valido: ... L'intervallo valido è ... quando il testo è selezionato e tocca all'esterno del testo selezionato. Questo bug è stato risolto in Android 6.0.1.</li>
 * I collegamenti interni (ancoraggi) non funzioneranno perché i messaggi originali sono mostrati in una WebView incorporata in una vista a scorrimento (l'elenco delle conversazioni). Questa è una limitazione di Android che non può essere fissata o lavorata.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11</ul>
+* Il rilevamento della lingua [non funziona più](https://issuetracker.google.com/issues/173337263) su dispositivi Pixel con (aggiornato a?) Android 11</ul>
 
 ## Funzionalità pianificate
 
@@ -176,7 +176,7 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [~~(54) Come uso un prefisso dello spazio del nome?~~](#user-content-faq54)
 * [(55) Come posso contrassegnare tutti i messaggi come letti / spostati o eliminare tutti i messaggi?](#user-content-faq55)
 * [(56) Puoi aggiungere il supporto per JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [(57) Posso usare HTML nelle firme?](#user-content-faq57)
 * [(58) Cosa significa un'icona dell'email aperta/chiusa?](#user-content-faq58)
 * [(59) I messaggi originali possono essere aperti nel browser?](#user-content-faq59)
 * [(60) Lo sapevi ...?](#user-content-faq60)
@@ -226,7 +226,7 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(105) Come funziona l'opzione roam-like-at-home?](#user-content-faq105)
 * [(106) Quali launcher possono mostrare un distintivo di conteggio con il numero di messaggi non letti?](#user-content-faq106)
 * [(107) Come uso le stelle colorate?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~(108) Puoi aggiungere permanentemente l'eliminazione dei messaggi da ogni cartella?~~](#user-content-faq108)
 * [~~(109) Perché 'seleziona profilo' è disponibile solo nelle versioni ufficiali?~~](#user-content-faq109)
 * [(110) Perché (alcuni) messaggi vuoti e/o allegati sono corrotti?](#user-content-faq110)
 * [(111) OAuth è supportato?](#user-content-faq111)
@@ -389,7 +389,7 @@ Le operazioni sono elaborate solo quando esiste una connessione al server email 
 
 Dovresti provare a risolvere ciò contattando il tuo fornitore o ottenendo un certificato di sicurezza valido perché i certificati di sicurezza non validi non sono sicuri e consente gli [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere dei certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+In alternativa, puoi accettare la fingerprint dei certificati server non validi in questo modo:
 
 1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
 1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
