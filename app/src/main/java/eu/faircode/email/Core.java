@@ -2699,6 +2699,10 @@ class Core {
 
                         message = dup;
                         process = true;
+                    } else {
+                        if (dup.uid < uid &&
+                                EntityFolder.DRAFTS.equals(folder.type))
+                            EntityOperation.queue(context, dup, EntityOperation.DELETE);
                     }
                 }
 
