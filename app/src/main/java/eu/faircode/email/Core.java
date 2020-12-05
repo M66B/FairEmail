@@ -1998,7 +1998,7 @@ class Core {
                     if (hasUidl) {
                         uidl = ifolder.getUID(imessage);
                         if (TextUtils.isEmpty(uidl)) {
-                            EntityLog.log(context,folder.name + " POP no uidl");
+                            EntityLog.log(context, folder.name + " POP no uidl");
                             continue;
                         }
 
@@ -2030,7 +2030,7 @@ class Core {
                     }
 
                     if (TextUtils.isEmpty(msgid)) {
-                        EntityLog.log(context,folder.name + " POP no msgid");
+                        EntityLog.log(context, folder.name + " POP no msgid");
                         continue;
                     }
 
