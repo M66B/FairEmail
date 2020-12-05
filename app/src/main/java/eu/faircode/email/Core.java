@@ -490,10 +490,15 @@ class Core {
                             // Drafts: javax.mail.FolderClosedException: * BYE Jakarta Mail Exception:
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
+                            // Sync: BAD Could not parse command
                             // Seen: NO mailbox selected READ-ONLY
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset
                             // Fetch: NO all of the requested messages have been expunged
+                            // fetch: BAD parse error: invalid message sequence number: 
+                            // fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Move: NO No matching messages
+                            // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
+                            // Move: BAD parse error: invalid message sequence number:
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
