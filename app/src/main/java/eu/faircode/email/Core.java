@@ -928,28 +928,19 @@ class Core {
         } else
             ifolder.appendMessages(new Message[]{imessage});
 
-        // Delete previous (external) version
-        if (message.uid != null) {
+        if (folder.id.equals(message.folder)) {
+            // Prevent deleting message
             db.message().setMessageUid(message.id, null);
 
-            Message iexisting = ifolder.getMessageByUID(message.uid);
-            if (iexisting == null)
-                Log.w(folder.name + " existing not found uid=" + message.uid);
-            else {
-                try {
-                    Log.i(folder.name + " deleting uid=" + message.uid);
-                    iexisting.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
-                } catch (MessageRemovedException ignored) {
-                    Log.w(folder.name + " existing gone uid=" + message.uid);
-                }
-            }
-        }
-
-        if (folder.id.equals(message.folder)) {
             // Some providers do not list the new message yet
+            Long found = findUid(ifolder, message.msgid, true);
             if (newuid == null)
-                newuid = findUid(ifolder, message.msgid, true);
+                newuid = found;
+            else if (!newuid.equals(found)) {
+                Log.e(folder.name + " Added=" + newuid + " found=" + found);
+                newuid = found;
+            }
+
             if (newuid != null && (message.uid == null || newuid > message.uid))
                 try {
                     Log.i(folder.name + " Fetching uid=" + newuid);
