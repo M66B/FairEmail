@@ -1902,6 +1902,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     getMainHandler().postDelayed(enableSelection, SWIPE_DISABLE_SELECT_DURATION);
             }
 
+            Context context = getContext();
+            if (context == null)
+                return;
+
             int pos = viewHolder.getAdapterPosition();
             if (pos == NO_POSITION)
                 return;
@@ -1937,8 +1941,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
             Rect rect = holder.getItemRect();
-            int margin = Helper.dp2pixels(getContext(), 12);
-            int size = Helper.dp2pixels(getContext(), 24);
+            int margin = Helper.dp2pixels(context, 12);
+            int size = Helper.dp2pixels(context, 24);
 
             int icon;
             if (EntityMessage.SWIPE_ACTION_ASK.equals(action))
@@ -1964,8 +1968,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
 
-            Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
-            d.setTint(Helper.resolveColor(getContext(), android.R.attr.textColorSecondary));
+            Drawable d = getResources().getDrawable(icon, context.getTheme()).mutate();
+            d.setTint(Helper.resolveColor(context, android.R.attr.textColorSecondary));
 
             if (dX > 0) {
                 // Right swipe

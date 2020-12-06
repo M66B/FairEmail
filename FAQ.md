@@ -1948,7 +1948,7 @@ Messages will automatically be marked read on expanding, unless this was disable
 <a name="faq71"></a>
 **(71) How do I use filter rules?**
 
-You can edit filter rules by long pressing a folder in the folder list.
+You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
 
 New rules will be applied to new messages received in the folder, not to existing messages.
 You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
@@ -2004,7 +2004,7 @@ You can select one of these actions to apply to matching messages:
 * Add keyword
 * Move
 * Copy (Gmail: label)
-* Answer (with template)
+* Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
