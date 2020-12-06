@@ -494,8 +494,10 @@ class Core {
                             // Seen: NO mailbox selected READ-ONLY
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset
                             // Fetch: NO all of the requested messages have been expunged
-                            // fetch: BAD parse error: invalid message sequence number: 
-                            // fetch: NO [SERVERBUG] SELECT Server error - Please try again later
+                            // Fetch: BAD parse error: invalid message sequence number:
+                            // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
+                            // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
+                            // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
                             // Move: BAD parse error: invalid message sequence number:
