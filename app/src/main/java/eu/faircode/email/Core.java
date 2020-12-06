@@ -936,12 +936,13 @@ class Core {
 
             // Some providers do not list the new message yet
             Long found = findUid(ifolder, message.msgid, true);
-            if (newuid == null)
-                newuid = found;
-            else if (!newuid.equals(found)) {
-                Log.e(folder.name + " Added=" + newuid + " found=" + found);
-                newuid = found;
-            }
+            if (found != null)
+                if (newuid == null)
+                    newuid = found;
+                else if (!newuid.equals(found)) {
+                    Log.e(folder.name + " Added=" + newuid + " found=" + found);
+                    newuid = found;
+                }
 
             if (newuid != null && (message.uid == null || newuid > message.uid))
                 try {
