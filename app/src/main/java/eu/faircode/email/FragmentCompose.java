@@ -217,7 +217,6 @@ public class FragmentCompose extends FragmentBase {
     private ViewGroup view;
     private Spinner spIdentity;
     private EditText etExtra;
-    private EditText etExtra;
     private TextView tvDomain;
     private MultiAutoCompleteTextView etTo;
     private ImageButton ibToAdd;
