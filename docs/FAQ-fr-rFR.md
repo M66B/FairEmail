@@ -479,13 +479,13 @@ Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de g
 
 <br />
 
-*Activer les "Applications moins sécurisées"*
+*Autoriser les "Applications moins sécurisées"*
 
 **Important**: l'utilisation de cette méthode n'est pas recommandée car elle est moins fiable.
 
 **Important**: Les comptes Gsuite autorisés avec un nom d'utilisateur/mot de passe cesseront de fonctionner [dans un avenir proche](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+Voir [ici](https://support.google.com/accounts/answer/6010255) sur la façon d'autoriser les "applications moins sécurisées" ou aller [directement au paramètre en question](https://www.google.com/settings/security/lesssecureapps).
 
 If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
 
@@ -1608,7 +1608,7 @@ Messages will automatically be marked read on expanding, unless this was disable
 <a name="faq71"></a>
 **(71) How do I use filter rules?**
 
-You can edit filter rules by long pressing a folder in the folder list.
+You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
 
 New rules will be applied to new messages received in the folder, not to existing messages. You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
 
@@ -1656,7 +1656,7 @@ You can select one of these actions to apply to matching messages:
 * Add keyword
 * Move
 * Copy (Gmail: label)
-* Answer (with template)
+* Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
@@ -2332,7 +2332,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 **Important**: push messages (=always sync) for the inbox needs to be enabled.
 
-**Important**: most email server do not support this!
+**Important**: most email server do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+You can enable experimental features in the miscellaneous settings.
 
 <br />
 

@@ -9,6 +9,7 @@
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
     <string name="channel_service">Al</string>
     <string name="channel_send">Gönder</string>
+    <string name="channel_notification">e-posta</string>
     <string name="channel_update">Güncellemeler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
@@ -134,9 +135,12 @@
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
+    <string name="title_setup_gmail_password">Bir hesabı bir şifre ile yetkilendirmek istiyorum</string>
     <string name="title_setup_office_remark">Microsoft, Outlook, Live, Hotmail vb. Hesaplar için bu tür bir yetkilendirme sağlamaz.</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
+    <string name="title_setup_oauth_update">Mevcut hesabı tekrar yetkilendirin</string>
+    <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
@@ -162,6 +166,7 @@
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_doze">Pil optimizasyonlarını ayarla</string>
     <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
+    <string name="title_setup_doze_hint">Bu çelişkili görünse de pil optimizasyonlarını kapatmak daha az pil kullanımına neden olacaktır</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
@@ -239,10 +244,12 @@
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
+    <string name="title_advanced_sync_subscribed">Abone olunan klasörleri otomatik olarak senkronize edin</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_check_reply">Mesajları senkronize ederken yanıtlama e-posta adreslerini kontrol et</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
     <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
@@ -251,7 +258,9 @@
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_separate_reply">Yanıtlama / iletme başlığından önce yatay bir çizgi ekleyin</string>
     <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
+    <string name="title_advanced_write_below">Gönderenin metninin altına yazın</string>
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
+    <string name="title_advanced_limit_reply">İç içe geçmiş tekliflerin sayısını sınırlayın</string>
     <string name="title_advanced_resize_reply">Yanıtlanan metindeki görselleri boyutlandır</string>
     <string name="title_advanced_signature_location">İmza konumu</string>
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
@@ -331,6 +340,7 @@
     <string name="title_advanced_text_align">Metin hizalamasını kullan</string>
     <string name="title_advanced_text_separators">Ayırıcı çizgiler kullanın</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
+    <string name="title_advanced_image_placeholders">Görüntü yer tutucularını göster</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
@@ -409,6 +419,7 @@
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
+    <string name="title_advanced_auto_undo_decrypt">Görüşmeyi kapatırken şifre çözmeyi geri al</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
     <string name="title_advanced_autocrypt">Autocrypt kullan</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt karşılıklı mod</string>

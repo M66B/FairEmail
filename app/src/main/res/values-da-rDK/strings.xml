@@ -135,9 +135,12 @@
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_drafts">Er kladdermappen ikke er tilgængelig med IMAP, kan dette rettes i Gmail-etiketindstillingerne</string>
+    <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode</string>
     <string name="title_setup_office_remark">Microsoft tilbyder ikke denne type godkendelse til Outlook-/Live-/Hotmail-/øvrige konti</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
+    <string name="title_setup_oauth_update">Godkend eksisterende konto igen</string>
+    <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
     <string name="title_setup_oauth_authorize">Godkend</string>
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
@@ -241,10 +244,12 @@
     <string name="title_advanced_sync_folders">Synkronisér mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisér automatisk mappeabonnementer</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_check_reply">Tjek svar e-mailadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_tune_keep_alive">Justér automatisk hold i live intervallet</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Forhindr fuldskærmstastatur</string>
     <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
@@ -253,7 +258,9 @@
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_separate_reply">Indsæt en vandret linje før en svar-/videresendelsesoverskrift</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
+    <string name="title_advanced_write_below">Skriv under afsenderens tekst</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
+    <string name="title_advanced_limit_reply">Begræns antallet af indlejrede citater</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
@@ -485,6 +492,7 @@
     <string name="title_advanced_placeholders_hint">Dette gælder kun omformaterede beskeder</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
+    <string name="title_advanced_language_detection_hint">Sprogdetekteringsunderstøttelse afhænger af enhedsproducenten</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_autoseen_hint">Automarkering af læste beskeder ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
