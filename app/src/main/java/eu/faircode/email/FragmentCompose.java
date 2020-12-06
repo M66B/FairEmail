@@ -217,6 +217,7 @@ public class FragmentCompose extends FragmentBase {
     private ViewGroup view;
     private Spinner spIdentity;
     private EditText etExtra;
+    private EditText etExtra;
     private TextView tvDomain;
     private MultiAutoCompleteTextView etTo;
     private ImageButton ibToAdd;
@@ -3223,6 +3224,9 @@ public class FragmentCompose extends FragmentBase {
             try {
                 is = context.getContentResolver().openInputStream(uri);
                 os = new FileOutputStream(file);
+
+                if (is == null)
+                    throw new IOException("Content provider crashed");
 
                 byte[] buffer = new byte[Helper.BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
