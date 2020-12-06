@@ -2028,7 +2028,7 @@ class Core {
                     }
 
                     try {
-                        EntityLog.log(context, folder.name + " POP sync=" + uidl + "/" + msgid);
+                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
 
                         Long sent = helper.getSent();
                         Long received = helper.getReceivedHeader();
