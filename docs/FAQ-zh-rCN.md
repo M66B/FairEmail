@@ -49,9 +49,9 @@
 * 设置签名：设置，第二步，管理，点击身份，编辑签名。
 * 添加抄送和密送地址：点击主题末尾的联系人图标
 * 归档/删除后转到下/上一条消息: 在行为设置中禁用 *自动关闭会话* 并且在 *关闭会话时* 中选择 *转到下/上一个会话*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
+* 将文件夹添加到统一的收件箱中：长按文件夹列表中的文件夹，然后勾选 *在统一的收件箱中显示*
+* 将文件夹添加到导航菜单中：长按文件夹列表中的文件夹，然后勾选 *在导航菜单中显示*
+* 加载更多消息：长按文件夹列表中的文件夹，选择 *同步更多消息*
 * Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
 * Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
@@ -62,8 +62,8 @@
 
 ## 已知问题
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~ Google has fixed this.~~
+* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 A workaround was added.~~
+* ~~一个 [Google Drive 的 bug](https://issuetracker.google.com/issues/126362828) 导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~ Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ Exception while computing database live data ... Couldn't read row ...</em>". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
@@ -83,30 +83,30 @@
 ## 计划添加的功能
 
 * ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
+* ~~~半自动加密~~
 * ~~Copy message~~
-* ~~Colored stars~~
+* ~~多彩星标~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~显示规则匹配的消息~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~搜索建议~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
+* ~~复制帐户和身份~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~显示GIF~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
+* ~~作为附件发送~~
 * ~~Widget for selected account~~
-* ~~Remind to attach files~~
+* ~~~~提醒附加文件~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~

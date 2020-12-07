@@ -543,7 +543,6 @@
     <string name="title_no_inbox">收件箱未找到</string>
     <string name="title_no_drafts">沒有草稿文件夾</string>
     <string name="title_no_junk_folder">沒有為此帳戶選擇垃圾郵件文件夾</string>
-    <string name="title_no_composable">發送電子郵件需要配置身份，並在帳戶設置中選擇草稿文件夾</string>
     <string name="title_no_standard">該提供者使用專有的電子郵件協議，因此無法使用第三方電子郵件客戶端</string>
     <string name="title_no_idle">該提供商不支持推送消息。 這將延遲接收新消息並增加電池使用量。</string>
     <string name="title_no_utf8">該提供商不支援UTF-8</string>

@@ -443,7 +443,7 @@
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
-    <string name="title_advanced_updates">Vérifier les mises à jour de GitHub</string>
+    <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
@@ -599,7 +599,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier spam sélectionné pour ce compte</string>
-    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte</string>
+    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte (paramètres, étape 1)</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>

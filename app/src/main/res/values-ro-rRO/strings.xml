@@ -609,7 +609,6 @@
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_drafts">Nici un dosar de ciorne</string>
     <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
-    <string name="title_no_composable">Trimiterea de e-mailuri necesită o identitate configurată și un dosar pentru ciorne selectat în setările contului</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>

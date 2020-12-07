@@ -597,7 +597,6 @@
     <string name="title_no_inbox">Postfak net fûn</string>
     <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_no_junk_folder">D\'r is gjin spam-map selektearre foar dit akkount</string>
-    <string name="title_no_composable">E-post ferstjoeren fereasket in identiteit te konfigurearjen, en in dampprogramma moat wurde selektearre yn \'e akkountynstellingen</string>
     <string name="title_no_standard">Dizze provider brûkt in proprietêr e-postprotokol en dêrom is it net mooglik e-postkliïnten fan tredden te brûken</string>
     <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
     <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>

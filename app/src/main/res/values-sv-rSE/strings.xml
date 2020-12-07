@@ -598,7 +598,7 @@
     <string name="title_no_inbox">Inkorgen hittades inte</string>
     <string name="title_no_drafts">Ingen utkastmapp</string>
     <string name="title_no_junk_folder">Det finns ingen skräppostmapp vald för detta konto</string>
-    <string name="title_no_composable">Att skicka e-post kräver att en identitet konfigureras och att en utkastmapp väljs i kontoinställningarna</string>
+    <string name="title_no_composable">Att skicka e-post kräver att en identitet konfigureras och att en utkastmapp väljs i kontoinställningarna (inställningssteg 1)</string>
     <string name="title_no_standard">Denna leverantör använder ett egenutvecklat e-postprotokoll och därför är det inte möjligt att använda tredje parts e-postklienter</string>
     <string name="title_no_idle">Leverantören stödjer inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stödjer inte UTF-8</string>

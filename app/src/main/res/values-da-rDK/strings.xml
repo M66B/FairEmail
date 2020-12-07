@@ -598,7 +598,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
-    <string name="title_no_composable">Afsendelse af e-mails kræver, at en identitet opsættes samt valg af en Kladde-mappe under kontoindstillingerne</string>
+    <string name="title_no_composable">E-mailafsendelse kræver, at en identitet opsættes samt valg af en Udkast-mappe under kontoindstillingerne (opsætningstrin 1)</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>

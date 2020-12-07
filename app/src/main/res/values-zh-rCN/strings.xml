@@ -123,7 +123,7 @@
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夹无法通过IMAP访问，可以在Gmail的标签设置中进行修复</string>
-    <string name="title_setup_gmail_password">我想用密码授权一个账户</string>
+    <string name="title_setup_gmail_password">我想通过密码来授权一个账户</string>
     <string name="title_setup_office_remark">微软不为 Outlook, Live, Hotmail 等账户提供此类型授权</string>
     <string name="title_setup_office_auth">\"认证失败\" 的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
@@ -587,7 +587,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_composable">发送邮件需要配置身份，并要在账户设置中选择草稿文件夹</string>
+    <string name="title_no_composable">发送邮件需要配置身份，并在帐户设置中选择草稿文件夹 (设置第一步)</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>

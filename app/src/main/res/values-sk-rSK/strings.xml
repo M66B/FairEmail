@@ -616,7 +616,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_inbox">Priečinok doručenej pošty nebol nájdený</string>
     <string name="title_no_drafts">Žiadny priečinok s konceptmi</string>
     <string name="title_no_junk_folder">Tento účet nemá priradený spamový priečinok</string>
-    <string name="title_no_composable">Posielanie emailov vyžaduje nastavenú totožnosť a priradený priečinok konceptov pre daný účet</string>
     <string name="title_no_standard">Tento poskytovateľ používa vlastný emailový protokol, a preto nie je možné použiť emailových klientov tretích strán</string>
     <string name="title_no_idle">Tento poskytovateľ nepodporuje push správy. To pozdrží prijímanie správ a zvýši spotrebu batérie.</string>
     <string name="title_no_utf8">Tento poskytovateľ nepodporuje UTF-8</string>

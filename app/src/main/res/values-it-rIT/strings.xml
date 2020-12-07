@@ -599,7 +599,7 @@
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_no_drafts">Nessuna cartella bozze</string>
     <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
-    <string name="title_no_composable">L\'invio di messaggi richiede la configurazione di un\'identità e la selezione di una cartella delle bozze nelle impostazioni dell\'account</string>
+    <string name="title_no_composable">L\'invio di messaggi di posta elettronica richiede la configurazione di un\'identità e la selezione di una cartella delle bozze nelle impostazioni dell\'account (fase di configurazione 1)</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>

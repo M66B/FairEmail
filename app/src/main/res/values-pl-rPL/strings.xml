@@ -619,7 +619,6 @@
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_drafts">Brak folderu szkiców</string>
     <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
-    <string name="title_no_composable">Wysyłanie wiadomości e-mail wymaga skonfigurowania tożsamości i wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>

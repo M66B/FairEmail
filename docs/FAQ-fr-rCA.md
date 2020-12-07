@@ -32,7 +32,7 @@ Pour l'autorisation de :
 * Apple iCloud, voir [question 148](#user-content-faq148)
 * Free.fr, voir [question 157](#user-content-faq157)
 
-Vous trouverez [ici](#user-content-faq22) les messages d'erreur fréquents leurs solutions.
+Vous trouverez [ici](#user-content-faq22) les messages d'erreur fréquents et leurs solutions.
 
 Questions liées:
 
@@ -43,22 +43,22 @@ Questions liées:
 
 ## Comment... ?
 
-* Changer le nom du compte : Configuration, étape 1, Gerer, appuyer sur le compte
-* Changer la cible de balayage gauche/droite: Configuration, comportement, Définir les actions de balayage
-* Changer le mot de passe : Configurer, étape 1, Gérer, toucher le compte, changer le mot de passe
-* Définir une signature: Configuration, étape 2, Gérer, touchez l'identité, Modifier la signature.
-* Ajouter des adresses CC et CCI : appuyez sur l'icône des personnes à la fin de l'objet
-* Allez au message suivant/précédent dans l'archive/suppression : dans les paramètres de comportement, désactivez *Fermez automatiquement les conversations* et sélectionnez *Allez à la suivante/précédente conversation* pour *Lors de la fermeture d'une conversation*
+* Changer le nom du compte : Paramètres > Étape 1 > Gérer > Sélectionner le compte
+* Changer la l'action de balayage gauche/droite: Paramètres > Comportement > Définir les actions de balayage
+* Changer le mot de passe : Paramètres > Étape 1 > Gérer > Sélectionner le compte > changer le mot de passe
+* Définir une signature: Paramètres > Étape 2 > Gérer > Sélectionner l'identité > Modifier la signature.
+* Ajouter des adresses CC et CCI : appuyez sur l'icône des personnes à l'extrémité de l'objet
+* Allez au message suivant/précédent dans l'archive/suppression : dans les paramètres de comportement, désactivez *Fermez automatiquement les conversations* et sélectionnez *Allez à la conversation suivante/précédente* pour *Lors de la fermeture d'une conversation*
 * Ajouter un dossier à la boîte de réception unifiée : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans la boîte de réception unifiée*
 * Ajouter un dossier au menu de navigation : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans le menu de navigation*
 * Charger plus de messages : appuyez longuement sur un dossier dans la liste de dossiers, sélectionnez *Synchroniser plus de messages*
 * Supprimez un message, sautez la corbeille : dans le menu à 3 points juste au-dessus du texte du message *Supprimer* ou désélectionnez le dossier corbeille dans les paramètres du compte
 * Supprimer un compte/identité: Étape 1/2, Gestion, Appuyer sur compte/identité, Menu à trois points, Supprimer
-* Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers, Modifier les propriétés, Menu à trois points, Supprimer
-* Annuler l'envoi : Boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
+* Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
+* Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)
-* Modifier les dossiers système: Configuration, étape 1, gestion, appuyer sur le compte, en bas
-* Exporter/importer les paramètres : Configuration, navigation/menu hamburger
+* Modifier les dossiers système: Paramètres > Étape 1 > Gérer > Sélectionner le compte > voir tout en bas
+* Exporter/importer les paramètres : Paramètres > menu de navigation (icon hamburger)
 
 ## Problèmes connus
 
@@ -66,11 +66,11 @@ Questions liées:
 * ~~Un [bogue dans Google Drive](https://issuetracker.google.com/issues/126362828) vide le dossier des fichiers exportés vers Google Drive. Google a corrigé ceci.~~
 * ~A [bug dans AndroidX](https://issuetracker.google.com/issues/78495471) provoque un plantage occasionnel de FairEmail en appui long ou en glissant. Google a corrigé ceci.~~
 * ~~Un [bug dans AndroidX ROOM](https://issuetracker.google.com/issues/138441698) provoque parfois un plantage avec "*... Exception lors du calcul de la base de données en direct... Impossible de lire la ligne ...*". Une solution de contournement a été ajoutée.~~
-* Un [bug dans Android](https://issuetracker.google.com/issues/119872129) provoque parfois un plantage avec "*... Mauvaise notification postée ...*" sur certains appareils une fois après la mise à jour de FairEmail et en appuyant sur une notification.
-* Un [bug dans Android](https://issuetracker.google.com/issues/62427912) provoque parfois un plantage avec "*... ActivityRecord introuvable pour ...*" après la mise à jour de FairEmail. La réinstallation de ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) pourrait résoudre le problème.
+* Un [bug dans Android](https://issuetracker.google.com/issues/119872129) provoque parfois un plantage de FairEmail avec "*... Mauvaise notification postée ...*" sur certains appareils une fois après la mise à jour de FairEmail et en appuyant sur une notification.
+* Un [bug dans Android](https://issuetracker.google.com/issues/62427912) provoque parfois un plantage avec "*... ActivityRecord introuvable pour ...*" après la mise à jour de FairEmail. La réinstallation([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) pourrait résoudre le problème.
 * Un [bug dans Android](https://issuetracker.google.com/issues/37018931) provoque parfois un plantage avec *... InputChannel n'est pas initialisé ...* sur certains appareils.
 * ~A [bug dans LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) provoque parfois un plantage avec *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* Un bug dans Nova Launcher sur Android 5.x provoque le plantage de FairEmail avec une *java.lang.StackOverflowError* lorsque Nova Launcher a accès au service d'accessibilité.
+* Un bug dans Nova Launcher sur Android 5.x provoque le plantage de FairEmail avec une exception *java.lang.StackOverflowError* lorsque Nova Launcher a accès au service d'accessibilité.
 * ~~Le sélecteur de dossier ne montre parfois aucun dossier pour des raisons encore inconnues. Cela semble être réparé.~~
 * ~~Un [bug dans AndroidX](https://issuetracker.google.com/issues/64729576) rend difficile le défilement rapide. Une solution de contournement a été ajoutée.~~
 * ~~Le chiffrement avec YubiKey se traduit par une boucle infinie. Cela semble être causé par un [bug dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
@@ -78,7 +78,7 @@ Questions liées:
 * Un aperçu d'un message texte n'apparaît pas (toujours) sur les montres Samsung car [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) semble être ignoré. Les textes de prévisualisation des messages sont censés être affichés correctement sur les objets connectés Pebble 2, Fitbit Charge 3, Mi band 3 et Xiaomi Amazfit BIP. Voir aussi [cette FAQ](#user-content-faq126).
 * Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* lorsque du texte est sélectionné et en tapotant à côté de ce dernier. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancrés) ne fonctionneront pas parce que les messages originaux sont affichés dans une WebView intégrée dans une vue défilante (la liste des conversations). Il s'agit d'une limitation Android qui ne peut être ni corrigée ni contournée.
-* La détection de langue [ne fonctionne plus](https://issuetracker.google.com/issues/173337263) sur les appareils Pixel avec (mise à jour vers ?) Android 11
+* La détection de la langue [ne fonctionne plus](https://issuetracker.google.com/issues/173337263) sur les appareils Pixel avec (mise à jour vers ?) Android 11
 
 ## Fonctionnalités prévues
 
@@ -113,11 +113,11 @@ Questions liées:
 * ~~support S/MIME ~~
 * ~~Rechercher des paramètres~~
 
-Tout ce qui est dans cette liste est dans l'ordre aléatoire et *pourrait* être ajouté dans un avenir proche.
+Le contenu de cette liste est rangé aléatoirement et *peut être* ajouté dans un avenir proche.
 
 ## Fonctionnalités fréquemment demandées
 
-La conception est basée sur de nombreuses discussions et si vous le souhaitez, vous pouvez en discuter [dans ce forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) également. Le but de la conception est d'être minimaliste (pas de menus inutiles, boutons, etc) et non distrayant (pas de couleurs fantaisie, animations, etc). Toutes les informations affichées devraient être utiles d'une manière ou d'une autre et devraient être soigneusement positionnées pour une utilisation facile. Les polices, tailles, couleurs, etc doivent être Material Design autant que possible.
+La conception est basée sur de nombreuses discussions et si vous le souhaitez, vous pouvez en discuter [dans ce forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) également. Le but de la conception est d'être minimaliste (pas de menus inutiles, boutons, etc) et non distrayant (pas de couleurs fantaisie, animations, etc). Toutes les informations affichées devraient être utiles d'une manière ou d'une autre et devraient être soigneusement positionnées pour une utilisation facile. Les polices, tailles, couleurs, etc doivent être dans le style "Material Design" autant que possible.
 
 ## Foire aux questions
 
@@ -487,19 +487,19 @@ Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de g
 
 Voir [ici](https://support.google.com/accounts/answer/6010255) sur la façon d'autoriser les "applications moins sécurisées" ou aller [directement au paramètre en question](https://www.google.com/settings/security/lesssecureapps).
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+Si vous utilisez plusieurs comptes Gmail, assurez-vous de modifier le paramètre "applications moins sécurisées" du ou des comptes concernés.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+Sachez que vous devez quitter l'écran de configuration des "applications moins sécurisées" en utilisant la flèche de retour arrière pour que le paramètre soit appliqué.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Si vous utilisez cette méthode, vous devriez utiliser un [mot de passe robuste](https://en.wikipedia.org/wiki/Password_strength) pour votre compte Gmail, ce qui est de toute façon une bonne idée. Notez que l'utilisation du protocole [standard](https://tools.ietf.org/html/rfc3501) IMAP n'est en soi pas moins sécurisée.
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Lorsque les "applications moins sécurisées" ne sont pas activées, vous obtiendrez l'erreur *L'authentification a échoué - identifiants non valides* pour les comptes (IMAP) et *nom d'utilisateur et mot de passe non acceptés* pour les identités (SMTP).
 
 <br />
 
-*General*
+*Cas général*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Il se peut que vous obteniez l'alerte "*S'il vous plaît connectez-vous via votre navigateur web*". Cela se produit lorsque Google considère que le réseau sur lequel vous vous connectez à Internet (il peut s'agir d'un VPN) n'est pas sûr. Cela peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique à l'application.
 
 Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
 

@@ -573,7 +573,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_no_inbox">Kotak masuk tidak ditemukan</string>
     <string name="title_no_drafts">Tidak ada folder draf</string>
     <string name="title_no_junk_folder">Tidak ada folder spam yang dipilih untuk akun ini</string>
-    <string name="title_no_composable">Mengirimkan surel memerlukan identitas untuk dikonfigurasi, dan folder draf yang dipilih untuk pengaturan akun</string>
     <string name="title_no_standard">Penyedia ini menggunakan protokol surel hak milik dan maka dari itu penggunaan pihak ketiga untuk surel klien tidak memungkinkan</string>
     <string name="title_no_idle">Penyedia ini tidak mendukung pesan push. Hal ini akan menunda penerimaan pesan baru dan meningkatkan penggunaan baterai.</string>
     <string name="title_no_utf8">Penyedia ini tidak mendukung UTF-8</string>

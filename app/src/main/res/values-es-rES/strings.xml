@@ -599,7 +599,6 @@
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_drafts">No hay carpeta de borradores</string>
     <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
-    <string name="title_no_composable">El envío de correos electrónicos requiere que se configure una identidad y que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>

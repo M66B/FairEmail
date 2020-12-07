@@ -598,7 +598,7 @@
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
-    <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
+    <string name="title_no_composable">Voor het verzenden van e-mails moet een identiteit worden geconfigureerd en moet een conceptmap worden geselecteerd in de accountinstellingen (installatiestap 1)</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>

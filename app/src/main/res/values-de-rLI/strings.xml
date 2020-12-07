@@ -9,7 +9,7 @@
     <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="channel_service">Empfangen</string>
     <string name="channel_send">Senden</string>
-    <string name="channel_notification">E-Mail</string>
+    <string name="channel_notification">Neue E-Mail</string>
     <string name="channel_update">Aktualisierungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
@@ -600,7 +600,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
-    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe”</string>
+    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität (Einstellungen, Punkt 2) und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe” (Einstellungen, Punkt 1)</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>

@@ -864,31 +864,31 @@ Fejlen *... Connection refused ...* means that the email server or something bet
 
 Fejlen *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
-Fejlen *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+Fejlen *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. Dette kan skyldes et VPN, adblocking eller en utilgængelig/ikke korrekt fungerende (lokal) [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+Fejlen *... Softwareforårsaget forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og denne, aktivt afsluttede en eksisterende forbindelse. Dette kan f. eks. ske, når tilslutningen mistes pludseligt. Et typisk eksempel er aktivering af Flytilstand.
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+Fejlene *... BYE, logger ud ...*, *... Forbindelse nulstillet af peer ... * betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
 
-The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Fejlen *... Forbindelse lukket af peer ...* kan skyldes en ikke-opdateret Exchange-server, tjek [hér](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for yderligere oplysninger.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Fejlene *... Læsefejl ...*, *... Skrivefejl ...*, *... Læsning fik timeout ...*, *... Broken pipe ...* betyder, at e-mailserveren ikke længere svarer, eller at Internetforbindelsen er ringe.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Fejlen *... Uventet afslutning af zlib-inputstrøm ...* betyder, at ikke alle data blev modtaget, muligvis grundet en dårlig/afbrudt forbindelse.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+Fejlen *... forbindelsesfejl ...* kan indikere [For mange samtidige forbindelser](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+Advarslen *... Uunderstøttet kodning ...* betyder, at beskedens tegnsæt er ukendt eller uunderstøttet. FairEmail gør brug af ISO-8859-1 (Latin1), hvilket i de fleste tilfælde vil resultere i korrekte beskedvisninger.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+[Tjek hér](#user-content-faq4) vedr. fejlene *... Ikke-betroet ... ikke i certifikat ...*, * ... Ugyldigt sikkerhedscertifikat (kan ikke bekræfte serveridentitet) ...* eller *... Tillidsanker til certificeringssti ikke fundet ...*
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+[Tjek hér](#user-content-faq127) vedr. fejlen *... Syntaktisk ugyldig(t/e) HELO-argument(er) ... *.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+[Tjek hér](#user-content-faq41) vedr. fejlen *... Handshake mislykkedes ...*.
 
-See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+Tjek [hér](https://linux.die.net/man/3/connect) ang. betydningen af fejlkoder såsom EHOSTUNREACH og ETIMEDOUT.
 
-Possible causes are:
+Mulige årsager:
 
 * Firewall eller router blokerer forbindelser til serveren
 * Værtsnavnet eller portnummeret er ugyldigt
@@ -898,13 +898,13 @@ Possible causes are:
 * E-mai-serveren nægter at acceptere en besked, fordi den f.eks. er for stor eller indeholder uacceptable links
 * Der er for mange forbindelser til serveren, se også næste spørgsmål
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Mange offentlige Wi-Fi netværk blokerer udgående e-mail for at forhindre spam. Dette kan somme tider løses ved brug af en anden SMTP-port. Se leverandørdokumentationen ang. anvendelige portnumre.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Benyttes et [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), kan VPN-udbyderen muligvis blokere forbindelsen, hvis den for aggressivt forsøger at forhindre spam. Bemærk, at [Google Fi](https://fi.google.com/) også anvender et VPN.
 
-**Send errors**
+**Afsendelsesfejl**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+SMTP-servere kan [af forskellige årsager](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes) afvise beskeder. For store beskeder og udløsning af en e-mailservers spamfilteret er de mest almindelige årsager.
 
 * Gmails størrelsesbegrænsning for vedhæftninger [udgør 25 MB](https://support.google.com/mail/answer/6584)
 * Outlooks og Office 365' størrelsesbegrænsning for vedhæftninger [udgør 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -913,17 +913,17 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *501 Syntaksfejl - linje for lang* er ofte forårsaget af brug af en lang Autocrypt-header
 * *503 5.5.0 Modtager allerede angivet* betyder typisk, at en adresse bruges som både TO- og CC-adresse
 * *554 5.7.1 ... ikke tilladt at videresende* betyder, at e-mailserveren ikke genkender brugernavnet/e-mailadressen. Dobbelttjek værtsnavn og brugernavn/e-mailadresse i identitetsindstillingerne.
-* *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *550 Spam besked afvist, da IP er listet af ...* betyder, at e-mailserveren har afvist at afsende en besked fra den aktuelle (offentlige) netværksadresse, fordi den tidligere har være misbrugt til spamafsendelse. Prøv at aktivere flytilstand i 10 minutter for at få tildelt en ny netværksadresse.
 
-**Gmail errors**
+**Gmail-fejl**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+Godkendelsen af Gmail-kontiopsætninger vha. hurtig guiden skal periodisk opfriskes via [Android-kontohåndteringen](https://developer.android.com/reference/android/accounts/AccountManager). Dette kræver kontakt-/konto-tilladelser samt Internetforbindelse.
 
-The error *... Godkendelse mislykkedes... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+Fejlen *... Godkendelse mislykkedes... Konto ikke fundet ...* betyder, at en tidligere godkendt Gmail-konto er blevet fjernet fra enheden.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Fejlene *... Godkendelse mislykkedes... Ingen token ...* betyder, at Android-kontohåndteringen ikke kunne opfriske godkendelsen af en Gmail-konto.
 
-Fejlen *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+Fejlen *... Godkemdelse mislykkedes ... netværksfejl ...* betyder, at Android-kontohåndteringen var ude af stand til at opfriske godkendelsen af en Gmail-konto grundet Internetforbindelsesproblemer
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
@@ -1026,7 +1026,7 @@ In the setup you'll find a button *Manage notifications* to directly navigate to
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
-FairEmail has the following notification channels:
+FairEmail har flg. notifikationskanaler:
 
 * Tjeneste: Benytttes til notifikation om synkroniseringstjenesten, se også [denne FAQ](#user-content-faq2)
 * Send: Benyttes til sendetjenestenotiifikation
@@ -1034,78 +1034,78 @@ FairEmail has the following notification channels:
 * Advarsel: Benyttes til advarselsnotifikationer
 * Fejl: Benyttes til notifikationer om fejl
 
-See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
+Tjek [hér](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for detaljer om notifikationskanaler. Kort sagt: Tryk på notifikationskanalnavnet for at få adgang til kanalindstillingerne.
 
-On Android before Android 8 Oreo you can set the notification sound in the settings.
+I Android før version 8 Oreo kan du opsætte notifikationslyden i indstillingerne.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+Tjek [denne FAQ](#user-content-faq21), hvis din enhed har et notifikationslys.
 
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) Hvordan fås notifikationer om nye beskeder for andre mapper?**
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Benyt et langt tryk på en mappe, vælg *Redigér egenskaber*, og aktivér enten *Vis i den fælles indbakke* eller *Advicér om nye beskeder* (kun tilgængelig på Android 7 Nougat og senere) og tryk på *Gem*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) Hvordan kan de medfølgende hurtige indstillinger benyttes?**
 
-There are quick settings (settings tiles) available to:
+Der er hurtige indstillinger (indstillingsfliser) tilgængelig for:
 
 * globalt aktivere/deaktivere synkronisering
 * vise antallet af nye beskeder og markér dem som set (ikke læst)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Hurtige indstillinger kræver Android 7.0 Nougat eller senere. Brug af indstillingsfliserne forklares [hér](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) Hvordan kan de medfølgende genveje benyttes?**
 
-There are shortcuts available to:
+Der er tilgængelige genveje til:
 
 * skrive en ny besked til en favoritkontakt
 * opsætte konti, identiteter mv.
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Genveje kræver Android 7.1 Nougat eller senere. Brug af genveje forklares [hér](https://support.google.com/android/answer/2781850).
 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) Hvordan tjekkes, om læsning af e-mails virkelig er sikkert?**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+Man kan benytte [E-mail Fortrolighedstester](https://www.emailprivacytester.com/) til dette.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Hvorfor fungerer redigerede afsenderadresser ikke?**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+For at forhindre spam accepterer de fleste udbydere kun bekræftede adresser ifm. afsendelser.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+F.eks. ændrer Google beskedhoveder som dette for *ikke-bekræftede* adresser:
 
 ```
-From: Somebody <somebody@example.org>
-X-Google-Original-From: Somebody <somebody+extra@example.org>
+Fra: Nogen <somebody@example.org>
+X-Google-Originale-Fra: Nogen <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+Dette betyder, at den redigerede afsenderadresse automatisk erstattes af en bekræftet adresse inden bekedafsendelsen.
 
-Note that this is independent of receiving messages.
+Bemærk, at dette er uafhængigt af at modtage beskeder.
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Hvordan matches identiteter?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identiteter matches som forventet efter konto. For indgående beskeder vil adresserne *til*, *cc*, *bcc*, *fra* og *(X-)leverede/konvolut/originale-til* blive tjekket (i denne rækkefølge) og for udgående beskeder (udkast, udbakke og sendt) tjekkes kun *fra*-adresserne.
 
-The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
+Den matchede adresse vil blive vist som *via* i adresseafsnittet for modtagne beskeder (mellem beskedens header og beskedens tekst).
 
-Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
+Bemærk, at identiteter skal aktiveres for at kunne matches, samt at kontiidentiteter ikke tages i betragtning.
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 

@@ -581,7 +581,6 @@
     <string name="title_no_inbox">Non se atopa a caixa de entrada</string>
     <string name="title_no_drafts">Sen a carpeta de borradores</string>
     <string name="title_no_junk_folder">Non hai un cartafol de spam seleccionado para esta conta</string>
-    <string name="title_no_composable">Precísase dunha identidade e dun cartafol de borradores especificados na configuración para enviar mensaxes</string>
     <string name="title_no_standard">Este provedor emprega un protocolo propietario de email, e polo tanto non é posible usar clientes de email de terceiros</string>
     <string name="title_no_idle">Este provedor non soporta mensaxes \'push\'. Isto adiará a recepción de novas mensaxes e incrementará o uso de batería.</string>
     <string name="title_no_utf8">Este provedor non soporta UTF-8</string>
