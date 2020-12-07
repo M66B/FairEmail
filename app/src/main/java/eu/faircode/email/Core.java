@@ -467,9 +467,6 @@ class Core {
                             continue;
                         }
 
-                        if (ifolder != null && !ifolder.isOpen())
-                            break;
-
                         if (op.tries >= TOTAL_RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof FileNotFoundException ||
