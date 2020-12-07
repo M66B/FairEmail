@@ -2287,10 +2287,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
                     if (result instanceof Spanned) {
-                        tvBody.setText((Spanned) result);
-                        tvBody.setTextIsSelectable(false);
-                        tvBody.setTextIsSelectable(true);
-                        tvBody.setMovementMethod(new TouchHandler(message));
+                        tvBody.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    tvBody.setText((Spanned) result);
+                                    tvBody.setTextIsSelectable(false);
+                                    tvBody.setTextIsSelectable(true);
+                                    tvBody.setMovementMethod(new TouchHandler(message));
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                            }
+                        });
                     } else if (result instanceof String)
                         ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
                     else if (result == null) {
