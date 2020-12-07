@@ -76,6 +76,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean resumed = false;
+    private List<String> languages;
 
     private SwitchCompat swExternalSearch;
     private SwitchCompat swShortcuts;
@@ -130,6 +131,21 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "identities_asked", "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
             "setup_reminder", "setup_advanced"
     };
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        languages = new ArrayList<>(Arrays.asList(getResources().getAssets().getLocales()));
+        Collections.sort(languages, new Comparator<String>() {
+            @Override
+            public int compare(String lang1, String lang2) {
+                String display1 = Locale.forLanguageTag(lang1).getDisplayLanguage();
+                String display2 = Locale.forLanguageTag(lang2).getDisplayLanguage();
+                return display1.compareTo(display2);
+            }
+        });
+    }
 
     @Override
     @Nullable
@@ -242,7 +258,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 if (position == 0)
                     onNothingSelected(adapterView);
                 else {
-                    String tag = getResources().getAssets().getLocales()[position - 1];
+                    String tag = languages.get(position - 1);
                     prefs.edit().putString("language", tag).commit(); // apply won't work here
                 }
             }
@@ -700,16 +716,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
 
-        String language = prefs.getString("language", null);
-        String[] languages = getResources().getAssets().getLocales();
-
         int selected = -1;
+        String language = prefs.getString("language", null);
         List<String> display = new ArrayList<>();
         display.add(getString(R.string.title_advanced_language_system));
-        for (int pos = 0; pos < languages.length; pos++) {
-            String lang = languages[pos];
+        for (int pos = 0; pos < languages.size(); pos++) {
+            String lang = languages.get(pos);
             Locale loc = Locale.forLanguageTag(lang);
-            display.add(loc.getDisplayName() + " [" + lang + "]");
+            display.add(loc.getDisplayName());
             if (lang.equals(language))
                 selected = pos + 1;
         }
