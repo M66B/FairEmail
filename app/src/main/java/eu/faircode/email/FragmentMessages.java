@@ -7644,12 +7644,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             String type;
             String name;
             String display;
+            Integer color;
 
             Folder(Context context, EntityFolder folder) {
                 this.id = folder.id;
                 this.type = folder.type;
                 this.name = folder.name;
                 this.display = folder.getDisplayName(context);
+                this.color = folder.color;
             }
         }
     }
@@ -7914,11 +7916,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             List<String> sources = new ArrayList<>();
             List<String> targets = new ArrayList<>();
+            Integer sourceColor = null;
+            Integer targetColor = null;
             for (MessageTarget t : result) {
                 if (!sources.contains(t.sourceFolder.type))
                     sources.add(t.sourceFolder.type);
                 if (!targets.contains(t.targetFolder.type))
                     targets.add(t.targetFolder.type);
+                if (sourceColor == null)
+                    sourceColor = t.sourceFolder.color;
+                if (targetColor == null)
+                    targetColor = t.targetFolder.color;
             }
 
             Drawable source = null;
@@ -7926,17 +7934,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 source = getResources().getDrawable(EntityFolder.getIcon(sources.get(0)), null);
                 if (source != null)
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
-            }
+            } else
+                sourceColor = null;
 
             Drawable target = null;
             if (targets.size() == 1) {
                 target = getResources().getDrawable(EntityFolder.getIcon(targets.get(0)), null);
                 if (target != null)
                     target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
-            }
+            } else
+                targetColor = null;
 
             tvSourceFolders.setCompoundDrawablesRelative(source, null, null, null);
             tvTargetFolders.setCompoundDrawablesRelative(target, null, null, null);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (sourceColor != null)
+                    tvSourceFolders.setCompoundDrawableTintList(ColorStateList.valueOf(sourceColor));
+                if (targetColor != null)
+                    tvTargetFolders.setCompoundDrawableTintList(ColorStateList.valueOf(targetColor));
+            }
 
             if (notagain != null)
                 cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
