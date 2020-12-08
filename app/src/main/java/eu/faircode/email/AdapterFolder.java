@@ -98,6 +98,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int textColorPrimary;
     private int textColorSecondary;
     private int colorUnread;
+    private int colorControlNormal;
 
     private List<Long> disabledIds = new ArrayList<>();
     private List<TupleFolderEx> all = new ArrayList<>();
@@ -304,8 +305,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.selectable)
                 ivType.setImageResource(EntityFolder.getIcon(folder.type));
 
-            if (listener != null)
+            if (listener != null) {
                 ivType.setVisibility(folder.selectable ? View.VISIBLE : View.GONE);
+                ivType.setImageTintList(ColorStateList.valueOf(folder.color == null ? colorControlNormal : folder.color));
+            }
 
             if (listener == null && folder.selectable) {
                 if (account < 0 && !primary)
@@ -930,6 +933,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
+        this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
 
         setHasStableIds(true);
 
