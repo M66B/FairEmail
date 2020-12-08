@@ -503,14 +503,18 @@ class Core {
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
+
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
+
                             EntityLog.log(context, msg +
                                     " folder=" + folder.id + ":" + folder.name +
                                     " message=" + (message == null ? null : message.id + ":" + message.subject) +
                                     " reason=" + Log.formatThrowable(ex, false));
-                            if (op.tries > 1 ||
-                                    ex.getCause() instanceof BadCommandException ||
-                                    ex.getCause() instanceof CommandFailedException)
+
+                            if (ifolder != null && ifolder.isOpen() &&
+                                    (op.tries > 1 ||
+                                            ex.getCause() instanceof BadCommandException ||
+                                            ex.getCause() instanceof CommandFailedException))
                                 Log.e(new Throwable(msg, ex));
 
                             try {
