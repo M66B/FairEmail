@@ -941,7 +941,7 @@ class Core {
                     newuid = found;
                 else if (!newuid.equals(found)) {
                     Log.e(folder.name + " Added=" + newuid + " found=" + found);
-                    newuid = found;
+                    newuid = Math.max(newuid, found);
                 }
 
             if (newuid != null && (message.uid == null || newuid > message.uid))
