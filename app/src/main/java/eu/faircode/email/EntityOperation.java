@@ -188,7 +188,9 @@ public class EntityOperation {
                 if (source == null || target == null || source.id.equals(target.id))
                     return;
 
-                EntityLog.log(context, "Move message=" + message.id + ":" + message.subject +
+                EntityLog.log(context, "Move message=" + message.id +
+                        "@" + new Date(message.received) +
+                        ":" + message.subject +
                         " source=" + source.id + ":" + source.name + "" +
                         " target=" + target.id + ":" + target.name +
                         " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
@@ -443,6 +445,8 @@ public class EntityOperation {
 
     void cleanup(Context context, boolean fetch) {
         DB db = DB.getInstance(context);
+
+        EntityLog.log(context, "Cleanup op=" + id + "/" + name + " folder=" + folder + " message=" + message);
 
         if (message != null)
             db.message().setMessageUiHide(message, false);
