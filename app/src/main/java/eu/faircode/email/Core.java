@@ -498,8 +498,11 @@ class Core {
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
                             // Move: BAD parse error: invalid message sequence number:
+                            // Move: NO MOVE failed or partially completed.
+                            // Move: NO mailbox selected READ-ONLY
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
+                            // Delete: NO mailbox selected READ-ONLY
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
                             EntityLog.log(context, msg +
                                     " folder=" + folder.id + ":" + folder.name +
