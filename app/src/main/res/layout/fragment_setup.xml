@@ -610,7 +610,7 @@
             android:id="@+id/grpWelcome"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvWelcome,ibWelcome,vSeparatorWelcome" />
+            app:constraint_referenced_ids="tvWelcome,ibWelcome" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDataSaver"
