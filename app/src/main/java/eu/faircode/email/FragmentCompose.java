@@ -3717,10 +3717,17 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("receipt".equals(action)) {
                             data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
-                            for (String text : Helper.getStrings(context, ref.language, R.string.title_receipt_text)) {
-                                Element p = document.createElement("p");
-                                p.text(text);
-                                document.body().appendChild(p);
+                            String[] texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
+                            for (int i = 0; i < texts.length; i++) {
+                                if (i > 0)
+                                    document.body()
+                                            .appendElement("br");
+
+                                Element div = document.createElement("div");
+                                div.text(texts[i]);
+                                document.body()
+                                        .appendChild(div)
+                                        .appendElement("br");
                             }
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
