@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tvWelcome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvWelcome"
-            app:srcCompat="@drawable/baseline_close_24" />
+            app:srcCompat="@drawable/twotone_close_24" />
 
         <View
             android:id="@+id/vSeparatorWelcome"
