@@ -1020,4 +1020,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="DreamHost"
+        link="https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview">
+        <imap
+            host="imap.dreamhost.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.dreamhost.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
