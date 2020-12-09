@@ -189,6 +189,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
             case "shortcuts": // misc
             case "language": // misc
             case "query_threads": // misc
+                // Should be excluded for import
                 restart();
                 break;
         }
