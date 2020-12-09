@@ -575,27 +575,27 @@ Vea [estas Preguntas Frecuentes](#user-content-faq33) sobre la edición del nomb
 <a name="faq12"></a>
 **(12) ¿Cómo funciona el cifrado/descifrado?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+La comunicación con los servidores de correo-e siempre está encriptada, a menos que lo desactive explícitamente. Esta pregunta se refiere al cifrado opcional de extremo a extremo con PGP o S/MIME. El remitente y destinario primero deberían acordar esto e intercambiar mensajes firmados para transferir su clave pública para poder enviar mensajes encriptados.
 
 *General*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Por favor, [vea aquí](https://en.wikipedia.org/wiki/Public-key_cryptography) sobre cómo funciona el cifrado con clave pública/privada.
 
-Encryption in short:
+Cifrado en resumen:
 
 * Los mensajes **salientes** se cifran con la **clave pública** del destinatario
 * Los mensajes **entrantes** se descifran con la **clave privada** del destinatario
 
-Signing in short:
+Firma en resumen:
 
 * Los mensajes **salientes** se firman con la **clave privada** del remitente
 * Los mensajes **entrantes** se verifican con la **clave pública** del remitente
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Para firmar/cifrar un mensaje, solo seleccione el método apropiado en el dialogo de envío. Siempre puede abrir el dialogo de envío usando el menú de tres puntos en caso de que haya seleccionado *No mostrar de nuevo* antes.
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+La primera vez que envíe un mensaje firmado/cifrado puede que se le pida una clave de firma. FairEmail automáticamente almacenará las claves de firma seleccionadas en la identidad utilizada para la próxima vez. Si necesita reiniciar la clave de firma, solo guarde la identidad o mantenga pulsada la identidad en la lista de identidades y selecciones *Reiniciar clave de firma*. La clave de firma seleccionada es visible en la lista de identidades. Si es necesario seleccionar una clave caso por caso, puede crear múltiples identidades para la misma cuenta con la misma dirección de correo-e.
 
 In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
@@ -603,17 +603,17 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Necesitará instalar y configurar [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) primero. FairEmail ha sido probado con OpenKeychain versión 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. Puede solucionar esto tratando de enviar un mensaje firmado/cifrado al remitente con una clave pública desconocida.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
+**Importante**: si la aplicación OpenKeychain (ya) no puede encontrar una clave, puede que necesite restablecer una clave seleccionada previamente. Esto puede hacerse al mantener pulsada una identidad en la lista de identidades (Configuración, paso 2, Administrar).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
 **Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Sin este permiso el borrador se guardará, pero la ventana emergente de OpenKeychain para confirmar/seleccionar puede que no aparezca.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
