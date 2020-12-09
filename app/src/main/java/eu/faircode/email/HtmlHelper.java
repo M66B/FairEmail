@@ -2384,6 +2384,9 @@ public class HtmlHelper {
                                 setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
                                 break;
                             case "table":
+                            case "thead":
+                            case "tbody":
+                            case "tfoot":
                             case "tr":
                             case "th":
                             case "td":
