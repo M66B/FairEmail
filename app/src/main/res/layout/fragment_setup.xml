@@ -50,6 +50,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.1"
+            android:background="?attr/colorAccent"
+            app:layout_constraintBottom_toTopOf="@id/vSeparatorAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome" />
+
         <ImageView
             android:id="@+id/fast"
             android:layout_width="30dp"
