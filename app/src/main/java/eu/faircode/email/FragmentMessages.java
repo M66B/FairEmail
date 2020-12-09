@@ -2225,6 +2225,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
+            aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
 
             AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();
             ask.setArguments(aargs);

@@ -3906,6 +3906,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putLong("folder", message.folder);
             aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
+            aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);
@@ -6332,6 +6333,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final long folder = args.getLong("folder");
             final String type = args.getString("type");
             final String from = args.getString("from");
+            final boolean inJunk = args.getBoolean("inJunk");
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
@@ -6339,6 +6341,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
             final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
             final Button btnEditRules = view.findViewById(R.id.btnEditRules);
+            final Group grpInJunk = view.findViewById(R.id.grpInJunk);
 
             tvMessage.setText(getString(R.string.title_ask_spam_who, from));
 
@@ -6372,6 +6375,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     dismiss();
                 }
             });
+
+            grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)

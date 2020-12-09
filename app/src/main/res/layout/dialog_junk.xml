@@ -83,5 +83,11 @@
             android:text="@string/title_edit_rules"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBlockHint" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpInJunk"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvMessage,tvJunkHint,ibInfo,btnEditRules" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
