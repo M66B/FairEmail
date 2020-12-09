@@ -755,8 +755,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         final View content = drawerLayout.getChildAt(0);
 
+        if (lastSnackbar != null && lastSnackbar.isShown())
+            lastSnackbar.dismiss();
+
         final Snackbar snackbar = Snackbar.make(content, title, Snackbar.LENGTH_INDEFINITE)
                 .setGestureInsetBottomIgnored(true);
+
         lastSnackbar = snackbar;
 
         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
