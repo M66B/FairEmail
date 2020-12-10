@@ -477,16 +477,42 @@ public class ContactInfo {
 
         Document doc = JsoupEx.parse(response);
 
-        Element link = doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]").first();
-        String favicon = (link == null ? null : link.attr("href"));
+        List<Future<Bitmap>> futures = new ArrayList<>();
 
-        if (TextUtils.isEmpty(favicon)) {
-            Element meta = doc.head().select("meta[itemprop=image]").first();
-            favicon = (meta == null ? null : meta.attr("content"));
+        for (Element link : doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]")) {
+            String favicon = link.attr("href");
+            if (TextUtils.isEmpty(favicon))
+                continue;
+
+            final URL url = new URL(base, favicon);
+            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                @Override
+                public Bitmap call() throws Exception {
+                    return getFavicon(url, scaleToPixels);
+                }
+            }));
         }
 
-        if (!TextUtils.isEmpty(favicon))
-            return getFavicon(new URL(base, favicon), scaleToPixels);
+        for (Element meta : doc.head().select("meta[itemprop=image]")) {
+            String favicon = meta.attr("content");
+            if (TextUtils.isEmpty(favicon))
+                continue;
+
+            final URL url = new URL(base, favicon);
+            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                @Override
+                public Bitmap call() throws Exception {
+                    return getFavicon(url, scaleToPixels);
+                }
+            }));
+        }
+
+        for (Future<Bitmap> future : futures)
+            try {
+                return future.get();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return null;
     }
