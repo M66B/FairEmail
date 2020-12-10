@@ -477,6 +477,14 @@ public class ContactInfo {
 
         Document doc = JsoupEx.parse(response);
 
+        // <link rel="canonical" href="" />
+        Element canonical = doc.head().select("link[rel=canonical]").first();
+        if (canonical != null) {
+            String href = canonical.attr("href");
+            if (!TextUtils.isEmpty(href))
+                base = new URL(href);
+        }
+
         List<Future<Bitmap>> futures = new ArrayList<>();
 
         for (Element link : doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]")) {
