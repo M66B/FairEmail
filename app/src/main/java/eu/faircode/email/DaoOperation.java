@@ -39,9 +39,10 @@ public interface DaoOperation {
             // Other operations: add, delete, seen, answered, flag, keyword, label, subscribe, send
             " WHEN operation.name = '" + EntityOperation.FETCH + "' THEN 2" +
             " WHEN operation.name = '" + EntityOperation.EXISTS + "' THEN 3" +
-            " WHEN operation.name = '" + EntityOperation.MOVE + "' THEN 4" +
             " WHEN operation.name = '" + EntityOperation.COPY + "' THEN 4" +
-            " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN 5" +
+            " WHEN operation.name = '" + EntityOperation.MOVE + "' THEN 5" +
+            " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN 6" +
+            " WHEN operation.name = '" + EntityOperation.DELETE + "' THEN 7" +
             " ELSE 0" +
             " END";
 
