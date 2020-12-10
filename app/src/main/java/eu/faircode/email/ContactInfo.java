@@ -344,38 +344,45 @@ public class ContactInfo {
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
                         final int scaleToPixels = Helper.dp2pixels(context, 64);
-                        final URL base = new URL("https://" + domain);
-                        final URL www = new URL("https://www." + domain);
 
                         List<Future<Bitmap>> futures = new ArrayList<>();
 
-                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                            @Override
-                            public Bitmap call() throws Exception {
-                                return parseFavicon(base, scaleToPixels);
-                            }
-                        }));
+                        String host = domain;
+                        while (host.indexOf('.') > 0) {
+                            final URL base = new URL("https://" + host);
+                            final URL www = new URL("https://www." + host);
 
-                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                            @Override
-                            public Bitmap call() throws Exception {
-                                return parseFavicon(www, scaleToPixels);
-                            }
-                        }));
+                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                                @Override
+                                public Bitmap call() throws Exception {
+                                    return parseFavicon(base, scaleToPixels);
+                                }
+                            }));
 
-                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                            @Override
-                            public Bitmap call() throws Exception {
-                                return getFavicon(new URL(base, "favicon.ico"), scaleToPixels);
-                            }
-                        }));
+                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                                @Override
+                                public Bitmap call() throws Exception {
+                                    return parseFavicon(www, scaleToPixels);
+                                }
+                            }));
 
-                        futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                            @Override
-                            public Bitmap call() throws Exception {
-                                return getFavicon(new URL(www, "favicon.ico"), scaleToPixels);
-                            }
-                        }));
+                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                                @Override
+                                public Bitmap call() throws Exception {
+                                    return getFavicon(new URL(base, "favicon.ico"), scaleToPixels);
+                                }
+                            }));
+
+                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                                @Override
+                                public Bitmap call() throws Exception {
+                                    return getFavicon(new URL(www, "favicon.ico"), scaleToPixels);
+                                }
+                            }));
+
+                            int dot = host.indexOf('.');
+                            host = host.substring(dot + 1);
+                        }
 
                         Throwable ex = null;
                         for (Future<Bitmap> future : futures)
