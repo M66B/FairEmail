@@ -377,7 +377,7 @@
         appPassword="true"
         domain="ionos\\.de,ionos\\.com,online\\.de"
         keepalive="12"
-        link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/einstellungen-fuer-ihr-e-mail-programm/">
+        link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/serverinformationen-fuer-imap-pop-und-smtp/">
         <imap
             host="imap.ionos.de"
             port="993"
