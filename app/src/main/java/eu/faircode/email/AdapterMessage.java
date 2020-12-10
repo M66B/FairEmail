@@ -6365,14 +6365,48 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnEditRules.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_EDIT_RULES)
-                                    .putExtra("account", account)
-                                    .putExtra("protocol", protocol)
-                                    .putExtra("folder", folder)
-                                    .putExtra("type", type));
-                    dismiss();
+                    if (inJunk) {
+                        new SimpleTask<EntityFolder>() {
+                            @Override
+                            protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                                long account = args.getLong("account");
+
+                                DB db = DB.getInstance(context);
+                                EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
+
+                                if (inbox == null)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
+
+                                return inbox;
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, EntityFolder inbox) {
+                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                                lbm.sendBroadcast(
+                                        new Intent(ActivityView.ACTION_EDIT_RULES)
+                                                .putExtra("account", account)
+                                                .putExtra("protocol", protocol)
+                                                .putExtra("folder", inbox.id)
+                                                .putExtra("type", inbox.type));
+                                dismiss();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentDialogJunk.this, getArguments(), "junk");
+                    } else {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_EDIT_RULES)
+                                        .putExtra("account", account)
+                                        .putExtra("protocol", protocol)
+                                        .putExtra("folder", folder)
+                                        .putExtra("type", type));
+                        dismiss();
+                    }
                 }
             });
 

@@ -88,6 +88,6 @@
             android:id="@+id/grpInJunk"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvMessage,tvJunkHint,ibInfo,btnEditRules" />
+            app:constraint_referenced_ids="tvMessage,tvJunkHint,ibInfo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
