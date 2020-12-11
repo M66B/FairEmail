@@ -616,6 +616,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     jsettings.put(jsetting);
                 }
 
+                JSONObject jsearch = new JSONObject();
+                jsearch.put("key", "external_search");
+                jsearch.put("value", Helper.isComponentEnabled(context, ActivitySearch.class));
+                jsearch.put("type", "bool");
+                jsettings.put(jsearch);
+
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
                 jexport.put("answers", janswers);
@@ -974,6 +980,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                         if (key != null && key.startsWith("widget."))
                             continue;
+
+                        if ("external_search".equals(key)) {
+                            boolean external_search = jsetting.getBoolean("value");
+                            Helper.enableComponent(context, ActivitySearch.class, external_search);
+                            continue;
+                        }
 
                         Object value = jsetting.get("value");
                         String type = jsetting.optString("type");

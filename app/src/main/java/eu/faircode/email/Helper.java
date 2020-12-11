@@ -482,6 +482,12 @@ public class Helper {
         return (ris != null && ris.size() > 0);
     }
 
+    static boolean isComponentEnabled(Context context, Class<?> clazz) {
+        PackageManager pm = context.getPackageManager();
+        int state = pm.getComponentEnabledSetting(new ComponentName(context, clazz));
+        return (state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
+    }
+
     static void enableComponent(Context context, Class<?> clazz, boolean whether) {
         enableComponent(context, clazz.getName(), whether);
     }
