@@ -262,7 +262,9 @@ public class WorkerCleanup extends Worker {
                     }
 
             // Cleanup contact info
-            if (!manual)
+            if (manual)
+                ContactInfo.clearCache(context, true);
+            else
                 ContactInfo.cleanup(context);
 
             Log.i("Cleanup FTS=" + fts);
