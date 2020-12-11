@@ -3165,6 +3165,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     }
                     return false;
+                case KeyEvent.KEYCODE_8:
+                    if (event.isShiftPressed()) {
+                        onToggleFlag(message);
+                        return true;
+                    } else
+                        return false;
+                case KeyEvent.KEYCODE_NUMPAD_MULTIPLY:
+                    onToggleFlag(message);
+                    return true;
                 default:
                     return false;
             }
