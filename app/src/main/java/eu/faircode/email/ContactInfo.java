@@ -71,11 +71,13 @@ import java.util.concurrent.Future;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
+import javax.net.ssl.SSLSession;
 
 public class ContactInfo {
     private String email;
@@ -462,6 +464,12 @@ public class ContactInfo {
         connection.setReadTimeout(FAVICON_READ_TIMEOUT);
         connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
         connection.setInstanceFollowRedirects(true);
+        connection.setHostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        });
         connection.connect();
 
         String response;
@@ -537,6 +545,12 @@ public class ContactInfo {
         connection.setReadTimeout(FAVICON_READ_TIMEOUT);
         connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
         connection.setInstanceFollowRedirects(true);
+        connection.setHostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        });
         connection.connect();
 
         try {
