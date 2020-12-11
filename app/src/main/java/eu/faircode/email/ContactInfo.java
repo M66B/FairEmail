@@ -500,38 +500,40 @@ public class ContactInfo {
 
         // https://en.wikipedia.org/wiki/Favicon
         Elements imgs = new Elements();
-
-        for (Element link : doc.head().select("link[rel=icon]"))
-            if (link.hasAttr("href"))
-                imgs.add(link);
-
-        for (Element link : doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]"))
-            if (link.hasAttr("href") &&
-                    !"icon".equals(link.attr("rel")))
-                imgs.add(link);
-
-        for (Element meta : doc.head().select("meta[itemprop=image]"))
-            if (meta.hasAttr("content"))
-                imgs.add(meta);
+        imgs.addAll(doc.head().select("link[href~=.+\\.(ico|png|gif|svg)]"));
+        imgs.addAll(doc.head().select("meta[itemprop=image]"));
 
         Collections.sort(imgs, new Comparator<Element>() {
             @Override
             public int compare(Element img1, Element img2) {
+                boolean i1 = "icon".equalsIgnoreCase(img1.attr("rel")
+                        .replace("shortcut", "").trim());
+                boolean i2 = "icon".equalsIgnoreCase(img2.attr("rel")
+                        .replace("shortcut", "").trim());
+                int i = Boolean.compare(i1, i2);
+                if (i != 0)
+                    return -i;
+
+                boolean l1 = "link".equals(img1.tagName());
+                boolean l2 = "link".equals(img2.tagName());
+                int l = Boolean.compare(l1, l2);
+                if (l != 0)
+                    return -l;
+
                 String[] s1 = img1.attr("sizes").split("[x|X]");
                 String[] s2 = img2.attr("sizes").split("[x|X]");
-                Integer s1w = Helper.parseInt(s1.length == 2 ? s1[0] : null);
-                Integer s1h = Helper.parseInt(s1.length == 2 ? s1[1] : null);
-                Integer s2w = Helper.parseInt(s2.length == 2 ? s2[0] : null);
-                Integer s2h = Helper.parseInt(s2.length == 2 ? s2[1] : null);
-                if (s1w == null) s1w = 0;
-                if (s1h == null) s1h = 0;
-                if (s2w == null) s2w = 0;
-                if (s2h == null) s2h = 0;
+                Integer w1 = Helper.parseInt(s1.length == 2 ? s1[0] : null);
+                Integer h1 = Helper.parseInt(s1.length == 2 ? s1[1] : null);
+                Integer w2 = Helper.parseInt(s2.length == 2 ? s2[0] : null);
+                Integer h2 = Helper.parseInt(s2.length == 2 ? s2[1] : null);
                 return Integer.compare(
-                        Math.abs(Math.min(s1w, s1h) - scaleToPixels),
-                        Math.abs(Math.min(s2w, s2h) - scaleToPixels));
+                        Math.abs(Math.min(w1 == null ? 0 : w1, h1 == null ? 0 : h1) - scaleToPixels),
+                        Math.abs(Math.min(w2 == null ? 0 : w2, h2 == null ? 0 : h2) - scaleToPixels));
             }
         });
+
+        for (int i = 0; i < imgs.size(); i++)
+            Log.i("Favicon " + i + "=" + imgs.get(i) + " @" + base);
 
         List<Future<Bitmap>> futures = new ArrayList<>();
         for (Element img : imgs) {
