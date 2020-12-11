@@ -506,6 +506,12 @@ public class ContactInfo {
         Collections.sort(imgs, new Comparator<Element>() {
             @Override
             public int compare(Element img1, Element img2) {
+                boolean l1 = "link".equals(img1.tagName());
+                boolean l2 = "link".equals(img2.tagName());
+                int l = Boolean.compare(l1, l2);
+                if (l != 0)
+                    return -l;
+
                 boolean i1 = "icon".equalsIgnoreCase(img1.attr("rel")
                         .replace("shortcut", "").trim());
                 boolean i2 = "icon".equalsIgnoreCase(img2.attr("rel")
@@ -513,12 +519,6 @@ public class ContactInfo {
                 int i = Boolean.compare(i1, i2);
                 if (i != 0)
                     return -i;
-
-                boolean l1 = "link".equals(img1.tagName());
-                boolean l2 = "link".equals(img2.tagName());
-                int l = Boolean.compare(l1, l2);
-                if (l != 0)
-                    return -l;
 
                 String[] s1 = img1.attr("sizes").split("[x|X]");
                 String[] s2 = img2.attr("sizes").split("[x|X]");
