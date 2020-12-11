@@ -40,6 +40,7 @@ import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -485,7 +486,7 @@ public class ContactInfo {
 
         Document doc = JsoupEx.parse(response);
 
-        // <link rel="canonical" href="" />
+        // Use canonical address
         Element canonical = doc.head().select("link[rel=canonical]").first();
         if (canonical != null) {
             String href = canonical.attr("href");
@@ -493,24 +494,27 @@ public class ContactInfo {
                 base = new URL(href);
         }
 
+        // https://en.wikipedia.org/wiki/Favicon
+        Elements imgs = new Elements();
+
+        for (Element link : doc.head().select("link[rel=icon]"))
+            if (link.hasAttr("href"))
+                imgs.add(link);
+
+        for (Element link : doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]"))
+            if (link.hasAttr("href") &&
+                    !"icon".equals(link.attr("rel")))
+                imgs.add(link);
+
+        for (Element meta : doc.head().select("meta[itemprop=image]"))
+            if (meta.hasAttr("content"))
+                imgs.add(meta);
+
         List<Future<Bitmap>> futures = new ArrayList<>();
-
-        for (Element link : doc.head().select("link[href~=.*\\.(ico|png|gif|svg)]")) {
-            String favicon = link.attr("href");
-            if (TextUtils.isEmpty(favicon))
-                continue;
-
-            final URL url = new URL(base, favicon);
-            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                @Override
-                public Bitmap call() throws Exception {
-                    return getFavicon(url, scaleToPixels);
-                }
-            }));
-        }
-
-        for (Element meta : doc.head().select("meta[itemprop=image]")) {
-            String favicon = meta.attr("content");
+        for (Element img : imgs) {
+            String favicon = ("link".equals(img.tagName())
+                    ? img.attr("href")
+                    : img.attr("content"));
             if (TextUtils.isEmpty(favicon))
                 continue;
 
@@ -527,7 +531,7 @@ public class ContactInfo {
             try {
                 return future.get();
             } catch (Throwable ex) {
-                Log.e(ex);
+                Log.w(ex);
             }
 
         return null;
