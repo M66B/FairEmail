@@ -25,8 +25,12 @@ import android.text.TextUtils;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public class Contributor {
     public String name;
@@ -37,7 +41,7 @@ public class Contributor {
     }
 
     static List<Contributor> loadContributors(Context context) {
-        List<Contributor> result = null;
+        List<Contributor> result = new ArrayList<>();
         try {
             Contributor contributor = null;
             XmlResourceParser xml = context.getResources().getXml(R.xml.contributors);
@@ -66,6 +70,19 @@ public class Contributor {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+        Collections.sort(result, new Comparator<Contributor>() {
+            @Override
+            public int compare(Contributor c1, Contributor c2) {
+                String n1 = (TextUtils.isEmpty(c1.name) ? c1.alias : c1.name);
+                String n2 = (TextUtils.isEmpty(c2.name) ? c2.alias : c2.name);
+                return collator.compare(
+                        n1 == null ? "" : n1,
+                        n2 == null ? "" : n2);
+            }
+        });
 
         return result;
     }
