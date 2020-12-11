@@ -1105,7 +1105,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_trash">Papierkorb</string>
     <string name="title_legend_junk">Spam</string>
-    <string name="title_legend_primary">Hauptkonto</string>
+    <string name="title_legend_primary">Primär</string>
     <string name="title_legend_subscribed">Abonniert zu</string>
     <string name="title_legend_rule">Enthält Regeln</string>
     <string name="title_legend_similar">Ähnliche Nachrichten suchen</string>

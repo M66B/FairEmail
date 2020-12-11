@@ -1,22 +1,22 @@
 # FairEmail のサポート
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 下部には、他の質問をしたり、機能をリクエストしたり、バグを報告したりする方法を記載しています。
 
-## Index
+## 索引
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [アカウントの認証](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [さまざまな操作](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [既知の問題](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [予定されている機能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [よくリクエストされる機能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [よくある質問](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [サポートについて](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Authorizing accounts
+## アカウントの認証
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+ほとんどの場合、クイックセットアップは自動的に正しい設定を識別することができます。
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+クイックセットアップに失敗した場合は、アカウント(メール受信用) とID(メール送信用) を、手動で設定する必要があります。 この場合、SSL / TLSまたはSTARTTLSのどちらを使用するかに関わらず、IMAPおよびSMTPサーバーのアドレスとポート番号、そしてあなたのユーザー名（ほとんどの場合、あなたのメールアドレス）とあなたのパスワードが必要です。
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

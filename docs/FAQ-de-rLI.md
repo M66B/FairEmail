@@ -8,19 +8,19 @@ Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig ge
 * [Wie kann ich …?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Bekannte Probleme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Geplante Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Häufig angeforderte Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Häufig angefragte Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Hilfe anfordern](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hilfe bekommen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Konten autorisieren
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
-Wenn die schnelle Einrichtung fehlschlägt, müssen Sie manuell ein Konto (für den Empfang von E-Mails) und eine Identität (für den Versand von E-Mails) einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern, ob SSL/TLS oder STARTTLS verwendet werden soll, Ihren Benutzernamen (meistens, aber nicht immer, Ihre E-Mail-Adresse) und Ihr Passwort.
+Wenn die automatische Einrichtung fehlschlägt, müssen Sie manuell ein Konto (für den Empfang von E-Mails) und eine Identität (für den Versand von E-Mails) einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern, ob SSL/TLS oder STARTTLS verwendet werden soll und Ihren Benutzernamen (meistens, aber nicht immer, Ihre E-Mail-Adresse) und Ihr Passwort.
 
-Die Suche nach *IMAP* und dem Namen des Email-Anbieters reichen im Internet meistens aus, um die richtige Anleitung zu finden.
+Die Suche nach *IMAP* und dem Namen des Email-Anbieters reichen im Internet meist aus, um die richtige Anleitung zu finden.
 
-In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto gestatten und/oder ein spezielles (App-) Passwort verwenden, wenn beispielsweise eine Zwei-Faktor-Authentifizierung aktiviert ist.
+In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto erlauben und/oder ein spezielles (App-) Passwort verwenden, wenn beispielsweise eine Zwei-Faktor-Authentifizierung aktiviert ist.
 
 Zur Autorisierung:
 
@@ -43,22 +43,22 @@ Verwandte Fragen:
 
 ## Wie kann ich …?
 
-* Kontonamen ändern: Einrichten, Schritt 1, Verwalten, Konto tippen
-* Ändern Sie das Ziel für das Links/Rechts-Wischen: Einrichten, Verhalten, Wisch-Aktionen einstellen
-* Passwort ändern: Einrichten, Schritt 1, Verwalten, Konto tippen, Passwort ändern
-* Signatur festlegen: Setup, Schritt 2, Verwalten, Identität tippen, Signatur bearbeiten.
+* Kontonamen ändern: Einstellungen, Punkt 1, Verwalten, Konto antippen
+* Ziel für das Links-/Rechts-Wischen ändern: Einstellungen, Verhalten, Wischgesten festlegen
+* Passwort ändern: Einstellungen, Punkt 1, Verwalten, Konto antippen, Passwort ändern
+* Signatur festlegen: Einstellungen, Punkt 2, Verwalten, Identität antippen, Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
-* Gehe zur nächsten/vorherigen Nachricht im Archiv/Löschen: In den Einstellungen deaktiviere *Konversation automatisch schließen* und wähle *Gehe zur nächsten/vorherigen Konversation* für *Beim Schließen einer Konversation*
-* Fügen Sie einen Ordner zum einheitlichen Posteingang hinzu: Drücken Sie lange den Ordner in der Ordnerliste und markieren Sie *Im einheitlichen Posteingang anzeigen*
-* Fügen Sie einen Ordner zum Navigationsmenü hinzu: Drücken Sie lange den Ordner in der Ordnerliste und markieren Sie *Im Navigationsmenü anzeigen*
+* Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
+* Fügen Sie einen Ordner zum einheitlichen Posteingang hinzu: Drücken Sie lange auf den Ordner in der Ordnerliste und haken Sie *Im einheitlichen Posteingang anzeigen* an
+* Fügen Sie einen Ordner zum Navigationsmenü hinzu: Halten Sie dazu den Ordner in der Ordnerliste gedrückt und haken Sie *Im Navigationsmenü anzeigen* an
 * Weitere Nachrichten laden: Drücken Sie lange auf einen Ordner in der Ordnerliste, wählen Sie *Weitere Nachrichten synchronisieren*
 * Lösche eine Nachricht, überspringe den Papierkorb: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder deaktiviere den Papierkorb in den Kontoeinstellungen
-* Konto/Identität löschen: Schritt 1/2, Verwalten, Benutzerkonten/Identität, Drei-Punkte-Menü, Löschen
+* Konto/Identität löschen: Einstellungen, Punkt 1/2, Verwalten, Benutzerkonten/Identität, Drei-Punkte-Menü, Löschen
 * Ordner löschen: Drücken Sie lange auf den Ordner in der Ordnerliste, Eigenschaften, Drei-Punkte-Menü, Löschen
 * Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
 * Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
-* Systemordner ändern: Einrichten, Schritt 1, Verwalten, Benutzerkonto unten
-* Export-/Import-Einstellungen: Einrichtung, Navigations-/Hamburgermenü
+* Systemordner ändern: Einstellungen, Punkt 1, Verwalten, Benutzerkonto unten
+* Export-/Import-Einstellungen: Einstellungen, Navigations-/Hamburgermenü
 
 ## Bekannte Probleme
 

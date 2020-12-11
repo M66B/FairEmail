@@ -644,61 +644,61 @@ Bemærk, at certifikater kan indeholde flere nøgler til flere formål, f.eks. t
 
 Bemærk, at S/MIME-signering med andre algoritmer end RSA understøttes, hvilket dog ikke er tilfældet for alle e-mailklienter. S/MIME-kryptering er kun mulig med symmetriske algoritmer, hvilket i praksis betyder brug af RSA.
 
-Standardkrypteringsmetoden er PGP, men den sidst anvendte krypteringsmetode huskes for den valgte identitet. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+Standardkrypteringsmetoden er PGP, men den sidst anvendte krypteringsmetode huskes for den valgte identitet. Det kan være nødvendigt igen at aktivere Send-mulighederne i trepriksmenuen for at kunne vælge krypteringsmetode.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+For at tillade forskellige private nøgler til den samme e-mailadresse lader FairEmail dig altid vælge en nøgle, når der er flere identiteter til den samme e-mailadresse for den samme konto.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
+Offentlige nøgler lagres af FairEmail og kan importeres ifm. førstegangsbekræftelse af en signatur eller via fortrolighedsindstillingerne (PEM- eller DER-format).
 
-FairEmail verifies both the signature and the complete certificate chain.
+FairEmail foretager bekræftelse af både signaturen samt den komplette certifikatkæde.
 
-Common errors:
+Almindelige fejl:
 
 * *Intet certifikat fundet, der matcher targetContraints*: Dette betyder sandsynligvis, at en gammel version af FairEmail benyttes
 * *kunne ikke finde en gyldig certificeringssti til det anmodede mål*: Dette betyder grundlæggende, at der ikke blev fundet en eller flere mellem- eller rodcertifikater
 * *Privat nøgle matcher ikke nogle krypteringsnøgler*: Den valgte nøgle kan ikke anvendes til beskeddekrypteringen, da den sandsynligvis ikke er den korrekte nøgle
 * *Ingen privat nøgle*: Intet certifikat er valgt eller intet certifikat var tilgængeligt i Android-nøglelageret
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+Er certifikatkæden forkert, kan du trykke på den lille infoknap for at få vist alle certifikaterne. Udstederen eller "selfSign" vises efter certifikatoplysningerne. Et certifikater selvsigneret, når både emne og udsteder er identiske. Certifikater fra en certifikatmyndighed (CA) er markeret med "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certifikater i Android-nøglelageret er markeret med "Android".
 
-A valid chain looks like this:
+En gyldig kæde ser således ud:
 
 ```
 Dit certifikat > nul eller flere mellemliggende certifikater > CA (root) certifikat markeret med "Android"
 ```
 
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
+Bemærk, at en certifikatkæde altid er ugyldig, hvis intet ankercertifikat findes i Android-nøglelageret, hvilket er fundamentalt for S/MIME-certifikatbekræftelse.
 
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
+Tjek [hér](https://support.google.com/pixelphone/answer/2844832?hl=en), hvordan certifikater kan importeres til Android-nøglelageret.
 
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
+Brug af udløbne nøgler, inline-krypterede/signerede beskeder samt hardwaresikkerhedstokens er uunderstøttet.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+Kigger du efter et gratis (test) S/MIME-certifikat, tjek [hér](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for muligheder. Husk at [læse dette først](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) ved anmodning om et S/MIME Actalis-certifikat. Kigger du efter et billigt S/MIME-certifikat, havde jeg en god oplevelse med [Certum](https://www.certum.eu/en/smime-certificates/).
 
-How to extract a public key from a S/MIME certificate:
+Sådan udpakkes en offentlig nøgle fra et S/MIME-certifikat:
 
 ```
 openssl pkcs12 -in filenavn.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Du kan afkode S/MIME-signaturer mv. [hér](https://lapo.it/asn1js/).
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+S/MIME-signering/kryptering er en Pro-funktion, men alle øvrige PGP- og S/MIME-operationer kan frit afbenyttes.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Hvordan fungerer søgning på en enhed/server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Du kan starte beskedsøgning efter Afsender (fra), Modtager (til, kopi, bcc), Emne, nøgleord eller beskedtekst vha. forstørrelsesglasset i en mappes handlingslbjælke. Du kan også søge fra enhver app ved at vælge *Søg e-mail * i popup-menuen kopiér/indsæt.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Søgning i den fælles indbakke udføres i alle mapper på alle konti, søgning i mappelisten udføres kun for den tilknyttede konto og søgning i en mappe udføres kun i dén mappe.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Beskeder søges først på enheden. Der vil være en handlingsknap med et søg igen-ikon i bunden for at fortsætte søgningen på serveren. Du kan vælge, i hvilken mappe, du vil fortsætte søgningen.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+IMAP-protokollen understøtter ikke søgning i flere end én mappe ad gangen. Søgning på serveren er en ressourcekrævende operation, hvorfor flere mapper ikke kan vælges.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Deltekstsøgning i lokale beskeder er versal-/minuskel-ufølsom. Lokle beskedtekster gennemsøges kun, hvis selve beskedteksterne er blevet downloadet. Søgning på serveren kan være både versal-/minuskel-følsom eller -ufølsom og kan være på deltekst eller hele ord, afhængigt af udbyderen.
 
 Visse servere kan ikke håndtere søgning i beskedtekster ved større beskedantal. For sådanne tilfælde findes en mulighed for at deaktivere søgning i beskedtekster.
 
@@ -811,9 +811,9 @@ Det rigtige spørgsmål er, "*hvorfor der er så mange skatter og afgifter?*":
 * Inkomstskat: 50 %
 * <sub>Paypal-gebyr: 5-10 % afhængigt af land/beløb</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Så dét, der er tilbage til udvikleren, er blot en brøkdel af dét, du betaler.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Bemærk, at det kun er nødvendigt at købe visse bekvemmeligheds- og avancerede funktioner, hvilket betyder, at FairEmail grundlæggende er gratis at benytte.
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
@@ -864,7 +864,7 @@ Fejlen *... Connection refused ...* means that the email server or something bet
 
 Fejlen *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
-Fejlen *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. Dette kan skyldes et VPN, adblocking eller en utilgængelig/ikke korrekt fungerende (lokal) [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
+Fejlen *... Vært er uopløst ...*, "*... Kan ikke opløse vært...* eller *... Ingen adresse tilknyttet værtsnavn ...* betyder, at adressen på e-mailserveren ikke kunne opløses til en IP-adresse. Dette kan skyldes et VPN, adblocking eller en utilgængelig/ikke korrekt fungerende (lokal) [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
 
 Fejlen *... Softwareforårsaget forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og denne, aktivt afsluttede en eksisterende forbindelse. Dette kan f. eks. ske, når tilslutningen mistes pludseligt. Et typisk eksempel er aktivering af Flytilstand.
 
@@ -925,7 +925,7 @@ Fejlene *... Godkendelse mislykkedes... Ingen token ...* betyder, at Android-kon
 
 Fejlen *... Godkemdelse mislykkedes ... netværksfejl ...* betyder, at Android-kontohåndteringen var ude af stand til at opfriske godkendelsen af en Gmail-konto grundet Internetforbindelsesproblemer
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+Fejlen *... Godkendelse mislykkedes... Ugyldige akkreditiver ...* kan være forårsaget af en skiftet kontoadgangskoden eller ophævelse af de krævede konto-/kontakttilladelser. Er kontoadgangskoden skiftet, så godkend igen Google-kontoen i indstillingerne for Android-kontoen. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 

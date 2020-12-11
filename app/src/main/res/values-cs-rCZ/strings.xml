@@ -157,6 +157,7 @@
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
+    <string name="title_setup_gmail_password">Chci autorizovat účet pomocí hesla</string>
     <string name="title_setup_office_remark">Microsoft tento typ autorizace neposkytuje pro účty Outlook, Live, Hotmail, atd.</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
@@ -481,6 +482,7 @@
     <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
     <string name="title_advanced_deleted_unseen">Je-li vypnuto, nepřečtené zprávy zůstanou ponechány v zařízení navždy</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
+    <string name="title_advanced_gmail_thread_hint">Platí pouze pro nově přijaté zprávy a může ovlivnit existující skupiny</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
@@ -617,6 +619,7 @@
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_drafts">Žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
+    <string name="title_no_composable">Odesílání e-mailů vyžaduje nastavenou identitu a v nastavení účtu zvolit složku pro koncepty (nastavení, krok 1)</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
