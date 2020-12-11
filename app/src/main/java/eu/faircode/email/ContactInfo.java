@@ -59,6 +59,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -98,6 +100,8 @@ public class ContactInfo {
     private static final ExecutorService executorFavicon =
             Helper.getBackgroundExecutor(0, "favicon");
 
+    private static final int GENERATED_ICON_SIZE = 96; // dp
+    private static final int FAVICON_ICON_SIZE = 64; // dp
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
@@ -346,7 +350,7 @@ public class ContactInfo {
                         else
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     else {
-                        final int scaleToPixels = Helper.dp2pixels(context, 64);
+                        final int scaleToPixels = Helper.dp2pixels(context, FAVICON_ICON_SIZE);
 
                         List<Future<Bitmap>> futures = new ArrayList<>();
 
@@ -426,7 +430,7 @@ public class ContactInfo {
         // Generated
         boolean identicon = false;
         if (info.bitmap == null && generated) {
-            int dp = Helper.dp2pixels(context, 96);
+            int dp = Helper.dp2pixels(context, GENERATED_ICON_SIZE);
             if (!TextUtils.isEmpty(info.email)) {
                 if (identicons) {
                     identicon = true;
@@ -509,6 +513,25 @@ public class ContactInfo {
         for (Element meta : doc.head().select("meta[itemprop=image]"))
             if (meta.hasAttr("content"))
                 imgs.add(meta);
+
+        Collections.sort(imgs, new Comparator<Element>() {
+            @Override
+            public int compare(Element img1, Element img2) {
+                String[] s1 = img1.attr("sizes").split("[x|X]");
+                String[] s2 = img2.attr("sizes").split("[x|X]");
+                Integer s1w = Helper.parseInt(s1.length == 2 ? s1[0] : null);
+                Integer s1h = Helper.parseInt(s1.length == 2 ? s1[1] : null);
+                Integer s2w = Helper.parseInt(s2.length == 2 ? s2[0] : null);
+                Integer s2h = Helper.parseInt(s2.length == 2 ? s2[1] : null);
+                if (s1w == null) s1w = 0;
+                if (s1h == null) s1h = 0;
+                if (s2w == null) s2w = 0;
+                if (s2h == null) s2h = 0;
+                return Integer.compare(
+                        Math.abs(Math.min(s1w, s1h) - scaleToPixels),
+                        Math.abs(Math.min(s2w, s2h) - scaleToPixels));
+            }
+        });
 
         List<Future<Bitmap>> futures = new ArrayList<>();
         for (Element img : imgs) {
