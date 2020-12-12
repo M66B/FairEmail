@@ -155,7 +155,7 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(32) Hur kan jag kontrollera om det verkligen är säkert att läsa e-post?](#user-content-faq32)
 * [(33) Varför fungerar inte avsändaradresser?](#user-content-faq33)
 * [(34) Hur matchas identiteterna?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
+* [(35) Varför ska jag vara försiktig med att visa bilder, bilagor, det ursprungliga meddelandet och öppna länkar?](#user-content-faq35)
 * [(36) Hur krypteras inställningsfilerna?](#user-content-faq36)
 * [(37) Hur lagras lösenord?](#user-content-faq37)
 * [(39) Hur kan jag minska batterianvändningen i FairEmail?](#user-content-faq39)
@@ -226,7 +226,7 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(105) Hur fungerar roaming som hemma?](#user-content-faq105)
 * [(106) Vilken hemapp kan visa ett märke med antalet olästa meddelanden?](#user-content-faq106)
 * [(107) Hur använder jag färgade stjärnor?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~(108) Kan du lägga till att permanent ta bort meddelanden i valfri mapp?~~](#user-content-faq108)
 * [~~(109) Varför finns "välj konto" endast i officiella versioner?~~](#user-content-faq109)
 * [(110) Varför är (vissa) meddelanden tomma och/eller bilagor korrumperade?](#user-content-faq110)
 * [(111) Stöds OAuth?](#user-content-faq111)
@@ -355,14 +355,14 @@ Om du kom hit genom att klicka på aviseringen, bör du veta att nästa klick ko
 
 Meddelandet med låg prioritet visar antalet pågående åtgärder, som kan vara:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
-* *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
+* *lägg till*: lägg till meddelande i fjärrmapp
+* *flytta*: flytta meddelande till en annan fjärrmapp
+* *kopiera*: kopiera meddelande till en annan fjärrmapp
+* *hämta*: hämta ändrade (push) meddelande
+* *radera*: radera meddelande i fjärrmapp
+* *sett*: markera meddelande som läst/oläst i fjärrmapp
+* *besvarat*: markera meddelandet som besvarat i fjärrmapp
+* *flagga*: Lägg till/ta bort stjärna i fjärrmapp
 * *keyword*: add/remove IMAP flag in remote folder
 * *label*: set/reset Gmail label in remote folder
 * *headers*: download message headers

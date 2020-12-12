@@ -1,28 +1,28 @@
-# E-Posta Desteği
+# FairEmail Destek
 
-Sorununuz olması halinde, öncelikle aşağıdaki sıkça sorulan soruları kontrol ediniz. Son kısımda diğer soruları nasıl soracağınız, özellikleri nasıl talep edeceğiniz ve hataları nasıl şikayet edeceğiniz anlatılmıştır.
+Sorununuz olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. Alt bölümde diğer sorularınızı nasıl sorabileceğinizi, özellikleri nasıl talep edebileceğinizi ve hataları nasıl rapor edebileceğinizi bulabilirsiniz.
 
-## İçindekiler
+## Dizin
 
 * [Hesap Yetkilendirme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Nasıl yapılır?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Bilinen Hatalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Nasıl yapılır ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Bilinen hatalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Planlanan Özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Sıkça İstenen Özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Sıkça talep edilen özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Sıkça Sorulan Sorular](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Yardım alın](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Hesap Yetkilendirme
 
-Çoğu zaman hızlı kurulum doğru konfigürasyonu otomatik olarak tanımlayacaktır.
+Çoğu durumda hızlı kurulum doğru konfigürasyonu otomatik olarak tanımlayacaktır.
 
-Hızlı kurulumun çalışmadığı durumlarda, (e-posta almak için) bir hesap ve (e-posta gönderebilmek için) bir kimlik oluşturmalısınız. Bunun için SSL/TLS veya STARTTLS kullanılan IMAP ve SMTP sunucu adresi ve bağlantı noktası numaraları, (genellikle e-posta adresin olan) kullanıcı adın ve şifren gerekmektedir.
+Hızlı kurulumun çalışmadığı durumlarda, manuel olarak bir kimlik oluşturmanız ( e-posta gönderebilmek için) ve hesap kurmanız (e-posta alabilmek için) gerecektir. Bunun için gerek SSL/TLS veya STARTTLS kullanılan; IMAP ve SMTP sunucu adresi, bağlantı noktası numaraları ve kullanıcı adı (genellikle e-posta adresiniz) ve şifreniz gerekmektedir.
 
-*IMAP* ve sağlayıcının adını aramak çoğunlukla doğru belgelemeyi bulmak için yeterlidir.
+*IMAP* ve sağlayıcının adını aramak, çoğunlukla doğru belgeyi bulmak için yeterlidir.
 
-Bazı durumlarda, örneğin iki faktörlü kimlik doğrulamada, hesabınıza üçüncü parti erişimine izin vermek ve/veya özel (uygulama) şifre kullanmak durumunda kalabilirsiniz.
+Bazı durumlarda, örneğin iki faktörlü kimlik doğrulama etkinse, hesabınıza üçüncü parti erişimine izin vermek ve/veya özel (uygulama) şifre kullanmanız gerecektir.
 
-Yetkilendirme için:
+Yetkilendirmek için:
 
 * Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
 * Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
@@ -32,7 +32,7 @@ Yetkilendirme için:
 * Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
 * Free.fr, [157. soru](#user-content-faq157)ya bakınız
 
-Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-faq22) kontrol ediniz.
+Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-faq22) kontrol ediniz.
 
 İlgili sorular:
 
@@ -41,18 +41,18 @@ Sıkça rastlanan hata iletileri ve çözümleri için [burayı](#user-content-f
 
 <a name="howto">
 
-## Nasıl yapılır?
+## Nasıl yapılır ...?
 
 * Hesap ismini değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın
-* Sağ/sol hedefi değiştirme: Kurulum, Davranış, hareketleri değiştirmeyi ayarlayın
-* Şifreyi değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın, şifreyi değiştirin
-* İmza ayarlama: Kurulum, adım 2, Yönet, kimliğe tıklayın, imzayı düzenleyin.
-* CC ve BCC adresi ekleme: konu kısmının sonundaki insan ikonuna tıklayın
+* Sağa/sola kaydırma hareketlerini değiştirme: Kurulum, Davranış, Kaydırma hareketlerini ayarla
+* Şifre değiştirme: Kurulum, adım 1, Yönet, hesaba tıklayın, şifreyi değiştirin
+* İmza ayarlama: Kurulum, adım 2, Yönet, kimliğe tıklayın, İmzayı düzenleyin.
+* CC ve BCC adresleri ekleme: başlık kısmının sonundaki kişi ikonuna tıklayın
 * Arşiv/silinenlerdeki bir önceki/sonraki mesaja gitme: davranış ayarlarında *konuşmaları otomatik silmeyi* devre dışı bırakıp *bir görüşmeyi kapatırken* *bir sonraki/önceki konuşmaya giti* seçin
-* Toplu gelen kutusuna dosya ekleme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Toplu gelen postayı gösteri* seçin
-* Dolaşım menüsüne dosya ekleme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Navigasyon menüsünü gösteri* seçin
-* Daha fazla mesaj gösterme: dosya listesindeki dosyaya uzun süre basılı tutun ve *Daha fazla mesaj eşzamanlayı* seçin
-* Çöp kutusunu atlayarak bir mesajı silme: mesaj kutusunun üstündeki üç noktaya tıklayıp *Sil*in veya hesap ayarlarında çöp kutusu seçeneğini kaldırın
+* Birleşik gelen kutusuna klasör ekleme: klasör listesindeki klasöre basılı tutun ve *Birleşik gelen postayı göster*i işaretleyin
+* Dolaşım menüsüne dosya ekleme: klasör listesindeki klasöre basılı tutun ve *Navigasyon menüsünde göster*i işaretleyin
+* Daha fazla mesaj yükleme: klasör listesindeki klasöre basılı tutun ve *Daha fazla mesajı senkronize et*i işaretleyin
+* Çöp kutusuna göndermeden bir mesajı silme: mesaj metninin hemen üstündeki üç noktaya tıklayıp *Sil*e veya hesap ayarlarında çöp kutusu seçeneğini kaldır seçeneğine tıklayınız
 * Hesabı/Kimliği silme: Kurulum adım 1/2, Yönet, hesap/kimliğe tıklayın, üç noktaya tıklayın, Silin
 * Dosya silme: dosya listesindeki dosyaya uzun süre basılı tutun, özellikleri düzenle, üç noktaya tıklayın, silin
 * Gönderilen mesajı iptal etme: mesaja tıklayın, geri al ikonuna tıklayın

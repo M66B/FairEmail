@@ -572,7 +572,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
     <string name="title_ehlo">Benutzerdefinierte HELO/EHLO-Identifikation</string>
-    <string name="title_primary">Hauptkonto</string>
+    <string name="title_primary">Primär</string>
     <string name="title_primary_account">Hauptkonto</string>
     <string name="title_primary_identity">Hauptidentität</string>
     <string name="title_self_identity">E-Mail-Adresse beim Antworten entfernen</string>

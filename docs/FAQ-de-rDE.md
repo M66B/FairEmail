@@ -49,12 +49,12 @@ Verwandte Fragen:
 * Signatur festlegen: Einstellungen, Punkt 2, Verwalten, Identität antippen, Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
 * Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
-* Fügen Sie einen Ordner zum einheitlichen Posteingang hinzu: Drücken Sie lange auf den Ordner in der Ordnerliste und haken Sie *Im einheitlichen Posteingang anzeigen* an
-* Fügen Sie einen Ordner zum Navigationsmenü hinzu: Halten Sie dazu den Ordner in der Ordnerliste gedrückt und haken Sie *Im Navigationsmenü anzeigen* an
-* Weitere Nachrichten laden: Drücken Sie lange auf einen Ordner in der Ordnerliste, wählen Sie *Weitere Nachrichten synchronisieren*
-* Lösche eine Nachricht, überspringe den Papierkorb: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder deaktiviere den Papierkorb in den Kontoeinstellungen
+* Einen Ordner zum Sammeleingang hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Sammeleingang anzeigen* ankreuzen
+* Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
+* Weitere Nachrichten laden: lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten synchronisieren* auswählen
+* Eine Nachricht löschen und den den Papierkorb überspringen: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder den Papierkorb in den Kontoeinstellungen deaktivieren
 * Konto/Identität löschen: Einstellungen, Punkt 1/2, Verwalten, Benutzerkonten/Identität, Drei-Punkte-Menü, Löschen
-* Ordner löschen: Drücken Sie lange auf den Ordner in der Ordnerliste, Eigenschaften, Drei-Punkte-Menü, Löschen
+* Ordner löschen: lange auf den Ordner in der Ordnerliste drücken, Eigenschaften, Drei-Punkte-Menü, Löschen
 * Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
 * Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
 * Systemordner ändern: Einstellungen, Punkt 1, Verwalten, Benutzerkonto unten
@@ -389,42 +389,42 @@ Operationen werden nur bearbeitet, wenn eine Verbindung zum E-Mail-Server besteh
 
 Kontaktieren Sie Ihren Provider, um dieses Problem zu beheben oder besorgen Sie sich ein gültiges Sicherheitszertifikat, da ungültige und dadurch unsichere Sicherheitszertifikate [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ermöglichen. Falls Sie die Kosten hierfür scheuen, dann können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) beziehen.
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternativ können Sie den Fingerabdruck ungültiger Server-Zertifikate wie folgt akzeptieren:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke, etc)
+1. Gehen Sie zu den Einstellungen über das Navigationsmenü (wischen Sie von der linken Seite nach innen)
+1. Tippen Sie in Schritt 1 und 2 auf *Verwalten* und tippen Sie auf das fehlerhafte Konto und Identität
+1. Prüfen/Speichern Sie Konto und Identität
+1. Markieren Sie das Kontrollkästchen unterhalb der Fehlermeldung und speichern Sie erneut
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Dies wird das Serverzertifikat an das Konto "binden", um Man-in-the-Middle-Angriffe zu verhindern.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsstellen, wie Let’s Encrypt, möglicherweise nicht akzeptieren wodurch Internetverbindungen als unsicher eingestuft werden können, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Vertrauensanker für Zertifizierungspfad nicht gefunden*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* bedeutet, dass der standardmäßige Android Trust Manager die Server-Zertifikatskette nicht überprüfen konnte.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Sie sollten entweder die Serverkonfiguration korrigieren oder den unten angezeigten Fingerabdruck akzeptieren.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Beachten Sie, dass dieses Problem dadurch verursacht werden kann, dass der Server nicht alle Zwischenzertifikate sendet.
 
 *Leeres Passwort*
 
-Your username is likely easily guessed, so this is insecure.
+Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist dies unsicher.
 
-*Plain text connection*
+*Klartext-Verbindung*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Benutzername und Passwort, sowie alle Nachrichten, werden unverschlüsselt gesendet und empfangen, was im **höchsten Maße unsicher** ist, weil eine [Man-in-the-Middle-Attacke](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf einer unverschlüsselten Verbindung sehr einfach ist.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Wenn Sie dennoch ein ungültiges Sicherheitszertifikat, ein leeres Passwort oder eine Klartext-Verbindung verwenden möchten, dann müssen Sie unsichere Verbindungen in den Konto- und/oder Identitätseinstellungen aktivieren. STARTTLS sollte für Klartext-Verbindungen ausgewählt werden. Wenn Sie unsichere Verbindungen aktivieren, sollten Sie sich nur über private, vertrauenswürdige Netzwerke verbinden und niemals über öffentliche Netzwerke, wie sie in Hotels, Flughäfen usw. angeboten werden.
 
 <br />
 
 <a name="faq5"></a>
 **(5) Wie kann ich die Nachrichtenanzeige anpassen?**
 
-In the three dot overflow menu you can enable or disable or select:
+Im Burger-Menü können Sie die folgenden Optionen aktivieren/deaktivieren bzw. wählen:
 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
@@ -446,40 +446,40 @@ Im Bereich "Anzeige" der Einstellungen können Sie ein- oder ausschalten:
 * *Bilder von bekannten Kontakten anzeigen*: Wenn Sie Bilder von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
 * *Konversations-Aktionsleiste*: Blendet die untere Navigationsleiste ein oder aus
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
+Beachten Sie, dass die Nachrichtenvorschau nur angezeigt werden kann, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. Sie können dies in den Einstellungen ändern.
 
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Wenn die Liste der Adressaten sehr lang ist, dann können Sie den Adressbereich mit dem *Weniger* Symbol oben im Adressbereich einklappen.
 
-Some people ask:
+Einige Benutzer fragten:
 
 * wie man den Betreff fett anzeigen lassen kann, obwohl eine fette Schrift bereits verwendet wird, um ungelesene Nachrichten hervorzuheben
 * wie man die Adresse oder den Betreff unabhängig von der Textgröße-Option in den Einstellungen größer/kleiner anzeigen lassen kann
 * um den Stern nach links zu bewegen, aber es ist viel einfacher, den Stern auf der rechten Seite zu bedienen
 
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wären nicht nur verwirrend, sondern auch nie ausreichend.
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Sie können den Schnelleinrichtungsassistenten verwenden, um einfach ein Gmail-Konto und eine Gmail-Identität einzurichten.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Wenn Sie kein Gmail-Konto auf dem Gerät verwenden möchten, können Sie entweder den Zugriff für „weniger sichere Apps“ aktivieren und Ihr Kontopasswort verwenden (nicht empfohlen) oder die Zwei-Faktor-Authentifizierung aktivieren und ein appspezifisches Passwort verwenden. Um ein Passwort zu verwenden, müssen Sie Konto und Identität über die Einrichtungsschritte 1 und 2 statt über den Schnelleinrichtungs-Assistenten einrichten.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Bitte lesen Sie in [dieser FAQ](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein Anwendungsspezifisches Passwort erforderlich ist.
 
 <br />
 
-*Enable "Less secure apps"*
+*Anwendungsspezifisches Passwort*
+
+Wie ein Anwendungsspezifisches Passwort erstellt wird, sehen Sie [hier](https://support.google.com/accounts/answer/185833).
+
+<br />
+
+*„Weniger sichere Anwendungen“ aktivieren*
 
 **Important**: using this method is not recommended because it is less reliable.
 
