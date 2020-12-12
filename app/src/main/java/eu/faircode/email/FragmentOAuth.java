@@ -658,9 +658,10 @@ public class FragmentOAuth extends FragmentBase {
         if ("gmail".equals(id))
             tvGmailDraftsHint.setVisibility(View.VISIBLE);
 
-        if ("office365".equals(id) &&
-                ex instanceof AuthenticationFailedException) {
-            tvOfficeAuthHint.setVisibility(View.VISIBLE);
+        if ("office365".equals(id)) {
+            if (ex instanceof AuthenticationFailedException)
+                tvOfficeAuthHint.setVisibility(View.VISIBLE);
+
             String e = etEmail.getText().toString().toLowerCase();
             if (e.contains("@outlook") ||
                     e.contains("@live") ||
