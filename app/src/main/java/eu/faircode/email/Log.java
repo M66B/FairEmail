@@ -41,6 +41,7 @@ import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
+import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -689,7 +690,7 @@ public class Log {
             // Some Android versions (Samsung) send images as clip data
             return false;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             /*
                 java.lang.RuntimeException: Failure from system
                   at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1327)
@@ -706,7 +707,16 @@ public class Log {
              */
             Throwable cause = ex;
             while (cause != null) {
-                if (cause instanceof DeadObjectException) // Includes DeadSystemException
+                if (cause instanceof DeadObjectException)
+                    return false;
+                cause = cause.getCause();
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Throwable cause = ex;
+            while (cause != null) {
+                if (cause instanceof DeadSystemException)
                     return false;
                 cause = cause.getCause();
             }
