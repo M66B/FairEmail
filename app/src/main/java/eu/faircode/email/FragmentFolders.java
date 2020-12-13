@@ -346,6 +346,7 @@ public class FragmentFolders extends FragmentBase {
     private void onSwipeRefresh() {
         Bundle args = new Bundle();
         args.putLong("account", account);
+        args.putBoolean("primary", primary);
 
         new SimpleTask<Void>() {
             @Override
@@ -356,6 +357,7 @@ public class FragmentFolders extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
+                boolean primary = args.getBoolean("primary");
 
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
@@ -371,6 +373,12 @@ public class FragmentFolders extends FragmentBase {
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
+
+                    if (primary) {
+                        EntityAccount account = db.account().getPrimaryAccount();
+                        if (account != null)
+                            aid = account.id;
+                    }
 
                     List<EntityFolder> folders;
                     if (aid < 0)
