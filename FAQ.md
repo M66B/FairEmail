@@ -1318,6 +1318,7 @@ Note that this is independent of receiving messages.
 Identities are as expected matched by account.
 For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order)
 and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 

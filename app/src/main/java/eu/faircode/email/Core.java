@@ -3113,13 +3113,15 @@ class Core {
                 addresses.addAll(Arrays.asList(message.bcc));
             if (message.from != null)
                 addresses.addAll(Arrays.asList(message.from));
-            if (message.deliveredto != null)
-                try {
-                    addresses.add(new InternetAddress(message.deliveredto));
-                } catch (AddressException ex) {
-                    Log.w(ex);
-                }
         }
+
+        InternetAddress deliveredto = null;
+        if (message.deliveredto != null)
+            try {
+                deliveredto = new InternetAddress(message.deliveredto);
+            } catch (AddressException ex) {
+                Log.w(ex);
+            }
 
         // Search for matching identity
         List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
@@ -3132,6 +3134,11 @@ class Core {
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)
                     if (identity.similarAddress(address))
+                        return identity;
+
+            if (deliveredto != null)
+                for (EntityIdentity identity : identities)
+                    if (identity.sameAddress(deliveredto) || identity.similarAddress(deliveredto))
                         return identity;
         }
 
