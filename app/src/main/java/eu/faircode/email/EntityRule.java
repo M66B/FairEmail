@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -671,6 +672,14 @@ public class EntityRule {
 
     private static void speak(Context context, EntityRule rule, EntityMessage message) throws IOException {
         Log.i("Speaking name=" + rule.name);
+
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        int callState = tm.getCallState();
+        if (callState != TelephonyManager.CALL_STATE_IDLE) {
+            EntityLog.log(context, "Call state=" + callState + " rule=" + rule.name);
+            return;
+        }
+
         Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
 
         Configuration configuration = new Configuration(context.getResources().getConfiguration());
