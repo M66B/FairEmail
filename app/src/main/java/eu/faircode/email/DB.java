@@ -276,9 +276,19 @@ public abstract class DB extends RoomDatabase {
                 .addCallback(new Callback() {
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        Log.i("Database version=" + db.getVersion());
+                        Log.i("Database" +
+                                " version=" + db.getVersion() +
+                                " WAL=" + db.isWriteAheadLoggingEnabled());
 
-                        if (BuildConfig.DEBUG) {
+                        try (Cursor cursor = db.query("PRAGMA journal_mode;")) {
+                            Log.i("journal_mode=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
+                        }
+
+                        try (Cursor cursor = db.query("PRAGMA wal_autocheckpoint;")) {
+                            Log.i("wal_autocheckpoint=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                        }
+
+                        if (BuildConfig.DEBUG && false) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
                         }
