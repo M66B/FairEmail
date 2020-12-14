@@ -410,6 +410,7 @@
     <string name="title_advanced_parse_classes">Parse style sheets</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
 
+    <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>

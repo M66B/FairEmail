@@ -49,6 +49,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean eula = prefs.getBoolean("eula", false);
+        boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
@@ -91,9 +92,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                         Intent saved = args.getParcelable("intent");
-                        if (saved == null)
+                        if (saved == null) {
                             startActivity(view);
-                        else
+                            if (sync_on_launch)
+                                ServiceUI.sync(ActivityMain.this, null);
+                        } else
                             try {
                                 startActivity(saved);
                             } catch (SecurityException ex) {

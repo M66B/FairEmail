@@ -54,6 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swSyncOnlaunch;
     private SwitchCompat swDoubleBack;
     private SwitchCompat swConversationActions;
     private SwitchCompat swConversationActionsReplies;
@@ -85,7 +86,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Group grpConversationActions;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
+            "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "default_snooze",
             "pull", "autoscroll", "quick_filter", "quick_scroll",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
@@ -104,6 +105,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         // Get controls
 
+        swSyncOnlaunch = view.findViewById(R.id.swSyncOnlaunch);
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swConversationActions = view.findViewById(R.id.swConversationActions);
         swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
@@ -144,6 +146,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("double_back", checked).apply();
+            }
+        });
+
+        swSyncOnlaunch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sync_on_launch", checked).apply();
             }
         });
 
@@ -425,6 +434,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
         swConversationActions.setChecked(prefs.getBoolean("conversation_actions", true));
         swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
