@@ -29,7 +29,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -433,7 +432,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         // Fixed menus
 
-        PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
 
         final NavMenuItem navOperations = new NavMenuItem(R.drawable.twotone_dns_24, R.string.menu_operations, new Runnable() {
