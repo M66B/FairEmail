@@ -767,6 +767,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Undo cancel");
                 snackbar.getView().setTag(true);
                 snackbar.dismiss();
+                show.execute(ActivityView.this, args, "undo:show");
             }
         });
 
@@ -783,16 +784,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             public void onDismissed(Snackbar transientBottomBar, int event) {
-                if (snackbar.getView().getTag() == null)
-                    move.execute(ActivityView.this, args, "undo:move");
-                else
-                    show.execute(ActivityView.this, args, "undo:show");
-
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
                 lparam.bottomMargin = margin;
                 content.setLayoutParams(lparam);
             }
         });
+
         snackbar.show();
 
         // Wait
@@ -800,8 +797,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             public void run() {
                 Log.i("Undo timeout");
-                if (snackbar.isShown())
-                    snackbar.dismiss();
+                snackbar.dismiss();
+                if (snackbar.getView().getTag() == null)
+                    move.execute(ActivityView.this, args, "undo:move");
             }
         }, undo_timeout);
     }
