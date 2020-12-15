@@ -748,24 +748,31 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
+            show.execute(this, args, "undo:move");
             return;
         }
 
         final View content = drawerLayout.getChildAt(0);
-
-        if (lastSnackbar != null && lastSnackbar.isShown())
-            lastSnackbar.dismiss();
 
         final Snackbar snackbar = Snackbar.make(content, title, Snackbar.LENGTH_INDEFINITE)
                 .setGestureInsetBottomIgnored(true);
 
         lastSnackbar = snackbar;
 
+        final Runnable timeout = new Runnable() {
+            @Override
+            public void run() {
+                Log.i("Undo timeout");
+                snackbar.dismiss();
+                move.execute(ActivityView.this, args, "undo:move");
+            }
+        };
+
         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("Undo cancel");
-                snackbar.getView().setTag(true);
+                getMainHandler().removeCallbacks(timeout);
                 snackbar.dismiss();
                 show.execute(ActivityView.this, args, "undo:show");
             }
@@ -792,16 +799,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         snackbar.show();
 
-        // Wait
-        getMainHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("Undo timeout");
-                snackbar.dismiss();
-                if (snackbar.getView().getTag() == null)
-                    move.execute(ActivityView.this, args, "undo:move");
-            }
-        }, undo_timeout);
+        getMainHandler().postDelayed(timeout, undo_timeout);
     }
 
     private void checkFirst() {
