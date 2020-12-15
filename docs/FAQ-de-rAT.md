@@ -481,27 +481,27 @@ Wie ein Anwendungsspezifisches Passwort erstellt wird, sehen Sie [hier](https://
 
 *„Weniger sichere Anwendungen“ aktivieren*
 
-**Important**: using this method is not recommended because it is less reliable.
+**Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
 
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert sind, funktionieren [in naher Zukunft](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) nicht mehr.
 
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+Sehen Sie [hier](https://support.google.com/accounts/answer/6010255) wie man „weniger sichere Apps“ aktiviert oder gehen Sie [direkt zu der entsprechenden Einstellung](https://www.google.com/settings/security/lesssecureapps).
 
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung „weniger sichere Apps“ des / der richtigen Accounts ändern.
 
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm verlassen müssen, indem Sie den Zurückpfeil verwenden, um die Einstellung anzuwenden.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+Falls Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was ohnehin eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501)-IMAP-Protokolls an sich nicht weniger sicher ist.
 
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Falls "weniger sichere Apps" nicht aktiviert ist, erhalten Sie den Fehler *Authentifizierung fehlgeschlagen - ungültige Anmeldeinformationen* für die Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für die Identitäten (SMTP).
 
 <br />
 
-*General*
+*Allgemein*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+Möglicherweise erhalten Sie die Warnung "*Bitte melden Sie sich über Ihren Webbrowser an*". Dies geschieht, falls Google Ihre Netzwerk- bzw. Internetverbindung für unsicher hält (beispielsweise bei der Nutzung von einem VPN). Mit der Verwendung des Gmail-Schnelleinrichtungsassistenten oder dem Einsatz eines App-spezifischen Passworts können Sie dies verhindern.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Sehen Sie [hier](https://support.google.com/mail/answer/7126229) für eine Anleitung von Google und [hier](https://support.google.com/mail/accounts/answer/78754) für Problemlösungen.
 
 <br />
 
@@ -575,7 +575,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <a name="faq12"></a>
 **(12) Wie funktioniert die Ver- und Entschlüsselung?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Die Kommunikation mit den E-Mail-Servern ist immer verschlüsselt, außer Sie haben dies explizit deaktiviert. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
 *General*
 
@@ -603,9 +603,9 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Sie müssen zuerst [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) installieren und konfigurieren. FairEmail wurde mit OpenKeychain in der Version 5.4 getestet. Spätere Versionen werden wahrscheinlich kompatibel sein, aber frühere Versionen sind es möglicherweise nicht.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Wichtige**: Die OpenKeychain-App ist dafür bekannt (unbemerkt) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen vorhandenen öffentlichen Schlüssel erhält. Sie können dies umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
@@ -629,16 +629,16 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
-Common errors:
+Häufige Fehler:
 
 * *Kein Schlüssel*: kein PGP-Schlüssel für eine der aufgeführten E-Mail-Adressen verfügbar
 * *Verschlüsselungsschlüssel fehlt*: es wurde wahrscheinlich in FairEmail ein Schlüssel ausgewählt, der in der OpenKeychain-App nicht mehr vorhanden ist. Das Zurücksetzen des Schlüssels (siehe oben) wird dieses Problem eventuell beheben.
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Die Verschlüsselung einer Nachricht erfordert den öffentlichen Schlüssel des Empfängers. Das Signieren einer Nachricht erfordert Ihren privaten Schlüssel.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Die private Schlüssel werden von Android gespeichert und können über die erweiterten Sicherheitseinstellungen von Android importiert werden. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
@@ -914,6 +914,16 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 … nicht zur Weiterleitung zugelassen* bedeutet, dass der E-Mail-Server den Benutzernamen/E-Mail-Adresse nicht erkennen konnte. Bitte überprüfen Sie den Hostnamen, Benutzernamen und E-Mail-Adresse in den Identitätseinstellungen.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+
+<br />
 
 **Gmail errors**
 
@@ -946,14 +956,14 @@ This alert will be sent when there are too many folder connections for the same 
 
 Possible causes are:
 
-* Es sind mehrere E-Mail-Clients mit demselben Konto verbunden
-* Der gleiche E-Mail-Client ist mehrfach mit demselben Konto verbunden
-* Frühere Verbindungen wurden abrupt abgebrochen, zum Beispiel durch den plötzlichen Verlust der Internetverbindung
+* There are multiple email clients connected to the same account
+* The same email client is connected multiple times to the same account
+* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
 First try to wait some time to see if the problem resolves itself, else:
 
-* entweder wechseln Sie regelmäßig auf Nachrichten in den Empfangseinstellungen um, was dazu führt, dass Ordner gleichzeitig geöffnet werden
-* oder setzen Sie Ordner, die statt der Synchronisierung abgefragt werden sollen (lange halten Sie den Ordner in der Ordnerliste, bearbeiten Sie die Eigenschaften)
+* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 
@@ -1028,11 +1038,11 @@ On Android 8.0 Oreo and later you can manage the properties of the individual no
 
 FairEmail has the following notification channels:
 
-* Dienst: Wird für die Benachrichtigung des Synchronisationsdienstes verwendet, siehe [auch diese FAQ](#user-content-faq2)
-* Senden: Wird für die Benachrichtigung des Sendedienstes verwendet
-* Benachrichtigungen: Wird für neue Nachrichten verwendet
-* Warnung: Für Warnhinweise verwendet
-* Fehler: Wird für Fehlerbenachrichtigungen verwendet
+* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Send: used for the notification of the send service
+* Notifications: used for new message notifications
+* Warning: used for warning notifications
+* Error: used for error notifications
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 
@@ -1054,8 +1064,8 @@ Just long press a folder, select *Edit properties*, and enable either *Show in u
 
 There are quick settings (settings tiles) available to:
 
-* global die Synchronisierung aktivieren/deaktivieren
-* zeige die Anzahl neuer Nachrichten und markiere sie als gesehen (nicht gelesen)
+* globally enable/disable synchronization
+* show the number of new messages and marking them as seen (not read)
 
 Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
@@ -1066,8 +1076,8 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 
 There are shortcuts available to:
 
-* eine neue Nachricht an einen Favoriten schreiben
-* Konten, Identitäten usw einrichten.
+* compose a new message to a favorite contact
+* setup accounts, identities, etc
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
@@ -1121,9 +1131,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identität: abc@example.com; regulärer Ausdruck: **(?i)abc**
-* Identität: xyz@example.com; regulärer Ausdruck: **(?i)xyz**
-* Identität: main@example.com; regulärer Ausdruck: **^(?i)((?!abc|xyz).)\*$**
+* Identity: abc@example.com; regex: **(?i)abc**
+* Identity: xyz@example.com; regex: **(?i)xyz**
+* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
@@ -1157,8 +1167,8 @@ Short version: AES 256 bit
 
 Long version:
 
-* Der 256-Bit-Schlüssel wird mit *PBKDF2WithHmacSHA1* erstellt, durch ein 128 Bit sicheres Zufallssalz und 65536 Wiederholungen
-* Die Verschlüsselung ist *AES/CBC/PKCS5Padding*
+* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
+* The cipher is *AES/CBC/PKCS5Padding*
 
 <br />
 
@@ -1233,8 +1243,8 @@ If the connection to the email server is lost, FairEmail will always synchronize
 
 To reduce data usage, you could change these advanced receive settings:
 
-* prüfen, ob alte Nachrichten vom Server entfernt wurden: deaktivieren
-* (freigegebene) Ordnerliste synchronisieren: deaktivieren
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
 
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
@@ -2800,7 +2810,7 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 
-## Get support
+## Support erhalten
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

@@ -914,45 +914,55 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 ... non è consentito trasmettere* significa che il server di posta elettronica non riconosce il nome utente/indirizzo email. Si prega di controllare il nome host e il nome utente/indirizzo email nelle impostazioni di identità.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. Questo significa probabilmente che i filtri spam del server email sono troppo rigidi. Dovrai contattare il provider di posta elettronica per avere supporto a riguardo.
 
-**Gmail errors**
+Se vuoi usare il server SMTP di Gmail per aggirare un filtro spam troppo rigido o migliorare la consegna dei messaggi:
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+* Verifica il tuo indirizzo email [qui](https://mail.google.com/mail/u/0/#settings/accounts) (dovrai usare un browser desktop)
+* Cambia le impostazioni di identità come queste (configurazione, fase 2, tocca Gestisci, tocca identità):
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+<br />
 
-The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+**Errori Gmail**
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+L'autorizzazione della configurazione dei profili Gmail con la procedura guidata rapida deve essere ricaricata periodicamente tramite il [gestore del profilo Android](https://developer.android.com/reference/android/accounts/AccountManager). Questo richiede permessi di contatto/profilo e connettività internet.
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+The error *... Authentication failed ... Profilo non trovato ...* significa che un profilo Gmail autorizzato precedentemente è stato rimosso dal dispositivo.
 
-When in doubt, you can ask for [support](#user-content-support).
+Gli errori *... Autenticazione fallita... Nessun token ...* significa che il gestore del profilo Android non è riuscito a ricaricare l'autorizzazione di un profilo Gmail.
+
+L'errore *... Autenticazione fallita ... errore di rete ...* significa che il gestore del profilo Android non è stato in grado di ricaricare l'autorizzazione di un profilo Gmail a causa dei problemi con la connessione internet
+
+L'errore *... Autenticazione fallita ... Credenziali non valide ...* potrebbe essere causato dalla modifica della password del profilo o revocando i permessi necessari dei contatti/del profilo. Nel caso in cui la password del profilo fosse stata modificata, dovrete autenticare di nuovo il profilo di Google nelle impostazioni del profilo Android. Nel caso in cui i permessi siano stati revocati, potete avviare la procedura guidata rapida di Gmail per garantire di nuovo i permessi necessari (non dovete riconfigurare il profilo).
+
+L'errore *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+
+Quando in dubbio, potete chiedere [supporto](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Perché ricevo l'avviso ... ?**
 
-*General*
+*Generale*
 
-Alerts are warning messages sent by email servers.
+Gli avvisi sono messaggi di avviso inviati dal server email.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Troppe connessioni simultanee* o *Numero massimo di connessioni superate*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Questo avviso sarà inviato quando ci sono troppe connessioni di cartelle per lo stesso profilo email allo stesso tempo.
 
-Possible causes are:
+Possibili cause sono:
 
-* There are multiple email clients connected to the same account
-* The same email client is connected multiple times to the same account
-* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
+* Ci sono client email multipli connessi allo stesso profilo
+* Lo stesso client email è connesso diverse volte allo stesso profilo
+* Le connessioni precedenti sono state terminate bruscamente per esempio perdendo bruscamente la connettività internet
 
-First try to wait some time to see if the problem resolves itself, else:
+Prima prova ad attendere un po' di tempo se il problema si risolve da solo, oppure:
 
-* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* o passa alla verifica periodica dei messaggi nelle impostazioni di ricezione, che risulterà nell'apertura delle cartelle una per volta
 * or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 

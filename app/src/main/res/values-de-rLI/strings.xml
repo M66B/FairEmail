@@ -349,6 +349,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
+    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Beim Start synchronisieren</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
@@ -368,8 +369,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
-    <string name="title_advanced_star_snoozed">Bei schlummernden Meldungen automatisch einen Stern hinzufügen</string>
-    <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
+    <string name="title_advanced_star_snoozed">Bei schlummernden Meldungen automatisch eine Markierung hinzufügen</string>
+    <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
@@ -533,7 +534,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
-    <string name="title_advanced_sender_regex">Regex stimmt mit Benutzername der eingehenden E-Mail-Adressen überein</string>
+    <string name="title_advanced_sender_regex">Regex dem der Benutzername der eingehenden E-Mail-Adressen entsprechen muss</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_unicode">Unicode-Transport verwenden</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
@@ -1215,7 +1216,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no">Nein</string>
     <string name="title_later">Später</string>
     <string name="title_undo">Rückgängig</string>
-    <string name="title_redo">Rückgängig</string>
+    <string name="title_redo">Wiederherstellen</string>
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Öffnen mit</string>
     <string name="title_info">Info</string>

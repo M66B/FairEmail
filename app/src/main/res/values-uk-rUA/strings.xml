@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail пошук</string>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="channel_send">Надіслати</string>
     <string name="channel_update">Оновлення</string>
@@ -10,6 +11,10 @@
     <string name="tile_unseen">Нові повідомлення</string>
     <string name="shortcut_compose">Написати</string>
     <string name="shortcut_setup">Налаштування</string>
+    <string name="menu_exit">Вихід</string>
+    <string name="menu_setup">Налаштування</string>
+    <string name="menu_faq">Підтримка</string>
+    <string name="menu_issue">Повідомити про проблему</string>
     <string name="title_setup">Налаштування</string>
     <string name="title_setup_help">Довідка</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>

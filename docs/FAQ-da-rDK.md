@@ -914,18 +914,28 @@ SMTP-servere kan [af forskellige årsager](https://en.wikipedia.org/wiki/List_of
 * *503 5.5.0 Modtager allerede angivet* betyder typisk, at en adresse bruges som både TO- og CC-adresse
 * *554 5.7.1 ... ikke tilladt at videresende* betyder, at e-mailserveren ikke genkender brugernavnet/e-mailadressen. Dobbelttjek værtsnavn og brugernavn/e-mailadresse i identitetsindstillingerne.
 * *550 Spam besked afvist, da IP er listet af ...* betyder, at e-mailserveren har afvist at afsende en besked fra den aktuelle (offentlige) netværksadresse, fordi den tidligere har være misbrugt til spamafsendelse. Prøv at aktivere flytilstand i 10 minutter for at få tildelt en ny netværksadresse.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 
-**Gmail-fejl**
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
-Godkendelsen af Gmail-kontiopsætninger vha. hurtig guiden skal periodisk opfriskes via [Android-kontohåndteringen](https://developer.android.com/reference/android/accounts/AccountManager). Dette kræver kontakt-/konto-tilladelser samt Internetforbindelse.
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
 
-Fejlen *... Godkendelse mislykkedes... Konto ikke fundet ...* betyder, at en tidligere godkendt Gmail-konto er blevet fjernet fra enheden.
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
-Fejlene *... Godkendelse mislykkedes... Ingen token ...* betyder, at Android-kontohåndteringen ikke kunne opfriske godkendelsen af en Gmail-konto.
+<br />
 
-Fejlen *... Godkemdelse mislykkedes ... netværksfejl ...* betyder, at Android-kontohåndteringen var ude af stand til at opfriske godkendelsen af en Gmail-konto grundet Internetforbindelsesproblemer
+**Gmail errors**
 
-Fejlen *... Godkendelse mislykkedes... Ugyldige akkreditiver ...* kan være forårsaget af en skiftet kontoadgangskoden eller ophævelse af de krævede konto-/kontakttilladelser. Er kontoadgangskoden skiftet, så godkend igen Google-kontoen i indstillingerne for Android-kontoen. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+
+Fejlen *... Godkendelse mislykkedes... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+
+The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -946,14 +956,14 @@ This alert will be sent when there are too many folder connections for the same 
 
 Possible causes are:
 
-* Adskillige e-mailklienter er forbundet til den samme konto
-* Samme e-mailklient er forbundet adskillige gange til den samme konto
-* Tidligere forbindelser blev brat afsluttet, f.eks. ved en pludselig mistet Internetforbindelse
+* There are multiple email clients connected to the same account
+* The same email client is connected multiple times to the same account
+* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
 First try to wait some time to see if the problem resolves itself, else:
 
-* Skift enten til periodisk tjek for beskeder i modtagelsesindstillingerne, hvilket resulterer i, at mapper åbnes én ad gangen
-* eller indstil nogle mapper til polling i stedet for at synkronisation (langt tryk på mappen i mappelisten, Redigér egenskaber)
+* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 
@@ -1026,86 +1036,86 @@ In the setup you'll find a button *Manage notifications* to directly navigate to
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
-FairEmail har flg. notifikationskanaler:
+FairEmail has the following notification channels:
 
-* Tjeneste: Benytttes til notifikation om synkroniseringstjenesten, se også [denne FAQ](#user-content-faq2)
-* Send: Benyttes til sendetjenestenotiifikation
-* Notifikationer: Benyttes til notifikation om ny besked
-* Advarsel: Benyttes til advarselsnotifikationer
-* Fejl: Benyttes til notifikationer om fejl
+* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Send: used for the notification of the send service
+* Notifications: used for new message notifications
+* Warning: used for warning notifications
+* Error: used for error notifications
 
-Tjek [hér](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for detaljer om notifikationskanaler. Kort sagt: Tryk på notifikationskanalnavnet for at få adgang til kanalindstillingerne.
+See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 
-I Android før version 8 Oreo kan du opsætte notifikationslyden i indstillingerne.
+On Android before Android 8 Oreo you can set the notification sound in the settings.
 
-Tjek [denne FAQ](#user-content-faq21), hvis din enhed har et notifikationslys.
+See [this FAQ](#user-content-faq21) if your device has a notification light.
 
 <br />
 
 <a name="faq29"></a>
-**(29) Hvordan fås notifikationer om nye beskeder for andre mapper?**
+**(29) How can I get new message notifications for other folders?**
 
-Benyt et langt tryk på en mappe, vælg *Redigér egenskaber*, og aktivér enten *Vis i den fælles indbakke* eller *Advicér om nye beskeder* (kun tilgængelig på Android 7 Nougat og senere) og tryk på *Gem*.
+Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) Hvordan kan de medfølgende hurtige indstillinger benyttes?**
+**(30) How can I use the provided quick settings?**
 
-Der er hurtige indstillinger (indstillingsfliser) tilgængelig for:
+There are quick settings (settings tiles) available to:
 
-* globalt aktivere/deaktivere synkronisering
-* vise antallet af nye beskeder og markér dem som set (ikke læst)
+* globally enable/disable synchronization
+* show the number of new messages and marking them as seen (not read)
 
-Hurtige indstillinger kræver Android 7.0 Nougat eller senere. Brug af indstillingsfliserne forklares [hér](https://support.google.com/android/answer/9083864).
+Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) Hvordan kan de medfølgende genveje benyttes?**
+**(31) How can I use the provided shortcuts?**
 
-Der er tilgængelige genveje til:
+There are shortcuts available to:
 
-* skrive en ny besked til en favoritkontakt
-* opsætte konti, identiteter mv.
+* compose a new message to a favorite contact
+* setup accounts, identities, etc
 
-Genveje kræver Android 7.1 Nougat eller senere. Brug af genveje forklares [hér](https://support.google.com/android/answer/2781850).
+Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
 <br />
 
 <a name="faq32"></a>
-**(32) Hvordan tjekkes, om læsning af e-mails virkelig er sikkert?**
+**(32) How can I check if reading email is really safe?**
 
-Man kan benytte [E-mail Fortrolighedstester](https://www.emailprivacytester.com/) til dette.
+You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Hvorfor fungerer redigerede afsenderadresser ikke?**
+**(33) Why are edited sender addresses not working?**
 
-For at forhindre spam accepterer de fleste udbydere kun bekræftede adresser ifm. afsendelser.
+Most providers accept validated addresses only when sending messages to prevent spam.
 
-F.eks. ændrer Google beskedhoveder som dette for *ikke-bekræftede* adresser:
+For example Google modifies the message headers like this for *unverified* addresses:
 
 ```
 Fra: Nogen <somebody@example.org>
 X-Google-Originale-Fra: Nogen <somebody+extra@example.org>
 ```
 
-Dette betyder, at den redigerede afsenderadresse automatisk erstattes af en bekræftet adresse inden bekedafsendelsen.
+This means that the edited sender address was automatically replaced by a verified address before sending the message.
 
-Bemærk, at dette er uafhængigt af at modtage beskeder.
+Note that this is independent of receiving messages.
 
 <br />
 
 <a name="faq34"></a>
-**(34) Hvordan matches identiteter?**
+**(34) How are identities matched?**
 
-Identiteter matches som forventet efter konto. For indgående beskeder vil adresserne *til*, *cc*, *bcc*, *fra* og *(X-)leverede/konvolut/originale-til* blive tjekket (i denne rækkefølge) og for udgående beskeder (udkast, udbakke og sendt) tjekkes kun *fra*-adresserne.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
-Den matchede adresse vil blive vist som *via* i adresseafsnittet for modtagne beskeder (mellem beskedens header og beskedens tekst).
+The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
-Bemærk, at identiteter skal aktiveres for at kunne matches, samt at kontiidentiteter ikke tages i betragtning.
+Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
@@ -1121,9 +1131,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identity: abc@eksempel.dk; regex: **(?i)abc**
-* Identity: xyz@eksempel.dk; regex: **(?i)xyz**
-* Identity: hoved@eskempel.dk; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identity: abc@example.com; regex: **(?i)abc**
+* Identity: xyz@example.com; regex: **(?i)xyz**
+* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
@@ -1157,8 +1167,8 @@ Short version: AES 256 bit
 
 Long version:
 
-* 256 bit-nøglen genereres med *PBKDF2WithHmacSHA1* vha. en 128 bit, sikker tilfældigt salt samt 65.536 iterationer
-* Cipher'en er *AES/CBC/PKCS5Padding*
+* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
+* The cipher is *AES/CBC/PKCS5Padding*
 
 <br />
 
@@ -1485,8 +1495,8 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and hit reply, only the selected text will be quoted?
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
-* Vidste du, at et langt tryk på Afsend vil vise Send- dialogen, selvom den er blevet deaktiveret?
-* Vidste du, at du kan få vist kun originalbeskedteksten via et langt tryk på fuldskærmsikonet?
+* Did you know that you can long press the send action to show the send dialog, even if it was disabled?
+* Did you know that you can long press the full screen icon to show the original message text only?
 
 <br />
 

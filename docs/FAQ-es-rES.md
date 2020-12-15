@@ -155,7 +155,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(32) ¿Cómo puedo comprobar si la lectura del correo electrónico es realmente segura?](#user-content-faq32)
 * [(33) ¿Por qué no funcionan las direcciones de remitentes editadas?](#user-content-faq33)
 * [(34) ¿Cómo coinciden las identidades?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
+* [(35) ¿Por qué debo tener cuidado con las imágenes, los archivos adjuntos, el mensaje original y los enlaces de apertura?](#user-content-faq35)
 * [(36) ¿Cómo se cifran los archivos de configuración?](#user-content-faq36)
 * [(37) ¿Cómo se almacenan las contraseñas?](#user-content-faq37)
 * [(39) ¿Cómo puedo reducir el uso de la batería de FairEmail?](#user-content-faq39)
@@ -593,89 +593,89 @@ Firma en resumen:
 
 Para firmar/cifrar un mensaje, solo seleccione el método apropiado en el dialogo de envío. Siempre puede abrir el dialogo de envío usando el menú de tres puntos en caso de que haya seleccionado *No mostrar de nuevo* antes.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Para verificar una firma o descifrar un mensaje recibido, abra el mensaje y simplemente toque el icono del gesto o del candado justo debajo de la barra de acción del mensaje.
 
 La primera vez que envíe un mensaje firmado/cifrado puede que se le pida una clave de firma. FairEmail automáticamente almacenará las claves de firma seleccionadas en la identidad utilizada para la próxima vez. Si necesita reiniciar la clave de firma, solo guarde la identidad o mantenga pulsada la identidad en la lista de identidades y selecciones *Reiniciar clave de firma*. La clave de firma seleccionada es visible en la lista de identidades. Si es necesario seleccionar una clave caso por caso, puede crear múltiples identidades para la misma cuenta con la misma dirección de correo-e.
 
-In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+En la configuración de privacidad puede seleccionar el método de cifrado predeterminado (PGP o S/MIME), habilitar *Firmar por defecto*, *Cifrar por defecto* y *Descifrar automáticamente los mensajes*, pero tenga en cuenta que el descifrado automático no es posible si se requiere la interacción del usuario, como la selección de una clave o la lectura de un token de seguridad.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+El texto/adjuntos de los mensajes a cifrar y el texto/adjuntos de los mensajes desencriptados se almacenan sólo localmente y nunca se añadirán al servidor remoto. Si quieres deshacer el desencriptado, puedes usar el menú *resync* en el menú de tres puntos de la barra de acción de mensajes.
 
 *PGP*
 
-Necesitará instalar y configurar [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) primero. FairEmail ha sido probado con OpenKeychain versión 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Necesitará instalar y configurar [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) primero. FairEmail ha sido probado con OpenKeychain versión 5.4. Es muy probable que las versiones posteriores sean compatibles, pero las versiones anteriores podrían no serlo.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. Puede solucionar esto tratando de enviar un mensaje firmado/cifrado al remitente con una clave pública desconocida.
+**Importante**: la aplicación OpenKeychain es conocida por (silenciosamente) fallar cuando la aplicación que llama (FairEmail) no está autorizada todavía y está obteniendo una clave pública existente. Puede solucionar esto tratando de enviar un mensaje firmado/cifrado al remitente con una clave pública desconocida.
 
 **Importante**: si la aplicación OpenKeychain (ya) no puede encontrar una clave, puede que necesite restablecer una clave seleccionada previamente. Esto puede hacerse al mantener pulsada una identidad en la lista de identidades (Configuración, paso 2, Administrar).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Importante**: dejar que aplicaciones como FairEmail se conecten de forma fiable al servicio OpenKeychain para cifrar/descifrar mensajes, podría ser necesario desactivar las optimizaciones de la batería para la aplicación OpenKeychain.
 
-**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+**Importante**: La aplicación OpenKeychain necesita el permiso de los contactos para funcionar correctamente.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Sin este permiso el borrador se guardará, pero la ventana emergente de OpenKeychain para confirmar/seleccionar puede que no aparezca.
+**Importante**: en algunas versiones de Android / dispositivos es necesario habilitar *Mostrar ventanas emergentes mientras se ejecuta en segundo plano* en los permisos adicionales de la configuración de la aplicación Android de la aplicación OpenKeychain. Sin este permiso el borrador se guardará, pero la ventana emergente de OpenKeychain para confirmar/seleccionar puede que no aparezca.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail enviará el encabezado [Autocrypt](https://autocrypt.org/) para ser usado por otros clientes de correo electrónico, pero sólo para mensajes firmados y cifrados porque demasiados servidores de correo electrónico tienen problemas con el a menudo largo encabezado de Autocrypt. Tenga en cuenta que la forma más segura de iniciar un intercambio de correo electrónico cifrado es enviar primero los mensajes firmados. Los encabezados de Autocrypt recibidos serán enviados a la aplicación OpenKeychain para ser almacenados al verificar una firma o desencriptar un mensaje.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+Todo el manejo de las llaves se delega a la aplicación de la cadena OpenKey por razones de seguridad. Esto también significa que FairEmail no almacena claves PGP.
 
-Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+Se admite el PGP cifrado en línea en los mensajes recibidos, pero no se admiten las firmas PGP en línea y el PGP en línea en los mensajes salientes, ver [aquí](https://josefsson.org/inline-openpgp-considered-harmful.html) sobre por qué no.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+Los mensajes sólo con firma o sólo encriptados no son una buena idea, por favor vea aquí por qué no:
 
 * [Consideraciones sobre OpenPGP Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [Consideraciones sobre OpenPGP Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [Consideraciones sobre OpenPGP Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Se admiten los mensajes de sólo firma, pero no los mensajes de sólo encriptación.
 
-Common errors:
+Errores comunes:
 
 * *Sin clave*: no hay ninguna clave PGP disponible para una de las direcciones de correo electrónico listadas
 * *Falta la clave para el cifrado*: probablemente hay una clave seleccionada en FairEmail que ya no existe en la aplicación OpenKeychain. Restablecer la clave (ver arriba) probablemente solucione este problema.
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Cifrar un mensaje requiere la(s) clave(s) pública(s) del destinatario(s). Firmar un mensaje requiere su clave privada.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Las claves privadas son almacenadas por Android y pueden ser importadas a través de la configuración de seguridad avanzada de Android. Hay un atajo (botón) para esto en la configuración de privacidad. Android te pedirá que establezcas un PIN, un patrón o una contraseña si no lo has hecho antes. Si tienes un dispositivo Nokia con Android 9, por favor [ lee esto primero ](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
-Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+Obsérvese que los certificados pueden contener múltiples claves para múltiples propósitos, por ejemplo, para la autenticación, el cifrado y la firma. Android sólo importa la primera llave, así que para importar todas las llaves, el certificado debe ser dividido primero. Esto no es muy trivial y se aconseja pedir ayuda al proveedor del certificado.
 
-Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
+Tenga en cuenta que la firma S/MIME con otros algoritmos que no sean RSA es compatible, pero tenga en cuenta que otros clientes de correo electrónico pueden no ser compatibles con esto. La encriptación S/MIME es posible sólo con algoritmos simétricos, lo que significa en la práctica usar RSA.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+El método de cifrado por defecto es PGP, pero el último método de cifrado utilizado será recordado para la identidad seleccionada para la próxima vez. Es posible que tenga que volver a activar las opciones de envío en el menú de tres puntos para poder seleccionar el método de cifrado.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+Para permitir diferentes claves privadas para la misma dirección de correo electrónico, FairEmail siempre te permitirá seleccionar una clave cuando haya varias identidades con la misma dirección de correo electrónico para la misma cuenta.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
+Las claves públicas son almacenadas por FairEmail y pueden ser importadas cuando se verifica una firma por primera vez o a través de la configuración de privacidad (formato PEM o DER).
 
-FairEmail verifies both the signature and the complete certificate chain.
+FairEmail verifica tanto la firma como la cadena completa del certificado.
 
-Common errors:
+Errores comunes:
 
 * *No se ha encontrado ningún certificado que coincida con targetContraints*: esto seguramente significa que está usando una versión antigua de FairEmail
 * *incapaz de encontrar una ruta de certificación válida para el objetivo solicitado*: básicamente esto significa que uno o más certificados intermedios o raíz no fueron encontrados
 * *La clave privada no coincide con ninguna clave de cifrado*: la clave seleccionada no puede utilizarse para descifrar el mensaje, probablemente porque es la clave incorrecta
 * *No hay clave privada*: no se ha seleccionado ningún certificado o no hay ningún certificado disponible en el almacén de claves Android
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+En caso de que la cadena de certificados sea incorrecta, puede pulsar el pequeño botón de información para mostrar todos los certificados. Después de los detalles del certificado se muestra el emisor o "autofirma". Un certificado es autofirmado cuando el sujeto y el emisor son el mismo. Los certificados de una autoridad de certificación (CA) están marcados con "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Los certificados que se encuentran en la tienda de llaves Android están marcados con "Android".
 
-A valid chain looks like this:
+Una cadena válida se ve así:
 
 ```
 Su certificado > cero o más certificados intermedios > CA (raíz) certificado marcado con "Android"
 ```
 
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
+Tenga en cuenta que una cadena de certificados siempre será inválida cuando no se pueda encontrar un certificado de anclaje en la tienda de llaves Android, que es fundamental para la validación del certificado S/MIME.
 
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
+Por favor, vea [aquí](https://support.google.com/pixelphone/answer/2844832?hl=en) cómo puede importar certificados en el almacén de claves de Android.
 
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
+No se admite el uso de claves caducadas, mensajes cifrados/firmados en línea y fichas de seguridad de hardware.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+Si está buscando un certificado S/MIME gratuito (de prueba), vea [aquí](http://kb.mozillazine.org/Getting_an_SMIME_certificate) para las opciones. Por favor, asegúrese de [ leer esto primero ](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) si quiere solicitar un certificado S/MIME Actalis. Si está buscando un certificado S/MIME barato, tuve una buena experiencia con [Certum](https://www.certum.eu/en/smime-certificates/).
 
-How to extract a public key from a S/MIME certificate:
+Cómo extraer una clave pública de un certificado S/MIME:
 
 ```
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
@@ -914,12 +914,22 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
 * *554 5.7.1 ... no se permite transmitir* significa que el servidor de correo electrónico no reconoce el nombre de usuario/dirección de correo electrónico. Por favor, compruebe el nombre de host y el nombre de usuario/dirección de correo electrónico en la configuración de identidad.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+
+<br />
 
 **Gmail errors**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-The error *... La autenticación falló ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -946,14 +956,14 @@ This alert will be sent when there are too many folder connections for the same 
 
 Possible causes are:
 
-* Hay varios clientes de correo electrónico conectados a la misma cuenta
-* El mismo cliente de correo está conectado varias veces a la misma cuenta
-* Las conexiones anteriores terminaron abruptamente, por ejemplo, al perder abruptamente la conectividad a Internet
+* There are multiple email clients connected to the same account
+* The same email client is connected multiple times to the same account
+* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
 First try to wait some time to see if the problem resolves itself, else:
 
-* cambie a comprobar periódicamente los mensajes en la configuración de recepción, lo que dará como resultado abrir carpetas una a la vez
-* o configure algunas carpetas para sondear en lugar de sincronizar (mantenga presioanda una carpeta de la lista de carpetas, editar propiedades)
+* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 
@@ -1028,11 +1038,11 @@ On Android 8.0 Oreo and later you can manage the properties of the individual no
 
 FairEmail has the following notification channels:
 
-* Servicio: usado para la notificación del servicio de sincronización, vea también [éstas Preguntas Frecuentes](#user-content-faq2)
-* Enviar: usado para la notificación del servicio de envío
-* Notificaciones: usado para notificaciones de mensajes nuevos
-* Alertas: usado para notificaciones de advertencia
-* Errores: usado para notificaciones de error
+* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Send: used for the notification of the send service
+* Notifications: used for new message notifications
+* Warning: used for warning notifications
+* Error: used for error notifications
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 
@@ -1054,8 +1064,8 @@ Just long press a folder, select *Edit properties*, and enable either *Show in u
 
 There are quick settings (settings tiles) available to:
 
-* activar/desactivar la sincronización globalmente
-* mostrar el número de mensajes nuevos y marcarlos como vistos (no leídos)
+* globally enable/disable synchronization
+* show the number of new messages and marking them as seen (not read)
 
 Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
@@ -1066,8 +1076,8 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 
 There are shortcuts available to:
 
-* redactar un nuevo mensaje a un contacto favorito
-* configurar cuentas, identidades, etc
+* compose a new message to a favorite contact
+* setup accounts, identities, etc
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
@@ -1121,9 +1131,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identidad: abc@ejemplo.com; regex: **(?i)abc**
-* Identidad: xyz@ejemplo.com; regex: **(?i)xyz**
-* Identidad: main@ejemplo.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identity: abc@example.com; regex: **(?i)abc**
+* Identity: xyz@example.com; regex: **(?i)xyz**
+* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
@@ -1157,8 +1167,8 @@ Short version: AES 256 bit
 
 Long version:
 
-* La clave de 256 bits se genera con *PBKDF2WithHmacSHA1* usando un salt aleatorio segura de 128 bits y 65536 iteraciones
-* El cifrado es *AES/CBC/PKCS5Padding*
+* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
+* The cipher is *AES/CBC/PKCS5Padding*
 
 <br />
 
@@ -1214,9 +1224,9 @@ If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you
 
 If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
 
-* Dice '*Todavía aquí*' dentro de 3 minutos
-* El servidor de correo no soporta mensajes push
-* El intervalo de keep-alive es inferior a 12 minutos
+* Says '*Still here*' within 3 minutes
+* The email server does not support push messages
+* The keep-alive interval is lower than 12 minutes
 
 In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
 

@@ -134,6 +134,7 @@
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet tilin valitsemiseksi ja nimesi lukemiseksi</string>
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAPin saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
+    <string name="title_setup_gmail_password">Haluan käyttää salasanaa tilin valtuuttamiseen</string>
     <string name="title_setup_office_remark">Microsoft ei tarjoa tällaista valtuutusta Outlook-, Live-, ja Hotmail-tileille (eikä muille vastaaville)</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
@@ -458,6 +459,7 @@
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa kaikkien tai ei minkään viestin synkronoinnin</string>
     <string name="title_advanced_deleted_unseen">Lukemattomat viestit pidetään laitteessa ikuisesti, kun poissa käytöstä</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
+    <string name="title_advanced_gmail_thread_hint">Tämä koskee vain uusia vastaanotettuja viestejä ja voi rikkoa olemassa olevia ryhmiä</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
@@ -594,6 +596,7 @@
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_drafts">Ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
+    <string name="title_no_composable">Sähköpostien lähettäminen edellyttää, että identiteetti on määritetty ja luonnokset-kansio valittu (vaihe 1 asetuksissa)</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>

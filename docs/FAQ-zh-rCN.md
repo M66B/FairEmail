@@ -52,20 +52,20 @@
 * 将文件夹添加到统一的收件箱中：长按文件夹列表中的文件夹，然后勾选 *在统一的收件箱中显示*
 * 将文件夹添加到导航菜单中：长按文件夹列表中的文件夹，然后勾选 *在导航菜单中显示*
 * 加载更多消息：长按文件夹列表中的文件夹，选择 *同步更多消息*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* 删除消息，跳过回收站：在刚刚在消息文本上方的 3 点菜单中 *删除* 或替代。 取消选择账户设置中的回收站文件夹
+* 删除一个帐户/身份: 设置步骤 1/2, 管理, 点击帐户/身份, 三点菜单, 删除
+* 删除文件夹：长按文件夹列表中的文件夹，编辑属性，三点菜单，删除
+* 撤消发送：发件箱，点击消息，点击撤消图标按钮
+* 将发送的消息存储在收件箱中：请 [查看此常见问题](#user-content-faq142)
+* 更改系统文件夹：设置第1步，管理，在底部点击账户
+* 导出/导入设置：设置、导航/汉堡菜单
 
 ## 已知问题
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 A workaround was added.~~
 * ~~一个 [Google Drive 的 bug](https://issuetracker.google.com/issues/126362828) 导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~ Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ Exception while computing database live data ... Couldn't read row ...</em>". A workaround was added.~~
+* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~ 谷歌已将其修复。~~
+* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ 计算数据库实时数据时出现异常... 无法读取行...</em>"。 A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>
@@ -914,6 +914,16 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 ... not permitted to relay* means that the email server does not recognize the username/email address. Please double check the host name and username/email address in the identity settings.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+
+<br />
 
 **Gmail errors**
 
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 

@@ -1,11 +1,11 @@
 # Поддержка FairEmail
 
-Если у вас есть вопросы, сначала проверьте часто задаваемые вопросы ниже. Внизу вы можете выяснить, как задавать другие вопросы, запрашивать новые возможности и сообщать об ошибках.
+Если у вас есть вопросы, сначала ознакомьтесь со списком часто задаваемых вопросов ниже. Внизу вы можете выяснить, как задавать другие вопросы, запрашивать новые возможности и сообщать об ошибках.
 
 ## Индекс
 
 * [Авторизация аккаунтов](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Узнайте, как...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Как мне...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Известные проблемы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Запланированные возможности](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Часто запрашиваемые возможности](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
@@ -75,10 +75,10 @@
 * ~~ [ошибка в AndroidX](https://issuetracker.google.com/issues/64729576) затрудняет захват быстрой прокрутки. Обходное решение было добавлено.~~
 * ~~Шифрование с помощью YubiKey приводит к бесконечному циклу. Похоже, что это вызвано ошибкой [в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Прокрутка к внутренне привязанному местоположению в оригинальных сообщениях не работает. Это не может быть исправлено, потому что исходный вид сообщения содержится в прокрутке.
-* Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. См. также [этот FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Недопустимое смещение: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Внутренние (якорные) ссылки не будут работать, потому что оригинальные сообщения отображаются во встроенном WebView в виде прокрутки (список разговоров). Это ограничение Android, которое не может быть исправлено или обойдено.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* Предпросмотр текста сообщения (всегда) не отображается на Samsung watch, потому что [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)), похоже, игнорируется. Предпросмотр текста сообщений корректно работает на устройствах Pebble 2, Fitbit Charge 3, Mi band 3 и Xiaomi Amazfit BIP. См. также [этот FAQ](#user-content-faq126).
+* Ошибка [ в Android 6.0](https://issuetracker.google.com/issues/37068143) вызывает критический сбой с *... Недопустимое смещение: ... Допустимый диапазон - ...* при условии что текст выделен и нажимается за пределами выделенного текста. Эта ошибка была исправлена в Android 6.0.1.
+* Внутренние (анкор) ссылки не будут работать, потому что оригинальные сообщения отображаются во встроенном WebView в прокручиваемом виде (списке разговоров). Это ограничение Android, которое невозможно исправить или обойти.
+* Определение языка [больше не работает](https://issuetracker.google.com/issues/173337263) на устройствах Pixel с (обновленных до) Android 11
 
 ## Запланированные возможности
 
@@ -155,12 +155,12 @@
 * [(32) Как я могу проверить, действительно ли чтение электронной почты безопасно?](#user-content-faq32)
 * [(33) Почему редактируемые адреса отправителя не работают?](#user-content-faq33)
 * [(34) Как подбираются личности?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
-* [(36) Как зашифрованы файлы настроек?](#user-content-faq36)
+* [(35) Почему мне нужно быть осторожным, просматривая изображения, вложения, оригинальное сообщение и открывая ссылки?](#user-content-faq35)
+* [(36) Как файлы настроек зашифрованы?](#user-content-faq36)
 * [(37) Как хранятся пароли?](#user-content-faq37)
 * [(39) Как я могу уменьшить использование батареи FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) Как исправить ошибку 'Не удалось выполнить рукопожатие'?](#user-content-faq41)
+* [(40) Как я могу сократить потребление интернет-трафика FairEmail?](#user-content-faq40)
+* [(41) Как исправить ошибку 'Handshake failed'?](#user-content-faq41)
 * [(42) Можете ли вы добавить нового провайдера в список провайдеров?](#user-content-faq42)
 * [(43) Можете ли вы показать оригинал ... ?](#user-content-faq43)
 * [(44) Можете ли вы показать фотографии / идентификаторы контактов в отправленной папке?](#user-content-faq44)
@@ -176,8 +176,8 @@
 * [~~(54) Как использовать префикс пространства имён?~~](#user-content-faq54)
 * [(55) Как я могу пометить все сообщения как прочитанные / переместить или удалить все сообщения?](#user-content-faq55)
 * [(56) Вы можете добавить поддержку JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
-* [(58) Что означает иконка с открытым или закрытым письмом?](#user-content-faq58)
+* [(57) Могу ли я использовать HTML в подписи к письму?](#user-content-faq57)
+* [(58) Что означает иконка с открытым/закрытым письмом?](#user-content-faq58)
 * [(59) Можно ли открыть оригинальные сообщения в браузере?](#user-content-faq59)
 * [(60) Знали ли Вы ...?](#user-content-faq60)
 * [(61) Почему некоторые сообщение затемнены?](#user-content-faq61)
@@ -226,7 +226,7 @@
 * [(105) Как работает вариант «роуминг как дома»?](#user-content-faq105)
 * [(106) Какие программы запуска могут показывать счетчик значков с количеством непрочитанных сообщений?](#user-content-faq106)
 * [(107) Как пользоваться цветными звездами?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~(108) Можете ли вы добавить возможность перманентно удалять сообщения из любой папки?~~](#user-content-faq108)
 * [~~(109) Почему 'select account' доступен только в официальных версиях?~~](#user-content-faq109)
 * [(110) Почему (некоторые) сообщения пусты и / или повреждены вложения?](#user-content-faq110)
 * [(111) Поддерживается ли авторизация?](#user-content-faq111)
@@ -278,8 +278,8 @@
 * [(157) Как я могу создать учетную запись Free.fr?](#user-content-faq157)
 * [(158) Какую камеру / диктофон вы рекомендуете?](#user-content-faq158)
 * [(159) Что такое списки защиты от отслеживания Disconnects? ](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
+* [(160) Можете ли вы добавить возможность перманентно удалять сообщения без подтверждения?](#user-content-faq160)
+* [(161) Можете ли вы добавить возможность изменять первичный и акцентный цвета?](#user-content-faq161)
 
 [У меня есть еще один вопрос.](#user-content-support)
 
@@ -299,11 +299,11 @@
 * Необязательно: * используйте оборудование для снятия отпечатков пальцев * (USE_FINGERPRINT) и используйте * биометрическое оборудование * (USE_BIOMETRIC): для использования биометрической аутентификации
 * Необязательно: * поиск учетных записей на устройстве * (GET_ACCOUNTS): для выбора учетной записи при использовании быстрой настройки Gmail
 * Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop и ниже: *Используют учетные записи устройства* (READ_PROFILE): чтобы узнать ваше имя во время быстрой настройки Gmail (не требуется в более поздних версиях Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Необязательные разрешения](https://developer.android.com/training/permissions/requesting) поддерживаются только на Android 6 Marshmallow и более поздних версиях. На более ранних версиях Android вас попросят предоставить дополнительные разрешения для установки FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Следующий список разрешений требуется для отображения числа непрочитанных сообщений в качестве значка на иконке приложений (см. также [данный FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -318,65 +318,65 @@ The following permissions are needed to show the count of unread messages as a b
 * *com.huawei.android.launcher.permission.WRITE_SETTINGS*
 * *android.permission.READ_APP_BADGE*
 * *com.oppo.launcher.permission.READ_SETTINGS*
-* *com.oppo.launcher.permission.WRITE_SETTINGS*
+* *com.oppo.launcher.permission.WRIT_SETTINGS*
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail будет хранить список адресов, от которых вы получаете сообщения и которым их отправляете, и будет использовать этот список, чтобы подсказывать вам адреса при отправке сообщений, если FairEmail не будет предоставлено ни одного разрешения к списку контактов. Это значит что вы можете использовать FairEmail, не используя список контактов Android (адресная книжка). Обратите внимание что вы все еще можете выбирать адреса, не давая FairEmail разрешения на это, только предлагаемые адреса не будут работать без этого разрешения.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Почему у меня отображается не пропадающее уведомление?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Низкоприоритетное не пропадающее уведомление в строке состояния с количеством отслеживаемых учетных записей и ожидающих операций (см. следующий вопрос) показывается для того, чтобы предотвратить автоматическое завершение работы службы, необходимой для непрерывного получения писем. Это было [необходимо и ранее](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), но с введением в Android 6 Marshmallow [спящего режима](https://developer.android.com/training/monitoring-device-state/doze-standby) это стало более, чем необходимо. Спящий режим останавливает все приложения спустя некоторое время после затухания экрана, за исключением случаев, когда приложение запускает службу для отправки уведомлений.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Большинство, если не все, другие почтовые приложения не присылают уведомления с "побочным эффектом" при котором уведомления о новых сообщения или приходят слишком поздно или не приходят вовсе, и так же происходит с уведомлениями об отправленных сообщениях.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+В строке состояния Android, в первую очередь, отображает уведомления с высоким приоритетом и скрывает уведомление от FairEmail, если для него не остается достаточно места. По сути, это означает что уведомление от FairEmail занимает место в строке состояния только, если есть свободное место.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Уведомление в строке состояния можно отключить с помощью настроек уведомлений от FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 8 Oreo и более поздние версии: нажмите кнопку *Получить канал* и отключите его через настройки уведомлений Android (уведомления о новых сообщениях не отключатся)
+* Android 7 Nougat и более ранние версии: включите настройку *Использовать фоновый сервис для синхронизации сообщений*, но не забудьте прочитать предупреждение под ней
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Вы можете переключиться на периодическую синхронизацию сообщений в настройках их получения, чтобы избавиться от уведомления в строке состояния, но имейте в виду, что это может увеличить расход батареи. Загляните [сюда](#user-content-faq39) чтобы узнать больше о расходе батареи.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+На Android 8 Oreo также может появиться уведомление в строке состояния с текстом*Приложения запущены в фоновом режиме*. Пожалуйста, загляните [сюда](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) чтобы узнать как отключить это уведомление.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Некоторые люди советуют использовать [Службу Облачных Сообщений Firebase](https://firebase.google.com/docs/cloud-messaging/) (FMC) вместо Android службы уведомлений в строке состояния, но для этого провайдеру электронной почты потребуется отправлять сообщения FMC или на центральный сервер, где собираются все сообщения для отправки FMC. Первое никогда не произойдет, а второе будет иметь значительные последствия для конфиденциальности.
 
 Если вы попали сюда, нажав на уведомление, вам стоит знать, что следующий щелчок откроет единый почтовый ящик.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Что такое операции и почему они ожидают?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Низкоприоритетное уведомление в строке состояния показывает число ожидающих операций, которыми могут быть:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
-* *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
-* *headers*: download message headers
-* *raw*: download raw message
-* *body*: download message text
-* *attachment*: download attachment
-* *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *rule*: execute rule on body text
+* *add - добавить*: добавить сообщение в удаленную папку
+* *move - переместить*: переместить сообщение в другую удалённую папку
+* *copy - копировать*: копировать сообщение в другую удаленную папку
+* *fetch - извлечь*: извлечь измененное (отправленное в удаленную папку) сообщение
+* *delete - удалить*: удалить сообщение из удаленной папки
+* *seen - прочитано*: отметить сообщение как прочитанное/непрочитанное в удаленной папке
+* *answered - отвечено*: отметить сообщение как отвеченное в удаленной папке
+* *flag - пометить*: добавить/удалить сообщение из избранных в удаленной папке
+* *keyword - ключевое слово*: добавить/удалить метку IMAP в удаленной папке
+* *label - отметка* установить/сбросить отметку Gmail в удаленной папке
+* *headers - заголовки*: загрузить заголовки сообщений
+* *raw - исходник*: загрузить исходное сообщение
+* *body - основа*: загрузить основной текст сообщения
+* *attachment - вложение*: загрузить вложение
+* *sync - синхронизация*: синхронизировать локальные и удаленные сообщения
+* *subscribe - подписаться*: подписаться на удаленную папку
+* *purge - очистить*: удалить все сообщения из удаленной папки
+* *send - отправить*: отправить сообщение
+* *exists - существует*: проверить существует ли сообщение
+* *rule - правило*: использовать правило на основной текст сообщения
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Операции производятся только, когда есть соединение с сервером почты или во время ручной синхронизации. Смотрите так же [данный FAQ](#user-content-faq16).
 
 <br />
 
@@ -914,6 +914,16 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 ... пересылка запрещена* означает, что почтовый сервер не распознает имя пользователя/адрес электронной почты. Пожалуйста, проверьте имя хоста и имя пользователя/адрес электронной почты в настройках идентификатора.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+
+<br />
 
 **Gmail errors**
 
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 

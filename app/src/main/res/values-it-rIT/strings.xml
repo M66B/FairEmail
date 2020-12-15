@@ -348,6 +348,7 @@
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_parse_classes">Analizza stili fogli</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
+    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Sincronizza all\'avvio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
@@ -696,7 +697,7 @@
     <string name="title_folder_drafts">Bozze</string>
     <string name="title_folder_trash">Cestino</string>
     <string name="title_folder_junk">Posta indesiderata</string>
-    <string name="title_folder_sent">Inviato</string>
+    <string name="title_folder_sent">Posta inviata</string>
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Utente</string>
     <string name="title_folder_user_only">Solo cartelle utente</string>
@@ -992,7 +993,7 @@
     <string name="title_filter_seen">Da leggere</string>
     <string name="title_filter_unflagged">Senza stella</string>
     <string name="title_filter_unknown">Mittenti sconosciuti</string>
-    <string name="title_filter_hidden">Nascosto</string>
+    <string name="title_filter_hidden">Nascosti</string>
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>

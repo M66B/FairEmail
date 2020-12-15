@@ -336,6 +336,7 @@
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
+    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">应用启动时同步</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>

@@ -914,6 +914,16 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* mostly means that an address is being used both as TO and CC address
 * *554 5.7.1 ... not permitted to relay* means that the email server does not recognize the username/email address. Sila periksa lagi nama host dan nama pengguna/alamat surel pada pengaturan identitas.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+
+* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
+* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+
+&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+
+<br />
 
 **Gmail errors**
 
@@ -946,14 +956,14 @@ This alert will be sent when there are too many folder connections for the same 
 
 Possible causes are:
 
-* Terdapat lebih dari satu surel klien yang terhubung dengan akun yang sama
-* Surel klien yang sama terkoneksi lebih dari satu kali ke akun yang sama
-* Koneksi sebelumnya telah diberhentikan secara tiba-tiba karena contohnya tiba-tiba kehilangan jaringan internet
+* There are multiple email clients connected to the same account
+* The same email client is connected multiple times to the same account
+* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
 
 First try to wait some time to see if the problem resolves itself, else:
 
-* pindah ke pemeriksaan secara periodik untuk pesan salam pengaturan penerimaan, yang akan menghasilkan folder untuk terbuka satu per satu
-* atau atur beberapa folder untuk pilihan dibandingkan dengan sinkronisasi (tekan dengan lama pada folder dalam daftar folder, sunting properti)
+* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
+* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 
@@ -1028,11 +1038,11 @@ On Android 8.0 Oreo and later you can manage the properties of the individual no
 
 FairEmail has the following notification channels:
 
-* Layanan: digunakan untuk notifikasi dari layanan singkronisasi, lihat juga [FAQ ini](#user-content-faq2)
-* Kirim: digunakan untuk notifikasi untuk layanan pengiriman
-* Notifikasi: digunakan untuk notifikasi pesan baru
-* Peringatan: digunakan untuk notifikasi peringatan
-* Eror: digunakan untuk notifikasi eror
+* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Send: used for the notification of the send service
+* Notifications: used for new message notifications
+* Warning: used for warning notifications
+* Error: used for error notifications
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
 
@@ -1054,8 +1064,8 @@ Just long press a folder, select *Edit properties*, and enable either *Show in u
 
 There are quick settings (settings tiles) available to:
 
-* mengaktifkan/menonaktifkan singkronisasi secara global
-* menampilkan jumlah pesan baru dan menandai pesan tersebut sebagai terlihat (bukan dibaca)
+* globally enable/disable synchronization
+* show the number of new messages and marking them as seen (not read)
 
 Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
@@ -1066,8 +1076,8 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 
 There are shortcuts available to:
 
-* membuat pesan baru untuk kontak favorit
-* mengatur akun, identitas, dll
+* compose a new message to a favorite contact
+* setup accounts, identities, etc
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
@@ -1101,7 +1111,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.
+Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
@@ -1121,9 +1131,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identitas: abc@contoh.com; regex: **(?i)abc**
-* Identitas: xyz@contoh.com; regex: **(?i)xyz**
-* Identitas: main@contoh.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identity: abc@example.com; regex: **(?i)abc**
+* Identity: xyz@example.com; regex: **(?i)xyz**
+* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
 
