@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugsnag.android.gradle'
 
-def getVersionCode = { -> return 1425 }
-def getReleaseName = { -> return "\"Daxiatitan\"" }
+def getVersionCode = { -> return 1426 }
+def getReleaseName = { -> return "\"Elaltitan\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
