@@ -328,8 +328,20 @@ public class HtmlHelper {
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
-            Document parsed = JsoupEx.parse(html);
-            return sanitize(context, parsed, false, show_images);
+            Document d = sanitize(context, JsoupEx.parse(html), false, show_images);
+            d.select("*")
+                    .removeAttr("x-block")
+                    .removeAttr("x-inline")
+                    .removeAttr("x-paragraph")
+                    .removeAttr("x-font-size")
+                    .removeAttr("x-font-size-rel")
+                    .removeAttr("x-line-before")
+                    .removeAttr("x-line-after")
+                    .removeAttr("x-align")
+                    .removeAttr("x-column")
+                    .removeAttr("x-dashed")
+                    .removeAttr("x-tracking");
+            return d;
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
