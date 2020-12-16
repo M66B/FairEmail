@@ -323,6 +323,7 @@
     <string name="title_advanced_navbar_colorize">將 Android 導航列上色</string>
     <string name="title_advanced_parse_classes">解析樣式表</string>
     <string name="title_advanced_authentication">當接收伺服器無法驗證訊息時顯示警告</string>
+    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">在應用程式啟動時同步。</string>
     <string name="title_advanced_double_back">兩次「返回」離開程式</string>
     <string name="title_advanced_pull_refresh">下拉重新整理</string>
     <string name="title_advanced_autoscroll">當接收到新訊息時滾動回最上端</string>

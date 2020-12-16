@@ -185,7 +185,7 @@
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
     <string name="title_setup_password_missing">Salasana puuttuu</string>
-    <string name="title_setup_password_different">Salasanat eivät täsmää</string>
+    <string name="title_setup_password_different">Salasanat eivät vastaa toisiaan</string>
     <string name="title_setup_password_invalid">Salasana on virheellinen</string>
     <string name="title_setup_exported">Asetukset viety</string>
     <string name="title_setup_imported">Asetukset tuotu</string>
@@ -346,6 +346,7 @@
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_parse_classes">Jäsennä tyyliohjeet</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
+    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
@@ -529,7 +530,7 @@
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
     <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen kansioiden ja tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
-    <string name="title_advanced_sender_regex">Regex saapuvien sähköpostien osoitteiden käyttäjätunnuksen täsmäämiseen</string>
+    <string name="title_advanced_sender_regex">Regex lähettäjän sähköpostiosoitteen käyttäjätunnuksen vastaavuuden määrittämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_unicode">Käytä Unicode-tiedonsiirtoa</string>
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
@@ -935,7 +936,7 @@
     <string name="title_signature_certificate_invalid">Virheellinen sertifikaattiketju</string>
     <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
-    <string name="title_signature_mismatch">Lähettäjän ja allekirjoituksen sähköpostiosoitteet eivät täsmää</string>
+    <string name="title_signature_mismatch">Lähettäjän ja allekirjoituksen sähköpostiosoitteet eivät vastaa toisiaan</string>
     <string name="title_signature_subject">Aihe</string>
     <string name="title_signature_validity">Kelpoisuus</string>
     <string name="title_signature_outdated">Tämä julkinen avain ei ole voimassa</string>
@@ -1067,8 +1068,8 @@
     <string name="title_rule_applied">Täsmäävät viestit: %1$d</string>
     <string name="title_rule_check">Tarkista</string>
     <string name="title_rule_no_headers">Tunnistetietojen ehtoja ei voida tarkistaa</string>
-    <string name="title_rule_matched">Täsmäävät viestit</string>
-    <string name="title_rule_no_matches">Ei täsmääviä viestejä</string>
+    <string name="title_rule_matched">Ehtoja vastaavat viestit</string>
+    <string name="title_rule_no_matches">Ei ehtoja vastaavia viestejä</string>
     <string name="title_rule_tts_ok">Asetukset kunnossa</string>
     <string name="title_rule_tts_setup">Tarkista asetukset</string>
     <string name="title_rule_tts_data">Asenna äänitiedot</string>

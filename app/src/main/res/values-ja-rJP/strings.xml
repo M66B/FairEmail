@@ -144,7 +144,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
     <string name="title_setup_account">アカウントのセットアップ</string>
-    <string name="title_setup_account_remark">メールを受信する</string>
+    <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_account_hint">色を変更するには、左/右のターゲットフォルダなどをスワイプします</string>
     <string name="title_setup_identity">IDのセットアップ</string>
     <string name="title_setup_identity_remark">メールを送信</string>
@@ -520,6 +520,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_sender">送信者アドレスの編集を許可</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
+    <string name="title_identity_unicode">Unicode トランスポートを使用</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーはこれをサポートしていません</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">常に配信確認・開封確認メッセージを要求</string>
@@ -575,6 +576,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_no_name">名前が有りません</string>
     <string name="title_no_email">メールアドレスを入力して下さい</string>
     <string name="title_email_invalid">メールアドレスが無効です: \'%1$s\'</string>
+    <string name="title_address_duplicate">アドレス \'%1$s\' が重複</string>
     <string name="title_address_parse_error">アドレス \'%1$s\' が無効です: %2$s</string>
     <string name="title_no_account">アカウント名を入力して下さい</string>
     <string name="title_no_host">Hostネームを入力して下さい</string>
@@ -632,7 +634,12 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_empty_trash_all_ask">全てのアカウントのゴミ箱メッセージを削除しますか？</string>
     <string name="title_empty_spam_all_ask">全てのアカウントの迷惑メールを削除しますか？</string>
     <string name="title_empty_all">デバイスとサーバーの両方からのすべてのメッセージを削除します</string>
+    <string name="title_delete_operation_title">削除操作</string>
     <string name="title_delete_operation_error">エラーメッセージあり</string>
+    <string name="title_delete_operation_fetch">取得操作</string>
+    <string name="title_delete_operation_move">移動操作</string>
+    <string name="title_delete_operation_flag">フラグ操作</string>
+    <string name="title_delete_operation_delete">削除操作</string>
     <string name="title_delete_operation_deleted">%1$d 操作が削除されました</string>
     <string name="title_delete_contacts">ローカルにある全ての連絡先を削除しますか？</string>
     <string name="title_no_operations">保留中の操作は有りません</string>
@@ -708,6 +715,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
     <string name="title_print">印刷</string>
+    <string name="title_print_header">ヘッダを印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_raw_save">素のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
@@ -830,6 +838,16 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_style_size_medium">標準</string>
     <string name="title_style_size_large">大</string>
     <string name="title_style_color">カラー &#8230;</string>
+    <string name="title_style_align">配置</string>
+    <string name="title_style_align_start">先頭</string>
+    <string name="title_style_align_center">中央</string>
+    <string name="title_style_align_end">末尾</string>
+    <string name="title_style_list">リスト</string>
+    <string name="title_style_list_bullets">箇条書き</string>
+    <string name="title_style_list_numbered">番号付け</string>
+    <string name="title_style_font">フォント</string>
+    <string name="title_style_font_default">デフォルト</string>
+    <string name="title_style_blockquote">ブロック引用</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>
     <string name="title_add_image">画像を追加</string>

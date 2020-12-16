@@ -88,7 +88,7 @@ Aiheeseen liittyvät kysymykset:
 * ~~Värilliset tähdet~~
 * ~~~Ilmoitusasetukset kansioittain~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~Näytä sääntöä vastaavat viestit~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
@@ -154,7 +154,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(31) How can I use the provided shortcuts?](#user-content-faq31)
 * [(32) How can I check if reading email is really safe?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
+* [(34) Kuinka identiteettien vastaavuus määritetään?](#user-content-faq34)
 * [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)

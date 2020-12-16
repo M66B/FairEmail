@@ -352,7 +352,7 @@
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_message_text_zoom">Масштаб текста сообщения по умолчанию</string>
-    <string name="title_advanced_overview_mode">Изменить масштаб оригинальных сообщений к размеру экрана</string>
+    <string name="title_advanced_overview_mode">Изменять масштаб оригинальных сообщений к размеру экрана</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">По умолчанию использовать моношированный шрифт для текста сообщения</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
@@ -504,7 +504,7 @@
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
     <string name="title_advanced_startup_hint">Длительное нажатие на любую папку в списке позволит добавить или удалить её из списка единых папок</string>
     <string name="title_advanced_beige_hint">Только светлые темы</string>
-    <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
+    <string name="title_advanced_date_hint">Сообщения группируются только по дате, если используется сортировка по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
