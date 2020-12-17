@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PowerManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +57,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Future<?> future;
     private ExecutorService localExecutor;
 
+    private static PowerManager.WakeLock wl = null;
     private static ExecutorService globalExecutor = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
@@ -77,6 +79,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private ExecutorService getExecutor(Context context) {
+        if (wl == null) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":task");
+        }
+
         if (localExecutor != null)
             return localExecutor;
 
@@ -147,6 +154,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             public void run() {
                 // Run in background thread
                 try {
+                    wl.acquire();
+
                     if (log)
                         Log.i("Executing task=" + name);
                     long start = new Date().getTime();
@@ -158,6 +167,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                     if (!(ex instanceof IllegalArgumentException))
                         Log.e(ex);
                     this.ex = ex;
+                } finally {
+                    wl.release();
                 }
 
                 // Run on UI thread
