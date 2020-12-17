@@ -4343,7 +4343,8 @@ public class FragmentCompose extends FragmentBase {
                     dirty = true;
                     boolean discard_delete = prefs.getBoolean("discard_delete", false);
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
-                    if (empty || trash == null || discard_delete)
+                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
+                    if (empty || trash == null || discard_delete || (drafts != null && drafts.local))
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else {
                         EntityOperation.queue(context, draft, EntityOperation.ADD);

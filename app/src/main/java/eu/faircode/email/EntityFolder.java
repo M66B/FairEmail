@@ -77,6 +77,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Integer level = 0; // obsolete
     @NonNull
+    public Boolean local = false;
+    @NonNull
     public Boolean synchronize;
     @NonNull
     public Boolean poll = false;

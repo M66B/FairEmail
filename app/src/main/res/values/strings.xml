@@ -813,6 +813,7 @@
     <string name="title_folder_user_only">User folders only</string>
     <string name="title_folder_primary">Folders primary account</string>
     <string name="title_folders_unified">Unified inbox folders</string>
+    <string name="title_folder_local_drafts">Local drafts</string>
     <string name="title_no_folders">No folders</string>
     <string name="title_no_messages">No messages</string>
     <string name="title_filters_active">One or more filters active</string>

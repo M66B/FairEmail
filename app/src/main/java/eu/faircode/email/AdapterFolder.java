@@ -468,7 +468,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             final TupleFolderEx folder = items.get(pos);
-            if (folder.tbd != null)
+            if (folder.tbd != null || folder.local)
                 return false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

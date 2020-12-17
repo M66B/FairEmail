@@ -313,7 +313,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean debug = prefs.getBoolean("debug", false);
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, criteria != null);
-        if (browsable == null || !browsable.selectable) {
+        if (browsable == null || !browsable.selectable || browsable.local) {
             Log.w("Boundary not browsable=" + (folder != null));
             return 0;
         }
