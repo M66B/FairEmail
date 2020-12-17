@@ -1119,7 +1119,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match the username of an email address (the part before the @ sign).
+Il est possible de configurer un [regex](https://en.wikipedia.org/wiki/Regular_expression) dans les paramètres d'identité pour faire correspondre **le nom d'utilisateur** d'une adresse courriel (la partie avant le signe @).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 

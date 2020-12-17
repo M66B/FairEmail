@@ -358,7 +358,7 @@
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
     <string name="title_advanced_parse_classes">Utilizează foile de stil</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Sincronizare la pornire</string>
+    <string name="title_advanced_sync_on_launch">Sincronizare la pornire</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>

@@ -681,91 +681,91 @@ Cómo extraer una clave pública de un certificado S/MIME:
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Puedes decodificar firmas S/MIME, etc, [aquí](https://lapo.it/asn1js/).
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+La firma/cifrado S/MIME es una característica pro, pero todas las demás operaciones de PGP y S/MIME son de uso libre.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) ¿Cómo funciona la búsqueda en el dispositivo/servidor? **
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Puede comenzar a buscar mensajes en el remitente (de), el destinatario (a, cc, bcc), el asunto, las palabras clave o el texto del mensaje utilizando la lupa de la barra de acciones de una carpeta. También puedes buscar desde cualquier aplicación seleccionando *Buscar email* en el menú emergente de copiar/pegar.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Si se busca en la bandeja de entrada unificada, se buscará en todas las carpetas de todas las cuentas, si se busca en la lista de carpetas, se buscará sólo en la cuenta asociada y si se busca en una carpeta, se buscará sólo en esa carpeta.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Los mensajes se buscarán primero en el dispositivo. Habrá un botón de acción con un icono de búsqueda de nuevo en la parte inferior para continuar la búsqueda en el servidor. Puede seleccionar en qué carpeta continuar la búsqueda.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+El protocolo IMAP no soporta la búsqueda en más de una carpeta al mismo tiempo. La búsqueda en el servidor es una operación costosa, por lo que no es posible seleccionar varias carpetas.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+La búsqueda de mensajes locales no distingue entre mayúsculas y minúsculas y es un texto parcial. El texto del mensaje de los mensajes locales no se buscará si el texto del mensaje no se ha descargado todavía. La búsqueda en el servidor puede ser sensible a mayúsculas y minúsculas o insensible a mayúsculas y puede ser en un texto parcial o en palabras completas, dependiendo del proveedor.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Algunos servidores no pueden manejar la búsqueda en el texto del mensaje cuando hay un gran número de mensajes. En este caso hay una opción para desactivar la búsqueda en el texto del mensaje.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+Es posible utilizar los operadores de búsqueda de Gmail anteponiendo a un comando de búsqueda el prefijo *raw:*. Si has configurado una sola cuenta de Gmail, puedes iniciar una búsqueda sin procesar directamente en el servidor buscando desde la carpeta "Recibidos unificados". Si has configurado varias cuentas de Gmail, primero tendrás que navegar hasta la lista de carpetas o la carpeta de archivo (todos los mensajes) de la cuenta de Gmail en la que deseas buscar. Por favor, [ vea aquí](https://support.google.com/mail/answer/7190) para los posibles operadores de búsqueda. Por ejemplo:
 
 `
 raw:larger:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+La búsqueda a través de un gran número de mensajes en el dispositivo no es muy rápida debido a dos limitaciones:
 
 * [sqlite](https://www.sqlite.org/), el motor de base de datos de Android tiene un límite de tamaño de registro, evitando que los mensajes de texto se almacenen en la base de datos
 * Las aplicaciones Android tienen memoria limitada para trabajar, incluso si el dispositivo tiene suficiente memoria disponible
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Esto significa que la búsqueda de un texto de mensaje requiere que los archivos que contienen los textos de los mensajes se abran uno por uno para comprobar si el texto buscado está contenido en el archivo, lo cual es un proceso relativamente costoso.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+En *configuraciones varias* puede habilitar *Construir índice de búsqueda* para aumentar significativamente la velocidad de búsqueda en el dispositivo, pero tenga en cuenta que esto aumentará el uso de la batería y el espacio de almacenamiento. El índice de búsqueda se basa en palabras, por lo que la búsqueda de texto parcial no es posible. La búsqueda mediante el índice de búsqueda es por defecto AND, por lo que al buscar *naranja manzana* se buscará manzana AND naranja. Las palabras separadas por comas resultan en la búsqueda de OR, así que por ejemplo * manzana, naranja* buscará manzana OR naranja. Ambos pueden combinarse, así que al buscar * manzana, la naranja y el plátano* se buscará la manzana O (naranja Y plátano). El uso del índice de búsqueda es una característica profesional.
 
-From version 1.1315 it is possible to use search expressions like this:
+A partir de la versión 1.1315 es posible utilizar expresiones de búsqueda como esta:
 
 ```
 manzana +banana -cereza ?nueces
 ```
 
-This will result in searching like this:
+Esto resultará en una búsqueda como esta:
 
 ```
 ("manzana" Y "banana" Y NO "cereza") O "nueces"
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+Las expresiones de búsqueda pueden utilizarse para buscar en el dispositivo a través del índice de búsqueda y para buscar en el servidor de correo electrónico, pero no para buscar en el dispositivo sin índice de búsqueda por razones de rendimiento.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Buscar en el dispositivo es una característica gratuita, usar el índice de búsqueda y buscar en el servidor es una característica profesional.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) ¿Cómo puedo configurar una cuenta de Outlook / Live / Hotmail?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+Una cuenta de Outlook / Live / Hotmail se puede configurar a través del asistente de configuración rápida y seleccionando *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+Para utilizar una cuenta de Outlook, Live o Hotmail con la autenticación de dos factores habilitada, debe crear una contraseña de aplicación. Vea [aquí](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) para los detalles.
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Vea [aquí](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) para las instrucciones de Microsoft.
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+Para configurar una cuenta de Office 365, consulte [estas preguntas frecuentes](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) ¿Por qué el texto del mensaje sigue cargándose?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
+El encabezado y el cuerpo del mensaje se obtienen por separado del servidor. El texto del mensaje de los mensajes más grandes no se está precalculando en las conexiones con medidor y se recalcará a petición cuando se amplíe un mensaje. El texto del mensaje seguirá cargándose si no hay conexión con la cuenta, véase también la siguiente pregunta, o si se están ejecutando otras operaciones, como la sincronización de los mensajes.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+Puede comprobar el estado de la cuenta y de la carpeta en la lista de cuentas y carpetas (véase la leyenda para el significado de los iconos) y la lista de operaciones accesible a través del menú principal de navegación para las operaciones pendientes (véase [esta FAQ](#user-content-faq3) para el significado de las operaciones).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+Si FairEmail se retrasa por problemas de conectividad previos, por favor vea [esta FAQ](#user-content-faq123), puede forzar la sincronización a través del menú de tres puntos.
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+En la configuración de recepción se puede establecer el tamaño máximo para la descarga automática de mensajes en conexiones con medidor.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Las conexiones móviles casi siempre son medidas y algunos puntos de acceso Wi-Fi (pagados) también lo son.
 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) ¿Por qué no se sincronizan los mensajes?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Las posibles causas de que los mensajes no se sincronicen (enviados o recibidos) son:
 
 * La cuenta o carpeta(s) no están configuradas para sincronizar
 * El número de días para sincronizar mensajes es demasiado bajo
@@ -773,92 +773,92 @@ Possible causes of messages not being synchronized (sent or received) are:
 * El servidor de correo electrónico no está disponible temporalmente
 * Android detuvo el servicio de sincronización
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Por lo tanto, compruebe la configuración de su cuenta y carpetas y compruebe si las cuentas/carpetas están conectadas (vea la leyenda en el menú de navegación para ver el significado de los iconos).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+Si hay algún mensaje de error, por favor consulte [estas Preguntas Frecuentes](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+En algunos dispositivos, donde hay muchas aplicaciones que compiten por la memoria, Android puede detener el servicio de sincronización como último recurso.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Algunas versiones de Android detienen aplicaciones y servicios en forma demasiado agresiva. Vea [este sitio web dedicado](https://dontkillmyapp.com/) y [este problema de Android](https://issuetracker.google.com/issues/122098785) para más información.
 
-Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+Deshabilitar optimizaciones de batería (configuración del paso 4) reduce la posibilidad de que Android detenga el servicio de sincronización.
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) ¿Por qué no funciona la sincronización manual?~~**
 
-~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
+~~Si el menú *Sincronizar ahora* está atenuado, no hay conexión con la cuenta.~~
 
-~~See the previous question for more information.~~
+~~Vea la pregunta anterior para más información.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) ¿Por qué no se muestra siempre la vista previa del mensaje?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+La vista previa del texto del mensaje no se puede mostrar si el cuerpo del mensaje no ha sido descargado todavía. Vea también [estas Preguntas Frecuentes](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) ¿Por qué las características Pro son tan caras?**
 
-The right question is "*why are there so many taxes and fees?*":
+La pregunta correcta es "*¿por qué hay tantos impuestos y tasas?*":
 
 * IVA: 25 % (dependiendo de su país)
 * Comisión de Google: 30 %
 * Impuesto sobre la renta: 50 %
 * <sub>Comisión de Paypal: 5-10 % dependiendo del país/monto</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Por lo tanto, lo que queda para el desarrollador es sólo una fracción de lo que Ud. paga.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Tenga en cuenta que sólo algunas características avanzadas y de comodidad necesitan ser compradas, lo que significa que FairEmail es básicamente gratis para usar.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+También tenga en cuenta que la mayoría de las aplicaciones gratuitas parecerán no ser sostenibles al final, mientras que FairEmail está adecuadamente mantenido y soportado, y que las aplicaciones gratuitas pueden tener una trampa, como enviar información confidencial de privacidad a Internet.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+He estado trabajando en FairEmail casi todos los días por más de dos años, por lo que creo que el precio es más que razonable. Por esta razón tampoco habrá descuentos.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) ¿Puedo obtener un reembolso?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Si una característica pro comprada no funciona como está previsto y esto no es causado por un problema en las características gratuitas y no puedo arreglar el problema de forma oportuna, usted puede obtener un reembolso. En todos los demás casos no es posible el reembolso. En ninguna circunstancia hay un reembolso posible para cualquier problema relacionado con las características gratuitas, ya que no se pagó nada por ellas y porque pueden ser evaluados sin ninguna limitación. Asumo mi responsabilidad como vendedor de entregar lo que se ha prometido y espero que Ud. se responsabilice de informarse de lo que está comprando.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) ¿Cómo puedo activar la luz de notificación?**
 
-Before Android 8 Oreo: there is an advanced option in the setup for this.
+Antes de Android 8 Oreo: hay una opción avanzada en la configuración para esto.
 
-Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Manage notifications* in the setup to directly go to the Android notification settings. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
+Android 8 Oreo y posteriores: vea [aquí](https://developer.android.com/training/notify-user/channels) sobre cómo configurar los canales de notificación. Puede utilizar el botón *Administrar notificaciones* en la configuración para ir directamente a los ajustes de notificación de Android. Ten en cuenta que las aplicaciones no pueden cambiar los ajustes de notificación, incluyendo la configuración de la luz de notificación, en Android 8 Oreo y más adelante. Las aplicaciones diseñadas y orientadas a versiones antiguas de Android podrían seguir siendo capaces de controlar el contenido de las notificaciones, pero estas aplicaciones ya no se pueden actualizar y las versiones recientes de Android mostrarán una advertencia de que dichas aplicaciones están desactualizadas.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
+A veces es necesario desactivar la configuración *Mostrar vista previa del mensaje en las notificaciones* o habilitar la configuración *Mostrar notificaciones con un texto de vista previa* para solucionar un error en Android. Esto podría aplicarse también a los sonidos y vibración de notificaciones.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Establecer un color de luz antes de Android 8 no es compatible y no es posible en Android 8 y posteriores.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) ¿Qué significa el error ... de cuenta/carpeta?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail no oculta errores como las aplicaciones similares a menudo lo hacen, para que sea más fácil diagnosticar problemas.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+FairEmail intentará reconectarse automáticamente después de un retraso. Este retraso se duplicará tras cada intento fallido de evitar que se agote la batería y que se bloquee permanentemente el acceso.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Hay errores generales y errores específicos para las cuentas de Gmail (ver abajo).
 
-**General errors**
+**Errores Generales**
 
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+El error *... La autenticación falló ...* o *... AUTHENTICATE falló...* probablemente significa que su nombre de usuario o contraseña era incorrecto. Algunos proveedores esperan como nombre de usuario sólo *nombre de usuario* y otros su dirección de correo electrónico completa *nombredeusuario@ejemplo.com*. Al copiar/pegar para introducir un nombre de usuario o contraseña, pueden copiarse caracteres invisibles, lo que también podría causar este problema. También se sabe que algunos administradores de contraseñas hacen esto incorrectamente. El nombre de usuario puede ser sensible a mayúsculas, así que intente sólo caracteres en minúsculas. La contraseña es casi siempre sensible a mayúsculas y minúsculas. Algunos proveedores requieren usar una contraseña de aplicación en lugar de la contraseña de la cuenta, así que por favor revise la documentación del proveedor. A veces es necesario habilitar primero el acceso externo (IMAP/SMTP) en el sitio web del proveedor. Otras posibles causas son que la cuenta está bloqueada o que el inicio de sesión ha sido restringido administrativamente de alguna manera, por ejemplo permitiendo iniciar sesión desde ciertas redes / direcciones IP solamente.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
+El error *... Demasiados intentos de autenticación incorrectos ...* probablemente significa que está utilizando una contraseña de cuenta de Yahoo en lugar de una contraseña de la aplicación. Por favor, consulte [estas Preguntas Frecuentes](#user-content-faq88) sobre cómo configurar una cuenta Yahoo.
 
-The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente el número de puerto 995) está siendo usado para una cuenta IMAP (generalmente el puerto número 993).
 
-The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parámetro HELO no se ajusta a la sintaxis RFC ...* puede resolverse cambiando la configuración de identidad avanzada *Utilice la dirección IP local en lugar del nombre de host*.
 
-El error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+El error *... No se pudo conectar al host ...* significa que no hubo respuesta del servidor de correo en un tiempo razonable (20 segundos por defecto). Esto indica principalmente problemas de conectividad a internet, posiblemente causados por una VPN o por una aplicación de firewall. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
 El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
@@ -914,18 +914,18 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Destinatario ya especificado* significa principalmente que una dirección está siendo utilizada como dirección A y CC
 * *554 5.7.1 ... no se permite transmitir* significa que el servidor de correo electrónico no reconoce el nombre de usuario/dirección de correo electrónico. Por favor, compruebe el nombre de host y el nombre de usuario/dirección de correo electrónico en la configuración de identidad.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
-* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. Necesitará contactar al proveedor de correo electrónico para obtener ayuda al respecto.
 
-If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+Si quiere usar el servidor SMTP de Gmail para solucionar un filtro de spam saliente demasiado estricto o para mejorar la entrega de mensajes:
 
-* Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
-* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+* Verifique su dirección de correo electrónico [aquí](https://mail.google.com/mail/u/0/#settings/accounts) (necesitará utilizar un navegador de escritorio para esto)
+* Cambie la configuración de identidad así (configuración, paso 2, toque Administrar, toque identidad):
 
-&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+&emsp;&emsp;Nombre de usuario: *su dirección de Gmail*<br /> &emsp;&emsp;Contraseña: *[una contraseña de la aplicación](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Puerto: *465*<br /> &emsp;&emsp;Cifrado: *SSL/TLS*<br /> &emsp;&emsp;Dirección de respuesta: *su dirección de correo electrónico* (configuración de identidad avanzada)<br />
 
 <br />
 
-**Gmail errors**
+**Errores de Gmail**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
@@ -1119,7 +1119,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match the username of an email address (the part before the @ sign).
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 

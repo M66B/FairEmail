@@ -15,6 +15,8 @@
     <string name="channel_error">錯誤</string>
     <string name="channel_alert">伺服器警告</string>
     <string name="channel_group_contacts">連絡人</string>
+    <string name="channel_service_description">帳號同步及監控</string>
+    <string name="channel_send_description">訊息的寄送</string>
     <string name="channel_notification_description">新訊息通知</string>
     <plurals name="page_conversation">
         <item quantity="other">會話</item>
@@ -121,8 +123,12 @@
     <string name="title_setup_gmail_rationale">請給予權限來選擇一個帳號並且讀取你的名字。</string>
     <string name="title_setup_gmail_permissions">Google 將會要求權限來讀取、撰寫、發送並永久刪除你的 email。FairEmail 永遠不會在你沒有明確同意的情況下刪除你的訊息。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夾不能被IMAP伺服器讀取，此項設置可在Gmail 標籤設置裡面找到並修復。</string>
+    <string name="title_setup_gmail_password">我想要使用密碼授權帳號</string>
+    <string name="title_setup_office_remark">微軟並不提供此種授權方法給Outlook, Live, Hotmail等帳號</string>
     <string name="title_setup_office_auth">\"認證失敗\"的錯誤可能是由於 IMAP 或者 SMTP 被系統管理員關閉導致。</string>
     <string name="title_setup_oauth_rationale">認證存取您的 %1$s 帳號</string>
+    <string name="title_setup_oauth_update">再次授權已存在帳號</string>
+    <string name="title_setup_oauth_updated">帳號授權已更新</string>
     <string name="title_setup_oauth_authorize">認證</string>
     <string name="title_setup_select_account">選擇帳號</string>
     <string name="title_setup_instructions">設定說明</string>
@@ -148,6 +154,7 @@
     <string name="title_setup_permissions_remark">取用聯絡人資訊（可選）</string>
     <string name="title_setup_doze">設定電池最佳化</string>
     <string name="title_setup_doze_remark">為了可靠地接收email</string>
+    <string name="title_setup_doze_hint">雖然聽起來衝突，但關閉電池最佳化可以促成更少的電量消耗</string>
     <string name="title_setup_doze_instructions">下一個畫面中，選擇「所有應用程式」後尋找 FairMail，接著選擇「不要最佳化」</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
@@ -188,6 +195,7 @@
     <string name="title_setup_theme_black">黑</string>
     <string name="title_setup_theme_black_and_white">黑與白</string>
     <string name="title_setup_theme_reverse">顏色互換</string>
+    <string name="title_setup_theme_light">亮色主題</string>
     <string name="title_setup_theme_dark">深色</string>
     <string name="title_setup_theme_system">依據系統設定</string>
     <string name="title_setup_theme_black_background">全黑背景</string>
@@ -223,6 +231,7 @@
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
+    <string name="title_advanced_sync_subscribed">自動同步訂閱的資料夾</string>
     <string name="title_advanced_check_mx">在同步訊息時檢查發送者的email地址。</string>
     <string name="title_advanced_check_reply">在同步訊息時檢查回覆 email 的地址。</string>
     <string name="title_advanced_tune_keep_alive">自動調整保持活躍的間隔</string>
@@ -323,7 +332,7 @@
     <string name="title_advanced_navbar_colorize">將 Android 導航列上色</string>
     <string name="title_advanced_parse_classes">解析樣式表</string>
     <string name="title_advanced_authentication">當接收伺服器無法驗證訊息時顯示警告</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">在應用程式啟動時同步。</string>
+    <string name="title_advanced_sync_on_launch">在應用程式啟動時同步。</string>
     <string name="title_advanced_double_back">兩次「返回」離開程式</string>
     <string name="title_advanced_pull_refresh">下拉重新整理</string>
     <string name="title_advanced_autoscroll">當接收到新訊息時滾動回最上端</string>
@@ -583,6 +592,7 @@
     <string name="title_edit_html">編輯為HTML</string>
     <string name="title_sign_key">簽名密鑰：%1$s</string>
     <string name="title_last_connected">上次連接：%1$s</string>
+    <string name="title_backoff_until">失敗後等待直到: %1$s</string>
     <string name="title_storage_quota">服務器存儲使用情況：%1$s/%2$s</string>
     <string name="title_pop_support">POP3協議僅支持從收件箱下載和刪除郵件。 POP3無法將郵件標記為已讀，移動郵件等。POP3將比IMAP消耗更多的電池電量和數據。 因此，請考慮盡可能使用IMAP協議。</string>
     <string name="title_oauth_support">不支援OAuth</string>
@@ -595,6 +605,7 @@
     <string name="title_advanced_browse">瀏覽服務器上的消息</string>
     <string name="title_advanced_expand_read">將郵件標記為擴展閱讀</string>
     <string name="title_synchronize_now">馬上同步</string>
+    <string name="title_synchronize_subfolders">子資料夾</string>
     <string name="title_synchronize_more">同步更多訊息</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">開啟同步</string>
@@ -616,6 +627,13 @@
     <string name="title_empty_trash_all_ask">永久刪除所有帳號的垃圾桶訊息？</string>
     <string name="title_empty_spam_all_ask">永久刪除所有帳號的垃圾郵件訊息？</string>
     <string name="title_empty_all">這將從設備和服務器上刪除所有消息</string>
+    <string name="title_delete_operation_title">刪除操作</string>
+    <string name="title_delete_operation_error">含有一條錯誤訊息</string>
+    <string name="title_delete_operation_fetch">獲取操作</string>
+    <string name="title_delete_operation_move">移動操作</string>
+    <string name="title_delete_operation_flag">標記操作</string>
+    <string name="title_delete_operation_delete">刪除操作</string>
+    <string name="title_delete_operation_deleted">%1$d 操作已刪除</string>
     <string name="title_delete_contacts">刪除所有本機聯絡人？</string>
     <string name="title_no_operations">沒有等待中的操作</string>
     <string name="title_hint_operations">刪除操作可能導致消息消失和同步問題</string>
@@ -688,6 +706,7 @@
     <string name="title_event">添加到日曆</string>
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
+    <string name="title_print_header">列印郵件標題</string>
     <string name="title_show_headers">顯示標頭</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作為附件發送</string>
@@ -1048,6 +1067,7 @@
     <string name="title_legend_synchronize_off">同步關閉</string>
     <string name="title_legend_synchronize_poll">週期性同步</string>
     <string name="title_legend_disconnected">斷線</string>
+    <string name="title_legend_backoff">失敗後等待</string>
     <string name="title_legend_connecting">連接中</string>
     <string name="title_legend_connected">已連接</string>
     <string name="title_legend_executing">執行操作</string>
@@ -1232,6 +1252,12 @@
     <string name="title_auto_scroll">自動滾動</string>
     <string name="title_log_clear">清除</string>
     <string name="title_rules_search_hint">搜尋名稱或條件</string>
+    <string name="title_rules_export">匯出規則</string>
+    <string name="title_rules_import">匯入規則</string>
+    <string name="title_rules_delete_all">刪除所有規則</string>
+    <string name="title_rules_delete_junk">刪除垃圾郵件規則</string>
+    <string name="title_rules_delete_all_confirm">刪除所有規則?</string>
+    <string name="title_rules_delete_junk_confirm">刪除所有將郵件移動到垃圾郵件文件夾的規則？</string>
     <string name="title_debug_info">除錯資訊</string>
     <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>

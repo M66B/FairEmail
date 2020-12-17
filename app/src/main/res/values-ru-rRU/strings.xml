@@ -370,7 +370,7 @@
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Синхронизация при запуске</string>
+    <string name="title_advanced_sync_on_launch">Синхронизация при запуске</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокручивать к началу списка при получении новых сообщений</string>
@@ -725,6 +725,7 @@
     <string name="title_folder_user_only">Только папки пользователя</string>
     <string name="title_folder_primary">Папки основной учётной записи</string>
     <string name="title_folders_unified">Папки единого почтового ящика</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Локальные черновики</string>
     <string name="title_no_folders">Нет папок</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>

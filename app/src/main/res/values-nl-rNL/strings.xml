@@ -347,7 +347,7 @@
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_parse_classes">Stijlbladen parsen</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Synchroniseren bij start</string>
+    <string name="title_advanced_sync_on_launch">Synchroniseren bij start</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
@@ -607,7 +607,7 @@
     <string name="title_reply_domain">Het afzender (%1$s) en antwoorddomein (%2$s) verschillen</string>
     <string name="title_identity_required">Een identiteit is vereist voor het verzenden van e-mails</string>
     <string name="title_drafts_required">Een conceptenmap is vereist voor het verzenden van e-mails</string>
-    <string name="title_drafts_select">Het verzenden van e-mails vereist een conceptmap die geselecteerd moet worden in de accountinstellingen</string>
+    <string name="title_drafts_select">Het verzenden van e-mails vereist een conceptmap die geselecteerd kan worden in de accountinstellingen</string>
     <string name="title_account_delete">Verwijder dit account definitief?</string>
     <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
     <string name="title_edit_html">Bewerk als HTML</string>
@@ -702,6 +702,7 @@
     <string name="title_folder_user_only">Alleen gebruikersmappen</string>
     <string name="title_folder_primary">Mappen primaire account</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokale concepten</string>
     <string name="title_no_folders">Geen mappen</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_filters_active">Eén of meer filters actief</string>

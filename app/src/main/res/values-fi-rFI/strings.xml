@@ -346,7 +346,7 @@
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_parse_classes">Jäsennä tyyliohjeet</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Synkronoi käynnistettäessä</string>
+    <string name="title_advanced_sync_on_launch">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>

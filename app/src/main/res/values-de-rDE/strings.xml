@@ -349,7 +349,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Beim Start synchronisieren</string>
+    <string name="title_advanced_sync_on_launch">Beim Start synchronisieren</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
@@ -703,6 +703,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_folder_user_only">Nur Benutzerordner</string>
     <string name="title_folder_primary">Hauptkontoordner</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokaler Ordner der Entwürfe</string>
     <string name="title_no_folders">Keine Ordner</string>
     <string name="title_no_messages">Keine Nachrichten</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>

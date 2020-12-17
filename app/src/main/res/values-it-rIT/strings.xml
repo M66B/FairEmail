@@ -348,7 +348,7 @@
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_parse_classes">Analizza stili fogli</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
-    <string name="title_advanced_sync_on_launch" comment="title_advanced_sync_on_launch&#10;&#10;When enable, the unified inbox folders will be synchronized on starting the app from the start screen launcher">Sincronizza all\'avvio</string>
+    <string name="title_advanced_sync_on_launch">Sincronizza all\'avvio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
@@ -703,6 +703,7 @@
     <string name="title_folder_user_only">Solo cartelle utente</string>
     <string name="title_folder_primary">Cartelle account principale</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Bozze locali</string>
     <string name="title_no_folders">Nessuna cartella</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_filters_active">Uno o più filtri attivi</string>
