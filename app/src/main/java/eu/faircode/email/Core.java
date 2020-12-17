@@ -183,8 +183,10 @@ class Core {
                         throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
 
                     if (account.protocol == EntityAccount.TYPE_IMAP &&
-                            !folder.local && ifolder != null && !ifolder.isOpen())
+                            !folder.local && ifolder != null && !ifolder.isOpen()) {
+                        Log.w(folder.name + " is closed");
                         break;
+                    }
 
                     // Fetch most recent copy of message
                     EntityMessage message = null;
