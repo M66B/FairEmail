@@ -583,9 +583,20 @@
             android:importantForAutofill="no"
             android:inputType="textNoSuggestions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibSenderExtra"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSenderExtra" />
+
+        <ImageButton
+            android:id="@+id/ibSenderExtra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@+id/etSenderExtra"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etSenderExtra"
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSenderExtraHint"
@@ -845,7 +856,7 @@
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,cbSelf,
-                cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
+                cbSenderExtra,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 cbUnicode,tvUnicodeHint,tvMaxSize,etMaxSize" />
 

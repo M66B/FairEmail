@@ -41,6 +41,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -106,6 +107,7 @@ public class FragmentIdentity extends FragmentBase {
 
     private CheckBox cbSenderExtra;
     private TextView etSenderExtra;
+    private ImageButton ibSenderExtra;
     private EditText etReplyTo;
     private EditText etCc;
     private EditText etBcc;
@@ -198,6 +200,7 @@ public class FragmentIdentity extends FragmentBase {
 
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
         etSenderExtra = view.findViewById(R.id.etSenderExtra);
+        ibSenderExtra = view.findViewById(R.id.ibSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etCc = view.findViewById(R.id.etCc);
         etBcc = view.findViewById(R.id.etBcc);
@@ -343,6 +346,13 @@ public class FragmentIdentity extends FragmentBase {
                             scroll.smoothScrollTo(0, btnAdvanced.getTop());
                         }
                     });
+            }
+        });
+
+        ibSenderExtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 34);
             }
         });
 
