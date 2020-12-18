@@ -369,6 +369,7 @@ public class ConnectionHelper {
                     ex instanceof IOException ||
                     ex instanceof ConnectionException ||
                     ex instanceof AccountsException ||
+                    "EOF on socket".equals(ex.getMessage()) ||
                     "failed to connect".equals(ex.getMessage()))
                 return true;
             ex = ex.getCause();
