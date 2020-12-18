@@ -1628,7 +1628,14 @@ class Core {
             } else {
                 if (EntityFolder.DRAFTS.equals(folder.type))
                     drafts = true;
-                if (!folder.local) {
+
+                if (folder.local) {
+                    if (!EntityFolder.DRAFTS.equals(folder.type)) {
+                        List<Long> ids = db.message().getMessageByFolder(folder.id);
+                        if (ids == null || ids.size() == 0)
+                            db.folder().deleteFolder(folder.id);
+                    }
+                } else {
                     local.put(folder.name, folder);
                     if (folder.synchronize && folder.initialize != 0)
                         sync_folders = true;
