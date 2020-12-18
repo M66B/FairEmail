@@ -495,6 +495,7 @@ class Core {
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset
                             // Fetch: NO all of the requested messages have been expunged
                             // Fetch: BAD parse error: invalid message sequence number:
+                            // Fetch: NO The specified message set is invalid.
                             // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
                             // Move: NO Over quota
