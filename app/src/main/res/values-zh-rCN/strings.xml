@@ -691,6 +691,7 @@
     <string name="title_folder_user_only">仅用户文件夹</string>
     <string name="title_folder_primary">文件夹主账户</string>
     <string name="title_folders_unified">聚合收件箱文件夹</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">本地草稿文件夹</string>
     <string name="title_no_folders">无文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>

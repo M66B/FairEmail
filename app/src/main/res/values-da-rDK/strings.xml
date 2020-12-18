@@ -703,6 +703,7 @@
     <string name="title_folder_user_only">Kun brugermapper</string>
     <string name="title_folder_primary">Primærkontomapper</string>
     <string name="title_folders_unified">Saml indbakkemapper</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokale udkast</string>
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_filters_active">Ét eller flere filtre er aktive</string>

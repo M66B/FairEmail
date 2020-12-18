@@ -9,6 +9,7 @@
     <string name="app_cake">저장 공간 부족</string>
     <string name="channel_service">수신</string>
     <string name="channel_send">발신</string>
+    <string name="channel_notification">이메일</string>
     <string name="channel_update">업데이트</string>
     <string name="channel_warning">경고</string>
     <string name="channel_error">오류</string>
@@ -23,6 +24,56 @@
     <plurals name="page_message">
         <item quantity="other">메시지</item>
     </plurals>
+    <string name="page_folders">폴더</string>
+    <string name="tile_synchronize">동기화</string>
+    <string name="tile_unseen">새 메일</string>
+    <string name="shortcut_refresh">새로고침</string>
+    <string name="shortcut_setup">설정</string>
+    <plurals name="title_selected_conversations">
+        <item quantity="other">%1$d개의 대화 선택됨</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="other">%1$d개의 메일을 이동하시겠습니까?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="other">%1$d개의 메일을 영구적으로 삭제하시겠습니까?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="other">%1$d개의 메일을 스팸 처리하겠습니까?</item>
+    </plurals>
+    <string name="title_ask_spam_who">%1$s의 메일을 스팸 처리하시겠습니까?</string>
+    <string name="title_block">%1$s 차단</string>
+    <string name="title_block_sender">발송자 차단</string>
+    <string name="title_block_domain">발송자 도메인 차단</string>
+    <string name="title_block_sender_hint">        발송자 차단 시, 새 메일을 스팸함으로 이동하는 새로운 룰이 생성됩니다
+        룰 생성 및 사용은 pro버전에서 사용하실 수 있습니다.
+    </string>
+    <string name="title_notification_sending">메일 전송 중</string>
+    <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
+    <string name="title_notification_failed">\'%1$s\' 실패</string>
+    <string name="title_notification_alert">서버 경고: \'%1$s\'</string>
+    <string name="title_notification_sending_failed">%1$s에게 전송 실패</string>
+    <string name="title_factor_minutes">%1$d분</string>
+    <string name="menu_exit">종료</string>
+    <string name="menu_answers">템플릿</string>
+    <string name="menu_operations">작업</string>
+    <string name="menu_setup">설정</string>
+    <string name="menu_faq">지원</string>
+    <string name="menu_translate">번역 참여하기</string>
+    <string name="menu_issue">오류 보고</string>
+    <string name="menu_privacy">개인 정보 보호</string>
+    <string name="menu_about">About</string>
+    <string name="menu_pro">Pro 기능</string>
+    <string name="menu_rate">앱 평가하기</string>
+    <string name="title_welcome">환영합니다</string>
+    <string name="title_contributors">도와주신 분들</string>
+    <string name="title_agree">동의합니다</string>
+    <string name="title_disagree">동의하지 않습니다</string>
+    <string name="title_version">버전: %1$s</string>
+    <string name="title_list_accounts">계정</string>
+    <string name="title_edit_account">계정 편집</string>
+    <string name="title_setup_grant">권한 허용</string>
+    <string name="title_setup_grant_again">필요한 권한 허용하기</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

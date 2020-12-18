@@ -2,25 +2,25 @@
 
 Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan di bawah ini terlebih dahulu. Di bagian bawah, Anda dapat mengetahui cara mengajukan pertanyaan lain, meminta fitur, dan melaporkan bug.
 
-## Indeks
+## Panduan
 
-* [Memberi otorisasi akun](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Bagaimana caranya?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Masalah yang diketahui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Mengizinkan akun](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Bagaimana cara untuk ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Kendala yang diketahui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Fitur yang direncanakan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Fitur yang sering diminta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Pertanyaan yang Sering Diajukan (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Dapatkan bantuan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Memberi otorisasi akun
+## Mengizinkan akun
 
-Dalam banyak kasus, pengaturan cepat akan mampu secara otomatis mengidentifikasi konfigurasi yang benar.
+Dalam banyak kasus, pengaturan cepat secara otomatis mampu mengidentifikasi konfigurasi mana yang benar.
 
-Jika pengaturan cepat gagal, anda harus mengatur akun anda secara manual (untuk menerima surel) dan identitas (untuk mengirim surel). Untuk itu, anda membutuhkan alamat server IMAP dan SMTP dan nomor port, gunakan SSL/TLS atau STARTTLS dan nama pengguna anda (selalu, tapi terkadang tidak perlu, alamat surel anda) dan kata sandi anda.
+Jika pengaturan cepat gagal, Anda harus mengatur akun secara manual (agar dapat menerima surel) dan mengatur identitas (agar dapat mengirim surel). Untuk itu, Anda membutuhkan alamat server IMAP dan SMTP dan nomor port, gunakan SSL/TLS atau STARTTLS dan nama pengguna Anda (umumnya, tapi terkadang tidak perlu, alamat surel Anda) dan kata sandi Anda.
 
 Mencari *IMAP* dan nama provider selalu cukup untuk menemukan dokumentasi yang cocok.
 
-Dalam beberapa kasus, anda butuh mengaktifkan akses eksternal ke akun anda dan/atau gunakan (aplikasi) kata sandi spesial, seperti contoh ketika otentikasi dua faktor diaktifkan.
+Dalam beberapa kasus, Anda perlu mengaktifkan akses eksternal ke akun Anda dan/atau gunakan (aplikasi) kata sandi spesial, misalnya ketika otentikasi dua faktor diaktifkan.
 
 Untuk memberikan izin:
 
@@ -28,7 +28,7 @@ Untuk memberikan izin:
 * Outlook / Live / Hotmail, lihat [pertanyaan 14](#user-content-faq14)
 * Office 365, lihat [pertanyaan 14](#user-content-faq156)
 * Microsoft Exchange, lihat [pertanyaan 8](#user-content-faq8)
-* Yahoo, AOL and Sky, lihat [pertanyaan 88](#user-content-faq88)
+* Yahoo, AOL dan Sky, lihat [pertanyaan 88](#user-content-faq88)
 * Apple iCloud, lihat [pertanyaan 148](#user-content-faq148)
 * Free.fr, lihat [pertanyaan 157](#user-content-faq157)
 
@@ -36,34 +36,34 @@ Sila lihat [disini](#user-content-faq22) untuk pesan eror yang biasa ditemukan d
 
 Pertanyaan terkait:
 
-* [Apakah terdukung OAuth?](#user-content-faq111)
-* [Mengapa tidak terdukung ActiveSync?](#user-content-faq133)
+* [Apakah OAuth didukung?](#user-content-faq111)
+* [Mengapa ActiveSync tidak didukung?](#user-content-faq133)
 
 <a name="howto">
 
-## Bagaimana caranya ...?
+## Bagaimana cara untuk ...?
 
 * Mengubah nama akun: Pengaturan, langkah 1, Pengelolaan, klik akun
 * Mengubah target pergeseran kanan/kiri: Pengaturan, Perilaku, Atur aksi pergeseran
 * Mengubah kata sandi: Pengaturan, langkah 1, Pengelolaan, klik akun, ubah kata sandi
-* Mengatur tanda tangan: Pengaturan, langkah 2, Pengelolaan, klik identitas, sunting tanda tangan.
-* Menambahkan alamat CC dan BCC: klik ikon orang pada akhir dari subjek
-* Mengunjungi pesan selanjutnya/sebelumnya dalam arsip/hapus: dalam pengaturan perilaku, nonaktifkan *Tutup percakapan otomatis* dan klik *Kunjungi percakapan selanjutnya/sebelumnya* untuk *Dalam menutup percakapan*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Menambahkan berkas di menu navigasi: tekan berkas dengan lama di dalam daftar berkan dan berikan tanda di *Tampilkan di menu navigasi*
-* Memuat pesan lainnya: tekan berkas dengan lama di dalam daftar berkas, pilih *Singkronisasikan pesan lainnya*
-* Menghapus pesan, loncati sampah: dalam menu titik 3 diatas *Hapus* teks pesan atau secara alternatif tidak memilih folder sampah di pengaturan akun
-* Menghapus akun/identitas: Pengaturan langkah 1/2, Pengelolaan, menu titik 3, Hapus
-* Menghapus berkas: tekan berkas dengan lama di dalam daftar berkas, Sunting properti, menu tiga titik, Hapus
-* Mengurungkan pesan: Kotak keluar, tekan pesan, tekan tombol ikon urungkan
-* Menyimpan pesan terkirim di pesan masuk: sila [lihat FAQ ini](#user-content-faq142)
-* Mengubah sistem berkas: Pengaturan, langkah 1, Pengelolaan, tekan akun dibawah
-* Mengekspor/mengimpor pengaturan: Pengaturan, navigasi/menu hamburger
+* Mengatur tanda tangan: Pengaturan, langkah 2, Pengelolaan, klik identitas, Ubah tanda tangan.
+* Menambahkan alamat CC dan BCC: klik ikon orang pada akhir subjek
+* Melihat pesan selanjutnya/sebelumnya dalam arsip/sampah: dalam pengaturan perilaku, nonaktifkan *Tutup percakapan secara otomatis* dan pilih *Kunjungi percakapan selanjutnya/sebelumnya* pada *Ketika menutup percakapan*
+* Menambahkan folder ke pesan masuk terpadu: tekan lama folder di daftar folder dan centang *Tampilkan di pesan masuk terpadu*
+* Menambahkan folder di menu navigasi: tekan lama folder di daftar folder dan centang *Tampilkan di menu navigasi*
+* Memuat pesan lebih banyak: tekan lama folder di daftar folder, pilih *Sinkronkan lebih banyak pesan*
+* Menghapus pesan, meloncati tong sampah: dalam menu tiga titik di atas *Hapus* pesan teks atau alternatif lainnya, hapus pilihan folder sampah di pengaturan akun
+* Menghapus akun/identitas: Pengaturan langkah 1/2, Pengelolaan, klik akun/identitas, menu tiga titik, Hapus
+* Menghapus folder: tekan lama folder di daftar folder, Ubah atribut, menu tiga titik, Hapus
+* Batalkan pesan: Kotak keluar, klik pesan, klik tombol ikon batalkan
+* Menyimpan pesan terkirim di kotak masuk: mohon [baca FAQ berikut](#user-content-faq142)
+* Mengubah sistem folder: Pengaturan, langkah 1, Pengelolaan, klik akun, di bawah
+* Ekspor/impor pengaturan: Pengaturan, navigasi/menu tiga garis
 
-## Masalah yang diketahui
+## Kendala yang diketahui
 
-* ~~ [Bug di Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) yang menyebabkan aplikasi menampilkan format waktu yang salah beberapa kali. Toggle pengaturan Android *Gunakan format waktu 24 jam* dapat menyelesaikan masalah sementara ini. Solusi telah ditambahkan.~~
-* ~~ [Bug di Google Drive](https://issuetracker.google.com/issues/126362828) menyebabkan berkas yang terekspor ke Google Drive kosong. Google telah memperbaiki ini.~~
+* ~~ [Gangguan pada Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) yang menyebabkan aplikasi menampilkan format waktu yang salah beberapa kali. Mengubah pengaturan Android *Gunakan format waktu 24 jam* dapat menyelesaikan kendala saat ini. Solusi telah ditambahkan.~~
+* ~~ [Gangguan pada Google Drive](https://issuetracker.google.com/issues/126362828) menyebabkan berkas yang diekspor ke Google Drive kosong. Google telah memperbaikinya.~~
 * ~~[Bug di AndroidX](https://issuetracker.google.com/issues/78495471) menyebabkan FairEmail mengalami kegagalan dalam menekan dengan lama atau menggeser. Google telah memperbaiki ini.~~
 * ~~[Bug di AndroidX ROOM](https://issuetracker.google.com/issues/138441698) menyebabkan crash dengan "*... Pengecualian saat meghitung database data langsung ... Tidak dapat membaca barisan ...*". Solusi telah ditambahkan.~~
 * [Bug di Android](https://issuetracker.google.com/issues/119872129) menyebabkan FairEmail crash dengan "*... Notifikasi buruk diposkan ...*" dalam beberapa perangkat setelah memperbarui FairEmail dan mengklik notifikasi.
