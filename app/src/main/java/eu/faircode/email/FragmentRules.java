@@ -63,7 +63,6 @@ import java.util.Date;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
-import static eu.faircode.email.EntityRule.TYPE_MOVE;
 
 public class FragmentRules extends FragmentBase {
     private long account;
@@ -337,8 +336,21 @@ public class FragmentRules extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 JSONArray jrules = new JSONArray();
-                for (EntityRule rule : db.rule().getRules(fid))
+                for (EntityRule rule : db.rule().getRules(fid)) {
+                    JSONObject jaction = new JSONObject(rule.action);
+
+                    int type = jaction.getInt("type");
+                    if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                        long target = jaction.optLong("target", -1);
+                        EntityFolder f = db.folder().getFolder(target);
+                        if (f != null)
+                            jaction.put("folderType", f.type);
+                    }
+
+                    rule.action = jaction.toString();
+
                     jrules.put(rule.toJSON());
+                }
 
                 ContentResolver resolver = context.getContentResolver();
                 try (OutputStream os = resolver.openOutputStream(uri)) {
@@ -403,9 +415,29 @@ public class FragmentRules extends FragmentBase {
                 try {
                     db.beginTransaction();
 
+                    EntityFolder folder = db.folder().getFolder(fid);
+                    if (folder == null)
+                        return null;
+
                     for (int i = 0; i < jrules.length(); i++) {
                         JSONObject jrule = jrules.getJSONObject(i);
                         EntityRule rule = EntityRule.fromJSON(jrule);
+
+                        JSONObject jaction = new JSONObject(rule.action);
+
+                        int type = jaction.getInt("type");
+                        if (type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY) {
+                            String folderType = jaction.optString("folderType");
+                            if (!EntityFolder.SYSTEM.equals(folderType) &&
+                                    !EntityFolder.USER.equals(folderType)) {
+                                EntityFolder f = db.folder().getFolderByType(folder.account, folderType);
+                                if (f != null)
+                                    jaction.put("target", f.id);
+                            }
+                        }
+
+                        rule.action = jaction.toString();
+
                         rule.folder = fid;
                         rule.applied = 0;
                         rule.id = db.rule().insertRule(rule);
@@ -485,7 +517,7 @@ public class FragmentRules extends FragmentBase {
                             JSONObject jaction = new JSONObject(rule.action);
                             int type = jaction.optInt("type", -1);
                             long target = jaction.optLong("target", -1);
-                            if (type == TYPE_MOVE && target == junk.id)
+                            if (type == EntityRule.TYPE_MOVE && target == junk.id)
                                 db.rule().deleteRule(rule.id);
                         }
                     }
