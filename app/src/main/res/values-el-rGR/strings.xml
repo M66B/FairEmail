@@ -701,6 +701,7 @@
     <string name="title_folder_user_only">Φάκελοι χρήστη μόνον</string>
     <string name="title_folder_primary">Φάκελοι κύριου λογαριασμού</string>
     <string name="title_folders_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Τοπικά πρόχειρα</string>
     <string name="title_no_folders">Κανείς φάκελος</string>
     <string name="title_no_messages">Κανένα μήνυμα</string>
     <string name="title_filters_active">Ένα ή περισσότερα φίλτρα ενεργά</string>

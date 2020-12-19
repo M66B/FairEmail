@@ -1091,68 +1091,68 @@ Man kan benytte [E-mail Fortrolighedstester](https://www.emailprivacytester.com/
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Hvorfor fungerer redigerede afsenderadresser ikke?**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+For at forhindre spam accepterer de fleste udbydere kun bekræftede adresser ifm. afsendelser.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+F.eks. ændrer Google beskedhoveder som dette for *ikke-bekræftede* adresser:
 
 ```
 Fra: Nogen <somebody@example.org>
 X-Google-Originale-Fra: Nogen <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+Dette betyder, at den redigerede afsenderadresse automatisk erstattes af en bekræftet adresse inden bekedafsendelsen.
 
-Note that this is independent of receiving messages.
+Bemærk, at dette er uafhængigt af beskedmodtagelse.
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Hvordan matches identiteter?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
+Identiteter matches efter konto. For indgående beskeder tjekkes adresserne *til*, *cc*, *bcc*, *fra* og *(X-)leverede/konvolut/originale-til* (i nævnte rækkefølge), og for udgående beskeder (kladder, udbakke og sendt) tjekkes kun *fra*-adresserne. Matchende adresser har forrang frem for delvist matchende adresser, undtagen *leveret til*-adresser.
 
-The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
+Den matchede adresse vises som *via* i adresseafsnittet på modtagne beskeder (mellem besked-header og beskedtekst).
 
-Note that identities needs to be enabled to be able to be matched and that identities of other accounts will not be considered.
+Bemærk, at identiteter skal være aktiverede for at kunne matches, samt at identiteter for andre konti ikke overvejes.
 
-Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
+Match udføres kun én gang efter modtagelse af en besked, så evt. opsætningsændringer ændrer ikke eksisterende beskeder. Du kan dog rydde lokale beskeder vha. langt tryk på en mappe i mappelisten og så synkronisere beskederne igen.
 
 Det er muligt at opsætte en [regex](https://en.wikipedia.org/wiki/Regular_expression) i identitetsindstillingerne for at få en e-mailadresses matchende **brugernavn** (delen før @-tegnet).
 
-Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+Bemærk, at domænenavnet (alt efter @) altid skal være identisk med identitetens domænenavn.
 
-If you like to match a catch-all email address, this regex is mostly okay:
+Vil du gerne matche en fang-alle e-mailadresse, er denne regex for det meste OK:
 
 ```
 .*
 ```
 
-If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
+Vil du matche e-mailadresserne til specielle formål, abc@eksemepel.dk og xyx@eksemepel.dk og også gerne have en fallback e-mailadresse, hoved@eksemepel.dk, kan du gøre noget ala dette:
 
-* Identity: abc@example.com; regex: **(?i)abc**
-* Identity: xyz@example.com; regex: **(?i)xyz**
-* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identity: abc@eksempel.dk; regex: **(?i)abc**
+* Identity: xyz@eksempel.dk; regex: **(?i)xyz**
+* Identity: hoved@eskempel.dk; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the account color. Setting identity colors is a pro feature.
+Matchede identiteter kan benyttes til beskedfarvekodning. Identitetsfarven har forrang over kontofarven. Brug af identitetsfarver er en Pro-funktion.
 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
+**(35) Hvorfor skal man være forsigtig med at få vist billeder, vedhæftninger, originalbeskeder samt åbne links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
+Visning af fjernlagrede billeder (tjek også [denne FAQ](#user-content-faq27)) samt åbning af links fortæller muligvis ikke kun afsenderen, at du har set beskeden, men lækker også din IP-adresse. Se også dette spørgsmål: [Hvorfor et e-mail link er farligere end et websøgningslink?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
-Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
+Åbning af vedhæftninger eller visning af en original besked kan muligvis indlæse eksternt indhold og eksekvere scripts, hvilket ikke alene kan forårsage læk af fortrolige oplysninger, men tillige udgøre en sikkerhedsrisiko.
 
-Note that your contacts could unknowingly send malicious messages if they got infected with malware.
+Bemærk, at dine kontakter, uden deres vidende, kan sende ondsindede beskeder, hvis de er blevet inficeret med malware.
 
-FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
+FairEmail genformaterer beskeder, hvilket får dem til at se anderledes ud end originalen, men tillige afslører phishing-links.
 
-Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
+Bemærk, at genformaterede beskeder ofte er mere læsbare end originalerne, da margerne er fjernet, og skrifttypefarver og -størrelser er standardiserede.
 
-The Gmail app shows images by default by downloading the images through a Google proxy server. Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), this is even less secure because Google is involved too without providing much benefit.
+Gmail-appen viser som standard billeder ved at downloade disse via en Google-proxyserver. Da billederne downloades fra kildeserveren [i realtid](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), er dette endnu mindre sikkert, da Google også er involveret.
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 

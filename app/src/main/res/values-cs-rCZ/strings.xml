@@ -723,6 +723,7 @@
     <string name="title_folder_user_only">Pouze uživatelské složky</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Místní koncepty</string>
     <string name="title_no_folders">Žádné složky</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_filters_active">Jeden nebo více filtrů aktivních</string>
