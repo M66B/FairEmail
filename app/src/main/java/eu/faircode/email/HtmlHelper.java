@@ -328,20 +328,7 @@ public class HtmlHelper {
 
     static Document sanitizeCompose(Context context, String html, boolean show_images) {
         try {
-            Document d = sanitize(context, JsoupEx.parse(html), false, show_images);
-            d.select("*")
-                    .removeAttr("x-block")
-                    .removeAttr("x-inline")
-                    .removeAttr("x-paragraph")
-                    .removeAttr("x-font-size")
-                    .removeAttr("x-font-size-rel")
-                    .removeAttr("x-line-before")
-                    .removeAttr("x-line-after")
-                    .removeAttr("x-align")
-                    .removeAttr("x-column")
-                    .removeAttr("x-dashed")
-                    .removeAttr("x-tracking");
-            return d;
+            return sanitize(context, JsoupEx.parse(html), false, show_images);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
@@ -2518,6 +2505,21 @@ public class HtmlHelper {
         }
 
         return ssb;
+    }
+
+    static void clearAnnotations(Document d) {
+        d.select("*")
+                .removeAttr("x-block")
+                .removeAttr("x-inline")
+                .removeAttr("x-paragraph")
+                .removeAttr("x-font-size")
+                .removeAttr("x-font-size-rel")
+                .removeAttr("x-line-before")
+                .removeAttr("x-line-after")
+                .removeAttr("x-align")
+                .removeAttr("x-column")
+                .removeAttr("x-dashed")
+                .removeAttr("x-tracking");
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
