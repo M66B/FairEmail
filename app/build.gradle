@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugsnag.android.gradle'
 
-def getVersionCode = { -> return 1429 }
+def getVersionCode = { -> return 1430 }
 def getReleaseName = { -> return "\"Elaltitan\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
