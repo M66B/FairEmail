@@ -950,6 +950,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                boolean subscriptions = prefs.getBoolean("subscriptions", false);
                 boolean experiments = prefs.getBoolean("experiments", false);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
@@ -1315,7 +1316,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (sync && folder.selectable)
                                 EntityOperation.sync(this, folder.id, false, force && !forced);
 
-                            if (capNotify && EntityFolder.INBOX.equals(folder.type))
+                            if (capNotify && subscriptions && EntityFolder.INBOX.equals(folder.type))
                                 ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                                     @Override
                                     public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
