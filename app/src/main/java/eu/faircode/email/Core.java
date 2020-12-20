@@ -504,6 +504,7 @@ class Core {
                             // Move: BAD parse error: invalid message sequence number:
                             // Move: NO MOVE failed or partially completed.
                             // Move: NO mailbox selected READ-ONLY
+                            // Move: NO read only
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
