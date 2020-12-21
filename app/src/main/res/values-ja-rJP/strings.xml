@@ -688,6 +688,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_folder_user_only">ユーザーフォルダーのみ</string>
     <string name="title_folder_primary">基本アカウントのフォルダー</string>
     <string name="title_folders_unified">統合受信トレイフォルダー</string>
+    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">下書き（ローカル）</string>
     <string name="title_no_folders">フォルダーが有りません</string>
     <string name="title_no_messages">メッセージが有りません</string>
     <string name="title_filters_active">1つ以上のフィルターがアクティブです</string>
@@ -848,12 +849,15 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_style_font">フォント</string>
     <string name="title_style_font_default">デフォルト</string>
     <string name="title_style_blockquote">ブロック引用</string>
+    <string name="title_style_strikethrough">取り消し線</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>
     <string name="title_add_image">画像を追加</string>
     <string name="title_add_image_inline">挿入</string>
     <string name="title_add_image_attach">添付</string>
     <string name="title_add_image_resize">リサイズ</string>
+    <string name="title_add_image_privacy">プライバシー保護されたデータを削除</string>
+    <string name="title_add_image_privacy_remark">位置情報、シリアル番号、ファイル名など</string>
     <string name="title_add_resize_pixels">&lt; %1$d ピクセル</string>
     <string name="title_add_image_select">ファイル選択</string>
     <string name="title_add_attachment">添付ファイルを追加</string>
@@ -861,6 +865,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_attachment_photo">写真を撮影</string>
     <string name="title_attachment_audio">音声録音</string>
     <string name="title_show_addresses">CC/BCCを表示</string>
+    <string name="title_save_drafts">下書きをサーバーに保存</string>
     <string name="title_send_dialog">オプションを表示</string>
     <string name="title_image_dialog">画像オプションを表示</string>
     <string name="title_media_toolbar">メディアツールバー</string>
@@ -874,6 +879,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_no_key">秘密鍵無し</string>
     <string name="title_invalid_key">秘密鍵が無効です</string>
     <string name="title_unknown_key">秘密キーがどの暗号化キーとも一致しません</string>
+    <string name="title_key_missing">%1$s のキーがありません</string>
+    <string name="title_send_reminder_remark">リマインダーは送信設定で再び有効にできます</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
@@ -885,6 +892,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_text_reminder">メッセージが空です</string>
     <string name="title_attachment_keywords">添付,添付ファイル,付属</string>
     <string name="title_attachment_reminder">添付ファイルを追加しますか？</string>
+    <string name="title_plain_reminder">すべての書式が失われます</string>
     <string name="title_size_reminder">メッセージ(%1$s) がサーバーの制限 (%2$s) を超えています</string>
     <string name="title_attachments_missing">全ての添付ファイルがダウンロードされる訳では有りません</string>
     <string name="title_dialog_hint">このダイアログは上部アクションバーの3点メニューから再度有効に出来ます</string>
@@ -894,6 +902,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_queued">送信中</string>
     <string name="title_queued_at">メッセージは%1$s前後に送信されます</string>
     <string name="title_sign">署名</string>
+    <string name="title_verify">検証</string>
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">解読</string>
     <string name="title_resync">再同期</string>
@@ -925,6 +934,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
         サーバーも検索するには「もう一度検索」ボタンをタップします
     </string>
     <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが単語全体しか検索されません</string>
+    <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
+    <string name="title_search_size_hint">サイズ別にメッセージを検索しています。メッセージが多い場合、一部のサーバーでは動作しない可能性があります。</string>
     <string name="title_search_more">その他のオプション</string>
     <string name="title_search_use_index">検索インデックスを使用</string>
     <string name="title_search_in_senders">送信者(差出人)</string>
@@ -938,6 +949,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_search_with_hidden">非表示(デバイスのみ)</string>
     <string name="title_search_with_encrypted">暗号化(デバイスのみ)</string>
     <string name="title_search_with_attachments">添付ファイル付き(デバイスのみ)</string>
+    <string name="title_search_with_size">メッセージサイズより大きい</string>
     <string name="title_search_with_before">前へ</string>
     <string name="title_search_with_after">後で</string>
     <string name="title_search_flag_unseen">未読</string>
@@ -945,6 +957,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_search_flag_hidden">非表示</string>
     <string name="title_search_flag_encrypted">暗号化済み</string>
     <string name="title_search_flag_attachments">添付ファイル</string>
+    <string name="title_search_flag_invite">招待</string>
+    <string name="title_search_flag_size">サイズ &gt; %1$s</string>
     <string name="title_search_device">デバイスで検索</string>
     <string name="title_search_server">サーバで検索</string>
     <string name="title_search_in">検索場所</string>
@@ -970,6 +984,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_select_language">言語を選択</string>
     <string name="title_select_all">すべて選択</string>
     <string name="title_select_found">見つかったものを選択</string>
+    <string name="title_mark_all_read">すべて既読にする</string>
     <string name="title_force_sync">強制同期</string>
     <string name="title_force_send">強制送信</string>
     <string name="title_language_all">全て</string>
@@ -981,6 +996,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_answer_reply">テンプレートで返信</string>
     <string name="title_answer_name">テンプレート名</string>
+    <string name="title_answer_group">テンプレートグループ (オプション)</string>
+    <string name="title_answer_standard">デフォルト</string>
     <string name="title_answer_favorite">お気に入り</string>
     <string name="title_answer_hide">メニューに表示しません</string>
     <string name="title_answer_text">テンプレートテキスト</string>
@@ -997,6 +1014,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_rule_keyword">キーワードの追加</string>
     <string name="title_rule_move">移動</string>
     <string name="title_rule_copy">コピー(ラベル)</string>
+    <string name="title_rule_answer">返信/転送</string>
+    <string name="title_rule_tts">テキスト読み上げ</string>
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールが適用されます</string>
@@ -1021,10 +1040,16 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_rule_thread">同じ会話とフォルダー内の全てのメッセージ</string>
     <string name="title_rule_identity">ID</string>
     <string name="title_rule_template">テンプレートで返信</string>
+    <string name="title_rule_forward_to">転送先</string>
     <string name="title_rule_cc">CCアドレスへ返信</string>
+    <string name="title_rule_with_attachments">添付ファイル付き</string>
     <string name="title_rule_answer_remark">返信のループを回避するために、それぞれの会話に対して1度だけ返信が送信されます</string>
     <string name="title_rule_name_missing">ルール名が有りません</string>
     <string name="title_rule_condition_missing">条件が有りません</string>
+    <string name="title_rule_folder_missing">フォルダがありません</string>
+    <string name="title_rule_identity_missing">IDがありません</string>
+    <string name="title_rule_answer_missing">テンプレートがありません</string>
+    <string name="title_rule_keyword_missing">キーワードがありません</string>
     <string name="title_rule_automation_hint">これにより、インテント \'%1$s\' とエクストラ \'%2$s\' が送信されます</string>
     <string name="title_rule_execute">今すぐ実行</string>
     <string name="title_rule_applied">影響を受けるメッセージ:%1$d</string>
@@ -1032,17 +1057,28 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_rule_no_headers">ヘッダー条件を確認出来ません</string>
     <string name="title_rule_matched">一致するメッセージ</string>
     <string name="title_rule_no_matches">一致するメッセージは有りません</string>
+    <string name="title_rule_tts_ok">設定完了</string>
+    <string name="title_rule_tts_setup">設定を確認</string>
+    <string name="title_rule_tts_data">音声データのインストール</string>
+    <string name="title_rule_tts_prefix">新着メッセージ</string>
+    <string name="title_rule_tts_from">差出人</string>
+    <string name="title_rule_tts_subject">件名</string>
+    <string name="title_rule_tts_content">内容</string>
     <string name="title_legend_section_synchronize">同期する</string>
     <string name="title_legend_section_folders">フォルダー</string>
     <string name="title_legend_section_messages">メッセージ</string>
     <string name="title_legend_section_compose">作成する</string>
     <string name="title_legend_section_keyboard">キーワード</string>
     <string name="title_legend_oauth">OAuth認証</string>
+    <string name="title_legend_folder_connected">フォルダに接続されています</string>
+    <string name="title_legend_folder_disconnected">フォルダが切断されました</string>
     <string name="title_legend_download_on">メッセージコンテンツを自動的にダウンロードする</string>
     <string name="title_legend_download_off">オンデマンドでメッセージコンテンツをダウンロードする</string>
     <string name="title_legend_synchronize_on">同期する</string>
     <string name="title_legend_synchronize_off">同期オフ</string>
+    <string name="title_legend_synchronize_poll">定期的に同期</string>
     <string name="title_legend_disconnected">切断されました</string>
+    <string name="title_legend_backoff">失敗後の待機</string>
     <string name="title_legend_connecting">接続中</string>
     <string name="title_legend_connected">接続済み</string>
     <string name="title_legend_executing">操作の実行</string>
@@ -1065,6 +1101,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_download_fetch">ダウンロードされたメッセージの数/フェッチされたヘッダー</string>
     <string name="title_legend_stop">処理ルールを停止する</string>
     <string name="title_legend_thread">会話</string>
+    <string name="title_legend_bookmark">最後に開かれた会話</string>
     <string name="title_legend_zoom">文字サイズを変更する</string>
     <string name="title_legend_draft">下書き有り</string>
     <string name="title_legend_priority">優先度が高い</string>
@@ -1081,6 +1118,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_forwarded">転送済み</string>
     <string name="title_legend_plain_only">プレーンテキストのみ</string>
     <string name="title_legend_receipt">開封確認メッセージが要求されました</string>
+    <string name="title_legend_auto_submitted">自動送信されました</string>
     <string name="title_legend_attachment">添付有り</string>
     <string name="title_legend_flagged">お気に入り</string>
     <string name="title_legend_contacts">連絡先を管理する</string>
@@ -1102,6 +1140,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_bold">テキストを太字にする</string>
     <string name="title_legend_italic">テキストを斜体にする</string>
     <string name="title_legend_underline">テキストに下線を引く</string>
+    <string name="title_legend_text_style">テキストのスタイルを設定</string>
     <string name="title_legend_metered">接続が計測されます</string>
     <string name="title_legend_unmetered">接続は未測定です</string>
     <string name="title_legend_roaming">ローミング</string>
@@ -1109,6 +1148,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_avatar">アバター</string>
     <string name="title_legend_show_quotes">引用符を表示</string>
     <string name="title_legend_show_junk">迷惑メールとして扱う</string>
+    <string name="title_legend_create_rule">ルールの作成</string>
     <string name="title_legend_show_unsubscribe">リストから退会する</string>
     <string name="title_legend_show_images">画像を表示</string>
     <string name="title_legend_show_full">オリジナルのメッセージを表示する</string>
@@ -1141,11 +1181,13 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_hint_sync">プロバイダーの速度、ネット接続、デバイス、及びメッセージ数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中アプリの応答が遅くなる場合があります</string>
     <string name="title_hint_battery">FairEmailはデフォルトで常にメッセージを受信する為AndroidはFairEmailが常にアクティブで有ると報告します。 故にFairEmailは常にバッテリー電源を使用しているように見えますが実際にはそうでは有りません</string>
     <string name="title_hint_reformat">デフォルトではFairEmailはプライバシーとセキュリティ上の理由からメッセージを再フォーマットします。 元のメッセージを表示するにはメッセージテキストの上にある[全画面]アイコンをタップします</string>
+    <string name="title_hint_design">デザインは意図的に紛らわしくしている訳ではありませんが、豊富な機能があります。 見た目をカスタマイズするオプションはたくさんありますが、皆さん全てを満足させることは不可能ですので、ご了承ください。</string>
     <string name="title_hint_junk">スパムフィルタリングはメールサーバーで実行する必要があり、機能が制限されているバッテリー駆動のデバイスでは確実に実行できません。</string>
     <string name="title_hint_contact_actions">長押しでオプションへ</string>
     <string name="title_hint_eml">これは素のメッセージファイルの内容の要約です。全てのコンテンツを表示するにはアクションバーの保存アイコンで素のメッセージを保存します</string>
     <string name="title_open_link">リンクを開く</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>
+    <string name="title_tracking_link">このウェブサイトはあなたを追跡するかもしれません</string>
     <string name="title_link_http">トラフィックは暗号化されません</string>
     <string name="title_link_https">トラフィックは暗号化されます</string>
     <string name="title_sanitize_link">追跡パラメーターを削除する</string>
@@ -1164,6 +1206,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_add">追加</string>
     <string name="title_browse">開く</string>
     <string name="title_info">情報</string>
+    <string name="title_download">ダウンロード</string>
     <string name="title_report">報告する</string>
     <string name="title_fix">修正する</string>
     <string name="title_enable">有効にする</string>

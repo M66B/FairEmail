@@ -83,10 +83,10 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 ## Planlanan özellikler
 
 * ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
+* ~~Yarı-otomatik şifreleme~~
 * ~~ Mesajı kopyala ~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
+* ~~Renkli yıldızlar~~
+* ~~Her bir klasör için bildirim ayarı~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
