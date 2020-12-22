@@ -3838,11 +3838,11 @@ class Core {
                 piContent = PendingIntent.getService(context, ServiceUI.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
             } else {
                 Intent thread = new Intent(context, ActivityView.class);
-                thread.setAction("thread:" + message.thread);
+                thread.setAction("thread:" + message.id);
                 thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 thread.putExtra("account", message.account);
                 thread.putExtra("folder", message.folder);
-                thread.putExtra("id", message.id);
+                thread.putExtra("thread", message.thread);
                 thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
                 piContent = PendingIntent.getActivity(context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
             }

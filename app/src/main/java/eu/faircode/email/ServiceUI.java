@@ -440,11 +440,11 @@ public class ServiceUI extends IntentService {
 
         if (open) {
             Intent thread = new Intent(this, ActivityView.class);
-            thread.setAction("thread:" + message.thread);
+            thread.setAction("thread:" + message.id);
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             thread.putExtra("account", message.account);
             thread.putExtra("folder", message.folder);
-            thread.putExtra("id", message.id);
+            thread.putExtra("thread", message.thread);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(folder.type));
             startActivity(thread);
         }

@@ -1056,7 +1056,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 onMenuOutbox();
 
             } else if (action.startsWith("thread")) {
-                intent.putExtra("thread", action.split(":", 2)[1]);
+                intent.putExtra("id", Long.parseLong(action.split(":", 2)[1]));
                 onViewThread(intent);
 
             } else if (action.equals("widget")) {
