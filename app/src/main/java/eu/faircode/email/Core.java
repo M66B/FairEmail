@@ -1534,7 +1534,7 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
-    private static void onExists(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
+    private static void onExists(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
         if (message.uid != null)
             return;
 
@@ -1554,8 +1554,20 @@ class Core {
             }
 
         if (imessages != null && imessages.length == 1) {
-            long uid = ifolder.getUID(imessages[0]);
-            EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
+            String msgid;
+            try {
+                MessageHelper helper = new MessageHelper((MimeMessage) imessages[0], context);
+                msgid = helper.getMessageID();
+            } catch (MessagingException ex) {
+                Log.e(ex);
+                msgid = message.msgid;
+            }
+            if (Objects.equals(message.msgid, msgid)) {
+                long uid = ifolder.getUID(imessages[0]);
+                EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
+            } else {
+                EntityOperation.queue(context, message, EntityOperation.ADD);
+            }
         } else {
             if (imessages != null && imessages.length > 1)
                 Log.e(folder.name + " EXISTS messages=" + imessages.length);
