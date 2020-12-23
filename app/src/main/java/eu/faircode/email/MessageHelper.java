@@ -272,7 +272,10 @@ public class MessageHelper {
 
         MailDateFormat mdf = new MailDateFormat();
         mdf.setTimeZone(hide_timezone ? TimeZone.getTimeZone("UTC") : TimeZone.getDefault());
-        imessage.setHeader("Date", mdf.format(new Date()));
+        if (message.sent != null)
+            imessage.setHeader("Date", mdf.format(new Date(message.sent)));
+        else
+            imessage.setHeader("Date", mdf.format(new Date(message.received)));
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
