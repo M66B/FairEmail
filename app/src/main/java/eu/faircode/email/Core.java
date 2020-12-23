@@ -2870,6 +2870,12 @@ class Core {
                     message.warning = Log.formatThrowable(ex, false);
                 }
 
+            boolean check_reply = prefs.getBoolean("check_reply", false);
+            if (check_reply) {
+                String warning = message.checkReplyDomain(context);
+                message.reply_domain = (warning == null);
+            }
+
             boolean check_spam = prefs.getBoolean("check_spam", false);
             if (check_spam) {
                 String host = helper.getReceivedFromHost();
@@ -2911,16 +2917,6 @@ class Core {
                         Log.w(folder.name, ex);
                     }
                 }
-            }
-
-            boolean check_reply = prefs.getBoolean("check_reply", false);
-            if (check_reply) {
-                String warning = message.getReplyCheck(context);
-                if (warning != null)
-                    if (message.warning == null)
-                        message.warning = warning;
-                    else
-                        message.warning += ", " + warning;
             }
 
             try {

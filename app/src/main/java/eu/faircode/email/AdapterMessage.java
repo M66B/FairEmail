@@ -904,7 +904,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
                             Boolean.FALSE.equals(message.dmarc) ||
-                            Boolean.FALSE.equals(message.mx));
+                            Boolean.FALSE.equals(message.mx) ||
+                            Boolean.FALSE.equals(message.reply_domain));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             // Text size
@@ -3195,6 +3196,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowAuth(TupleMessageEx message) {
+            StringBuilder sb = new StringBuilder();
+
             List<String> result = new ArrayList<>();
             if (Boolean.FALSE.equals(message.dkim))
                 result.add("DKIM");
@@ -3205,10 +3208,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (Boolean.FALSE.equals(message.mx))
                 result.add("MX");
 
-            ToastEx.makeText(context,
-                    context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)),
-                    Toast.LENGTH_LONG)
-                    .show();
+            if (result.size() > 0)
+                sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
+
+            if (Boolean.FALSE.equals(message.reply_domain)) {
+                if (sb.length() > 0)
+                    sb.append('\n');
+                sb.append(message.checkReplyDomain(context));
+            }
+
+            ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
@@ -5333,6 +5342,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.mx, next.mx)) {
                     same = false;
                     log("mx changed", next.id);
+                }
+                if (!Objects.equals(prev.reply_domain, next.reply_domain)) {
+                    same = false;
+                    log("reply_domain changed", next.id);
                 }
                 if (!Objects.equals(prev.avatar, next.avatar)) {
                     same = false;

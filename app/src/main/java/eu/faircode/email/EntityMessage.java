@@ -136,7 +136,8 @@ public class EntityMessage implements Serializable {
     public Boolean dkim;
     public Boolean spf;
     public Boolean dmarc;
-    public Boolean mx = null;
+    public Boolean mx;
+    public Boolean reply_domain; // differs from 'from'
     public String avatar; // lookup URI from sender
     public String sender; // sort key: from email address
     public Address[] submitter;
@@ -272,7 +273,7 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
-    String getReplyCheck(Context context) {
+    String checkReplyDomain(Context context) {
         if (from == null || from.length == 0)
             return null;
         if (reply == null || reply.length == 0)
@@ -482,6 +483,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.spf, other.spf) &&
                     Objects.equals(this.dmarc, other.dmarc) &&
                     Objects.equals(this.mx, other.mx) &&
+                    Objects.equals(this.reply_domain, other.reply_domain) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     Objects.equals(this.sender, other.sender) &&
                     MessageHelper.equal(this.from, other.from) &&
