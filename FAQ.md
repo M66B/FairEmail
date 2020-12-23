@@ -2359,6 +2359,9 @@ Servers generally have more memory and computing power, so they are much better 
 Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client.
 Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
+Spam filtering based on message headers might have been feasible,
+but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
 This can be done automatically with [filter rules](#user-content-faq71) too.
