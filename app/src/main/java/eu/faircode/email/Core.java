@@ -2872,8 +2872,18 @@ class Core {
 
             boolean check_reply = prefs.getBoolean("check_reply", false);
             if (check_reply) {
-                String warning = message.checkReplyDomain(context);
-                message.reply_domain = (warning == null);
+                // For contact forms
+                boolean self = false;
+                if (identity != null && message.from != null)
+                    for (Address from : message.from)
+                        if (identity.sameAddress(from) || identity.similarAddress(from)) {
+                            self = true;
+                            break;
+                        }
+                if (!self) {
+                    String warning = message.checkReplyDomain(context);
+                    message.reply_domain = (warning == null);
+                }
             }
 
             boolean check_spam = prefs.getBoolean("check_spam", false);
