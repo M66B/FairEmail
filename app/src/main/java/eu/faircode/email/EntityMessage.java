@@ -272,6 +272,34 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
+    String getReplyCheck(Context context) {
+        if (from == null || from.length == 0)
+            return null;
+        if (reply == null || reply.length == 0)
+            return null;
+
+        for (Address _reply : reply) {
+            String r = ((InternetAddress) _reply).getAddress();
+            int rat = (r == null ? -1 : r.indexOf('@'));
+            if (rat < 0)
+                continue;
+            String rdomain = DnsHelper.getParentDomain(r.substring(rat + 1));
+
+            for (Address _from : from) {
+                String f = ((InternetAddress) _from).getAddress();
+                int fat = (f == null ? -1 : f.indexOf('@'));
+                if (fat < 0)
+                    continue;
+                String fdomain = DnsHelper.getParentDomain(f.substring(fat + 1));
+
+                if (!rdomain.equalsIgnoreCase(fdomain))
+                    return context.getString(R.string.title_reply_domain, fdomain, rdomain);
+            }
+        }
+
+        return null;
+    }
+
     Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean language_detection = prefs.getBoolean("language_detection", false);

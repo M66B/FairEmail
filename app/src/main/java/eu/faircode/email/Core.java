@@ -2914,29 +2914,13 @@ class Core {
             }
 
             boolean check_reply = prefs.getBoolean("check_reply", false);
-            if (check_reply &&
-                    message.from != null && message.from.length > 0 &&
-                    message.reply != null && message.reply.length > 0) {
-                for (Address reply : message.reply) {
-                    String r = ((InternetAddress) reply).getAddress();
-                    int rat = (r == null ? -1 : r.indexOf('@'));
-                    if (rat > 0) {
-                        String rdomain = DnsHelper.getParentDomain(r.substring(rat + 1));
-                        for (Address from : message.from) {
-                            String f = ((InternetAddress) from).getAddress();
-                            int fat = (f == null ? -1 : f.indexOf('@'));
-                            if (fat > 0) {
-                                String fdomain = DnsHelper.getParentDomain(f.substring(fat + 1));
-                                if (!rdomain.equalsIgnoreCase(fdomain)) {
-                                    if (message.warning == null)
-                                        message.warning = context.getString(R.string.title_reply_domain, fdomain, rdomain);
-                                    else
-                                        message.warning += ", " + context.getString(R.string.title_reply_domain, fdomain, rdomain);
-                                }
-                            }
-                        }
-                    }
-                }
+            if (check_reply) {
+                String warning = message.getReplyCheck(context);
+                if (warning != null)
+                    if (message.warning == null)
+                        message.warning = warning;
+                    else
+                        message.warning += ", " + warning;
             }
 
             try {
