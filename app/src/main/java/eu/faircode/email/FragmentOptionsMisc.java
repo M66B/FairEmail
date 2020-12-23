@@ -43,6 +43,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +84,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
     private Spinner spLanguage;
+    private ImageButton ibResetLanguage;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
@@ -162,6 +164,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
+        ibResetLanguage = view.findViewById(R.id.ibResetLanguage);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
@@ -264,6 +267,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("language").commit(); // apply won't work here
+            }
+        });
+
+        ibResetLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 prefs.edit().remove("language").commit(); // apply won't work here
             }
         });
