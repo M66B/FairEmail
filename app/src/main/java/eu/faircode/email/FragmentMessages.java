@@ -1974,7 +1974,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (dX > 0) {
                 // Right swipe
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
-                if (swipes.right_color != null)
+                if (swipes.right_color == null) {
+                    Integer color = EntityFolder.getDefaultColor(swipes.right_type);
+                    if (color != null)
+                        d.setTint(color);
+                } else
                     d.setTint(swipes.right_color);
                 int padding = (rect.height() - size);
                 d.setBounds(
@@ -1986,7 +1990,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (dX < 0) {
                 // Left swipe
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
-                if (swipes.left_color != null)
+                if (swipes.left_color == null) {
+                    Integer color = EntityFolder.getDefaultColor(swipes.left_type);
+                    if (color != null)
+                        d.setTint(color);
+                } else
                     d.setTint(swipes.left_color);
                 int padding = (rect.height() - size);
                 d.setBounds(
