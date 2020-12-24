@@ -1211,14 +1211,6 @@ public class MessageHelper {
     }
 
     Address[] getCc() throws MessagingException {
-        try {
-            // https://cr.yp.to/proto/replyto.html
-            Address[] a = getAddressHeader("Mail-Followup-To");
-            if (a != null)
-                return a;
-        } catch (MessagingException ex) {
-            Log.e(ex);
-        }
         return getAddressHeader("Cc");
     }
 
@@ -1227,14 +1219,6 @@ public class MessageHelper {
     }
 
     Address[] getReply() throws MessagingException {
-        try {
-            // https://cr.yp.to/proto/replyto.html
-            Address[] a = getAddressHeader("Mail-Reply-To");
-            if (a != null)
-                return a;
-        } catch (MessagingException ex) {
-            Log.e(ex);
-        }
         return getAddressHeader("Reply-To");
     }
 
