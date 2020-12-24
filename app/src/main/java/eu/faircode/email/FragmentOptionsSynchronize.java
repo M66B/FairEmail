@@ -83,7 +83,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSubscriptions;
     private SwitchCompat swSyncSubscribed;
     private SwitchCompat swCheckMx;
-    private SwitchCompat swCheckReply;
     private SwitchCompat swTuneKeepAlive;
     private Group grpExempted;
 
@@ -93,7 +92,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
             "sync_folders", "sync_shared_folders", "subscriptions", "sync_subscribed",
-            "check_mx", "check_reply", "tune_keep_alive"
+            "check_mx", "tune_keep_alive"
     };
 
     @Override
@@ -138,7 +137,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
         swSyncSubscribed = view.findViewById(R.id.swSyncSubscribed);
         swCheckMx = view.findViewById(R.id.swCheckMx);
-        swCheckReply = view.findViewById(R.id.swCheckReply);
         swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
         grpExempted = view.findViewById(R.id.grpExempted);
 
@@ -328,13 +326,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
-        swCheckReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("check_reply", checked).apply();
-            }
-        });
-
         swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -433,7 +424,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncSubscribed.setChecked(prefs.getBoolean("sync_subscribed", false));
         swSyncSubscribed.setEnabled(swSubscriptions.isChecked());
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
-        swCheckReply.setChecked(prefs.getBoolean("check_reply", false));
         swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
     }
 

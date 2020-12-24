@@ -2867,6 +2867,19 @@ class Core {
             if (message.avatar == null && notify_known && pro)
                 message.ui_ignored = true;
 
+            // For contact forms
+            boolean self = false;
+            if (identity != null && message.from != null)
+                for (Address from : message.from)
+                    if (identity.sameAddress(from) || identity.similarAddress(from)) {
+                        self = true;
+                        break;
+                    }
+            if (!self) {
+                String warning = message.checkReplyDomain(context);
+                message.reply_domain = (warning == null);
+            }
+
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
                 try {
@@ -2881,22 +2894,6 @@ class Core {
                     Log.e(folder.name, ex);
                     message.warning = Log.formatThrowable(ex, false);
                 }
-
-            boolean check_reply = prefs.getBoolean("check_reply", false);
-            if (check_reply) {
-                // For contact forms
-                boolean self = false;
-                if (identity != null && message.from != null)
-                    for (Address from : message.from)
-                        if (identity.sameAddress(from) || identity.similarAddress(from)) {
-                            self = true;
-                            break;
-                        }
-                if (!self) {
-                    String warning = message.checkReplyDomain(context);
-                    message.reply_domain = (warning == null);
-                }
-            }
 
             boolean check_spam = prefs.getBoolean("check_spam", false);
             if (check_spam) {
