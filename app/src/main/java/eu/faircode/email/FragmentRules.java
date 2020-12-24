@@ -440,6 +440,7 @@ public class FragmentRules extends FragmentBase {
 
                         rule.folder = fid;
                         rule.applied = 0;
+                        rule.last_applied = null;
                         rule.id = db.rule().insertRule(rule);
                     }
 

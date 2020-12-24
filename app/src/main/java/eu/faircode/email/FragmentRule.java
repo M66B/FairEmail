@@ -778,8 +778,10 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, TupleRuleEx rule) {
-                if (copy > 0 && rule != null)
+                if (copy > 0 && rule != null) {
                     rule.applied = 0;
+                    rule.last_applied = null;
+                }
 
                 try {
                     if (savedInstanceState == null) {

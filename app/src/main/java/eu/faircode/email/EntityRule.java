@@ -52,6 +52,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
@@ -95,6 +96,7 @@ public class EntityRule {
     public String action;
     @NonNull
     public Integer applied = 0;
+    public Long last_applied;
 
     static final int TYPE_SEEN = 1;
     static final int TYPE_UNSEEN = 2;
@@ -304,7 +306,7 @@ public class EntityRule {
         boolean executed = _execute(context, message);
         if (id != null && executed) {
             DB db = DB.getInstance(context);
-            db.rule().applyRule(id);
+            db.rule().applyRule(id, new Date().getTime());
         }
         return executed;
     }
@@ -892,7 +894,8 @@ public class EntityRule {
                     this.stop == other.stop &&
                     this.condition.equals(other.condition) &&
                     this.action.equals(other.action) &&
-                    this.applied.equals(other.applied);
+                    this.applied.equals(other.applied) &&
+                    Objects.equals(this.last_applied, other.last_applied);
         } else
             return false;
     }
@@ -907,6 +910,7 @@ public class EntityRule {
         json.put("condition", condition);
         json.put("action", action);
         json.put("applied", applied);
+        json.put("last_applied", last_applied);
         return json;
     }
 
@@ -920,6 +924,8 @@ public class EntityRule {
         rule.condition = json.getString("condition");
         rule.action = json.getString("action");
         rule.applied = json.optInt("applied", 0);
+        if (json.has("last_applied") && !json.isNull("last_applied"))
+            rule.last_applied = json.getLong("last_applied");
         return rule;
     }
 }
