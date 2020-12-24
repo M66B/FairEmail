@@ -217,7 +217,6 @@
     <string name="title_advanced_sync_shared_folders">Синхронизиране на споделени списъци с папки</string>
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
-    <string name="title_advanced_check_reply">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
     <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_keyboard">Клавиатура по подразбиране</string>
     <string name="title_advanced_suggest_local">Предложи локални контакти</string>
@@ -400,7 +399,6 @@
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
     <string name="title_advanced_lookup_mx_hint">Проверка дали DNS MX записи съществуват</string>
     <string name="title_advanced_sync_delay_hint">Това ще забави синхронизирането на съобщенията</string>
-    <string name="title_advanced_check_reply_hint">Това ще провери дали името на домейна на изпращача и адреса за отговор е едно и също</string>
     <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще бъдат съхранявани за нови изпратени или получени съобщения, само когато са активирани.</string>
     <string name="title_advanced_usenet_hint">Вмъкнете \'-\' между текста и подписа</string>
     <string name="title_advanced_send_reminders_hint">Показва предупреждение когато текстът на съобщението или темата е празна или когато прикаченият файл липсва</string>

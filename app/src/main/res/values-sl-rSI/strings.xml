@@ -229,7 +229,6 @@
     <string name="title_advanced_sync_folders">Sinhroniziraj seznam map</string>
     <string name="title_advanced_subscriptions">Upravljaj z naročninami na mape</string>
     <string name="title_advanced_check_mx">Preveri pošiljateljeve e-poštne naslove ob sinhronizaciji sporočil</string>
-    <string name="title_advanced_check_reply">Preveri e-poštne naslove za odgovor ob sinhronizaciji sporočil</string>
     <string name="title_advanced_keyboard">Privzeto prikaži tipkovnico</string>
     <string name="title_advanced_suggest_local">Predlagaj krajevno shranjene stike</string>
     <string name="title_advanced_suggest_sent">Predlagaj naslove, najdene v poslanih sporočilih</string>
@@ -386,7 +385,6 @@
     <string name="title_advanced_sync_folders_hint">Onemogočanje tega bo nekoliko zmanjšalo porabo podatkov in energije, vendar bo obenem tudi onemogočilo posodabljanje seznama map.</string>
     <string name="title_advanced_lookup_mx_hint">To bo preverilo, ali obstajajo zapisi DNS MX.</string>
     <string name="title_advanced_sync_delay_hint">To bo upočasnilo sinhronizacijo sporočil.</string>
-    <string name="title_advanced_check_reply_hint">To bo preverilo, ali so ime domene pošiljatelja in naslovi za odgovor enaki.</string>
     <string name="title_advanced_suggest_local_hint">Poleg stikov iz Androida.  Podatki o stikih bodo shranjeni za na novo poslana ali prejeta sporočila samo, ko je omogočeno.</string>
     <string name="title_advanced_usenet_hint">Vstavi \'-- \' med besedilo in podpis.</string>
     <string name="title_advanced_send_reminders_hint">Prikaži opozorilo, kadar je besedilo ali zadeva sporočila prazna, ali ko morda manjka priloga.</string>

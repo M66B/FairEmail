@@ -233,7 +233,6 @@
     <string name="title_advanced_subscriptions">Gerir subscrições de pastas</string>
     <string name="title_advanced_sync_subscribed">Sincronizar automaticamente as pastas subscritas</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente ao sincronizar mensagens</string>
-    <string name="title_advanced_check_reply">Verificar endereços de e-mail de resposta ao sincronizar mensagens</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automaticamente o intervalo de manutenção de connexão</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>

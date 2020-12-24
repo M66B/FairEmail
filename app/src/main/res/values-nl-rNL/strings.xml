@@ -245,7 +245,6 @@
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_sync_subscribed">Geabonneerde mappen automatisch synchroniseren</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
-    <string name="title_advanced_check_reply">Controleer antwoordadressen bij het synchroniseren van berichten</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
@@ -466,7 +465,6 @@
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
     <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
-    <string name="title_advanced_check_reply_hint">Dit controleert of de domeinnaam van de afzender en antwoordadressen hetzelfde zijn</string>
     <string name="title_advanced_suggest_local_hint">Naast contacten die door Android worden geleverd. Contactgegevens worden alleen opgeslagen voor nieuw verzonden of ontvangen berichten wanneer ingeschakeld.</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
@@ -702,7 +700,7 @@
     <string name="title_folder_user_only">Alleen gebruikersmappen</string>
     <string name="title_folder_primary">Mappen primaire account</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokale concepten</string>
+    <string name="title_folder_local_drafts">Lokale concepten</string>
     <string name="title_no_folders">Geen mappen</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_filters_active">Eén of meer filters actief</string>

@@ -244,7 +244,6 @@
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_sync_subscribed">Synkronoi tilatut kansiot automaattisesti</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
-    <string name="title_advanced_check_reply">Tarkista vastaussähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_tune_keep_alive">Säädä ylläpitokyselyn aikaväli automaattisesti</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_keyboard_no_fullscreen">Estä koko näytön näppäimistö</string>
@@ -464,7 +463,6 @@
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
-    <string name="title_advanced_check_reply_hint">Tämä tarkistaa, ovatko lähetys- ja vastaussähköpostiosoitteiden verkkotunnukset samat</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
@@ -700,6 +698,7 @@
     <string name="title_folder_user_only">Vain käyttäjän kansiot</string>
     <string name="title_folder_primary">Kansion ensisijainen tili</string>
     <string name="title_folders_unified">Yhdistetyn saapuneet-kansion kansiot</string>
+    <string name="title_folder_local_drafts">Paikalliset luonnokset</string>
     <string name="title_no_folders">Ei kansioita</string>
     <string name="title_no_messages">Ei viestejä</string>
     <string name="title_filters_active">Yksi tai useampi suodatin aktiivinen</string>

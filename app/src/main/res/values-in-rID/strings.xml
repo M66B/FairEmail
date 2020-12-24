@@ -227,7 +227,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_subscriptions">Kelola folder langganan</string>
     <string name="title_advanced_sync_subscribed">Sinkronisasi folder langganan secara otomatis</string>
     <string name="title_advanced_check_mx">Periksa alamat email pengirim di sinkronisasi pesan</string>
-    <string name="title_advanced_check_reply">Periksa alamat email balasan pada sinkronisasi pesan</string>
     <string name="title_advanced_tune_keep_alive">Secara otomatis mengatur interval tetap-hidup</string>
     <string name="title_advanced_keyboard">Tampilkan keyboard secara bawaan</string>
     <string name="title_advanced_keyboard_no_fullscreen">Nonaktifkan keyboard layar penuh</string>
@@ -443,7 +442,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_sync_folders_hint">Menonaktifkan ini akan mengurangi penggunaan data dan sedikit baterai, tetapi juga akan menonaktifkan pembaruan daftar folder</string>
     <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
     <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
-    <string name="title_advanced_check_reply_hint">Ini akan memeriksa apakah nama domain dari alamat pengirim dan balasannya sama</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>

@@ -16,7 +16,7 @@ Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysyty
 
 Useimmissa tapauksissa pika-asennus pystyy automaattisesti tunnistamaan oikeat asetukset.
 
-Jos nopea asennus epäonnistuu, sinun on määritettävä tili manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). Tätä varten tarvitset IMAP- ja SMTP-palvelimien osoitteet ja porttinumerot, tiedon käytetäänkö SSL/TLS- tai STARTTLS-salausta ja käyttäjätunnuksesi (useimmiten sähköpostiosoitteesi, mutta ei aina) ja salasanasi.
+Jos pika-asennus epäonnistuu, sinun on määritettävä tili manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). Tätä varten tarvitset IMAP- ja SMTP-palvelimien osoitteet ja porttinumerot, tiedon käytetäänkö SSL/TLS- tai STARTTLS-salausta ja käyttäjätunnuksesi (useimmiten sähköpostiosoitteesi, mutta ei aina) ja salasanasi.
 
 Hakemalla *IMAP* ja palveluntarjoajan nimi riittää useimmiten oikean dokumentaation löytämiseen.
 
@@ -1954,6 +1954,8 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+
+Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 

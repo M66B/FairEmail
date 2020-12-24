@@ -268,7 +268,6 @@
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_sync_subscribed">Automaticky synchronizovat odebírané složky</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
-    <string name="title_advanced_check_reply">Kontrolovat e-mailové adresy pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabránit zobrazení klávesnice na celou obrazovku</string>
@@ -487,7 +486,6 @@
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
-    <string name="title_advanced_check_reply_hint">Ověří, zda jsou název domény odesílatele a adresy pro odpověď totožné</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_usenet_hint">Vložit \'-- \' mezi text a podpis</string>
     <string name="title_advanced_send_reminders_hint">Zobrazit upozornění, je-li text zprávy či předmět prázdný nebo může-li chybět příloha</string>
@@ -723,7 +721,7 @@
     <string name="title_folder_user_only">Pouze uživatelské složky</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Místní koncepty</string>
+    <string name="title_folder_local_drafts">Místní koncepty</string>
     <string name="title_no_folders">Žádné složky</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_filters_active">Jeden nebo více filtrů aktivních</string>

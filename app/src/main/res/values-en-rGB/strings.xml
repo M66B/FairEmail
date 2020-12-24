@@ -8,7 +8,6 @@
     <string name="title_setup_theme_reverse">Reverse colours</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
-    <string name="title_advanced_check_reply">Check reply email addresses on synchronising messages</string>
     <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
     <string name="title_advanced_color_stripe">Show colour stripe</string>
     <string name="title_advanced_color_threshold">Threshold letter colour</string>

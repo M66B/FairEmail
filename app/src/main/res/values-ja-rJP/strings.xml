@@ -108,13 +108,13 @@
 Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プロトコルはサポートされていません。
 アプリの説明もご覧ください</string>
     <string name="title_setup_quick">クイックセットアップ</string>
-    <string name="title_setup_quick_remark">殆どのプロバイダーでアカウントとIDを素早く設定します</string>
+    <string name="title_setup_quick_remark">ほとんどのプロバイダーでアカウントとIDを素早く設定できます</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
-    <string name="title_setup_wizard_multiple">インストールウィザードを複数回使用し複数アカウントをセットアップ出来ます</string>
+    <string name="title_setup_wizard_multiple">インストールウィザードを繰り返し使用すると、複数のアカウントを設定できます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
     <string name="title_setup_wizard_remark">「戻る」で受信トレイに戻ります</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
@@ -233,7 +233,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
     <string name="title_advanced_sync_subscribed">購読したフォルダを自動的に同期する</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
-    <string name="title_advanced_check_reply">メッセージ同期に関する返信メールアドレスを確認</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
@@ -452,7 +451,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
     <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
-    <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信アドレスが同じかどうかを確認</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
     <string name="title_advanced_send_reminders_hint">メッセージテキスト又は件名が空の場合や添付ファイルが無い場合に警告を表示</string>
@@ -688,7 +686,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_folder_user_only">ユーザーフォルダーのみ</string>
     <string name="title_folder_primary">基本アカウントのフォルダー</string>
     <string name="title_folders_unified">統合受信トレイフォルダー</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">下書き（ローカル）</string>
+    <string name="title_folder_local_drafts">下書き（ローカル）</string>
     <string name="title_no_folders">フォルダーが有りません</string>
     <string name="title_no_messages">メッセージが有りません</string>
     <string name="title_filters_active">1つ以上のフィルターがアクティブです</string>

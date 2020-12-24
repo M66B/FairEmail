@@ -221,7 +221,6 @@
     <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
     <string name="title_advanced_subscriptions">مدیریت اشتراکات پوشه</string>
     <string name="title_advanced_check_mx">نشانی‌های ایمیل فرستنده را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
-    <string name="title_advanced_check_reply">نشانی‌های ایمیل پاسخ را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیش‌فرض</string>
     <string name="title_advanced_suggest_local">پیشنهاد مخاطبین ذخیره‌شده محلی</string>

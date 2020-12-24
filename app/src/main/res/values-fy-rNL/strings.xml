@@ -246,7 +246,6 @@
     <string name="title_advanced_subscriptions">Mapabonneminten beheare</string>
     <string name="title_advanced_sync_subscribed">Syngroniseare mappen automatysk syngronisearje</string>
     <string name="title_advanced_check_mx">Kontrolearje e-postadressen fan stjoerder op syngronisearjen fan berjochten</string>
-    <string name="title_advanced_check_reply">Kontrolearje e-postadressen foar antwurd op berjochten syngronisearje</string>
     <string name="title_advanced_tune_keep_alive">Tune it ynterval foar libbenhâlden automatysk</string>
     <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>
     <string name="title_advanced_keyboard_no_fullscreen">Foarkom toetseboerd op folslein skerm</string>
@@ -465,7 +464,6 @@
     <string name="title_advanced_sync_folders_hint">As jo dit útskeakelje, sille gegevens en batterijgebrûk wat ferminderje, mar sil it bywurkjen fan de list mei mappen ek útskeakelje</string>
     <string name="title_advanced_lookup_mx_hint">Kontrolearje periodyk lykas FairEmail noch aktyf is</string>
     <string name="title_advanced_sync_delay_hint">Dit sil syngronisearjende berjochten fertrage</string>
-    <string name="title_advanced_check_reply_hint">Dit sil kontrolearje as domeinnamme fan \'e stjoerder en antwurdadressen itselde binne</string>
     <string name="title_advanced_suggest_local_hint">Neist kontakten levere troch Android. Kontaktgegevens wurde allinich opslein foar nij ferstjoerde of ûntfange berjochten as dizze ynskeakele is.</string>
     <string name="title_advanced_usenet_hint">Foegje \'-\' yn tusken de tekst en de hantekening</string>
     <string name="title_advanced_send_reminders_hint">Toan in warskôging as de tekst fan it berjocht as it ûnderwerp leech is of as in bylage miskien mist</string>

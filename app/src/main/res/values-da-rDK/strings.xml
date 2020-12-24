@@ -246,7 +246,6 @@
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_sync_subscribed">Synkronisér automatisk mappeabonnementer</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
-    <string name="title_advanced_check_reply">Tjek svar e-mailadresser ved beskedsynkroniseringer</string>
     <string name="title_advanced_tune_keep_alive">Justér automatisk hold i live intervallet</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Forhindr fuldskærmstastatur</string>
@@ -467,7 +466,6 @@
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
-    <string name="title_advanced_check_reply_hint">Dette tjekker, om domænenavnet for afsender- og svaradresser er ens</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
@@ -703,7 +701,7 @@
     <string name="title_folder_user_only">Kun brugermapper</string>
     <string name="title_folder_primary">Primærkontomapper</string>
     <string name="title_folders_unified">Saml indbakkemapper</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokale udkast</string>
+    <string name="title_folder_local_drafts">Lokale udkast</string>
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_filters_active">Ét eller flere filtre er aktive</string>
@@ -752,6 +750,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Flyt</string>
     <string name="title_copy_btn">Kopiér</string>
+    <string name="title_keywords_btn">Nøgleord</string>
     <string name="title_unsubscribe">Afmeld</string>
     <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>

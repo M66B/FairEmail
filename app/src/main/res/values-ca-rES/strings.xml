@@ -219,7 +219,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_sync_shared_folders">Sincronitza la llista de carpetes</string>
     <string name="title_advanced_subscriptions">Gestioneu les subscripcions de carpeta</string>
     <string name="title_advanced_check_mx">Comproveu les adreces de correu electrònic del remitent sobre la sincronització de missatges</string>
-    <string name="title_advanced_check_reply">Comproveu les adreces de correu electrònic del remitent a la sincronització de missatges</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automàticament l’interval de mantenir viu</string>
     <string name="title_advanced_keyboard">Mostra el teclat per defecte</string>
     <string name="title_advanced_suggest_local">Suggeriu contactes emmagatzemats localment</string>
@@ -407,7 +406,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
-    <string name="title_advanced_check_reply_hint">Això comprovarà si el nom de domini de l’emissor i les adreces de resposta són els mateixos</string>
     <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
     <string name="title_advanced_usenet_hint">Inseriu \"--\" entre el text i la signatura</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avís quan el text del missatge o el tema està buit o quan falta un fitxer adjunt</string>

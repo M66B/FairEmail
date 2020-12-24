@@ -858,13 +858,13 @@ El mensaje *... +OK ...* probablemente significa que un puerto POP3 (normalmente
 
 Los errores *... saludo inválido ...*, *... requiere una dirección válida ...* y *... Parámetro HELO no se ajusta a la sintaxis RFC ...* puede resolverse cambiando la configuración de identidad avanzada *Utilice la dirección IP local en lugar del nombre de host*.
 
-El error *... No se pudo conectar al host ...* significa que no hubo respuesta del servidor de correo en un tiempo razonable (20 segundos por defecto). Esto indica principalmente problemas de conectividad a internet, posiblemente causados por una VPN o por una aplicación de firewall. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+El error *... No se pudo conectar al host ...* significa que no hubo respuesta del servidor de correo en un tiempo razonable (20 segundos por defecto). Esto indica principalmente problemas de conectividad a internet, posiblemente causados por una VPN o por una aplicación de firewall. Puede intentar aumentar el tiempo de espera de conexión en la configuración de conexión de FairEmail, para cuando el servidor de correo es realmente lento.
 
-El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+El error *... Conexión rechazada...* significa que el servidor de correo electrónico o algo entre el servidor de correo y la aplicación, como un cortafuegos, rechazó activamente la conexión.
 
-El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+El error *... Red inaccesible ...* significa que el servidor de correo electrónico no fue accesible a través de la conexión a internet actual, por ejemplo, porque el tráfico de internet sólo está restringido al tráfico local.
 
-The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+El error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
@@ -1954,6 +1954,8 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+
+Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 

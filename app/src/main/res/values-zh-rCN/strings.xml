@@ -234,7 +234,6 @@
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_sync_subscribed">自动同步订阅的文件夹</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
-    <string name="title_advanced_check_reply">同步消息时检查回复邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
@@ -455,7 +454,6 @@
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
-    <string name="title_advanced_check_reply_hint">这将检查发件人和回复对象的地址是否相同</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
@@ -691,7 +689,7 @@
     <string name="title_folder_user_only">仅用户文件夹</string>
     <string name="title_folder_primary">文件夹主账户</string>
     <string name="title_folders_unified">聚合收件箱文件夹</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">本地草稿文件夹</string>
+    <string name="title_folder_local_drafts">本地草稿文件夹</string>
     <string name="title_no_folders">无文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>

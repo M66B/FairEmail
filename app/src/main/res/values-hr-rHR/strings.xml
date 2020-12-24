@@ -220,7 +220,6 @@
     <string name="title_advanced_sync_folders">Sinkroniziraj popis mapa</string>
     <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
     <string name="title_advanced_check_mx">Provjerite adrese pošiljatelja pri sinkronizaciji poruka</string>
-    <string name="title_advanced_check_reply">Provjerite adrese e-pošte s odgovorima na usklađivanje poruka</string>
     <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
     <string name="title_advanced_suggest_local">Predložiti lokalno pohranjene kontakte</string>
     <string name="title_advanced_suggest_sent">Predložiti adrese pronađene u poslanim porukama</string>
@@ -361,7 +360,6 @@
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
-    <string name="title_advanced_check_reply_hint">Ovim će se provjeriti jesu li ime domene pošiljatelja i adrese odgovora isti</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Podaci za kontakte bit će pohranjeni za novoprimljene ili primljene poruke samo ako su omogućene.</string>
     <string name="title_advanced_usenet_hint">Umetni \'--\' između teksta i potpisa</string>
     <string name="title_advanced_send_reminders_hint">Pokaži upozorenje kada je tekst poruke ili predmet prazan ili kada prilog možda nedostaje</string>

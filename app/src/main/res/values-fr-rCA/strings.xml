@@ -246,7 +246,6 @@
     <string name="title_advanced_subscriptions">Gérer les abonnements aux dossiers</string>
     <string name="title_advanced_sync_subscribed">Synchroniser automatiquement les dossiers abonnés</string>
     <string name="title_advanced_check_mx">Vérifier l’adresse courriel de l’expéditeur lors de la synchronisation des messages</string>
-    <string name="title_advanced_check_reply">Vérifier les adresses courriel de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
@@ -467,7 +466,6 @@
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l’utilisation des données et de la pile mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Ceci ralentira la synchronisation des messages</string>
-    <string name="title_advanced_check_reply_hint">Ceci vérifiera si le nom de domaine de l’expéditeur et des adresses de réponse sont identiques</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
     <string name="title_advanced_usenet_hint">Insérer -- entre le texte et la signature</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
@@ -703,7 +701,7 @@
     <string name="title_folder_user_only">Dossiers utilisateur seulement</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
     <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Brouillons locaux</string>
+    <string name="title_folder_local_drafts">Brouillons locaux</string>
     <string name="title_no_folders">Aucun dossier</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>

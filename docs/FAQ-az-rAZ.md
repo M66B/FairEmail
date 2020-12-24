@@ -1,22 +1,22 @@
-# FairEmail support
+# FairEmail texniki dəstək
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Sualınız varsa, əvvəlcə aşağıdakı tez-tez soruşulan sualları yoxlayın. Aşağıda, düzgün sorğu göndərmə xüsusiyyətlərini öyrənə və texniki səhvlər barədə sorğu göndərə bilərsiniz.
 
-## Index
+## İndeksi
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hesabların avtorizasiyası](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Necə ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Mə`lum problemlər](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Planlaşdırılan yeniliklər](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Tez-tez sorğu edilən funksiyalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Tez-tez verilən suallar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Dəstək almaq](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Authorizing accounts
+## Hesabların avtorizasiyası
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Əksər hallarda, sürətli quraşdırma avtomatik olaraq düzgün konfiqurasiyanı müəyyən edə bilər.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Əgər sürətli quraşdırma müvəffəqiyyətsiz olarsa, hesabınızı (e-poçt almaq üçün) və şəxsiyyət vəsiqənizi (e-poçt göndərmək üçün) özünüz konfiqurasiya etməlisiniz. For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
@@ -1954,6 +1954,8 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+
+Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 

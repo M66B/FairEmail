@@ -246,7 +246,6 @@
     <string name="title_advanced_subscriptions">Διαχείριση συνδρομών σε φακέλους</string>
     <string name="title_advanced_sync_subscribed">Αυτόματος συγχρονισμός των φακέλων με συνδρομή</string>
     <string name="title_advanced_check_mx">Έλεγχος διευθύνσεων των αποστολέων κατά τον συγχρονισμό μηνυμάτων</string>
-    <string name="title_advanced_check_reply">Έλεγχος διευθύνσεων των απαντήσεων κατά τον συγχρονισμό μηνυμάτων</string>
     <string name="title_advanced_tune_keep_alive">Αυτόματη ρύθμιση του χρονικού διαστήματος για διατήρηση ενεργής σύνδεσης</string>
     <string name="title_advanced_keyboard">Εμφάνιση του πληκτρολογίου από προεπιλογή</string>
     <string name="title_advanced_keyboard_no_fullscreen">Να μην προβάλλεται το πληκτρολόγιο σε πλήρη οθόνη</string>
@@ -465,7 +464,6 @@
     <string name="title_advanced_sync_folders_hint">Αν απενεργοποιηθεί, θα μειωθεί κάπως η χρήση δεδομένων και μπαταρίας, αλλά θα απενεργοποιηθεί και ο συγχρονισμός της λίστας των φακέλων επίσης</string>
     <string name="title_advanced_lookup_mx_hint">Ελέγχει αν υπάρχουν καταγραφές DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Η επιλογή αυτή θα επιβραδύνει τον συγχρονισμό των μηνυμάτων</string>
-    <string name="title_advanced_check_reply_hint">Ελέγχει αν το το όνομα τομέα του αποστολέα και οι διευθύνσεις απάντησης είναι ίδια</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
@@ -701,7 +699,7 @@
     <string name="title_folder_user_only">Φάκελοι χρήστη μόνον</string>
     <string name="title_folder_primary">Φάκελοι κύριου λογαριασμού</string>
     <string name="title_folders_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Τοπικά πρόχειρα</string>
+    <string name="title_folder_local_drafts">Τοπικά πρόχειρα</string>
     <string name="title_no_folders">Κανείς φάκελος</string>
     <string name="title_no_messages">Κανένα μήνυμα</string>
     <string name="title_filters_active">Ένα ή περισσότερα φίλτρα ενεργά</string>

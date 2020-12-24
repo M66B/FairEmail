@@ -240,7 +240,6 @@
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de pastas compartilhadas</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
-    <string name="title_advanced_check_reply">Verificar endereços de e-mail de resposta ao sincronizar mensagens</string>
     <string name="title_advanced_tune_keep_alive">Sintonizar automaticamente o intervalo de manutenção de vida</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
@@ -444,7 +443,6 @@
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
-    <string name="title_advanced_check_reply_hint">Isto irá verificar se o nome do domínio do remetente e os endereços de resposta são os mesmos</string>
     <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android. Os dados de contato serão armazenados para novas mensagens enviadas ou recebidas somente quando ativados.</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>

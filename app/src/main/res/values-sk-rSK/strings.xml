@@ -265,7 +265,6 @@
     <string name="title_advanced_subscriptions">Spravovať odoberanie priečinkov</string>
     <string name="title_advanced_sync_subscribed">Automaticky synchronizovať odoberané priečinky</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
-    <string name="title_advanced_check_reply">Kontrolovať odpovede e-mailových adries pri synchronizácii správ</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabrániť zobrazeniu klávesnice na celú obrazovku</string>
@@ -367,6 +366,7 @@
     <string name="title_advanced_navbar_colorize">Zafarbiť navigačný panel Androidu</string>
     <string name="title_advanced_parse_classes">Spracovať štýly CSS</string>
     <string name="title_advanced_authentication">Zobraziť varovanie, ak server príjemcu nemohol overiť správu</string>
+    <string name="title_advanced_sync_on_launch">Synchronizovať pri spustení</string>
     <string name="title_advanced_double_back">Ukončiť dvojitým stlačením tlačidla \'Späť\'</string>
     <string name="title_advanced_pull_refresh">Obnoviť stiahnutím</string>
     <string name="title_advanced_autoscroll">Po prijatí nových správ posunúť zoznam na začiatok</string>
@@ -485,7 +485,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sync_folders_hint">Vypnutím čiastočne ušetríte prenos údajov aj využívanie batérie, ale zároveň zastavíte obnovovanie zoznamu priečinkov</string>
     <string name="title_advanced_lookup_mx_hint">Skontroluje, či existujú MX záznamy v systéme DNS</string>
     <string name="title_advanced_sync_delay_hint">Spomalí synchronizáciu správ</string>
-    <string name="title_advanced_check_reply_hint">Skontroluje, či sa názov domény odosielateľa zhoduje s doménou adresy pre odpoveď</string>
     <string name="title_advanced_suggest_local_hint">Okrem kontaktov poskytnutých systémom. Zaznamenané budú kontaktné údaje z prijatých a odoslaných správ, len ak je to povolené.</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
@@ -719,6 +718,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_folder_user_only">Len používateľské priečinky</string>
     <string name="title_folder_primary">Priečinky primárneho účtu</string>
     <string name="title_folders_unified">Priečinky spoločnej doručenej pošty</string>
+    <string name="title_folder_local_drafts">Lokálne koncepty</string>
     <string name="title_no_folders">Žiadne priečinky</string>
     <string name="title_no_messages">Žiadne správy</string>
     <string name="title_filters_active">Jeden alebo viac filtrov aktívnych</string>

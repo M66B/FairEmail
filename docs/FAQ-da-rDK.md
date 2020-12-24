@@ -1393,53 +1393,53 @@ Benyt et langt tryk på *Indstillinger* i navigeringsmenuen for straks at genopr
 <br />
 
 <a name="faq53"></a>
-**(53) Can you stick the message action bar to the top/bottom?**
+**(53) Kan man fastgøre beskedhandlingsbjælken øverst/nederst?**
 
-The message action bar works on a single message and the bottom action bar works on all the messages in the conversation. Since there is often more than one message in a conversation, this is not possible. Moreover, there are quite some message specific actions, like forwarding.
+Brevhandlingshandlingsbjælken virker på en enkelt besked, og den nederste handlingsbjælke virker på alle beskeder i en konversation. Da der ofte er flere end én besked i en samtale, så er dette ikke muligt. Desuden findes en del beskedspecifikke handlinger, f.eks. videresendelse.
 
-Moving the message action bar to the bottom of the message is visually not appealing because there is already a conversation action bar at the bottom of the screen.
+Flytning af beskedhandlingbjælken til bunden af beskeden er visuelt ikke tiltalende, dai der allerede er en konversationshandlingsbjælke nederst på skærmen.
 
-Note that there are not many, if any, email apps that display a conversation as a list of expandable messages. This has a lot of advantages, but the also causes the need for message specific actions.
+Bemærk, at der ikke er mange (om nogen) e-mail apps, som viser en konversation som en liste over udvidelige beskeder. Det har mange fordele, men det er også årsagen til behovet for beskedspecifikke handlinger.
 
 <br />
 
 <a name="faq54"></a>
-**~~(54) How do I use a namespace prefix?~~**
+**~~~(54) Hvordan benyttes et navneområdepræfiks? ~~**
 
-~~A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.~~
+~~Et navneområdepræfix benyttes til automatisk at fjerne det præfiks, udbydere undertiden tilføjer mappenavne.~~
 
-~~For example the Gmail spam folder is called:~~
+~~F.eks. betegnes Gmail Spam-mappen:~~
 
 ```
 [Gmail]/Spam
 ```
 
-~~By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.~~
+~~Ved at sætte mavneområdepræfikset til *[Gmail]*, vil FairEmail automatisk fjerne *[Gmail]/* fra alle mappenavne.~~
 
 <br />
 
 <a name="faq55"></a>
-**(55) How can I mark all messages as read / move or delete all messages?**
+**(55) Hvordan kan man markere alle beskeder som læst/flyttet eller slette dem alle?**
 
-You can use multiple select for this. Long press the first message, don't lift your finger and slide down to the last message. Then use the three dot action button to execute the desired action.
+Man kan bruge flere valg til dette. Tryk og hold fingeren på den første besked og træk ned til den sidste besked. Brug derefter treprikshandlingsknappen til at udføre den ønskede handling.
 
 <br />
 
 <a name="faq56"></a>
-**(56) Can you add support for JMAP?**
+**(56) Kan der blive tilføjet understøttelse af JMAP?**
 
-There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so it is not worth a lot of effort to add support for this to FairEmail.
+Der er næsten ingen udbydere, som tilbyder [JMAP](https://jmap.io/)-protokollen, så det er ikke umagen værd at tilføje understøttelse for denne i FairEmail.
 
 <br />
 
 <a name="faq57"></a>
-**(57) Can I use HTML in signatures?**
+**(57) Kan HTML benyttes i signaturer?**
 
-Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
+Ja, [HTML](https://en.wikipedia.org/wiki/HTML) kan benyttes. I signaturredigeringsværktøjet kan man via trepriksmenuen skifte til HTML-tilstand.
 
-Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
+Bemærk, at skiftes tilbage til teksredigeringsværktøjet, gengives måske ikke alt HTML korrekt, da Android-teksredigeringsværktøjet ikke kan gengive alt HTML. Omvendt, benyttes tekstredigerinsværktøjet, kan HTML blive ændret på uventede måder.
 
-If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
+Ønsker man at bruge præformateret tekst, såsom [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), bør teksten ombryde i et *præelement* således:
 
 ```
 <pre>
@@ -1454,184 +1454,184 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 <br />
 
 <a name="faq58"></a>
-**(58) What does an open/closed email icon mean?**
+**(58) Hvad er et åbn/luk e-mailikon?**
 
-The email icon in the folder list can be open (outlined) or closed (solid):
+E-mailikonet i mappelisten kan åbnes (omrids) eller lukkes (udfyldt):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
-Message bodies and attachments are not downloaded by default.
+Beskedbrødtekster og vedhæftninger downloades ikke som standard.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
-Message bodies and attachments are downloaded by default.
+Beskedbrødtekster og vedhæftninger downloades som standard.
 
 <br />
 
 <a name="faq59"></a>
-**(59) Can original messages be opened in the browser?**
+**(59) Kan originale beskeder åbnes i browseren?**
 
-For security reasons the files with the original message texts are not accessible to other apps, so this is not possible. In theory the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) could be used to share these files, but even Google's Chrome cannot handle this.
+Af sikkerhedsårsager er filerne med de originale beskedtekster ikke tilgængelige for andre apps, så dette er ikke muligt. I teorien kunne [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) bruges til at dele disse filer, men selv Googles Chrome kan ikke håndtere dette.
 
 <br />
 
 <a name="faq60"></a>
-**(60) Did you know ... ?**
+**(60) Vidste du ... ?**
 
-* Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
-* Did you know that you can long press the 'write message' icon to go to the drafts folder?
-* Did you know there is an advanced option to mark messages read when they are moved? (archiving and trashing is also moving)
-* Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it?
-* Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
-* Did you know that you can long press a reply template to create a draft message from the template?
-* Did you know that you can long press, hold and swipe to select a range of messages?
-* Did you know that you can retry sending messages by using pull-down-to-refresh in the outbox?
-* Did you know that you can swipe a conversation left or right to go to the next or previous conversation?
-* Did you know that you can tap on an image to see where it will be downloaded from?
-* Did you know that you can long press the folder icon in the action bar to select an account?
-* Did you know that you can long press the star icon in a conversation thread to set a colored star?
-* Did you know that you can open the navigation drawer by swiping from the left, even when viewing a conversation?
-* Did you know that you can long press the people's icon to show/hide the CC/BCC fields and remember the visibility state for the next time?
-* Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
-* Did you know that if you select text and hit reply, only the selected text will be quoted?
-* Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
-* Did you know that you can long press the send action to show the send dialog, even if it was disabled?
-* Did you know that you can long press the full screen icon to show the original message text only?
+* Vidste du, at stjernemarkerede beskeder kan synkroniseres/beholdes for altid? (dette kan aktiveres i modtagelsesindstillingerne)
+* Vidste du, at du et langt tryk på ikonet 'Skriv besked' tager dig til Udkast-mappen?
+* Vidste du, at der er en avanceret mulighed for at markere beskeder som læst, når de flyttes? (arkivering og kassering er også i flytning)
+* Vidste du, at du kan vælge tekst (eller en e-mailadresse) i en app i de seneste Android-versioner og lade FairEmail søge efter den?
+* Vidste du, at FairEmail har en tablettilstand? Rotér din enhed til liggende tilstand og konversationstråde åbnes i en 2. kolonne, hvis der er tilstrækkelig skærmplads.
+* Vidste du, at et langt tryk kan bruges på en svarskabelon for at oprette en udkastbesked fra denne?
+* Vidste du, at man kan trykke og holde, og dernæst stryge for at vælge en række beskeder?
+* Vidste du, at man kan prøve at gensende en besked ved at bruge træk-ned-for-at-opfriske i Udbakken?
+* Vidste du, at man kan stryge en konversation til venstre/højre for at gå til den næste/forrige?
+* Vidste du, at man kan trykke på et billede for at se, hvorfra det downloades?
+* Vidste du, at et langt tryk på mappeikonet i handlingsbjælken muliggør valg af konto?
+* Vidste du, at et langt tryk på stjerneikonet i en konversationstråd muliggør valg af stjernefarve?
+* Vidste du, at navigeringsskuffen kan åbnes med et stryge fra venstre, selv når man kigger på en konversation?
+* Vidste du, at et langt tryk på personers ikon viser/skjuler CC-/BCC-felter samt huske synlighedstilstanden til næste gang?
+* Vidste du, at man kan indsætte en Android-kontaktgruppes e-mailadresser via trepriksoverløbsmenuen?
+* Vidste du, at vælger man tekst og trykker på svar, så vil kun den valgte tekst blive citeret?
+* Vidste du, at med et langt tryk på papirkurvsikoner (både i beskeden og den nederste handlingsbjæle) kan man permanent slette en besked/konversation? (version 1.1368+)
+* Vidste du, at et langt tryk på send-handlingen vil vise Send-dialogen, selv hvis den er deaktiveret?
+* Vidste du, at man med et lang tryk på fuldskærmsikonet kan få vist originalbeskedteksten?
 
 <br />
 
 <a name="faq61"></a>
-**(61) Why are some messages shown dimmed?**
+**(61) Hvorfor vises nogle beskeder nedtonet?**
 
-Messages shown dimmed (grayed) are locally moved messages for which the move is not confirmed by the server yet. This can happen when there is no connection to the server or the account (yet). These messages will be synchronized after a connection to the server and the account has been made or, if this never happens, will be deleted if they are too old to be synchronized.
+Nedtonede (grå) beskeder er lokalt flyttede beskeder, hvis flytning endnu ikke er bekræftet af serveren. Dette kan ske ved manglende forbindelse til serveren eller kontoen. Disse beskeder synkroniseres, når der er etableret server- og kontoforbindelse eller, hvis dette aldrig sker, slettes, hvis de er for gamle til at blive synkroniseret.
 
-You might need to manually synchronize the folder, for example by pulling down.
+Du skal muligvis synkronisere mappen manuelt, f.eks. ved at trække ned.
 
-You can view these messages, but you cannot move these messages again until the previous move has been confirmed.
+Du kan se disse beskeder, men du kan ikke flytte dem igen, før den foregående flytning er blevet bekræftet.
 
-Pending [operations](#user-content-faq3) are shown in the operations view accessible from the main navigation menu.
+Afventende [operationer](#user-content-faq3) vises i operationsvisningen tilgængelig via hovednavigeringsmenuen.
 
 <br />
 
 <a name="faq62"></a>
-**(62) Which authentication methods are supported?**
+**(62) Hvilke godkendelsesmetoder understøttes?**
 
-The following authentication methods are supported and used in this order:
+Flg. godkendelsesmetoder understøttes og anvendes i denne rækkefølge:
 
 * LOGIN
 * PLAIN
 * CRAM-MD5
 * XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
-* NTLM (untested)
+* NTLM (ikke-testet)
 
-SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
+Da [JavaMail til Android](https://javaee.github.io/javamail/Android) ikke understøtter SASL-godkendelsesmetoder, er disse, udover CRAM-MD4, uunderstøttede.
 
-If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+Kræver udbyderen en uunderstøttet godkendelsesmetode, vil fejlmeddelelsen *godkendelse mislykkedes* sandsynligvis ses.
 
-[Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
+[Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) understøttes af [alle understøttede Android-versioner](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
 <a name="faq63"></a>
-**(63) How are images resized for displaying on screens?**
+**(63) Hvordan skaleres billeder til skærmvisning?**
 
-Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images will automatically be resized for displaying on screens. This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB. Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %. Images are scaled down using whole number factors to reduce memory usage and to retain image quality. Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
+Store indlejrede eller vedhæftede [PNG-](https://en.wikipedia.org/wiki/Portable_Network_Graphics) og [JPEG-](https://en.wikipedia.org/wiki/JPEG)billeder skaleres automatisk mhp. skærmvisning. Dette skyldes, at e-mails er begrænset i størrelse til, afhængigt af udbyderen, fortrinsvis mellem 10 og 50 MB. Billeder skaleres som standard til en maksimal bredde og højde på ca. 1440 pixels og gemmes med et komprimeringsforhold på 90%. Billeder nedskaleres vha. heltalsfaktorer for at reducere hukommelsesforbruget og bevare billedkvalitet. Automatisk ændring af størrelse af indlejrede og/eller vedhæftede billeder og den maksimale målbilledstørrelse kan opsættes i Send-indstillinger.
 
-If you want to resize images on a case-by-case basis, you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
+Ønsker man at ændre størrelsen på billeder fra gang til gang, kan [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/), eller en lignende app, benyttes.
 
 <br />
 
 <a name="faq64"></a>
-**~~(64) Can you add custom actions for swipe left/right?~~**
+**~~~(64) Kan der blive tilføjet tilpassede handlinger for venstre/højre stryg?~~**
 
-~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
+~~Den mest logiske konsekvens ifm. at stryge en listepost til venstre/højre er at fjerne denne fra listen.~~ ~~Den mest logiske handling ifm. en e-mail-app er at flytte beskeden til en anden mappe.~~ ~~Du kan vælge mappen, der skal flyttes til, via kontoindstillingerne.~~
 
-~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~ ~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
+~~Andre handlinger, såsom markering af beskeder som læste og slumre beskeder, er tilgængelige via multivalg.~~ ~~~Lang tryk på en besked giver adgang til multivalg. Tjek også [dette spørgsmål](#user-content-faq55).~~
 
-~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~ ~~Note that there is an advanced option to mark messages automatically read on moving,~~ ~~which is in most cases a perfect replacement for the sequence mark read and move to some folder.~~ ~~You can also mark messages read from new message notifications.~~
+~~Strygning til venstre/højre for at markere en besked som læst/ulæst er ulogisk, da beskeden først tildeles én status for senere at få en anden. ~ ~~Bemærk, at der er en avanceret mulighed for automatisk at markere beskeder læste ved flytning,~~ ~~ som for det meste er en perfekt erstatning for sekvensen markér som læst og flyt til anden mappe.~~ ~~Man kan også markere beskeder læst via Nye beskeder-notifikationen.~~
 
-~~If you want to read a message later, you can hide it until a specific time by using the *snooze* menu.~~
+~~Vil man læse en besked senere, kan denne skjules indtil en bestemt tidspunkt ved brug af menuen *slumre*.~~
 
 <br />
 
 <a name="faq65"></a>
-**(65) Why are some attachments shown dimmed?**
+**(65) Hvorfor vises nogle beskeder nedtonet?**
 
-Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically, but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40), FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
+Indlejrede (billede) og vedhæftede filer vises nedtonet. [Indlejrede, vedhæftede filer](https://tools.ietf.org/html/rfc2183) er begrenet på automatisk download og visning. men da FairEmail ikke altid downloader vedhæftede filer automatisk (tjek også [denne FAQ](#user-content-faq40)), vil alle vedhæftningstyper blive vist. For at differentiere indlejringer og regulære vedhæftninger, vises indlejrede filer nedtonet.
 
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) Er FairEmail tilgængelig i Google Play Familie-biblioteket?**
 
-The price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+Prisen på de få Pro-funktioner er for lav, lavere end prisen på de fleste lignende apps, og der er [for mange gebyrer og skatter](#user-content-faq19), til at begrunde en tilgængeliggørelse af FairEmail i [Google Play Familie-biblioteket](https://support.google.com/googleone/answer/7007852). Bemærk, at Google promoverer Familie-biblioteket, men samtidig lader udviklere betale for det.
 
 <br />
 
 <a name="faq67"></a>
-**(67) How can I snooze conversations?**
+**(67) Hvordan slumres konversationer?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Vælg via multivalg én af flere konversationer (langt tryk for at tilgå multivalg), tryk på trepriksknappen og vælg *Slumre ...*. Alternativt kan *Slumre...* benyttes via den udvidede beskedvisning i trepriksmenuenpunktet 'mere' eller tidsforskydningshandlingen i den nederste handlingsbjælke. Vælg konversationsslumretid(er) og bekræft med et tryk på OK. Konversationerne skjules i det valgte tidsrum og vises derefter igen. En Ny besked-notifikation som påmindelse.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71).
+Det er også muligt at slumre beskeder vha, [en regel](#user-content-faq71).
 
-You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
+Slumrede beskeder kan vises ved at afmarkerere *Bortfiltrér* > *Skjult* i trepriksoverløbsmenuen.
 
-You can tap on the small snooze icon to see until when a conversation is snoozed.
+Man kan trykke på det lille slumreikon for at se, hvor længe en konversation slumrer.
 
-By selecting a zero snooze duration you can cancel snoozing.
+Ved at angive nul som slumrevarighed, annulleres slumringen.
 
 <br />
 
 <a name="faq68"></a>
-**~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
+**~~(68) Hvorfor kan Adobe Acrobat Reader/Microsoft-apps ikke åbne PDF-vedhæftninger/dokumentvedhæftninger?~~**
 
-~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. This is for privacy and security reasons.~~
+~~Adobe Acrobat Reader og Microsoft apps forventer stadig fuld adgang til alle lagrede filer,~~ ~~selvom apps skal bruge [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) siden Android KitKat (2013)~~ ~~~for at tilgå aktivt delte filer. Dette er af fortroligheds- og sikkerhedsårsager.~~
 
-~~You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader / Microsoft app,~~ ~~but you are advised to install an up-to-date and preferably open source PDF reader / document viewer,~~ ~~for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).~~
+~~Dette kan løse ved at gemme vedhæftningen og åbne den fra Adobe Acrobat Reader/Microsoft-appen,~~ ~~, men det anbefales at installere en opdateret og helst open-source PDF-læser/dokumentfremviser,~~ ~~f.eks. en af de [hér](https://github.com/offa/android-foss#-document--pdf-viewer) anførte.~~
 
 <br />
 
 <a name="faq69"></a>
-**(69) Can you add auto scroll up on new message?**
+**(69) Kan der blive tilføjet auto-rul op ved ny besked?**
 
-The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh. Always automatically scrolling up on arrival of new messages would interfere with your own scrolling, but if you like you can enable this in the settings.
+Beskedlisten ruller automatisk op, når der navigeres fra en ny beskednotifikation eller efter manuel opfriskning. Altid automatisk rul op ved modtagelse af nye beskeder ville interferere ens egen rulning, men om ønsket, kan dette aktivere i indstillingerne.
 
 <br />
 
 <a name="faq70"></a>
-**(70) When will messages be auto expanded?**
+**(70) Hvornår auto-ekspanderes beskeder?**
 
-When navigation to a conversation one message will be expanded if:
+Ved navigering til en konversation, auto-ekspanderes én besked, hvis:
 
-* There is just one message in the conversation
-* There is exactly one unread message in the conversation
+* Der er kun én besked i konversationen
+* Der kun er én ulæst besked i konversationen
 
-There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
+Der er én undtagelse: Beskeden er endnu ikke downloadet, og beskeden er for stor til at auto-downloade på en takseret (mobildata-) forbindelse. Maks. beskedstørrelse kan opsættes/deaktiveres på fanen 'Forbindelsesindstillinger'.
 
-Duplicate (archived) messages, trashed messages and draft messages are not counted.
+Dublet (arkiveret), kasserede og udkastbeskeder indregnes ikke.
 
-Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.
+Ved ekspandering auto-markeres beskeder som læste, medmindre dette er deaktiveret i de individuelle kontoindstillinger.
 
 <br />
 
 <a name="faq71"></a>
-**(71) How do I use filter rules?**
+**(71) Hvordan benyttes filterregler?**
 
-You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
+Man kan redigere filterregler via et langt tryk på en mappe i kontomappelisten (tryk på kontonavnet i navigering/sidemenuen).
 
-New rules will be applied to new messages received in the folder, not to existing messages. You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
+Nye regler effektueres for nye, modtagne beskeder i mappen, ikke for eksisterende beskeder. Man kan tjekke reglen og anvende den på eksisterende beskeder eller, alternativt, via et langt tryk på regellisten vælge *Eksekvér nu*.
 
-You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
+En regel skal gives et navn, og rækkefølgen skal defineres, for hvilken en regel skal eksekveres relativt til andre regler.
 
-You can disable a rule and you can stop processing other rules after a rule has been executed.
+En regel kan deaktiveres og udførsel af andre regler kan stoppes efter en regel er blevet eksekveret.
 
-The following rule conditions are available:
+Flg. regelbetingelser er tilgængelige:
 
-* Sender contains
-* Recipient contains
-* Subject contains
-* Has attachments
+* Afsender indeholder
+* Modtager indeholder
+* Emne indeholder
+* Har vedhæftninger
 * Header contains
 * Day/time between
 
@@ -1954,6 +1954,8 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+
+Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 

@@ -233,7 +233,6 @@
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
     <string name="title_advanced_sync_subscribed">自動同步訂閱的資料夾</string>
     <string name="title_advanced_check_mx">在同步訊息時檢查發送者的email地址。</string>
-    <string name="title_advanced_check_reply">在同步訊息時檢查回覆 email 的地址。</string>
     <string name="title_advanced_tune_keep_alive">自動調整保持活躍的間隔</string>
     <string name="title_advanced_keyboard">預設顯示鍵盤</string>
     <string name="title_advanced_keyboard_no_fullscreen">避免全螢幕鍵盤</string>
@@ -448,7 +447,6 @@
     <string name="title_advanced_sync_folders_hint">停用此功能將在某種程度上減少資料和電池的使用，但是也會停用更新文件夾列表</string>
     <string name="title_advanced_lookup_mx_hint">這將檢查 DNS MX 記錄是否存在</string>
     <string name="title_advanced_sync_delay_hint">這將會減緩同步訊息的速度</string>
-    <string name="title_advanced_check_reply_hint">這將檢查寄件人的域名和回覆地址是否相同</string>
     <string name="title_advanced_suggest_local_hint">除了 Android 提供的聯絡人。 僅在啟用後，聯絡人資料將被儲存以用於新寄送或接收的郵件。</string>
     <string name="title_advanced_usenet_hint">在文字和簽名之間插入 “--”</string>
     <string name="title_advanced_send_reminders_hint">當郵件內文或主旨為空或可能缺少附件時顯示警告</string>

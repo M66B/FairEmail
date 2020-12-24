@@ -239,7 +239,6 @@
     <string name="title_advanced_sync_shared_folders">Sincronizar lista de cartafoles compartidos</string>
     <string name="title_advanced_subscriptions">Xestionar subscricións a cartafoles</string>
     <string name="title_advanced_check_mx">Verificar o enderezo de email dos remitentes ao sincronizar as mensaxes</string>
-    <string name="title_advanced_check_reply">Verificar o enderezo de email das réplicas ao sincronizar as mensaxes</string>
     <string name="title_advanced_tune_keep_alive">Axustar automaticamente o intervalo de comprobación de conexión</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
     <string name="title_advanced_suggest_local">Suxerir contactos almacenados localmente</string>
@@ -451,7 +450,6 @@
     <string name="title_advanced_sync_folders_hint">Ao desactivar isto, reducirase algo o consumo de datos e de batería, pero tamén se desactivará a actualización dos cartafoles</string>
     <string name="title_advanced_lookup_mx_hint">Isto comproba se as entradas DNS MX existen</string>
     <string name="title_advanced_sync_delay_hint">Isto retardará a sincronización das mensaxes</string>
-    <string name="title_advanced_check_reply_hint">Isto comproba se o dominio do remitente e o enderezo de resposta coinciden</string>
     <string name="title_advanced_suggest_local_hint">Ademais dos contactos de Android. A información dos contactos almacenarase para as novas mensaxes enviadas ou recibidas soamente cando estea activado.</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a sinatura</string>
     <string name="title_advanced_send_reminders_hint">Mostrar unha advertencia cando o texto ou o asunto da mensaxe está baleiro ou cando podería ser que faltara un anexo</string>

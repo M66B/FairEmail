@@ -246,7 +246,6 @@
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza automaticamente le cartelle sottoscritte</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi e-mail mittente alla sincronizzazione dei messaggi</string>
-    <string name="title_advanced_check_reply">Controlla gli indirizzi e-mail di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
@@ -467,7 +466,6 @@
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
-    <string name="title_advanced_check_reply_hint">Questo controlla se il nome di dominio del mittente e gli indirizzi di risposta sono uguali</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo del messaggio o l\'oggetto è vuoto o quando un allegato potrebbe mancare</string>
@@ -703,7 +701,7 @@
     <string name="title_folder_user_only">Solo cartelle utente</string>
     <string name="title_folder_primary">Cartelle account principale</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Bozze locali</string>
+    <string name="title_folder_local_drafts">Bozze locali</string>
     <string name="title_no_folders">Nessuna cartella</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_filters_active">Uno o più filtri attivi</string>

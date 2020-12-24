@@ -244,7 +244,6 @@
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
-    <string name="title_advanced_check_reply">Válasz email címek ellenőrzése az üzenetek szinkronizálásakor</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
     <string name="title_advanced_keyboard_no_fullscreen">Teljes képernyős billentyűzet letiltása</string>
@@ -455,7 +454,6 @@
     <string name="title_advanced_sync_folders_hint">Kikapcsolása valamelyest csökkentheti az adatforgalom- és akkumulátorhasználatot, de egyúttal a mappák listájának frissítését is megakadályozza</string>
     <string name="title_advanced_lookup_mx_hint">Ez a DNS MX bejegyzés ellenőrzésével jár</string>
     <string name="title_advanced_sync_delay_hint">Ez lelassítja az üzenetek szinkronizálását</string>
-    <string name="title_advanced_check_reply_hint">Ez ellenőrzi hogy a feladott domain neve és a válasz címe megegyezik</string>
     <string name="title_advanced_suggest_local_hint">Az Android által biztosított névjegyek mellett. A kapcsolattartási adatokat az újonnan elküldött vagy fogadott üzenetek csak akkor fogják tárolni, ha ez engedélyezve van.</string>
     <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szövegtörzs és az aláírás közé</string>
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>

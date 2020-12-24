@@ -245,7 +245,6 @@
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_sync_subscribed">Synkronisera automatiskt prenumererade mappar</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
-    <string name="title_advanced_check_reply">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Förhindra helskärmstangentbord</string>
@@ -466,7 +465,6 @@
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
-    <string name="title_advanced_check_reply_hint">Detta kommer att kontrollera om domännamnet för avsändaren och svarsadresser är samma</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
@@ -702,7 +700,7 @@
     <string name="title_folder_user_only">Endast användarmappar</string>
     <string name="title_folder_primary">Mappar primärt konto</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
-    <string name="title_folder_local_drafts" comment="title_folder_local_drafts&#10;A local drafts folder will be used when there is no drafts folder on the email server">Lokala utkast</string>
+    <string name="title_folder_local_drafts">Lokala utkast</string>
     <string name="title_no_folders">Inga mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_filters_active">Ett eller flera filter är aktiva</string>
