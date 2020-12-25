@@ -127,6 +127,7 @@ public class EmailService implements AutoCloseable {
     static final int ENCRYPTION_NONE = 2;
 
     final static int DEFAULT_CONNECT_TIMEOUT = 15; // seconds
+    final static boolean SEPARATE_STORE_CONNECTION = false;
 
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
     private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
@@ -231,7 +232,7 @@ public class EmailService implements AutoCloseable {
             properties.put("mail.imap.starttls.enable", Boolean.toString(starttls));
             properties.put("mail.imap.starttls.required", Boolean.toString(starttls && !insecure));
 
-            properties.put("mail." + protocol + ".separatestoreconnection", "false");
+            properties.put("mail." + protocol + ".separatestoreconnection", Boolean.toString(SEPARATE_STORE_CONNECTION));
             properties.put("mail." + protocol + ".connectionpool.debug", "true");
             properties.put("mail." + protocol + ".connectionpoolsize", Integer.toString(POOL_SIZE));
             properties.put("mail." + protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));

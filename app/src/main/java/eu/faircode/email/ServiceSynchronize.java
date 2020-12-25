@@ -1568,11 +1568,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         new Exception(state.getUnrecoverable()));
 
                             // Sends store NOOP
-                            EntityLog.log(this, account.name + " checking store" +
-                                    " memory=" + Log.getFreeMemMb() +
-                                    " battery=" + Helper.getBatteryLevel(this));
-                            if (!iservice.getStore().isConnected())
-                                throw new StoreClosedException(iservice.getStore(), "NOOP");
+                            if (EmailService.SEPARATE_STORE_CONNECTION) {
+                                EntityLog.log(this, account.name + " checking store" +
+                                        " memory=" + Log.getFreeMemMb() +
+                                        " battery=" + Helper.getBatteryLevel(this));
+                                if (!iservice.getStore().isConnected())
+                                    throw new StoreClosedException(iservice.getStore(), "NOOP");
+                            }
 
                             if (!getMainLooper().getThread().isAlive()) {
                                 Log.e("App died");
