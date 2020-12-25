@@ -1288,7 +1288,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             });
 
                             // Idle folder
-                            if (!isTransient(account)) {
+                            if (!isTransient(account) && folder.synchronize) {
                                 Thread idler = new Thread(new Runnable() {
                                     @Override
                                     public void run() {
