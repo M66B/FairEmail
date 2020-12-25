@@ -1288,30 +1288,32 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             });
 
                             // Idle folder
-                            Thread idler = new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        Log.i(folder.name + " start idle");
-                                        while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
-                                            Log.i(folder.name + " do idle");
-                                            ifolder.idle(false);
-                                            state.activity();
+                            if (!isTransient(account)) {
+                                Thread idler = new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            Log.i(folder.name + " start idle");
+                                            while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
+                                                Log.i(folder.name + " do idle");
+                                                ifolder.idle(false);
+                                                state.activity();
+                                            }
+                                        } catch (Throwable ex) {
+                                            Log.e(folder.name, ex);
+                                            EntityLog.log(
+                                                    ServiceSynchronize.this,
+                                                    folder.name + " " + Log.formatThrowable(ex, false));
+                                            state.error(new FolderClosedException(ifolder, "IDLE", new Exception(ex)));
+                                        } finally {
+                                            Log.i(folder.name + " end idle");
                                         }
-                                    } catch (Throwable ex) {
-                                        Log.e(folder.name, ex);
-                                        EntityLog.log(
-                                                ServiceSynchronize.this,
-                                                folder.name + " " + Log.formatThrowable(ex, false));
-                                        state.error(new FolderClosedException(ifolder, "IDLE", new Exception(ex)));
-                                    } finally {
-                                        Log.i(folder.name + " end idle");
                                     }
-                                }
-                            }, "idler." + folder.id);
-                            idler.setPriority(THREAD_PRIORITY_BACKGROUND);
-                            idler.start();
-                            idlers.add(idler);
+                                }, "idler." + folder.id);
+                                idler.setPriority(THREAD_PRIORITY_BACKGROUND);
+                                idler.start();
+                                idlers.add(idler);
+                            }
 
                             if (sync && folder.selectable)
                                 EntityOperation.sync(this, folder.id, false, force && !forced);
