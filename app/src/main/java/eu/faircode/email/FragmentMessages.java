@@ -7953,6 +7953,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 source = getResources().getDrawable(EntityFolder.getIcon(sources.get(0)), null);
                 if (source != null)
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
+                if (sourceColor == null)
+                    sourceColor = EntityFolder.getDefaultColor(sources.get(0));
             } else
                 sourceColor = null;
 
@@ -7961,6 +7963,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 target = getResources().getDrawable(EntityFolder.getIcon(targets.get(0)), null);
                 if (target != null)
                     target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
+                if (targetColor == null)
+                    targetColor = EntityFolder.getDefaultColor(targets.get(0));
             } else
                 targetColor = null;
 
