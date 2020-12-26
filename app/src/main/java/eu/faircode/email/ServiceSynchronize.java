@@ -1127,7 +1127,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Collections.sort(folders, folders.get(0).getComparator(this));
 
                     for (final EntityFolder folder : folders) {
-                        if (folder.synchronize && !folder.poll && capIdle && sync) {
+                        if (folder.selectable && folder.synchronize && !folder.poll && capIdle && sync) {
                             Log.i(account.name + " sync folder " + folder.name);
 
                             db.folder().setFolderState(folder.id, "connecting");
@@ -1307,8 +1307,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             idler.start();
                             idlers.add(idler);
 
-                            if (sync && folder.selectable)
-                                EntityOperation.sync(this, folder.id, false, force && !forced);
+                            EntityOperation.sync(this, folder.id, false, force && !forced);
 
                             if (capNotify && subscriptions && EntityFolder.INBOX.equals(folder.type))
                                 ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
