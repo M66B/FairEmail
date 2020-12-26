@@ -111,6 +111,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
     private MediatorState liveAccountNetworkState = new MediatorState();
 
+    private static final long PURGE_DELAY = 60 * 1000L; // milliseconds
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
     static final int DEFAULT_POLL_INTERVAL = 0; // minutes
@@ -1363,6 +1364,23 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     forced = true;
 
+                    Runnable purge = new Runnable() {
+                        @Override
+                        public void run() {
+                            executor.submit(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Log.i(account.name + " Empty connection pool");
+                                        ((IMAPStore) istore).emptyConnectionPool(false);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            });
+                        }
+                    };
+
                     Log.i(account.name + " observing operations");
                     getMainHandler().post(new Runnable() {
                         @Override
@@ -1391,6 +1409,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         }
                                     }
                                     handling = all;
+
+                                    if (istore instanceof IMAPStore) {
+                                        getMainHandler().removeCallbacks(purge);
+                                        if (handling.size() == 0)
+                                            getMainHandler().postDelayed(purge, PURGE_DELAY);
+                                    }
 
                                     for (Long fid : added.keySet()) {
                                         EntityFolder found = null;

@@ -1395,7 +1395,7 @@ public class IMAPStore extends Store
     /**
      * Empty the connection pool.
      */ 
-    private void emptyConnectionPool(boolean force) {
+    public void emptyConnectionPool(boolean force) {
 
         synchronized (pool) {
             for (int index = pool.authenticatedConnections.size() - 1;
