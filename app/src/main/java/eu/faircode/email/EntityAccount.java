@@ -24,10 +24,12 @@ import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.preference.PreferenceManager;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -147,6 +149,13 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
     boolean isGmail() {
         return "imap.gmail.com".equalsIgnoreCase(host);
+    }
+
+    boolean isTransient(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+        return (!enabled || this.ondemand || (pollInterval > 0 && !this.poll_exempted));
     }
 
     String getProtocol() {

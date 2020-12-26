@@ -234,7 +234,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Log.d("### evaluating " + current);
                         if (current.accountState.shouldRun(current.enabled))
                             runService = true;
-                        if (!isTransient(current.accountState) &&
+                        if (!current.accountState.isTransient(ServiceSynchronize.this) &&
                                 ("connected".equals(current.accountState.state) || current.accountState.backoff_until != null))
                             accounts++;
                         if (current.accountState.synchronize)
@@ -973,7 +973,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (e.getMessageType() == StoreEvent.NOTICE) {
                             EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + message);
 
-                            if ("Still here".equals(message) && !isTransient(account)) {
+                            if ("Still here".equals(message) &&
+                                    !account.isTransient(ServiceSynchronize.this)) {
                                 long now = new Date().getTime();
                                 if (now - start < STILL_THERE_THRESHOLD)
                                     optimizeAccount(account, message);
@@ -1892,7 +1893,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     } else {
                         // Cancel transient sync operations
-                        if (isTransient(account)) {
+                        if (account.isTransient(this)) {
                             List<EntityOperation> syncs = db.operation().getOperations(account.id, EntityOperation.SYNC);
                             if (syncs != null) {
                                 for (EntityOperation op : syncs) {
@@ -1941,13 +1942,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(this, account.name + " stopped");
             wlAccount.release();
         }
-    }
-
-    private boolean isTransient(EntityAccount account) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
-        return (!enabled || account.ondemand || (pollInterval > 0 && !account.poll_exempted));
     }
 
     private void optimizeAccount(EntityAccount account, String reason) {

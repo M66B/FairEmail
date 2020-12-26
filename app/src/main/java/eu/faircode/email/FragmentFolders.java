@@ -398,8 +398,7 @@ public class FragmentFolders extends FragmentBase {
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account != null && !"connected".equals(account.state)) {
                                 now = false;
-                                if (enabled && !account.ondemand &&
-                                        (pollInterval == 0 || account.poll_exempted))
+                                if (!account.isTransient(context))
                                     force = true;
                             }
                         }
