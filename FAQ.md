@@ -460,36 +460,31 @@ In the three dot overflow menu you can enable or disable or select:
 * *text size*: for three different font sizes
 * *compact view*: for more condensed message items and a smaller message text font
 
-In the display section of the settings you can enable or disable:
+In the display section of the settings you can enable or disable for example:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
+* *Tabular style*: to show a linear list instead of cards
 * *Group by date*: show date header above messages with the same date
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Highlight color*: to select a color for the sender of unread messages
 * *Show contact photos*: to hide contact photos
-* *Show identicons*: to show generated contact avatars
 * *Show names and email addresses*: to show names or to show names and email addresses
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
+* *Show message preview*: to show 1-4 lines of the message text
 * *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
-You can change this in the settings.
-
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+You can change this in the connection settings.
 
 Some people ask:
 
 * to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
 * to move the star to the left, but it is much easier to operate the star on the right side
-
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
