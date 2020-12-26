@@ -1483,7 +1483,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account != null && !"connected".equals(account.state)) {
                                 now = false;
-                                if (enabled && !account.ondemand &&
+                                if (enabled && !account.ondemand && folder.synchronize &&
                                         (pollInterval == 0 || account.poll_exempted))
                                     force = true;
                             }
