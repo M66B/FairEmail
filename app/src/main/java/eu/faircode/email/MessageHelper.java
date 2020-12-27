@@ -136,10 +136,13 @@ public class MessageHelper {
     static void setSystemProperties(Context context) {
         System.setProperty("mail.mime.decodetext.strict", "false");
 
+        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
         System.setProperty("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
         System.setProperty("mail.mime.base64.ignoreerrors", "true");
         System.setProperty("mail.mime.decodefilename", "true");
-        System.setProperty("mail.mime.encodefilename", "true");
+        System.setProperty("mail.mime.encodefilename", "false");
+        System.setProperty("mail.mime.decodeparameters", "true");
+        System.setProperty("mail.mime.encodeparameters", "true");
         System.setProperty("mail.mime.allowutf8", "false"); // InternetAddress, MimeBodyPart, MimeUtility
         System.setProperty("mail.mime.cachemultipart", "false");
 
@@ -2418,7 +2421,7 @@ public class MessageHelper {
                         // https://blog.nodemailer.com/2017/01/27/the-mess-that-is-attachment-filenames/
                         int q1 = filename.indexOf('\'');
                         int q2 = filename.indexOf('\'', q1 + 1);
-                        if (q1 >= 0 && q2 > 0) {
+                        if (q1 >= 0 && q2 > 0 && false) {
                             try {
                                 String charset = filename.substring(0, q1);
                                 String language = filename.substring(q1 + 1, q2);
