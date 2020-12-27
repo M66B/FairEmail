@@ -154,7 +154,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     boolean isTransient(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
-        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+        int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
         return (!enabled || this.ondemand || (pollInterval > 0 && !this.poll_exempted));
     }
 
