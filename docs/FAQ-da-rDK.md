@@ -1632,67 +1632,67 @@ Flg. regelbetingelser er tilgængelige:
 * Modtager indeholder
 * Emne indeholder
 * Har vedhæftninger
-* Header contains
-* Day/time between
+* Header indeholder
+* Dag/tidspunkt mellem
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+Alle regelbetingelser skal være imødekommet for udførelse af regelhandlingen. Alle betingelser er valgfrie, men der skal være mindst én betingelse for at undgå matchning af alle beskeder. Ønsker man at matche alle afsendere eller modtagere, kan @-tegnet blot anvendes som betingelse, idet alle e-mailadresser indeholder dette tegn.
 
-Note that email addresses are formatted like this:
+Bemærk, at e-mailadresser er formateret således:
 
 `
-"Somebody" <somebody@example.org>`
+"Nogen" <somebody@example.org>`
 
-You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
+Man kan anvende flere regler, muligvis med en *stop behandling*, for en *eller* eller en *ikke* betingelse.
 
-Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+Matchning er ikke versal-/minuskelfølsom, medmindre [regulære udtryk](https://en.wikipedia.org/wiki/Regular_expression) benyttes. Tjek [hér](https://developer.android.com/reference/java/util/regex/Pattern) for dokumentation af regulære Java-udtryk. En regex kan aftestes [hér](https://regexr.com/).
 
-Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+Bemærk at et regulært udtryk understøtter en *eller*-operatør, for matchning af flere afsendere om ønsket:
 
 `
 .*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
-Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+Bemærk, at [dot all-tilstand](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) er aktiveret for at kunne matche [udfoldede headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
-You can select one of these actions to apply to matching messages:
+En af disse handlinger kan vælges anvend på matchende beskeder:
 
-* No action (useful for *not*)
-* Mark as read
-* Mark as unread
-* Hide
-* Suppress notification
-* Snooze
-* Add star
-* Set importance (local priority)
-* Add keyword
-* Move
-* Copy (Gmail: label)
-* Answer/forward (with template)
-* Text-to-speech (sender and subject)
-* Automation (Tasker, etc)
+* Ingen handling (nyttigt for *ikke*)
+* Markér som læst
+* Markér som ulæst
+* Skjul
+* Undertryk notifikationer
+* Slumre
+* Tilføj stjerne
+* Angiv vigtighed (lokal prioritet)
+* Tilføj stikord
+* Flyt
+* Kopiér (Gmail: Etiket)
+* Besvar/videresend (med skabelon)
+* Tekst-til-tale (afsender og emne)
+* Automatisering (Tasker mv.)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regler effektueres umiddelbart efter besked-header'en er hentet, men inden beskedteksten er blevet downloadet, så brug af betingelser ift. beskedteksten er ikke muligt. Bemærk, at store beskedtekster downloades på forlangende via takserede forbindelser mhp. at reducere dataforbruget.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Ønskes en besked videresendt, så overvej i stedet at bruge flythandlingen. Dette vil også være mere pålideligt end videresendelse, da videresendte beskeder måske betragtes som spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Da besked-headers som standard ikke downloades og lagres for at spare strøm- og dataforbrug samt lagerplads, er det ikke muligt at få vist, hvilke beskeder, som evt. matcher en header-regelbetingelse.
 
-Some common header conditions (regex):
+Nogle almindelige header-betingelser (regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
-* *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
+* *.&ast;Content Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Under *mere* i trepriksbeskedmenuen findes et element til oprettelse af en regel for en modtaget besked med de mest almindelige betingelser udfyldt.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+POP3- protokollen understøtter ikke indstilling af nøgleord og beskedflytning/-kopiering.
 
-Using rules is a pro feature.
+Brug af regler er en Pro-funktion.
 
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Hvad er primære konti/identiteter?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Den primære konto bruges, når kontoen er tvetydig, f.eks. ved start på et nyt udkast fra den fælles indbakke.
 
 Similarly, the primary identity of an account is used when the identity is ambiguous.
 
@@ -1955,28 +1955,28 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but link
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
 
-Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+Spam filtrering baseret på meddelelsesoverskrifter kunne have været mulig, men denne teknik er desværre [patenteret af Microsoft](https://patents.google.com/patent/US7543076).
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Selvfølgelig kan du rapportere beskeder som spam med FairEmail, som vil flytte de rapporterede meddelelser til spam mappe og træne spam filter af udbyderen, hvilket er, hvordan det skal fungere. Dette kan gøres automatisk med [filterregler](#user-content-faq71) også. Blokering af afsenderen vil oprette en filterregel for automatisk at flytte fremtidige breve fra samme afsender til spam mappen.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Bemærk at du ikke bør slette spam-beskeder, heller ikke fra spam-mappen, fordi e-mail-serveren bruger meddelelserne i spam-mappen til at "lære", hvad spam-beskeder er.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Hvis du modtager en masse spam-beskeder i din indbakke, det bedste, du kan gøre, er at kontakte e-mail-udbyder for at spørge, om spam filtrering kan forbedres.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+FairEmail kan også vise et lille rødt advarselsflag når DKIM, SPF eller [DMARC](https://en.wikipedia.org/wiki/DMARC) godkendelse mislykkedes på modtagerserveren. Du kan aktivere/deaktivere [godkendelsesbekræftelse](https://en.wikipedia.org/wiki/Email_authentication) i indstillinger.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+FairEmail kan også vise et advarselsflag hvis domænenavnet på afsenderens (svar) e- mail- adresse ikke definerer en MX- post, der peger på en e- mail- server. Dette kan aktiveres i modtagelsesindstillingerne. Vær opmærksom på, at dette vil bremse synkronisering af beskeder betydeligt.
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+Hvis legitime meddelelser ikke autentificeres, du bør underrette afsenderen, da dette vil resultere i en høj risiko for, at beskeder ender i spammappen. Desuden er der uden ordentlig godkendelse en risiko for, at afsenderen vil blive efterlignet. Afsenderen kan bruge [dette værktøj](https://www.mail-tester.com/) til at kontrollere godkendelse og andre ting.
 
 <br />
 
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Se også [her](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. Se [her](https://developer.android.com/training/data-storage) for detaljerne.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 
@@ -1987,7 +1987,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Se også [denne FAQ](#user-content-faq92).
 
 <br />
 
@@ -2010,9 +2010,9 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) Hvad er 'oprydning' ?**
 
-About each four hours FairEmail runs a cleanup job that:
+Hver fire timer kører FairEmail en oprydning job, at:
 
 * Removes old message texts
 * Removes old attachment files
@@ -2020,14 +2020,14 @@ About each four hours FairEmail runs a cleanup job that:
 * Removes old local contacts
 * Removes old log entries
 
-Note that the cleanup job will only run when the synchronize service is active.
+Bemærk, at oprydningsjobbet kun vil køre, når synkroniseringstjenesten er aktiv.
 
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) Hvorfor kan kontakter stadig vælges efter tilbagekaldelse af kontakter-tilladelser**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+Efter tilbagekaldelse af kontakttilladelserne tillader Android ikke længere FairEmail adgang til dine kontaktpersoner. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
 
 <br />
 
@@ -2049,7 +2049,7 @@ You can synchronize Gmail categories by creating filters to label categorized me
 * Enter a category search (see below) in the *Has the words* field and click *Create filter*
 * Check *Apply the label* and select a label and click *Create filter*
 
-Possible categories:
+Mulige kategorier:
 
 ```
 category:social
@@ -2065,9 +2065,9 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Hvad betyder det blå/orange punktum i bunden af samtalerne?**
 
-The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Punktet viser den relative position for samtalen i meddelelseslisten. Punktet vil blive vist orange når samtalen er den første eller sidste i meddelelseslisten, ellers vil den være blå. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
 
 The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
 
@@ -2076,7 +2076,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <a name="faq102"></a>
 **(102) How can I enable auto rotation of images?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+Billeder roteres automatisk, når automatisk ændring af billedstørrelse er aktiveret i indstillingerne (aktiveret som standard). Automatisk rotation afhænger dog af [Exif](https://en.wikipedia.org/wiki/Exif) -oplysningerne, der skal være til stede og være korrekte,, hvilket ikke altid er tilfældet. Particularly not when taking a photo with a camara app from FairEmail.
 
 Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
 
@@ -2133,18 +2133,18 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Hvordan bruger jeg farvede stjerner?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
-You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server. This means that colored stars will not be visible in other email clients and will be lost on downloading messages again. However, the stars (without color) will be synchronized and will be visible in other email clients, when supported.
+Du skal vide, at farvede stjerner ikke understøttes af IMAP-protokollen og kan derfor ikke synkroniseres til en e-mail-server. Det betyder, at farvede stjerner ikke vil være synlige i andre e-mail-klienter og vil gå tabt ved at downloade beskeder igen. Men stjernerne (uden farve) vil blive synkroniseret og vil være synlige i andre e-mail-klienter, når de understøttes.
 
-Some email clients use IMAP keywords for colors. However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
+Nogle e-mail-klienter bruger IMAP-søgeord til farver. Men ikke alle servere understøtter IMAP søgeord og udover at der ikke er nogen standard søgeord for farver.
 
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~(108) Vil mulighed for permanent slettede beskeder fra enhver mappe blive tilføjet?~~**
 
 ~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
 
@@ -2180,9 +2180,9 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Is OAuth supported?**
 
-OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
+OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. Du kan læse mere om dette [her](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex and Yahoo is supported via the quick setup wizard.
+OAuth for Yandex og Yahoo er understøttes via guiden for hurtig opsætning.
 
 OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
 
@@ -2193,27 +2193,27 @@ OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth f
 
 FairEmail is an email client only, so you need to bring your own email address.
 
-There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+Der er masser af e-mail-udbydere at vælge imellem. Hvilken e-mail-udbyder er bedst for dig, afhænger af dine ønsker/krav. Se venligst hjemmesiderne for [Gendan privatlivets fred](https://restoreprivacy.com/secure-email/) eller [Privacy Tools](https://www.privacytools.io/providers/email/) for en liste over privatlivsorienterede e-mail-udbydere med fordele og ulemper.
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+Visse udbydere, såsom ProtonMail, Tutanota, anvender proprietære e-mailprotokoller, som umuliggør brug af tredjeparts e-mail apps. Se [denne FAQ](#user-content-faq129) for yderligere information.
 
-Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+Brug af dit eget (brugerdefineret) domænenavn, som understøttes af de fleste e-mail-udbydere, vil gøre det lettere at skifte til en anden e-mail-udbyder.
 
 <br />
 
 <a name="faq113"></a>
-**(113) How does biometric authentication work?**
+**(113) Hvordan virker biometrisk godkendelse?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the setup screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+Hvis din enhed har en biometrisk sensor, f. eks. en fingeraftrykssensor, du kan aktivere/deaktivere biometrisk godkendelse i menuen navigation (hamburger) i opsætningsskærmen. Når aktiveret vil FairEmail kræve biometrisk godkendelse efter en periode med inaktivitet, eller efter at skærmen er blevet slukket, mens FairEmail kørte. Aktivitet er navigation i FairEmail, for eksempel at åbne en samtaletråd. Inaktivitet periode varighed kan konfigureres i forskellige indstillinger. Når biometrisk godkendelse er aktiveret, vil nye beskedmeddelelser ikke vise noget indhold, og FairEmail vil ikke være synlig på Android seneste skærm.
 
-Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+Biometrisk godkendelse er beregnet til at forhindre andre i at se dine meddelelser kun. FairEmail er afhængig af enhedskryptering til datakryptering, se også [denne FAQ](#user-content-faq37).
 
-Biometric authentication is a pro feature.
+Biometrisk godkendelse er en pro-funktion.
 
 <br />
 
 <a name="faq114"></a>
-**(114) Can you add an import for the settings of other email apps?**
+(114) Kan der tilføjes en importmulighed til indstillinger fra andre e-mail apps
 
 The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for and for the number of days to keep messages for, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup is simple, so it is not really worth the effort.
 
@@ -2256,7 +2256,7 @@ Google manages all purchases, so as a developer I have little control over purch
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
-Note that:
+Bemærk, at:
 
 * If you get *ITEM_ALREADY_OWNED*, the Play store app probably needs to be updated, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Purchases are stored in the Google cloud and cannot get lost
@@ -2284,25 +2284,25 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 
 ~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
 
-Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
+På grund af Android-begrænsninger er det ikke muligt dynamisk at indstille opaciteten af baggrunden og at have afrundede hjørner på samme tid.
 
 <br />
 
 <a name="faq120"></a>
-**(120) Why are new message notifications not removed on opening the app?**
+**(120) Hvorfor fjernes nye beskednotifikationer ikke, når appen startes?**
 
-New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+Nye beskednotifikationer vil blive fjernet ved at stryge notifikationer væk eller ved at markere de tilknyttede beskeder som læst. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
 
-On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. Se [denne FAQ](#user-content-faq70) om, hvornår beskeder i en samtale vil blive udvidet automatisk og markeret læst.
 
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Hvordan er beskeder grupperet i en samtale?**
 
-By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+Som standard vil FairEmail grupper beskeder i samtaler. Dette kan slås til i indstillinger.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail does not group on other criteria, like the subject, because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
+FairEmail grupper beskeder baseret på standard *Message-ID*, *In-Reply-To* og *Referencer* overskrifter. FairEmail does not group on other criteria, like the subject, because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
 
 <br />
 

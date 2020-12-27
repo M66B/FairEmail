@@ -711,6 +711,7 @@
     <string name="title_folder_user_only">Folosește doar dosare</string>
     <string name="title_folder_primary">Dosare cont primar</string>
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
+    <string name="title_folder_local_drafts">Ciorne locale</string>
     <string name="title_no_folders">Nici un dosar</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
