@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -34,16 +35,21 @@ import androidx.work.WorkerParameters;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import de.daslaboratorium.machinelearning.classifier.Classification;
+import de.daslaboratorium.machinelearning.classifier.bayes.BayesClassifier;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
-    private static final int INDEX_DELAY = 30; // seconds
+    private static final int INDEX_DELAY = BuildConfig.DEBUG ? 3 : 30; // seconds
     private static final int INDEX_BATCH_SIZE = 100;
+
+    private static BayesClassifier<String, String> classifier = new BayesClassifier<>();
 
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -77,6 +83,30 @@ public class WorkerFts extends Worker {
 
                             File file = message.getFile(getApplicationContext());
                             String text = HtmlHelper.getFullText(file);
+
+                            if (BuildConfig.DEBUG) {
+                                EntityFolder folder = db.folder().getFolder(message.folder);
+                                if (folder != null) {
+                                    // \\P{L}+
+                                    List<String> features = new ArrayList<>();
+                                    for (String word : text.trim().toLowerCase().split("\\W+")) {
+                                        if (word.matches(".*\\d.*"))
+                                            continue;
+                                        if (word.endsWith("."))
+                                            word = word.substring(0, word.length() - 1);
+                                        features.add(word);
+                                    }
+
+                                    Collection<Classification<String, String>> classifications = classifier.classifyDetailed(features);
+                                    for (Classification<String, String> classification : classifications)
+                                        Log.i("MMM folder=" + folder.name +
+                                                " classified=" + classification.getCategory() +
+                                                " probability=" + classification.getProbability() +
+                                                " features=" + TextUtils.join(", ", features.subList(0, Math.min(features.size(), 20))));
+
+                                    classifier.learn(EntityFolder.JUNK.equals(folder.type) ? "spam" : "ham", features);
+                                }
+                            }
 
                             try {
                                 sdb.beginTransaction();
