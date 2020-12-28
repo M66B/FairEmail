@@ -32,6 +32,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int PI_REPLY = 1;
@@ -102,6 +103,14 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 String subject = mailto.getSubject();
                 if (subject != null)
                     args.putString("subject", subject);
+
+                Map<String, String> headers = mailto.getHeaders();
+                if (headers != null)
+                    for (String key : headers.keySet())
+                        if ("in-reply-to".equalsIgnoreCase(key)) {
+                            args.putString("inreplyto", headers.get(key));
+                            break;
+                        }
 
                 String body = mailto.getBody();
                 if (body != null) {

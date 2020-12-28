@@ -1189,6 +1189,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("to", a.getString("to"));
                 args.putString("cc", a.getString("cc"));
                 args.putString("bcc", a.getString("bcc"));
+                args.putString("inreplyto", a.getString("inreplyto"));
                 args.putString("subject", a.getString("subject"));
                 args.putString("body", a.getString("body"));
                 args.putString("text", a.getString("text"));
@@ -3567,6 +3568,8 @@ public class FragmentCompose extends FragmentBase {
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
+
+                        data.draft.inreplyto = args.getString("inreplyto", null);
 
                         data.draft.subject = args.getString("subject", "");
 
