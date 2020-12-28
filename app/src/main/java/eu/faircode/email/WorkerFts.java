@@ -63,51 +63,53 @@ public class WorkerFts extends Worker {
 
         try {
             Log.i("FTS index");
+            Context context = getApplicationContext();
 
             int indexed = 0;
             List<Long> ids = new ArrayList<>(INDEX_BATCH_SIZE);
-            DB db = DB.getInstance(getApplicationContext());
-            SQLiteDatabase sdb = FtsDbHelper.getInstance(getApplicationContext());
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            DB db = DB.getInstance(context);
+            SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             try (Cursor cursor = db.message().getMessageFts()) {
                 while (cursor.moveToNext()) {
-                    boolean fts = prefs.getBoolean("fts", false);
-                    if (!fts)
-                        break;
-
                     long id = cursor.getLong(0);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message != null)
-                        try {
-                            Log.i("FTS index=" + message.id);
+                    try {
+                        Log.i("FTS index=" + id);
 
-                            File file = message.getFile(getApplicationContext());
-                            String text = HtmlHelper.getFullText(file);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            throw new FileNotFoundException("Message gone");
 
-                            if (BuildConfig.DEBUG) {
-                                EntityFolder folder = db.folder().getFolder(message.folder);
-                                if (folder != null) {
-                                    // \\P{L}+
-                                    List<String> features = new ArrayList<>();
-                                    for (String word : text.trim().toLowerCase().split("\\W+")) {
-                                        if (word.matches(".*\\d.*"))
-                                            continue;
-                                        if (word.endsWith("."))
-                                            word = word.substring(0, word.length() - 1);
-                                        features.add(word);
-                                    }
+                        File file = message.getFile(context);
+                        String text = HtmlHelper.getFullText(file);
+                        if (TextUtils.isEmpty(text))
+                            throw new FileNotFoundException("Message empty");
 
-                                    Collection<Classification<String, String>> classifications = classifier.classifyDetailed(features);
-                                    for (Classification<String, String> classification : classifications)
-                                        Log.i("MMM folder=" + folder.name +
-                                                " classified=" + classification.getCategory() +
-                                                " probability=" + classification.getProbability() +
-                                                " features=" + TextUtils.join(", ", features.subList(0, Math.min(features.size(), 20))));
-
-                                    classifier.learn(EntityFolder.JUNK.equals(folder.type) ? "spam" : "ham", features);
+                        if (BuildConfig.DEBUG) {
+                            EntityFolder folder = db.folder().getFolder(message.folder);
+                            if (folder != null) {
+                                List<String> features = new ArrayList<>();
+                                for (String word : text.trim().toLowerCase().split("\\W+")) {
+                                    if (word.matches(".*\\d.*"))
+                                        continue;
+                                    if (word.endsWith("."))
+                                        word = word.substring(0, word.length() - 1);
+                                    features.add(word);
                                 }
-                            }
 
+                                Collection<Classification<String, String>> classifications = classifier.classifyDetailed(features);
+                                for (Classification<String, String> classification : classifications)
+                                    Log.i("MMM folder=" + folder.name +
+                                            " classified=" + classification.getCategory() +
+                                            " probability=" + classification.getProbability() +
+                                            " features=" + TextUtils.join(", ", features.subList(0, Math.min(features.size(), 20))));
+
+                                classifier.learn(EntityFolder.JUNK.equals(folder.type) ? "spam" : "ham", features);
+                            }
+                        }
+
+                        boolean fts = prefs.getBoolean("fts", false);
+                        if (fts)
                             try {
                                 sdb.beginTransaction();
                                 FtsDbHelper.insert(sdb, message, text);
@@ -116,18 +118,19 @@ public class WorkerFts extends Worker {
                                 sdb.endTransaction();
                             }
 
-                            indexed++;
+                        indexed++;
 
+                        ids.add(id);
+                        if (ids.size() > INDEX_BATCH_SIZE)
+                            markIndexed(db, ids);
+                    } catch (Throwable ex) {
+                        if (ex instanceof FileNotFoundException ||
+                                ex instanceof OutOfMemoryError)
                             ids.add(id);
-                            if (ids.size() > INDEX_BATCH_SIZE)
-                                markIndexed(db, ids);
-                        } catch (Throwable ex) {
-                            if (ex instanceof FileNotFoundException ||
-                                    ex instanceof OutOfMemoryError)
-                                ids.add(id);
-                            Log.e(ex);
-                        }
+                        Log.e(ex);
+                    }
                 }
+
                 markIndexed(db, ids);
             }
 
