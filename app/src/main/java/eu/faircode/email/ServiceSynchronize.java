@@ -1360,7 +1360,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     forced = true;
 
-                    Runnable purge = new Runnable() {
+                    final Runnable purge = new Runnable() {
                         private Long lastQuota = null;
 
                         @Override
@@ -1369,6 +1369,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void run() {
                                     try {
+                                        wlFolder.acquire();
+
                                         // Get quota
                                         if (iservice.hasCapability("QUOTA")) {
                                             long now = new Date().getTime();
@@ -1405,6 +1407,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         ((IMAPStore) istore).emptyConnectionPool(false);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
+                                    } finally {
+                                        wlFolder.release();
                                     }
                                 }
                             });
