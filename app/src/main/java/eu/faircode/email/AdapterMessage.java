@@ -6213,6 +6213,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
+                            tvHost.setText(ex.getClass().getName());
                             tvOwner.setText(ex.getMessage());
                         }
                     }.execute(FragmentDialogLink.this, args, "link:owner");
