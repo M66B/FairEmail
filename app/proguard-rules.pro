@@ -88,6 +88,7 @@
 #biweekly
 -keepnames class biweekly.** {*;}
 -dontwarn biweekly.io.json.**
+-dontwarn com.fasterxml.jackson.**
 
 #MSAL
 -keep class com.microsoft.aad.adal.** {*;}
