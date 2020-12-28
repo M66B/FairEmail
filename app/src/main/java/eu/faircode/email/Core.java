@@ -2719,6 +2719,7 @@ class Core {
         String[] labels = helper.getLabels();
         boolean update = false;
         boolean process = false;
+        boolean syncSimilar = false;
 
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -2768,6 +2769,9 @@ class Core {
                         process = true;
                     }
                 }
+
+                if (dup.seen != seen || dup.answered != answered || dup.flagged != flagged)
+                    syncSimilar = true;
 
                 if (dup.flagged && dup.color != null)
                     color = dup.color;
@@ -3033,6 +3037,7 @@ class Core {
                 if (seen)
                     message.ui_ignored = true;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
+                syncSimilar = true;
             }
 
             if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered)) &&
@@ -3041,6 +3046,7 @@ class Core {
                 message.answered = answered;
                 message.ui_answered = answered;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
+                syncSimilar = true;
             }
 
             if ((!message.flagged.equals(flagged) || !message.ui_flagged.equals(flagged)) &&
@@ -3051,6 +3057,7 @@ class Core {
                 if (!flagged)
                     message.color = null;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                syncSimilar = true;
             }
 
             if (!Objects.equals(flags, message.flags)) {
@@ -3133,6 +3140,24 @@ class Core {
             else
                 Log.d(folder.name + " unchanged uid=" + uid);
         }
+
+        if (syncSimilar && account.isGmail())
+            for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid)) {
+                if (similar.seen != message.seen) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id + " seen=" + message.seen);
+                    db.message().setMessageSeen(similar.id, message.seen);
+                    db.message().setMessageUiSeen(similar.id, message.seen);
+                }
+                if (similar.answered != message.answered) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id + " answered=" + message.answered);
+                    db.message().setMessageAnswered(similar.id, message.answered);
+                }
+                if (similar.flagged != flagged) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id + " flagged=" + message.flagged);
+                    db.message().setMessageFlagged(similar.id, message.flagged);
+                    db.message().setMessageUiFlagged(similar.id, message.flagged, flagged ? similar.color : null);
+                }
+            }
 
         List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));
 
