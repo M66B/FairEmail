@@ -218,7 +218,6 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT :filter_archive" +
-            "  OR (NOT message.ui_seen AND NOT message.ui_hide)" +
             "  OR folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             "  OR NOT EXISTS" +
             "   (SELECT * FROM message m" +
