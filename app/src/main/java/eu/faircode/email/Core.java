@@ -1094,7 +1094,9 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        boolean fetch = (copy || !"connected".equals(target.state));
+        boolean fetch = (copy ||
+                !"connected".equals(target.state) ||
+                !MessageHelper.hasCapability(ifolder, "IDLE"));
         if (draft || fetch)
             try {
                 Log.i(target.name + " moved message fetch=" + fetch);
