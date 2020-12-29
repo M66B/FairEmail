@@ -96,7 +96,7 @@ public class WorkerFts extends Worker {
                                 int start = boundary.first();
                                 for (int end = boundary.next(); end != BreakIterator.DONE; end = boundary.next()) {
                                     String word = text.substring(start, end);
-                                    if (word.length() > 1)
+                                    if (word.length() > 1 && !word.matches(".*\\d.*"))
                                         features.add(word);
                                     start = end;
                                 }
