@@ -769,7 +769,8 @@ public class MessageHelper {
                     });
                     attachmentPart.setDataHandler(new DataHandler(dataSource));
 
-                    attachmentPart.setFileName(attachment.name);
+                    if (attachment.name != null)
+                        attachmentPart.setFileName(attachment.name);
                     if (attachment.disposition != null)
                         attachmentPart.setDisposition(attachment.disposition);
                     if (attachment.cid != null)
