@@ -864,17 +864,19 @@ El error *... Conexión rechazada...* significa que el servidor de correo electr
 
 El error *... Red inaccesible ...* significa que el servidor de correo electrónico no fue accesible a través de la conexión a internet actual, por ejemplo, porque el tráfico de internet sólo está restringido al tráfico local.
 
-El error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+El error *... Host sin resolver ...*, *... Sin poder resolver el host ...* o *... Sin dirección asociada al host ...* significa que la dirección del servidor del correo-e no se pudo resolver en una dirección de IP. Esto puede ser causado por un VPN, un bloqueador de anuncios o un servidor
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+DNS<0> que no esté funcionando apropiadamente (local).</p> 
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+El error *... El software ocasionó que se aborte la conexión ...* significa que el servidor del correo-e o algo entre FairEmail y el servidor del correo-e terminaron de forma activa una conexión existente. Esto, por ejemplo, puede suceder cuando se pierda la conectividad bruscamente. Un ejemplo típico es activar el modo avión.
 
-The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Los errores *... Cerrando sesión BYE ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+El error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Los errores *... Error de lectura ...*, *... Error de escritura ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+
+El error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
@@ -993,9 +995,12 @@ The storage access framework is provided by the package *com.android.documentsui
 
 You can enable the storage access framework (again) with this adb command:
 
+
+
 ```
 pm install -k --user 0 com.android.documentsui
 ```
+
 
 Alternatively, you might be able to enable the *Files* app again using the Android app settings.
 
@@ -1097,10 +1102,13 @@ Most providers accept validated addresses only when sending messages to prevent 
 
 For example Google modifies the message headers like this for *unverified* addresses:
 
+
+
 ```
 De: Alguien <somebody@example.org>
 X-Google-Original-From: Alguien <somebody+extra@example.org>
 ```
+
 
 This means that the edited sender address was automatically replaced by a verified address before sending the message.
 
@@ -1125,9 +1133,12 @@ Note that the domain name (the parts after the @ sign) always needs to be equal 
 
 If you like to match a catch-all email address, this regex is mostly okay:
 
+
+
 ```
 .*
 ```
+
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
@@ -1282,6 +1293,8 @@ If the provider is used by more than a few people, yes, with pleasure.
 
 The following information is needed:
 
+
+
 ```
 <provider
     name="Gmail"
@@ -1297,6 +1310,7 @@ The following information is needed:
         starttls="false" />
 </provider>
 ```
+
 
 The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
@@ -1410,9 +1424,12 @@ Note that there are not many, if any, email apps that display a conversation as 
 
 ~~For example the Gmail spam folder is called:~~
 
+
+
 ```
 [Gmail]/Spam
 ```
+
 
 ~~By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.~~
 
@@ -1441,6 +1458,8 @@ Note that if you switch back to the text editor that not all HTML might be rende
 
 If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
 
+
+
 ```
 <pre>
   |\_/|
@@ -1450,6 +1469,7 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
  / O \
  </pre>
 ```
+
 
 <br />
 
@@ -1760,33 +1780,47 @@ Note that recent Android versions allow overriding DND (Do Not Disturb) per noti
 
 For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
 
+
+
 ```
 (adb shell) am startservice -a eu.faircode.email.POLL
 ```
 
+
 For a specific account:
+
+
 
 ```
 (adb shell) am startservice -a eu.faircode.email.POLL --es account Gmail
 ```
 
+
 You can also automate turning receiving messages on and off by sending these commands to FairEmail:
+
+
 
 ```
 (adb shell) am startservice -a eu.faircode.email.ENABLE
 (adb shell) am startservice -a eu.faircode.email.DISABLE
 ```
 
+
 To enable/disable a specific account:
+
+
 
 ```
 (adb shell) am startservice -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am startservice -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
+
 Note that disabling an account will hide the account and all associated folders and messages.
 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+
+
 
 ```
 Nueva tarea: Algo reconocible
@@ -1795,11 +1829,15 @@ Acción: eu.faircode.email.ENABLE
 Objetivo: Servicio
 ```
 
+
 To enable/disable an account with the name *Gmail*:
+
+
 
 ```
 Extras: account:Gmail
 ```
+
 
 Account names are case sensitive.
 
@@ -1917,11 +1955,14 @@ Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo e
 
 Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
+
+
 ```
 Y1 CAPABILITY
 * CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
 Y1 OK CAPABILITY completed
 ```
+
 
 <br />
 
@@ -2051,12 +2092,15 @@ You can synchronize Gmail categories by creating filters to label categorized me
 
 Possible categories:
 
+
+
 ```
 categoría:social
 categoría:actualizaciones
 categoría:foros
 categoría:promociones
 ```
+
 
 Unfortunately, this is not possible for snoozed messages folder.
 
@@ -2124,9 +2168,12 @@ Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.c
 
 FairEmail does send a new message count intent as well:
 
+
+
 ```
 eu.faircode.email.NEW_MESAGE_COUNT
 ```
+
 
 The number of new, unread messages will be in an integer "*count*" parameter.
 
@@ -2521,9 +2568,12 @@ The error *User is authenticated but not connected* might occur if:
 
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
+
+
 ```
 usted@ejemplo.com\compartido@ejemplo.com
 ```
+
 
 Note that it should be a backslash and not a forward slash.
 
@@ -2787,9 +2837,12 @@ Tracking images will not be recognized when the domain is classified as '*Conten
 
 This command can be sent to FairEmail from an automation app to update the protection lists:
 
+
+
 ```
 (adb shell) am startservice -a eu.faircode.email.DISCONNECT.ME
 ```
+
 
 Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
@@ -2810,6 +2863,8 @@ Advanced: the IMAP delete flag in combination with the EXPUNGE command is not su
 If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
 <br />
+
+
 
 
 ## Get support
