@@ -1111,7 +1111,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 EntityLog.log(ServiceSynchronize.this, "Folder changed=" + name);
                                 EntityFolder folder = db.folder().getFolderByName(account.id, name);
-                                if (folder != null)
+                                if (folder != null && folder.selectable && folder.synchronize)
                                     EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                             } finally {
                                 wlFolder.release();
@@ -1644,7 +1644,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (sync) {
                                 EntityLog.log(this, account.name + " checking folders");
                                 for (EntityFolder folder : mapFolders.keySet())
-                                    if (folder.synchronize)
+                                    if (folder.selectable && folder.synchronize)
                                         if (!folder.poll && capIdle) {
                                             // Sends folder NOOP
                                             if (!mapFolders.get(folder).isOpen())
@@ -1798,7 +1798,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // Close folders
                     for (EntityFolder folder : mapFolders.keySet()) {
-                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
+                        if (folder.selectable && folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
                             db.folder().setFolderState(folder.id, "closing");
                             try {
                                 if (iservice.getStore().isConnected())
