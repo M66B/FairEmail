@@ -88,7 +88,7 @@ public class WorkerFts extends Worker {
 
                         if (BuildConfig.DEBUG) {
                             EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (folder != null) {
+                            if (folder != null && !EntityFolder.isOutgoing(folder.type)) {
                                 List<String> features = new ArrayList<>();
 
                                 BreakIterator boundary = BreakIterator.getWordInstance();
