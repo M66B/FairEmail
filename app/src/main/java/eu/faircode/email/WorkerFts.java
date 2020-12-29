@@ -34,6 +34,7 @@ import androidx.work.WorkerParameters;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -89,12 +90,15 @@ public class WorkerFts extends Worker {
                             EntityFolder folder = db.folder().getFolder(message.folder);
                             if (folder != null) {
                                 List<String> features = new ArrayList<>();
-                                for (String word : text.trim().toLowerCase().split("\\W+")) {
-                                    if (word.matches(".*\\d.*"))
-                                        continue;
-                                    if (word.endsWith("."))
-                                        word = word.substring(0, word.length() - 1);
-                                    features.add(word);
+
+                                BreakIterator boundary = BreakIterator.getWordInstance();
+                                boundary.setText(text);
+                                int start = boundary.first();
+                                for (int end = boundary.next(); end != BreakIterator.DONE; end = boundary.next()) {
+                                    String word = text.substring(start, end);
+                                    if (word.length() > 1)
+                                        features.add(word);
+                                    start = end;
                                 }
 
                                 Collection<Classification<String, String>> classifications = classifier.classifyDetailed(features);
