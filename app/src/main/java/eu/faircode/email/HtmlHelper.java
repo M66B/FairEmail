@@ -399,43 +399,8 @@ public class HtmlHelper {
                 }
             });
 
-        // <html xmlns:v="urn:schemas-microsoft-com:vml"
-        //   xmlns:o="urn:schemas-microsoft-com:office:office"
-        //   xmlns:w="urn:schemas-microsoft-com:office:word"
-        //   xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
-        //   xmlns="http://www.w3.org/TR/REC-html40">
-
-        // <o:p>&nbsp;</o:p></span>
-
-        // Default XHTML namespace: http://www.w3.org/1999/xhtml
-
-        String ns = null;
-        for (Element h : parsed.select("html"))
-            for (Attribute a : h.attributes()) {
-                String key = a.getKey();
-                String value = a.getValue();
-                if (value != null &&
-                        key.startsWith("xmlns:") &&
-                        value.startsWith("http://www.w3.org/")) {
-                    ns = key.split(":")[1];
-                    break;
-                }
-            }
-        for (Element e : parsed.select("*")) {
-            String tag = e.tagName();
-            if (tag.contains(":")) {
-                if (display_hidden ||
-                        "body".equals(tag) ||
-                        ns == null || tag.startsWith(ns)) {
-                    String[] nstag = tag.split(":");
-                    e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
-                    Log.i("Updated tag=" + tag + " to=" + e.tagName());
-                } else {
-                    e.remove();
-                    Log.i("Removed tag=" + tag);
-                }
-            }
-        }
+        // Fix Microsoft namespaces
+        normalizeNamespaces(parsed, display_hidden);
 
         // Limit length
         if (view && truncate(parsed, true)) {
@@ -1146,6 +1111,46 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    static void normalizeNamespaces(Document parsed, boolean display_hidden) {
+        // <html xmlns:v="urn:schemas-microsoft-com:vml"
+        //   xmlns:o="urn:schemas-microsoft-com:office:office"
+        //   xmlns:w="urn:schemas-microsoft-com:office:word"
+        //   xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+        //   xmlns="http://www.w3.org/TR/REC-html40">
+
+        // <o:p>&nbsp;</o:p></span>
+
+        // Default XHTML namespace: http://www.w3.org/1999/xhtml
+
+        String ns = null;
+        for (Element h : parsed.select("html"))
+            for (Attribute a : h.attributes()) {
+                String key = a.getKey();
+                String value = a.getValue();
+                if (value != null &&
+                        key.startsWith("xmlns:") &&
+                        value.startsWith("http://www.w3.org/")) {
+                    ns = key.split(":")[1];
+                    break;
+                }
+            }
+        for (Element e : parsed.select("*")) {
+            String tag = e.tagName();
+            if (tag.contains(":")) {
+                if (display_hidden ||
+                        "body".equals(tag) ||
+                        ns == null || tag.startsWith(ns)) {
+                    String[] nstag = tag.split(":");
+                    e.tagName(nstag[nstag.length > 1 ? 1 : 0]);
+                    Log.i("Updated tag=" + tag + " to=" + e.tagName());
+                } else {
+                    e.remove();
+                    Log.i("Removed tag=" + tag);
+                }
+            }
+        }
     }
 
     static List<CSSStyleSheet> parseStyles(Elements styles) {

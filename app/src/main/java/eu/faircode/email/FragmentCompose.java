@@ -3797,6 +3797,7 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(s)) {
                                 // Get referenced message body
                                 d = JsoupEx.parse(ref.getFile(context));
+                                HtmlHelper.normalizeNamespaces(d, false);
                                 for (Element e : d.select("[x-plain=true]"))
                                     e.removeAttr("x-plain");
 
