@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,12 +43,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -366,10 +371,68 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
             Intent intent = getIntent();
             finishAndRemoveTask();
+            processStreams(intent);
             Intent main = new Intent(this, ActivityMain.class)
                     .putExtra("intent", intent);
             main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(main);
+        }
+    }
+
+    private void processStreams(Intent intent) {
+        intent.setClipData(null);
+
+        if (intent.hasExtra(Intent.EXTRA_STREAM)) {
+            if (Intent.ACTION_SEND_MULTIPLE.equals(intent.getAction())) {
+                ArrayList<Uri> uris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+                if (uris == null)
+                    intent.removeExtra(Intent.EXTRA_STREAM);
+                else {
+                    ArrayList<Uri> processed = new ArrayList<>();
+                    for (Uri uri : uris)
+                        processed.add(processUri(uri));
+                    intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, processed);
+                }
+            } else {
+                Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                if (uri == null)
+                    intent.removeExtra(Intent.EXTRA_STREAM);
+                else
+                    intent.putExtra(Intent.EXTRA_STREAM, processUri(uri));
+            }
+        }
+    }
+
+    private Uri processUri(Uri uri) {
+        try {
+            String fname = null;
+            try {
+                DocumentFile dfile = DocumentFile.fromSingleUri(this, uri);
+                if (dfile != null)
+                    fname = dfile.getName();
+            } catch (SecurityException ex) {
+                Log.e(ex);
+            }
+
+            if (TextUtils.isEmpty(fname))
+                fname = uri.getLastPathSegment();
+
+            if (TextUtils.isEmpty(fname))
+                return uri;
+
+            File dir = new File(getCacheDir(), "shared");
+            if (!dir.exists())
+                dir.mkdir();
+
+            File file = new File(dir, fname);
+
+            Log.i("Copying shared file to " + file);
+            Helper.copy(getContentResolver().openInputStream(uri), new FileOutputStream(file));
+
+            return FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return uri;
         }
     }
 
