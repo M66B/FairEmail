@@ -34,13 +34,10 @@ import androidx.work.WorkerParameters;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.BreakIterator;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import de.daslaboratorium.machinelearning.classifier.Classification;
 import de.daslaboratorium.machinelearning.classifier.bayes.BayesClassifier;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
@@ -85,32 +82,6 @@ public class WorkerFts extends Worker {
                         String text = HtmlHelper.getFullText(file);
                         if (TextUtils.isEmpty(text))
                             throw new FileNotFoundException("Message empty");
-
-                        if (BuildConfig.DEBUG) {
-                            EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (folder != null && !EntityFolder.isOutgoing(folder.type)) {
-                                List<String> features = new ArrayList<>();
-
-                                BreakIterator boundary = BreakIterator.getWordInstance();
-                                boundary.setText(text);
-                                int start = boundary.first();
-                                for (int end = boundary.next(); end != BreakIterator.DONE; end = boundary.next()) {
-                                    String word = text.substring(start, end);
-                                    if (word.length() > 1 && !word.matches(".*\\d.*"))
-                                        features.add(word);
-                                    start = end;
-                                }
-
-                                Collection<Classification<String, String>> classifications = classifier.classifyDetailed(features);
-                                for (Classification<String, String> classification : classifications)
-                                    Log.i("MMM folder=" + folder.name +
-                                            " classified=" + classification.getCategory() +
-                                            " probability=" + classification.getProbability() +
-                                            " features=" + TextUtils.join(", ", features.subList(0, Math.min(features.size(), 20))));
-
-                                classifier.learn(EntityFolder.JUNK.equals(folder.type) ? "spam" : "ham", features);
-                            }
-                        }
 
                         boolean fts = prefs.getBoolean("fts", false);
                         if (fts)

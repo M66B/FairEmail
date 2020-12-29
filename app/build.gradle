@@ -443,7 +443,4 @@ dependencies {
     // https://poi.apache.org/components/hmef/index.html
     // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
     implementation "org.apache.poi:poi-scratchpad:$apache_poi"
-
-    // https://github.com/ptnplanet/Java-Naive-Bayes-Classifier
-    implementation "com.github.ptnplanet:Java-Naive-Bayes-Classifier:$bayes_version"
 }
