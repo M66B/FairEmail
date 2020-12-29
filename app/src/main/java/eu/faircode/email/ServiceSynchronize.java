@@ -112,7 +112,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final long PURGE_DELAY = 60 * 1000L; // milliseconds
-    private static final long QUOTA_INTERVAL = 5 * 60 * 1000L; // milliseconds
+    private static final long QUOTA_INTERVAL = 10 * 60 * 1000L; // milliseconds
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
     static final int DEFAULT_POLL_INTERVAL = 0; // minutes
