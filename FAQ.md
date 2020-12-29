@@ -1655,12 +1655,8 @@ and [what Google writes about it](https://developer.android.com/training/secure-
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added
-because it can easily result in out of memory errors and the available storage space filling up.
-It can also easily result in a lot of battery and data usage.
-Mobile devices are just not very suitable to download and store years of messages.
-You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient.
-Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu)
+and selecting *Synchronize more* in the popup menu.
 
 <br />
 
