@@ -2329,6 +2329,8 @@ Links for the tel, geo, rtsp and xmpp protocols will be recognized too,
 but links for less usual or less safe protocols like telnet and ftp will not be recognized.
 The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
 
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
+
 <br />
 
 <a name="faq91"></a>
