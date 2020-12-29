@@ -29,4 +29,3 @@ FairEmail uses:
 * [Over-Scroll Support For Android's RecyclerView, ListView, GridView, ScrollView ...](https://github.com/EverythingMe/overscroll-decor). Copyright (c) 2015, DoAT Media Ltd. [BSD-2-Clause License](https://github.com/EverythingMe/overscroll-decor/blob/master/LICENSE)
 * [Compact Encoding Detection](https://github.com/google/compact_enc_det). Copyright 2016 Google Inc. [Apache License 2.0](https://github.com/google/compact_enc_det/blob/master/LICENSE).
 * [POI-HMEF](https://poi.apache.org/components/hmef/index.html). Copyright © 2001-2020 The Apache Software Foundation. [Apache Software License v2](https://poi.apache.org/devel/guidelines.html#The+Licensing).
-* [Java Naive Bayes Classifier](https://github.com/ptnplanet/Java-Naive-Bayes-Classifier). Copyright (c) 2012-2017 Philipp Nolte. [MIT License](https://github.com/ptnplanet/Java-Naive-Bayes-Classifier#the-mit-license-mit).

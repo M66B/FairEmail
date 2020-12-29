@@ -38,16 +38,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import de.daslaboratorium.machinelearning.classifier.bayes.BayesClassifier;
 import io.requery.android.database.sqlite.SQLiteDatabase;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
-    private static final int INDEX_DELAY = BuildConfig.DEBUG ? 3 : 30; // seconds
+    private static final int INDEX_DELAY = 30; // seconds
     private static final int INDEX_BATCH_SIZE = 100;
-
-    private static BayesClassifier<String, String> classifier = new BayesClassifier<>();
 
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
