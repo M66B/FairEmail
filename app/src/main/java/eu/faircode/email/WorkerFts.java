@@ -72,23 +72,29 @@ public class WorkerFts extends Worker {
                         Log.i("FTS index=" + id);
 
                         EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            throw new FileNotFoundException("Message gone");
+                        if (message == null) {
+                            Log.i("FTS gone");
+                            continue;
+                        }
 
                         File file = message.getFile(context);
                         String text = HtmlHelper.getFullText(file);
-                        if (TextUtils.isEmpty(text))
-                            throw new FileNotFoundException("Message empty");
+                        if (TextUtils.isEmpty(text)) {
+                            Log.i("FTS empty");
+                            continue;
+                        }
 
                         boolean fts = prefs.getBoolean("fts", false);
-                        if (fts)
-                            try {
-                                sdb.beginTransaction();
-                                FtsDbHelper.insert(sdb, message, text);
-                                sdb.setTransactionSuccessful();
-                            } finally {
-                                sdb.endTransaction();
-                            }
+                        if (!fts)
+                            break;
+
+                        try {
+                            sdb.beginTransaction();
+                            FtsDbHelper.insert(sdb, message, text);
+                            sdb.setTransactionSuccessful();
+                        } finally {
+                            sdb.endTransaction();
+                        }
 
                         indexed++;
 
