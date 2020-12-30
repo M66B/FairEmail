@@ -195,7 +195,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<EntityCertificate> prev = new ArrayList<>();
         private List<EntityCertificate> next = new ArrayList<>();
 

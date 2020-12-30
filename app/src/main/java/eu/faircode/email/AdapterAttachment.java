@@ -383,7 +383,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<EntityAttachment> prev = new ArrayList<>();
         private List<EntityAttachment> next = new ArrayList<>();
 

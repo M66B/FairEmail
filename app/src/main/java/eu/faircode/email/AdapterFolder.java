@@ -1132,7 +1132,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         return result;
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleFolderEx> prev = new ArrayList<>();
         private List<TupleFolderEx> next = new ArrayList<>();
 

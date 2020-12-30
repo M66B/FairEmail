@@ -169,7 +169,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         return items.get(pos);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<NavMenuItem> prev = new ArrayList<>();
         private List<NavMenuItem> next = new ArrayList<>();
 

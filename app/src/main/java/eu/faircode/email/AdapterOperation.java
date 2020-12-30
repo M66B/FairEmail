@@ -297,7 +297,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleOperationEx> prev = new ArrayList<>();
         private List<TupleOperationEx> next = new ArrayList<>();
 

@@ -218,7 +218,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
     }
 
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleKeyword> prev = new ArrayList<>();
         private List<TupleKeyword> next = new ArrayList<>();
 

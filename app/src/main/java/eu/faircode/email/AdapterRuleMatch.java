@@ -123,7 +123,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<EntityMessage> prev = new ArrayList<>();
         private List<EntityMessage> next = new ArrayList<>();
 

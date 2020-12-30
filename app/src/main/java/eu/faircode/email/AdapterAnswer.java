@@ -267,7 +267,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<EntityAnswer> prev = new ArrayList<>();
         private List<EntityAnswer> next = new ArrayList<>();
 

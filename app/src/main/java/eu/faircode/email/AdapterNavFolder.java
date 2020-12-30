@@ -204,7 +204,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleFolderNav> prev = new ArrayList<>();
         private List<TupleFolderNav> next = new ArrayList<>();
 

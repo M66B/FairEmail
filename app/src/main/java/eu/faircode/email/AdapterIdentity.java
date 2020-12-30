@@ -415,7 +415,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleIdentityEx> prev = new ArrayList<>();
         private List<TupleIdentityEx> next = new ArrayList<>();
 

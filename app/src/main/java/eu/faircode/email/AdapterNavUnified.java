@@ -177,7 +177,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleFolderUnified> prev = new ArrayList<>();
         private List<TupleFolderUnified> next = new ArrayList<>();
 

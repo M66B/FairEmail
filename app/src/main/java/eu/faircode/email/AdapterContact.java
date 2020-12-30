@@ -414,7 +414,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         set(all);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleContactEx> prev = new ArrayList<>();
         private List<TupleContactEx> next = new ArrayList<>();
 

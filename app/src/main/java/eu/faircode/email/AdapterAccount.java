@@ -505,7 +505,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleAccountEx> prev = new ArrayList<>();
         private List<TupleAccountEx> next = new ArrayList<>();
 

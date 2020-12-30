@@ -117,7 +117,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         diff.dispatchUpdatesTo(this);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<EntityLog> prev = new ArrayList<>();
         private List<EntityLog> next = new ArrayList<>();
 

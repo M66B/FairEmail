@@ -489,7 +489,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         set(protocol, all);
     }
 
-    private class DiffCallback extends DiffUtil.Callback {
+    private static class DiffCallback extends DiffUtil.Callback {
         private List<TupleRuleEx> prev = new ArrayList<>();
         private List<TupleRuleEx> next = new ArrayList<>();
 
