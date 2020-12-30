@@ -2448,6 +2448,20 @@ public class MessageHelper {
                 try {
                     // From the body structure
                     contentType = new ContentType(part.getContentType());
+
+                    // Workaround bodystructure not matching header
+                    if (part instanceof MimeMessage &&
+                            "text/plain".equalsIgnoreCase(contentType.getBaseType()))
+                        try {
+                            String[] c = part.getHeader("Content-type");
+                            if (c != null && c.length > 0) {
+                                ContentType ct = new ContentType(c[0]);
+                                if ("text/html".equalsIgnoreCase(ct.getBaseType()))
+                                    contentType = ct;
+                            }
+                        } catch (MessagingException ex) {
+                            Log.w(ex);
+                        }
                 } catch (ParseException ex) {
                     if (part instanceof MimeMessage)
                         Log.w("MimeMessage content type=" + ex.getMessage());
