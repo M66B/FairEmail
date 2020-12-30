@@ -33,7 +33,6 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -66,10 +65,12 @@ public class WorkerFts extends Worker {
             SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             try (Cursor cursor = db.message().getMessageFts()) {
-                while (cursor.moveToNext()) {
-                    long id = cursor.getLong(0);
+                while (cursor.moveToNext())
                     try {
+                        long id = cursor.getLong(0);
                         Log.i("FTS index=" + id);
+
+                        ids.add(id);
 
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null) {
@@ -98,16 +99,11 @@ public class WorkerFts extends Worker {
 
                         indexed++;
 
-                        ids.add(id);
                         if (ids.size() > INDEX_BATCH_SIZE)
                             markIndexed(db, ids);
                     } catch (Throwable ex) {
-                        if (ex instanceof FileNotFoundException ||
-                                ex instanceof OutOfMemoryError)
-                            ids.add(id);
                         Log.e(ex);
                     }
-                }
 
                 markIndexed(db, ids);
             }
