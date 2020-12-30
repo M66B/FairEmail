@@ -429,79 +429,74 @@ Dans le menu à trois points, vous pouvez activer ou désactiver ou sélectionne
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-Dans la section d'affichage des paramètres, vous pouvez activer ou désactiver :
+In the display section of the settings you can enable or disable for example:
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
-* *Grouper par date*: Affiche la date en en-tête au dessus des messages ayant la même date
-* *Afficher en mode conversation*: Pour désactiver l'affichage en mode conversation et afficher à la place les messages de manière individuelle
-* *Afficher la photo des contacts*: pour masquer la photo des contacts
-* *Afficher les identicônes*: pour afficher les avatars de contact générés
-* *Afficher les noms et les adresses e-mail*: pour afficher les noms ou afficher les noms et les adresses e-mail
-* *Afficher l’objet en italique*: pour afficher l'objet du message en texte normal
-* *Afficher les étoiles de suivi*: pour masquer les étoiles de suivi (favoris)
-* *Afficher l'aperçu du message*: pour afficher deux lignes du corps du message
-* *Afficher par défaut les détails de l'adresse*: pour développer par défaut la section d'adresses
-* *Utiliser une police à espacement fixe pour le texte du message*: pour utiliser une fonte à largeur fixe pour les textes des messages
-* *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
-* *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
-* *Barre d'action de conversation*: pour désactiver la barre de navigation du bas
+* *Tabular style*: to show a linear list instead of cards
+* *Group by date*: show date header above messages with the same date
+* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Highlight color*: to select a color for the sender of unread messages
+* *Show contact photos*: to hide contact photos
+* *Show names and email addresses*: to show names or to show names and email addresses
+* *Show subject italic*: to show the message subject as normal text
+* *Show stars*: to hide stars (favorites)
+* *Show message preview*: to show 1-4 lines of the message text
+* *Show address details by default*: to expand the addresses section by default
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Notez que les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez modifier cela dans les paramètres.
+Notez que les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). You can change this in the connection settings.
 
-Si la liste des adresses est longue, vous pouvez réduire la section des adresses avec l'icône *moins* en haut de la section.
-
-Certaines personnes demandent :
+Some people ask:
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
-* d'afficher l'adresse ou l'objet en plus grand/plus petit, mais cela interférerait avec l'option de taille de texte
-* de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
-
-Malheureusement, il est impossible de contenter tout le monde et ajouter tout un lot de réglages serait non seulement déroutant, mais également jamais suffisant.
+* to move the star to the left, but it is much easier to operate the star on the right side
 
 <br />
 
 <a name="faq6"></a>
-**(6) Comment puis-je me connecter à Gmail / G suite ?**
+**(6) How can I login to Gmail / G suite?**
 
-Vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-Si vous ne souhaitez pas utiliser un compte Gmail de l'appareil, vous pouvez soit activer l'accès aux "applications moins sécurisées" et utiliser le mot de passe de votre compte (déconseillé) ou activer l'authentification à deux facteurs et utiliser un mot de passe spécifique à l'application. Pour utiliser un mot de passe, vous devrez configurer un compte et une identité via les étapes de configuration 1 et 2, au lieu de l'assistant de configuration rapide.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
-Veuillez voir [cette question](#user-content-faq111) sur les raisons pour lesquelles seuls les comptes de l'appareil peuvent être utilisés.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Notez qu'un mot de passe spécifique à l'application est nécessaire lorsque l'authentification à deux facteurs est activée.
-
-<br />
-
-*Mot de passe spécifique à l'application*
-
-Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de générer un mot de passe spécifique à l'application.
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*Autoriser les "Applications moins sécurisées"*
+*App specific password*
 
-**Important**: l'utilisation de cette méthode n'est pas recommandée car elle est moins fiable.
-
-**Important**: Les comptes Gsuite autorisés avec un nom d'utilisateur/mot de passe cesseront de fonctionner [dans un avenir proche](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-Voir [ici](https://support.google.com/accounts/answer/6010255) sur la façon d'autoriser les "applications moins sécurisées" ou aller [directement au paramètre en question](https://www.google.com/settings/security/lesssecureapps).
-
-Si vous utilisez plusieurs comptes Gmail, assurez-vous de modifier le paramètre "applications moins sécurisées" du ou des comptes concernés.
-
-Sachez que vous devez quitter l'écran de configuration des "applications moins sécurisées" en utilisant la flèche de retour arrière pour que le paramètre soit appliqué.
-
-Si vous utilisez cette méthode, vous devriez utiliser un [mot de passe robuste](https://en.wikipedia.org/wiki/Password_strength) pour votre compte Gmail, ce qui est de toute façon une bonne idée. Notez que l'utilisation du protocole [standard](https://tools.ietf.org/html/rfc3501) IMAP n'est en soi pas moins sécurisée.
-
-Lorsque les "applications moins sécurisées" ne sont pas activées, vous obtiendrez l'erreur *L'authentification a échoué - identifiants non valides* pour les comptes (IMAP) et *nom d'utilisateur et mot de passe non acceptés* pour les identités (SMTP).
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
-*Cas général*
+*Enable "Less secure apps"*
 
-Il se peut que vous obteniez l'alerte "*S'il vous plaît connectez-vous via votre navigateur web*". Cela se produit lorsque Google considère que le réseau sur lequel vous vous connectez à Internet (il peut s'agir d'un VPN) n'est pas sûr. Cela peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique à l'application.
+**Important**: using this method is not recommended because it is less reliable.
 
-Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+
+When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+
+<br />
+
+*General*
+
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 <br />
 
@@ -1119,7 +1114,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-Il est possible de configurer un [regex](https://en.wikipedia.org/wiki/Regular_expression) dans les paramètres d'identité pour faire correspondre **le nom d'utilisateur** d'une adresse e-mail (la partie avant le signe @).
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
@@ -1370,7 +1365,7 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
@@ -1938,6 +1933,8 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
 
 <br />
 

@@ -429,41 +429,36 @@ In the three dot overflow menu you can enable or disable or select:
 * *ukuran teks*: untuk tiga ukuran font yang berbeda
 * *tampilan sederhana*: untuk item pesan yang lebih padat dan ukuran font teks pesan yang kecil
 
-In the display section of the settings you can enable or disable:
+In the display section of the settings you can enable or disable for example:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Kelompokan berdasarkan tanggal*: tampilkan header tanggal diatas pesan yang memiliki tanggal yang sama
+* *Tabular style*: to show a linear list instead of cards
+* *Group by date*: show date header above messages with the same date
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Tampilkan foto kontak*: untuk menyembunyikan foto kontak
-* *Tampilkan identicons*: untuk menampilkan avatar kontak yang dibuat
-* *Tampilkan nama dan alamat surel*: untuk menampilkan nama atau menampilkan nama beserta alamat surel
-* *Tampilkan judul dalam cetak miring*: untuk menampilkan judul pesan sebagai teks normal
-* *Tampilkan bintang*: untuk menyembunyikan bintang (favorit)
-* *Lihat tampilan pesan*: untuk melihat dua garis dari teks pesan
-* *Tampilkan rincian alamat secara standar*: untuk memperluas bagian alamat secara standar
-* *Gunakan font spasi tunggal untuk teks pesan*: untuk menggunakan jenis huruf dengan lebar pasti untuk teks pesan
-* *Tampilkan pesan orisinil secara otomatis untuk kontak yang telah diketahui*: untuk menampilkan pesan orisinil secara otomatis untuk kontak yang ada di perangkat anda, sila baca [FAQ ini](#user-content-faq35)
-* *Tampilkan gambar secara otomatis untuk kontak yang diketahui*: untuk menampilkan gambar secara otomatis bagi kontak yang dalam perangkat anda, sila baca [FAQ ini](#user-content-faq35)
-* *Bilah aksi percakapan*: untuk menonaktifkan bilah navigasi bawah
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Highlight color*: to select a color for the sender of unread messages
+* *Show contact photos*: to hide contact photos
+* *Show names and email addresses*: to show names or to show names and email addresses
+* *Show subject italic*: to show the message subject as normal text
+* *Show stars*: to hide stars (favorites)
+* *Show message preview*: to show 1-4 lines of the message text
+* *Show address details by default*: to expand the addresses section by default
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Perhatikan bahwa pesan dapat ditampilkan hanya ketika teks pesan telah diunduh. Teks pesan yang lebih besar tidak dapat diunduh secara otomatis dalam jaringan terukur (biasanya perangkat seluler). Anda dapat mengubahnya dalam pengaturan.
+Perhatikan bahwa pesan dapat ditampilkan hanya ketika teks pesan telah diunduh. Teks pesan yang lebih besar tidak dapat diunduh secara otomatis dalam jaringan terukur (biasanya perangkat seluler). You can change this in the connection settings.
 
-Jika daftar alamat terlalu panjang, anda dapat meruntuhkan bagian alamat dengan ikon *kurangi* pada bagian alamat paling atas.
-
-Beberapa orang bertanya:
+Some people ask:
 
 * untuk menampilkan judul yang dicetak tebal, namun cetak tebal telah digunakan untuk menyoroti pesan yang belum dibaca
-* untuk menampilkan alamat atau judul lebih kecil/lebih besar, namun hal ini dapat mengganggu opsi ukuran teks
-* untuk memindahkan bintang ke kiri, namun lebih mudah untuk mengoperasikan bintang di bagian kanan
-
-Sayangnya, kami tidak mungkin dapat membuat semua orang senang dan dengan menambahkan pengaturan yang banyak akan membuat anda bingung, dan juga tidak akan pernah cukup.
+* to move the star to the left, but it is much easier to operate the star on the right side
 
 <br />
 
 <a name="faq6"></a>
-**(6) Bagaimana cara saya masuk ke Gmail / G suite?**
+**(6) How can I login to Gmail / G suite?**
 
-Anda dapat menggunakan wizard pengaturan cepat untuk mengatur akun Gmail dan identitas dengan mudah.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
@@ -1370,7 +1365,7 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
@@ -1938,6 +1933,8 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
 
 <br />
 

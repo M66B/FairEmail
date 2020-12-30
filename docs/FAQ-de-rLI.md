@@ -429,79 +429,74 @@ Im Burger-Menü können Sie die folgenden Optionen aktivieren/deaktivieren bzw. 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-Im Bereich "Anzeige" der Einstellungen können Sie ein- oder ausschalten:
+Im Anzeigebereich der Einstellungen können Sie beispielsweise aktivieren oder deaktivieren:
 
 * *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
-* *Nach Datum gruppieren*: Zeigt eine Kopfzeile für alle Nachrichten mit dem gleichen Datum anzeigen
-* *Unterhaltungsthread*: Fasst zusammengehörige Nachrichten zu einem Gesprächsfaden zusammen. Deaktivieren Sie die Option, um stattdessen einzelne Nachrichten anzuzeigen
-* *Kontaktfotos anzeigen*: Blendet Kontaktfotos ein oder aus
-* *Identicons anzeigen*: um generierte Kontaktbilder anzuzeigen
-* *Zeige Namen und E-Mail-Adressen*: Blendet Anzeigenamen und E-Mail-Adressen ein oder aus
-* *Kursiv anzeigen*: Lässt den Betreff der Nachricht als kursiven oder normalen Text anzeigen
-* *Sterne anzeigen*: Sterne ausblenden (Favoriten)
-* *Nachrichtenvorschau anzeigen*: Zeigt die ersten zwei Zeilen des Nachrichtentextes als Vorschau an
-* *Adressdetails als Standard*: Erweitert standardmäßig den Adressenbereich
-* *Monospace-Schriftart für Nachrichtentext*: Aktivieren Sie die Option, um eine Schriftart mit fester Breite für Nachrichtentexte zu verwenden
-* *Originalnachrichten von bekannten Kontakten anzeigen*: Wenn Sie Originalnachrichten von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
-* *Bilder von bekannten Kontakten anzeigen*: Wenn Sie Bilder von bekannten Kontakten automatisch anzeigen lassen möchten, dann lesen Sie bitte [diese FAQ](#user-content-faq35)
-* *Konversations-Aktionsleiste*: Blendet die untere Navigationsleiste ein oder aus
+* *Tabellenstil*: zum Anzeigen einer linearen Liste anstelle von Karten
+* *Nach Datum gruppieren*: Datumskopf über Nachrichten mit gleichem Datum anzeigen
+* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Hervorhebungsfarbe*: zum Auswählen einer Farbe für den Absender von ungelesenen Nachrichten
+* *Show contact photos*: to hide contact photos
+* *Show names and email addresses*: to show names or to show names and email addresses
+* *Show subject italic*: to show the message subject as normal text
+* *Show stars*: to hide stars (favorites)
+* *Show message preview*: to show 1-4 lines of the message text
+* *Show address details by default*: to expand the addresses section by default
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Beachten Sie, dass die Nachrichtenvorschau nur angezeigt werden kann, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. Sie können dies in den Einstellungen ändern.
+Beachten Sie, dass die Nachrichtenvorschau nur angezeigt werden kann, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. You can change this in the connection settings.
 
-Wenn die Liste der Adressaten sehr lang ist, dann können Sie den Adressbereich mit dem *Weniger* Symbol oben im Adressbereich einklappen.
-
-Einige Benutzer fragten:
+Some people ask:
 
 * wie man den Betreff fett anzeigen lassen kann, obwohl eine fette Schrift bereits verwendet wird, um ungelesene Nachrichten hervorzuheben
-* wie man die Adresse oder den Betreff unabhängig von der Textgröße-Option in den Einstellungen größer/kleiner anzeigen lassen kann
-* um den Stern nach links zu bewegen, aber es ist viel einfacher, den Stern auf der rechten Seite zu bedienen
-
-Leider ist es unmöglich, alle glücklich zu machen und viele Einstellungen wären nicht nur verwirrend, sondern auch nie ausreichend.
+* to move the star to the left, but it is much easier to operate the star on the right side
 
 <br />
 
 <a name="faq6"></a>
-**(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
+**(6) How can I login to Gmail / G suite?**
 
-Sie können den Schnelleinrichtungsassistenten verwenden, um einfach ein Gmail-Konto und eine Gmail-Identität einzurichten.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
-Wenn Sie kein Gmail-Konto auf dem Gerät verwenden möchten, können Sie entweder den Zugriff für „weniger sichere Apps“ aktivieren und Ihr Kontopasswort verwenden (nicht empfohlen) oder die Zwei-Faktor-Authentifizierung aktivieren und ein appspezifisches Passwort verwenden. Um ein Passwort zu verwenden, müssen Sie Konto und Identität über die Einrichtungsschritte 1 und 2 statt über den Schnelleinrichtungs-Assistenten einrichten.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
-Bitte lesen Sie in [dieser FAQ](#user-content-faq111), warum nur On-Device-Konten verwendet werden können.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Beachten Sie, dass bei Aktivierung der Zwei-Faktor-Authentifizierung ein Anwendungsspezifisches Passwort erforderlich ist.
-
-<br />
-
-*Anwendungsspezifisches Passwort*
-
-Wie ein Anwendungsspezifisches Passwort erstellt wird, sehen Sie [hier](https://support.google.com/accounts/answer/185833).
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*„Weniger sichere Anwendungen“ aktivieren*
+*App specific password*
 
-**Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
-
-**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert sind, funktionieren [in naher Zukunft](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) nicht mehr.
-
-Sehen Sie [hier](https://support.google.com/accounts/answer/6010255) wie man „weniger sichere Apps“ aktiviert oder gehen Sie [direkt zu der entsprechenden Einstellung](https://www.google.com/settings/security/lesssecureapps).
-
-Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung „weniger sichere Apps“ des / der richtigen Accounts ändern.
-
-Seien Sie sich bewusst, dass Sie den „weniger sicheren Apps“ Bildschirm verlassen müssen, indem Sie den Zurückpfeil verwenden, um die Einstellung anzuwenden.
-
-Falls Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwendet, was ohnehin eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501)-IMAP-Protokolls an sich nicht weniger sicher ist.
-
-Falls "weniger sichere Apps" nicht aktiviert ist, erhalten Sie den Fehler *Authentifizierung fehlgeschlagen - ungültige Anmeldeinformationen* für die Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für die Identitäten (SMTP).
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
-*Allgemein*
+*Enable "Less secure apps"*
 
-Möglicherweise erhalten Sie die Warnung "*Bitte melden Sie sich über Ihren Webbrowser an*". Dies geschieht, falls Google Ihre Netzwerk- bzw. Internetverbindung für unsicher hält (beispielsweise bei der Nutzung von einem VPN). Mit der Verwendung des Gmail-Schnelleinrichtungsassistenten oder dem Einsatz eines App-spezifischen Passworts können Sie dies verhindern.
+**Important**: using this method is not recommended because it is less reliable.
 
-Sehen Sie [hier](https://support.google.com/mail/answer/7126229) für eine Anleitung von Google und [hier](https://support.google.com/mail/accounts/answer/78754) für Problemlösungen.
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+
+When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+
+<br />
+
+*General*
+
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 <br />
 
@@ -573,9 +568,9 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq12"></a>
-**(12) Wie funktioniert die Ver- und Entschlüsselung?**
+**(12) How does encryption/decryption work?**
 
-Die Kommunikation mit den E-Mail-Servern ist immer verschlüsselt, außer Sie haben dies explizit deaktiviert. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
 *General*
 
@@ -603,9 +598,9 @@ The to be encrypted message text/attachments and the decrypted message text/atta
 
 *PGP*
 
-Sie müssen zuerst [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) installieren und konfigurieren. FairEmail wurde mit OpenKeychain in der Version 5.4 getestet. Spätere Versionen werden wahrscheinlich kompatibel sein, aber frühere Versionen sind es möglicherweise nicht.
+You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
 
-**Wichtige**: Die OpenKeychain-App ist dafür bekannt (unbemerkt) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen vorhandenen öffentlichen Schlüssel erhält. Sie können dies umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
+**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
 
@@ -629,16 +624,16 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 
 Signed-only messages are supported, encrypted-only messages are not supported.
 
-Häufige Fehler:
+Common errors:
 
 * *Kein Schlüssel*: kein PGP-Schlüssel für eine der aufgeführten E-Mail-Adressen verfügbar
 * *Verschlüsselungsschlüssel fehlt*: es wurde wahrscheinlich in FairEmail ein Schlüssel ausgewählt, der in der OpenKeychain-App nicht mehr vorhanden ist. Das Zurücksetzen des Schlüssels (siehe oben) wird dieses Problem eventuell beheben.
 
 *S/MIME*
 
-Die Verschlüsselung einer Nachricht erfordert den öffentlichen Schlüssel des Empfängers. Das Signieren einer Nachricht erfordert Ihren privaten Schlüssel.
+Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
 
-Die private Schlüssel werden von Android gespeichert und können über die erweiterten Sicherheitseinstellungen von Android importiert werden. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the privacy settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
@@ -1119,7 +1114,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-Es ist möglich, einen [Regex](https://en.wikipedia.org/wiki/Regular_expression) (Regulärer Ausdruck) in den Identitätseinstellungen zu konfigurieren, um **den Benutzernamen** einer E-Mail-Adresse (den Teil vor dem @-Zeichen) abzugleichen.
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
@@ -1370,7 +1365,7 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
@@ -1938,6 +1933,8 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
 
 <br />
 

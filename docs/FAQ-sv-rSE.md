@@ -429,34 +429,29 @@ In the three dot overflow menu you can enable or disable or select:
 * *text size*: for three different font sizes
 * *compact view*: for more condensed message items and a smaller message text font
 
-In the display section of the settings you can enable or disable:
+In the display section of the settings you can enable or disable for example:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
+* *Tabular style*: to show a linear list instead of cards
 * *Group by date*: show date header above messages with the same date
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Highlight color*: to select a color for the sender of unread messages
 * *Show contact photos*: to hide contact photos
-* *Show identicons*: to show generated contact avatars
 * *Show names and email addresses*: to show names or to show names and email addresses
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show two lines of the message text
+* *Show message preview*: to show 1-4 lines of the message text
 * *Show address details by default*: to expand the addresses section by default
-* *Use monospaced font for message text*: to use a fixed width typeface for message texts
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Conversation action bar*: to disable the bottom navigation bar
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
-
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
 Some people ask:
 
 * to show the subject bold, but bold is already being used to highlight unread messages
-* to show the address or subject larger/smaller, but this would interfere with the text size option
 * to move the star to the left, but it is much easier to operate the star on the right side
-
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <br />
 
@@ -1119,7 +1114,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-Det är möjligt att konfigurera en [regex](https://en.wikipedia.org/wiki/Regular_expression) i identitetsinställningarna för att matcha **användarnamnet** för en e-postadress (delen före @-tecknet).
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
@@ -1370,7 +1365,7 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
@@ -1938,6 +1933,8 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
 
 <br />
 

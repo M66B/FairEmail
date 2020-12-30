@@ -817,7 +817,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">Das ist die umformatierte Nachrichtenansicht. Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Nachricht zu verstecken.</string>
+    <string name="title_reformatted">Das ist die reformatierte Nachrichtenansicht. Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Nachricht zu verstecken.</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>

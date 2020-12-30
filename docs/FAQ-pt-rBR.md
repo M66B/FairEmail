@@ -429,34 +429,29 @@ In the three dot overflow menu you can enable or disable or select:
 * *tamanho do texto*: para três tamanhos de texto diferentes
 * *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
 
-In the display section of the settings you can enable or disable:
+In the display section of the settings you can enable or disable for example:
 
 * *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
-* *Agrupar por data*: mostrar cabeçalhos de data acima de mensagens com a mesma data
-* *Junção de conversas*: para dasativar a junção de conversas e mostrar mensagens de forma individual
-* *Exibir fotos de contatos*: para ocultar fotos de contatos
-* *Exibir ícones de identificação*: para mostrar avatares de contato gerados
-* *Exibit nomes e endereços de e-mail*: para exibir nomes ou exibir nomes e endereços de e-mail
-* *Mostrar assunto em itálico*: para exibir o assunto como um texto normal
-* *Mostrar estrelas*: para ocultar estrelas (marcações)
-* *Mostrar pré-visualização da mensagem*: para exibir duas linhas do texto da mensagem
-* *Mostrar detalhes do endereço por padrão*: para expandir a seção de endereços por padrão
-* *Usar fonte monoespaçada para a mensagem*: para mostrar um tipo de texto com largura fixa para mensagens
-* *Exibir automaticamente a mensagem original para contatos conhecidos*: para mostrar automaticamente a mensagem original para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
-* *Exibir automaticamente imagens para contatos conhecidos*: para exibir automaticamente imagens para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
-* *Barra de ação da conversa*: para desativar a barra de navegação inferior
+* *Tabular style*: to show a linear list instead of cards
+* *Group by date*: show date header above messages with the same date
+* *Conversation threading*: to disable conversation threading and to show individual messages instead
+* *Conversation action bar*: to disable the bottom navigation bar
+* *Highlight color*: to select a color for the sender of unread messages
+* *Show contact photos*: to hide contact photos
+* *Show names and email addresses*: to show names or to show names and email addresses
+* *Show subject italic*: to show the message subject as normal text
+* *Show stars*: to hide stars (favorites)
+* *Show message preview*: to show 1-4 lines of the message text
+* *Show address details by default*: to expand the addresses section by default
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the settings.
-
-If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
 Some people ask:
 
 * para mostrar o assunto em negrito, mas o negrito já é utilizado para destacar mensagens não lidas
-* para mostrar o endereço ou o assunto maior/menor, mas isso poderia interferir com a opção de tamanho do texto
-* para mostrar a estrela à esquerda, mas é muito mais fácil utilizar a estrela no lado direito
-
-Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
+* to move the star to the left, but it is much easier to operate the star on the right side
 
 <br />
 
@@ -1370,7 +1365,7 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-A synchronize all (download all) messages will not be added because it can easily result in out of memory errors and the available storage space filling up. It can also easily result in a lot of battery and data usage. Mobile devices are just not very suitable to download and store years of messages. You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient. Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
@@ -1938,6 +1933,8 @@ By default FairEmail sends each message both as plain text and as HTML formatted
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
 
 Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+
+Note that original messages are shown exactly as they are, which means also that links are not automatically added.
 
 <br />
 
