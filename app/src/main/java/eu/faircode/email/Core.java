@@ -470,17 +470,6 @@ class Core {
                             continue;
                         }
 
-                        if (EntityOperation.MOVE.equals(op.name) &&
-                                "imap.poczta.onet.pl".equals(account.host)) {
-                            ops.remove(op);
-                            db.operation().deleteOperation(op.id);
-                            if (message != null) {
-                                db.message().setMessageUiHide(message.id, false);
-                                db.message().setMessageError(message.id, Log.formatThrowable(ex, false));
-                            }
-                            continue;
-                        }
-
                         if (op.tries >= TOTAL_RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof FileNotFoundException ||
