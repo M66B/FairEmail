@@ -2076,9 +2076,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         private List<TupleAccountState> lastAccountStates = null;
 
         private void post(Bundle command) {
-            Log.i("### command posted");
-            for (String extra : Log.getExtras(command))
-                Log.i("### " + extra);
+            EntityLog.log(ServiceSynchronize.this, "### command " +
+                    TextUtils.join(" ", Log.getExtras(command)));
             post(command, lastNetworkState, lastAccountStates);
         }
 
@@ -2108,8 +2107,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (networkState == null)
                 networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
 
-            if (accountStates == null)
+            if (accountStates == null) {
+                EntityLog.log(ServiceSynchronize.this, "### no accounts");
                 return;
+            }
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean enabled = prefs.getBoolean("enabled", true);
