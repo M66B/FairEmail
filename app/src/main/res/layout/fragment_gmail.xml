@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_setup_gmail_permissions"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
+            android:textStyle="italic|bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSelect" />
 
