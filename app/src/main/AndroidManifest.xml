@@ -192,7 +192,7 @@
 
         <activity
             android:name=".ActivitySearch"
-            android:enabled="true"
+            android:enabled="false"
             android:excludeFromRecents="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
