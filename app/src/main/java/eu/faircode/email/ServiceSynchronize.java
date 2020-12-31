@@ -1406,7 +1406,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 @Override
                                 public void run() {
                                     try {
-                                        wlFolder.acquire();
+                                        wlAccount.acquire();
 
                                         // Close cached connections
                                         Log.i(account.name + " Empty connection pool");
@@ -1414,7 +1414,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     } finally {
-                                        wlFolder.release();
+                                        wlAccount.release();
                                     }
                                 }
                             });
