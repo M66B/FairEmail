@@ -62,8 +62,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TupleUnsent lastUnsent = null;
     private Network lastActive = null;
@@ -706,10 +704,12 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     static void boot(final Context context) {
-        Thread thread = new Thread(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 try {
+                    EntityLog.log(context, "Boot send service");
+
                     DB db = DB.getInstance(context);
 
                     EntityFolder outbox = db.folder().getOutbox();
@@ -726,9 +726,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     Log.e(ex);
                 }
             }
-        }, "send:boot");
-        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-        thread.start();
+        });
     }
 
     static void start(Context context) {

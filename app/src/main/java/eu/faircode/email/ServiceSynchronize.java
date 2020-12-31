@@ -111,6 +111,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
     private MediatorState liveAccountNetworkState = new MediatorState();
 
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "sync");
+
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
@@ -2138,10 +2140,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void boot(final Context context) {
-        Thread thread = new Thread(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 try {
+                    EntityLog.log(context, "Boot sync service");
+
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
@@ -2187,9 +2191,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     Log.e(ex);
                 }
             }
-        }, "synchronize:boot");
-        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-        thread.start();
+        });
     }
 
     private static void schedule(Context context, boolean sync) {
