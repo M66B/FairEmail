@@ -212,6 +212,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             private boolean fts = false;
             private int lastEventId = 0;
             private int lastQuitId = -1;
+            private List<Long> initialized = new ArrayList<>();
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
             private ExecutorService queue = Helper.getBackgroundExecutor(1, "service");
 
@@ -234,6 +235,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     boolean runService = false;
                     for (TupleAccountNetworkState current : accountNetworkStates) {
                         Log.d("### evaluating " + current);
+                        if (!initialized.contains(current.accountState.id)) {
+                            initialized.add(current.accountState.id);
+                            init(current);
+                        }
                         if (current.accountState.shouldRun(current.enabled))
                             runService = true;
                         if (!current.accountState.isTransient(ServiceSynchronize.this) &&
@@ -371,6 +376,37 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         quit(lastEventId);
                     }
                 }
+            }
+
+            private void init(final TupleAccountNetworkState accountNetworkState) {
+                queue.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        EntityLog.log(ServiceSynchronize.this, "### init " + accountNetworkState);
+
+                        DB db = DB.getInstance(ServiceSynchronize.this);
+                        try {
+                            db.beginTransaction();
+
+                            db.account().setAccountState(accountNetworkState.accountState.id, null);
+                            db.account().setAccountBackoff(accountNetworkState.accountState.id, null);
+
+                            for (EntityFolder folder : db.folder().getFolders(accountNetworkState.accountState.id, false, false)) {
+                                db.folder().setFolderState(folder.id, null);
+                                db.folder().setFolderSyncState(folder.id, null);
+                                db.folder().setFolderPollCount(folder.id, 0);
+                            }
+
+                            db.operation().resetOperationStates(accountNetworkState.accountState.id);
+
+                            db.setTransactionSuccessful();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+                });
             }
 
             private void start(final TupleAccountNetworkState accountNetworkState, boolean sync, boolean force) {
@@ -2073,7 +2109,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     };
 
     private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
-        boolean running = true;
+        private boolean running = true;
         private ConnectionHelper.NetworkState lastNetworkState = null;
         private List<TupleAccountState> lastAccountStates = null;
 
@@ -2150,22 +2186,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     try {
                         db.beginTransaction();
 
-                        // Reset accounts
-                        for (EntityAccount account : db.account().getAccounts()) {
-                            db.account().setAccountState(account.id, null);
-                            db.account().setAccountBackoff(account.id, null);
-                        }
-
-                        // reset folders
-                        for (EntityFolder folder : db.folder().getFolders()) {
-                            db.folder().setFolderState(folder.id, null);
-                            db.folder().setFolderSyncState(folder.id, null);
-                            db.folder().setFolderPollCount(folder.id, 0);
-                        }
-
-                        // Reset operations
-                        db.operation().resetOperationStates();
-
                         // Restore notifications
                         db.message().clearNotifyingMessages();
 
@@ -2182,11 +2202,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     schedule(context, false);
 
                     // Init service
-                    int accounts = db.account().getSynchronizingAccounts().size();
-                    if (accounts > 0) {
-                        // Reload: watchdog or user might have started service already
-                        reload(context, null, false, "boot");
-                    }
+                    eval(context, "boot");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }

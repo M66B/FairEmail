@@ -133,8 +133,11 @@ public interface DaoOperation {
     @Query("UPDATE operation SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setOperationState(long id, String state);
 
-    @Query("UPDATE operation SET state = NULL WHERE state IS NOT NULL")
-    int resetOperationStates();
+    @Query("UPDATE operation SET state = NULL" +
+            " WHERE account = :account" +
+            " AND state IS NOT NULL" +
+            " AND name <> '" + EntityOperation.SEND + "'")
+    int resetOperationStates(long account);
 
     @Query("UPDATE operation SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setOperationError(long id, String error);
