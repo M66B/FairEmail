@@ -136,10 +136,6 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
 
         DisconnectBlacklist.init(this);
 
-        ServiceSynchronize.boot(this);
-        ServiceSend.boot(this);
-        ServiceUI.boot(this);
-
         boolean watchdog = prefs.getBoolean("watchdog", true);
         boolean enabled = prefs.getBoolean("enabled", true);
         if (watchdog && enabled)
