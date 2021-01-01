@@ -749,9 +749,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_unsnoozed = :unsnoozed WHERE id = :id AND NOT (ui_unsnoozed IS :unsnoozed)")
     int setMessageUnsnoozed(long id, boolean unsnoozed);
 
-    @Query("UPDATE message SET uidl = :uidl WHERE id = :id AND NOT (uidl IS :uidl)")
-    int setMessageUidl(long id, String uidl);
-
     @Query("UPDATE message SET notifying = 0 WHERE NOT (notifying IS 0)")
     int clearNotifyingMessages();
 
