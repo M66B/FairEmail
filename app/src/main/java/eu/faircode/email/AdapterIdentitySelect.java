@@ -35,11 +35,18 @@ import java.util.List;
 public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
     private Context context;
     private List<TupleIdentityEx> identities;
+    private boolean hasColor = false;
 
     AdapterIdentitySelect(@NonNull Context context, List<TupleIdentityEx> identities) {
         super(context, 0, identities);
         this.context = context;
         this.identities = identities;
+
+        for (TupleIdentityEx identity : identities)
+            if (identity.color != null) {
+                hasColor = true;
+                break;
+            }
     }
 
     @NonNull
@@ -64,9 +71,20 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
         TextView tvExtra = view.findViewById(R.id.tvExtra);
 
         vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
-        text1.setText(identity.getDisplayName() + (identity.primary ? " ★" : ""));
-        text2.setText(identity.accountName + "/" + identity.email);
+        vwColor.setVisibility(hasColor ? View.VISIBLE : View.GONE);
+
+        boolean single = (identities.size() == 1 && identity.cc == null && identity.bcc == null);
+
+        if (single)
+            text1.setText(identity.getDisplayName() + " <" + identity.email + ">");
+        else {
+            text1.setText(identity.getDisplayName() + (identity.primary ? " ★" : ""));
+            text2.setText(identity.accountName + "/" + identity.email);
+        }
+
         tvExtra.setText((identity.cc == null ? "" : "+CC") + (identity.bcc == null ? "" : "+BCC"));
+
+        text2.setVisibility(single ? View.GONE : View.VISIBLE);
         tvExtra.setVisibility(identity.cc == null && identity.bcc == null ? View.GONE : View.VISIBLE);
 
         return view;
