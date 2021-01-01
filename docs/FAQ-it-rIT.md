@@ -429,7 +429,7 @@ Nel menu di trabocco a tre puntini puoi abilitare o disabilitare o selezionare:
 * *dimensione del testo*: per tre differenti dimensioni del font
 * *vista compatta*: per altri elementi di messaggio compressi e un font di testo del messaggio più piccolo
 
-In the display section of the settings you can enable or disable for example:
+Nella sezione di visualizzazione delle impostazioni puoi attivare o disattivare ad esempio:
 
 * *Casella unificata*: per disabilitare la casella della posta in arrivo unificata ed elencare le cartelle selezionate invece per la casella di posta in arrivo unificata
 * *Tabular style*: to show a linear list instead of cards
@@ -446,12 +446,12 @@ In the display section of the settings you can enable or disable for example:
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Nota che i messaggi sono visibili in anteprima solo quando il testo del messaggio è stato scaricato. I testi del messaggio più grandi non sono scaricati di default su reti misurate (generalmente mobili). You can change this in the connection settings.
+Nota che i messaggi sono visibili in anteprima solo quando il testo del messaggio è stato scaricato. I testi del messaggio più grandi non sono scaricati di default su reti misurate (generalmente mobili). Puoi modificare questa cosa nelle impostazioni di connessione.
 
-Some people ask:
+Alcune persone chiedono:
 
 * di mostrare il soggetto in grassetto, ma il grassetto è già usato per evidenziare i messaggi non letti
-* to move the star to the left, but it is much easier to operate the star on the right side
+* di spostare la stella a sinistra, ma è molto più facile azionarla sul lato destro
 
 <br />
 
@@ -1010,15 +1010,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Immagine incorporata](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Immagine rovinata](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1453,11 +1453,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1840,7 +1840,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2577,7 +2577,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2809,28 +2809,28 @@ If I could, I would add a setting to select the primary and accent color right a
 <br />
 
 
-## Get support
+## Ricevi supporto
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail è supportato solo su smartphone, tablet e ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Sono supportate solo l'ultima versione del Play Store e l'ultima versione di GitHub. La build di F-Droid è supportata solo se il numero di versione è lo stesso del numero dell'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
 
-There is no support on things that are not directly related to FairEmail.
+Non c'è alcun supporto su cose che non sono direttamente collegate a FairEmail.
 
-There is no support on building and developing things by yourself.
+Non c'è alcun supporto per eseguire build e sviluppare le cose da soli.
 
-Requested features should:
+Le funzionalità richieste dovrebbero:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* essere utili alla maggior parte delle persone
+* non complicare l'utilizzo di FairEmail
+* inserirsi nella filosofia di FairEmail (rispettoso della privacy, con un occhio alla sicurezza)
+* essere conformi agli standard comuni (IMAP, SMTP, ecc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò serve anche per rendere gestibile la manutenzione e il supporto a lungo termine.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
 
 <br />
 

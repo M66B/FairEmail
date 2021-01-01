@@ -797,7 +797,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_ask_review_rationale">        FairEmail をしばらく使用しています。
         Play ストアで FairEmail を評価していただければ幸いです。
     </string>
-    <string name="title_ask_once">「後で」を選択しない限り、このメッセージは一度しか表示されません</string>
+    <string name="title_ask_once">「後ほど」を選択しない限り、このメッセージは一度しか表示されません。</string>
     <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
@@ -1242,7 +1242,15 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_pro_list">プロ機能のリスト</string>
     <string name="title_pro_purchase">購入</string>
     <string name="title_pro_once">一度だけです</string>
+    <string name="title_pro_info">FairEmailの開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。
+         FairEmailはあなたのプライバシーを真剣に受け止め、広告を表示せず、お金を稼ぐために追跡や分析を使用しません。
+         FairEmailを長期的に維持およびサポートするために、いくつかの便利で高度な機能を無料で使用することはできません。
+         FairEmailは、これを思い出させる小さなメッセージを表示します。これは、プロ機能を購入すると削除されます。
+    </string>
+    <string name="title_pro_hide">メッセージを%1$d 週間非表示にする</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
+    <string name="title_pro_price">なぜプロ機能はそんなに高価なのですか？</string>
+    <string name="title_pro_restore">購入を復元するにはどうすればよいですか?</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
     <string name="title_pro_valid">全てのプロ機能が有効化されました</string>
@@ -1254,6 +1262,12 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_log">ログ</string>
     <string name="title_auto_scroll">自動スクロール</string>
     <string name="title_log_clear">クリア</string>
+    <string name="title_rules_search_hint">名前または条件を検索</string>
+    <string name="title_rules_export">ルールをエクスポート</string>
+    <string name="title_rules_import">ルールをインポート</string>
+    <string name="title_rules_delete_all">すべてのルールを削除</string>
+    <string name="title_rules_delete_junk">スパムルールを削除</string>
+    <string name="title_rules_delete_all_confirm">すべてのルールを削除しますか？</string>
     <string name="title_debug_info">デバッグ情報</string>
     <string name="title_debug_info_remark">問題を説明し問題の時刻を記述下さい(英語のみ):</string>
     <string name="title_crash_info_remark">アプリがクラッシュした時に何をしていたかを説明してください(英語のみ):</string>

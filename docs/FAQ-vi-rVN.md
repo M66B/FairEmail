@@ -1,43 +1,43 @@
-# FairEmail support
+# Hỗ trợ FairEmail
 
-If you have a question, please check the frequently asked questions below first. At the bottom, you can find out how to ask other questions, request features, and report bugs.
+Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp bên dưới trước. Ở dưới cùng, bạn có thể tìm hiểu cách đặt các câu hỏi khác, yêu cầu tính năng và báo cáo lỗi.
 
-## Index
+## Mục lục
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Cấp phép tài khoản](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Làm thế nào để ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Các vấn đề đã biết](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Các tính năng được lập kế hoạch](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Các tính năng thường được yêu cầu](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Các câu hỏi thường gặp](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Nhận hỗ trợ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Authorizing accounts
+## Cấp phép tài khoản
 
-In most cases, the quick setup will be able to automatically identify the correct configuration.
+Trong hầu hết các trường hợp, thiết lập nhanh sẽ có thể tự động xác định cấu hình chính xác.
 
-If the quick setup fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Nếu thiết lập nhanh không thành công, bạn sẽ cần thiết lập thủ công tài khoản (để nhận email) và danh tính (để gửi email. Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Tìm kiếm * IMAP * và tên của nhà cung cấp hầu hết là đủ để tìm tài liệu phù hợp.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Trong một số trường hợp, bạn cần bật quyền truy cập bên ngoài vào tài khoản của mình và / hoặc sử dụng mật khẩu (ứng dụng) đặc biệt, ví dụ khi xác thực hai yếu tố được bật.
 
-For authorizing:
+Để ủy quyền:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, xem [ câu hỏi 6 ](#user-content-faq6)
+* Outlook / Live / Hotmail, xem [ câu hỏi 14 ](#user-content-faq14)
+* Office 365, xem [ câu hỏi 14 ](#user-content-faq156)
+* Microsoft Exchange, xem [ câu hỏi 8 ](#user-content-faq8)
+* Yahoo, AOL và Sky, xem [ câu hỏi 88 ](#user-content-faq88)
+* Icloud của Apple, xem [ câu hỏi 148 ](#user-content-faq148)
+* Free.fr, xem [ câu hỏi 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Vui lòng xem [ tại đây ](#user-content-faq22) để biết các thông báo lỗi phổ biến và giải pháp.
 
-Related questions:
+Câu hỏi liên quan:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [OAuth có được hỗ trợ không?](#user-content-faq111)
+* [Tại sao ActiveSync không được hỗ trợ?](#user-content-faq133)
 
 <a name="howto">
 
