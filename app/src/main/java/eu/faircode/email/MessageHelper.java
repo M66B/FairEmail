@@ -2456,8 +2456,10 @@ public class MessageHelper {
                             String[] c = part.getHeader("Content-type");
                             if (c != null && c.length > 0) {
                                 ContentType ct = new ContentType(c[0]);
-                                if ("text/html".equalsIgnoreCase(ct.getBaseType()))
+                                if ("text/html".equalsIgnoreCase(ct.getBaseType())) {
+                                    Log.e("Inconsistent bs=" + contentType + " header=" + ct);
                                     contentType = ct;
+                                }
                             }
                         } catch (MessagingException ex) {
                             Log.w(ex);
