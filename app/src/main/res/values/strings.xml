@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">FairEmail</string>
-    <string name="app_copyright" translatable="false">Copyright &#x24B8; 2018–2020 by M. Bokhorst</string>
+    <string name="app_copyright" translatable="false">Copyright &#x24B8; 2018–2021 by M. Bokhorst</string>
     <string name="app_search">FairEmail search</string>
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail is an open source email app focused on privacy and security. For this reason some features might work differently from what you are used to.</string>
