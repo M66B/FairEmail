@@ -127,6 +127,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_OAUTH = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OAUTH";
     static final String ACTION_QUICK_SETUP = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_SETUP";
+    static final String ACTION_QUICK_POP3 = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_POP3";
     static final String ACTION_VIEW_ACCOUNTS = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_ACCOUNTS";
     static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
@@ -320,6 +321,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_QUICK_GMAIL);
         iff.addAction(ACTION_QUICK_OAUTH);
         iff.addAction(ACTION_QUICK_SETUP);
+        iff.addAction(ACTION_QUICK_POP3);
         iff.addAction(ACTION_VIEW_ACCOUNTS);
         iff.addAction(ACTION_VIEW_IDENTITIES);
         iff.addAction(ACTION_EDIT_ACCOUNT);
@@ -1159,9 +1161,17 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         fragmentTransaction.commit();
     }
 
-    private void onViewQuickSetup(Intent intent) {
+    private void onQuickSetup(Intent intent) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentQuickSetup()).addToBackStack("quick");
+        fragmentTransaction.commit();
+    }
+
+    private void onQuickPop3(Intent intent) {
+        FragmentBase fragment = new FragmentPop();
+        fragment.setArguments(new Bundle());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
         fragmentTransaction.commit();
     }
 
@@ -1321,7 +1331,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 else if (ACTION_QUICK_OAUTH.equals(action))
                     onOAuth(intent);
                 else if (ACTION_QUICK_SETUP.equals(action))
-                    onViewQuickSetup(intent);
+                    onQuickSetup(intent);
+                else if (ACTION_QUICK_POP3.equals(action))
+                    onQuickPop3(intent);
                 else if (ACTION_VIEW_ACCOUNTS.equals(action))
                     onViewAccounts(intent);
                 else if (ACTION_VIEW_IDENTITIES.equals(action))

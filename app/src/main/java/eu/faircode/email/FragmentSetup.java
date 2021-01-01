@@ -182,6 +182,7 @@ public class FragmentSetup extends FragmentBase {
 
                 //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_pop3, order++, R.string.title_setup_pop3);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -200,6 +201,9 @@ public class FragmentSetup extends FragmentBase {
                             case R.string.title_setup_outlook:
                             case R.string.title_setup_other:
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
+                                return true;
+                            case R.string.title_setup_pop3:
+                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
                                 return true;
                             default:
                                 if (item.getIntent() == null)
