@@ -42,7 +42,7 @@ import io.requery.android.database.sqlite.SQLiteDatabase;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerFts extends Worker {
-    private static final int INDEX_DELAY = 30; // seconds
+    private static final int INDEX_DELAY = BuildConfig.DEBUG ? 3 : 30; // seconds
     private static final int INDEX_BATCH_SIZE = 100;
 
     public WorkerFts(@NonNull Context context, @NonNull WorkerParameters workerParams) {
@@ -77,6 +77,9 @@ public class WorkerFts extends Worker {
                             Log.i("FTS gone");
                             continue;
                         }
+
+                        if (BuildConfig.DEBUG)
+                            MessageClassifier.classify(message, true, context);
 
                         File file = message.getFile(context);
                         String text = HtmlHelper.getFullText(file);
