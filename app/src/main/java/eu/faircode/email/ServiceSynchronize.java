@@ -520,6 +520,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 for (EntityOperation op : ops)
                                     db.folder().setFolderSyncState(op.folder, null);
 
+                                getMainHandler().removeCallbacks(backup);
                                 MessageClassifier.save(ServiceSynchronize.this);
                             } else {
                                 // Yield update notifications/widgets
