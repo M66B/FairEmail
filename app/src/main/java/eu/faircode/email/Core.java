@@ -798,17 +798,18 @@ class Core {
                 return;
             }
 
-            Message[] imessages;
+            boolean archived;
             Folder iarchive = istore.getFolder(archive.name);
             try {
                 iarchive.open(Folder.READ_ONLY);
-                imessages = ifolder.search(new MessageIDTerm(message.msgid));
+                Message[] imessages = iarchive.search(new MessageIDTerm(message.msgid));
+                archived = (imessages != null && imessages.length > 0);
             } finally {
                 if (iarchive.isOpen())
                     iarchive.close();
             }
 
-            if (imessages != null && imessages.length > 0)
+            if (archived)
                 try {
                     Message imessage = ifolder.getMessageByUID(message.uid);
                     if (imessage == null)
