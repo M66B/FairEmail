@@ -20,7 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -42,10 +45,11 @@ public class MessageClassifier {
     private static final double CHANCE_THRESHOLD = 2.0;
 
     static String classify(EntityMessage message, boolean added, Context context) {
-        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (!prefs.getBoolean("classify", BuildConfig.DEBUG))
+            return null;
 
-        if (!message.content)
-            throw new IllegalArgumentException("Message without content");
+        DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(message.folder);
         if (folder == null)
@@ -80,14 +84,15 @@ public class MessageClassifier {
             m = (m == null ? 1 : m + 1);
             classMessages.put(folder.name, m);
         } else {
-            if (m != null)
+            if (m != null && m > 0)
                 classMessages.put(folder.name, m - 1);
         }
+        Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(folder.name));
 
         return classified;
     }
 
-    static String classify(String classify, String text, boolean added) {
+    private static String classify(String classify, String text, boolean added) {
         int maxFrequency = 0;
         int maxMatchedWords = 0;
         List<String> words = new ArrayList<>();
@@ -107,7 +112,10 @@ public class MessageClassifier {
                 if (!added) {
                     Integer c = (classFrequency == null ? null : classFrequency.get(classify));
                     if (c != null)
-                        classFrequency.put(classify, c - 1);
+                        if (c > 0)
+                            classFrequency.put(classify, c - 1);
+                        else
+                            classFrequency.remove(classify);
                     continue;
                 }
 

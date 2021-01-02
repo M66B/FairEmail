@@ -229,6 +229,9 @@ public class EntityOperation {
                             db.rule().deleteRule(rule.id);
                 }
 
+                if (message.content)
+                    MessageClassifier.classify(message, false, context);
+
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
                 if (message.uid != null &&
