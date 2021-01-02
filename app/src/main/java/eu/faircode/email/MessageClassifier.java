@@ -75,6 +75,9 @@ public class MessageClassifier {
             return null;
 
         File file = message.getFile(context);
+        if (!file.exists())
+            return null;
+
         String text;
         try {
             text = HtmlHelper.getFullText(file);
