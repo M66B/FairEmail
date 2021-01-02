@@ -735,6 +735,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         liveAccountNetworkState.postDestroy();
 
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MessageClassifier.save(ServiceSynchronize.this);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
         TTSHelper.shutdown();
 
         try {
