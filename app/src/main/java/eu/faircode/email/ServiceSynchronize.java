@@ -515,6 +515,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
                                 for (EntityOperation op : ops)
                                     db.folder().setFolderSyncState(op.folder, null);
+
+                                MessageClassifier.save(ServiceSynchronize.this);
                             } else {
                                 // Yield update notifications/widgets
                                 try {
@@ -734,17 +736,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         cm.unregisterNetworkCallback(networkCallback);
 
         liveAccountNetworkState.postDestroy();
-
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    MessageClassifier.save(ServiceSynchronize.this);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
 
         TTSHelper.shutdown();
 
