@@ -42,8 +42,8 @@ import java.util.Map;
 
 public class MessageClassifier {
     private static boolean loaded = false;
-    private static Map<String, Integer> classMessages = new HashMap<>();
-    private static Map<String, Map<String, Integer>> wordClassFrequency = new HashMap<>();
+    private static Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
+    private static Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
 
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
@@ -89,22 +89,27 @@ public class MessageClassifier {
         if (TextUtils.isEmpty(text))
             return null;
 
-        String classified = classify(folder.name, text, added);
+        if (!classMessages.containsKey(account.id))
+            classMessages.put(account.id, new HashMap<>());
+        if (!wordClassFrequency.containsKey(account.id))
+            wordClassFrequency.put(account.id, new HashMap<>());
 
-        Integer m = classMessages.get(folder.name);
+        String classified = classify(account.id, folder.name, text, added);
+
+        Integer m = classMessages.get(account.id).get(folder.name);
         if (added) {
             m = (m == null ? 1 : m + 1);
-            classMessages.put(folder.name, m);
+            classMessages.get(account.id).put(folder.name, m);
         } else {
             if (m != null && m > 0)
-                classMessages.put(folder.name, m - 1);
+                classMessages.get(account.id).put(folder.name, m - 1);
         }
-        Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(folder.name));
+        Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
 
         return classified;
     }
 
-    private static String classify(String classify, String text, boolean added) {
+    private static String classify(long account, String classify, String text, boolean added) {
         int maxFrequency = 0;
         int maxMatchedWords = 0;
         List<String> words = new ArrayList<>();
@@ -120,11 +125,11 @@ public class MessageClassifier {
                     !word.matches(".*\\d.*")) {
                 words.add(word);
 
-                Map<String, Integer> classFrequency = wordClassFrequency.get(word);
+                Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
                 if (added) {
                     if (classFrequency == null) {
                         classFrequency = new HashMap<>();
-                        wordClassFrequency.put(word, classFrequency);
+                        wordClassFrequency.get(account).put(word, classFrequency);
                     }
 
                     // Filter classes of common occurring words
@@ -132,8 +137,8 @@ public class MessageClassifier {
                     for (String class1 : classFrequency.keySet())
                         for (String class2 : classFrequency.keySet())
                             if (!class1.equals(class2)) {
-                                double percentage1 = (double) classFrequency.get(class1) / classMessages.get(class1);
-                                double percentage2 = (double) classFrequency.get(class2) / classMessages.get(class2);
+                                double percentage1 = (double) classFrequency.get(class1) / classMessages.get(account).get(class1);
+                                double percentage2 = (double) classFrequency.get(class2) / classMessages.get(account).get(class2);
                                 double factor = percentage1 / percentage2;
                                 if (factor > 1)
                                     factor = 1 / factor;
@@ -215,22 +220,26 @@ public class MessageClassifier {
             return;
 
         JSONArray jmessages = new JSONArray();
-        for (String clazz : classMessages.keySet()) {
-            JSONObject jmessage = new JSONObject();
-            jmessage.put("class", clazz);
-            jmessage.put("count", classMessages.get(clazz));
-            jmessages.put(jmessage);
-        }
+        for (Long account : classMessages.keySet())
+            for (String clazz : classMessages.get(account).keySet()) {
+                JSONObject jmessage = new JSONObject();
+                jmessage.put("account", account);
+                jmessage.put("class", clazz);
+                jmessage.put("count", classMessages.get(account).get(clazz));
+                jmessages.put(jmessage);
+            }
 
         JSONArray jwords = new JSONArray();
-        for (String word : wordClassFrequency.keySet())
-            for (String clazz : wordClassFrequency.get(word).keySet()) {
-                JSONObject jword = new JSONObject();
-                jword.put("word", word);
-                jword.put("class", clazz);
-                jword.put("frequency", wordClassFrequency.get(word).get(clazz));
-                jwords.put(jword);
-            }
+        for (Long account : classMessages.keySet())
+            for (String word : wordClassFrequency.get(account).keySet())
+                for (String clazz : wordClassFrequency.get(account).get(word).keySet()) {
+                    JSONObject jword = new JSONObject();
+                    jword.put("account", account);
+                    jword.put("word", word);
+                    jword.put("class", clazz);
+                    jword.put("frequency", wordClassFrequency.get(account).get(word).get(clazz));
+                    jwords.put(jword);
+                }
 
         JSONObject jroot = new JSONObject();
         jroot.put("messages", jmessages);
@@ -239,7 +248,7 @@ public class MessageClassifier {
         File file = getFile(context);
         Helper.writeText(file, jroot.toString(2));
 
-        Log.i("Classifier saved classes=" + classMessages.size() + " words=" + wordClassFrequency.size());
+        Log.i("Classifier saved");
     }
 
     private static synchronized void load(Context context) throws IOException, JSONException {
@@ -260,24 +269,30 @@ public class MessageClassifier {
             JSONArray jmessages = jroot.getJSONArray("messages");
             for (int m = 0; m < jmessages.length(); m++) {
                 JSONObject jmessage = (JSONObject) jmessages.get(m);
-                classMessages.put(jmessage.getString("class"), jmessage.getInt("count"));
+                long account = jmessage.getLong("account");
+                if (!classMessages.containsKey(account))
+                    classMessages.put(account, new HashMap<>());
+                classMessages.get(account).put(jmessage.getString("class"), jmessage.getInt("count"));
             }
 
             JSONArray jwords = jroot.getJSONArray("words");
             for (int w = 0; w < jwords.length(); w++) {
                 JSONObject jword = (JSONObject) jwords.get(w);
+                long account = jword.getLong("account");
+                if (!wordClassFrequency.containsKey("account"))
+                    wordClassFrequency.put(account, new HashMap<>());
                 String word = jword.getString("word");
-                Map<String, Integer> classFrequency = wordClassFrequency.get(word);
+                Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
                 if (classFrequency == null) {
                     classFrequency = new HashMap<>();
-                    wordClassFrequency.put(word, classFrequency);
+                    wordClassFrequency.get(account).put(word, classFrequency);
                 }
                 classFrequency.put(jword.getString("class"), jword.getInt("frequency"));
             }
         }
 
         loaded = true;
-        Log.i("Classifier loaded classes=" + classMessages.size() + " words=" + wordClassFrequency.size());
+        Log.i("Classifier loaded");
     }
 
     private static boolean isEnabled(Context context) {
