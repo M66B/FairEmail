@@ -1195,8 +1195,10 @@ class Core {
             throw new IllegalArgumentException("account missing");
 
         try {
-            if (removed)
+            if (removed) {
+                db.message().deleteMessage(folder.id, uid);
                 throw new MessageRemovedException("removed uid=" + uid);
+            }
 
             MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
             if (imessage == null)
