@@ -109,59 +109,58 @@ public class MessageClassifier {
                 words.add(word);
 
                 Map<String, Integer> classFrequency = wordClassFrequency.get(word);
-                if (!added) {
+                if (added) {
+                    if (classFrequency == null) {
+                        classFrequency = new HashMap<>();
+                        wordClassFrequency.put(word, classFrequency);
+                    }
+
+                    // Filter classes of common occurring words
+                    List<String> applyClasses = new ArrayList<>(classFrequency.keySet());
+                    for (String class1 : classFrequency.keySet())
+                        for (String class2 : classFrequency.keySet())
+                            if (!class1.equals(class2)) {
+                                double percentage1 = (double) classFrequency.get(class1) / classMessages.get(class1);
+                                double percentage2 = (double) classFrequency.get(class2) / classMessages.get(class2);
+                                double factor = percentage1 / percentage2;
+                                if (factor > 1)
+                                    factor = 1 / factor;
+                                if (factor > COMMON_WORD_FACTOR) {
+                                    Log.i("Classifier skip class=" + class1 + " word=" + word);
+                                    applyClasses.remove(class1);
+                                    break;
+                                }
+                            }
+
+                    for (String clazz : applyClasses) {
+                        int frequency = classFrequency.get(clazz);
+                        if (frequency > maxFrequency)
+                            maxFrequency = frequency;
+
+                        Stat stat = classStats.get(clazz);
+                        if (stat == null) {
+                            stat = new Stat();
+                            classStats.put(clazz, stat);
+                        }
+
+                        stat.matchedWords++;
+                        stat.totalFrequency += frequency;
+
+                        if (stat.matchedWords > maxMatchedWords)
+                            maxMatchedWords = stat.matchedWords;
+                    }
+
+                    Integer c = classFrequency.get(classify);
+                    c = (c == null ? 1 : c + 1);
+                    classFrequency.put(classify, c);
+                } else {
                     Integer c = (classFrequency == null ? null : classFrequency.get(classify));
                     if (c != null)
                         if (c > 0)
                             classFrequency.put(classify, c - 1);
                         else
                             classFrequency.remove(classify);
-                    continue;
                 }
-
-                if (classFrequency == null) {
-                    classFrequency = new HashMap<>();
-                    wordClassFrequency.put(word, classFrequency);
-                }
-
-                // Filter classes of common occurring words
-                List<String> applyClasses = new ArrayList<>(classFrequency.keySet());
-                for (String class1 : classFrequency.keySet())
-                    for (String class2 : classFrequency.keySet())
-                        if (!class1.equals(class2)) {
-                            double percentage1 = (double) classFrequency.get(class1) / classMessages.get(class1);
-                            double percentage2 = (double) classFrequency.get(class2) / classMessages.get(class2);
-                            double factor = percentage1 / percentage2;
-                            if (factor > 1)
-                                factor = 1 / factor;
-                            if (factor > COMMON_WORD_FACTOR) {
-                                Log.i("Classifier skip class=" + class1 + " word=" + word);
-                                applyClasses.remove(class1);
-                                break;
-                            }
-                        }
-
-                for (String clazz : applyClasses) {
-                    int frequency = classFrequency.get(clazz);
-                    if (frequency > maxFrequency)
-                        maxFrequency = frequency;
-
-                    Stat stat = classStats.get(clazz);
-                    if (stat == null) {
-                        stat = new Stat();
-                        classStats.put(clazz, stat);
-                    }
-
-                    stat.matchedWords++;
-                    stat.totalFrequency += frequency;
-
-                    if (stat.matchedWords > maxMatchedWords)
-                        maxMatchedWords = stat.matchedWords;
-                }
-
-                Integer c = classFrequency.get(classify);
-                c = (c == null ? 1 : c + 1);
-                classFrequency.put(classify, c);
             }
             start = end;
         }
