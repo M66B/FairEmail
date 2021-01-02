@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7425,7 +7426,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             PrintJob job = printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
                             EntityLog.log(context, "Print queued job=" + job.getInfo());
                         } catch (Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof ActivityNotFoundException));
                         } finally {
                             printWebView = null;
                         }
