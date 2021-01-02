@@ -48,9 +48,9 @@ public class MessageClassifier {
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
-    static String classify(EntityMessage message, boolean added, Context context) {
+    static void classify(EntityMessage message, boolean added, Context context) {
         if (!isEnabled(context))
-            return null;
+            return;
 
         try {
             load(context);
@@ -62,21 +62,21 @@ public class MessageClassifier {
 
         EntityFolder folder = db.folder().getFolder(message.folder);
         if (folder == null)
-            return null;
+            return;
 
         EntityAccount account = db.account().getAccount(folder.account);
         if (account == null)
-            return null;
+            return;
 
         if (!EntityFolder.INBOX.equals(folder.type) &&
                 !EntityFolder.JUNK.equals(folder.type) &&
                 !EntityFolder.USER.equals(folder.type) &&
                 !(EntityFolder.ARCHIVE.equals(folder.type) && !account.isGmail()))
-            return null;
+            return;
 
         File file = message.getFile(context);
         if (!file.exists())
-            return null;
+            return;
 
         String text;
         try {
@@ -87,7 +87,7 @@ public class MessageClassifier {
         }
 
         if (TextUtils.isEmpty(text))
-            return null;
+            return;
 
         if (!classMessages.containsKey(account.id))
             classMessages.put(account.id, new HashMap<>());
@@ -106,7 +106,11 @@ public class MessageClassifier {
         }
         Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
 
-        return classified;
+        if (classified != null) {
+            EntityFolder f = db.folder().getFolderByName(account.id, classified);
+            if (f != null && f.auto_classify && !f.id.equals(folder.id))
+                EntityOperation.queue(context, message, EntityOperation.MOVE, f.id);
+        }
     }
 
     private static String classify(long account, String classify, String text, boolean added) {
@@ -295,7 +299,7 @@ public class MessageClassifier {
         Log.i("Classifier loaded");
     }
 
-    private static boolean isEnabled(Context context) {
+    static boolean isEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean("classify", BuildConfig.DEBUG);
     }

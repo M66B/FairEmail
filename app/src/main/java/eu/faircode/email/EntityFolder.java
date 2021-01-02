@@ -108,6 +108,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean navigation = false;
     @NonNull
     public Boolean notify = false;
+    @NonNull
+    public Boolean auto_classify = false;
 
     public Integer total; // messages on server
     public String[] keywords;
