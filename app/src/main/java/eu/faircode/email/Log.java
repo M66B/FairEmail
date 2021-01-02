@@ -1018,6 +1018,26 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof NullPointerException) {
+            for (StackTraceElement ste : stack)
+                if ("android.app.job.IJobCallback$Stub$Proxy".equals(ste.getClassName()) &&
+                        "jobFinished".equals(ste.getMethodName()))
+                    return false;
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.job.controllers.JobStatus.getUid()' on a null object reference
+                  at android.os.Parcel.readException(Parcel.java:1605)
+                  at android.os.Parcel.readException(Parcel.java:1552)
+                  at android.app.job.IJobCallback$Stub$Proxy.jobFinished(IJobCallback.java:167)
+                  at android.app.job.JobService$JobHandler.handleMessage(JobService.java:147)
+                  at android.os.Handler.dispatchMessage(Handler.java:111)
+                  at android.os.Looper.loop(Looper.java:207)
+                  at android.app.ActivityThread.main(ActivityThread.java:5697)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:905)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:766)
+             */
+        }
+
         if (ex instanceof IllegalStateException &&
                 stack.length > 0 &&
                 "android.database.sqlite.SQLiteSession".equals(stack[0].getClassName()) &&
