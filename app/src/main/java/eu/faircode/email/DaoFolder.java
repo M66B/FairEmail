@@ -282,20 +282,20 @@ public interface DaoFolder {
             ", unified = :unified" +
             ", navigation = :navigation" +
             ", notify = :notify" +
-            ", auto_classify = :auto_classify" +
             ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
             ", poll_factor = :poll_factor" +
             ", download = :download" +
+            ", auto_classify = :auto_classify" +
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
             ", auto_delete = :auto_delete" +
             " WHERE id = :id")
     int setFolderProperties(
             long id, String rename,
-            String display, Integer color, boolean unified, boolean navigation, boolean notify, boolean auto_classify, boolean hide,
-            boolean synchronize, boolean poll, int poll_factor, boolean download,
+            String display, Integer color, boolean unified, boolean navigation, boolean notify, boolean hide,
+            boolean synchronize, boolean poll, int poll_factor, boolean download, boolean auto_classify,
             int sync_days, int keep_days, boolean auto_delete);
 
     @Query("UPDATE folder" +

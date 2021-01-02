@@ -89,6 +89,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Integer poll_count = 0;
     @NonNull
     public Boolean download = true;
+    @NonNull
+    public Boolean auto_classify = false;
     public Boolean subscribed;
     @NonNull
     public Integer sync_days;
@@ -108,8 +110,6 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean navigation = false;
     @NonNull
     public Boolean notify = false;
-    @NonNull
-    public Boolean auto_classify = false;
 
     public Integer total; // messages on server
     public String[] keywords;

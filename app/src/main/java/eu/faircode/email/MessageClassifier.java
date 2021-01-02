@@ -42,6 +42,7 @@ import java.util.Map;
 
 public class MessageClassifier {
     private static boolean loaded = false;
+    private static boolean dirty = false;
     private static Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
 
@@ -106,9 +107,11 @@ public class MessageClassifier {
         }
         Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
 
+        dirty = true;
+
         if (classified != null) {
             EntityFolder f = db.folder().getFolderByName(account.id, classified);
-            if (f != null && f.auto_classify && !f.id.equals(folder.id))
+            if (f != null && f.download && f.auto_classify && !f.id.equals(folder.id))
                 EntityOperation.queue(context, message, EntityOperation.MOVE, f.id);
         }
     }
@@ -220,7 +223,7 @@ public class MessageClassifier {
     }
 
     static synchronized void save(Context context) throws JSONException, IOException {
-        if (!loaded)
+        if (!dirty)
             return;
         if (!isEnabled(context))
             return;

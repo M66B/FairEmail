@@ -64,12 +64,12 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbUnified;
     private CheckBox cbNavigation;
     private CheckBox cbNotify;
-    private CheckBox cbAutoClassify;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
     private EditText etPoll;
     private TextView tvPoll;
     private CheckBox cbDownload;
+    private CheckBox cbAutoClassify;
     private Button btnInfo;
     private EditText etSyncDays;
     private EditText etKeepDays;
@@ -125,12 +125,12 @@ public class FragmentFolder extends FragmentBase {
         cbUnified = view.findViewById(R.id.cbUnified);
         cbNavigation = view.findViewById(R.id.cbNavigation);
         cbNotify = view.findViewById(R.id.cbNotify);
-        cbAutoClassify = view.findViewById(R.id.cbAutoClassify);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
         etPoll = view.findViewById(R.id.etPoll);
         tvPoll = view.findViewById(R.id.tvPoll);
         cbDownload = view.findViewById(R.id.cbDownload);
+        cbAutoClassify = view.findViewById(R.id.cbAutoClassify);
         btnInfo = view.findViewById(R.id.btnInfo);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
@@ -160,8 +160,6 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
-        cbAutoClassify.setVisibility(MessageClassifier.isEnabled(getContext()) ? View.VISIBLE : View.GONE);
-
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -178,6 +176,15 @@ public class FragmentFolder extends FragmentBase {
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && isChecked ? View.VISIBLE : View.GONE);
             }
         });
+
+        cbDownload.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbAutoClassify.setEnabled(isChecked);
+            }
+        });
+
+        cbAutoClassify.setVisibility(MessageClassifier.isEnabled(getContext()) ? View.VISIBLE : View.GONE);
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -284,12 +291,12 @@ public class FragmentFolder extends FragmentBase {
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
-                    cbAutoClassify.setChecked(folder == null ? false : folder.auto_classify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? true : folder.poll);
                     etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
                     tvPoll.setText(getString(R.string.title_factor_minutes, interval));
                     cbDownload.setChecked(folder == null ? true : folder.download);
+                    cbAutoClassify.setChecked(folder == null ? false : folder.auto_classify);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
                     if (folder != null && folder.keep_days == Integer.MAX_VALUE)
                         cbKeepAll.setChecked(true);
@@ -317,6 +324,7 @@ public class FragmentFolder extends FragmentBase {
                 etPoll.setEnabled(cbSynchronize.isChecked() && always);
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
+                cbAutoClassify.setEnabled(cbDownload.isChecked());
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
@@ -416,11 +424,11 @@ public class FragmentFolder extends FragmentBase {
         args.putBoolean("unified", cbUnified.isChecked());
         args.putBoolean("navigation", cbNavigation.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
-        args.putBoolean("auto_classify", cbAutoClassify.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("poll", cbPoll.isChecked());
         args.putString("factor", etPoll.getText().toString());
         args.putBoolean("download", cbDownload.isChecked());
+        args.putBoolean("auto_classify", cbAutoClassify.isChecked());
         args.putString("sync", etSyncDays.getText().toString());
         args.putString("keep", cbKeepAll.isChecked()
                 ? Integer.toString(Integer.MAX_VALUE)
@@ -459,11 +467,11 @@ public class FragmentFolder extends FragmentBase {
                 boolean unified = args.getBoolean("unified");
                 boolean navigation = args.getBoolean("navigation");
                 boolean notify = args.getBoolean("notify");
-                boolean auto_classify = args.getBoolean("auto_classify");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean poll = args.getBoolean("poll");
                 String factor = args.getString("factor");
                 boolean download = args.getBoolean("download");
+                boolean auto_classify = args.getBoolean("auto_classify");
                 String sync = args.getString("sync");
                 String keep = args.getString("keep");
                 boolean auto_delete = args.getBoolean("auto_delete");
@@ -513,8 +521,6 @@ public class FragmentFolder extends FragmentBase {
                             return true;
                         if (!Objects.equals(folder.notify, notify))
                             return true;
-                        if (!Objects.equals(folder.auto_classify, auto_classify))
-                            return true;
                         if (!Objects.equals(folder.hide, hide))
                             return true;
                         if (!Objects.equals(folder.synchronize, synchronize))
@@ -525,6 +531,8 @@ public class FragmentFolder extends FragmentBase {
                             if (!Objects.equals(folder.poll_factor, poll_factor))
                                 return true;
                             if (!Objects.equals(folder.download, download))
+                                return true;
+                            if (!Objects.equals(folder.auto_classify, auto_classify))
                                 return true;
                             if (!Objects.equals(folder.sync_days, sync_days))
                                 return true;
@@ -564,12 +572,12 @@ public class FragmentFolder extends FragmentBase {
                         create.unified = unified;
                         create.navigation = navigation;
                         create.notify = notify;
-                        create.auto_classify = auto_classify;
                         create.hide = hide;
                         create.synchronize = synchronize;
                         create.poll = poll;
                         create.poll_factor = poll_factor;
                         create.download = download;
+                        create.auto_classify = auto_classify;
                         create.sync_days = sync_days;
                         create.keep_days = keep_days;
                         create.auto_delete = auto_delete;
@@ -588,8 +596,8 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Updating folder=" + folder.name);
                         db.folder().setFolderProperties(id,
                                 folder.name.equals(name) ? null : name,
-                                display, color, unified, navigation, notify, auto_classify, hide,
-                                synchronize, poll, poll_factor, download,
+                                display, color, unified, navigation, notify, hide,
+                                synchronize, poll, poll_factor, download, auto_classify,
                                 sync_days, keep_days, auto_delete);
                         db.folder().setFolderError(id, null);
 
