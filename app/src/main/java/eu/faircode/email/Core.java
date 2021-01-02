@@ -1384,7 +1384,7 @@ class Core {
             // Synchronize will delete messages when needed
             db.message().setMessageUiHide(message.id, true);
         } else
-            db.message().deleteMessage(folder.id, message.id);
+            db.message().deleteMessage(message.id);
 
         if (!EntityFolder.DRAFTS.equals(folder.type) &&
                 !EntityFolder.TRASH.equals(folder.type)) {
