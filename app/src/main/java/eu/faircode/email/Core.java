@@ -998,6 +998,10 @@ class Core {
         if (folder.id.equals(target.id))
             throw new IllegalArgumentException("self");
 
+        // De-classify
+        for (EntityMessage message : messages)
+            MessageClassifier.classify(message, false, context);
+
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
         // Get source messages
