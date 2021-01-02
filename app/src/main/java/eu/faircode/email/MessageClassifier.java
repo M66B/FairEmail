@@ -220,6 +220,8 @@ public class MessageClassifier {
     }
 
     static synchronized void save(Context context) throws JSONException, IOException {
+        if (!loaded)
+            return;
         if (!isEnabled(context))
             return;
 
