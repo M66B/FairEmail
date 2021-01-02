@@ -239,7 +239,6 @@ public class MessageClassifier {
         File file = getFile(context);
         Helper.writeText(file, jroot.toString(2));
 
-        loaded = false;
         Log.i("Classifier saved classes=" + classMessages.size() + " words=" + wordClassFrequency.size());
     }
 

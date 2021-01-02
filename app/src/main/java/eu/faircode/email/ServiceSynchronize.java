@@ -113,6 +113,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "sync");
 
+    private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
     private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
@@ -350,6 +351,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             WorkerFts.cancel(ServiceSynchronize.this);
                         }
 
+                        getMainHandler().removeCallbacks(backup);
+                        getMainHandler().postDelayed(backup, BACKUP_DELAY);
+
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -542,6 +546,22 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 });
             }
+
+            private Runnable backup = new Runnable() {
+                @Override
+                public void run() {
+                    queue.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                MessageClassifier.save(ServiceSynchronize.this);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
+                }
+            };
         });
 
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveUnseenNotify");
