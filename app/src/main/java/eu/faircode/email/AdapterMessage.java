@@ -896,7 +896,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (outgoing &&
+            boolean reverse = (EntityFolder.isOutgoing(message.folderType) &&
                     (viewType != ViewType.THREAD || !threading) && !show_recipients);
             Address[] senders = ContactInfo.fillIn(reverse ? message.to : message.senders, prefer_contact);
             Address[] recipients = ContactInfo.fillIn(reverse ? message.from : message.recipients, prefer_contact);
@@ -5116,7 +5116,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(context.getString(R.string.title_accessibility_attachment));
 
                 boolean outgoing = isOutgoing(message);
-                Address[] addresses = (outgoing && (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
+                Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
+                        (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
                 String from = MessageHelper.formatAddresses(addresses, name_email, false);
                 // For a11y purpose subject is reported first when: user wishes so or this is a single outgoing message
                 if (subject_top || (outgoing && message.visible == 1)) {
