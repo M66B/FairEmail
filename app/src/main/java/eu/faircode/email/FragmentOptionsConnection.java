@@ -238,6 +238,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         if (cm == null)
             return;
 
+        showConnectionType();
+
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
