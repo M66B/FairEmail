@@ -325,12 +325,8 @@ public class ConnectionHelper {
             }
         }
 
-        if (!underlying) {
-            // VPN-only network via USB is possible
-            boolean metered = cm.isActiveNetworkMetered();
-            Log.i("isMetered: no underlying network metered=" + metered);
-            return metered;
-        }
+        if (!underlying)
+            return null;
 
         // Assume metered
         Log.i("isMetered: underlying assume metered");
