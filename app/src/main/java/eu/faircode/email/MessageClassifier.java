@@ -47,6 +47,7 @@ public class MessageClassifier {
     private static Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
 
+    private static final int MIN_MATCHED_WORDS = 10;
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
@@ -211,7 +212,7 @@ public class MessageClassifier {
             chances.add(c);
         }
 
-        if (chances.size() <= 1)
+        if (chances.size() <= 1 || maxMatchedWords < MIN_MATCHED_WORDS)
             return null;
 
         Collections.sort(chances, new Comparator<Chance>() {
