@@ -249,15 +249,17 @@ public class MessageClassifier {
 
         JSONArray jwords = new JSONArray();
         for (Long account : classMessages.keySet())
-            for (String word : wordClassFrequency.get(account).keySet())
-                for (String clazz : wordClassFrequency.get(account).get(word).keySet()) {
+            for (String word : wordClassFrequency.get(account).keySet()) {
+                Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
+                for (String clazz : classFrequency.keySet()) {
                     JSONObject jword = new JSONObject();
                     jword.put("account", account);
                     jword.put("word", word);
                     jword.put("class", clazz);
-                    jword.put("frequency", wordClassFrequency.get(account).get(word).get(clazz));
+                    jword.put("frequency", classFrequency.get(clazz));
                     jwords.put(jword);
                 }
+            }
 
         JSONObject jroot = new JSONObject();
         jroot.put("messages", jmessages);
