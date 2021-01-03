@@ -2852,7 +2852,7 @@ Classification should be considered as a best guess - it might be a wrong guess,
 If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only.
-You can clear local messages (long press a folder in the folder list) and synchronize the messages again to fast train the classifier.
+You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
