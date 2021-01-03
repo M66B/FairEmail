@@ -81,6 +81,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExternalSearch;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
+    private SwitchCompat swClassification;
+    private ImageButton ibClassification;
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
     private Spinner spLanguage;
@@ -118,7 +120,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "language", "watchdog", "updates",
+            "shortcuts", "fts", "classification", "language", "watchdog", "updates",
             "experiments", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "auth_plain", "auth_login", "auth_sasl"
     };
@@ -161,6 +163,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swFts = view.findViewById(R.id.swFts);
+        swClassification = view.findViewById(R.id.swClassification);
+        ibClassification = view.findViewById(R.id.ibClassification);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
@@ -253,6 +257,30 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         });
 
         Helper.linkPro(tvFtsPro);
+
+        swClassification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            private int count = 0;
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("classification", checked).apply();
+                if (!checked) {
+                    count++;
+                    if (count >= 3) {
+                        count = 0;
+                        MessageClassifier.clear(buttonView.getContext());
+                        ToastEx.makeText(buttonView.getContext(), R.string.title_reset, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
+        ibClassification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 125);
+            }
+        });
 
         spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -721,6 +749,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
+        swClassification.setChecked(prefs.getBoolean("classification", false));
 
         int selected = -1;
         String language = prefs.getString("language", null);

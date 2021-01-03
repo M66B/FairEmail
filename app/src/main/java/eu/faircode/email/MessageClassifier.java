@@ -312,9 +312,16 @@ public class MessageClassifier {
         Log.i("Classifier loaded");
     }
 
+    static synchronized void clear(Context context) {
+        Log.i("Classifier clear");
+        classMessages.clear();
+        wordClassFrequency.clear();
+        dirty = true;
+    }
+
     static boolean isEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("experiments", false);
+        return prefs.getBoolean("classification", false);
     }
 
     static boolean canClassify(String folderType) {
