@@ -2966,6 +2966,9 @@ class Core {
                 }
 
                 runRules(context, imessage, account, folder, message, rules);
+                if (download && !message.ui_hide &&
+                        MessageClassifier.isEnabled(context) && MessageClassifier.canClassify(folder.type))
+                    db.message().setMessageUiHide(message.id, true);
                 reportNewMessage(context, account, folder, message);
 
                 db.setTransactionSuccessful();
@@ -2987,7 +2990,7 @@ class Core {
                 updateContactInfo(context, folder, message);
 
             // Download small messages inline
-            if (download && message.size != null && !message.ui_hide) {
+            if (download && !message.ui_hide) {
                 long maxSize;
                 if (state == null || state.networkState.isUnmetered())
                     maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
@@ -2997,7 +3000,8 @@ class Core {
                         maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                 }
 
-                if (message.size < maxSize) {
+                if ((message.size != null && message.size < maxSize) ||
+                        (MessageClassifier.isEnabled(context)) && MessageClassifier.canClassify(folder.type)) {
                     String body = parts.getHtml(context);
                     File file = message.getFile(context);
                     Helper.writeText(file, body);
@@ -3008,6 +3012,8 @@ class Core {
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
                     MessageClassifier.classify(message, null, context);
+                    if (!message.ui_hide)
+                        db.message().setMessageUiHide(message.id, false);
 
                     if (stats != null && body != null)
                         stats.content += body.length();
