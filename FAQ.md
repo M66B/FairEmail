@@ -2843,13 +2843,16 @@ using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 In the context of FairEmail, a folder is a class.
 Each folder has an option to enable auto classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Since this is an experimental feature, my advice is to start with just one folder.
 
 Moving a message on the device will declassify a message for the source folder.
 Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
 
-Classification should be considered as a best guess, which could be no or a wrong guess too.
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
+If the classifier is unsure, it will simply leave an email where it is.
 
-Classification will be done for the inbox, spam folder and user folders only.
+Classification will be done for new messages in the inbox, spam folder and user folders only.
+You can clear local messages (long press a folder in the folder list) and synchronize the messages again to fast train the classifier.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
