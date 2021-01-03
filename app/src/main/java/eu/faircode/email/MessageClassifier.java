@@ -49,7 +49,7 @@ public class MessageClassifier {
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
-    static void classify(EntityMessage message, boolean added, Context context) {
+    static void classify(EntityMessage message, EntityFolder target, Context context) {
         if (!isEnabled(context))
             return;
 
@@ -58,6 +58,9 @@ public class MessageClassifier {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+
+        if (target != null && !canClassify(target.type))
+            return;
 
         DB db = DB.getInstance(context);
 
@@ -69,10 +72,7 @@ public class MessageClassifier {
         if (account == null)
             return;
 
-        if (!EntityFolder.INBOX.equals(folder.type) &&
-                !EntityFolder.JUNK.equals(folder.type) &&
-                !EntityFolder.USER.equals(folder.type) &&
-                !(EntityFolder.ARCHIVE.equals(folder.type) && !account.isGmail()))
+        if (!canClassify(folder.type))
             return;
 
         File file = message.getFile(context);
@@ -95,10 +95,10 @@ public class MessageClassifier {
         if (!wordClassFrequency.containsKey(account.id))
             wordClassFrequency.put(account.id, new HashMap<>());
 
-        String classified = classify(account.id, folder.name, text, added);
+        String classified = classify(account.id, folder.name, text, target == null);
 
         Integer m = classMessages.get(account.id).get(folder.name);
-        if (added) {
+        if (target == null) {
             m = (m == null ? 1 : m + 1);
             classMessages.get(account.id).put(folder.name, m);
         } else {
@@ -309,6 +309,11 @@ public class MessageClassifier {
         return prefs.getBoolean("classify", BuildConfig.DEBUG);
     }
 
+    static boolean canClassify(String folderType) {
+        return EntityFolder.INBOX.equals(folderType) ||
+                EntityFolder.JUNK.equals(folderType) ||
+                EntityFolder.USER.equals(folderType);
+    }
 
     private static File getFile(Context context) {
         return new File(context.getFilesDir(), "classifier.json");

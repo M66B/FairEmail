@@ -1000,7 +1000,7 @@ class Core {
 
         // De-classify
         for (EntityMessage message : messages)
-            MessageClassifier.classify(message, false, context);
+            MessageClassifier.classify(message, target, context);
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
@@ -1503,7 +1503,7 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
-        MessageClassifier.classify(message, true, context);
+        MessageClassifier.classify(message, null, context);
 
         if (body != null)
             EntityLog.log(context, "Operation body size=" + body.length());
@@ -3007,7 +3007,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, true, context);
+                    MessageClassifier.classify(message, null, context);
 
                     if (stats != null && body != null)
                         stats.content += body.length();
@@ -3135,7 +3135,7 @@ class Core {
 
             if (process) {
                 updateContactInfo(context, folder, message);
-                MessageClassifier.classify(message, true, context);
+                MessageClassifier.classify(message, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
         }
@@ -3437,7 +3437,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, true, context);
+                    MessageClassifier.classify(message, null, context);
 
                     if (stats != null && body != null)
                         stats.content += body.length();

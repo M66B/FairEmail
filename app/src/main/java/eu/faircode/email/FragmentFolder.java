@@ -184,8 +184,6 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
-        cbAutoClassify.setVisibility(MessageClassifier.isEnabled(getContext()) ? View.VISIBLE : View.GONE);
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,6 +224,7 @@ public class FragmentFolder extends FragmentBase {
         grpImap.setVisibility(imap ? View.VISIBLE : View.GONE);
         tvParent.setText(parent);
         grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
+        cbAutoClassify.setVisibility(View.GONE);
         grpAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
@@ -325,6 +324,9 @@ public class FragmentFolder extends FragmentBase {
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                 cbAutoClassify.setEnabled(cbDownload.isChecked());
+                cbAutoClassify.setVisibility(MessageClassifier.isEnabled(getContext()) &&
+                        (folder == null || MessageClassifier.canClassify(folder.type))
+                        ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
