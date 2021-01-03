@@ -177,13 +177,6 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
-        cbDownload.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                cbAutoClassify.setEnabled(isChecked);
-            }
-        });
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -313,7 +306,6 @@ public class FragmentFolder extends FragmentBase {
                 etPoll.setEnabled(cbSynchronize.isChecked() && always);
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
-                cbAutoClassify.setEnabled(cbDownload.isChecked());
                 cbAutoClassify.setVisibility(MessageClassifier.isEnabled(getContext()) &&
                         (folder == null || MessageClassifier.canClassify(folder.type))
                         ? View.VISIBLE : View.GONE);
