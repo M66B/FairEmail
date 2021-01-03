@@ -216,18 +216,17 @@ public class ConnectionHelper {
             return null;
         }
 
-        Network active = null;
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
-            active = cm.getActiveNetwork();
-        if (active == null) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NetworkInfo ani = cm.getActiveNetworkInfo();
-            if (ani == null || !ani.isConnected()) {
-                Log.i("isMetered: no/connected active network info=" + ani);
+            if (ani == null || !ani.isConnected())
                 return null;
-            }
-            boolean metered = cm.isActiveNetworkMetered();
-            Log.i("isMetered: active network metered=" + metered);
-            return metered;
+            return cm.isActiveNetworkMetered();
+        }
+
+        Network active = cm.getActiveNetwork();
+        if (active == null) {
+            Log.i("isMetered: no active network");
+            return null;
         }
 
         // onLost [... state: SUSPENDED/SUSPENDED ... available: true]
