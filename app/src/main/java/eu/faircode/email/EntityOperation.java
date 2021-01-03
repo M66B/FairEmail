@@ -178,8 +178,11 @@ public class EntityOperation {
                 boolean autounflag = prefs.getBoolean("autounflag", false);
                 boolean reset_importance = prefs.getBoolean("reset_importance", false);
 
-                if (jargs.opt(1) != null) // rules
+                if (jargs.opt(1) != null) {
+                    // rules, classify
                     autoread = jargs.getBoolean(1);
+                    autounflag = false;
+                }
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
