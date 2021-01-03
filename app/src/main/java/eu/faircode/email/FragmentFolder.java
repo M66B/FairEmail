@@ -301,17 +301,7 @@ public class FragmentFolder extends FragmentBase {
                         cbKeepAll.setChecked(true);
                     else
                         etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
-
-                    if (!imap || (folder != null && folder.read_only))
-                        grpAutoDelete.setVisibility(View.GONE);
-                    else {
-                        cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
-                                ? R.string.title_auto_delete : R.string.title_auto_trash);
-                        cbAutoDelete.setChecked(folder != null && folder.auto_delete);
-                        grpAutoDelete.setVisibility(View.VISIBLE);
-                    }
-
-                    tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
+                    cbAutoDelete.setChecked(folder != null && folder.auto_delete);
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -329,7 +319,11 @@ public class FragmentFolder extends FragmentBase {
                         ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
+                cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
+                        ? R.string.title_auto_delete : R.string.title_auto_trash);
+                grpAutoDelete.setVisibility(!imap || (folder != null && folder.read_only) ? View.GONE : View.VISIBLE);
                 btnSave.setEnabled(true);
+                tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
 
                 deletable = (folder != null && EntityFolder.USER.equals(folder.type));
                 getActivity().invalidateOptionsMenu();
