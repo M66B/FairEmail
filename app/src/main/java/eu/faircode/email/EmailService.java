@@ -126,7 +126,7 @@ public class EmailService implements AutoCloseable {
     static final int ENCRYPTION_STARTTLS = 1;
     static final int ENCRYPTION_NONE = 2;
 
-    final static int DEFAULT_CONNECT_TIMEOUT = 15; // seconds
+    final static int DEFAULT_CONNECT_TIMEOUT = 20; // seconds
     final static boolean SEPARATE_STORE_CONNECTION = false;
 
     private final static int SEARCH_TIMEOUT = 90 * 1000; // milliseconds
