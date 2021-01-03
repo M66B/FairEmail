@@ -265,7 +265,10 @@ public class ConnectionHelper {
             return null;
         }
 
-        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
+        if (standalone_vpn ||
+                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             // NET_CAPABILITY_NOT_METERED is unreliable on older Android versions
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active not VPN metered=" + metered);

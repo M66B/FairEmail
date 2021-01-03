@@ -61,6 +61,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swRlah;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
+    private SwitchCompat swStandaloneVpn;
     private SwitchCompat swTcpKeepAlive;
     private TextView tvTcpKeepAliveHint;
     private SwitchCompat swSslHarden;
@@ -70,7 +71,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvNetworkInfo;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "tcp_keep_alive", "ssl_harden"
+            "metered", "download", "roaming", "rlah", "timeout", "prefer_ip4", "standalone_vpn", "tcp_keep_alive", "ssl_harden"
     };
 
     @Override
@@ -89,6 +90,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swRlah = view.findViewById(R.id.swRlah);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
+        swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
         swSslHarden = view.findViewById(R.id.swSslHarden);
@@ -103,6 +105,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean debug = prefs.getBoolean("debug", false);
 
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -170,7 +173,15 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        boolean debug = prefs.getBoolean("debug", false);
+        swStandaloneVpn.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+        swStandaloneVpn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("standalone_vpn", checked).apply();
+            }
+        });
+
         swTcpKeepAlive.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         tvTcpKeepAliveHint.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
@@ -303,6 +314,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
         swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
+        swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
         swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
         swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
     }
