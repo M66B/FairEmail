@@ -280,6 +280,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
+* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 
 [من یک سوال دیگر دارم.](#user-content-support)
 
@@ -2337,13 +2338,19 @@ The message *Message too large or too complex to display* will be shown if there
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-* [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support
+*Message classification (version 1.1438+)*
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+This feature will attempt to group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 
-**Important**: push messages (=always sync) for the inbox needs to be enabled.
+In the context of FairEmail, a folder is a class. Each folder has an option to enable auto classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. Since this is an experimental feature, my advice is to start with just one folder.
 
-**Important**: most email server do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+Moving a message on the device will declassify a message for the source folder. Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
+
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+
+Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can enable experimental features in the miscellaneous settings.
 
@@ -2810,6 +2817,18 @@ If I could, I would add a setting to select the primary and accent color right a
 
 <br />
 
+<a name="faq162"></a>
+**(162) Is IMAP NOTIFY supported?***
+
+Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+
+IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+
+**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+
+**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
 
 ## Get support
 

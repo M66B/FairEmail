@@ -141,7 +141,7 @@
     <string name="title_setup_wizard_remark">Apasă \'înapoi\' pentru a merge la mesaje primite</string>
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
     <string name="title_setup_other">Alt furnizor</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">Cont POP3</string>
+    <string name="title_setup_pop3">Cont POP3</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>

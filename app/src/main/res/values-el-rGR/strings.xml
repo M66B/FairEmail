@@ -131,7 +131,7 @@
     <string name="title_setup_wizard_remark">\"Πίσω\" για να πάτε στα εισερχόμενα</string>
     <string name="title_setup_oauth_permission">Ο πάροχος ηλ. ταχυδρομείου έχει εγκρίνει OAuth μόνον για τις επίσημες εφαρμογές</string>
     <string name="title_setup_other">Άλλος πάροχος</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">Λογαριασμός POP3</string>
+    <string name="title_setup_pop3">Λογαριασμός POP3</string>
     <string name="title_setup_gmail_support">Η εξουσιοδότηση λογαριασμών Google θα λειτουργήσει μόνο σε επίσημες εκδόσεις διότι το Android ελέγχει την υπογραφή της εφαρμογής</string>
     <string name="title_setup_gmail_rationale">Παρακαλώ, παραχωρήστε τις απαιτούμενες άδειες για την επιλογή ενός λογαριασμού και την ανάγνωση του ονόματός σας</string>
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>

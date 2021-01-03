@@ -131,7 +131,7 @@
     <string name="title_setup_wizard_remark">Faire « Retour » pour aller à la boîte de réception</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions officielles de l\'application</string>
     <string name="title_setup_other">Autre fournisseur</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">Compte POP3</string>
+    <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_gmail_support">L’autorisation des comptes Google fonctionnera seulement sur les versions officielles parce qu’Android vérifie la signature de l’application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>

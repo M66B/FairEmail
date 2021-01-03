@@ -152,7 +152,7 @@
     <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
     <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla oficjalnych wersji aplikacji</string>
     <string name="title_setup_other">Inny dostawca</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">Konto POP3</string>
+    <string name="title_setup_pop3">Konto POP3</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>

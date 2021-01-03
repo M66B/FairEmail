@@ -130,7 +130,7 @@
     <string name="title_setup_wizard_remark">Ga \'terug\' om naar het postvak in te gaan</string>
     <string name="title_setup_oauth_permission">De e-mailprovider heeft OAuth alleen goedgekeurd voor officiële app versies</string>
     <string name="title_setup_other">Andere provider</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3 account</string>
+    <string name="title_setup_pop3">POP3 account</string>
     <string name="title_setup_gmail_support">Het autoriseren van Google accounts werkt alleen in officiële versies omdat Android de app handtekening controleert</string>
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
     <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om al uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw expliciete toestemming.</string>
@@ -439,6 +439,7 @@
     <string name="title_advanced_language_detection">Taal van bericht detecteren</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
+    <string name="title_advanced_classification">Berichten classificeren</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
@@ -670,6 +671,7 @@
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_download_folder">Berichtteksten en bijlagen automatisch downloaden</string>
     <string name="title_notify_folder">Melding bij nieuwe berichten</string>
+    <string name="title_auto_classify">Automatisch geclassificeerde berichten opslaan</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
     <string name="title_sync_days_remark">Een hogere waarde verhoogt het batterij- en datagebruik</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>

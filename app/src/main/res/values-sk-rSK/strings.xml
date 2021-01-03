@@ -152,6 +152,7 @@
     <string name="title_setup_wizard_remark">Vrátiť sa \'späť\' do doručených</string>
     <string name="title_setup_oauth_permission">Poskytovateľ služby e-mail povolil autorizáciu použitím OAuth len pre oficiálne zostavenia aplikácii</string>
     <string name="title_setup_other">Iný poskytovateľ</string>
+    <string name="title_setup_pop3">POP3 účet</string>
     <string name="title_setup_gmail_support">Autorizovanie účtu Google bude fungovať iba v oficiálnych verziách z dôvodu kontroly podpisu aplikácie zo strany Androidu</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
     <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>

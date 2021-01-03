@@ -119,7 +119,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_wizard_remark">「戻る」で受信トレイに戻ります</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3 アカウント</string>
+    <string name="title_setup_pop3">POP3 アカウント</string>
     <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>
     <string name="title_setup_gmail_permissions">Googleは全てのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmailは明示的な同意なしにメッセージを削除する事は有りません</string>

@@ -153,7 +153,7 @@
     <string name="title_setup_wizard_remark">Переход \"назад\" приводит в папку \"Входящие\"</string>
     <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
     <string name="title_setup_other">Другой провайдер</string>
-    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">Учётная запись POP3</string>
+    <string name="title_setup_pop3">Учётная запись POP3</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
