@@ -2834,7 +2834,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-* [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support
+*[IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support (version 1.1413+)*
 
 IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested
 and if a notification is received for a subscribed folder, that the folder will be synchronized.
@@ -2843,6 +2843,28 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 **Important**: push messages (=always sync) for the inbox needs to be enabled.
 
 **Important**: most email server do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
+
+*Message classification (version 1.1438+)*
+
+Messages will be classified based on the message text,
+using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+
+In the context of FairEmail a folder is a class.
+There is a folder option to enable auto classification,
+which will result in new messages in other folders being classified for the folder to be automatically moved to the folder.
+
+Moving a message on the device will declassify a message for the source folder.
+Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
+
+Classification should be considered as a best guess, which could be no or a wrong guess too.
+
+Classification will be done for the inbox, spam folder and user folders only.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+<br />
 
 You can enable experimental features in the miscellaneous settings.
 

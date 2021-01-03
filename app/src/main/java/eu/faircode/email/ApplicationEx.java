@@ -391,6 +391,10 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
             editor.remove("print_html_confirmed");
         else if (version < 1413)
             editor.remove("experiments");
+        else if (version < 1439) {
+            if (BuildConfig.PLAY_STORE_RELEASE)
+                editor.remove("experiments");
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

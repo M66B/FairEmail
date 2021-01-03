@@ -319,7 +319,7 @@ public class MessageClassifier {
 
     static boolean isEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("classify", BuildConfig.DEBUG);
+        return prefs.getBoolean("experiments", false);
     }
 
     static boolean canClassify(String folderType) {
