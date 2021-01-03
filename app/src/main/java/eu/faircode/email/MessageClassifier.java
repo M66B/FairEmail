@@ -36,6 +36,7 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,7 +96,14 @@ public class MessageClassifier {
         if (!wordClassFrequency.containsKey(account.id))
             wordClassFrequency.put(account.id, new HashMap<>());
 
-        String classified = classify(account.id, folder.name, text, target == null);
+        String classified = classify(account.id, folder.name, text, target == null, context);
+
+        EntityLog.log(context, "Classifier" +
+                " folder=" + folder.name +
+                " message=" + message.id +
+                "@" + new Date(message.received) +
+                ":" + message.subject +
+                " class=" + classified);
 
         Integer m = classMessages.get(account.id).get(folder.name);
         if (target == null) {
@@ -116,7 +124,7 @@ public class MessageClassifier {
         }
     }
 
-    private static String classify(long account, String classify, String text, boolean added) {
+    private static String classify(long account, String classify, String text, boolean added, Context context) {
         int maxFrequency = 0;
         int maxMatchedWords = 0;
         List<String> words = new ArrayList<>();
@@ -197,7 +205,7 @@ public class MessageClassifier {
             Stat stat = classStats.get(clazz);
             double chance = ((double) stat.totalFrequency / maxFrequency / maxMatchedWords);
             Chance c = new Chance(clazz, chance);
-            Log.i("Classifier " + c +
+            EntityLog.log(context, "Classifier " + c +
                     " frequency=" + stat.totalFrequency + "/" + maxFrequency +
                     " matched=" + stat.matchedWords + "/" + maxMatchedWords);
             chances.add(c);
