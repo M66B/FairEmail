@@ -1013,7 +1013,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean subscriptions = prefs.getBoolean("subscriptions", false);
-                boolean experiments = prefs.getBoolean("experiments", false);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
                 final EmailService iservice = new EmailService(
@@ -1099,7 +1098,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (!capIdle || account.poll_interval < OPTIMIZE_KEEP_ALIVE_INTERVAL)
                         optimizeAccount(account, "IDLE");
 
-                    final boolean capNotify = (experiments && iservice.hasCapability("NOTIFY"));
+                    final boolean capNotify = iservice.hasCapability("NOTIFY");
 
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountError(account.id, null);

@@ -392,7 +392,7 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         else if (version < 1413)
             editor.remove("experiments");
         else if (version < 1439) {
-            if (BuildConfig.PLAY_STORE_RELEASE)
+            if (!BuildConfig.DEBUG)
                 editor.remove("experiments");
         }
 

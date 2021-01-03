@@ -287,6 +287,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
+* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 
 [I have another question.](#user-content-support)
 
@@ -2834,18 +2835,6 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-*[IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) support (version 1.1413+)*
-
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested
-and if a notification is received for a subscribed folder, that the folder will be synchronized.
-Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
-
-**Important**: push messages (=always sync) for the inbox needs to be enabled.
-
-**Important**: most email server do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
-
-<br />
-
 *Message classification (version 1.1438+)*
 
 Messages will be classified based on the message text,
@@ -2863,8 +2852,6 @@ Classification should be considered as a best guess, which could be no or a wron
 Classification will be done for the inbox, spam folder and user folders only.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
-
-<br />
 
 You can enable experimental features in the miscellaneous settings.
 
@@ -3419,6 +3406,20 @@ but unfortunately Android themes are fixed, see for example [here](https://stack
 
 <br />
 
+<a name="faq162"></a>
+**(162) Is IMAP NOTIFY supported?***
+
+Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+
+IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested
+and if a notification is received for a subscribed folder, that the folder will be synchronized.
+Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+
+**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+
+**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
 
 ## Get support
 
