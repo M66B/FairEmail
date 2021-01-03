@@ -44,84 +44,77 @@ import java.util.Map;
 public class MessageClassifier {
     private static boolean loaded = false;
     private static boolean dirty = false;
-    private static Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
-    private static Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
+    private static final Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
+    private static final Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
 
     private static final int MIN_MATCHED_WORDS = 10;
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
     static void classify(EntityMessage message, EntityFolder target, Context context) {
-        if (!isEnabled(context))
-            return;
-
         try {
+            if (!isEnabled(context))
+                return;
+
+            if (target != null && !canClassify(target.type))
+                return;
+
+            DB db = DB.getInstance(context);
+
+            EntityFolder folder = db.folder().getFolder(message.folder);
+            if (folder == null)
+                return;
+
+            EntityAccount account = db.account().getAccount(folder.account);
+            if (account == null)
+                return;
+
+            if (!canClassify(folder.type))
+                return;
+
+            File file = message.getFile(context);
+            if (!file.exists())
+                return;
+
+            String text = HtmlHelper.getFullText(file);
+            if (TextUtils.isEmpty(text))
+                return;
+
             load(context);
+
+            if (!classMessages.containsKey(account.id))
+                classMessages.put(account.id, new HashMap<>());
+            if (!wordClassFrequency.containsKey(account.id))
+                wordClassFrequency.put(account.id, new HashMap<>());
+
+            String classified = classify(account.id, folder.name, text, target == null, context);
+
+            EntityLog.log(context, "Classifier" +
+                    " folder=" + folder.name +
+                    " message=" + message.id +
+                    "@" + new Date(message.received) +
+                    ":" + message.subject +
+                    " class=" + classified);
+
+            Integer m = classMessages.get(account.id).get(folder.name);
+            if (target == null) {
+                m = (m == null ? 1 : m + 1);
+                classMessages.get(account.id).put(folder.name, m);
+            } else {
+                if (m != null && m > 0)
+                    classMessages.get(account.id).put(folder.name, m - 1);
+            }
+            Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
+
+            dirty = true;
+
+            if (classified != null) {
+                EntityFolder f = db.folder().getFolderByName(account.id, classified);
+                if (f != null && f.download && f.auto_classify && !f.id.equals(folder.id))
+                    EntityOperation.queue(context, message, EntityOperation.MOVE, f.id);
+            }
         } catch (Throwable ex) {
             Log.e(ex);
-        }
-
-        if (target != null && !canClassify(target.type))
-            return;
-
-        DB db = DB.getInstance(context);
-
-        EntityFolder folder = db.folder().getFolder(message.folder);
-        if (folder == null)
-            return;
-
-        EntityAccount account = db.account().getAccount(folder.account);
-        if (account == null)
-            return;
-
-        if (!canClassify(folder.type))
-            return;
-
-        File file = message.getFile(context);
-        if (!file.exists())
-            return;
-
-        String text;
-        try {
-            text = HtmlHelper.getFullText(file);
-        } catch (IOException ex) {
-            Log.w(ex);
-            text = null;
-        }
-
-        if (TextUtils.isEmpty(text))
-            return;
-
-        if (!classMessages.containsKey(account.id))
-            classMessages.put(account.id, new HashMap<>());
-        if (!wordClassFrequency.containsKey(account.id))
-            wordClassFrequency.put(account.id, new HashMap<>());
-
-        String classified = classify(account.id, folder.name, text, target == null, context);
-
-        EntityLog.log(context, "Classifier" +
-                " folder=" + folder.name +
-                " message=" + message.id +
-                "@" + new Date(message.received) +
-                ":" + message.subject +
-                " class=" + classified);
-
-        Integer m = classMessages.get(account.id).get(folder.name);
-        if (target == null) {
-            m = (m == null ? 1 : m + 1);
-            classMessages.get(account.id).put(folder.name, m);
-        } else {
-            if (m != null && m > 0)
-                classMessages.get(account.id).put(folder.name, m - 1);
-        }
-        Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
-
-        dirty = true;
-
-        if (classified != null) {
-            EntityFolder f = db.folder().getFolderByName(account.id, classified);
-            if (f != null && f.download && f.auto_classify && !f.id.equals(folder.id))
-                EntityOperation.queue(context, message, EntityOperation.MOVE, f.id);
         }
     }
 
