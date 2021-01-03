@@ -2837,12 +2837,12 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 *Message classification (version 1.1438+)*
 
-Messages will be classified based on the message text,
+This feature will attempt to group emails into classes, based on their contents,
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 
-In the context of FairEmail a folder is a class.
-There is a folder option to enable auto classification,
-which will result in new messages in other folders being classified for the folder to be automatically moved to the folder.
+In the context of FairEmail, a folder is a class.
+Each folder has an option to enable auto classification.
+When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 Moving a message on the device will declassify a message for the source folder.
 Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
