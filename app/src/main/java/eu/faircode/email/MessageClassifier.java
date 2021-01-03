@@ -265,6 +265,8 @@ public class MessageClassifier {
         File file = getFile(context);
         Helper.writeText(file, jroot.toString(2));
 
+        dirty = false;
+
         Log.i("Classifier saved");
     }
 
