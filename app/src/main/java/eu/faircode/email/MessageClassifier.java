@@ -110,8 +110,10 @@ public class MessageClassifier {
 
             if (classified != null) {
                 EntityFolder f = db.folder().getFolderByName(account.id, classified);
-                if (f != null && f.download && f.auto_classify && !f.id.equals(folder.id))
+                if (f != null && !f.id.equals(folder.id) && f.auto_classify) {
                     EntityOperation.queue(context, message, EntityOperation.MOVE, f.id, false);
+                    message.ui_hide = true;
+                }
             }
         } catch (Throwable ex) {
             Log.e(ex);
