@@ -299,7 +299,7 @@ public class MessageClassifier {
             for (int w = 0; w < jwords.length(); w++) {
                 JSONObject jword = (JSONObject) jwords.get(w);
                 long account = jword.getLong("account");
-                if (!wordClassFrequency.containsKey("account"))
+                if (!wordClassFrequency.containsKey(account))
                     wordClassFrequency.put(account, new HashMap<>());
                 String word = jword.getString("word");
                 Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
@@ -326,7 +326,7 @@ public class MessageClassifier {
                 EntityFolder.USER.equals(folderType);
     }
 
-    private static File getFile(Context context) {
+    static File getFile(Context context) {
         return new File(context.getFilesDir(), "classifier.json");
     }
 

@@ -66,6 +66,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -1219,7 +1220,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onDebugInfo() {
         new SimpleTask<Long>() {
             @Override
-            protected Long onExecute(Context context, Bundle args) throws IOException {
+            protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
                 return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
             }
 

@@ -1209,7 +1209,7 @@ public class Log {
         }
     }
 
-    static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException {
+    static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException, JSONException {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n\n\n");
         sb.append(getAppInfo(context));
@@ -1264,6 +1264,8 @@ public class Log {
             attachLogcat(context, draft.id, 6);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 attachNotificationInfo(context, draft.id, 7);
+            if (MessageClassifier.isEnabled(context))
+                attachClassifierData(context, draft.id, 8);
 
             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
@@ -1776,6 +1778,27 @@ public class Log {
         }
 
         db.attachment().setDownloaded(attachment.id, size);
+    }
+
+    private static void attachClassifierData(Context context, long id, int sequence) throws IOException, JSONException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "classifier.json";
+        attachment.type = "application/json";
+        attachment.disposition = Part.ATTACHMENT;
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
+
+        MessageClassifier.save(context);
+        File source = MessageClassifier.getFile(context);
+        File target = attachment.getFile(context);
+        Helper.copy(source, target);
+
+        db.attachment().setDownloaded(attachment.id, target.length());
     }
 
     private static int write(OutputStream os, String text) throws IOException {
