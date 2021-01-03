@@ -18,11 +18,11 @@
 
 クイックセットアップに失敗した場合は、アカウント(メール受信用) とID(メール送信用) を、手動で設定する必要があります。 この場合、SSL / TLSまたはSTARTTLSのどちらを使用するかに関わらず、IMAPおよびSMTPサーバーのアドレスとポート番号、そしてあなたのユーザー名（ほとんどの場合、あなたのメールアドレス）とあなたのパスワードが必要です。
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+*IMAP* とプロバイダ名を検索することで、適切なドキュメントをほぼ見つけることができます。
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+場合によっては、アカウントへの外部アクセスを有効にする必要があります。 例えば、二重認証が有効になっている場合、特別な(アプリによる) パスワードを使用する必要があります。
 
-For authorizing:
+認証方法:
 
 * Gmail / G suite, see [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
@@ -777,6 +777,8 @@ On some devices, where there are lots of applications competing for memory, Andr
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 

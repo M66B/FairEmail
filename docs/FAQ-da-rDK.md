@@ -778,6 +778,8 @@ Some Android versions stop apps and services too aggressively. See [this dedicat
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+
 <br />
 
 <a name="faq17"></a>
@@ -855,21 +857,21 @@ The errors *... invalid greeting ...*, *... requires valid address ...* and *...
 
 The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
-The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+Fejlen *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
 Fejlen *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
 Fejlen *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
-Fejlen *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
 The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
-Fejlen *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-Fejlene *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
-Fejlen *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
@@ -928,9 +930,9 @@ The error *... Authentication failed ... Account not found ...* means that a pre
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-Fejlen *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Godkendelse mislykkedes... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -1260,9 +1262,9 @@ See also [this FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
-The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
+Fejlen '*Handshake mislykkedes ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-Fejlen '*Handshake mislykkedes ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
@@ -1457,7 +1459,7 @@ The email icon in the folder list can be open (outlined) or closed (solid):
 
 Message bodies and attachments are not downloaded by default.
 
-![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 

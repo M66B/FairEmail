@@ -119,6 +119,7 @@
     <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
     <string name="title_setup_oauth_permission">电子邮件服务提供商仅允许官方应用程序版本使用OAuth</string>
     <string name="title_setup_other">其他提供商</string>
+    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3 账户</string>
     <string name="title_setup_gmail_support">授权谷歌账户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
     <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>

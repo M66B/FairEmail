@@ -131,6 +131,7 @@
     <string name="title_setup_wizard_remark">Returnér til indbakken</string>
     <string name="title_setup_oauth_permission">E-mailudbyderen har alene godkendt OAuth for officielle app-versioner</string>
     <string name="title_setup_other">Anden udbyder</string>
+    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3 konto</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>

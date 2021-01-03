@@ -119,6 +119,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_wizard_remark">「戻る」で受信トレイに戻ります</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
+    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3 アカウント</string>
     <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>
     <string name="title_setup_gmail_permissions">Googleは全てのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmailは明示的な同意なしにメッセージを削除する事は有りません</string>
@@ -350,6 +351,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_collapse_multiple">複数のメッセージがある会話を\"戻る\"で折りたたむ</string>
     <string name="title_advanced_autoclose">会話を自動的に閉じます</string>
     <string name="title_advanced_onclose">会話を閉じる時</string>
+    <string name="title_advanced_undo">Undoのタイムアウト</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示</string>
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
     <string name="title_advanced_autoread">移動するメッセージを既読にします</string>
@@ -694,11 +696,12 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_buttons">ボタン</string>
-    <string name="title_seen">既読にします</string>
+    <string name="title_seen">既読にする</string>
     <string name="title_unseen">未読にします</string>
+    <string name="title_toggle_seen">読み取りの切り替え</string>
     <string name="title_hide">非表示</string>
     <string name="title_unhide">表示</string>
-    <string name="title_flag">スターを付けます</string>
+    <string name="title_flag">スターを付ける</string>
     <string name="title_flag_color">色付きのスター &#8230;</string>
     <string name="title_unflag">スターを削除</string>
     <string name="title_set_importance">重要度を設定</string>
@@ -732,7 +735,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_delete">削除</string>
     <string name="title_more">その他</string>
     <string name="title_spam">スパム</string>
-    <string name="title_move">移動します</string>
+    <string name="title_move">移動する</string>
     <string name="title_copy_btn">コピー</string>
     <string name="title_keywords_btn">キーワード</string>
     <string name="title_unsubscribe">購読解除</string>
@@ -814,6 +817,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_via_identity">経由:</string>
     <string name="title_sent">送信済み:</string>
     <string name="title_received">受信:</string>
+    <string name="title_stored">保存済み:</string>
     <string name="title_size">サイズ:</string>
     <string name="title_language">言語:</string>
     <string name="title_subject">件名:</string>
@@ -1211,6 +1215,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_enabled">有効化</string>
     <string name="title_executing">実行中</string>
     <string name="title_completed">完成しました</string>
+    <string name="title_default_changed">デフォルトの変更</string>
     <string name="title_clipboard_copy">クリップボードにコピー</string>
     <string name="title_clipboard_copied">クリップボードにコピーしました</string>
     <string name="title_ask_what">毎回確認する</string>
@@ -1268,9 +1273,11 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_rules_delete_all">すべてのルールを削除</string>
     <string name="title_rules_delete_junk">スパムルールを削除</string>
     <string name="title_rules_delete_all_confirm">すべてのルールを削除しますか？</string>
+    <string name="title_rules_delete_junk_confirm">迷惑メールフォルダにメッセージを移動するすべてのルールを削除しますか？</string>
     <string name="title_debug_info">デバッグ情報</string>
     <string name="title_debug_info_remark">問題を説明し問題の時刻を記述下さい(英語のみ):</string>
     <string name="title_crash_info_remark">アプリがクラッシュした時に何をしていたかを説明してください(英語のみ):</string>
+    <string name="title_unexpected_info_remark">エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新しいメッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
     <string name="title_widget_account">アカウント</string>
@@ -1279,8 +1286,10 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
+    <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白のサイズ</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
+    <string name="title_widget_background">背景色</string>
     <string name="title_accessibility_collapsed">折りたたんだ</string>
     <string name="title_accessibility_expanded">拡大</string>
     <string name="title_accessibility_seen">既読</string>
@@ -1380,7 +1389,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
         <item>開始時</item>
         <item>途中</item>
         <item>最後</item>
-        <item>Show untruncated</item>
+        <item>省略されない項目を表示</item>
     </string-array>
     <string-array name="priorityNames">
         <item>低</item>
@@ -1415,5 +1424,29 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
         <item>PGP 署名+暗号化</item>
         <item>S/MIME 署名のみ</item>
         <item>S/MIME 署名+暗号化</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>オフ</item>
+        <item>2.5 秒</item>
+        <item>5 秒</item>
+        <item>7.5 秒</item>
+        <item>10 秒</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>筆記体</item>
+        <item>セリフ</item>
+        <item>サンセリフ</item>
+        <item>等幅フォント</item>
     </string-array>
 </resources>

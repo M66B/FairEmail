@@ -1,12 +1,12 @@
 # FairEmail 지원
 
-질문이 있으면 먼저 하단의 자주 묻는 질문들을 확인해주세요. 하단에서 다른 질문을 어떻게 하는지 알아내고, 기능을 요청하고, 버그를 신고할 수 있습니다.
+문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. 하단에서 자주 묻는 질문들을 확인할 수 있고, 기능을 요청하거나 버그를 신고할 수 있습니다.
 
 ## 목차
 
 * [계정 인증](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [어떻게 하나요...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [알려진 문제](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [어떻게 하나요?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [자주 묻는 문제](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [계획된 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [자주 묻는 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [자주 묻는 질문](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
@@ -777,6 +777,8 @@ On some devices, where there are lots of applications competing for memory, Andr
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 

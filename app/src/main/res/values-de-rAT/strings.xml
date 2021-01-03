@@ -132,6 +132,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_wizard_remark">„Zurück“ führt zum Posteingang</string>
     <string name="title_setup_oauth_permission">Der E-Mail-Anbieter hat OAuth nur für offizielle App-Versionen zugelassen</string>
     <string name="title_setup_other">Anderer Anbieter</string>
+    <string name="title_setup_pop3" comment="title_setup_pop3&#10;Last item in quick setup popup menu&#10;">POP3-Konto</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>

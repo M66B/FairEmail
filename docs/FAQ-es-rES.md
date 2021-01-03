@@ -778,6 +778,8 @@ Some Android versions stop apps and services too aggressively. See [this dedicat
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+
 <br />
 
 <a name="faq17"></a>
@@ -855,21 +857,21 @@ The errors *... invalid greeting ...*, *... requires valid address ...* and *...
 
 The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
-The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
 El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
 El error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
-El error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
 The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
-El error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-Los errores *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
-El error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 

@@ -778,6 +778,8 @@ Some Android versions stop apps and services too aggressively. See [this dedicat
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+
 <br />
 
 <a name="faq17"></a>
@@ -930,7 +932,7 @@ The errors *... Authentication failed ... No token ...* means that the Android a
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Autenticazione fallita... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
@@ -1010,15 +1012,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Immagine incorporata](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Immagine rovinata](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1453,11 +1455,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1840,7 +1842,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2577,7 +2579,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2811,26 +2813,26 @@ If I could, I would add a setting to select the primary and accent color right a
 
 ## Ricevi supporto
 
-FairEmail è supportato solo su smartphone, tablet e ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Sono supportate solo l'ultima versione del Play Store e l'ultima versione di GitHub. La build di F-Droid è supportata solo se il numero di versione è lo stesso del numero dell'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Non c'è alcun supporto su cose che non sono direttamente collegate a FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Non c'è alcun supporto per eseguire build e sviluppare le cose da soli.
+There is no support on building and developing things by yourself.
 
-Le funzionalità richieste dovrebbero:
+Requested features should:
 
 * essere utili alla maggior parte delle persone
 * non complicare l'utilizzo di FairEmail
 * inserirsi nella filosofia di FairEmail (rispettoso della privacy, con un occhio alla sicurezza)
 * essere conformi agli standard comuni (IMAP, SMTP, ecc.)
 
-È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò serve anche per rendere gestibile la manutenzione e il supporto a lungo termine.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

@@ -82,13 +82,13 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 
 ## Planlanan özellikler
 
-* ~~Synchronize on demand (manual)~~
+* ~~ Talep üzerine senkronize et (manuel) ~~
 * ~~Yarı-otomatik şifreleme~~
 * ~~ Mesajı kopyala ~~
 * ~~Renkli yıldızlar~~
 * ~~Her bir klasör için bildirim ayarı~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
+* ~~ Bir kuralla eşleşen mesajları göster ~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
@@ -96,13 +96,13 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
-* ~~Copy accounts and identities~~
+* ~~ Hesapları ve kimlikleri kopyalayın ~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
 * ~~ GIF'leri Görüntüle ~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
+* ~~ Temalar ~~ (Çoğu insan bu temayı istediği için gri, açık ve koyu bir tema eklendi.)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~ Ek olarak gönder ~~
 * ~~Widget for selected account~~
@@ -152,7 +152,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
 * [(30) How can I use the provided quick settings?](#user-content-faq30)
 * [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
+* [(32) E-posta okumanın gerçekten güvenli olup olmadığını nasıl kontrol edebilirim?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
 * [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
@@ -162,7 +162,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
-* [(43) Can you show the original ... ?](#user-content-faq43)
+* [(43) Orijinali gösterebilir misiniz ?](#user-content-faq43)
 * [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
 * [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
 * [(46) Why does the message list keep refreshing?](#user-content-faq46)
@@ -179,7 +179,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(57) Can I use HTML in signatures?](#user-content-faq57)
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
+* [(60) Biliyor muydunuz ...?](#user-content-faq60)
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
 * [(62) Which authentication methods are supported?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
@@ -190,10 +190,10 @@ The design is based on many discussions and if you like you can discuss about it
 * [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
+* [(71) Filtre kurallarını nasıl kullanırım?](#user-content-faq71)
+* [(72) Birincil hesaplar / kimlikler nedir?](#user-content-faq72)
+* [(73) Mesajları hesaplar arasında taşımak güvenli / verimli mi?](#user-content-faq73)
+* [(74) Neden yinelenen iletiler görüyorum?](#user-content-faq74)
 * [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
 * [(76) What does 'Clear local messages' do?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
@@ -207,7 +207,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
 * [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
+* [(89) Yalnızca düz metin mesajları nasıl gönderebilirim?](#user-content-faq89)
 * [(90) Why are some texts linked while not being a link?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
@@ -221,16 +221,16 @@ The design is based on many discussions and if you like you can discuss about it
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
+* [(103) Nasıl ses kaydı alabilirim?](#user-content-faq158)
+* [(104) Hata raporlama hakkında bilmem gerekenler nelerdir?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
+* [(107) Renkli yıldızları nasıl kullanırım?](#user-content-faq107)
 * [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
+* [(111) OAuth destekleniyor mu?](#user-content-faq111)
+* [(112) Hangi e-posta sağlayıcısını öneriyorsunuz?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
@@ -248,9 +248,9 @@ The design is based on many discussions and if you like you can discuss about it
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
 * [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
+* [(130) Mesaj hatası ne anlama geliyor?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
+* [(132) Yeni mesaj bildirimleri neden sessiz?](#user-content-faq132)
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
 * [(134) Can you add deleting local messages?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
@@ -262,11 +262,11 @@ The design is based on many discussions and if you like you can discuss about it
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
 * [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
+* [(144) Sesli notları nasıl kaydedebilirim?](#user-content-faq144)
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
+* [(146) Yanlış mesaj zamanlarını nasıl düzeltebilirim?](#user-content-faq146)
+* [(147) Üçüncü taraf sürümleri hakkında ne bilmeliyim?](#user-content-faq147)
+* [(148) Apple iCloud hesabını nasıl kullanabilirim?](#user-content-faq148)
 * [(149) How does the unread message count widget work?](#user-content-faq149)
 * [(150) Can you add cancelling calendar invites?](#user-content-faq150)
 * [(151) Can you add backup/restore of messages?](#user-content-faq151)
@@ -274,19 +274,19 @@ The design is based on many discussions and if you like you can discuss about it
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
 * [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
+* [(156) Nasıl bir Office 365 hesabı oluşturabilirim?](#user-content-faq156)
+* [157) Nasıl bir Free.Fr hesabı oluşturabilirim?](#user-content-faq157)
+* [(158) Hangi kamera / ses kaydediciyi tavsiye edersiniz?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
+* [(160) Onay olmadan mesajların kalıcı olarak silinmesini ekleyebilir misiniz?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 
-[I have another question.](#user-content-support)
+[Farklı bir sorum var.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
-The following Android permissions are needed:
+Aşağıdaki Android izinleri gereklidir:
 
 * *have full network access* (INTERNET): to send and receive email
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
@@ -777,6 +777,8 @@ On some devices, where there are lots of applications competing for memory, Andr
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 

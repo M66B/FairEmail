@@ -347,6 +347,7 @@
     <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
     <string name="title_advanced_parse_classes">CSS\'i çözümle</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
+    <string name="title_advanced_sync_on_launch">Uygulama açıldığında eşitle</string>
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
@@ -441,6 +442,7 @@
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_optimize">Otomatik olarak optimize et</string>
+    <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
     <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_query_threads">Paralel veritabanı erişimini sınırla</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
@@ -468,6 +470,7 @@
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Bu ayarı açmak bazı cihazlarda bağlantı sorunlarına yol açabilir</string>
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
     <string name="title_advanced_ssl_harden_hint">Bunu etkinleştirmek, zayıf SSL protokollerini ve şifrelerini devre dışı bırakır ve bu da bağlantı sorunlarına yol açabilir.</string>
     <string name="title_advanced_roaming_hint">Dolaşım halindeyken mesaj başlıkları her zaman alınacaktır. Cihazın dolaşım ayarlarından dolaşım halindeyken interneti devre dışı bırakabilirsiniz.</string>
@@ -486,6 +489,7 @@
     <string name="title_advanced_overview_mode_hint">Bu çok küçük yazı tiplerine neden olabilir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
+    <string name="title_advanced_language_detection_hint">Dil algılama desteği, cihaz üreticisine bağlıdır</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
@@ -617,8 +621,11 @@
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
+    <string name="title_synchronize_subfolders">Alt Klasörler</string>
     <string name="title_synchronize_more">Daha fazla ileti senkronize et</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
+    <string name="title_synchronize_batch_enable">Senkronizasyonunu Etkinleştir</string>
+    <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_empty_trash">Çöp kutusunu temizle</string>
@@ -848,6 +855,7 @@
     <string name="title_add_image_attach">Ekle</string>
     <string name="title_add_image_resize">Yeniden boyutlandır</string>
     <string name="title_add_image_privacy">Mahremiyetiniz için önemli verileri sil</string>
+    <string name="title_add_image_privacy_remark">Coğrafi konum, seri numaraları, dosya adları vb</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_add_image_select">Dosya seçin</string>
     <string name="title_add_attachment">Ek ekle</string>
@@ -870,6 +878,7 @@
     <string name="title_invalid_key">Geçersiz özel anahtar</string>
     <string name="title_unknown_key">Gizli anahtar şifreleme anahtarlarıyla eşleşmiyor</string>
     <string name="title_key_missing">%1$s için anahtar yok</string>
+    <string name="title_send_reminder_remark">Hatırlatıcılar gönderme ayarları üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
     <string name="title_from_missing">Gönderici Eksik</string>
@@ -887,6 +896,7 @@
     <string name="title_queued">İleti gönderiliyor</string>
     <string name="title_queued_at">Mesaj %1$s civarında gönderilecek</string>
     <string name="title_sign">İmzala</string>
+    <string name="title_verify">Doğrulama</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
     <string name="title_resync">Yeniden eşzamanla</string>
@@ -931,6 +941,7 @@
     <string name="title_search_flag_hidden">gizli</string>
     <string name="title_search_flag_encrypted">şifrelenmiş</string>
     <string name="title_search_flag_attachments">ekler</string>
+    <string name="title_search_flag_invite">davetiye</string>
     <string name="title_search_flag_size">boyut &gt; %1$s</string>
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
@@ -957,6 +968,7 @@
     <string name="title_select_language">Dil seçiniz</string>
     <string name="title_select_all">Hepsini seç</string>
     <string name="title_select_found">Bulunanları seç</string>
+    <string name="title_mark_all_read">Hepsini okundu olarak işaretle</string>
     <string name="title_force_sync">Eşzamanlamaya zorla</string>
     <string name="title_force_send">Göndermeye zorla</string>
     <string name="title_language_all">Tümü</string>
@@ -968,6 +980,7 @@
     <string name="title_answer_caption">Kalıbı Düzenle</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
     <string name="title_answer_name">Kalıp adı</string>
+    <string name="title_answer_standard">Varsayılan</string>
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Menülerden gizle</string>
     <string name="title_answer_text">Kalıp metni</string>
@@ -1008,9 +1021,13 @@
     <string name="title_rule_thread">Aynı sohbet ve klasördeki tüm iletiler</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Yanıt kalıbı</string>
+    <string name="title_rule_forward_to">İlet</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
+    <string name="title_rule_with_attachments">Eklerle Birlikte</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
+    <string name="title_rule_folder_missing">Kayıp dosya</string>
+    <string name="title_rule_identity_missing">Eksik kimlik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
@@ -1133,6 +1150,7 @@
     <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_different_link">Başlık ve link adresi farklı</string>
+    <string name="title_tracking_link">Bu web sitesi sizi takip edebilir</string>
     <string name="title_link_http">Trafik şifrelenmeyecek</string>
     <string name="title_link_https">Trafik şifrelenecek</string>
     <string name="title_sanitize_link">İzleme etkenlerini kaldır</string>
@@ -1151,6 +1169,7 @@
     <string name="title_add">Ekle</string>
     <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>
+    <string name="title_download">İndir</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
@@ -1189,16 +1208,22 @@
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_once">Sadece bir kez</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
+    <string name="title_pro_price">Pro sürümleri neden bu kadar pahalı?</string>
+    <string name="title_pro_restore">Satın alım işlemlerimi nasıl geri yüklerim?</string>
     <string name="title_pro_pending">Satın alma beklemede</string>
     <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_invalid">Geçersiz yanıt</string>
     <string name="title_pro_support">FairEmail\'in yardımınıza ihtiyacı var. Pro özellikleri satın alarak projeyi devam ettirmek için dokunun.</string>
+    <string name="title_boundary_error">Posta sunucusundan mesajlar indirilirken hata oluştu</string>
     <string name="title_boundary_retry">Tekrar deneyiniz</string>
     <string name="title_unexpected_error">Beklenmedik hata</string>
     <string name="title_log">Kayıt defteri</string>
     <string name="title_auto_scroll">Otomatik kaydırma</string>
     <string name="title_log_clear">Temizle</string>
+    <string name="title_rules_delete_all">Kuralları sil</string>
+    <string name="title_rules_delete_junk">Spam kurallarını sil</string>
+    <string name="title_rules_delete_all_confirm">Tüm kuralları sil?</string>
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
@@ -1210,7 +1235,10 @@
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
+    <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
+    <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>
+    <string name="title_widget_background">Arka plan rengi</string>
     <string name="title_accessibility_collapsed">Daraltılan</string>
     <string name="title_accessibility_expanded">Genişletilen</string>
     <string name="title_accessibility_seen">Okunan</string>
@@ -1359,7 +1387,7 @@
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Kapalı</item>
         <item>2.5 s</item>
         <item>5 s</item>
         <item>7.5 s</item>

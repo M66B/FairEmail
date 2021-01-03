@@ -778,6 +778,8 @@ Some Android versions stop apps and services too aggressively. See [this dedicat
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
 
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+
 <br />
 
 <a name="faq17"></a>

@@ -16,11 +16,11 @@ Máte-li dotaz, podívejte se prosím nejprve na často kladené dotazy. Ve spod
 
 Ve většině případů bude rychlé nastavení schopno automaticky identifikovat správnou konfiguraci.
 
-Pokud rychlé nastavení selže, budete muset nastavit ručně účet (pro příjem e-mailů) a identitu (pro odesílání e-mailů). K tomu budete potřebovat adresy serverů IMAP a SMTP a čísla portů, zda má být použito SSL/TLS či STARTTLS a své uživatelské jméno (většinou, ale ne vždy, je shodné s e-mailovou adresou) a heslo.
+Pokud rychlé nastavení selže, budete muset nastavit ručně účet (pro příjem e-mailů) a identitu (pro odesílání e-mailů). K tomu budete potřebovat adresy serverů IMAP a SMTP a čísla portů, typu použitého protokolu SSL/TLS či STARTTLS a své uživatelské jméno (většinou, ale ne vždy, je shodné s e-mailovou adresou) a heslo.
 
 Hledáním *IMAP* a jména poskytovatele je většinou dostatečné k nalezení správné dokumentace.
 
-V některých případech bude potřeba povolit externí přístup k vašemu účtu a/nebo použít speciální (aplikační) heslo, například když je povoleno dvoufaktorové ověřování.
+V některých případech je potřeba pro přihlášení povolit externí přístup k vašemu účtu a/nebo použít speciální (aplikační) heslo, například když je povoleno dvoufaktorové ověřování k vašemu účtu.
 
 Pro autorizaci:
 
@@ -777,6 +777,8 @@ On some devices, where there are lots of applications competing for memory, Andr
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
 Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 
