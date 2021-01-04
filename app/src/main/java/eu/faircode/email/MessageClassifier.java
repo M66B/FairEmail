@@ -51,12 +51,9 @@ public class MessageClassifier {
     private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
-    static void classify(EntityMessage message, EntityFolder target, Context context) {
+    static void classify(EntityMessage message, boolean added, Context context) {
         try {
             if (!isEnabled(context))
-                return;
-
-            if (target != null && !canClassify(target.type))
                 return;
 
             DB db = DB.getInstance(context);
@@ -87,7 +84,7 @@ public class MessageClassifier {
             if (!wordClassFrequency.containsKey(account.id))
                 wordClassFrequency.put(account.id, new HashMap<>());
 
-            String classified = classify(account.id, folder.name, text, target == null, context);
+            String classified = classify(account.id, folder.name, text, added, context);
 
             EntityLog.log(context, "Classifier" +
                     " folder=" + folder.name +
@@ -98,7 +95,7 @@ public class MessageClassifier {
                     " re=" + message.auto_classified);
 
             Integer m = classMessages.get(account.id).get(folder.name);
-            if (target == null) {
+            if (added) {
                 m = (m == null ? 1 : m + 1);
                 classMessages.get(account.id).put(folder.name, m);
             } else {
@@ -113,11 +110,11 @@ public class MessageClassifier {
                 try {
                     db.beginTransaction();
 
-                    EntityFolder f = db.folder().getFolderByName(account.id, classified);
-                    if (f != null && !f.id.equals(folder.id) && f.auto_classify &&
-                            (EntityFolder.JUNK.equals(f.type) || ActivityBilling.isPro(context))) {
+                    EntityFolder target = db.folder().getFolderByName(account.id, classified);
+                    if (target != null && !target.id.equals(folder.id) && target.auto_classify &&
+                            (EntityFolder.JUNK.equals(target.type) || ActivityBilling.isPro(context))) {
 
-                        EntityOperation.queue(context, message, EntityOperation.MOVE, f.id, false, true);
+                        EntityOperation.queue(context, message, EntityOperation.MOVE, target.id, false, true);
                         message.ui_hide = true;
                     }
 

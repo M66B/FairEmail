@@ -999,8 +999,9 @@ class Core {
             throw new IllegalArgumentException("self");
 
         // De-classify
-        for (EntityMessage message : messages)
-            MessageClassifier.classify(message, target, context);
+        if (MessageClassifier.canClassify(folder.type))
+            for (EntityMessage message : messages)
+                MessageClassifier.classify(message, false, context);
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
@@ -1503,7 +1504,7 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
-        MessageClassifier.classify(message, null, context);
+        MessageClassifier.classify(message, true, context);
 
         if (body != null)
             EntityLog.log(context, "Operation body size=" + body.length());
@@ -3010,7 +3011,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, null, context);
+                    MessageClassifier.classify(message, true, context);
                     if (!message.ui_hide)
                         db.message().setMessageUiHide(message.id, false);
 
@@ -3445,7 +3446,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, null, context);
+                    MessageClassifier.classify(message, true, context);
 
                     if (stats != null && body != null)
                         stats.content += body.length();
