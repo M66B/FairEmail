@@ -3141,7 +3141,7 @@ class Core {
 
             if (process) {
                 updateContactInfo(context, folder, message);
-                MessageClassifier.classify(message, null, context);
+                MessageClassifier.classify(message, true, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
 
