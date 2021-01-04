@@ -341,6 +341,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvTime;
         private ImageView ivType;
         private ImageView ivFound;
+        private ImageView ivClassified;
         private ImageButton ibSnoozed;
         private ImageView ivAnswered;
         private ImageView ivForwarded;
@@ -503,6 +504,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
             ivFound = itemView.findViewById(R.id.ivFound);
+            ivClassified = itemView.findViewById(R.id.ivClassified);
             ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivForwarded = itemView.findViewById(R.id.ivForwarded);
@@ -940,6 +942,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivFound.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivClassified.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivForwarded.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -1042,6 +1045,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
+            ivClassified.setVisibility(message.auto_classified ? View.VISIBLE : View.GONE);
 
             int snoozy = (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                     ? R.drawable.twotone_visibility_off_24

@@ -258,13 +258,35 @@
             app:layout_constraintTop_toTopOf="@id/ivEncrypted" />
 
         <ImageView
+            android:id="@+id/ivClassified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_classified"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEncrypted"
+            app:srcCompat="@drawable/twotone_label_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvClassified"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_classified"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivClassified"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivClassified"
+            app:layout_constraintTop_toTopOf="@id/ivClassified" />
+
+        <ImageView
             android:id="@+id/ivSnoozed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_snoozed"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivEncrypted"
+            app:layout_constraintTop_toBottomOf="@id/ivClassified"
             app:srcCompat="@drawable/twotone_timelapse_24" />
 
         <eu.faircode.email.FixedTextView

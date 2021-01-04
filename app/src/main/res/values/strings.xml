@@ -1279,6 +1279,7 @@
     <string name="title_legend_encrypted">Is encrypted</string>
     <string name="title_legend_auth">Authentication failed</string>
     <string name="title_legend_found">Was found</string>
+    <string name="title_legend_classified">Was classified</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_browsed">Is browsed or searched</string>
     <string name="title_legend_answered">Was answered</string>

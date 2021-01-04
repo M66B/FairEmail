@@ -167,7 +167,12 @@ public class EntityOperation {
                     db.message().setMessageLabels(message.id, DB.Converters.fromStringArray(message.labels));
 
             } else if (MOVE.equals(name)) {
-                // Parameters:
+                // Parameters in:
+                // 0: target folder
+                // 1: mark seen
+                // 2: auto classified
+
+                // Parameters out:
                 // 0: target folder
                 // 1: mark seen
                 // 2: temporary message
@@ -183,6 +188,13 @@ public class EntityOperation {
                     autoread = jargs.getBoolean(1);
                     autounflag = false;
                 }
+
+                boolean auto_classified = false;
+                if (jargs.opt(2) != null) {
+                    auto_classified = jargs.getBoolean(2);
+                    jargs.remove(2);
+                }
+
                 jargs.put(1, autoread);
                 jargs.put(3, autounflag);
 
@@ -266,6 +278,7 @@ public class EntityOperation {
                     message.stored = new Date().getTime();
                     message.notifying = 0;
                     message.fts = false;
+                    message.auto_classified = auto_classified;
                     if (reset_importance)
                         message.importance = null;
                     if (autoread) {
