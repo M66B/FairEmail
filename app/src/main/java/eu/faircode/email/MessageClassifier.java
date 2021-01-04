@@ -278,9 +278,58 @@ public class MessageClassifier {
     static synchronized void save(Context context) throws JSONException, IOException {
         if (!dirty)
             return;
+
+        File file = getFile(context);
+        Helper.writeText(file, toJson().toString(2));
+
+        dirty = false;
+
+        Log.i("Classifier data saved");
+    }
+
+    private static synchronized void load(Context context) throws IOException, JSONException {
+        if (loaded)
+            return;
+
         if (!isEnabled(context))
             return;
 
+        classMessages.clear();
+        wordClassFrequency.clear();
+
+        File file = getFile(context);
+        if (file.exists()) {
+            String json = Helper.readText(file);
+            fromJson(new JSONObject(json));
+        }
+
+        loaded = true;
+        Log.i("Classifier data loaded");
+    }
+
+    static synchronized void clear(Context context) {
+        Log.i("Classifier clear");
+        classMessages.clear();
+        wordClassFrequency.clear();
+        dirty = true;
+    }
+
+    static boolean isEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("classification", false);
+    }
+
+    static boolean canClassify(String folderType) {
+        return EntityFolder.INBOX.equals(folderType) ||
+                EntityFolder.JUNK.equals(folderType) ||
+                EntityFolder.USER.equals(folderType);
+    }
+
+    static File getFile(Context context) {
+        return new File(context.getFilesDir(), "classifier.json");
+    }
+
+    static JSONObject toJson() throws JSONException {
         JSONArray jmessages = new JSONArray();
         for (Long account : classMessages.keySet())
             for (String clazz : classMessages.get(account).keySet()) {
@@ -309,78 +358,33 @@ public class MessageClassifier {
         jroot.put("messages", jmessages);
         jroot.put("words", jwords);
 
-        File file = getFile(context);
-        Helper.writeText(file, jroot.toString(2));
-
-        dirty = false;
-
-        Log.i("Classifier saved");
+        return jroot;
     }
 
-    private static synchronized void load(Context context) throws IOException, JSONException {
-        if (loaded)
-            return;
-
-        if (!isEnabled(context))
-            return;
-
-        classMessages.clear();
-        wordClassFrequency.clear();
-
-        File file = getFile(context);
-        if (file.exists()) {
-            String json = Helper.readText(file);
-            JSONObject jroot = new JSONObject(json);
-
-            JSONArray jmessages = jroot.getJSONArray("messages");
-            for (int m = 0; m < jmessages.length(); m++) {
-                JSONObject jmessage = (JSONObject) jmessages.get(m);
-                long account = jmessage.getLong("account");
-                if (!classMessages.containsKey(account))
-                    classMessages.put(account, new HashMap<>());
-                classMessages.get(account).put(jmessage.getString("class"), jmessage.getInt("count"));
-            }
-
-            JSONArray jwords = jroot.getJSONArray("words");
-            for (int w = 0; w < jwords.length(); w++) {
-                JSONObject jword = (JSONObject) jwords.get(w);
-                long account = jword.getLong("account");
-                if (!wordClassFrequency.containsKey(account))
-                    wordClassFrequency.put(account, new HashMap<>());
-                String word = jword.getString("word");
-                Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
-                if (classFrequency == null) {
-                    classFrequency = new HashMap<>();
-                    wordClassFrequency.get(account).put(word, classFrequency);
-                }
-                classFrequency.put(jword.getString("class"), jword.getInt("frequency"));
-            }
+    static void fromJson(JSONObject jroot) throws JSONException {
+        JSONArray jmessages = jroot.getJSONArray("messages");
+        for (int m = 0; m < jmessages.length(); m++) {
+            JSONObject jmessage = (JSONObject) jmessages.get(m);
+            long account = jmessage.getLong("account");
+            if (!classMessages.containsKey(account))
+                classMessages.put(account, new HashMap<>());
+            classMessages.get(account).put(jmessage.getString("class"), jmessage.getInt("count"));
         }
 
-        loaded = true;
-        Log.i("Classifier loaded");
-    }
-
-    static synchronized void clear(Context context) {
-        Log.i("Classifier clear");
-        classMessages.clear();
-        wordClassFrequency.clear();
-        dirty = true;
-    }
-
-    static boolean isEnabled(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("classification", false);
-    }
-
-    static boolean canClassify(String folderType) {
-        return EntityFolder.INBOX.equals(folderType) ||
-                EntityFolder.JUNK.equals(folderType) ||
-                EntityFolder.USER.equals(folderType);
-    }
-
-    static File getFile(Context context) {
-        return new File(context.getFilesDir(), "classifier.json");
+        JSONArray jwords = jroot.getJSONArray("words");
+        for (int w = 0; w < jwords.length(); w++) {
+            JSONObject jword = (JSONObject) jwords.get(w);
+            long account = jword.getLong("account");
+            if (!wordClassFrequency.containsKey(account))
+                wordClassFrequency.put(account, new HashMap<>());
+            String word = jword.getString("word");
+            Map<String, Integer> classFrequency = wordClassFrequency.get(account).get(word);
+            if (classFrequency == null) {
+                classFrequency = new HashMap<>();
+                wordClassFrequency.get(account).put(word, classFrequency);
+            }
+            classFrequency.put(jword.getString("class"), jword.getInt("frequency"));
+        }
     }
 
     private static class Stat {
