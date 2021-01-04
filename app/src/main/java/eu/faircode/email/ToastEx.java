@@ -49,9 +49,18 @@ public class ToastEx extends Toast {
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);
+
         // <dimen name="design_bottom_navigation_height">56dp</dimen>
-        int dp = Helper.dp2pixels(context, 2 * 56);
-        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, dp);
+        int resId = context.getResources().getIdentifier(
+                "design_bottom_navigation_height", "dimen", context.getPackageName());
+        int px = Helper.dp2pixels(context, 2 * 56);
+        if (resId > 0)
+            try {
+                px = 2 * context.getResources().getDimensionPixelSize(resId);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, px);
         return toast;
     }
 
