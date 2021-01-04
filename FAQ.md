@@ -3415,21 +3415,24 @@ Message classification will attempt to automatically group emails into classes, 
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 In the context of FairEmail, a folder is a class.
 
-You can enable 'learning' mode in the miscellaneous settings.
+You can enable message classification in the miscellaneous settings.
+This will enable learning mode only.
 
-Each folder has an option to enable auto classification.
+Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
 If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only.
-You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
+You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Moving a message on the device will reclassify the message.
-Moving a message from another email client will not result in reclassification because IMAP does not support MOVED notifications.
+Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+Automatic message classification is a pro feature, except for the spam folder.
 
 <br />
 

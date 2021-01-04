@@ -79,6 +79,7 @@ All pro features are convenience or advanced features.
 * Accept/decline calendar invitations
 * Add message to calendar
 * Filter rules
+* Automatic message classification
 * Search indexing, search on server
 * Keyword management
 * S/MIME sign/encrypt

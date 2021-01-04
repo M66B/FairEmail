@@ -110,7 +110,8 @@ public class MessageClassifier {
 
             if (classified != null) {
                 EntityFolder f = db.folder().getFolderByName(account.id, classified);
-                if (f != null && !f.id.equals(folder.id) && f.auto_classify)
+                if (f != null && !f.id.equals(folder.id) && f.auto_classify &&
+                        (EntityFolder.JUNK.equals(f.type) || ActivityBilling.isPro(context)))
                     try {
                         db.beginTransaction();
 
