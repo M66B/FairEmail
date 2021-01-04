@@ -278,7 +278,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibClassification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 125);
+                Helper.viewFAQ(v.getContext(), 163);
             }
         });
 

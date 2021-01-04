@@ -288,6 +288,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(163) What is message classification?](#user-content-faq163)
 
 [I have another question.](#user-content-support)
 
@@ -2837,26 +2838,9 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 *Message classification (version 1.1438+)*
 
-This feature will attempt to group emails into classes, based on their contents,
-using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+Please see [this FAQ](#user-content-faq123) for details.
 
-In the context of FairEmail, a folder is a class.
-Each folder has an option to enable auto classification.
-When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 Since this is an experimental feature, my advice is to start with just one folder.
-
-Moving a message on the device will declassify a message for the source folder.
-Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
-
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
-If the classifier is unsure, it will simply leave an email where it is.
-
-Classification will be done for new messages in the inbox, spam folder and user folders only.
-You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
-
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
-
-You can enable experimental features in the miscellaneous settings.
 
 <br />
 
@@ -3421,6 +3405,31 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
 **Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
+
+<a name="faq163"></a>
+**(163) What is message classification?**
+
+Message classification will attempt to automatically group emails into classes, based on their contents,
+using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+In the context of FairEmail, a folder is a class.
+
+You can enable 'learning' mode in the miscellaneous settings.
+
+Each folder has an option to enable auto classification.
+When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
+If the classifier is unsure, it will simply leave an email where it is.
+
+Classification will be done for new messages in the inbox, spam folder and user folders only.
+You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
+
+Moving a message on the device will reclassify the message.
+Moving a message from another email client will not result in reclassification because IMAP does not support MOVED notifications.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 <br />
 
