@@ -1,28 +1,28 @@
-# FairEmail support
+# FairEmail - Brukerstøtte
 
-Hvis du har et spørsmål, vennligst kontroller de ofte stilte spørsmålene nedenfor først. Nederst kan du finne ut hvordan du kan stille andre spørsmål, be om funksjoner og rapportere feil.
+Hvis du har spørsmål eller problemer, vennligst se om du finner svar blant de ofte stilte spørsmålene nedenfor først. Nederst på siden finner du ut hvordan du stiller andre spørsmål, ber om nye funksjoner eller rapporterer feil.
 
-## Indeks
+## Innholdsfortegnelse
 
-* [Godkjenning av kontoer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Hvordan ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Autorisering av kontoer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Hvordan..?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Kjente problemer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Planlagte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Ofte etterspurte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Ofte stilte spørsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Få støtte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Godkjenning av kontoer
+## Autorisering av kontoer
 
 I de fleste tilfeller vil hurtigoppsettet kunne identifisere riktig konfigurasjon automatisk.
 
-Hvis hurtigoppsettet mislykkes, må du opprette en konto manuelt (for å motta e-post) og en identitet (for å sende e-post). For dette trenger du IMAP og SMTP serveradressene og portnumrene, enten SSL/TLS eller STARTTLS skal brukes og brukernavnet ditt (mest, men ikke alltid, e-postadressen din) og passordet ditt.
+Hvis hurtigoppsettet mislykkes, må du opprette en konto manuelt (for å motta e-post) og en identitet (for å sende e-post). For dette trenger du IMAP- og SMTP-tjeneradresser og portnumre (enten SSL/TLS eller STARTTLS skal brukes) og brukernavnet ditt (vanligvis e-postadressen din) og passordet ditt.
 
-Å søke etter *IMAP* og navnet på leverandøren er stort sett tilstrekkelig for å finne riktig dokumentasjon.
+Vanligvis holder det å søke på Internett etter *IMAP* etterfulgt av navnet på e-postleverandøren din for å finne nødvendig informasjon.
 
-I noen tilfeller må du aktivere ekstern tilgang til kontoen din og/eller bruke et spesielt (app) passord, for eksempel når tofaktorautentisering er aktivert.
+I noen tilfeller må du aktivere ekstern tilgang til kontoen din og/eller bruke et spesielt (app)-passord, for eksempel når tofaktorautentisering er aktivert.
 
-For godkjenning:
+For autorisering:
 
 * Gmail / G-suite, se [spørsmål 6](#user-content-faq6)
 * Outlook / Live / Hotmail, se [spørsmål 14](#user-content-faq14)
@@ -32,7 +32,7 @@ For godkjenning:
 * Apple iCloud, se [spørsmål 148](#user-content-faq148)
 * Free.fr, se [spørsmål 157](#user-content-faq157)
 
-Se [her](#user-content-faq22) for vanlige feilmeldinger og løsninger.
+Se [her](#user-content-faq22) for typiske feilmeldinger og løsninger.
 
 Relaterte spørsmål:
 
@@ -41,223 +41,223 @@ Relaterte spørsmål:
 
 <a name="howto">
 
-## Hvordan ...?
+## Hvordan..?
 
-* Endre kontonavnet: Oppsett, trinn 1, Administrer, trykk på konto
-* Endre sveip mot venstre/høyre: Oppsett, Atferd, Angi sveiphandlinger
-* Endre passord: Oppsett, trinn 1, Administrer, trykk på konto, endre passord
-* Angi en signatur: Oppsett, trinn 2, Administrer, trykk på identitet, Rediger signatur.
-* Legg til CC og BCC adresser: trykk på personens ikon på slutten av emnet
-* Gå til neste/forrige melding om arkivering/slett: deaktiver *Automatisk lukk samtaler * i atferdsinnstillingene og velg*Gå til neste/forrige samtale*for*Ved avslutning av en samtale*
-* Legg til en mappe i den enhetlige innboksen: trykk lenge på mappen i mappelisten og merk av for*Vis i enhetlig innboks*
-* Legg til en mappe i navigasjonsmenyen: trykk lenge på mappen i mappelisten og merk av for*Vis i navigasjonsmenyen*
-* Last inn flere meldinger: trykk lenge på en mappe i mappelisten, velg*Synkroniser flere meldinger*
-* Slett en melding, hopp over søppel: i menyen med tre prikker rett over meldingsteksten*Slett*eller alternativt, fjern merket for papirkurven i kontoinnstillingene
-* Slett en konto/identitet: Oppsett trinn 1/2, Administrer, trykk på konto/identitet, meny med tre prikker, Slett
-* Slett en mappe: trykk lenge på mappen i mappelisten, Rediger egenskaper, meny med tre prikker, Slett
-* Angre sending: Utboks, trykk på melding, trykk på Angre ikon-knappen
-* Lagre sendte meldinger i innboksen: vennligst[se denne FAQ](#user-content-faq142)
-* Endre systemmapper: Oppsett, trinn 1, Administrer, trykk på konto nederst
-* Eksport/import-innstillinger: Oppsett, navigering/hamburger-meny
+* Endre kontonavnet: Innstillinger > Kontoinnst. > Oppsett av kontoer, trykk på Behandle. Velg deretter konto og endre kontonavnet.
+* Endre sveip mot venstre/høyre: Gå til Innstillinger > Oppførsel > Velg sveipehandlinger
+* Endre passord: Innstillinger > Kontoinnst. > Oppsett av kontoer, trykk på Behandle. Velg deretter konto og fyll inn nytt passord
+* Angi en signatur: Innstillinger > Kontoinnst. > Oppsett av identiteter, trykk på Behandle > trykk på identitet og deretter på Rediger signatur.
+* Legge til CC og BCC-adresser: trykk på ikonet helt til høyre i emnefeltet
+* Gå til neste/forrige melding ved arkivering/sletting: deaktiver *Lukk samtaler automatisk * i Innstillinger > Oppførsel og velg ønsket handling under *Når du avslutter en samtale*
+* Legge til en mappe i den enhetlige innboksen: trykk lenge på mappen i mappelisten og merk av for*Vis i enhetlig innboks*
+* Legge til en mappe i navigasjonsmenyen: trykk lenge på mappen i listen og merk av for *Vis i navigasjonsmenyen*
+* Laste inn flere meldinger: trykk lenge på en mappe i mappelisten og trykk *Synkroniser flere meldinger*.
+* Slette en melding uten å legge den i papirkurven: trykk på ikonet med tre horisontale prikker rett over meldingsteksten og trykk *Slett*. Alternativt kan du oppheve valg av papirkurv-mappen i kontoinnstillingene.
+* Slette en konto/identitet: Innstillinger > Kontoinnst. > Oppsett av kontoer/identiteter, trykk Behandle, trykk på konto/identitet, trykk på ikonet med tre prikker øverst til høyre og trykk deretter Slett.
+* Slette en mappe: trykk lenge på mappen i mappelisten, trykk Rediger egenskaper, deretter ikonet med tre prikker øverst til høyre, trykk Slett.
+* Angre sending: Gå til Utboks, trykk på meldingen og deretter på angre-ikonet.
+* Lagre sendte meldinger i innboksen: vennligst sjekk [OSS-siden](#user-content-faq142).
+* Endre systemmapper: Innstillinger > Kontoinnst. > Oppsett av kontoer, trykk på Behandle og se nederst på siden.
+* Eksportere/importere innstillinger: Gå til Innstillinger og trykk deretter på ikonet med tre horisontale linjer øverst til venstre.
 
 ## Kjente problemer
 
-* ~~En[feil i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851)fører til at apper noen ganger viser feil tidsformat. Bytting av Android-innstillingen*Bruk 24-timers format*kan løse problemet midlertidig. En løsning ble lagt til.~~
-* ~~En[feil i Google Disk](https://issuetracker.google.com/issues/126362828)fører til at filer som eksporteres til Google Disk, er tomme. Google har løst dette.~~
-* ~~En[feil i AndroidX](https://issuetracker.google.com/issues/78495471)får FairEmail til å krasje av og til ved å trykke lenge eller sveipe. Google har løst dette.~~
-* ~~En[feil i AndroidX ROOM](https://issuetracker.google.com/issues/138441698)forårsaker noen ganger et kræsj med "*... Unntak mens du beregner databaser med live data ... Kunne ikke lese rad ...*". En løsning ble lagt til.~~
-* En[feil i Android](https://issuetracker.google.com/issues/119872129)fører til at FairEmail krasjer med "*... Dårlig varsling lagt ut ...*" på noen enheter en gang etter oppdatering av FairEmail og trykk på et varsel.
-* En[feil i Android](https://issuetracker.google.com/issues/62427912)forårsaker noen ganger et kræsj med "*... ActivityRecord ikke funnet for ...*"etter oppdatering av FairEmail. Å installere på nytt ([kilde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) kan løse problemet.
+* ~~En [feil i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851) fører til at apper noen ganger viser feil tidsformat. Bytting av enhetsinnstillingen *Bruk 24-timers format* kan løse problemet midlertidig. En løsning ble lagt til.~~
+* ~~En [feil i Google Disk](https://issuetracker.google.com/issues/126362828) fører til at filer som eksporteres til Google Disk er tomme. Google har løst dette.~~
+* ~~En [feil i AndroidX](https://issuetracker.google.com/issues/78495471) får FairEmail til å krasje av og til ved å trykke lenge eller sveipe. Google har løst dette.~~
+* ~~En [feil i AndroidX ROOM](https://issuetracker.google.com/issues/138441698) forårsaker noen ganger et krasj med "*... Unntak mens du beregner databaser med live data ... Kunne ikke lese rad ...*". En løsning ble lagt til.~~
+* En [feil i Android](https://issuetracker.google.com/issues/119872129) fører til at FairEmail krasjer med "*... Dårlig varsling lagt ut ...*" på noen enheter en gang etter oppdatering av FairEmail og du trykker på et varsel.
+* En [feil i Android](https://issuetracker.google.com/issues/62427912) forårsaker noen ganger et krasj med "*... ActivityRecord ikke funnet for ...*" etter oppdatering av FairEmail. Reinstallasjon ([kilde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) kan løse problemet.
 * En [feil i Android](https://issuetracker.google.com/issues/37018931) forårsaker noen ganger et krasj med *... InputChannel er ikke initialisert ...* på noen enheter.
-* ~~En [feil i LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) forårsaker noen ganger et kræsj med *... java.lang.ArrayIndexOutOfBoundsException: length=...; indeks=... ... *.~~
-* En feil i Nova Launcher på Android 5.x får FairEmail til å kræsje med en *java.lang.StackOverflowError* når Nova Launcher har tilgang til tilgjengelighetstjenesten.
+* ~~En [feil i LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) forårsaker noen ganger et krasj med *... java.lang.ArrayIndexOutOfBoundsException: length=...; indeks=... ... *.~~
+* En feil i Nova Launcher på Android 5.x får FairEmail til å krasje med en *java.lang.StackOverflowError* når Nova Launcher har tilgang til tilgjengelighetstjenesten.
 * ~~Mappevelgeren viser noen ganger ingen mapper av ennå ukjente årsaker. Dette ser ut til å være løst.~~
 * ~~En [feil i AndroidX](https://issuetracker.google.com/issues/64729576) gjør det vanskelig å ta tak i hurtigrulleren. En løsning ble lagt til.~~
 * ~~Kryptering med YubiKey resulterer i en uendelig loop. Dette ser ut til å være forårsaket av en [feil i OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Å rulle til et internt koblet sted i originale meldinger fungerer ikke. Dette kan ikke løses fordi den opprinnelige meldingsvisningen finnes i en rullende visning.
-* En forhåndsvisning av en meldingstekst vises ikke (alltid) på Samsung-klokker fordi [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) ser ut til å bli ignorert. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. Se også [denne vanlige FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* Å rulle til et internt koblet sted i originale meldinger fungerer ikke. Dette kan ikke løses fordi originalmelding-visningen ligger i en rullevisning.
+* En forhåndsvisning av en meldingstekst vises ikke (alltid) på Samsung-klokker fordi [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) ser ut til å bli ignorert. Forhåndsvisninger av meldinger vises ikke alltid riktig på Pebble 2, Fitbit Charge 3, Mi Band 3, og Xiaomi Amazfit BIP-enheter. Les mer på denne [OSS-siden](#user-content-faq126).
+* En [feil i Android 6.0](https://issuetracker.google.com/issues/37068143) forårsaker en krasj med *... Invalid offset: ... Valid range is ...* når du trykker et sted utenfor valgt tekst. Dette har blitt løst i Android 6.0.1.
+* Interne (anker)lenker vil ikke virke fordi originalmeldinger vises i en innebygd WebView i en rullevisning. Dette er en begrensning i Android og kan ikke fikses eller omgås.
+* Språkdeteksjon [virker ikke lengre](https://issuetracker.google.com/issues/173337263) på Pixel-enheter med (oppgradert til?) Android 11.
 
 ## Planlagte funksjoner
 
-* ~~Synkroniser på forespørsel (Håndbok)~~
+* ~~Synkroniser meldinger ved forespørsel (manuell)~~
 * ~~Halvautomatisk kryptering~~
 * ~~Kopier melding~~
 * ~~Fargede stjerner~~
-* ~~Varslingsinnstillinger per mappe~~
+* ~~Egne varslingsinnstillinger for hver mappe~~
 * ~~Velg lokale bilder for signaturer~~ (dette blir ikke lagt til fordi det krever bildefiladministrasjon og fordi bilder ikke vises som standard i de fleste e-postklienter uansett)
 * ~~Vis meldinger matchet av en regel~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (det er ingen vedlikeholdte Java-biblioteker med en passende lisens og uten avhengigheter, og i tillegg har FairEmail sine egne filterregler)
 * ~~Søk etter meldinger med/uten vedlegg~~ (dette kan ikke legges til fordi IMAP ikke støtter søk etter vedlegg)
 * ~~Søk etter en mappe~~ (filtrering av en hierarkisk mappeliste er problematisk)
 * ~~Søkeforslag~~
-* ~~[Autokrypter oppsettmelding](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (avsnitt 4.4)~~ (IMO det er ikke lurt å la en e-postklient håndtere sensitive krypteringsnøkler for en eksepsjonell brukstilfelle mens OpenKeychain også kan eksportere nøkler)
+* ~~[Autokrypter oppsettmelding](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (avsnitt 4.4)~~ (Etter min mening er det ikke lurt å la en e-postklient håndtere sensitive krypteringsnøkler for et eksepsjonelt brukstilfelle mens OpenKeychain også kan eksportere nøkler)
 * ~~Generiske enhetlige mapper~~
-* ~~Nye varslingsplaner per melding per konto~~ (implementert ved å legge til en tidsbetingelse i reglene slik at meldinger kan bli utsatt i løpet av utvalgte perioder)
-* ~~Kopier kontoer og identiteter~~
-* ~~Klemzoom~~ (ikke pålitelig mulig i en rulleliste; hele meldingsvisningen kan bli zoomet i stedet)
+* ~~Kontospesifikke varslingsplaner for nye meldinger~~ (implementert ved å legge til en tidsbetingelse i reglene slik at meldinger kan bli utsatt i løpet av utvalgte perioder)
+* ~~Kopiering av kontoer og identiteter~~
+* ~~Knipe-zooming~~ (ikke mulig/pålitelig i en rullevisning; hele meldingsvisningen kan bli forstørret i stedet)
 * ~~Mer kompakt mappevisning~~
-* ~~Skriv lister og tabeller~~ (dette krever en rich text editor, se [denne FAQ](#user-content-faq99))
-* ~~Klype zoom tekststørrelse~~
-* ~~Vis GIFs~~
-* ~~Temaer~~ (et lyse grått og mørkt tema ble lagt til fordi dette er hva folk flest ønsker)
-* ~~Hvilken dagstid som helst~~ (hvilken som helst dag passer egentlig ikke inn i fra/til dato/klokkeslett)
+* ~~Skriv lister og tabeller~~ (dette krever en rikteksts-editor, se [denne OSS-siden](#user-content-faq99))
+* ~~Knipe-zoom tekststørrelse~~
+* ~~Visning av GIFer~~
+* ~~Temaer~~ (et lysegrått og mørkt tema ble lagt til fordi dette er hva folk flest ønsker)
+* ~~Når som helst-tidsbetingelse~~ (når som helst passer egentlig ikke inn i fra/til dato-betingelsen)
 * ~~Send som vedlegg~~
 * ~~Widget for valgt konto~~
-* ~~Påminn om å legge ved filer~~
+* ~~Påminnelse om å legge ved filer~~
 * ~~Velg domener for å vise bilder for~~ (dette vil være for komplisert å bruke)
-* ~~Enhetlige stjernemerkede meldings visning~~ (det er allerede et spesielt søk for dette)
-* ~~Flytt varselhandling~~
-* ~~S/MIME støtte~~
-* ~Søk etter innstillinger~~
+* ~~Enhetlig visning av stjernemerkede meldinger~~ (det er allerede en spesiell søkefunksjon for dette)
+* ~~Flytt varsel-handling~~
+* ~~S/MIME-støtte~~
+* ~Søk i Innstillinger~~
 
 Alt på denne listen er i tilfeldig rekkefølge, og *kan* legges til i nær fremtid.
 
 ## Ofte etterspurte funksjoner
 
-Designet er basert på mange diskusjoner, og hvis du vil, kan du diskutere om det [i dette forumet](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Målet med designet er å være minimalistisk (ingen unødvendige menyer, knapper osv.) Og ikke distraherende (ingen fancy farger, animasjoner osv.). Alle viste ting skal være nyttige på en eller annen måte og bør være nøye plassert for enkel bruk. Skrifttyper, størrelser, farger osv. Bør være material design når det er mulig.
+Utformingen er basert på mange diskusjoner, og hvis du vil kan du bli med i diskusjonen [i dette forumet](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Målet med utformingen er å være minimalistisk (ingen unødvendige menyer, knapper osv.) og ikke være distraherende (ingen fancy farger, animasjoner osv.) Alle synlige objekter skal ha en nyttig funksjon og bør være nøye plassert for enkel bruk. Skrifttyper, -størrelser, -farger osv. bør om mulig samsvare med Material-designspråket.
 
 ## Ofte stilte spørsmål
 
-* [(1) Hvilke tillatelser er nødvendig og hvorfor?](#user-content-faq1)
+* [(1) Hvilke tillatelser er nødvendige, og hvorfor?](#user-content-faq1)
 * [(2) Hvorfor vises det en permanent varsling?](#user-content-faq2)
-* [(3) Hva er operasjoner og hvorfor venter de?](#user-content-faq3)
+* [(3) Hva er operasjoner og hvorfor avventer de?](#user-content-faq3)
 * [(4) Hvordan kan jeg bruke et ugyldig sikkerhetssertifikat / tomt passord / vanlig tekstforbindelse?](#user-content-faq4)
 * [(5) Hvordan kan jeg tilpasse meldingsvisningen?](#user-content-faq5)
 * [(6) Hvordan kan jeg logge på Gmail / G suite?](#user-content-faq6)
-* [(7) Hvorfor vises ikke sendte meldinger (direkte) i den sendte mappen?](#user-content-faq7)
+* [(7) Hvorfor vises ikke sendte meldinger (direkte) i Sendt-mappen?](#user-content-faq7)
 * [(8) Kan jeg bruke en Microsoft Exchange-konto?](#user-content-faq8)
 * [(9) Hva er identiteter / hvordan legger jeg til et alias?](#user-content-faq9)
 * [~~(11) Hvorfor støttes ikke POP?~~](#user-content-faq11)
 * [~~(10) Hva betyr 'UIDPLUS støttes ikke'?~~](#user-content-faq10)
 * [(12) Hvordan fungerer kryptering/dekryptering?](#user-content-faq12)
-* [(13) Hvordan fungerer søk på enhet/server?](#user-content-faq13)
+* [(13) Hvordan fungerer søk på enhet/tjener?](#user-content-faq13)
 * [(14) Hvordan kan jeg sette opp en Outlook / Live / Hotmail-konto?](#user-content-faq14)
-* [(15) Hvorfor fortsetter meldingsteksten å lastes inn?](#user-content-faq15)
+* [(15) Hvorfor fortsetter bare meldingsteksten å lastes inn?](#user-content-faq15)
 * [(16) Hvorfor synkroniseres ikke meldinger?](#user-content-faq16)
 * [~~(17) Hvorfor fungerer ikke manuell synkronisering?~~](#user-content-faq17)
 * [(18) Hvorfor vises ikke altid forhåndsvisning av meldingen?](#user-content-faq18)
 * [(19) Hvorfor er pro-funksjonene så dyre?](#user-content-faq19)
-* [(20) Kan jeg få refusjon?](#user-content-faq20)
+* [(20) Kan jeg få pengene tilbake?](#user-content-faq20)
 * [(21) Hvordan aktiverer jeg varsellyset?](#user-content-faq21)
 * [(22) Hva betyr konto/mappefeil?](#user-content-faq22)
 * [(23) Hvorfor får jeg varsel.. ?](#user-content-faq23)
-* [(24) Hva er bla i meldinger på server?](#user-content-faq24)
+* [(24) Hva er Bla gjennom meldinger på tjener?](#user-content-faq24)
 * [(25) Hvorfor kan jeg ikke velge/åpne/lagre et bilde, et vedlegg eller en fil?](#user-content-faq25)
-* [(26) Kan jeg hjelpe til med å oversette FairEmail på mitt eget språk?](#user-content-faq26)
+* [(26) Kan jeg hjelpe til med å oversette FairEmail til mitt eget språk?](#user-content-faq26)
 * [(27) Hvordan kan jeg skille mellom innebygde og eksterne bilder?](#user-content-faq27)
 * [(28) Hvordan kan jeg administrere statuslinjevarsler?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
-* [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
-* [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
-* [(43) Can you show the original ... ?](#user-content-faq43)
-* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
-* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
-* [(51) How are folders sorted?](#user-content-faq51)
-* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact management/synchronizing?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
+* [(29) Hvordan kan jeg motta varsler om nye beskjeder fra andre mapper?](#user-content-faq29)
+* [(30) Hvordan bruker jeg de vedlagte hurtiginnstillingene?](#user-content-faq30)
+* [(31) Hvordan bruker jeg de vedlagte snarveiene?](#user-content-faq31)
+* [(32) Hvordan kan jeg sjekke om lesing av e-post virkelig er trygt?](#user-content-faq32)
+* [(33) Hvorfor virker ikke redigerte avsender-adresser?](#user-content-faq33)
+* [(34) Hvordan samsvares identiteter?](#user-content-faq34)
+* [(35) Hvorfor burde jeg være forsiktig med å åpne bilder, vedlegg, originalmeldinger, og trykke på lenker?](#user-content-faq35)
+* [(36) Hvordan krypteres innstillinger-filer?](#user-content-faq36)
+* [(37) Hvordan lagres passord?](#user-content-faq37)
+* [(39) Hvordan kan jeg redusere FairEmails batteribruk?](#user-content-faq39)
+* [(40) Hvordan kan jeg redusere FairEmails databruk?](#user-content-faq40)
+* [(41) Hvordan kan jeg fikse "Handshake failed"-feilen?](#user-content-faq41)
+* [(42) Kan du legge til en ny leverandør i listen over leverandører?](#user-content-faq42)
+* [(43) Kan jeg se originalen ... ?](#user-content-faq43)
+* [(44) Kan jeg se kontaktbilder / Identicon-er i Sendt-mappen?](#user-content-faq44)
+* [(45) Hvordan fikser jeg 'Denne nøkkelen er ikke tilgjengelig'-feilen? For å bruke dette, må du importere den som en av dine egne! ?](#user-content-faq45)
+* [(46) Hvorfor fortsetter bare meldingslisten å lastes inn?](#user-content-faq46)
+* [(47) Hvordan fikser jeg 'Ingen hovedkonto eller ingen utkastmappe'-feilen?](#user-content-faq47)
+* [~~(48) Hvordan fikser jeg 'Ingen hovedkonto eller ingen arkivmappe'-feilen?~~](#user-content-faq48)
+* [(49) Hvordan fikser jeg 'En utdatert app sendte en filplassering istedet for en filstrøm'-feilen?](#user-content-faq49)
+* [(50) Kan du legge til en funksjon for å synkronisere alle beskjeder?](#user-content-faq50)
+* [(51) Hvordan sorteres mapper?](#user-content-faq51)
+* [(52) Hvorfor tar det så lang tid å koble til en konto på nytt?](#user-content-faq52)
+* [(53) Kan du feste meldingshandling-linjen til toppen/bunnen?](#user-content-faq53)
+* [~~(54) Hvordan bruker jeg prefiks i navnefeltet?~~](#user-content-faq54)
+* [(55) Hvordan kan jeg markere alle meldinger som lest / flytte eller slette alle meldinger?](#user-content-faq55)
+* [(56) Kan du legge til støtte for JMAP?](#user-content-faq56)
+* [(57) Kan jeg bruke HTML i signaturer?](#user-content-faq57)
+* [(58) Hva betyr åpen/låst e-post-ikonene?](#user-content-faq58)
+* [(59) Kan originalmeldinger åpnes i leseren?](#user-content-faq59)
+* [(60) Visste du at..?](#user-content-faq60)
+* [(61) Hvorfor vises noen meldinger som grået ut?](#user-content-faq61)
+* [(62) Hvilke autentiseringsmetoder er støttet?](#user-content-faq62)
+* [(63) Hvordan endres størrelsen på bilder for visning på skjermer?](#user-content-faq63)
+* [~~(64) Kan du legge til tilpassede handlinger for stryk til venstre/høyre?~~](#user-content-faq64)
+* [(65) Hvorfor vises noen vedlegg som grået ut?](#user-content-faq65)
+* [(66) Er FairEmail tilgjengelig i Google Play familiebiblioteket?](#user-content-faq66)
+* [(67) Hvordan kan jeg utsette samtaler?](#user-content-faq67)
+* [~~(68) Hvorfor kan ikke Adobe Acrobat Reader åpne PDF-vedlegg / Microsoft-apper åpne vedlagte dokumenter?~~](#user-content-faq68)
+* [(69) Kan du legge til en funksjon for automatisk rulling til toppen på nye meldinger?](#user-content-faq69)
+* [(70) Når vil meldinger ekspanderes automatisk?](#user-content-faq70)
+* [(71) Hvordan bruker jeg filterregler?](#user-content-faq71)
+* [(72) Hva er hovedkontoer/-identiteter?](#user-content-faq72)
+* [(73) Er det trygt/effektivt å flytte meldinger på tvers av kontoer?](#user-content-faq73)
+* [(74) Hvorfor ser jeg dupliserte meldinger?](#user-content-faq74)
+* [(75) Kan du lage en versjon til iOS, Windows, Linux, osv.?](#user-content-faq75)
+* [(76) Hva gjør 'Fjern lokale meldinger'?](#user-content-faq76)
+* [(77) Hvorfor vises meldinger noen ganger med en kort tidsforsinkelse?](#user-content-faq77)
+* [(78) Hvordan bruker jeg tidsplaner?](#user-content-faq78)
+* [(79) Hvordan bruker jeg 'Synkroniser ved forespørsel (manuell)'?](#user-content-faq79)
+* [~~(80) Hvordan fikser jeg feilen 'Kunne ikke laste BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(81) Kan du gjøre bakgrunnen på originalmeldinger mørk når det mørke temaet er valgt?~~](#user-content-faq81)
+* [(82) Hva er et sporingsbilde?](#user-content-faq82)
+* [(84) Hva er lokale kontakter til for?](#user-content-faq84)
+* [(85) Hvorfor er en identitet ikke tilgjengelig?](#user-content-faq85)
+* [~~(86) Hva er 'ekstra personverns-funksjoner'?~~](#user-content-faq86)
+* [(87) Hva betyr 'ugyldig legitimasjon'?](#user-content-faq87)
+* [(88) Hvordan bruker jeg en Yahoo, AOL, eller Sky-konto?](#user-content-faq88)
+* [(89) Hvordan kan jeg sende meldinger i ren tekst?](#user-content-faq89)
+* [(90) Hvorfor er noe tekst lenket uten å være en lenke?](#user-content-faq90)
+* [~~(91) Kan du legge til periodevis synkronisering for å spare batteri?~~](#user-content-faq91)
+* [(92) Kan du legge til spam-filtrering, verifisering av DKIM-signatur og SPF-autorisering?](#user-content-faq92)
+* [(93) Kan du tillate installering/datalagring på eksterne lagringsmedia (SD-kort)?](#user-content-faq93)
+* [(94) Hva betyr den røde/oransje stripen på enden av toppteksten?](#user-content-faq94)
+* [(95) Hvorfor vises ikke alle appene når jeg velger et vedlegg eller bilde?](#user-content-faq95)
+* [(96) Hvor finner jeg IMAP- og SMTP-innstillingene?](#user-content-faq96)
+* [(97) Hva betyr 'opprydding'?](#user-content-faq97)
+* [(98) Hvorfor kan jeg fortsatt velge kontakter etter å ha dratt tilbake kontakt-tillatelsene?](#user-content-faq98)
+* [(99) Kan du legge til en riktekst- eller Markdown-editor?](#user-content-faq99)
+* [(100) Hvordan synkroniserer jeg Gmail-kategorier?](#user-content-faq100)
+* [(101) Hva betyr den blå/oransje prikken nederst i samtalene?](#user-content-faq101)
+* [(102) Hvordan aktiverer jeg automatisk rotasjon av bilder?](#user-content-faq102)
+* [(103) Hvordan tar jeg opp lyd?](#user-content-faq158)
+* [(104) Hva må jeg vite angående rapportering av feil?](#user-content-faq104)
+* [(105) Hvordan virker alternativet roam-som-hjemme?](#user-content-faq105)
+* [(106) Hvilke launchere kan vise antall uleste meldinger på appikonet?](#user-content-faq106)
+* [(107) Hvordan bruker jeg fargede stjerner?](#user-content-faq107)
+* [~~(108) Kan du legge til muligheten for å permanent slette meldinger fra hvilken som helst mappe?~~](#user-content-faq108)
+* [~~(109) Hvorfor er 'velg konto' kun tilgjengelig i offisielle versjoner?~~](#user-content-faq109)
+* [(110) Hvorfor er (noen) meldinger tomme og/eller vedlegg korrupterte?](#user-content-faq110)
+* [(111) Er OAuth støttet?](#user-content-faq111)
+* [(112) Hvilken e-postleverandør anbefaler du?](#user-content-faq112)
+* [(113) Hvordan virker biometrik autentisering?](#user-content-faq113)
+* [(114) Kan du legge til muligheten til å importere innstillinger fra andre e-postapper?](#user-content-faq114)
+* [(115) Kan du legge til e-postadresse-chips?](#user-content-faq115)
+* [~~(116) Hvordan kan jeg vise bilder i meldinger fra pålitelige avsendere som standard?~~](#user-content-faq116)
+* [(117) Kan du hjelpe meg å gjenopprette kjøpet mitt?](#user-content-faq117)
+* [(118) Hva betyr 'Fjern sporingsparametre' egentlig?](#user-content-faq118)
+* [~~(119) Kan du legge til farger på Enhetlig innboks-widgeten?~~](#user-content-faq119)
+* [(120) Hvorfor forsvinner ikke varsler om nye meldinger når jeg åpner appen?](#user-content-faq120)
+* [(121) Hvordan grupperes meldinger om til samtaler?](#user-content-faq121)
+* [~~(122) Hvorfor vises mottakernavn/e-postadresse med en varselfarge?~~](#user-content-faq122)
+* [(123) Hva skjer dersom FairEmail ikke kan koble til e-posttjeneren?](#user-content-faq123)
+* [(124) Hvorfor får jeg beskjeden 'Meldingen er for stor eller for kompleks til å vises'?](#user-content-faq124)
+* [(125) Hvilke funksjoner er for tiden eksperimentelle?](#user-content-faq125)
+* [(126) Kan meldingsforhåndsvisninger sendes til smartklokken min?](#user-content-faq126)
+* [(127) Hvordan fikser jeg feilen 'Syntaks-feil i HELO-argument(er)'?](#user-content-faq127)
+* [(128) Hvordan tilbakestiller jeg besvarte spørsmål, som f.eks. for å vise bilder?](#user-content-faq128)
+* [(129) Er ProtonMail, Tutanota støttet?](#user-content-faq129)
+* [(130) Hva betyr feilbeskjeden..?](#user-content-faq130)
+* [(131) Kan du endre retningen for Sveip til forrige/neste melding?](#user-content-faq131)
+* [(132) Hvorfor lager ikke varsler om nye meldinger lyd?](#user-content-faq132)
+* [(133) Hvorfor støttes ikke ActiveSync?](#user-content-faq133)
+* [(134) Kan du legge til muligheten til å slette lokale meldinger?](#user-content-faq134)
+* [(135) Hvorfor vises beskjeder i papirkurven og utkast i samtaler?](#user-content-faq135)
+* [(136) Hvordan sletter jeg en konto/identitet/mappe?](#user-content-faq136)
+* [(137) Hvordan tilbakestiller jeg 'Ikke spør igjen'?](#user-content-faq137)
+* [(138) Kan du legge til synkronisering av kalender/kontakter?](#user-content-faq138)
+* [(139) Hvordan fikser jeg feilen 'Bruker er autentisert, men ikke tilkoblet'?](#user-content-faq139)
 * [(140) Why does the message text contain strange characters?](#user-content-faq140)
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)

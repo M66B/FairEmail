@@ -462,6 +462,7 @@
     <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
+    <string name="title_advanced_classification">Классифицировать сообщения</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
@@ -693,6 +694,7 @@
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
+    <string name="title_auto_classify">Автоматически перемещать классифицированные сообщения</string>
     <string name="title_sync_days">Синхронизация сообщений (дни)</string>
     <string name="title_sync_days_remark">Увеличение этого значения увеличит потребление трафика и заряда батареи</string>
     <string name="title_keep_days">Хранение сообщений (дн.)</string>
@@ -1150,6 +1152,7 @@
     <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_found">Найден</string>
+    <string name="title_legend_classified">Было классифицировано</string>
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>

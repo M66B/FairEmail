@@ -671,6 +671,7 @@
     <string name="title_poll_folder">Tjek periodisk i stedet for kontinuerlig synkronisering</string>
     <string name="title_download_folder">Auto-download beskedtekst og vedhæftninger</string>
     <string name="title_notify_folder">Notificér ved nye beskeder</string>
+    <string name="title_auto_classify">Flyt automatisk klassificerede beskeder</string>
     <string name="title_sync_days">Beskedsynkronisering (dage)</string>
     <string name="title_sync_days_remark">Øges denne værdi, forøge batteri- og dataforbruget</string>
     <string name="title_keep_days">Behold beskeder (dage)</string>

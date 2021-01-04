@@ -2,8 +2,8 @@
 <resources>
     <string name="app_search">FairEmail søk</string>
     <string name="app_changelog">Endringer</string>
-    <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
-    <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
+    <string name="app_welcome">FairEmail er en e-postleser med åpen kildekode fokusert på personvern og sikkerhet. Derfor kan noen funksjoner virke annerledes enn det du er vant til.</string>
+    <string name="app_limitations">For eksempel vil meldinger alltid bli reformatert for å fjerne usikre elementer, og for å forbedre lesbarheten. Og åpning av lenker må bekreftes av sikkerhetshensyn.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
@@ -13,7 +13,7 @@
     <string name="channel_update">Oppdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>
-    <string name="channel_alert">Servervarsler</string>
+    <string name="channel_alert">Tjenervarsler</string>
     <string name="channel_group_contacts">Kontakter</string>
     <string name="channel_service_description">Synkronisering og overvåking av kontoer</string>
     <string name="channel_send_description">Sending av meldinger</string>
@@ -81,7 +81,7 @@
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
-    <string name="title_notification_alert">\'%1$s\' servervarsling</string>
+    <string name="title_notification_alert">Tjenervarsel: \'%1$s</string>
     <string name="title_notification_sending_left">Forsøk igjen: %1$d</string>
     <string name="title_notification_sending_failed">Sending til %1$s mislyktes</string>
     <string name="title_notification_redacted">Redigert: biometrisk eller PIN-autentisering aktivert</string>
@@ -123,14 +123,15 @@
     <string name="title_setup_quick_remark">For å raskt sette opp en konto og en identitet for de fleste tilbydere</string>
     <string name="title_setup_quick_support">Noen leverandører gjør det vanskelig å legge til en konto. Vennligst ikke klandre FairEmail for dette, men be om support i stedet.</string>
     <string name="title_setup_quick_hint">Hurtig oppsettet henter konfigurasjons informasjon fra autoconfig.thunderbird.net</string>
-    <string name="title_setup_quick_imap">IMAP-serveren til å motta meldinger</string>
-    <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
+    <string name="title_setup_quick_imap">IMAP-tjener for mottak av meldinger</string>
+    <string name="title_setup_quick_smtp">SMTP-tjener for sending av meldinger</string>
     <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_wizard_multiple">Installasjonsveiviseren kan brukes flere ganger for å sette opp flere kontoer</string>
     <string name="title_setup_wizard_new">Jeg trenger en ny e-postadresse</string>
     <string name="title_setup_wizard_remark">Gå \'tilbake\' for å gå til innboksen</string>
     <string name="title_setup_oauth_permission">E-postleverandøren har bare godkjent OAuth for offisielle versjoner av appen</string>
     <string name="title_setup_other">Annen leverandør</string>
+    <string name="title_setup_pop3">POP3-konto</string>
     <string name="title_setup_gmail_support">Å autorisere Google kontoer fungerer bare i offisielle versjoner fordi Android sjekker appens signatur</string>
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
     <string name="title_setup_gmail_permissions">Google vil be om tillatelser til å lese, komponere, sende og slette all e-postmeldingen din permanent. FairEmail vil aldri slette meldingene dine uten ditt eksplisitte samtykke.</string>
@@ -220,7 +221,7 @@
     <string name="title_advanced_hint_message">Du navigerer til de mer avanserte alternativene.
      Alle alternativer har ofte brukt standardverdier som kan endres hvis du har en annen preferanse.
     </string>
-    <string name="title_advanced_section_main">Hoved</string>
+    <string name="title_advanced_section_main">Kontoinnst.</string>
     <string name="title_advanced_section_synchronize">Motta</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
@@ -239,7 +240,7 @@
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
     <string name="title_advanced_delete_unseen">Slett gamle uleste meldinger</string>
-    <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra serveren</string>
+    <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra tjeneren</string>
     <string name="title_advanced_gmail_thread">Gmail-grupperingsstil for Gmail-kontoer</string>
     <string name="title_advanced_sync_folders">Synkroniser mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkroniser delte mappelister</string>
@@ -379,7 +380,7 @@
     <string name="title_advanced_notifications_newest_first">Vis de nyeste varslene først</string>
     <string name="title_advanced_notifications_background">Bruk bakgrunnstjeneste for å synkronisere meldinger</string>
     <string name="title_advanced_notifications_background_hint">En bakgrunnstjeneste kan stanses av Android når som helst, men krever ikke en statuslinje varsel</string>
-    <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
+    <string name="title_advanced_badge">Vis antall nye meldinger på appikonet</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_background">Vis varsler kun i bakgrunnen</string>
     <string name="title_advanced_notify_known">Vis kun varsler fra kontakter</string>
@@ -439,6 +440,7 @@
     <string name="title_advanced_language_detection">Oppdag meldings tekstspråk</string>
     <string name="title_advanced_fts">Bygg søkeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>
+    <string name="title_advanced_classification">Klassifiser meldinger</string>
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
@@ -456,7 +458,7 @@
     <string name="title_advanced_more">Flere valg</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, kan du fremdeles oppdatere listen ved å sveipe ned fra toppen</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en dyr operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger som skal synkroniseres. Alltid synkronisering vil unngå dette ved kontinuerlig sjekking for endringer.</string>
-    <string name="title_advanced_optimize_hint">Dette kan endre synkroniseringsfrekvensen for å spare batteribruk avhengig av egenskaper og oppførsel til e-postserverne</string>
+    <string name="title_advanced_optimize_hint">Dette kan forandre synkroniseringsfrekvensen for å spare batteribruk, avhengig av e-posttjenernes muligheter og oppførsel</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_no_date_hint">Noen leverandører lagrer meldinger med ukjent, ugyldig eller senere dato som meldinger uten dato</string>
     <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som kan føre til synkronisering av ingen eller alle meldinger</string>
@@ -519,6 +521,8 @@
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>
     <string name="title_advanced_protocol_hint">Dette valget vil drastisk øke batteriforbruk og redusere lagringskapasitet!</string>
+    <string name="title_advanced_debug_hint">Skru på ekstra loggføring og vis stygg feilsøkings-informasjon her og der</string>
+    <string name="title_advanced_cleanup_attachments_hint">Ved manuell opprydding vil vedlegg til usynkroniserte meldinger fjernes</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Aldri favoritt</string>
     <string name="title_advanced_edit_name">Rediger navn</string>
@@ -531,6 +535,7 @@
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex for å matche brukernavn på innkommende e-postadresser</string>
     <string name="title_identity_reply_to">Svar til adressen</string>
+    <string name="title_identity_unicode_remark">Tjenere støtter vanligvis ikke dette</string>
     <string name="title_identity_max_size">Maks meldingsstørrelse (MB)</string>
     <string name="title_identity_receipt">Be om levert/lest kvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfelle \'ugyldig hilsen\', \'krever gyldig adresse\' eller en lignende feil, prøv å endre denne innstillingen</string>
@@ -565,24 +570,27 @@
     <string name="title_client_certificate">Klientsertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Bruk lokal IP-adresse i stedet for vertsnavn</string>
+    <string name="title_ehlo">Tilpasset HELO/EHLO-identifikasjon</string>
     <string name="title_primary">Primær</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_self_identity">Fjern e-postadresse når du svarer på en melding</string>
-    <string name="title_leave_on_server">Legg igjen meldingene på serveren</string>
-    <string name="title_leave_deleted">Legg igjen slettede meldinger på serveren</string>
+    <string name="title_leave_on_server">Legg igjen meldinger på tjeneren</string>
+    <string name="title_leave_deleted">Legg igjen slettede meldinger på tjeneren</string>
     <string name="title_leave_on_device">Legg igjen meldinger på enheten</string>
     <string name="title_max_messages">Maksimalt antall meldinger du vil laste ned (tomt for alle)</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
+    <string name="title_server_time">Brukt mottatt tid (tjener)</string>
     <string name="title_received_header">Bruk \'Mottatt\' overskrift</string>
     <string name="title_date_header">Bruk \'Dato\' overskrift (sendt tid)</string>
     <string name="title_date_remark">Endringer vil kun påvirke nye meldinger</string>
     <string name="title_related_identity">Legg til relatert identitet</string>
     <string name="title_check">Sjekk</string>
-    <string name="title_trust">Stol på serverbevis med fingeravtrykk %1$s</string>
+    <string name="title_trust">Stol på tjenersertifikat med fingeravtrykk %1$s</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-post adressen mangler</string>
     <string name="title_email_invalid">E-postadressen er ugyldig: \'%1$s\'</string>
+    <string name="title_address_duplicate">Duplikat av adresse: %1$s</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' ugyldig: %2$s</string>
     <string name="title_no_account">Konto mangler</string>
     <string name="title_no_host">Vertsnavn mangler</string>
@@ -591,6 +599,7 @@
     <string name="title_no_inbox">Finner ikke innboks</string>
     <string name="title_no_drafts">Ingen Utkast-mappe</string>
     <string name="title_no_junk_folder">Det er ikke valgt noen spam-mappe for denne kontoen</string>
+    <string name="title_no_composable">Sending av e-post krever at en identitet er konfigurert, og at en utkastmappe er valgt i kontoinnstillingene (oppsett, steg 1)</string>
     <string name="title_no_standard">Denne leverandøren bruker en proprietær e-postprotokoll, og det er derfor ikke mulig å bruke tredjeparts e-postklienter</string>
     <string name="title_no_idle">Denne leverandøren støtter ikke push-meldinger. Dette vil forsinke mottak av nye meldinger og øke batteriforbruket.</string>
     <string name="title_no_utf8">Denne leverandøren støtter ikke UTF-8</string>
@@ -598,12 +607,14 @@
     <string name="title_reply_domain">Avsenderen (%1$s) og svardomenet (%2$s) er forskjellige</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende e-post</string>
     <string name="title_drafts_required">En utkast-mappe er nødvendig for å sende e-post</string>
+    <string name="title_drafts_select">Sending av e-post krever at en utkastmappe er valgt i kontoinnstillingene</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>
     <string name="title_sign_key">Skiltnøkkel: %1$s</string>
     <string name="title_last_connected">Sist tilkoblet: %1$s</string>
-    <string name="title_storage_quota">Bruk av serverlagring: %1$s/%2$s</string>
+    <string name="title_backoff_until">Ventetid etter feilmelding: %1$s</string>
+    <string name="title_storage_quota">Bruk av tjenerlagring: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokollen støtter bare nedlasting og sletting av meldinger fra innboksen. POP3 kan ikke merke meldinger som er lest, flytte meldinger, etc. POP3 vil bruke mer batteristrøm og data enn IMAP. Så vurder å bruke IMAP-protokollen når det er mulig.</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>
@@ -612,7 +623,7 @@
     <string name="title_service_vpn">Dette kan være forårsaket av VPN som blir brukt</string>
     <string name="title_service_port">Kontroller portnummeret</string>
     <string name="title_service_protocol">Vennligst dobbeltsjekk protokollen (SSL/TLS eller STARTTLS)</string>
-    <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
+    <string name="title_advanced_browse">Bla gjennom meldinger på tjeneren</string>
     <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
     <string name="title_synchronize_subfolders">Undermapper</string>
@@ -636,8 +647,14 @@
     <string name="title_empty_spam_ask">Slette alle spammeldinger permanent?</string>
     <string name="title_empty_trash_all_ask">Slette alle meldinger som er kastet av alle kontoer permanent?</string>
     <string name="title_empty_spam_all_ask">Slette alle søppelpost-meldinger fra alle kontoer permanent?</string>
-    <string name="title_empty_all">Dette vil slette alle meldinger både fra enheten og serveren</string>
+    <string name="title_empty_all">Dette vil slette alle meldinger både fra enheten og tjeneren</string>
+    <string name="title_delete_operation_title">Slett operasjoner</string>
     <string name="title_delete_operation_error">Med feilmelding</string>
+    <string name="title_delete_operation_fetch">Hent operasjoner</string>
+    <string name="title_delete_operation_move">Flytt operasjoner</string>
+    <string name="title_delete_operation_flag">Flagg operasjoner</string>
+    <string name="title_delete_operation_delete">Slett operasjoner</string>
+    <string name="title_delete_operation_deleted">%1$d operasjoner er slettet</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>
     <string name="title_hint_operations">Slette operasjoner kan føre til at meldinger og synkroniseringsproblemer forsvinner</string>
@@ -645,6 +662,7 @@
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
     <string name="title_show_flagged">Vi antall stjernemerkede meldinger</string>
+    <string name="title_subscribed_only">Kun abonnementer</string>
     <string name="title_apply_to_all">Gjelder for alle &#8230;</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i Felles innboks</string>
@@ -653,14 +671,20 @@
     <string name="title_poll_folder">Kontroller jevnlig i stedet for kontinuerlig synkronisering</string>
     <string name="title_download_folder">Last ned automatisk meldings tekster og vedlegg</string>
     <string name="title_notify_folder">Gi beskjed om nye meldinger</string>
+    <string name="title_auto_classify">Flytt klassifiserte meldinger automatisk</string>
     <string name="title_sync_days">Synkronisere meldinger (dager)</string>
     <string name="title_sync_days_remark">Ved å øke denne verdien øker batteriet og dataforbruket</string>
     <string name="title_keep_days">Beholde meldinger (dager)</string>
-    <string name="title_keep_days_remark">Gamle meldinger blir fjernet fra enheten, men forblir på serveren</string>
+    <string name="title_keep_days_remark">Gamle meldinger blir fjernet fra enheten, men forblir på tjeneren</string>
     <string name="title_keep_all">Beholde alle meldinger</string>
+    <string name="title_poll_system">Angi at systemmapper periodisk ser etter nye meldinger</string>
+    <string name="title_poll_user">Angi at brukermapper periodisk ser etter nye meldinger</string>
     <string name="title_auto_trash">Flytt gamle meldinger automatisk til søppel</string>
     <string name="title_auto_delete">Slett gamle meldinger automatisk permanent</string>
     <string name="title_auto_delete_hint">Gamle meldinger er meldinger som ikke lenger lagres på enheten</string>
+    <string name="title_inbox_root_hint">        Enkelte leverandører krever at nye mapper opprettes under innboksen.
+        Dersom dette er tilfellet, kan du trykke lenge på innboksen og velge \'Opprett undermappe\'.
+    </string>
     <string name="title_folder_name_missing">Mappenavn mangler</string>
     <string name="title_folder_exists">Mappen %1$s finnes</string>
     <string name="title_folder_delete">Slett denne mappen permanent og alle meldinger den inneholder?</string>
@@ -679,6 +703,7 @@
     <string name="title_folder_user_only">Bare bruker mapper</string>
     <string name="title_folder_primary">Mapper primærkonto</string>
     <string name="title_folders_unified">Felles Innboks mapper</string>
+    <string name="title_folder_local_drafts">Lokale utkast</string>
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen meldinger</string>
     <string name="title_filters_active">En eller flere filtre aktive</string>
@@ -707,6 +732,7 @@
     <string name="title_event">Legg til i kalender</string>
     <string name="title_pin">Legg til snarvei</string>
     <string name="title_print">Skriv ut</string>
+    <string name="title_print_header">Inkluder header-informasjon ved utskrift</string>
     <string name="title_show_headers">Vis topptekster</string>
     <string name="title_raw_save">Lagre rå melding</string>
     <string name="title_raw_send">Send som vedlegg</string>
@@ -759,7 +785,7 @@
     <string name="title_no_folder">Mappe eksisterer ikke</string>
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
     <string name="title_no_image">Bildet kunne ikke dekodes</string>
-    <string name="title_no_search">Søk på serveren er ikke tilgjengelig for denne kontoen</string>
+    <string name="title_no_search">Søk på tjeneren er ikke tilgjengelig for denne kontoen</string>
     <string name="title_too_large">Melding for stor til å omformatere fullstendig</string>
     <string name="title_truncated">Meldingen er for stor til å vises fullstendig</string>
     <string name="title_insufficient_memory">Meldingen er for stor til å passe inn i det tilgjengelige minnet</string>
@@ -781,7 +807,7 @@
     <string name="title_ask_show_html_images">Vis alltid bilder når du viser originale meldinger</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image_hint">Bilder som blir gjenkjent som sporingsbilder, vises ikke</string>
-    <string name="title_ask_delete_local">Slett lokale meldinger? Meldinger vil forbli på den eksterne serveren.</string>
+    <string name="title_ask_delete_local">Slett lokale meldinger? Meldinger vil forbli på den eksterne tjeneren.</string>
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
@@ -820,7 +846,7 @@
     <string name="title_send_at">Sender &#8230;</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
-    <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
+    <string name="title_no_server">Ingen tjener funnet på \'%1$s\'</string>
     <string name="title_style">Stil</string>
     <string name="title_style_bold">Fet</string>
     <string name="title_style_italic">Kursiv</string>
@@ -884,7 +910,7 @@
     <string name="title_attachment_keywords">festet, feste, vedlegg, inkludert</string>
     <string name="title_attachment_reminder">Hadde du tenkt å legge til et vedlegg?</string>
     <string name="title_plain_reminder">Alle formateringer vil gå tapt</string>
-    <string name="title_size_reminder">Melding (%1$s) større enn servergrense (%2$s)</string>
+    <string name="title_size_reminder">Meldingen (%1$s) er større enn tjenerbegrensningen (%2$s)</string>
     <string name="title_attachments_missing">Ikke alle vedlegg er lastet ned</string>
     <string name="title_dialog_hint">Denne dialogen kan aktiveres igjen via trepunkts-menyen i topplinjen</string>
     <string name="title_draft_deleted">Utkast forkastet</string>
@@ -921,12 +947,12 @@
     <string name="title_signature_store">Lagre</string>
     <string name="title_search">Søk</string>
     <string name="title_search_for_hint">Skriv inn tekst</string>
-    <string name="title_search_hint">        Søk vil først se på meldinger som er lagret på enheten din.
-        For å søke på serveren også, trykk på knappen \'søk igjen\'.
+    <string name="title_search_hint">        Søk vil først gå gjennom meldinger som er lagret på enheten din.
+        For å søke på tjeneren i tillegg, trykk på \'Søk igjen\'.
     </string>
     <string name="title_search_index_hint">Søk via søkeindeksen er raskt, men finner bare hele ord</string>
-    <string name="title_search_text_hint">Søk etter tekst i meldinger, når det er et stort antall meldinger, vil kanskje ikke fungere på noen servere</string>
-    <string name="title_search_size_hint">Søk etter størrelse på meldinger, når det er et stort antall meldinger, vil kanskje ikke fungere på noen servere</string>
+    <string name="title_search_text_hint">Søk etter tekst i meldinger, når det er et stort antall meldinger, vil kanskje ikke fungere på noen tjenere</string>
+    <string name="title_search_size_hint">Søk på meldinger etter størrelse, når det er et stort antall meldinger, vil kanskje ikke fungere på noen tjenere</string>
     <string name="title_search_more">Flere alternativer</string>
     <string name="title_search_use_index">Bruk søkeindeks</string>
     <string name="title_search_in_senders">I avsendere (fra)</string>
@@ -951,7 +977,7 @@
     <string name="title_search_flag_invite">invitasjon</string>
     <string name="title_search_flag_size">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søk på enheten</string>
-    <string name="title_search_server">Søk på server</string>
+    <string name="title_search_server">Søk på tjener</string>
     <string name="title_search_in">Søk i</string>
     <string name="title_sort_on">Sorter på</string>
     <string name="title_sort_on_time">Tid</string>
@@ -1039,6 +1065,8 @@
     <string name="title_rule_condition_missing">Tilstand mangler</string>
     <string name="title_rule_folder_missing">Mappe mangler</string>
     <string name="title_rule_identity_missing">Identitet mangler</string>
+    <string name="title_rule_answer_missing">Mal mangler</string>
+    <string name="title_rule_keyword_missing">Nøkkelord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende hensikten \'%1$s\' med extras \'%2$s\'</string>
     <string name="title_rule_execute">Kjør nå</string>
     <string name="title_rule_applied">Berørte meldinger: %1$d</string>
@@ -1046,6 +1074,8 @@
     <string name="title_rule_no_headers">Overskrift forholdene kan ikke kontrolleres</string>
     <string name="title_rule_matched">Matchende meldinger</string>
     <string name="title_rule_no_matches">Ingen matchede meldinger</string>
+    <string name="title_rule_tts_ok">Oppsettet var vellykket</string>
+    <string name="title_rule_tts_setup">Sjekk oppsett</string>
     <string name="title_rule_tts_data">Installer stemmedata</string>
     <string name="title_rule_tts_prefix">Ny melding</string>
     <string name="title_rule_tts_from">Fra</string>
@@ -1168,6 +1198,7 @@
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_battery">Siden FairEmail som standard alltid mottar meldinger, vil Android rapportere at FairEmail alltid er aktiv. Derfor kan det se ut som om FairEmail alltid bruker batteristrøm, men dette er faktisk ikke tilfelle.</string>
     <string name="title_hint_reformat">Som standard vil FairEmail formatere meldinger av hensyn til personvern og sikkerhetsmessige årsaker. For å se den opprinnelige meldingen, trykk på \'hele skjermen\' ikonet over meldingsteksten.</string>
+    <string name="title_hint_design">Utformingen er laget for å ikke distrahere, men fortsatt være svært nyttig. Det finnes mange tilpasningsmuligheter, men vennligst forstå at det er umulig å gjøre alle fornøyde til enhver tid.</string>
     <string name="title_hint_junk">Spam-filtrering må gjøres av e-posttjeneren og kan ikke gjøres på en batteridrevet enhet med begrenset kapasitet.</string>
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_hint_eml">Dette er et sammendrag av innholdet i en rå meldingsfil. Lagre råmeldingen med lagringsikonet i handlingslinjen for å se alt innhold.</string>
@@ -1219,7 +1250,7 @@
     <string name="title_dismiss">Avvis</string>
     <string name="title_snooze_now">Utsett</string>
     <string name="title_loading">Laster &#8230;</string>
-    <string name="title_fetching_again">Henter melding igjen fra serveren</string>
+    <string name="title_fetching_again">Henter melding fra tjeneren på nytt</string>
     <string name="title_conversation_actions">Handlinger</string>
     <string name="title_conversation_action_reply">Svar med: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiere: \'%1$s\'</string>
@@ -1231,6 +1262,11 @@
     <string name="title_pro_list">Liste over Pro funksjoner</string>
     <string name="title_pro_purchase">Kjøp</string>
     <string name="title_pro_once">Bare en gang</string>
+    <string name="title_pro_info">        Utviklingen av FairEmail tok, bokstavelig talt, tusenvis av timer, men til tross for dette er de fleste funksjonene gratis.
+        FairEmail tar personvernet ditt alvorlig og viser hverken reklamer, eller bruker sporing og analytikk for å tjene penger.
+        For å opprettholde og vedlikeholde FairEmail i det lange løp, er enkelte avanserte- og bekvemmelighetsfunksjoner ikke gratis.
+        FairEmail viser en kort beskjed for å minne deg på dette, som forsvinner dersom du kjøper Pro-versjonen.
+    </string>
     <string name="title_pro_hide">Skjul liten melding i %1$d uker</string>
     <string name="title_pro_hint">Ved å kjøpe pro-funksjoner kan du bruke alle aktuelle og fremtidige pro-funksjoner, og vil holde denne appen vedlikeholdt og støttet</string>
     <string name="title_pro_price">Hvorfor er pro-funksjonene så dyre?</string>
@@ -1240,7 +1276,7 @@
     <string name="title_pro_valid">Alle pro-funksjoner aktivert</string>
     <string name="title_pro_invalid">Ugyldig respons</string>
     <string name="title_pro_support">FairEmail trenger din hjelp. Trykk for å kjøpe Pro-funksjoner for å holde prosjektet i gang.</string>
-    <string name="title_boundary_error">Feil ved nedlasting av meldinger fra e-postserveren</string>
+    <string name="title_boundary_error">Feil ved nedlasting av meldinger fra e-posttjeneren</string>
     <string name="title_boundary_retry">Prøv igjen</string>
     <string name="title_unexpected_error">Uventet feil</string>
     <string name="title_log">Logg</string>
@@ -1266,6 +1302,7 @@
     <string name="title_widget_unseen">Bare uleste meldinger</string>
     <string name="title_widget_flagged">Bare stjerne merkede meldinger</string>
     <string name="title_widget_font_size">Tekststørrelse</string>
+    <string name="title_widget_padding">Polstring</string>
     <string name="title_widget_semi_transparent">Halvt gjennomsiktig bakgrunn</string>
     <string name="title_widget_background">Bakgrunnsfarge</string>
     <string name="title_accessibility_collapsed">Skjul</string>
@@ -1426,6 +1463,6 @@
         <item>Kursiv</item>
         <item>Serif</item>
         <item>Sans-serif</item>
-        <item>Monospace</item>
+        <item>Fastbredde-skrift</item>
     </string-array>
 </resources>

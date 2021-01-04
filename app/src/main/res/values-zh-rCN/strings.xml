@@ -428,6 +428,7 @@
     <string name="title_advanced_language_detection">检测消息文本语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
+    <string name="title_advanced_classification">对消息进行分类</string>
     <string name="title_advanced_language">语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
@@ -659,6 +660,7 @@
     <string name="title_poll_folder">定期检查而非持续同步</string>
     <string name="title_download_folder">自动下载邮件文本和附件</string>
     <string name="title_notify_folder">通知新邮件</string>
+    <string name="title_auto_classify">自动移动分类消息</string>
     <string name="title_sync_days">同步邮件(天)</string>
     <string name="title_sync_days_remark">增加该值将增加电池和数据的使用量</string>
     <string name="title_keep_days">保留邮件(天)</string>

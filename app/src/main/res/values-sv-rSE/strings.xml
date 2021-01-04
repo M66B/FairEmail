@@ -439,6 +439,7 @@
     <string name="title_advanced_language_detection">Detektera textens språk</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
+    <string name="title_advanced_classification">Klassificera meddelanden</string>
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
@@ -670,6 +671,7 @@
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
     <string name="title_download_folder">Hämta automatiskt meddelandetexter och bilagor</string>
     <string name="title_notify_folder">Notifiera för nya meddelanden</string>
+    <string name="title_auto_classify">Flytta automatiskt klassificerade meddelanden</string>
     <string name="title_sync_days">Synkronisera meddelanden (dagar)</string>
     <string name="title_sync_days_remark">Ökning av detta värde kommer att öka batteri- och dataanvändningen</string>
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>

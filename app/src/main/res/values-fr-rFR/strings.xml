@@ -440,6 +440,7 @@
     <string name="title_advanced_language_detection">Détecter la langue du texte du message</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
+    <string name="title_advanced_classification">Classer les messages</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
@@ -671,6 +672,7 @@
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
     <string name="title_download_folder">Télécharger automatiquement le texte des messages et les pièces jointes</string>
     <string name="title_notify_folder">Notifier les nouveaux messages</string>
+    <string name="title_auto_classify">Déplacer automatiquement les messages à classer</string>
     <string name="title_sync_days">Synchroniser les messages (jours)</string>
     <string name="title_sync_days_remark">Augmenter cette valeur utilisera davantage de batterie et de données</string>
     <string name="title_keep_days">Conserver les messages (jours)</string>

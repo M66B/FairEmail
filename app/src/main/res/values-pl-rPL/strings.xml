@@ -461,6 +461,7 @@
     <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
+    <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
@@ -692,6 +693,7 @@
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_download_folder">Automatycznie pobieraj treści wiadomości i załączniki</string>
     <string name="title_notify_folder">Powiadom o nowych wiadomościach</string>
+    <string name="title_auto_classify">Automatycznie przenoś sklasyfikowane wiadomości</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
@@ -1149,6 +1151,7 @@
     <string name="title_legend_encrypted">Jest zaszyfrowana</string>
     <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>
     <string name="title_legend_found">Znaleziono</string>
+    <string name="title_legend_classified">Została sklasyfikowana</string>
     <string name="title_legend_snoozed">Jest odłożona</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
     <string name="title_legend_answered">Udzielono odpowiedzi</string>
