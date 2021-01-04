@@ -250,7 +250,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         ivState.setImageResource(R.drawable.twotone_warning_24);
                 }
                 ivState.setVisibility(
-                        folder.synchronize || folder.state != null || folder.sync_state != null
+                        (folder.selectable && folder.synchronize) || folder.state != null || folder.sync_state != null
                                 ? View.VISIBLE : View.INVISIBLE);
 
                 if (folder.selectable)
