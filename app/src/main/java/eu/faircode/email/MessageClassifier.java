@@ -94,7 +94,8 @@ public class MessageClassifier {
                     " message=" + message.id +
                     "@" + new Date(message.received) +
                     ":" + message.subject +
-                    " class=" + classified);
+                    " class=" + classified +
+                    " re=" + message.auto_classified);
 
             Integer m = classMessages.get(account.id).get(folder.name);
             if (target == null) {
@@ -108,21 +109,23 @@ public class MessageClassifier {
 
             dirty = true;
 
-            if (classified != null) {
-                EntityFolder f = db.folder().getFolderByName(account.id, classified);
-                if (f != null && !f.id.equals(folder.id) && f.auto_classify &&
-                        (EntityFolder.JUNK.equals(f.type) || ActivityBilling.isPro(context)))
-                    try {
-                        db.beginTransaction();
+            if (classified != null && !message.auto_classified)
+                try {
+                    db.beginTransaction();
+
+                    EntityFolder f = db.folder().getFolderByName(account.id, classified);
+                    if (f != null && !f.id.equals(folder.id) && f.auto_classify &&
+                            (EntityFolder.JUNK.equals(f.type) || ActivityBilling.isPro(context))) {
 
                         EntityOperation.queue(context, message, EntityOperation.MOVE, f.id, false, true);
                         message.ui_hide = true;
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
                     }
-            }
+
+                    db.setTransactionSuccessful();
+
+                } finally {
+                    db.endTransaction();
+                }
         } catch (Throwable ex) {
             Log.e(ex);
         }
