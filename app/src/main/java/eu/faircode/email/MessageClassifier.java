@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 
@@ -73,8 +72,11 @@ public class MessageClassifier {
             if (!file.exists())
                 return;
 
-            String text = HtmlHelper.getFullText(file);
-            if (TextUtils.isEmpty(text))
+            StringBuilder sb = new StringBuilder();
+            if (message.subject != null)
+                sb.append(message.subject).append('\n');
+            sb.append(HtmlHelper.getFullText(file));
+            if (sb.length() == 0)
                 return;
 
             load(context);
@@ -84,7 +86,7 @@ public class MessageClassifier {
             if (!wordClassFrequency.containsKey(account.id))
                 wordClassFrequency.put(account.id, new HashMap<>());
 
-            String classified = classify(account.id, folder.name, text, added, context);
+            String classified = classify(account.id, folder.name, sb.toString(), added, context);
 
             EntityLog.log(context, "Classifier" +
                     " folder=" + folder.name +
