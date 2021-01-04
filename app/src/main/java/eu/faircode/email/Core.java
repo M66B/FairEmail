@@ -2969,7 +2969,6 @@ class Core {
                 if (download && !message.ui_hide &&
                         MessageClassifier.isEnabled(context) && MessageClassifier.canClassify(folder.type))
                     db.message().setMessageUiHide(message.id, true);
-                reportNewMessage(context, account, folder, message);
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
@@ -3024,6 +3023,8 @@ class Core {
                         reportEmptyMessage(context, state, account, istore);
                 }
             }
+
+            reportNewMessage(context, account, folder, message);
         } else {
             if (process) {
                 EntityIdentity identity = matchIdentity(context, folder, message);
@@ -3129,10 +3130,8 @@ class Core {
 
                     db.message().updateMessage(message);
 
-                    if (process) {
+                    if (process)
                         runRules(context, imessage, account, folder, message, rules);
-                        reportNewMessage(context, account, folder, message);
-                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -3144,6 +3143,9 @@ class Core {
                 MessageClassifier.classify(message, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
+
+            if (process)
+                reportNewMessage(context, account, folder, message);
         }
 
         if (syncSimilar && account.isGmail())
