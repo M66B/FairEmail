@@ -111,7 +111,9 @@ public class MessageClassifier {
                     db.beginTransaction();
 
                     EntityFolder target = db.folder().getFolderByName(account.id, classified);
-                    if (target != null && !target.id.equals(folder.id) && target.auto_classify &&
+                    if (target != null && target.auto_classify &&
+                            !target.id.equals(folder.id) &&
+                            !EntityFolder.JUNK.equals(folder.type) &&
                             (EntityFolder.JUNK.equals(target.type) || ActivityBilling.isPro(context))) {
 
                         EntityOperation.queue(context, message, EntityOperation.MOVE, target.id, false, true);

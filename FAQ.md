@@ -3432,6 +3432,9 @@ You can clear local messages (long press a folder in the folder list of an accou
 Moving a message on the device will reclassify the message.
 Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
+To prevent the email server from moving a message into the spam folder again,
+auto classification out of the spam folder will be prevented to prevent an endless loop.
+
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification three times off.
