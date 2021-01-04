@@ -3423,6 +3423,11 @@ This will enable learning mode only.
 Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
+A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
+Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder.
+Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder.
+After moving some messages into the folder, FairEmail will start to move messages automatically into this folder.
+
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
 If the classifier is unsure, it will simply leave an email where it is.
 
