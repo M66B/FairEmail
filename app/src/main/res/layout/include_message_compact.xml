@@ -198,7 +198,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivFound"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/twotone_label_24" />
+        app:srcCompat="@drawable/baseline_push_pin_24" />
 
     <ImageButton
         android:id="@+id/ibSnoozed"

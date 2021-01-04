@@ -265,7 +265,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivEncrypted"
-            app:srcCompat="@drawable/twotone_label_24" />
+            app:srcCompat="@drawable/baseline_push_pin_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvClassified"
