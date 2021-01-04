@@ -547,6 +547,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("poll", poll);
         json.put("poll_factor", poll_factor);
         json.put("download", download);
+        json.put("auto_classify", auto_classify);
         json.put("sync_days", sync_days);
         json.put("keep_days", keep_days);
         json.put("auto_delete", auto_delete);
@@ -580,6 +581,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if (json.has("download"))
             folder.download = json.getBoolean("download");
+
+        if (json.has("auto_classify"))
+            folder.auto_classify = json.getBoolean("auto_classify");
 
         if (json.has("after"))
             folder.sync_days = json.getInt("after");
