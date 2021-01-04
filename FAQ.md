@@ -2838,7 +2838,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 *Message classification (version 1.1438+)*
 
-Please see [this FAQ](#user-content-faq123) for details.
+Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
