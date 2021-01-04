@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 
@@ -33,12 +34,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 public class MessageClassifier {
     private static boolean loaded = false;
@@ -73,9 +78,38 @@ public class MessageClassifier {
                 return;
 
             StringBuilder sb = new StringBuilder();
+
+            List<Address> addresses = new ArrayList<>();
+            if (message.from != null)
+                addresses.addAll(Arrays.asList(message.from));
+            if (message.to != null)
+                addresses.addAll(Arrays.asList(message.to));
+            if (message.cc != null)
+                addresses.addAll(Arrays.asList(message.cc));
+            if (message.bcc != null)
+                addresses.addAll(Arrays.asList(message.bcc));
+            if (message.reply != null)
+                addresses.addAll(Arrays.asList(message.reply));
+
+            for (Address address : addresses) {
+                String email = ((InternetAddress) address).getAddress();
+                String name = ((InternetAddress) address).getAddress();
+                if (!TextUtils.isEmpty(email)) {
+                    sb.append(email).append('\n');
+                    int at = email.indexOf('@');
+                    String domain = (at < 0 ? null : email.substring(at + 1));
+                    if (!TextUtils.isEmpty(domain))
+                        sb.append(domain).append('\n');
+                }
+                if (!TextUtils.isEmpty(name))
+                    sb.append(name).append('\n');
+            }
+
             if (message.subject != null)
                 sb.append(message.subject).append('\n');
+
             sb.append(HtmlHelper.getFullText(file));
+
             if (sb.length() == 0)
                 return;
 
@@ -218,6 +252,9 @@ public class MessageClassifier {
                     " matched=" + stat.matchedWords + "/" + maxMatchedWords);
             chances.add(c);
         }
+
+        if (BuildConfig.DEBUG)
+            Log.i("Classifier words=" + TextUtils.join(", ", words));
 
         if (chances.size() <= 1 || maxMatchedWords < MIN_MATCHED_WORDS)
             return null;
