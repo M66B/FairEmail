@@ -1130,6 +1130,7 @@
     <string name="title_legend_encrypted">Est chiffré</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
     <string name="title_legend_found">A été trouvé</string>
+    <string name="title_legend_classified">A été classé automatiquement</string>
     <string name="title_legend_snoozed">Est reporté</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>

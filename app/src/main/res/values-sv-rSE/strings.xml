@@ -1129,6 +1129,7 @@
     <string name="title_legend_encrypted">Är krypterad</string>
     <string name="title_legend_auth">Autentisering misslyckades</string>
     <string name="title_legend_found">Hittades</string>
+    <string name="title_legend_classified">Kategoriserades automatiskt</string>
     <string name="title_legend_snoozed">Slumrar</string>
     <string name="title_legend_browsed">Bläddrat eller sökt</string>
     <string name="title_legend_answered">Har besvarats</string>

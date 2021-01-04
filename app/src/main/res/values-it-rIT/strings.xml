@@ -1128,6 +1128,7 @@
     <string name="title_legend_encrypted">È criptato</string>
     <string name="title_legend_auth">Autenticazione fallita</string>
     <string name="title_legend_found">È stato trovato</string>
+    <string name="title_legend_classified">Classificato automaticamente</string>
     <string name="title_legend_snoozed">È posticipato</string>
     <string name="title_legend_browsed">È browser o ricercato</string>
     <string name="title_legend_answered">Ha ricevuto risposta</string>

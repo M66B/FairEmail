@@ -1152,7 +1152,7 @@
     <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_found">Найден</string>
-    <string name="title_legend_classified">Было классифицировано</string>
+    <string name="title_legend_classified">Был автоматически классифицирован</string>
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>

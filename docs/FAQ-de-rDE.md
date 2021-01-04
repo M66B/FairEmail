@@ -281,6 +281,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(160) Kannst du eine dauerhafte Löschung von Nachrichten ohne Bestätigung hinzufügen?](#user-content-faq160)
 * [(161) Kannst du eine Einstellung zum Ändern der primären und akzentuierenden Farbe hinzufügen?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(163) What is message classification?](#user-content-faq163)
 
 [Ich habe eine weitere Frage.](#user-content-support)
 
@@ -2340,19 +2341,9 @@ The message *Message too large or too complex to display* will be shown if there
 
 *Message classification (version 1.1438+)*
 
-This feature will attempt to group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+Please see [this FAQ](#user-content-faq163) for details.
 
-In the context of FairEmail, a folder is a class. Each folder has an option to enable auto classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. Since this is an experimental feature, my advice is to start with just one folder.
-
-Moving a message on the device will declassify a message for the source folder. Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
-
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
-
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
-
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
-
-You can enable experimental features in the miscellaneous settings.
+Since this is an experimental feature, my advice is to start with just one folder.
 
 <br />
 
@@ -2827,6 +2818,31 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
 **Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
+
+<a name="faq163"></a>
+**(163) What is message classification?**
+
+**This is an experimental feature**
+
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class.
+
+You can enable message classification in the miscellaneous settings. This will enable learning mode only.
+
+Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+
+Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+
+Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+You can delete all classification data by turning classification three times off.
+
+Automatic message classification is a pro feature, except for the spam folder.
 
 <br />
 

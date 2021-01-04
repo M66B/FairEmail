@@ -441,6 +441,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
+    <string name="title_advanced_classification">Nachrichten klassifizieren</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
@@ -672,6 +673,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_poll_folder">Periodisch überprüfen anstatt kontinuierlicher Synchronisierung</string>
     <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
+    <string name="title_auto_classify">Klassifizierte Nachrichten automatisch verschieben</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht den Akkuverbrauch und die Datennutzung</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
@@ -1126,6 +1128,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_encrypted">Ist verschlüsselt</string>
     <string name="title_legend_auth">Authentifizierung fehlgeschlagen</string>
     <string name="title_legend_found">Wurde gefunden</string>
+    <string name="title_legend_classified">Wurde automatisch klassifiziert</string>
     <string name="title_legend_snoozed">Wurde zurückgestellt</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>

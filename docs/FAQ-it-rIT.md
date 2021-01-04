@@ -281,6 +281,7 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(160) Puoi aggiungere l'eliminazione permanente dei messaggi senza conferma?](#user-content-faq160)
 * [(161) Puoi aggiungere un'impostazione per modificare il colore primario e di cadenza?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -2340,106 +2341,96 @@ The message *Message too large or too complex to display* will be shown if there
 
 *Message classification (version 1.1438+)*
 
-This feature will attempt to group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+Sei pregato di vedere [questa FAQ](#user-content-faq163) per i dettagli.
 
-In the context of FairEmail, a folder is a class. Each folder has an option to enable auto classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. Since this is an experimental feature, my advice is to start with just one folder.
-
-Moving a message on the device will declassify a message for the source folder. Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
-
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
-
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
-
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
-
-You can enable experimental features in the miscellaneous settings.
+Essendo una funzionalità sperimentale, il mio consiglio è di iniziare con una sola cartella.
 
 <br />
 
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Le anteprime dei messaggi possono essere inviate al mio indossabile?**
 
-FairEmail fetches a message in two steps:
+FairEmail recupera un messaggio in due passaggi:
 
 1. Fetch message headers
 1. Fetch message text and attachments
 
-Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Direttamente dopo il primo passaggio saranno notificati i nuovi messaggi. Tuttavia, solo dopo il secondo il testo del messaggio sarà disponibile. FairEmail aggiorna le notifiche esistenti con un'anteprima del testo del messaggio, ma sfortunatamente le notifiche dell'indossabile non possono essere aggiornate.
 
-Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
+Non essendoci garanzia che il testo di un messaggio sia sempre recuperato direttamente dopo l'intestazione del messaggio, non si può garantire che la notifica di un nuovo messaggio con un testo di anteprima sia sempre inviata a un indossabile.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+Se pensi che sia abbastanza, puoi abilitare l'opzione di notifica *Invia solo le notifiche con un'anteprima di messaggio agli indossabile* e se non funziona, puoi provare ad abilitare l'opzione di notifica *Mostra solo le notifiche con un testo di anteprima*. Nota che questo si applica anche agli indossabili che non mostrano un testo di anteprima, anche quando l'app Android Wear dice che la notifica è stata inviata (collegata).
 
-If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
+Se vuoi aver inviato il testo completo del messaggio al tuo indossabile, puoi abilitare l'opzione di notifica *Anteprima del testo completo*. Nota che alcuni indossabili sono noti per esser crashati con quest'opzione abilitata.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
+Se usi un indossabile di Samsung con l'app Galaxy Wearable (Samsung Gear), potresti dover abilitare le notifiche per FairEmail impostando *Notifiche*, *App installate in futuro* è disattivata in quest'app.
 
 <br />
 
 <a name="faq127"></a>
-**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+**(127) Come posso correggere 'Argomenti HELO sintatticamente non validi?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+L'errore *... Argomenti HELO sintatticamente non validi ...* significa che il server SMTP ha rifiutato l'indirizzo IP locale o il nome dell'host. Potresti correggere quest'errore abilitando o disabilitando l'opzione di identità avanzata *Usa l'indirizzo IP locale invece del nome dell'host*.
 
 <br />
 
 <a name="faq128"></a>
-**(128) How can I reset asked questions, for example to show images?**
+**(128) Come posso ripristinare le domande fatte, ad esempio per mostrare immagini=**
 
-You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
+Puoi ripristinare le domande fatte tramite il menu di panoramica a tre puntini nelle impostazioni varie.
 
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) ProtonMail e Tutanota sono supportate?**
 
-ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
+ProtonMail usa un protocollo email proprietario e [non supporta direttamente IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), quindi non puoi usare FairEmail per accedere ProtonMail.
 
-Tutanota uses a proprietary email protocol and [does not support IMAP](https://tutanota.com/faq/#imap), so you cannot use FairEmail to access Tutanota.
+Tutanota usa un protocollo email proprietario e [non supporta IMAP](https://tutanota.com/faq/#imap), quindi non puoi usare FairEmail per accedere a Tutanota.
 
 <br />
 
 <a name="faq130"></a>
-**(130) What does message error ... mean?**
+**(130) Cosa significa il messaggio di errore ...?**
 
-A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+Una serie di righe con testi arancioni o rossi con informazioni tecniche significa che la modalità di debug è stata abilitata nelle impostazioni miste.
 
-The warning *No server found at ...* means that there was no email server registered at the indicated domain name. Replying to the message might not be possible and might result in an error. This could indicate a falsified email address and/or spam.
+L'avviso *Nessun server trovato a ...* significa che non è stato indicato alcun server email al nome di dominio indicato. Rispondere al messaggio potrebbe non essere possibile e potrebbe risultare in un errore. Questo potrebbe indicare un indirizzo email falsificato e/o spam.
 
-The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+L'errore *... ParseException ...* significa che c'è un problema con un messaggio ricevuto, probabilmente causato da un bug nel software di invio. FairEmail lo risolverà nella maggior parte dei casi, quindi questo messaggio è prevalentemente considerabile come un avviso invece che un errore.
 
-The error *...SendFailedException...* means that there was a problem while sending a message. The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
+L'errore *...SendFailedException...* significa che si è verificato un problema inviando un messaggio. L'errore includerà quasi sempre un motivo. Motivi comuni sono che il messaggio era troppo grande o che uno o più indirizzi del destinatario non erano validi.
 
-The warning *Message too large to fit into the available memory* means that the message was larger than 10 MiB. Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
+L'avviso *Messaggio troppo grande per la memoria disponibile* significa che il messaggio era più grande di 10 MiB. Anche se il tuo dispositivo ha molto spazio di archiviazione, Android fornisce memoria operativa limitata alle app, il che limita la dimensione dei messaggi gestibili.
 
-Please see [here](#user-content-faq22) for other error messages in the outbox.
+Sei pregato di vedere [qui](#user-content-faq22) per altri messaggi di errore nella posta in uscita.
 
 <br />
 
 <a name="faq131"></a>
-**(131) Can you change the direction for swiping to previous/next message?**
+**(131) Puoi modificare la direzione per scorrere al messaggio precedente/successivo?**
 
-If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
+Se leggi da sinistra a destra, scorrere a sinistra mostrerà il messaggio successivo. Allo stesso modo, se leggi da destra a sinistra, scorrere a destra mostrerà quello successivo.
 
-This behavior seems quite natural to me, also because it is similar to turning pages.
+Questo comportamento mi sembra molto naturale, anche perché somiglia a voltare le pagine.
 
-Anyway, there is a behavior setting to reverse the swipe direction.
+Ad ogni modo, esiste un'impostazione di comportamento per invertire la direzione di scorrimento.
 
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) Perché le notifiche dei nuovi messaggi sono silenziose?**
 
-Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+Le notifiche sono silenziose di default su alcune versioni di MIUI. Sei pregato di vedere [qui](http://en.miui.com/thread-3930694-1-1.html) come puoi risolverlo.
 
-There is a bug in some Android versions causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications. Since FairEmail shows new message notifications right after fetching the message headers and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
+Esiste un bug in alcune versioni di Android che causa che [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) silenzi le notifiche. Poiché FairEmail mostra le notifiche dei nuovi messaggi subito dopo averne recuperato le intestazioni e che FairEmail deve aggiornare le notifiche dei nuovi messaggi dopo il successivo recupero del testo del messaggio, questo non è correggibile o risolvibile da FairEmail.
 
-Android might rate limit the notification sound, which can cause some new message notifications to be silent.
+Android potrebbe limitare il suono di notifica, il che può causare il silenziamento di alcune notifiche dei messaggi.
 
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) Perché ActiveSync non è supportato?**
 
 The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
 
@@ -2549,48 +2540,48 @@ To store draft messages a drafts folder is required. In most cases FairEmail wil
 
 You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
-Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
+Alcuni provider, come Gmail, consentono di abilitare/disabilitare IMAP per le cartelle singole. Quindi, se una cartella è invisibile, potresti dover abilitare l'IMAP per essa.
 
-Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Collegamento rapido per Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
-**(142) How can I store sent messages in the inbox?**
+**(142) Come posso memorizzare i messaggi inviati nella posta in arrivo?**
 
-Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
+Generalmente, non è una buona idea memorizzare i messaggi inviati nella posta in arrivo perché difficile da annullare e potrebbe essere non compatibile con altri client di posta elettronica.
 
-That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
+Detto ciò, FairEmail può gestire propriamente i messaggi inviati nella posta di arrivo. FairEmail contrassegnerà i messaggi in uscita con l'icona di quelli inviati, per esempio.
 
-The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
+La soluzione migliore sarebbe abilitare la visualizzazione della cartella inviati nella posta in arrivo unica premendo a lungo sulla cartella inviati nell'elenco delle cartelle e abilitando *Mostra nella posta in arrivo unificata*. Così tutti i messaggi possono rimanere a dove appartengono, consentendo di vedere sia i messaggi in entrata che in uscita in un posto.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
+Se non è possibile, puoi [creare una regola](#user-content-faq71) per spostare automaticamente i messaggi inviati in posta in arrivo o impostare un indirizzo CC/BCC predefinito nelle impostazioni di identità avanzata per inviarti una copia.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Can you add a trash folder for POP3 accounts?~~**
+**~~(143) Puoi aggiungere una cartella del cestino per i profili POP3?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) è un protocollo molto limitato. Fondamentalmente solo i messaggi sono scaricabili ed eliminabili dalla posta in arrivo. Non si può nemmeno segnare un messaggio come letto.
 
-Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
+Poiché POP3 non consente alcun accesso al cestino, non c'è modo di ripristinare i messaggi cestinati.
 
-Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
+Nota che puoi nascondere i messaggi e cercare quelli nascosti, similmente alla cartella locale del cestino, senza suggerire che i messaggi cestinati siano ripristinati, mentre non è realmente possibile.
 
-Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
+La versione 1.1082 ha aggiunto una cartella locale del cestino. Nota che cestinare un messaggio lo rimuoverà permanentemente dal server e che i messaggi cestinati non sono più ripristinabili al server.
 
 <br />
 
 <a name="faq144"></a>
-**(144) How can I record voice notes?**
+**(144) Come posso registrare le note vocali?**
 
-To record voice notes you can press this icon in the bottom action bar of the message composer:
+Per registrare le note vocali puoi premere quest'icona nella barra di azione in basso del compositore di messaggi:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
-This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+Questo richiede un'app di registrazione audio compatibile installata. In particolare [questo intento comune](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) deve essere supportato</a>.
 
-For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
+Per esempio [questo registratore audio](https://f-droid.org/app/com.github.axet.audiorecorder) è compatibile.
 
 Voice notes will automatically be attached.
 
@@ -2827,6 +2818,31 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
 **Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
+
+<a name="faq163"></a>
+**(163) What is message classification?**
+
+**This is an experimental feature**
+
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class.
+
+You can enable message classification in the miscellaneous settings. This will enable learning mode only.
+
+Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+
+Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+
+Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+You can delete all classification data by turning classification three times off.
+
+Automatic message classification is a pro feature, except for the spam folder.
 
 <br />
 

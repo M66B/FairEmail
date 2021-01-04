@@ -281,6 +281,7 @@
 * [(160) Можете ли вы добавить возможность перманентно удалять сообщения без подтверждения?](#user-content-faq160)
 * [(161) Можете ли вы добавить возможность изменять первичный и акцентный цвета?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(163) Что такое классификация сообщений?](#user-content-faq163)
 
 [У меня есть еще один вопрос.](#user-content-support)
 
@@ -2340,44 +2341,34 @@ The message *Message too large or too complex to display* will be shown if there
 
 *Message classification (version 1.1438+)*
 
-This feature will attempt to group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
+Пожалуйста, смотрите [этот FAQ](#user-content-faq163) для получения дополнительной информации.
 
-In the context of FairEmail, a folder is a class. Each folder has an option to enable auto classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. Since this is an experimental feature, my advice is to start with just one folder.
-
-Moving a message on the device will declassify a message for the source folder. Moving a message from another email client will not result in declassification because IMAP does not support MOVED notifications.
-
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
-
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list) and synchronize the messages again to classify existing messages.
-
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
-
-You can enable experimental features in the miscellaneous settings.
+Поскольку это экспериментальная функция, мой совет состоит в том, чтобы начать с одной папки.
 
 <br />
 
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Можно ли отправлять предпросмотр сообщений на моём носителе?**
 
-FairEmail fetches a message in two steps:
+FairEmail получает сообщение в два этапа:
 
 1. Fetch message headers
 1. Fetch message text and attachments
 
-Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Непосредственно после первого шага будут уведомления о новых сообщениях. Однако, только после второго шага будет доступен текст сообщения. FairEmail обновляется при выходе из уведомлений с предварительным просмотром текста сообщения, но, к сожалению, поддерживаемые уведомления не могут быть обновлены.
 
-Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
+Поскольку нет гарантии того, что текст сообщения всегда будет загружен непосредственно после заголовка сообщения, невозможно гарантировать, что новое уведомление с предварительным текстом всегда будет отправлено на носимое значение.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+Если вы думаете, что это достаточно хорошо, вы можете включить опцию уведомления *Отправлять уведомления только с предпросмотром сообщений на носимые устройства* и если это не работает, вы можете включить опцию уведомлений *Показывать уведомления только с текстом предварительного просмотра*. Обратите внимание, что это относится к носимым файлам и не показывает предварительный текст, даже если приложение Android Wear говорит, что уведомление было отправлено (соединение мостом).
 
-If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
+Если вы хотите отправить полный текст сообщения в ваше носимое устройство, вы можете включить опцию уведомления *Предпросмотр всего текста*. Обратите внимание, что некоторые носители могут быть повреждены при включенной опции.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
+Если вы используете носитель Samsung с приложением Galaxy Learable (Samsung Gear), вам может потребоваться включить уведомления для FairEmail , когда параметр *Уведомления*, *Приложения, установленные в будущем,* отключены в этом приложении.
 
 <br />
 
 <a name="faq127"></a>
-**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+(127) Как исправить «Синтаксически неверный аргумент (ы) HELO»?
 
 The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
 
@@ -2827,6 +2818,31 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
 **Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+
+<br />
+
+<a name="faq163"></a>
+**(163) What is message classification?**
+
+**This is an experimental feature**
+
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class.
+
+You can enable message classification in the miscellaneous settings. This will enable learning mode only.
+
+Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+
+Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+
+Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+You can delete all classification data by turning classification three times off.
+
+Automatic message classification is a pro feature, except for the spam folder.
 
 <br />
 
