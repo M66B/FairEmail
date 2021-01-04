@@ -3411,6 +3411,8 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 <a name="faq163"></a>
 **(163) What is message classification?**
 
+**This is an experimental feature**
+
 Message classification will attempt to automatically group emails into classes, based on their contents,
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 In the context of FairEmail, a folder is a class.
@@ -3431,6 +3433,8 @@ Moving a message on the device will reclassify the message.
 Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+You can delete all classification data by turning classification three times off.
 
 Automatic message classification is a pro feature, except for the spam folder.
 
