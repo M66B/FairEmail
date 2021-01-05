@@ -10,7 +10,7 @@ Amennyiben kérdésed merül fel, kérlek először nézd át az alábbi Gyik-et
 * [Tervezett funkciók](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Gyakran kért funkciók](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Gyakran Ismételt Kérdések](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Segítség kérése](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Authorizing accounts
 
@@ -63,7 +63,7 @@ Kapcsolódó kérdések:
 ## Ismert problémák
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
+* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google javította ezt.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
@@ -71,8 +71,8 @@ Kapcsolódó kérdések:
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
+* ~~The folder selector sometimes shows no folders for yet unknown reasons. Ez úgy tűnik, hogy ki van javítva.~~
+* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. Egy ideiglenes megoldás hozzá lett fűzve.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
@@ -101,10 +101,10 @@ Kapcsolódó kérdések:
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~GIF megjelenítése~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
+* ~~Küldés mellékletként~~
 * ~~Widget for selected account~~
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
@@ -115,7 +115,7 @@ Kapcsolódó kérdések:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## Gyakran kért funkciók
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
@@ -2824,7 +2824,7 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 <a name="faq163"></a>
 **(163) What is message classification?**
 
-**This is an experimental feature**
+*This is an experimental feature!*
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class.
 
@@ -2832,11 +2832,17 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
+The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server. See also [this FAQ](#user-content-faq92).
+
+A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder.
+
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+
+To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 

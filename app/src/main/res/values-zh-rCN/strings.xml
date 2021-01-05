@@ -65,6 +65,7 @@
     <string name="title_block_domain">屏蔽发件人域名</string>
     <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
         创建和使用规则属于专业版功能</string>
+    <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_idle">空闲</string>

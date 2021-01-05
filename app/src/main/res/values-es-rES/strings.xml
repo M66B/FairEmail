@@ -132,6 +132,7 @@
     <string name="title_setup_wizard_remark">Ir \'atrás\' para ir a la bandeja de entrada</string>
     <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para versiones oficiales de la aplicación</string>
     <string name="title_setup_other">Otro proveedor</string>
+    <string name="title_setup_pop3">Cuenta POP3</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
@@ -440,6 +441,7 @@
     <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
+    <string name="title_advanced_classification">Clasificar mensajes</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
@@ -671,6 +673,7 @@
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_download_folder">Descargar mensajes de texto y archivos adjuntos automáticamente</string>
     <string name="title_notify_folder">Notificar nuevos mensajes</string>
+    <string name="title_auto_classify">Mover automáticamente los mensajes clasificados</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
@@ -1128,6 +1131,7 @@
     <string name="title_legend_encrypted">Está cifrado</string>
     <string name="title_legend_auth">La autenticación falló</string>
     <string name="title_legend_found">Se encontró</string>
+    <string name="title_legend_classified">Se clasificó automáticamente</string>
     <string name="title_legend_snoozed">Está pospuesto</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
     <string name="title_legend_answered">Ha sido respondido</string>

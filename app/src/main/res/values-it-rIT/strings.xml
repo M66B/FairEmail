@@ -77,6 +77,7 @@
     <string name="title_block_sender_hint">        Bloccare un mittente creerà una regola per spostare automaticamente i messaggi futuri nella cartella spam.
         Creare e utilizzare le regole è una funzionalità pro.
     </string>
+    <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_idle">Inattivo</string>

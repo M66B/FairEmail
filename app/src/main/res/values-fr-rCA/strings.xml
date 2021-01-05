@@ -77,6 +77,7 @@
     <string name="title_block_sender_hint">        Le blocage d\'un expéditeur créera une règle qui déplacera automatiquement les futurs messages vers le dossier courrier indésirable.
         La création et l\'utilisation des règles sont des fonctionnalités Pro.
     </string>
+    <string name="title_junk_filter">Utiliser le filtre de pourriel local</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>

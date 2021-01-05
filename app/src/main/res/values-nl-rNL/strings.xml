@@ -77,6 +77,8 @@
     <string name="title_block_sender_hint">        Het blokkeren van een afzender maakt een regel om toekomstige berichten automatisch naar de spam map te verplaatsen.
         Het maken en gebruiken van regels is een pro-functie.
     </string>
+    <string name="title_junk_filter">Lokale spam filter gebruiken</string>
+    <string name="title_junk_filter_hint">Dit kan het batterijgebruik verhogen</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_idle">Inactief</string>

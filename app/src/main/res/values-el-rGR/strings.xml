@@ -77,6 +77,7 @@
     <string name="title_block_sender_hint">         Ο  αποκλεισμός ενός αποστολέα θα δημιουργήσει έναν κανόνα ο οποίος αυτόματα θα μετακινεί τα μελλοντικά μηνύματα στον φάκελο των ανεπιθύμητων.
         Η δημιουργία και χρήση κανόνων είναι μια δυνατότητα της έκδοσης Pro.
     </string>
+    <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
     <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
@@ -439,6 +440,7 @@
     <string name="title_advanced_language_detection">Αναγνώριση της γλώσσας του μηνύματος</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
+    <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>
@@ -669,6 +671,7 @@
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχής συγχρονισμός</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
+    <string name="title_auto_classify">Αυτόματη μετακίνηση ταξινομημένων μηνυμάτων</string>
     <string name="title_sync_days">Συγχρονισμός μηνυμάτων (ημέρες)</string>
     <string name="title_sync_days_remark">Αν αυξηθεί η τιμή αυτή, θα αυξηθεί η χρήση μπαταρίας και δεδομένων</string>
     <string name="title_keep_days">Διατήρηση μηνυμάτων (ημέρες)</string>
@@ -1126,6 +1129,7 @@
     <string name="title_legend_encrypted">Είναι κρυπτογραφημένο</string>
     <string name="title_legend_auth">Η ταυτοποίηση απέτυχε</string>
     <string name="title_legend_found">Βρέθηκε</string>
+    <string name="title_legend_classified">Ταξινομήθηκε αυτόματα</string>
     <string name="title_legend_snoozed">Έχει τεθεί σε αναβολή</string>
     <string name="title_legend_browsed">Έχει διέλθει από φυλλομέτρηση ή αναζήτηση</string>
     <string name="title_legend_answered">Έχει απαντηθεί</string>

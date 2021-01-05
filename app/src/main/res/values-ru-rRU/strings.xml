@@ -99,6 +99,7 @@
     <string name="title_block_sender_hint">        Блокировка отправителя создаст правило для автоматического перемещения будущих сообщений в папку со спамом.
         Создание и использование правил является Pro-функцией.
     </string>
+    <string name="title_junk_filter">Использовать локальный фильтр спама</string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_idle">Низкий</string>

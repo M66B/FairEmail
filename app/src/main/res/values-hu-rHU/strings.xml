@@ -131,6 +131,7 @@
     <string name="title_setup_wizard_remark">A \'vissza\' használatával a bejövő mappához jut</string>
     <string name="title_setup_oauth_permission">Az email-szolgáltató az OAuth-ot csak hivatalos alkalmazásverziókhoz hagyta jóvá</string>
     <string name="title_setup_other">Egyéb szolgáltató</string>
+    <string name="title_setup_pop3">POP3 fiók</string>
     <string name="title_setup_gmail_support">Google fiókok hozzáadása csak a hivatalos verziókban működik, mivel az Android ellenőrzi az app aláírását</string>
     <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
     <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
@@ -139,6 +140,7 @@
     <string name="title_setup_office_remark">A Microsoft nem támogatja e típusú autentikációt Outlook, Live, Hotmail, stb fiókoknál</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
+    <string name="title_setup_oauth_update">Ismételt autorizáció meglévő fiókhoz</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
     <string name="title_setup_oauth_authorize">Engedélyezés</string>
     <string name="title_setup_select_account">Válasszon fiókot</string>
@@ -243,6 +245,7 @@
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
+    <string name="title_advanced_sync_subscribed">Feliratkozott mappák automatikus szinkronizálása</string>
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
@@ -257,6 +260,7 @@
     <string name="title_advanced_extended_reply">Kiterjesztett válasz/továbbítás fejléc használata</string>
     <string name="title_advanced_write_below">Írás a küldő szövege alatt</string>
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
+    <string name="title_advanced_limit_reply">A beágyazott idézetek számának korlátozása</string>
     <string name="title_advanced_resize_reply">Képek átméretezése válaszolt szövegben</string>
     <string name="title_advanced_signature_location">Aláírás pozíció</string>
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
@@ -342,6 +346,7 @@
     <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
     <string name="title_advanced_parse_classes">Stílus lapok beolvasása</string>
     <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
+    <string name="title_advanced_sync_on_launch">Szinkronizálás az alkalmazás indításakor</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
     <string name="title_advanced_pull_refresh">Húzza le a frissítéshez</string>
     <string name="title_advanced_autoscroll">Új üzenet érkezésekor automatikus tetejére görgetés</string>
@@ -414,6 +419,7 @@
     <string name="title_advanced_openpgp">OpenPGP szolgáltató</string>
     <string name="title_advanced_autocrypt">Autocrypt használata</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt kölcsönös mód</string>
+    <string name="title_advanced_encrypt_subject">Tárgy titkosítása</string>
     <string name="title_advanced_check_certificate">Nyilvános kulcs ellenőrzése küldéskor</string>
     <string name="title_advanced_manage_certificates">Nyilvános kulcsok kezelése</string>
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
@@ -429,6 +435,7 @@
     <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
+    <string name="title_advanced_classification">Üzenetek osztályozása</string>
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
@@ -460,6 +467,7 @@
     <string name="title_advanced_metered_hint">A mért kapcsolatok általában adatkapcsolatok vagy fizetős Wi-Fi hozzáférési pontok</string>
     <string name="title_advanced_metered_warning">Az opció kikapcsolása letiltja az üzenetek fogadását és küldését adatkapcsolaton keresztül</string>
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
+    <string name="title_advanced_tcp_keep_alive_hint">E funkció aktiválása csatlakozási problémákat okozhat néhány készüléken</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
     <string name="title_advanced_ssl_harden_hint">Ennek a bekapcsolása kikapcsolja a gyenge SSL protokollokat és ciphereket ami csatlakozási problémákat okozhat</string>
     <string name="title_advanced_roaming_hint">Az üzenetek fejléce roamingoláskor minden esetben letöltésre kerül. A készülék beállításai között kikapcsolhatja a roaming internet használatot.</string>
@@ -476,8 +484,10 @@
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
     <string name="title_advanced_preview_issue">A görgetés bizonyos Android verziók hibája miatt lassú lehet, egynél több sor esetén</string>
     <string name="title_advanced_overview_mode_hint">Ez nagyon kis betűméretet eredményezhet</string>
+    <string name="title_advanced_placeholders_hint">Ez csak az újraformázott szövegre érvényes</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>
     <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
+    <string name="title_advanced_language_detection_hint">A nyelvi felismerés a készülék gyártójától függ</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_autoseen_hint">Az üzenetek olvasottként való megjelölése kibontáskor kikapcsolható a fiókoknkénti beállítások között</string>
     <string name="title_advanced_autoclose_hint">A beszélgetések automatikus bezárása minden üzenet archiválása, küldése vagy törlése esetén</string>
@@ -633,6 +643,8 @@
     <string name="title_empty_all">Ezzel minden üzenet törlésre kerül az eszközön és kiszolgálón is</string>
     <string name="title_delete_operation_title">Műveletek törlése</string>
     <string name="title_delete_operation_error">Hibaüzenettel</string>
+    <string name="title_delete_operation_fetch">Letöltési műveletek</string>
+    <string name="title_delete_operation_move">Áthelyezési műveletek</string>
     <string name="title_delete_operation_delete">Műveletek törlése</string>
     <string name="title_delete_operation_deleted">%1$d művelet törölve</string>
     <string name="title_delete_contacts">Törli a helyi névjegyzéket?</string>
@@ -651,11 +663,14 @@
     <string name="title_poll_folder">Időszakos ellenőrzés a folyamatos szinkronizálás helyett</string>
     <string name="title_download_folder">Üzenetek szövegének és mellékleteinek automatikus letöltése</string>
     <string name="title_notify_folder">Értesítés új üzenet érkezésekor</string>
+    <string name="title_auto_classify">Osztályozott üzenetek automatikus áthelyezése</string>
     <string name="title_sync_days">Szinkronizálandó napok száma</string>
     <string name="title_sync_days_remark">Az érték növelése megnövekedett adatkapcsolat- és akkumulatorhasználatot okoz</string>
     <string name="title_keep_days">Üzenetek megtartása (nap)</string>
     <string name="title_keep_days_remark">Régi üzenetek törölve lesznek az eszközről, de a szerveren maradnak</string>
     <string name="title_keep_all">Összes üzenet megtartása</string>
+    <string name="title_poll_system">Rendszermappákban új üzenetek rendszeres keresése</string>
+    <string name="title_poll_user">Felhasználói mappákban új üzenetek rendszeres keresése</string>
     <string name="title_auto_trash">Régi üzenetek automatikus áthelyezése a kukába</string>
     <string name="title_auto_delete">A régi üzenetek végleges törlése automatikusan</string>
     <string name="title_auto_delete_hint">Régi üzenetek olyan üzenetek, amik már nincsenek az eszközön tartva</string>
@@ -680,6 +695,7 @@
     <string name="title_folder_user_only">Csak felhasználói mappák</string>
     <string name="title_folder_primary">Mappák elsődleges fiókja</string>
     <string name="title_folders_unified">Összesített bejövő mappák</string>
+    <string name="title_folder_local_drafts">Helyi piszkozatok</string>
     <string name="title_no_folders">Nincsenek mappák</string>
     <string name="title_no_messages">Nincsenek üzenetek</string>
     <string name="title_filters_active">Egy vagy több szűrő aktív</string>
@@ -708,6 +724,7 @@
     <string name="title_event">Hozzáadás naptárhoz</string>
     <string name="title_pin">Parancsikon hozzáadása</string>
     <string name="title_print">Nyomtatás</string>
+    <string name="title_print_header">Fejléc nyomtatása</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
@@ -849,6 +866,7 @@
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
     <string name="title_add_image_privacy">Magán jellegű adatok törlése</string>
+    <string name="title_add_image_privacy_remark">Földrajzi helyzet, sorozatszámok, azonosítók, stb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelek</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>
@@ -1039,6 +1057,8 @@
     <string name="title_rule_condition_missing">Kondíció hianyzik</string>
     <string name="title_rule_folder_missing">Mappa nem található</string>
     <string name="title_rule_identity_missing">Identitás nem található</string>
+    <string name="title_rule_answer_missing">Hiányzó sablon</string>
+    <string name="title_rule_keyword_missing">Hiányzó kulcsszó</string>
     <string name="title_rule_automation_hint">Ez el fogja küldeni a(z) \'%1$s\' intentet a(z) \'%2$s\' extrákkal</string>
     <string name="title_rule_execute">Végrehajtás most</string>
     <string name="title_rule_applied">Érintett üzenetek: %1$d</string>
@@ -1101,6 +1121,7 @@
     <string name="title_legend_encrypted">Titkosított</string>
     <string name="title_legend_auth">Azonosítás sikertelen</string>
     <string name="title_legend_found">Meg lett találva</string>
+    <string name="title_legend_classified">Automatikusan osztályozva</string>
     <string name="title_legend_snoozed">Elhalasztott</string>
     <string name="title_legend_browsed">Böngészett vagy keresett</string>
     <string name="title_legend_answered">Megválaszolt</string>
