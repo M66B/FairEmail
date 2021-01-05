@@ -227,12 +227,16 @@ public class MessageClassifier {
         List<Chance> chances = new ArrayList<>();
         for (String clazz : classStats.keySet()) {
             Integer messages = classMessages.get(account).get(clazz);
-            if (messages == null || messages == 0)
+            if (messages == null || messages == 0) {
+                Log.w("Classifier no messages class=" + account + ":" + clazz);
                 continue;
+            }
 
             EntityFolder folder = db.folder().getFolderByName(account, clazz);
-            if (folder == null)
+            if (folder == null) {
+                Log.w("Classifier no folder class=" + account + ":" + clazz);
                 continue;
+            }
 
             Stat stat = classStats.get(clazz);
             double chance = (double) stat.totalFrequency / messages / maxMatchedWords;
