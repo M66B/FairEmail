@@ -6231,7 +6231,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpDifferent.setVisibility(uri.getHost() == null ||
                     uriTitle == null || uriTitle.getHost() == null ||
-                    uriTitle.getHost().equalsIgnoreCase(uri.getHost())
+                    uriTitle.getPath().equalsIgnoreCase(uri.getPath())
                     ? View.GONE : View.VISIBLE);
 
             boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
