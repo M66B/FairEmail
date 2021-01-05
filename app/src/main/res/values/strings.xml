@@ -276,7 +276,7 @@
     <string name="title_advanced_hint_title">More advanced options</string>
     <string name="title_advanced_hint_message">
         You are navigating to the more advanced options.
-        All options have commonly used standard values that can be changed if you have a different preference.
+        All options have commonly used standard values that can but do not need to be changed if you have a different preference.
     </string>
 
     <string name="title_advanced_section_main">Principal</string>
