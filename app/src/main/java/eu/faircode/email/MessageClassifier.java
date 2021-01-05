@@ -52,7 +52,6 @@ public class MessageClassifier {
     private static final Map<Long, Map<String, Map<String, Integer>>> wordClassFrequency = new HashMap<>();
 
     private static final int MIN_MATCHED_WORDS = 10;
-    private static final double COMMON_WORD_FACTOR = 0.75;
     private static final double CHANCE_THRESHOLD = 2.0;
 
     static void classify(EntityMessage message, boolean added, Context context) {
@@ -188,37 +187,7 @@ public class MessageClassifier {
                         wordClassFrequency.get(account).put(word, classFrequency);
                     }
 
-                    // Filter classes of common occurring words
-                    List<String> applyClasses = new ArrayList<>(classFrequency.keySet());
-                    for (String class1 : classFrequency.keySet()) {
-                        Integer messages1 = classMessages.get(account).get(class1);
-                        if (messages1 == null || messages1 == 0)
-                            continue;
-                        double percentage1 = (double) classFrequency.get(class1) / messages1;
-                        if (percentage1 == 0)
-                            continue;
-
-                        for (String class2 : classFrequency.keySet())
-                            if (!class1.equals(class2)) {
-                                Integer messages2 = classMessages.get(account).get(class2);
-                                if (messages2 == null || messages2 == 0)
-                                    continue;
-                                double percentage2 = (double) classFrequency.get(class2) / messages2;
-                                if (percentage2 == 0)
-                                    continue;
-
-                                double factor = percentage1 / percentage2;
-                                if (factor > 1)
-                                    factor = 1 / factor;
-                                if (factor > COMMON_WORD_FACTOR) {
-                                    Log.i("Classifier skip class=" + class1 + " word=" + word);
-                                    applyClasses.remove(class1);
-                                    break;
-                                }
-                            }
-                    }
-
-                    for (String clazz : applyClasses) {
+                    for (String clazz : classFrequency.keySet()) {
                         int frequency = classFrequency.get(clazz);
 
                         Stat stat = classStats.get(clazz);
