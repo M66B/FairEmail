@@ -3414,11 +3414,10 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 *This is an experimental feature!*
 
 Message classification will attempt to automatically group emails into classes, based on their contents,
-using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
-In the context of FairEmail, a folder is a class.
+using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts).
+In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings.
-This will enable learning mode only.
+You can enable message classification in the miscellaneous settings. This will enable learning mode only.
 
 Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
