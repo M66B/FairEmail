@@ -999,10 +999,8 @@ class Core {
             throw new IllegalArgumentException("self");
 
         // De-classify
-        if (MessageClassifier.canClassify(folder.type) &&
-                MessageClassifier.canClassify(target.type))
-            for (EntityMessage message : messages)
-                MessageClassifier.classify(message, false, context);
+        for (EntityMessage message : messages)
+            MessageClassifier.classify(message, folder, target, context);
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
@@ -1505,7 +1503,7 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
-        MessageClassifier.classify(message, true, context);
+        MessageClassifier.classify(message, folder, null, context);
 
         if (body != null)
             EntityLog.log(context, "Operation body size=" + body.length());
@@ -3012,7 +3010,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, true, context);
+                    MessageClassifier.classify(message, folder, null, context);
                     if (!message.ui_hide)
                         db.message().setMessageUiHide(message.id, false);
 
@@ -3142,7 +3140,7 @@ class Core {
 
             if (process) {
                 updateContactInfo(context, folder, message);
-                MessageClassifier.classify(message, true, context);
+                MessageClassifier.classify(message, folder, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
 
@@ -3447,7 +3445,7 @@ class Core {
                             parts.isPlainOnly(),
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, true, context);
+                    MessageClassifier.classify(message, folder, null, context);
 
                     if (stats != null && body != null)
                         stats.content += body.length();

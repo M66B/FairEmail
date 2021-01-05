@@ -54,28 +54,22 @@ public class MessageClassifier {
     private static final int MIN_MATCHED_WORDS = 10;
     private static final double CHANCE_THRESHOLD = 2.0;
 
-    static void classify(EntityMessage message, boolean added, Context context) {
+    static void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
         try {
             if (!isEnabled(context))
                 return;
 
-            DB db = DB.getInstance(context);
-
-            EntityFolder folder = db.folder().getFolder(message.folder);
-            if (folder == null)
-                return;
-
-            EntityAccount account = db.account().getAccount(folder.account);
-            if (account == null)
-                return;
-
             if (!canClassify(folder.type))
+                return;
+
+            if (target != null && !canClassify(target.type))
                 return;
 
             File file = message.getFile(context);
             if (!file.exists())
                 return;
 
+            // Build text to classify
             StringBuilder sb = new StringBuilder();
 
             List<Address> addresses = new ArrayList<>();
@@ -112,14 +106,17 @@ public class MessageClassifier {
             if (sb.length() == 0)
                 return;
 
+            // Load data if needed
             load(context);
 
-            if (!classMessages.containsKey(account.id))
-                classMessages.put(account.id, new HashMap<>());
-            if (!wordClassFrequency.containsKey(account.id))
-                wordClassFrequency.put(account.id, new HashMap<>());
+            // Initialize data if needed
+            if (!classMessages.containsKey(folder.account))
+                classMessages.put(folder.account, new HashMap<>());
+            if (!wordClassFrequency.containsKey(folder.account))
+                wordClassFrequency.put(folder.account, new HashMap<>());
 
-            String classified = classify(account.id, folder.name, sb.toString(), added, context);
+            // Classify text
+            String classified = classify(folder.account, folder.name, sb.toString(), target == null, context);
 
             EntityLog.log(context, "Classifier" +
                     " folder=" + folder.name +
@@ -129,28 +126,32 @@ public class MessageClassifier {
                     " class=" + classified +
                     " re=" + message.auto_classified);
 
-            Integer m = classMessages.get(account.id).get(folder.name);
-            if (added) {
+            // Update message count
+            Integer m = classMessages.get(folder.account).get(folder.name);
+            if (target == null) {
                 m = (m == null ? 1 : m + 1);
-                classMessages.get(account.id).put(folder.name, m);
+                classMessages.get(folder.account).put(folder.name, m);
             } else {
                 if (m != null && m > 0)
-                    classMessages.get(account.id).put(folder.name, m - 1);
+                    classMessages.get(folder.account).put(folder.name, m - 1);
             }
-            Log.i("Classifier classify=" + folder.name + " messages=" + classMessages.get(account.id).get(folder.name));
+            EntityLog.log(context, "Classifier classify=" + folder.name +
+                    " messages=" + classMessages.get(folder.account).get(folder.name));
 
             dirty = true;
 
-            if (classified != null && !message.auto_classified)
+            // Auto classify
+            if (classified != null &&
+                    !classified.equals(folder.name) &&
+                    !message.auto_classified &&
+                    !EntityFolder.JUNK.equals(folder.type)) {
+                DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    EntityFolder target = db.folder().getFolderByName(account.id, classified);
-                    if (target != null && target.auto_classify &&
-                            !target.id.equals(folder.id) &&
-                            !EntityFolder.JUNK.equals(folder.type)) {
-
-                        EntityOperation.queue(context, message, EntityOperation.MOVE, target.id, false, true);
+                    EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
+                    if (dest != null && dest.auto_classify) {
+                        EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
                     }
 
@@ -159,6 +160,7 @@ public class MessageClassifier {
                 } finally {
                     db.endTransaction();
                 }
+            }
         } catch (Throwable ex) {
             Log.e(ex);
         }
