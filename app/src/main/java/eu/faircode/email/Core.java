@@ -999,7 +999,8 @@ class Core {
             throw new IllegalArgumentException("self");
 
         // De-classify
-        if (MessageClassifier.canClassify(folder.type))
+        if (MessageClassifier.canClassify(folder.type) &&
+                MessageClassifier.canClassify(target.type))
             for (EntityMessage message : messages)
                 MessageClassifier.classify(message, false, context);
 
