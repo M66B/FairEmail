@@ -190,18 +190,23 @@ public class MessageClassifier {
 
                     // Filter classes of common occurring words
                     List<String> applyClasses = new ArrayList<>(classFrequency.keySet());
-                    for (String class1 : classFrequency.keySet())
+                    for (String class1 : classFrequency.keySet()) {
+                        Integer messages1 = classMessages.get(account).get(class1);
+                        if (messages1 == null || messages1 == 0)
+                            continue;
+                        double percentage1 = (double) classFrequency.get(class1) / messages1;
+                        if (percentage1 == 0)
+                            continue;
+
                         for (String class2 : classFrequency.keySet())
                             if (!class1.equals(class2)) {
-                                int messages1 = classMessages.get(account).get(class1);
-                                int messages2 = classMessages.get(account).get(class2);
-                                int frequency1 = classFrequency.get(class1);
-                                int frequency2 = classFrequency.get(class2);
-                                if (messages1 == 0 || messages2 == 0 || frequency1 == 0 || frequency2 == 0)
+                                Integer messages2 = classMessages.get(account).get(class2);
+                                if (messages2 == null || messages2 == 0)
+                                    continue;
+                                double percentage2 = (double) classFrequency.get(class2) / messages2;
+                                if (percentage2 == 0)
                                     continue;
 
-                                double percentage1 = (double) frequency1 / messages1;
-                                double percentage2 = (double) frequency2 / messages2;
                                 double factor = percentage1 / percentage2;
                                 if (factor > 1)
                                     factor = 1 / factor;
@@ -211,6 +216,7 @@ public class MessageClassifier {
                                     break;
                                 }
                             }
+                    }
 
                     for (String clazz : applyClasses) {
                         int frequency = classFrequency.get(clazz);
@@ -246,10 +252,13 @@ public class MessageClassifier {
         if (!added)
             return null;
 
+        if (maxMatchedWords == 0)
+            return null;
+
         List<Chance> chances = new ArrayList<>();
         for (String clazz : classStats.keySet()) {
-            int messages = classMessages.get(account).get(clazz);
-            if (messages == 0 || maxMatchedWords == 0)
+            Integer messages = classMessages.get(account).get(clazz);
+            if (messages == null || messages == 0)
                 continue;
 
             Stat stat = classStats.get(clazz);
@@ -264,7 +273,9 @@ public class MessageClassifier {
         if (BuildConfig.DEBUG)
             Log.i("Classifier words=" + TextUtils.join(", ", words));
 
-        if (chances.size() <= 1 || maxMatchedWords < MIN_MATCHED_WORDS)
+        if (maxMatchedWords < MIN_MATCHED_WORDS)
+            return null;
+        if (chances.size() <= 1)
             return null;
 
         Collections.sort(chances, new Comparator<Chance>() {
