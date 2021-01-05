@@ -78,6 +78,7 @@
         von dieser Absenderadresse automatisch in den Spam-Ordner zu verschieben.
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
+    <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>

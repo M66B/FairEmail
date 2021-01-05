@@ -2824,9 +2824,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 <a name="faq163"></a>
 **(163) What is message classification?**
 
-*This is an experimental feature!*
+*Ez egy kísérleti funkció!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
 You can enable message classification in the miscellaneous settings. This will enable learning mode only.
 

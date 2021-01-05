@@ -2826,7 +2826,7 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 *This is an experimental feature!*
 
-Beskedklassificering vil forsøge automatisk at gruppere e-mails i klasser baseret på deres indhold vha. [Bayesian-statistik](https://en.wikipedia.org/wiki/Bayesian_statistics). I FairEmail-kontekst udgør en mappe en klasse.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts). I FairEmail-kontekst udgør en mappe en klasse. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
 Beskedklassificering kan aktiveres under diverse indstillinger. Dette aktiverer kun læringstilstand.
 

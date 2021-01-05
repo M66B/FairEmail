@@ -77,6 +77,7 @@
     <string name="title_block_sender_hint">        Ha letilt egy feladót, azzal létrehoz egy szabályt, ami az összes tőle származó jövőbeli üzenetet automatikusan a spam mappába mozgatja.
         A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
+    <string name="title_junk_filter">Lokális spam-filter használata</string>
     <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
     <string name="title_notification_idle">Tétlen</string>

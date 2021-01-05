@@ -928,45 +928,45 @@ Se vuoi usare il server SMTP di Gmail per risolvere un filtro anti-spam in uscit
 
 L'autorizzazione della configurazione dei profili di Gmail con la procedura guidata rapida deve essere aggiornata periodicamente tramite il [Manager dei profili di Android](https://developer.android.com/reference/android/accounts/AccountManager). Questo richiede permessi di contatto/profilo e connettività a internet.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+L'errore *... Autenticazione fallita ... Profilo non trovato ...* significa che un profilo di Gmail autorizzato precedentemente è stato rimosso dal dispositivo.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Gli errori *... Autenticazione fallita ... Nessun token ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail.
 
-The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+L'errore *... Autenticazione fallita ... errore di rete ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail a causa di problemi con la connessione a internet
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+L'errore *... Autenticazione fallita ... Credenziali non valide ...* potrebbe esser causato dalla modifica della password del profilo o dall'aver revocato i permessi necessari del profilo/contatti. Nel caso in cui la password del profilo sia stata cambiata, dovrai autenticare di nuovo il profilo di Google nelle impostazioni del profilo di Android. Nel caso in cui i permessi fossero revocati, puoi avviare la procedura guidata rapida di Gmail per garantire di nuovo i permessi necessari (non devi riconfigurare il profilo).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+L'errore *... ServiceDisabled ...* potrebbe essere causato dall'iscrizione nel [Programma di Protezione Avanzata](https://landing.google.com/advancedprotection/): "<em x-id"3">Per leggere la tua email, puoi (devi) usare Gmail - Non potrai usare il tuo Profilo di Google con alcune app (tutte) e servizi che richiedono l'accesso a dati sensibili come le tue email</em>", vedi [qui](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+Quando in dubbio, puoi richiedere [supporto](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Perché ottengo l'avviso ... ?**
 
 *Generale*
 
-Alerts are warning messages sent by email servers.
+Gli avvisi sono messaggi di avviso inviati dai server dell'email.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Troppe connessioni simultanee* o *Numero massimo di connessioni superate*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Questo avviso sarà inviato quando ci sono troppe connessioni di cartelle per lo stesso profilo email allo stesso tempo.
 
-Possible causes are:
+Cause possibili sono:
 
 * Ci sono client email multipli connessi allo stesso profilo
 * Lo stesso client email è connesso diverse volte allo stesso profilo
 * Le connessioni precedenti sono state terminate bruscamente per esempio perdendo bruscamente la connettività internet
 
-First try to wait some time to see if the problem resolves itself, else:
+Prima prova ad attendere un po' di tempo per vedere se il problema si risolve da solo, altrimenti:
 
 * o passa alla verifica periodica dei messaggi nelle impostazioni di ricezione, che risulterà nell'apertura delle cartelle una per volta
-* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
+* o imposta alcune cartelle a sondaggio invece di sincronizzare (tenere premuto a lungo la cartella nell'elenco della cartella, modificare le proprietà)
 
-An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+Un modo facile per configurare periodicamente la verifica dei messaggi per tutte le cartelle tranne quella della posta in arrivo è usare *Applica a tutti ...* nel menu a tre puntini dell'elenco delle cartelle per spuntare le due caselle avanzate in fondo.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. Quando necessario o desiderato, puoi cambiarlo premendo a lungo una cartella nell'elenco delle cartelle e selezionando *Modifica proprietà*. Vedi [qui](https://support.google.com/mail/answer/7126229) per i dettagli.
+Il numero massimo di connessioni delle cartelle simultanee per Gmail è 15, quindi puoi sincronizzare massimo 15 cartelle in simultanea su *tutti* i tuoi dispositivi allo stesso tempo. Per questo motivo le cartelle dell'*utente* di Gmail sono impostate per sondare di default invece che sincronizzare sempre. Quando necessario o desiderato, puoi cambiarlo premendo a lungo una cartella nell'elenco delle cartelle e selezionando *Modifica proprietà*. Vedi [qui](https://support.google.com/mail/answer/7126229) per i dettagli.
 
 Quando usi un server Dovecot, potresti voler cambiare l'impostazione [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
@@ -1167,85 +1167,85 @@ Versione breve: AES 256 bit
 Versione lunga:
 
 * La chiave a 256 bit è generata con *PBKDF2WithHmacSHA1* usando un sale casuale sicuro a 128 bit e 65536 iterazioni
-* The cipher is *AES/CBC/PKCS5Padding*
+* La cifra è *AES/CBC/PKCS5Padding*
 
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Come sono archiviate le password?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+Tutte le versioni supportate di Android [crittografano tutti i dati dell'utente](https://source.android.com/security/encryption), quindi tutti i dati, inclusi nomi utenti, password, messaggi, etc. sono archiviati crittografati.
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+Se il dispositivo è in sicurezza con un PIN, uno schema o una password, puoi rendere visibili le password del profilo e dell'identità. Se questo è un problema perché stai condividendo il dispositivo con altre persone, considera di usare i [profili utente](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Come posso ridurre l'uso della batteria di FairEmail?**
 
-Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
+Le versioni Android recenti di default segnalano l'*uso dell'app* come una percentuale nella schermata delle impostazioni della batteria di Android. **In modo confusionario, *l'uso dell'app* non equivale all'*uso della batteria* e non è nemmeno correlato direttamente all'uso della batteria!** L'uso dell'app (mentre in uso) sarà molto alto perché FairEmail sta usando il servizio in primo piano, considerato come l'uso costante dell'app di Android. Tuttavia, questo non significa che FairEmail stia usando costantemente l'energia della batteria. Il vero uso della batteria è visibile navigando a questa schermata:
 
-*Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
+*Impostazioni di Android*, *Batteria*, menu a tre puntini *Uso della batteria*, menu a tre puntini*Mostra usi completi del dispositivo*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
+Come regola generale, l'uso della batteria dovrebbe essere inferiore o in ogni caso non molto maggiore dello *Standby della rete mobile*. Se non è il caso, sei pregato di attivare *Ottimizzazione automatica* nelle impostazioni di ricezione. Se questo non aiuta, sei pregato di [chiedere supporto](https://contact.faircode.eu/?product=fairemailsupport).
 
-It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+È inevitabile che la sincronizzazione dei messaggi userà energia della batteria perché richiede accesso alla rete e l'accesso al database dei messaggi.
 
-If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
+Se stai comparando l'uso della batteria di FairEmail con un altro client email, sei pregato di assicurarti che l'altro client email sia configurato similmente. Per esempio, comparare la sincronizzazione continua (messaggi push) e il controllo periodico (raro) per i nuovi messaggi non è un confronto equo.
 
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes. In these cases you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
+La riconnessione al server email userà energia extra della batteria, quindi una connessione internet instabile risulterà in uso extra della batteria. Inoltre, alcuni server email terminano prematuramente le connessioni inattive, mentre [lo standard](https://tools.ietf.org/html/rfc2177) dice che una connessione inattiva dovrebbe essere mantenuta aperta per 29 minuti. In questi casi potresti voler sincronizzare periodicamente, ad esempio ogni ora, invece che continuamente. Nota che sondare frequentemente (più di ogni 30-60 minuti) potrebbe usare maggiore energia della batteria rispetto alla sincronizzazione continua perché la connessione al server e il confronto di messaggi locali e remoti sono operazioni costose.
 
-[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
+[Su alcuni dispositivi](https://dontkillmyapp.com/) è necessario *disabilitare* le ottimizzazioni della batteria (configurazione, passaggio 4) per mantenere le connessioni ai server email aperti. Difatti, lasciare abilitate le ottimizzazioni della batteria può risultare nell'uso extra di batteria per tutti i dispositivi, per quanto sembri contraddittorio!
 
-Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
+Gran parte dell'uso della batteria, senza considerare la visualizzazione dei messaggi, è dovuto alla sincronizzazione dei messaggi (ricezione e invio). Quindi, per ridurre l'uso della batteria, imposta il numero di giorni per sincronizzare i messaggi a un valore inferiore, specialmente se ci sono molti messaggi recenti in una cartella. Premi a lungo il nome di una cartella nell'elenco delle cartelle e seleziona *Modifica proprietà* per accedere a quest'impostazione.
 
-If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
+Se hai connettività a internet almeno una volta al giorno, è sufficiente sincronizzare i messaggi solo per un giorno.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
+Nota che puoi impostare il numero di giorni per *mantenere* i messaggi per un numero maggiore piuttosto che per *sincronizzarne* i messaggi. Potresti ad esempio sincronizzare inizialmente i messaggi per un gran numero di giorni e dopo il completamento di ciò ridurre il numero di giorni in cui sincronizzare i messaggi, lasciando il numero di giorni per cui mantenerli. Dopo aver diminuito il numero di giorni per cui mantenere i messaggi, potresti voler eseguire la pulizia nelle impostazioni miste per rimuovere i vecchi file.
 
-In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
+Nelle impostazioni di ricezione puoi abilitare la sincronizzazione continua dei messaggi preferiti, che consentirà di mantenere messaggi più vecchi in giro sincronizzandoli per un numero limitato di giorni.
 
-Disabling the folder option *Automatically download message texts and attachments* will result in less network traffic and thus less battery usage. You could disable this option for example for the sent folder and the archive.
+Disabilitare l'opzione della cartella *Scarica automaticamente testi e allegati del messaggio* risulterà in minore traffico di rete e dunque minore uso della batteria. Potresti disabilitare quest'opzione per esempio per la cartella degli inviati e l'archivio.
 
-Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night. In the settings you can select a schedule for message synchronization (this is a pro feature).
+Sincronizzare i messaggi di notte è principalmente inutile, quindi puoi risparmiare sull'uso della batteria non sincronizzando di notte. Nelle impostazioni puoi selezionare un piano per la sincronizzazione del messaggio (questa è una funzionalità pro).
 
-FairEmail will by default synchronize the folder list on each connection. Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
+FairEmail sincronizzerà di default l'elenco delle cartelle su ogni connessione. Poiché le cartelle sono per lo più create, rinominate ed eliminate molto spesso, puoi risparmiare uso della rete e della batteria disabilitandolo nelle impostazioni di ricezione.
 
-FairEmail will by default check if old messages were deleted from the server on each connection. If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+FairEmail verificherà di default se i vecchi messaggi sono stati eliminati dal server su ogni connessione. Se non ti dispiace che i vecchi messaggi eliminati dal server siano ancora visibili in FairEmail, puoi risparmiare uso di batteria e rete disabilitandolo nelle impostazioni di ricezione.
 
-Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 4 to reliably keep connections alive.
+Alcuni provider non seguono lo standard IMAP e non mantengono le connessioni aperte abbastanza a lungo, forzando spesso la riconnessione di FairEmail, causando uso extra della batteria. Puoi ispezionare il *Registro* tramite il menu di navigazione principale per verificare se ci sono riconnessioni frequenti (connessione chiusa/ripristinata, errore di lettura/scrittura/timeout, etc.). Puoi risolverlo abbassando l'intervallo di mantenimento in vita nelle impostazioni avanzate del profilo ad esempio per 9 o 15 minuti. Nota che le ottimizzazioni della batteria devono essere disabilitate nel passaggio 4 della configurazione per mantenere in vita le connessioni in modo affidabile.
 
-Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
+Alcuni provider inviano qualcosa ogni due minuti del tipo di '*Ancora qui*' risultando in traffico di rete e nell'attivazione del tuo dispositivo e causando uso extra non necessario della batteria. Puoi ispezionare il *Registro* tramite il menu di navigazione principale per controllare se il tuo provider lo stia facendo. Se il tuo provider usa [Dovecot](https://www.dovecot.org/) come server IMAP, potresti chiedere al tuo provider di cambiare l'impostazione [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) a un valore maggiore o anche meglio, disabilitarla. Se il tuo provider non è capace o desideroso di cambiarlo/disabilitarlo, dovresti considerare di passare alla sincronizzazione periodica invece che continua. Puoi modificarlo nelle impostazioni di ricezione.
 
-If you got the message *This provider does not support push messages* while configuring an account, consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
+Se ottieni il messaggio *Questo provider non supporta i messaggi push* configurando un profilo, considera di passare a un provider moderno che supporta messaggi push (IMAP IDLE) per ridurre l'uso della batteria.
 
-If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen, you can save battery usage while viewing messages by switching to the black theme.
+Se il tuo dispositivo ha uno schermo [AMOLED](https://en.wikipedia.org/wiki/AMOLED), puoi risparmiare l'uso della batteria visualizzando i messaggi passando al tema scuro.
 
-If auto optimize in the receive settings is enabled, an account will automatically be switched to periodically checking for new messages when the email server:
+Se l'ottimizzazione automatica nelle impostazioni di ricezione è abilitato, un profilo sarà cambiato automaticamente per controllare periodicamente per nuovi messaggi quando il server email:
 
-* Says '*Still here*' within 3 minutes
-* The email server does not support push messages
-* The keep-alive interval is lower than 12 minutes
+* Dice '*Ancora qui*' entro 3 minuti
+* Il server email non supporta i messaggi push
+* L'intervallo di mantenimento in vita è inferiore a 12 minuti
 
-In addition, the trash and spam folders will be automatically set to checking for new messages after three successive [too many simultaneous connections](#user-content-faq23) errors.
+Inoltre, le cartelle del cestino e dello spam saranno impostate automaticamente per verificare la presenza di nuovi messaggi dopo tre errori di [troppe connessioni simultanee](#user-content-faq23) consecutive.
 
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the data usage of FairEmail?**
+**(40) Come posso ridurre l'uso di dati di FairEmail?**
 
-You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+Puoi ridurre l'uso dei dati allo stesso modo che riducendo l'uso della batteria, vedi la domanda precedente per i suggerimenti.
 
-It is inevitable that data will be used to synchronize messages.
+È inevitabile che i dati saranno usati per sincronizzare i messaggi.
 
-If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
+Se la connessione al server email è persa, FairEmail risincronizzerà sempre i messaggi per assicurarsi che non ne siano mancati alcuni. Se la connessione è instabile, questo può risultare in un uso extra dei dati. In questo caso, è una buona idea ridurre il numero di giorni per sincronizzare i messaggi a un minimo (vedi la domanda precedente) o passare alla sincronizzazione periodica dei messaggi (impostazioni di ricezione).
 
-To reduce data usage, you could change these advanced receive settings:
+Per ridurre l'uso dei dati, potresti cambiare queste impostazioni avanzate di ricevimento:
 
-* Check if old messages were removed from the server: disable
-* Synchronize (shared) folder list: disable
+* Controlla che i messaggi vecchi siano stati rimossi dal server: disabilitato
+* Sincronizzazione (condivisa) dell'elenco delle cartelle: disabilitato
 
-By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
+Di default FairEmail non scarica i testi e gli allegati del messaggio più grandi di 256 KiB quando c'è una connessione a internet misurata (mobile o Wi-Fi a pagamento). Puoi cambiarlo nelle impostazioni di connessione.
 
 <br />
 
@@ -1275,11 +1275,11 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <br />
 
 <a name="faq42"></a>
-**(42) Can you add a new provider to the list of providers?**
+**(42) Puoi aggiungere un nuovo provider all'elenco dei provider?**
 
-If the provider is used by more than a few people, yes, with pleasure.
+Se il provider è usato da più che poche persone, sì, con piacere.
 
-The following information is needed:
+Le seguenti informazioni sono necessarie:
 
 ```
 <provider
@@ -1297,108 +1297,108 @@ The following information is needed:
 </provider>
 ```
 
-The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
+L'EFF [scrive](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Inoltre, anche se configuri perfettamente STARTTLS e usi un certificato valido, non c'è ancora garanzia alcuna che le tue comunicazioni saranno crittografate.*"
 
-So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
+Quindi, le connessioni SSL pure sono più sicure che usare [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) e dunque preferite.
 
-Please make sure receiving and sending messages works properly before contacting me to add a provider.
+Sei pregato di assicurarti che la ricezione e l'invio dei messaggi funzionino propriamente prima di contattarmi per aggiungere un provider.
 
-See below about how to contact me.
+Vedi sotto come contattarmi.
 
 <br />
 
 <a name="faq43"></a>
-**(43) Can you show the original ... ?**
+**(43) Muoi mostrare l'originale ... ?**
 
-Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc. FairEmail does and will not alter this in any way, except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), which will *attempt* to make small text more readable.
+Mostra l'originale, mostra il messaggio originale come inviato dal mittente, includendo font, colori, margini, etc. originali. FairEmail non li altererà in alcun modo, eccetto che richiedendo [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), che *tenterà* di rendere più leggibili i testi piccoli.
 
 <br />
 
 <a name="faq44"></a>
-**~~(44) Can you show contact photos / identicons in the sent folder?~~**
+**~~(44) Puoi mostrare foto / identicon di contatto nella cartella inviati?~~**
 
-~~Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.~~ ~~Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.~~
+~~Le foto di contatto e gli identicon sono sempre mostrati per il mittente perché necessari per i thread di conversazione.~~ ~~Ottenere le foto di contatto sia per il mittente che per il destinatario non è propriamente un'opzione perché ottenere le foto di contatto è un'operazione costosa.~~
 
 <br />
 
 <a name="faq45"></a>
-**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?**
+**(45) Come posso risolvere 'Questa chiave non è disponibile. **Per usarla, devi importarla come tua!'</em> ?**</p>
 
-You'll get the message *This key is not available. To use it, you must import it as one of your own!* when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
+Otterrai il messaggio *Questa chiave non è disponibile. Per usarla, devi importarla come tua!* provando a decrittografare un messaggio con una chiave pubblica. Per risolverlo devi importare la chiave privata.
 
 <br />
 
 <a name="faq46"></a>
-**(46) Why does the message list keep refreshing?**
+**(46) Perché l'elenco dei messaggi continua ad aggiornarsi?**
 
-If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server. You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
+Se vedi uno 'snipper' sull'elenco dei messaggi, la cartella è ancora sincronizzata con il server remoto. Puoi vedere il progresso della sincronizzazione nell'elenco delle cartelle. Vedi la legenda su cosa significano le icone e i numeri.
 
-The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take. Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+La velocità del tuo dispositivo e della connessione internet e il numero di giorni per sincronizzare i messaggi per determinare quanto durerà la sincronizzazione. Nota che non dovresti impostare il numero di giorni per sincronizzare i messaggi a oltre un giorno in gran parte dei casi, vedi anche [questa FAQ](#user-content-faq39).
 
 <br />
 
 <a name="faq47"></a>
-**(47) How do I solve the error 'No primary account or no drafts folder' ?**
+**(47) Come risolvo l'errore 'Nessun colore primario o nessuna cartella delle bozze' ?**
 
-You'll get the error message *No primary account or no drafts folder* when trying to compose a message while there is no account set to be the primary account or when there is no drafts folder selected for the primary account. This can happen for example when you start FairEmail to compose a message from another app. FairEmail needs to know where to store the draft, so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
+Otterrai il messaggio di errore *Nessun profilo primario o nessuna cartella delle bozze* provando a comporre un messaggio mentre non esiste alcun profilo impostato come primario o quando non ci sono cartelle di bozze selezionate per il profilo primario. Questo può succedere ad esempio avviando FairEmail per comporre un messaggio da un'altra app. FairEmail deve sapere dove archiviare le bozze, quindi dovrai selezionare un profilo come principale e/o dovrai selezionare una cartella di bozze per il profilo principale.
 
-This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder while there is no primary account or when the primary account does not have a drafts folder.
+Questo può succedere anche provando a rispondere a un messaggio o a inoltrarne uno da un profilo senza cartella delle bozze, mentre non esiste alcun profilo principale o quando questo non ha una cartella di bozze.
 
-Please see [this FAQ](#user-content-faq141) for some more information.
+Sei pregato di vedere [questa FAQ](#user-content-faq141) per ulteriori informazioni.
 
 <br />
 
 <a name="faq48"></a>
-**~~(48) How do I solve the error 'No primary account or no archive folder' ?~~**
+**~~(48) Come risolvo l'errore 'Nessun profilo principale o nessuna cartella d'archivio?~~**
 
-~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app. FairEmail needs to know where to search, so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
+~~Otterrai il messaggio di errore *Nessun profilo principale o nessuna cartella di archivio* cercando messaggi da un'altra app. Fair Email deve sapere dove cercare, quindi dovrai selezionare un profilo come principale e/o una cartella di archivio per il profilo principale.~~
 
 <br />
 
 <a name="faq49"></a>
-**(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?**
+**(49) Come risolvo 'Un'app obsoleta ha inviato un percorso del file invece di un flusso di file' ?**
 
-You likely selected or sent an attachment or image with an outdated file manager or an outdated app which assumes all apps still have storage permissions. For security and privacy reasons modern apps like FairEmail have no full access to all files anymore. This can result into the error message *An outdated app sent a file path instead of a file stream* if a file name instead of a file stream is being shared with FairEmail because FairEmail cannot randomly open files.
+Potresti aver selezionato o inviato un allegato o un'immagine con un gestore di file obsoleto o un'app obsoleta che presume che tutte le app abbiano ancora permessi di archiviazione. Per motivi di sicurezza e privacy le app moderne come FairEmail non hanno più alcun accesso completo a tutti i file. Questo può risultare nel messaggio di errore *Un'app obsoleta ha inviato un percorso del file invece di un flusso di file* se un nome del file invece che un flusso di file è in condivisione con FairEmail perché questo non può aprire casualmente i file.
 
-You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions. Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings. Note that this workaround [won't work on Android Q](https://developer.android.com/preview/privacy/scoped-storage) anymore.
+Puoi correggerlo passando a un gestore di file aggiornato o un'app progettata per le versioni recenti di Android. In alternativa, puoi garantire l'accesso di lettura di FairEmail allo spazio di archiviazione sul tuo dispositivo nelle impostazioni dell'app di Android. Nota che questa soluzione [non funzionerà più su Android Q](https://developer.android.com/preview/privacy/scoped-storage).
 
-See also [question 25](#user-content-faq25) and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
+Vedi anche la [domanda 25](#user-content-faq25) e [cosa scrive a riguardo Google](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
 
 <br />
 
 <a name="faq50"></a>
-**(50) Can you add an option to synchronize all messages?**
+**(50) Puoi aggiungere un'opzione per sincronizzare tutti i messaggi?**
 
-You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
+Puoi sincronizzare più messaggi o persino tutti tenendo premuto a lungo una cartella (posta in entrata) nell'elenco delle cartelle di un profilo (tocca il nome di un profilo nel menu di navigazione) e selezionando *Sincronizza di più* nel menu a popup.
 
 <br />
 
 <a name="faq51"></a>
-**(51) How are folders sorted?**
+**(51) Come sono ordinate le cartelle?**
 
-Folders are first sorted on account order (by default on account name) and within an account with special, system folders on top, followed by folders set to synchronize. Within each category the folders are sorted on (display) name. You can set the display name by long pressing a folder in the folder list and selecting *Edit properties*.
+Le cartelle sono prima ordinate su ordine del profilo (di default sul nome del profilo) e entro un profilo con cartelle speciali di sistema in alto, seguite da quelle impostate per la sincronizzazione. Entro ogni categoria le cartelle sono ordinate per nome (su schermo). Puoi impostare il nome mostrato premendo a lungo una cartella nell'elenco delle cartelle e selezionando *Modifica proprietà*.
 
-The navigation (hamburger) menu item *Order folders* in the setup can be used to manually order the folders.
+L'elemento del menu di navigazione (hamburger) *Ordine cartelle* nella configurazione è utilizzabile per ordinare manualmente le cartelle.
 
 <br />
 
 <a name="faq52"></a>
-**(52) Why does it take some time to reconnect to an account?**
+**(52) Perché ci vuole del tempo per riconnettersi a un profilo?**
 
-There is no reliable way to know if an account connection was terminated gracefully or forcefully. Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems like [too many simultaneous connections](#user-content-faq23) or even the account being blocked. To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
+Non c'è modo affidabile per sapere se una connessione del profilo è stata terminata con grazia o con forza. Provare a riconnettersi a un profilo mentre la connessione del profilo è stata terminata forzatamente troppo spesso può risultare in problemi come [troppe connessioni simultanee](#user-content-faq23) o persino il blocco del profilo. Per prevenire tali problemi, FairEmail attende 90 secondi fino a provare a riconnettersi.
 
-You can long press *Settings* in the navigation menu to reconnect immediately.
+Puoi tenere premuto a lungo le *Impostazioni* nel menu di navigazione per riconnettersi immediatamente.
 
 <br />
 
 <a name="faq53"></a>
-**(53) Can you stick the message action bar to the top/bottom?**
+**(53) Puoi mettere la barra d'azione del messaggio in alto/in basso?**
 
-The message action bar works on a single message and the bottom action bar works on all the messages in the conversation. Since there is often more than one message in a conversation, this is not possible. Moreover, there are quite some message specific actions, like forwarding.
+La barra di azione del messaggio funziona su un messaggio singolo e la barra di azione in fondo funziona su tutti i messaggi nella cconversazione. Essendoci sempre più di un messaggio in una conversazione, questo è impossibile. Inoltre, ci sono alcune azioni specifiche del messaggio, come l'inoltro.
 
-Moving the message action bar to the bottom of the message is visually not appealing because there is already a conversation action bar at the bottom of the screen.
+Spostare la barra d'azione del messaggio in fondo al messaggio è visivamente non attraente perché c'è già una barra di azione della conversazione in fondo alla schermata.
 
-Note that there are not many, if any, email apps that display a conversation as a list of expandable messages. This has a lot of advantages, but the also causes the need for message specific actions.
+Nota che non ci sono molte app di email (se presenti) che mostrano una conversazione come elenco di messaggi espandibili. Questo ha molti vantaggi, ma causa anche il bisogno di azioni specifiche del messaggio.
 
 <br />
 
@@ -2826,7 +2826,7 @@ Il supporto di IMAP NOTIFY significa che le notifiche per i messaggi aggiunti, m
 
 *This is an experimental feature!*
 
-La classificazione del messaggio tenterà di raggruppare automaticamente le email i classi, in base ai loro contenuti, usando le [statistiche di Bayesian](https://en.wikipedia.org/wiki/Bayesian_statistics). Nel contesto di FairEmail, una cartella è una classe.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts). Nel contesto di FairEmail, una cartella è una classe. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
 Puoi abilitare la classificazione dei messaggi nelle impostazioni miste. Questo abiliterà la modalità di solo apprendimento.
 
