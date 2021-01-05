@@ -1364,10 +1364,10 @@ public class HtmlHelper {
         try {
             if (value.endsWith("%"))
                 return Float.parseFloat(value.substring(0, value.length() - 1).trim()) / 100 * current;
-            if (value.endsWith("em"))
-                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current;
             if (value.endsWith("rem"))
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
+            if (value.endsWith("em"))
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current;
             if (value.endsWith("pt"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE_PT;
             if (value.endsWith("px"))
