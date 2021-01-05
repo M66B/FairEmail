@@ -255,10 +255,15 @@ public class MessageClassifier {
         if (maxMatchedWords == 0)
             return null;
 
+        DB db = DB.getInstance(context);
         List<Chance> chances = new ArrayList<>();
         for (String clazz : classStats.keySet()) {
             Integer messages = classMessages.get(account).get(clazz);
             if (messages == null || messages == 0)
+                continue;
+
+            EntityFolder folder = db.folder().getFolderByName(account, clazz);
+            if (folder == null)
                 continue;
 
             Stat stat = classStats.get(clazz);
