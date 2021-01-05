@@ -167,7 +167,6 @@ public class MessageClassifier {
     }
 
     private static String classify(long account, String classify, String text, boolean added, Context context) {
-        int maxFrequency = 0;
         int maxMatchedWords = 0;
         List<String> words = new ArrayList<>();
         Map<String, Stat> classStats = new HashMap<>();
@@ -208,8 +207,6 @@ public class MessageClassifier {
 
                     for (String clazz : applyClasses) {
                         int frequency = classFrequency.get(clazz);
-                        if (frequency > maxFrequency)
-                            maxFrequency = frequency;
 
                         Stat stat = classStats.get(clazz);
                         if (stat == null) {
@@ -244,11 +241,12 @@ public class MessageClassifier {
 
         List<Chance> chances = new ArrayList<>();
         for (String clazz : classStats.keySet()) {
+            int messages = classMessages.get(account).get(clazz);
             Stat stat = classStats.get(clazz);
-            double chance = ((double) stat.totalFrequency / maxFrequency / maxMatchedWords);
+            double chance = (double) stat.totalFrequency / messages / maxMatchedWords;
             Chance c = new Chance(clazz, chance);
             EntityLog.log(context, "Classifier " + c +
-                    " frequency=" + stat.totalFrequency + "/" + maxFrequency +
+                    " frequency=" + stat.totalFrequency + "/" + messages +
                     " matched=" + stat.matchedWords + "/" + maxMatchedWords);
             chances.add(c);
         }
