@@ -95,6 +95,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnEditRules" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvJunkFilterHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_junk_filter_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfoFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbJunkFilter" />
+
         <ImageButton
             android:id="@+id/ibInfoFilter"
             android:layout_width="wrap_content"
