@@ -344,6 +344,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET poll_count = :count WHERE id = :id AND NOT (poll_count IS :count)")
     int setFolderPollCount(long id, int count);
 
+    @Query("UPDATE folder SET auto_classify = :auto_classify WHERE id = :id AND NOT (auto_classify IS :auto_classify)")
+    int setFolderAutoClassify(long id, boolean auto_classify);
+
     @Query("DELETE FROM folder WHERE id = :id")
     void deleteFolder(long id);
 

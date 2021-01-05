@@ -29,12 +29,12 @@
             android:text="@string/title_junk_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfoProvider"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
 
         <ImageButton
-            android:id="@+id/ibInfo"
+            android:id="@+id/ibInfoProvider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_info"
@@ -84,10 +84,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBlockHint" />
 
+        <CheckBox
+            android:id="@+id/cbJunkFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_junk_filter"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfoFilter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEditRules" />
+
+        <ImageButton
+            android:id="@+id/ibInfoFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cbJunkFilter"
+            app:srcCompat="@drawable/twotone_info_24" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpInJunk"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvMessage,tvJunkHint,ibInfo" />
+            app:constraint_referenced_ids="
+            tvMessage,tvJunkHint,ibInfoProvider,
+            cbJunkFilter,ibInfoFilter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

@@ -6355,7 +6355,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Bundle args = getArguments();
+            final Bundle args = getArguments();
             final long account = args.getLong("account");
             final int protocol = args.getInt("protocol");
             final long folder = args.getLong("folder");
@@ -6365,15 +6365,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
-            final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
+            final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
             final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
             final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
             final Button btnEditRules = view.findViewById(R.id.btnEditRules);
+            final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
+            final ImageButton ibInfoFilter = view.findViewById(R.id.ibInfoFilter);
             final Group grpInJunk = view.findViewById(R.id.grpInJunk);
 
             tvMessage.setText(getString(R.string.title_ask_spam_who, from));
 
-            ibInfo.setOnClickListener(new View.OnClickListener() {
+            ibInfoProvider.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(v.getContext(), 92);
@@ -6424,7 +6426,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             protected void onException(Bundle args, Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
-                        }.execute(FragmentDialogJunk.this, getArguments(), "junk");
+                        }.execute(FragmentDialogJunk.this, args, "junk:rules");
                     } else {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                         lbm.sendBroadcast(
@@ -6438,7 +6440,80 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
+            cbJunkFilter.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    args.putBoolean("filter", isChecked);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long account = args.getLong("account");
+                            boolean filter = args.getBoolean("filter");
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                            DB db = DB.getInstance(context);
+                            EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
+                            if (junk != null) {
+                                db.folder().setFolderAutoClassify(junk.id, filter);
+                                prefs.edit().putBoolean("classification", true).apply();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(getParentFragmentManager(), ex);
+                        }
+                    }.execute(FragmentDialogJunk.this, args, "junk:filter");
+                }
+            });
+
+            ibInfoFilter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 163);
+                }
+            });
+
             grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
+
+            new SimpleTask<Boolean>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    cbJunkFilter.setEnabled(false);
+                }
+
+                @Override
+                protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+                    long account = args.getLong("account");
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean classification = prefs.getBoolean("classification", false);
+
+                    DB db = DB.getInstance(context);
+                    EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
+                    if (junk == null)
+                        return false;
+
+                    return classification && junk.auto_classify;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Boolean filter) {
+                    if (filter != null) {
+                        cbJunkFilter.setChecked(filter);
+                        cbJunkFilter.setEnabled(true);
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(FragmentDialogJunk.this, args, "junk:filter");
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)

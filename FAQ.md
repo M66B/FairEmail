@@ -3423,6 +3423,10 @@ This will enable learning mode only.
 Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
+The option *Use local spam filter* turns on message classification and auto classification for the spam folder.
+Please understand that this is not a replacement for the spam filter of the email server.
+See also [this FAQ](#user-content-faq92).
+
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
 Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder.
 Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder.

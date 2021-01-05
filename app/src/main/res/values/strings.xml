@@ -99,6 +99,8 @@
         Creating and using rules is a pro feature.
     </string>
 
+    <string name="title_junk_filter">Use local spam filter</string>
+
     <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_waiting">Waiting for suitable connection</string>
     <string name="title_notification_idle">Idle</string>
