@@ -275,7 +275,9 @@ public class MessageClassifier {
         });
 
         String classification = null;
-        if (chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
+        double maxChance = chances.get(0).chance;
+        double minChance = chances.get(chances.size() - 1).chance;
+        if (maxChance / minChance >= CHANCE_THRESHOLD)
             classification = chances.get(0).clazz;
 
         Log.i("Classifier classify=" + classify + " classified=" + classification);
