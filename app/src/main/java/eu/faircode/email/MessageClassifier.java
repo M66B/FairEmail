@@ -276,15 +276,11 @@ public class MessageClassifier {
         Helper.writeText(file, toJson().toString(2));
 
         dirty = false;
-
         Log.i("Classifier data saved");
     }
 
     private static synchronized void load(Context context) throws IOException, JSONException {
-        if (loaded)
-            return;
-
-        if (!isEnabled(context))
+        if (loaded || dirty)
             return;
 
         classMessages.clear();
@@ -301,10 +297,10 @@ public class MessageClassifier {
     }
 
     static synchronized void clear(Context context) {
-        Log.i("Classifier clear");
         classMessages.clear();
         wordClassFrequency.clear();
         dirty = true;
+        Log.i("Classifier data cleared");
     }
 
     static boolean isEnabled(Context context) {
