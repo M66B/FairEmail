@@ -206,16 +206,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDownload" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvAutoClassifyPro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_pro_feature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAutoClassify" />
-
         <!-- after -->
 
         <eu.faircode.email.FixedTextView
@@ -226,7 +216,7 @@
             android:text="@string/title_sync_days"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAutoClassifyPro" />
+            app:layout_constraintTop_toBottomOf="@id/cbAutoClassify" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSyncDaysRemark"

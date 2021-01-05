@@ -148,8 +148,7 @@ public class MessageClassifier {
                     EntityFolder target = db.folder().getFolderByName(account.id, classified);
                     if (target != null && target.auto_classify &&
                             !target.id.equals(folder.id) &&
-                            !EntityFolder.JUNK.equals(folder.type) &&
-                            (EntityFolder.JUNK.equals(target.type) || ActivityBilling.isPro(context))) {
+                            !EntityFolder.JUNK.equals(folder.type)) {
 
                         EntityOperation.queue(context, message, EntityOperation.MOVE, target.id, false, true);
                         message.ui_hide = true;

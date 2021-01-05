@@ -70,7 +70,6 @@ public class FragmentFolder extends FragmentBase {
     private TextView tvPoll;
     private CheckBox cbDownload;
     private CheckBox cbAutoClassify;
-    private TextView tvAutoClassifyPro;
     private Button btnInfo;
     private EditText etSyncDays;
     private EditText etKeepDays;
@@ -132,7 +131,6 @@ public class FragmentFolder extends FragmentBase {
         tvPoll = view.findViewById(R.id.tvPoll);
         cbDownload = view.findViewById(R.id.cbDownload);
         cbAutoClassify = view.findViewById(R.id.cbAutoClassify);
-        tvAutoClassifyPro = view.findViewById(R.id.tvAutoClassifyPro);
         btnInfo = view.findViewById(R.id.btnInfo);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
@@ -179,8 +177,6 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
-        Helper.linkPro(tvAutoClassifyPro);
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,7 +218,6 @@ public class FragmentFolder extends FragmentBase {
         tvParent.setText(parent);
         grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
         cbAutoClassify.setVisibility(View.GONE);
-        tvAutoClassifyPro.setVisibility(View.GONE);
         grpAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
@@ -308,16 +303,13 @@ public class FragmentFolder extends FragmentBase {
                 boolean canAutoClassify = (imap &&
                         MessageClassifier.isEnabled(getContext()) &&
                         (folder == null || MessageClassifier.canClassify(folder.type)));
-                boolean isJunk = (folder != null && EntityFolder.JUNK.equals(folder.type));
 
                 etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked() && always);
                 etPoll.setEnabled(cbSynchronize.isChecked() && always);
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
-                cbAutoClassify.setEnabled(canAutoClassify && (isJunk || ActivityBilling.isPro(getContext())));
                 cbAutoClassify.setVisibility(canAutoClassify ? View.VISIBLE : View.GONE);
-                tvAutoClassifyPro.setVisibility(canAutoClassify && !cbAutoClassify.isEnabled() ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
