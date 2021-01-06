@@ -250,14 +250,13 @@ public class MessageClassifier {
             EntityLog.log(context, "Classifier " + c +
                     " frequency=" + stat.totalFrequency + "/" + messages +
                     " matched=" + stat.matchedWords + "/" + maxMatchedWords);
-            chances.add(c);
+            if (stat.matchedWords >= MIN_MATCHED_WORDS)
+                chances.add(c);
         }
 
         if (BuildConfig.DEBUG)
             Log.i("Classifier words=" + TextUtils.join(", ", words));
 
-        if (maxMatchedWords < MIN_MATCHED_WORDS)
-            return null;
         if (chances.size() <= 1)
             return null;
 
