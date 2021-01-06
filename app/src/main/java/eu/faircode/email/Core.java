@@ -2595,8 +2595,10 @@ class Core {
             }
 
             // Delete not synchronized messages without uid
-            if (!EntityFolder.isOutgoing(folder.type))
-                db.message().deleteOrphans(folder.id);
+            if (!EntityFolder.isOutgoing(folder.type)) {
+                int orphans = db.message().deleteOrphans(folder.id);
+                Log.i(folder.name + " deleted orphans=" + orphans);
+            }
 
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
