@@ -77,6 +77,8 @@
     <string name="title_block_sender_hint">        Blokering af en afsender opretter en regel, der automatisk flytter fremtidige beskeder til Spam-mappen.
         Oprettelse og brug af regler er en Pro-funktion.
     </string>
+    <string name="title_junk_filter">Brug lokalt spamfilter</string>
+    <string name="title_junk_filter_hint">Dette kan øge strømforbruget samt ukorrekt markere beskeder som spam</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -218,8 +220,8 @@
     <string name="title_setup_defaults">Gendan standardværdier</string>
     <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
-    <string name="title_advanced_hint_message">        Du går nu til de mere avancerede indstillinger.
-        Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres efter jf. dine præferencer.
+    <string name="title_advanced_hint_message">        Der gås nu til de mere avancerede indstillinger.
+        Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
     </string>
     <string name="title_advanced_section_main">Primær</string>
     <string name="title_advanced_section_synchronize">Modtag</string>

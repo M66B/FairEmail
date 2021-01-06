@@ -220,7 +220,7 @@ Error reporting is disabled by default, see also [the privacy policy](https://gi
 
 ## License
 
-Copyright &copy; 2018-2020 Marcel Bokhorst. All rights reserved.
+Copyright &copy; 2018-2021 Marcel Bokhorst. All rights reserved.
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 

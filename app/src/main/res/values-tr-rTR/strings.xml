@@ -217,9 +217,6 @@
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
-    <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
-        Tüm seçenekler, farklı bir tercihiniz varsa değiştirilebilen yaygın olarak kullanılan standart değerleri kullanır.
-    </string>
     <string name="title_advanced_section_main">Temel</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
     <string name="title_advanced_section_send">Gönder</string>

@@ -79,6 +79,7 @@
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
+    <string name="title_junk_filter_hint">Dies kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
@@ -220,9 +221,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
-    <string name="title_advanced_hint_message">        Sie navigieren gerade zu den erweiterten Optionen.
-        Alle Optionen haben häufig verwendete Standardwerte, die geändert werden können, wenn Sie eine andere Vorliebe haben.
-    </string>
+    <string name="title_advanced_hint_message">Sie wechseln zu den erweiterten Optionen. Alle Optionen haben allgemein verwendete Standardwerte, die geändert werden können, aber nicht müssen, wenn Sie andere Einstellungen bevorzugen.    </string>
     <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>

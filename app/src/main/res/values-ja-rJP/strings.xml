@@ -206,8 +206,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
-    <string name="title_advanced_hint_message">高度なオプションに移動しています。
-全てのオプションには一般的に使用される標準値がありますが、別の設定がある場合は変更できます。</string>
     <string name="title_advanced_section_main">基本</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>

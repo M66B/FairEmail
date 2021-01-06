@@ -205,8 +205,6 @@
     <string name="title_setup_defaults">回復為預設</string>
     <string name="title_setup_reset_questions">重置提示</string>
     <string name="title_advanced_hint_title">更多進階選項</string>
-    <string name="title_advanced_hint_message">        你正在瀏覽進階選項。
-        所有的預設值都可以依照您的喜好進行修改。    </string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">寄送</string>

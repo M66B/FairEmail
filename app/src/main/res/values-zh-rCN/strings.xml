@@ -66,6 +66,7 @@
     <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
         创建和使用规则属于专业版功能</string>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
+    <string name="title_junk_filter_hint">这可能会增加电池使用量并错误地将消息标记为垃圾信息</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_idle">空闲</string>
@@ -207,9 +208,8 @@
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置问题</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
-    <string name="title_advanced_hint_message">您正前往更多的高级选项。
-        所有选项默认均使用可更改的常用标准值。
-    </string>
+    <string name="title_advanced_hint_message">        您正在导航到更高级的选项。
+        所有选项都使用了常用的标准值。如果您有不同的偏好，可以更改它们，但没有这个必要。    </string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>

@@ -211,10 +211,6 @@
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
-    <string name="title_advanced_hint_message">        Você está navegando até as opções mais avançadas.
-        Todas as opções têm usado comumente valores padrão que podem ser alterados se você tiver uma preferência diferente.
-    
-    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
     <string name="title_advanced_section_send">Enviar</string>

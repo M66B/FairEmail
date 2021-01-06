@@ -216,8 +216,6 @@
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_reset_questions">Nollaa kysymykset</string>
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
-    <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
-    Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.    </string>
     <string name="title_advanced_section_main">Yleiset</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>

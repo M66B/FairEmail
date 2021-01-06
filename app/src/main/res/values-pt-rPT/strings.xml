@@ -204,9 +204,6 @@
     <string name="title_setup_defaults">Repor predefinições</string>
     <string name="title_setup_reset_questions">Repor perguntas</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
-    <string name="title_advanced_hint_message">        Está a navegar para as opções mais avançadas.
-        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
-    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Receber</string>
     <string name="title_advanced_section_send">Enviar</string>

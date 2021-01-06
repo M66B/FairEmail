@@ -217,9 +217,6 @@
     <string name="title_setup_defaults">Standert weromsette</string>
     <string name="title_setup_reset_questions">Fragen weromsette</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
-    <string name="title_advanced_hint_message">        Jo navigearje nei de mear avansearre opsjes.
-        Alle opsjes hawwe faak standertwearden brûkt dy\'t kinne feroare wurde as jo in oare foarkar hawwe.
-    </string>
     <string name="title_advanced_section_main">Holle</string>
     <string name="title_advanced_section_synchronize">Ûntfangen</string>
     <string name="title_advanced_section_send">Stjoere</string>

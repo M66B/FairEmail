@@ -78,6 +78,7 @@
         Η δημιουργία και χρήση κανόνων είναι μια δυνατότητα της έκδοσης Pro.
     </string>
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
+    <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως spam</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
     <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
@@ -219,8 +220,8 @@
     <string name="title_setup_defaults">Επαναφορά προεπιλογών</string>
     <string name="title_setup_reset_questions">Επαναφορά ερωτήσεων</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
-    <string name="title_advanced_hint_message">Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
-        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, οι οποίες μπορούν να αλλάξουν εάν έχετε μία διαφορετική προτίμηση.
+    <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
+        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, οι οποίες μπορούν, αλλά δεν χρειάζεται να αλλάξουν, εάν έχετε μία διαφορετική προτίμηση.
     </string>
     <string name="title_advanced_section_main">Κύριες</string>
     <string name="title_advanced_section_synchronize">Λήψη</string>

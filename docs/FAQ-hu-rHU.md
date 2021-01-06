@@ -2826,29 +2826,27 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 *Ez egy kísérleti funkció!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
 You can enable message classification in the miscellaneous settings. This will enable learning mode only.
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server. See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder.
+A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder. This will work best with similar messages.
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+Moving a message on the device will reclassify the message. Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification three times off.
-
-Automatic message classification is a pro feature, except for the spam folder.
 
 <br />
 
@@ -2877,4 +2875,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

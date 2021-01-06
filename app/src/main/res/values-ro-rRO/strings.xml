@@ -228,9 +228,6 @@
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
-    <string name="title_advanced_hint_message">        Mergeți la opțiunile și mai avansate.
-        Toate opțiunile au valori stardard uzuale care pot fi schimbate dacă aveți alte preferințe.
-    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>

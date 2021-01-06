@@ -219,9 +219,6 @@
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
-    <string name="title_advanced_hint_message">        A további haladó opciókat módosítja.
-        Minden beállításnak általános alapértékei vannak, amelyeket személyre szabhat.
-    </string>
     <string name="title_advanced_section_main">Alapvető</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
     <string name="title_advanced_section_send">Küldés</string>

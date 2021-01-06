@@ -220,7 +220,7 @@
     <string name="title_setup_reset_questions">Vragen resetten</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
-        Alle opties hebben vaak gebruikte standaardwaarden die gewijzigd kunnen worden als u een andere voorkeur heeft.
+        Alle opties hebben veelgebruikte standaardwaarden die kunnen, maar niet hoeven te worden gewijzigd als u een andere voorkeur heeft.
     </string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>

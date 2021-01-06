@@ -100,6 +100,7 @@
         Создание и использование правил является Pro-функцией.
     </string>
     <string name="title_junk_filter">Использовать локальный фильтр спама</string>
+    <string name="title_junk_filter_hint">Может увеличить расход заряда батареи и неправильно помечать сообщения как спам</string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_idle">Низкий</string>
@@ -242,7 +243,7 @@
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
-        Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
+        Все параметры обычно имеют стандартные значения, которые можно (но не нужно) изменить, если у вас есть другие предпочтения.
     </string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>

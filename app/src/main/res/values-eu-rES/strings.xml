@@ -191,9 +191,6 @@
     <string name="title_setup_defaults">Berrezarri balio lehenetsiak</string>
     <string name="title_setup_reset_questions">Berrezarri galderak</string>
     <string name="title_advanced_hint_title">Aukera aurreratu gehiago</string>
-    <string name="title_advanced_hint_message">        Aukera aurreratuetan sartzen ari zara.
-        Aukera guztiek maiz erabilitako balioak dituzte, nahi izanez gero aldatu ditzakezunak.
-    </string>
     <string name="title_advanced_section_main">Nagusia</string>
     <string name="title_advanced_section_synchronize">Jaso</string>
     <string name="title_advanced_section_send">Bidali</string>

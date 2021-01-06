@@ -15,4 +15,4 @@ FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/Fa
 
 Error reporting is **opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

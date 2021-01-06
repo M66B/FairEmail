@@ -217,9 +217,6 @@
     <string name="title_setup_defaults">Restaurar valores predefinidos</string>
     <string name="title_setup_reset_questions">Reiniciar cuestións</string>
     <string name="title_advanced_hint_title">Máis opcións avanzadas</string>
-    <string name="title_advanced_hint_message">        Vostede está navegando cara as opcións máis avanzadas.
-        Todas as opcións teñen valores comúns que poden ser cambiadas se vostede ten una preferencia diferente.
-    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
     <string name="title_advanced_section_send">Enviar</string>

@@ -116,13 +116,16 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_wizard_remark">Ketuk \'kembali\' untuk membuka kotak masuk</string>
     <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk versi aplikasi yang resmi saja</string>
     <string name="title_setup_other">Penyedia Lainnya</string>
+    <string name="title_setup_pop3">Akun POP3</string>
     <string name="title_setup_gmail_support">Memberi otorisasi pada akun Google hanya akan berfungsi dalam versi resminya karena Android memeriksa tanda tangan aplikasi.</string>
     <string name="title_setup_gmail_rationale">Mohon berikan izin untuk memilih akun dan membaca nama Anda.</string>
     <string name="title_setup_gmail_permissions">Google akan meminta izin untuk membaca, menulis, mengirim dan menghapus semua email Anda secara permanen. FairEmail tidak akan pernah menghapus pesan tanpa persetujuan tegas dari Anda.</string>
     <string name="title_setup_gmail_drafts">Jika folder draf tidak dapat diakses oleh IMAP, hal ini dapat diperbaiki pada pengaturan label Gmail.</string>
+    <string name="title_setup_gmail_password">Saya ingin mengotorisasi akun dengan kata sandi</string>
     <string name="title_setup_office_remark">Microsoft tidak akan memberikan tipe otorisasi ini untuk akun Outlook, Live, Hotmail, dan lainnya</string>
     <string name="title_setup_office_auth">Kesalahan \'AUTHENTICATE Failed\' bisa disebabkan oleh IMAP/SMTP yang dinon-aktifkan oleh administrator sistem.</string>
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
+    <string name="title_setup_oauth_update">Mengotorisasi akun yang sudah ada</string>
     <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>
     <string name="title_setup_select_account">Pilih Akun</string>
@@ -200,7 +203,6 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_defaults">Kembalikan pengaturan standar</string>
     <string name="title_setup_reset_questions">Atur ulang pertanyaan</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
-    <string name="title_advanced_hint_message">Anda menavigasi ke opsi yang lebih canggih. Semua opsi biasanya menggunakan nilai standar yang dapat diubah jika Anda memiliki preferensi yang berbeda.</string>
     <string name="title_advanced_section_main">Utama</string>
     <string name="title_advanced_section_synchronize">Menerima</string>
     <string name="title_advanced_section_send">Kirim</string>
@@ -328,6 +330,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_navbar_colorize">Warnai Navigasi Bar Android</string>
     <string name="title_advanced_parse_classes">Urai Kode Gaya \"Style Sheets\"</string>
     <string name="title_advanced_authentication">Tampilkan peringatan ketika server penerima tidak bisa mengotentikasi pesan</string>
+    <string name="title_advanced_sync_on_launch">Sinkronisasi pada saat memulai aplikasi</string>
     <string name="title_advanced_double_back">Ketuk dua kali untuk keluar</string>
     <string name="title_advanced_pull_refresh">Tarik ke bawah untuk memuat ulang</string>
     <string name="title_advanced_autoscroll">Gulir ke atas saat menerima pesan baru</string>
@@ -417,6 +420,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_language_detection">Deteksi bahasa teks pesan</string>
     <string name="title_advanced_fts">Membangun indeks pencarian</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d pesan terindeks (%3$s)</string>
+    <string name="title_advanced_classification">Klasifikasikan pesan</string>
     <string name="title_advanced_language">Bahasa</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
@@ -599,6 +603,8 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_synchronize_now">Sinkronkan sekarang</string>
     <string name="title_synchronize_more">Sinkronkan pesan lebih banyak</string>
     <string name="title_synchronize_enabled">Mengsinkronisasikan</string>
+    <string name="title_synchronize_batch_enable">Aktifkan sinkronisasi</string>
+    <string name="title_synchronize_batch_disable">Nonaktifkan sinkronisasi</string>
     <string name="title_delete_local">Hapus pesan di perangkat</string>
     <string name="title_delete_browsed">Hapus histori penjelajahan/pencarian pesan</string>
     <string name="title_empty_trash">Kosongkan sampah</string>

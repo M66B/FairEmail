@@ -78,6 +78,7 @@
         La création et l’utilisation des règles sont des fonctionnalités Pro.
     </string>
     <string name="title_junk_filter">Utiliser le filtre de spam local</string>
+    <string name="title_junk_filter_hint">Ceci peut augmenter l\'utilisation de la batterie et marquer par erreur des messages comme indésirables</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
@@ -220,7 +221,7 @@
     <string name="title_setup_reset_questions">Réinitialiser les questions</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
-        Toutes les options ont par défaut des valeurs couramment utilisées qui peuvent être modifiées selon vos préférences.
+        Toutes les options ont des valeurs par défaut couramment utilisées qui peuvent être modifiées si besoin selon vos préférences.
     </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>

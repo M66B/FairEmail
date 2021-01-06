@@ -77,6 +77,8 @@
     <string name="title_block_sender_hint">        Att blockera en avsändare skapar en regel att framtida meddelanden automatiskt ska flyttas till skräppostmappen.
         Att skapa och använda regler är en pro-funktion.
     </string>
+    <string name="title_junk_filter">Använd lokalt skräppostfilter</string>
+    <string name="title_junk_filter_hint">Detta kan öka batterianvändningen och felaktigt markera meddelanden som skräppost</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_idle">Inaktiv</string>
@@ -218,7 +220,7 @@
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
-    <string name="title_advanced_hint_message">        Du navigerar till de mer avancerade alternativen.
+    <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_section_main">Huvudsaklig</string>
     <string name="title_advanced_section_synchronize">Ta emot</string>

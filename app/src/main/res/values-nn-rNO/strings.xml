@@ -218,9 +218,6 @@
     <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_reset_questions">Tilbakestill spørsmål</string>
     <string name="title_advanced_hint_title">Mer avanserte alternativer</string>
-    <string name="title_advanced_hint_message">Du navigerer til de mer avanserte alternativene.
-     Alle alternativer har ofte brukt standardverdier som kan endres hvis du har en annen preferanse.
-    </string>
     <string name="title_advanced_section_main">Hoved</string>
     <string name="title_advanced_section_synchronize">Motta</string>
     <string name="title_advanced_section_send">Send</string>

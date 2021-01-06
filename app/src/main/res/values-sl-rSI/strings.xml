@@ -204,9 +204,6 @@
     <string name="title_setup_defaults">Obnovi privzeto</string>
     <string name="title_setup_reset_questions">Ponastavi vprašanja</string>
     <string name="title_advanced_hint_title">Več naprednih nastavitev</string>
-    <string name="title_advanced_hint_message">        Izbrali ste bolj napredne nastavitve.
-        Vse možnosti imajo pogosto uporabljene običajne vrednosti, ki jih lahko po želji spremenite.
-    </string>
     <string name="title_advanced_section_main">Osnovno</string>
     <string name="title_advanced_section_synchronize">Prejemanje</string>
     <string name="title_advanced_section_send">Pošiljanje</string>

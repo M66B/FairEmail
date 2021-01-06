@@ -2824,31 +2824,29 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 <a name="faq163"></a>
 **(163) What is message classification?**
 
-*This is an experimental feature!*
+*Dette er en eksperimentel funktion!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics) (basically word counts). I FairEmail-kontekst udgør en mappe en klasse. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). I FairEmail-kontekst udgør en mappe en klasse. Så f.eks. indbakken, Spam-mappen, en 'markedsføringsmappe' mv.
 
 Beskedklassificering kan aktiveres under diverse indstillinger. Dette aktiverer kun læringstilstand.
 
 Hver mappe har en mulighed for at aktivere automatisk beskedklassificering. Når dette er slået til, vil nye beskeder i andre mapper, som klassifikatoren mener hører til den mappe, automatisk blive flyttet.
 
-The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server. See also [this FAQ](#user-content-faq92).
+Indstillingen *Brug lokalt spamfilter* slår beskedklassificering og autoklassificering til for Spam-mappen. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. Tjek også [denne FAQ](#user-content-faq92).
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder.
+Et praktisk eksempel: Antag, at mappen 'markedsføring' findes og automatisk beskedklassificering er aktiveret for denne. Hver gang en besked flyttes til denne mappe, trænes FairEmail i, at lignende beskeder hører til hér. Hver gang en besked flyttes fra denne mappe, trænes FairEmail i, at lignende beskeder ikke hører til hér. Efter at have flyttet nogle beskeder til mappen, vil FairEmail automatisk begynde at flytte beskeder hertil. This will work best with similar messages.
 
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+Klassificering bør betragtes som et bedste gæt - det kan være et forkert gæt, eller klassifikatoren er måske for usikker til at foretage gæt. Er klassificatoren usikker, lader den blot en e-mail blive, hvor den er.
 
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+Klassificering udføres kun på nye beskeder i indbakken og Spam-/brugermapper. Lokale beskeder kan rryddes (langt tryk på en kontos mappe i mappelisten) og herefter gensynkroniseres for at klassificere beskederne.
 
-Moving a message on the device will reclassify the message. Moving a message from another email client will not result in reclassification because IMAP does not support 'moved' notifications.
+Flytning af en besked på enheden vil omklassificere denne. Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
-To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+For at forhindre e-mailserveren i at flytte en besked til Spam-mappen igen og igen, vil autoklassificering ud af Spam-mappen ikke ske.
 
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+Klassificeringen er optimeret til brug af så få ressourcer som muligt, men vil uundgåeligt bruge ekstra strøm.
 
-You can delete all classification data by turning classification three times off.
-
-Automatic message classification is a pro feature, except for the spam folder.
+Alle klassificeringsdata kan slettes ved at slå klassificeringen fra tre gange.
 
 <br />
 
@@ -2877,4 +2875,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2020 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

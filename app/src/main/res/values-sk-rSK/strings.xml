@@ -239,7 +239,6 @@
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
-    <string name="title_advanced_hint_message">Dostávate sa do sekcie pokročilejších nastavení. Všetky nastavenia majú štandardné, bežne používané hodnoty, ktoré môžete zmeniť, ak máte iné požiadavky.    </string>
     <string name="title_advanced_section_main">Základné</string>
     <string name="title_advanced_section_synchronize">Prijímanie správ</string>
     <string name="title_advanced_section_send">Posielanie správ</string>
