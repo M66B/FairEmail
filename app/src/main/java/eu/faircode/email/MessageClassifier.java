@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
@@ -32,7 +33,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -175,18 +175,35 @@ public class MessageClassifier {
         State state = new State();
         state.words.add(null);
 
-        BreakIterator boundary = BreakIterator.getWordInstance(); // TODO ICU
-        boundary.setText(text);
-        int start = boundary.first();
-        for (int end = boundary.next(); end != BreakIterator.DONE; end = boundary.next()) {
-            String word = text.substring(start, end).toLowerCase();
-            if (word.length() > 1 &&
-                    !state.words.contains(word) &&
-                    !word.matches(".*\\d.*")) {
-                state.words.add(word);
-                process(account, currentClass, added, state);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            java.text.BreakIterator boundary = java.text.BreakIterator.getWordInstance();
+            boundary.setText(text);
+            int start = boundary.first();
+            for (int end = boundary.next(); end != java.text.BreakIterator.DONE; end = boundary.next()) {
+                String word = text.substring(start, end).toLowerCase();
+                if (word.length() > 1 &&
+                        !state.words.contains(word) &&
+                        !word.matches(".*\\d.*")) {
+                    state.words.add(word);
+                    process(account, currentClass, added, state);
+                }
+                start = end;
             }
-            start = end;
+        } else {
+            // The ICU break iterator can properly handle Chinese texts
+            android.icu.text.BreakIterator boundary = android.icu.text.BreakIterator.getWordInstance();
+            boundary.setText(text);
+            int start = boundary.first();
+            for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
+                String word = text.substring(start, end).toLowerCase();
+                if (word.length() > 1 &&
+                        !state.words.contains(word) &&
+                        !word.matches(".*\\d.*")) {
+                    state.words.add(word);
+                    process(account, currentClass, added, state);
+                }
+                start = end;
+            }
         }
 
         state.words.add(null);
