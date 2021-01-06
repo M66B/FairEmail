@@ -78,6 +78,7 @@
         Creare e utilizzare le regole è una funzionalità pro.
     </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
+    <string name="title_junk_filter_hint">Questo può aumentare l\'utilizzo della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_idle">Inattivo</string>
@@ -219,6 +220,9 @@
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Resetta domande</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
+    <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
+        Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
+    </string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>

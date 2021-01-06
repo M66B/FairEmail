@@ -2826,15 +2826,15 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 *Dette er en eksperimentel funktion!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). I FairEmail-kontekst udgør en mappe en klasse. Så f.eks. indbakken, Spam-mappen, en 'markedsføringsmappe' mv.
+Beskedklassificering vil forsøge automatisk at gruppere e-mails i klasser baseret på deres indhold vha. [Bayesian-statistik](https://en.wikipedia.org/wiki/Bayesian_statistics). I FairEmail-kontekst udgør en mappe en klasse. Så f.eks. indbakken, Spam-mappen, en 'markedsføringsmappe' mv.
 
 Beskedklassificering kan aktiveres under diverse indstillinger. Dette aktiverer kun læringstilstand.
 
 Hver mappe har en mulighed for at aktivere automatisk beskedklassificering. Når dette er slået til, vil nye beskeder i andre mapper, som klassifikatoren mener hører til den mappe, automatisk blive flyttet.
 
-Indstillingen *Brug lokalt spamfilter* slår beskedklassificering og autoklassificering til for Spam-mappen. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. Tjek også [denne FAQ](#user-content-faq92).
+Indstillingen *Brug lokalt spamfilter* slår beskedklassificering og autoklassificering til for Spam-mappen. Bemærk dog, at dette ikke er en erstatning for e-mailserverens spamfilter og kan give falske positivresultater. Tjek også [denne FAQ](#user-content-faq92).
 
-Et praktisk eksempel: Antag, at mappen 'markedsføring' findes og automatisk beskedklassificering er aktiveret for denne. Hver gang en besked flyttes til denne mappe, trænes FairEmail i, at lignende beskeder hører til hér. Hver gang en besked flyttes fra denne mappe, trænes FairEmail i, at lignende beskeder ikke hører til hér. Efter at have flyttet nogle beskeder til mappen, vil FairEmail automatisk begynde at flytte beskeder hertil. This will work best with similar messages.
+Et praktisk eksempel: Antag, at mappen 'markedsføring' findes og automatisk beskedklassificering er aktiveret for denne. Hver gang en besked flyttes til denne mappe, trænes FairEmail i, at lignende beskeder hører til hér. Hver gang en besked flyttes fra denne mappe, trænes FairEmail i, at lignende beskeder ikke hører til hér. Efter at have flyttet nogle beskeder til mappen, vil FairEmail automatisk begynde at flytte beskeder hertil. Dette vil fungere bedst med similære beskeder.
 
 Klassificering bør betragtes som et bedste gæt - det kan være et forkert gæt, eller klassifikatoren er måske for usikker til at foretage gæt. Er klassificatoren usikker, lader den blot en e-mail blive, hvor den er.
 
