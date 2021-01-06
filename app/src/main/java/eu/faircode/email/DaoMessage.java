@@ -790,7 +790,13 @@ public interface DaoMessage {
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
-            "  AND operation.name = '" + EntityOperation.ADD + "')")
+            "  AND operation.name = '" + EntityOperation.ADD + "')"+
+            " AND NOT EXISTS" +
+            "  (SELECT * FROM operation o" +
+            "  JOIN message m ON m.id = o.message" +
+            "  WHERE o.account = message.account" +
+            "  AND o.name = '" + EntityOperation.MOVE + "'" +
+            "  AND m.msgid = message.msgid)")
     int deleteOrphans(long folder);
 
     @Query("SELECT id FROM message" +
