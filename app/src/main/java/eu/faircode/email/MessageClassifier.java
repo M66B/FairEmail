@@ -69,6 +69,8 @@ public class MessageClassifier {
             if (!file.exists())
                 return;
 
+            long start = new Date().getTime();
+
             // Build text to classify
             StringBuilder sb = new StringBuilder();
 
@@ -118,13 +120,15 @@ public class MessageClassifier {
             // Classify text
             String classified = classify(folder.account, folder.name, sb.toString(), target == null, context);
 
+            long elapsed = new Date().getTime() - start;
             EntityLog.log(context, "Classifier" +
                     " folder=" + folder.name +
                     " message=" + message.id +
                     "@" + new Date(message.received) +
                     ":" + message.subject +
                     " class=" + classified +
-                    " re=" + message.auto_classified);
+                    " re=" + message.auto_classified +
+                    " elapsed=" + elapsed);
 
             // Update message count
             Integer m = classMessages.get(folder.account).get(folder.name);
