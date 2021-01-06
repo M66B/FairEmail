@@ -1033,43 +1033,91 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
+                        if (accounts.size() == 1) {
+                            EntityAccount account = accounts.get(0);
+                            if (account.isGmail())
+                                searchArchive(account.id);
+                            else
+                                searchAccount(account.id);
+                        } else {
+                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
 
-                        int order = 0;
+                            int order = 0;
 
-                        SpannableString ss = new SpannableString(getString(R.string.title_search_server));
-                        ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
-                        ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-                        popupMenu.getMenu().add(Menu.NONE, 0, order++, ss)
-                                .setEnabled(false);
+                            SpannableString ss = new SpannableString(getString(R.string.title_search_server));
+                            ss.setSpan(new StyleSpan(Typeface.ITALIC), 0, ss.length(), 0);
+                            ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+                            popupMenu.getMenu().add(Menu.NONE, 0, order++, ss)
+                                    .setEnabled(false);
 
-                        for (EntityAccount account : accounts)
-                            popupMenu.getMenu().add(Menu.NONE, 1, order++, account.name)
-                                    .setIntent(new Intent().putExtra("account", account.id));
+                            for (EntityAccount account : accounts)
+                                popupMenu.getMenu().add(Menu.NONE, 1, order++, account.name)
+                                        .setIntent(new Intent()
+                                                .putExtra("account", account.id)
+                                                .putExtra("gmail", account.isGmail()));
 
-                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(MenuItem target) {
+                                    Intent intent = target.getIntent();
+                                    if (intent == null)
+                                        return false;
+
+                                    long account = intent.getLongExtra("account", -1);
+                                    boolean gmail = intent.getBooleanExtra("gmail", false);
+                                    if (gmail)
+                                        searchArchive(account);
+                                    else
+                                        searchAccount(account);
+
+                                    return true;
+                                }
+                            });
+
+                            popupMenu.show();
+                        }
+                    }
+
+                    private void searchAccount(long account) {
+                        Bundle aargs = new Bundle();
+                        aargs.putString("title", getString(R.string.title_search_in));
+                        aargs.putLong("account", account);
+                        aargs.putLongArray("disabled", new long[]{});
+                        aargs.putSerializable("criteria", criteria);
+
+                        FragmentDialogFolder fragment = new FragmentDialogFolder();
+                        fragment.setArguments(aargs);
+                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_SEARCH);
+                        fragment.show(getParentFragmentManager(), "messages:search");
+                    }
+
+                    private void searchArchive(long account) {
+                        Bundle args = new Bundle();
+                        args.putLong("account", account);
+
+                        new SimpleTask<EntityFolder>() {
                             @Override
-                            public boolean onMenuItemClick(MenuItem target) {
-                                Intent intent = target.getIntent();
-                                if (intent == null)
-                                    return false;
+                            protected EntityFolder onExecute(Context context, Bundle args) {
+                                long account = args.getLong("account");
 
-                                Bundle args = new Bundle();
-                                args.putString("title", getString(R.string.title_search_in));
-                                args.putLong("account", intent.getLongExtra("account", -1));
-                                args.putLongArray("disabled", new long[]{});
-                                args.putSerializable("criteria", criteria);
-
-                                FragmentDialogFolder fragment = new FragmentDialogFolder();
-                                fragment.setArguments(args);
-                                fragment.setTargetFragment(FragmentMessages.this, REQUEST_SEARCH);
-                                fragment.show(getParentFragmentManager(), "messages:search");
-
-                                return true;
+                                DB db = DB.getInstance(context);
+                                return db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
                             }
-                        });
 
-                        popupMenu.show();
+                            @Override
+                            protected void onExecuted(Bundle args, EntityFolder archive) {
+                                if (archive == null)
+                                    searchAccount(args.getLong("account"));
+                                else
+                                    search(getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
+                                            archive.account, archive.id, true, criteria);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "search:folder");
                     }
 
                     @Override
