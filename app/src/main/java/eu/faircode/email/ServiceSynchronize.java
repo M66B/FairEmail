@@ -128,7 +128,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final long LOST_RECENTLY = 150 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
-    private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
 
@@ -1785,7 +1784,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
                         long maxDelayed = (pollInterval > 0 && !account.poll_exempted
                                 ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
-                        if (delayed > maxDelayed && state.getBackoff() > BACKOFF_ERROR_AFTER) {
+                        if (delayed > maxDelayed) {
                             Log.i("Reporting sync error after=" + delayed);
                             Throwable warning = new Throwable(
                                     getString(R.string.title_no_sync,
@@ -1795,6 +1794,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive:" + account.id, 1,
                                         Core.getNotificationError(this, "warning", account.name, warning)
+                                                .setOnlyAlertOnce(state.getBackoff() < CONNECT_BACKOFF_ALARM_START * 60 * 1000L)
                                                 .build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
