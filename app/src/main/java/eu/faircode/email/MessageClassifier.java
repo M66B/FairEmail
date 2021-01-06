@@ -203,6 +203,8 @@ public class MessageClassifier {
 
                         stat.matchedWords++;
                         stat.totalFrequency += frequency;
+                        if (BuildConfig.DEBUG)
+                            stat.words.add(word);
 
                         if (stat.matchedWords > maxMatchedWords)
                             maxMatchedWords = stat.matchedWords;
@@ -245,12 +247,15 @@ public class MessageClassifier {
             }
 
             Stat stat = classStats.get(clazz);
+            boolean consider = (stat.matchedWords >= MIN_MATCHED_WORDS);
             double chance = (double) stat.totalFrequency / messages / maxMatchedWords;
             Chance c = new Chance(clazz, chance);
             EntityLog.log(context, "Classifier " + c +
                     " frequency=" + stat.totalFrequency + "/" + messages +
-                    " matched=" + stat.matchedWords + "/" + maxMatchedWords);
-            if (stat.matchedWords >= MIN_MATCHED_WORDS)
+                    " matched=" + stat.matchedWords + "/" + maxMatchedWords +
+                    " consider=" + consider +
+                    " words=" + TextUtils.join(", ", stat.words));
+            if (consider)
                 chances.add(c);
         }
 
@@ -387,6 +392,7 @@ public class MessageClassifier {
     private static class Stat {
         int matchedWords = 0;
         int totalFrequency = 0;
+        List<String> words = new ArrayList<>();
     }
 
     private static class Chance {
