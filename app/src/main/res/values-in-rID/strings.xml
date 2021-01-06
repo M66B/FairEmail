@@ -586,7 +586,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_account_delete">Hapus akun ini secara permanen?</string>
     <string name="title_identity_delete">Hapus identitas ini secara permanen?</string>
     <string name="title_edit_html">Sunting dalam HTML</string>
-    <string name="title_sign_key">Kunci tanda tangan:% 1 $ s</string>
+    <string name="title_sign_key">Kunci tanda tangan: %1$s</string>
     <string name="title_last_connected">Terakhir tersambung: %1$s</string>
     <string name="title_backoff_until">Menunggu setelah terjadi kegagalan koneksi sampai: %1$s</string>
     <string name="title_storage_quota">Penggunaan penyimpanan server: %1$s/%2$s</string>
