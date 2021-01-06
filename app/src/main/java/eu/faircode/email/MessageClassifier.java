@@ -170,7 +170,7 @@ public class MessageClassifier {
         }
     }
 
-    private static String classify(long account, String classify, String text, boolean added, Context context) {
+    private static String classify(long account, String currentClass, String text, boolean added, Context context) {
         int maxMatchedWords = 0;
         List<String> words = new ArrayList<>();
         Map<String, Stat> classStats = new HashMap<>();
@@ -208,16 +208,16 @@ public class MessageClassifier {
                             maxMatchedWords = stat.matchedWords;
                     }
 
-                    Integer c = classFrequency.get(classify);
+                    Integer c = classFrequency.get(currentClass);
                     c = (c == null ? 1 : c + 1);
-                    classFrequency.put(classify, c);
+                    classFrequency.put(currentClass, c);
                 } else {
-                    Integer c = (classFrequency == null ? null : classFrequency.get(classify));
+                    Integer c = (classFrequency == null ? null : classFrequency.get(currentClass));
                     if (c != null)
                         if (c > 0)
-                            classFrequency.put(classify, c - 1);
+                            classFrequency.put(currentClass, c - 1);
                         else
-                            classFrequency.remove(classify);
+                            classFrequency.remove(currentClass);
                 }
             }
             start = end;
@@ -272,7 +272,7 @@ public class MessageClassifier {
         if (chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
             classification = chances.get(0).clazz;
 
-        Log.i("Classifier classify=" + classify + " classified=" + classification);
+        Log.i("Classifier current=" + currentClass + " classified=" + classification);
 
         return classification;
     }
