@@ -1198,6 +1198,7 @@
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>
     <string name="title_hint_important">Vigtigt</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
+    <string name="title_hint_sync_note">For at begrænse lagerplads- samt batteri- og dataforbrug, downloades ikke alle beskeder som standard. Dette kan ændres med at langt tryk på en mappe i mappelisten, vælg dernæst \'Synkronisér flere\'.</string>
     <string name="title_hint_battery">Da FairEmail som standard altid modtager beskeder, rapporterer Android FairEmail som altid aktiv. Det kan derfor se ud som om FairEmail altid forbruger batteristrøm, selvom dette faktisk ikke er tilfældet.</string>
     <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
     <string name="title_hint_design">Designet er bevidst ikke-distraherende, men holdt meget funktionel. Der er mange muligheder for at tilpasse udseende, men vær opmærksom på, at det er umuligt at gøre alle glade.</string>

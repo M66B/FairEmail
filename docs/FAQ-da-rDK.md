@@ -2852,27 +2852,27 @@ Alle klassificeringsdata kan slettes ved at slå klassificeringen fra tre gange.
 
 ## Get support
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail understøttes kun på smartphones, tablets og ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er identisk med seneste GitHub-udgivelses ditto. Dette betyder også, at nedgradering er uunderstøttet.
 
-There is no support on things that are not directly related to FairEmail.
+Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
 
-There is no support on building and developing things by yourself.
+Der er ingen support til bygning og udvikling af ting fra dig selv.
 
-Requested features should:
+Anmodede funktioner skal:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er mhp. at muliggøre langsigtet vedligeholdelse og support.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Ved spørgsmål, funktionsønsker eller fejlindrapportering, så benyt [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.

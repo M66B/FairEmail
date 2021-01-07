@@ -280,7 +280,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(159) ¿Qué son las listas de protección de rastreadores de Disconnect?](#user-content-faq159)
 * [(160) ¿Puedes añadir el borrado permanente de mensajes sin confirmación?](#user-content-faq160)
 * [(161) ¿Puedes añadir un ajuste para cambiar el color principal y de acento?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(162) ¿Se admite el sistema IMAP NOTIFY?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 
 [Tengo otra pregunta.](#user-content-support)

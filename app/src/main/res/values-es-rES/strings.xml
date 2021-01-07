@@ -77,6 +77,8 @@
     <string name="title_block_sender_hint">        Bloquear un remitente creará una regla para mover automáticamente los mensajes futuros a la carpeta de spam.
         Crear y usar reglas es una característica Pro.
     </string>
+    <string name="title_junk_filter">Usar filtro de spam local</string>
+    <string name="title_junk_filter_hint">Esto puede aumentar el uso de la batería y marcar incorrectamente mensajes como spam</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
@@ -219,6 +221,9 @@
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
     <string name="title_setup_reset_questions">Restablecer preguntas</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
+    <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
+        Todas las opciones tienen por defecto valores estándar que pueden ser modificados si así lo prefiere.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
     <string name="title_advanced_section_send">Enviar</string>
@@ -1196,6 +1201,7 @@
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
+    <string name="title_hint_sync_note">Por defecto, no todos los mensajes serán descargados para limitar el uso de espacio de almacenamiento, batería y datos. Puede cambiar esto manteniendo pulsado sobre una carpeta en la lista de carpetas y seleccionando \'Sincronizar más\'.</string>
     <string name="title_hint_battery">Dado que por defecto FairEmail recibe mensajes permanentemente, Android reportará a FairEmail como siempre activo. Por lo tanto, puede parecer que FairEmail siempre está usando la batería, pero de hecho no es así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformatea los mensajes por razones de privacidad y seguridad. Para ver el mensaje original, pulse el icono \'pantalla completa\' sobre el texto del mensaje.</string>
     <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>

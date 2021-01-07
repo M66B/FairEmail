@@ -99,6 +99,8 @@
     <string name="title_block_sender_hint">        Zablokovaním odosielateľa budú odteraz všetky správy od neho automaticky presúvané do priečinka s nevyžiadanou poštou.
         Vytváranie a používanie pravidiel je pro funkcia.
     </string>
+    <string name="title_junk_filter">Použiť lokálny spam filter</string>
+    <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nedostatočne správne označovať správy ako nevyžiadané</string>
     <string name="title_notification_sending">Správy sa odosielajú</string>
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -239,6 +241,9 @@
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
+    <string name="title_advanced_hint_message">        Vstupujete do pokročilejších možností.
+        Všetky možnosti majú nastavené bežne používané štandardné hodnoty, ktoré nemusíte meniť, jedine že je to podľa vašich preferencií.
+    </string>
     <string name="title_advanced_section_main">Základné</string>
     <string name="title_advanced_section_synchronize">Prijímanie správ</string>
     <string name="title_advanced_section_send">Posielanie správ</string>
@@ -458,6 +463,7 @@
     <string name="title_advanced_language_detection">Zisťovať jazyk textu správ</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>
     <string name="title_advanced_fts_indexed">%1$d z %2$d správ spracovaných (%3$s)</string>
+    <string name="title_advanced_classification">Klasifikovať správy</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
@@ -689,6 +695,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_poll_folder">Kontrolovať periodicky namiesto neustálej synchronizácie</string>
     <string name="title_download_folder">Automaticky prevziať texty správ a prílohy</string>
     <string name="title_notify_folder">Upozorniť na nové správy</string>
+    <string name="title_auto_classify">Automaticky premiestniť klasifikované správy</string>
     <string name="title_sync_days">Synchronizovať správy (dni)</string>
     <string name="title_sync_days_remark">Zvýšenie tejto hodnoty zvýši spotrebu batérie a dát</string>
     <string name="title_keep_days">Ponechať správy (dni)</string>
@@ -1144,6 +1151,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_encrypted">Zašifrované</string>
     <string name="title_legend_auth">Overenie zlyhalo</string>
     <string name="title_legend_found">Nájdené</string>
+    <string name="title_legend_classified">Bola klasifikovaná automaticky</string>
     <string name="title_legend_snoozed">Odložené</string>
     <string name="title_legend_browsed">Prehliadané alebo vyhľadávané</string>
     <string name="title_legend_answered">Odpovedané</string>
@@ -1211,6 +1219,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>
     <string name="title_hint_important">Dôležité</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
+    <string name="title_hint_sync_note">S cieľom ušetriť úložný priestor, prenos dát a napájanie z batérie sa štandardne nebudú preberať všetky správy. Môžete to zmeniť dlhým stlačením priečinka v zozname a zvolením \'Synchronizovať viac\'.</string>
     <string name="title_hint_battery">Keďže FairEmail v predvolenej konfigurácii neustále prijíma správy, operačný systém bude aplikáciu považovať za vždy aktívnu. Môže sa zdať, že FairEmail neustále vybíja batériu, aj keď v skutočnosti to tak nie je.</string>
     <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodnú správu.</string>
     <string name="title_hint_design">Dizajn je schválne navrhnutý, aby ostal čo možno najlepšie funkčný a bol najmenej vtieravý. Dostupných je množstvo volieb na prispôsobenie vzhľadu, ale pochopte prosím, že nie je možné úplne vyhovieť všetkým.</string>
