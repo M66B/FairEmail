@@ -490,9 +490,9 @@ public class MessageClassifier {
     }
 
     private static class Stat {
-        int matchedWords = 0;
-        double totalFrequency = 0;
-        List<String> words = new ArrayList<>();
+        private int matchedWords = 0;
+        private double totalFrequency = 0;
+        private List<String> words = new ArrayList<>();
     }
 
     private static class Chance {
