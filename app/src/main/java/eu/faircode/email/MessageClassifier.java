@@ -210,7 +210,7 @@ public class MessageClassifier {
             return null;
 
         if (maxMessages == 0) {
-            Log.e("Classifier no messages account=" + account);
+            Log.i("Classifier no messages account=" + account);
             return null;
         }
 
