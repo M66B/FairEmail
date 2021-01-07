@@ -167,8 +167,11 @@ public class MessageClassifier {
         }
 
         State state = new State();
+
+        // First word
         process(account, currentClass, added, null, state);
 
+        // Process words
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             java.text.BreakIterator boundary = java.text.BreakIterator.getWordInstance();
             boundary.setText(text);
@@ -190,6 +193,7 @@ public class MessageClassifier {
             }
         }
 
+        // Last word
         process(account, currentClass, added, null, state);
 
         if (!added)
@@ -197,8 +201,10 @@ public class MessageClassifier {
 
         if (maxMessages == 0) {
             Log.e("Classifier no messages account=" + account);
+            return null;
         }
 
+        // Calculate chance per class
         DB db = DB.getInstance(context);
         List<Chance> chances = new ArrayList<>();
         for (String clazz : state.classStats.keySet()) {
@@ -225,6 +231,7 @@ public class MessageClassifier {
         if (chances.size() <= 1)
             return null;
 
+        // Sort classes by chance
         Collections.sort(chances, new Comparator<Chance>() {
             @Override
             public int compare(Chance c1, Chance c2) {
@@ -232,6 +239,7 @@ public class MessageClassifier {
             }
         });
 
+        // Select best class
         String classification = null;
         if (chances.get(0).chance > CHANCE_MINIMUM &&
                 chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
