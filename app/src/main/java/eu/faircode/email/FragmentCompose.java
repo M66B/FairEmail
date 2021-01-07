@@ -4613,6 +4613,11 @@ public class FragmentCompose extends FragmentBase {
                         return draft;
                     }
 
+                    if (!shouldEncrypt)
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.isEncryption())
+                                db.attachment().deleteAttachment(attachment.id);
+
                     if (action == R.id.action_save ||
                             action == R.id.action_undo ||
                             action == R.id.action_redo ||
