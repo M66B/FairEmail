@@ -215,15 +215,20 @@ public class MessageClassifier {
         if (state.maxMatchedWords < MIN_MATCHED_WORDS)
             return null;
 
+        int maxMessages = 0;
+        for (String clazz : state.classStats.keySet()) {
+            Integer messages = classMessages.get(account).get(clazz);
+            if (messages != null && messages > maxMessages)
+                maxMessages = messages;
+        }
+
+        if (maxMessages == 0) {
+            Log.e("Classifier no messages account=" + account);
+        }
+
         DB db = DB.getInstance(context);
         List<Chance> chances = new ArrayList<>();
         for (String clazz : state.classStats.keySet()) {
-            Integer messages = classMessages.get(account).get(clazz);
-            if (messages == null || messages == 0) {
-                Log.w("Classifier no messages class=" + account + ":" + clazz);
-                continue;
-            }
-
             EntityFolder folder = db.folder().getFolderByName(account, clazz);
             if (folder == null) {
                 Log.w("Classifier no folder class=" + account + ":" + clazz);
@@ -231,10 +236,10 @@ public class MessageClassifier {
             }
 
             Stat stat = state.classStats.get(clazz);
-            double chance = stat.totalFrequency / messages / state.maxMatchedWords;
+            double chance = stat.totalFrequency / maxMessages / state.maxMatchedWords;
             Chance c = new Chance(clazz, chance);
             EntityLog.log(context, "Classifier " + c +
-                    " frequency=" + stat.totalFrequency + "/" + messages +
+                    " frequency=" + stat.totalFrequency + "/" + maxMessages +
                     " matched=" + stat.matchedWords + "/" + state.maxMatchedWords +
                     " words=" + TextUtils.join(", ", stat.words));
             chances.add(c);
