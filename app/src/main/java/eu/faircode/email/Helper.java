@@ -485,7 +485,7 @@ public class Helper {
     static boolean isComponentEnabled(Context context, Class<?> clazz) {
         PackageManager pm = context.getPackageManager();
         int state = pm.getComponentEnabledSetting(new ComponentName(context, clazz));
-        return (state != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
+        return (state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
     }
 
     static void enableComponent(Context context, Class<?> clazz, boolean whether) {
@@ -497,7 +497,7 @@ public class Helper {
         pm.setComponentEnabledSetting(
                 new ComponentName(context, name),
                 whether
-                        ? PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+                        ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
