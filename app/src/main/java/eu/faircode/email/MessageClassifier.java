@@ -104,7 +104,8 @@ public class MessageClassifier {
             if (message.subject != null)
                 sb.append(message.subject).append('\n');
 
-            sb.append(HtmlHelper.getFullText(file));
+            String text = HtmlHelper.getFullText(file);
+            sb.append(text);
 
             if (sb.length() == 0)
                 return;
