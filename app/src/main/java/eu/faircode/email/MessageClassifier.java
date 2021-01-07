@@ -49,6 +49,7 @@ import javax.mail.internet.InternetAddress;
 public class MessageClassifier {
     private static boolean loaded = false;
     private static boolean dirty = false;
+    private static final Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static final Map<Long, Map<String, Map<String, Frequency>>> wordClassFrequency = new HashMap<>();
 
     private static final double CHANCE_MINIMUM = 0.20;
@@ -112,6 +113,8 @@ public class MessageClassifier {
             load(context);
 
             // Initialize data if needed
+            if (!classMessages.containsKey(folder.account))
+                classMessages.put(folder.account, new HashMap<>());
             if (!wordClassFrequency.containsKey(folder.account))
                 wordClassFrequency.put(folder.account, new HashMap<>());
 
@@ -127,6 +130,14 @@ public class MessageClassifier {
                     " class=" + classified +
                     " re=" + message.auto_classified +
                     " elapsed=" + elapsed);
+
+            Integer m = classMessages.get(folder.account).get(folder.name);
+            m = (m == null ? 0 : m) + (target == null ? 1 : -1);
+            if (m <= 0)
+                classMessages.get(folder.account).remove(folder.name);
+            else
+                classMessages.get(folder.account).put(folder.name, m);
+            Log.i("Classifier " + folder.name + "=" + m + " msgs");
 
             dirty = true;
 
@@ -158,12 +169,10 @@ public class MessageClassifier {
 
     private static String classify(long account, String currentClass, String text, boolean added, Context context) {
         int maxMessages = 0;
-        for (String word : wordClassFrequency.get(account).keySet()) {
-            for (String clazz : wordClassFrequency.get(account).get(word).keySet()) {
-                int count = wordClassFrequency.get(account).get(word).get(clazz).count;
-                if (count > maxMessages)
-                    maxMessages = count;
-            }
+        for (String clazz : classMessages.get(account).keySet()) {
+            int count = classMessages.get(account).get(clazz);
+            if (count > maxMessages)
+                maxMessages = count;
         }
 
         State state = new State();
@@ -361,6 +370,16 @@ public class MessageClassifier {
     }
 
     static JSONObject toJson() throws JSONException {
+        JSONArray jmessages = new JSONArray();
+        for (Long account : classMessages.keySet())
+            for (String clazz : classMessages.get(account).keySet()) {
+                JSONObject jmessage = new JSONObject();
+                jmessage.put("account", account);
+                jmessage.put("class", clazz);
+                jmessage.put("count", classMessages.get(account).get(clazz));
+                jmessages.put(jmessage);
+            }
+
         JSONArray jwords = new JSONArray();
         for (Long account : wordClassFrequency.keySet())
             for (String word : wordClassFrequency.get(account).keySet()) {
@@ -379,6 +398,8 @@ public class MessageClassifier {
             }
 
         JSONObject jroot = new JSONObject();
+        jroot.put("version", 1);
+        jroot.put("messages", jmessages);
         jroot.put("words", jwords);
 
         return jroot;
@@ -392,6 +413,21 @@ public class MessageClassifier {
     }
 
     static void fromJson(JSONObject jroot) throws JSONException {
+        int version = jroot.optInt("version");
+        if (version < 1)
+            return;
+
+        JSONArray jmessages = jroot.getJSONArray("messages");
+        for (int m = 0; m < jmessages.length(); m++) {
+            JSONObject jmessage = (JSONObject) jmessages.get(m);
+            long account = jmessage.getLong("account");
+            if (!classMessages.containsKey(account))
+                classMessages.put(account, new HashMap<>());
+            String clazz = jmessage.getString("class");
+            int count = jmessage.getInt("count");
+            classMessages.get(account).put(clazz, count);
+        }
+
         JSONArray jwords = jroot.getJSONArray("words");
         for (int w = 0; w < jwords.length(); w++) {
             JSONObject jword = (JSONObject) jwords.get(w);
