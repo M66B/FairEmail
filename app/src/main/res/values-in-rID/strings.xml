@@ -562,7 +562,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_date_remark">Perubahan akan diterapkan hanya ke pesan baru saja</string>
     <string name="title_related_identity">Tambahkan identitas terkait</string>
     <string name="title_check">Periksa</string>
-    <string name="title_trust">Mempercayai sertifikat server dengan sidik jari% 1 $ s</string>
+    <string name="title_trust">Mempercayai sertifikat server dengan sidik jari %1$s</string>
     <string name="title_no_name">Tidak ada nama</string>
     <string name="title_no_email">Tidak ada alamat surel</string>
     <string name="title_email_invalid">Alamat surel tidak valid: \'%1$s\'</string>
