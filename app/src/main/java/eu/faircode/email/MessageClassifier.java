@@ -167,41 +167,30 @@ public class MessageClassifier {
         }
 
         State state = new State();
-        state.words.add(null);
+        process(account, currentClass, added, null, state);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             java.text.BreakIterator boundary = java.text.BreakIterator.getWordInstance();
             boundary.setText(text);
             int start = boundary.first();
             for (int end = boundary.next(); end != java.text.BreakIterator.DONE; end = boundary.next()) {
-                String word = text.substring(start, end).trim().toLowerCase();
-                if (word.length() > 1 &&
-                        !state.words.contains(word) &&
-                        !word.matches(".*\\d.*")) {
-                    state.words.add(word);
-                    process(account, currentClass, added, state);
-                }
+                String word = text.substring(start, end);
+                process(account, currentClass, added, word, state);
                 start = end;
             }
         } else {
-            // The ICU break iterator can properly handle Chinese texts
+            // The ICU break iterator works better for Chinese texts
             android.icu.text.BreakIterator boundary = android.icu.text.BreakIterator.getWordInstance();
             boundary.setText(text);
             int start = boundary.first();
             for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
-                String word = text.substring(start, end).trim().toLowerCase();
-                if (word.length() > 1 &&
-                        !state.words.contains(word) &&
-                        !word.matches(".*\\d.*")) {
-                    state.words.add(word);
-                    process(account, currentClass, added, state);
-                }
+                String word = text.substring(start, end);
+                process(account, currentClass, added, word, state);
                 start = end;
             }
         }
 
-        state.words.add(null);
-        process(account, currentClass, added, state);
+        process(account, currentClass, added, null, state);
 
         if (!added)
             return null;
@@ -253,7 +242,18 @@ public class MessageClassifier {
         return classification;
     }
 
-    private static void process(long account, String currentClass, boolean added, State state) {
+    private static void process(long account, String currentClass, boolean added, String word, State state) {
+        if (word != null) {
+            word = word.trim().toLowerCase();
+
+            if (word.length() < 2 ||
+                    state.words.contains(word) ||
+                    word.matches(".*\\d.*"))
+                return;
+        }
+
+        state.words.add(word);
+
         if (state.words.size() < 3)
             return;
 
