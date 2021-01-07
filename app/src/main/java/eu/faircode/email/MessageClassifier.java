@@ -214,7 +214,7 @@ public class MessageClassifier {
             Chance c = new Chance(clazz, chance);
             chances.add(c);
             EntityLog.log(context, "Classifier " + c +
-                    " frequency=" + stat.totalFrequency + "/" + maxMessages + " msgs" +
+                    " frequency=" + (Math.round(stat.totalFrequency * 100.0) / 100.0) + "/" + maxMessages + " msgs" +
                     " matched=" + stat.matchedWords + "/" + state.words.size() + " words" +
                     " text=" + TextUtils.join(", ", stat.words));
         }
@@ -463,7 +463,7 @@ public class MessageClassifier {
         @NotNull
         @Override
         public String toString() {
-            return clazz + "=" + chance;
+            return clazz + "=" + Math.round(chance * 100.0 * 100.0) / 100.0 + "%";
         }
     }
 }
