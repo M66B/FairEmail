@@ -9,6 +9,7 @@
     <string name="app_cake">Nedovoljno mjesta u memoriji</string>
     <string name="channel_service">Primanje</string>
     <string name="channel_send">Pošalji</string>
+    <string name="channel_notification">E-pošta</string>
     <string name="channel_update">Ažuriranja</string>
     <string name="channel_warning">Upozorenja</string>
     <string name="channel_error">Greške</string>
@@ -81,6 +82,7 @@
     <string name="title_block_domain">Blokiraj domenu pošiljatelja</string>
     <string name="title_block_sender_hint">        Blokiranje pošiljatelja stvorit će pravilo za automatsko pomicanje budućih poruka u mapu neželjene pošte.
         Stvaranje i korištenje pravila profesionalna je značajka.    </string>
+    <string name="title_junk_filter">Koristi lokalni filter za neželjenu poštu</string>
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_idle">Nevažno</string>
@@ -106,6 +108,7 @@
     <string name="menu_rate">Ocijeni ovu aplikaciju</string>
     <string name="title_welcome">Dobrodošli</string>
     <string name="title_eula">Ugovor o licenciji s krajnjim korisnikom</string>
+    <string name="title_contributors">Suradnici</string>
     <string name="title_agree">Slažem se</string>
     <string name="title_disagree">Ne slažem se</string>
     <string name="title_version">Verzija: %1$s</string>
@@ -126,12 +129,16 @@
     <string name="title_setup_wizard_new">Trebam novu email adresu</string>
     <string name="title_setup_wizard_remark">Vrati se \'natrag\' da se otvori jedinstveni spremnik</string>
     <string name="title_setup_other">Drugi davatelj usluga</string>
+    <string name="title_setup_pop3">POP3 račun</string>
     <string name="title_setup_gmail_support">Autoriziranje Google računa funkcionirati će u službenim verzijama samo zato što Android provjerava signaturu aplikacije</string>
     <string name="title_setup_gmail_rationale">Molimo dajte dopuštenje za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_gmail_permissions">Google će tražiti dopuštenja za čitanje, sastavljanje, slanje i trajno brisanje sve vaše e-pošte. FairEmail nikada neće izbrisati vaše poruke bez vašeg izričitog pristanka.</string>
     <string name="title_setup_gmail_drafts">Ako preko IMAP mapa skica nije dostupna, to se može popraviti u postavkama Gmail oznake</string>
+    <string name="title_setup_gmail_password">Želim lozinkom odobriti račun</string>
+    <string name="title_setup_office_remark">Microsoft ne pruža ovaj tip odobrenja za Outlook, Live, Hotmail, itd.</string>
     <string name="title_setup_office_auth">Greška \'AUTHENTICATE failed\' se može pojaviti ako je IMAP/SMTP isključen od strane administratora</string>
     <string name="title_setup_oauth_rationale">Autorizirajte pristup vašem %1$s računu</string>
+    <string name="title_setup_oauth_update">Ponovo odobri postoječi račun</string>
     <string name="title_setup_oauth_authorize">Autoriziraj</string>
     <string name="title_setup_select_account">Odaberi račun</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
@@ -153,6 +160,7 @@
     <string name="title_setup_permissions">Odobri dopuštenja</string>
     <string name="title_setup_permissions_remark">Pristup informacijama o kontaktu (izborno)</string>
     <string name="title_setup_doze">Postavljanje optimizacije baterije</string>
+    <string name="title_setup_doze_remark">Za pouzdano primanje e-pošte</string>
     <string name="title_setup_doze_instructions">U sljedećem dijalogu odaberite \"sve aplikacije\" pri vrhu, odaberite ovu aplikaciju i odaberite i potvrdite \"ne optimiraj\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinkronizacija zaustavljena?</string>
@@ -188,7 +196,9 @@
     <string name="title_setup_theme_red_green">Crveno/zeleno</string>
     <string name="title_setup_theme_grey">Sivo</string>
     <string name="title_setup_theme_black">Crno</string>
+    <string name="title_setup_theme_black_and_white">Crno i bijelo</string>
     <string name="title_setup_theme_reverse">Preokreni boje</string>
+    <string name="title_setup_theme_light">Svjetlo</string>
     <string name="title_setup_theme_dark">Tamno</string>
     <string name="title_setup_theme_system">Slijedi sustav</string>
     <string name="title_setup_theme_black_background">Crna pozadina</string>
@@ -222,6 +232,7 @@
     <string name="title_advanced_suggest_local">Predložiti lokalno pohranjene kontakte</string>
     <string name="title_advanced_suggest_sent">Predložiti adrese pronađene u poslanim porukama</string>
     <string name="title_advanced_suggest_received">Predložiti adrese pronađene u primljenim porukama</string>
+    <string name="title_advanced_compose_font">Zadani font</string>
     <string name="title_advanced_prefix_once">Dodati predmet samo jednom prilikom odgovaranja ili prosljeđivanja</string>
     <string name="title_advanced_extended_reply">Koristi prošireno zaglavlje odgovora / naprijed</string>
     <string name="title_advanced_quote_reply">Citiraj odgovoreni tekst</string>
@@ -242,7 +253,9 @@
     <string name="title_advanced_ssl_harden">Otvrdni SSL veze</string>
     <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
     <string name="title_advanced_caption_general">Općenito</string>
+    <string name="title_advanced_caption_list">Popis</string>
     <string name="title_advanced_caption_conversation">Konverzacija</string>
+    <string name="title_advanced_caption_message">Poruka</string>
     <string name="title_advanced_landscape">Koristi dva stupca u pejzažnom načinu</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_cards">Upotrijebi stil kartice umjesto tabularnog stila</string>
@@ -253,6 +266,7 @@
     <string name="title_advanced_color_stripe">Pokaži prugu boje</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_gravatars">Prikaži gravatare</string>
+    <string name="title_advanced_favicons">Pokaži ikone</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
@@ -311,7 +325,7 @@
     <string name="title_advanced_notify_preview_all">Pregledaj sav tekst</string>
     <string name="title_advanced_notify_actions">Akcije za Obavijesti</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
-    <string name="title_advanced_notify_action_junk">Spam</string>
+    <string name="title_advanced_notify_action_junk">Neželjena pošta</string>
     <string name="title_advanced_notify_action_archive">Arhiva</string>
     <string name="title_advanced_notify_action_move">Premjesti</string>
     <string name="title_advanced_notify_action_reply">Odgovor</string>
@@ -338,18 +352,22 @@
     <string name="title_advanced_openpgp">Pružatelj OpenPGP</string>
     <string name="title_advanced_autocrypt">Koristi Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Međusobni način Autocrypta</string>
+    <string name="title_advanced_encrypt_subject">Šifriraj predmet</string>
     <string name="title_advanced_manage_certificates">Upravljaj javnim ključevima</string>
     <string name="title_advanced_import_key">Uvezi privatni ključ</string>
     <string name="title_advanced_manage_keys">Upravljaj privatnim ključevima</string>
     <string name="title_advanced_external_search">Dopusti drugim aplikacijama da pretražuju u porukama</string>
     <string name="title_advanced_fts">Gradi registar pretrage</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke indeksirane (%3$s)</string>
+    <string name="title_advanced_language">Jezik</string>
+    <string name="title_advanced_language_system">Sustav</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne značajke</string>
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
     <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
     <string name="title_advanced_last_cleanup">Posljednje čišćenje: %1$s</string>
+    <string name="title_advanced_app">Postavke aplikacije</string>
     <string name="title_advanced_more">Više opcija</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_unseen_hint">Neki davatelji ne podržavaju to ispravno, što može uzrokovati sinkronizaciju nijedne ili svih poruka</string>
@@ -399,6 +417,7 @@
     <string name="title_advanced_experiments_hint">Popis trenutnih eksperimentalnih značajki</string>
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
     <string name="title_advanced_never_favorite">Nikada favorit</string>
+    <string name="title_advanced_edit_name">Uredi ime</string>
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
@@ -428,6 +447,7 @@
     <string name="title_provider">Davatelj usluga</string>
     <string name="title_custom">Prilagođeno</string>
     <string name="title_host">Naziv računala</string>
+    <string name="title_encryption_none">Nijedan</string>
     <string name="title_allow_insecure">Dopustiti nesigurne veze</string>
     <string name="title_insecure_remark">Nesigurne veze trebaju biti dopuštene samo na pouzdanim mrežama, a nikad na javnim mrežama</string>
     <string name="title_port">Broj porta</string>
@@ -436,6 +456,7 @@
     <string name="title_client_certificate">Klijentov certifikat</string>
     <string name="title_realm">Oblast</string>
     <string name="title_use_ip">Umjesto naziva hosta koristiti lokalnu IP adresu</string>
+    <string name="title_primary">Glavni</string>
     <string name="title_primary_account">Primarni (zadani račun)</string>
     <string name="title_primary_identity">Primarni (zadani identitet)</string>
     <string name="title_leave_on_server">Ostavite poruke na poslužitelju</string>
@@ -469,12 +490,14 @@
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>
     <string name="title_hint_alias">Dugo pritisnite za opcije, poput kopiranja za stvaranje identiteta aliasa</string>
+    <string name="title_service_auth">Server e-pošte je javio: \'%1$s\'</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>
     <string name="title_delete_local">Izbrišite lokalne poruke</string>
     <string name="title_delete_browsed">Brisanje pregledanih / pretraženih poruka</string>
+    <string name="title_empty_spam">Isprazni neželjenu poštu</string>
     <string name="title_edit_properties">Uredi svojstva</string>
     <string name="title_edit_rules">Uredi pravila</string>
     <string name="title_create_channel">Stvorite kanal obavijesti</string>
@@ -511,7 +534,7 @@
     <string name="title_folder_all">Arhiva</string>
     <string name="title_folder_drafts">Skice</string>
     <string name="title_folder_trash">Otpad</string>
-    <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_junk">Neželjena pošta</string>
     <string name="title_folder_sent">Poslano</string>
     <string name="title_folder_system">Sustav</string>
     <string name="title_folder_user">Korisnik</string>
@@ -557,12 +580,13 @@
     <string name="title_subscribe">Pretplati</string>
     <string name="title_delete">Izbriši</string>
     <string name="title_more">Više</string>
-    <string name="title_spam">Spam</string>
+    <string name="title_spam">Neželjena pošta</string>
     <string name="title_move">Premjesti</string>
     <string name="title_no_junk">Nije neželjena pošta</string>
     <string name="title_move_to">Premjestiti na &#8230;</string>
     <string name="title_move_to_folder">Premjestiti na &#8230;</string>
     <string name="title_move_to_account">Premjestiti na %1$s &#8230;</string>
+    <string name="title_report_spam">Tretiraj kao neželjenu poštu</string>
     <string name="title_snooze">Utišaj &#8230;</string>
     <string name="title_archive">Arhiva</string>
     <string name="title_reply">Odgovor</string>
@@ -612,6 +636,9 @@
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
     <string name="title_ask_review">Molim ostavite recenziju o FairEmailu</string>
+    <string name="title_ask_review_rationale">        Koristite FairEmail već neko vrijeme.
+        Cijenili bi kada bi ocijenili FairEmail u Trgovini Play.
+    </string>
     <string name="title_third_party">Koristite verziju neke treće strane</string>
     <string name="title_expand_warning">Proširivanjem ove poruke preuzet će se %1$s</string>
     <string name="title_download_message">Preuzima se &#8230;</string>
@@ -806,7 +833,7 @@
     <string name="title_legend_sent">Poslano</string>
     <string name="title_legend_archive">Arhiva</string>
     <string name="title_legend_trash">Otpad</string>
-    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_junk">Neželjena pošta</string>
     <string name="title_legend_primary">Primarno</string>
     <string name="title_legend_subscribed">Pretplaćeno na</string>
     <string name="title_legend_rule">Ima pravila</string>

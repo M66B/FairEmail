@@ -65,6 +65,8 @@
     <string name="title_block_domain">送信者ドメインをブロック</string>
     <string name="title_block_sender_hint">送信者をブロックすると次以降のメッセージを迷惑メールフォルダーに自動的に移動するルールが作成されます。
 ルールの作成と使用はプロ機能です。</string>
+    <string name="title_junk_filter">ローカルのスパムフィルターを使用</string>
+    <string name="title_junk_filter_hint">これにより、バッテリー使用量が増加、そしてメッセージをスパムとして誤ってマークする可能性があります。</string>
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機中</string>
     <string name="title_notification_idle">待機</string>
@@ -206,6 +208,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
+    <string name="title_advanced_hint_message">        高度なオプションに移動しています。
+        全てのオプションには一般的に使用される標準的な値がありますが、設定が異なる場合は、変更する必要はありません。
+    </string>
     <string name="title_advanced_section_main">基本</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
@@ -425,6 +430,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_language_detection">メッセージのテキスト言語を検出</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
+    <string name="title_advanced_classification">メッセージを分類</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
@@ -655,6 +661,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
+    <string name="title_auto_classify">分類されたメッセージを自動的に移動</string>
     <string name="title_sync_days">メッセージの同期(日毎)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増えます</string>
     <string name="title_keep_days">メッセージを保持する(日毎)</string>
@@ -1112,6 +1119,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_legend_encrypted">暗号化されています</string>
     <string name="title_legend_auth">認証に失敗しました</string>
     <string name="title_legend_found">発見しました</string>
+    <string name="title_legend_classified">自動的に分類しました</string>
     <string name="title_legend_snoozed">スヌーズされています</string>
     <string name="title_legend_browsed">閲覧または検索されます</string>
     <string name="title_legend_answered">回答済み</string>
@@ -1179,6 +1187,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_hint_message_selection">メッセージを長押し複数のメッセージの選択を開始します。押し続けて上下にスワイプし更にメッセージを選択します</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">プロバイダーの速度、ネット接続、デバイス、及びメッセージ数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中アプリの応答が遅くなる場合があります</string>
+    <string name="title_hint_sync_note">デフォルトでは、ストレージ容量とバッテリーとデータ使用量を制限するためにすべてのメッセージがダウンロードされるわけではありません。 フォルダリスト内のフォルダを長押しし、「更に同期」を選択することで変更できます。</string>
     <string name="title_hint_battery">FairEmailはデフォルトで常にメッセージを受信する為AndroidはFairEmailが常にアクティブで有ると報告します。 故にFairEmailは常にバッテリー電源を使用しているように見えますが実際にはそうでは有りません</string>
     <string name="title_hint_reformat">デフォルトではFairEmailはプライバシーとセキュリティ上の理由からメッセージを再フォーマットします。 元のメッセージを表示するにはメッセージテキストの上にある[全画面]アイコンをタップします</string>
     <string name="title_hint_design">デザインは意図的に紛らわしくしている訳ではありませんが、豊富な機能があります。 見た目をカスタマイズするオプションはたくさんありますが、皆さん全てを満足させることは不可能ですので、ご了承ください。</string>
