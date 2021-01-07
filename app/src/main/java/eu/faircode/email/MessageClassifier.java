@@ -51,6 +51,7 @@ public class MessageClassifier {
     private static boolean dirty = false;
     private static final Map<Long, Map<String, Map<String, Frequency>>> wordClassFrequency = new HashMap<>();
 
+    private static final double CHANCE_MINIMUM = 0.20;
     private static final double CHANCE_THRESHOLD = 2.0;
 
     static void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
@@ -243,7 +244,8 @@ public class MessageClassifier {
         });
 
         String classification = null;
-        if (chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
+        if (chances.get(0).chance > CHANCE_MINIMUM &&
+                chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
             classification = chances.get(0).clazz;
 
         Log.i("Classifier current=" + currentClass + " classified=" + classification);
