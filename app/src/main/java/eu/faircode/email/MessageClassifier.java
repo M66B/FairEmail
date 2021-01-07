@@ -212,7 +212,7 @@ public class MessageClassifier {
         if (!added)
             return null;
 
-        if (state.maxMatchedWords == 0)
+        if (state.maxMatchedWords < MIN_MATCHED_WORDS)
             return null;
 
         DB db = DB.getInstance(context);
@@ -231,16 +231,13 @@ public class MessageClassifier {
             }
 
             Stat stat = state.classStats.get(clazz);
-            boolean consider = (stat.matchedWords >= MIN_MATCHED_WORDS);
             double chance = stat.totalFrequency / messages / state.maxMatchedWords;
             Chance c = new Chance(clazz, chance);
             EntityLog.log(context, "Classifier " + c +
                     " frequency=" + stat.totalFrequency + "/" + messages +
                     " matched=" + stat.matchedWords + "/" + state.maxMatchedWords +
-                    " consider=" + consider +
                     " words=" + TextUtils.join(", ", stat.words));
-            if (consider)
-                chances.add(c);
+            chances.add(c);
         }
 
         if (BuildConfig.DEBUG)
