@@ -223,12 +223,13 @@ public class MessageClassifier {
 
             Stat stat = state.classStats.get(clazz);
 
-            double chance = stat.totalFrequency / maxMessages / state.words.size();
+            int words = state.words.size() - 2;
+            double chance = stat.totalFrequency / maxMessages / words;
             Chance c = new Chance(clazz, chance);
             chances.add(c);
             EntityLog.log(context, "Classifier " + c +
                     " frequency=" + (Math.round(stat.totalFrequency * 100.0) / 100.0) + "/" + maxMessages + " msgs" +
-                    " matched=" + stat.matchedWords + "/" + state.words.size() + " words" +
+                    " matched=" + stat.matchedWords + "/" + words + " words" +
                     " text=" + TextUtils.join(", ", stat.words));
         }
 
