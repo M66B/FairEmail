@@ -249,13 +249,22 @@ public class MessageClassifier {
             }
         });
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        double class_min_chance = prefs.getInt("class_min_chance", 20) / 100.0;
+        double class_min_difference = prefs.getInt("class_min_difference", 50) / 100.0;
+
         // Select best class
         String classification = null;
-        if (chances.get(0).chance > CHANCE_MINIMUM &&
-                chances.get(0).chance / chances.get(1).chance >= CHANCE_THRESHOLD)
+        double c0 = chances.get(0).chance;
+        double c1 = chances.get(1).chance;
+        if (c0 > class_min_chance && c1 < c0 * class_min_difference)
             classification = chances.get(0).clazz;
 
-        Log.i("Classifier current=" + currentClass + " classified=" + classification);
+        Log.i("Classifier current=" + currentClass +
+                " c0=" + Math.round(c0 * 100 * 100) / 100.0 + ">" + Math.round(class_min_chance * 100 * 100) / 100.0 + "%" +
+                " c1=" + Math.round(c1 * 100 * 100) / 100.0 + "<" + Math.round(c0 * class_min_difference * 100 * 100) / 100.0 + "%" +
+                " (" + class_min_difference + "%)" +
+                " classified=" + classification);
 
         return classification;
     }

@@ -134,6 +134,52 @@
             app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvClassMinChance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_class_min_chance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ibClassification" />
+
+        <SeekBar
+            android:id="@+id/sbClassMinChance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvClassMinChance" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvClassMinDifference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_class_min_difference"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sbClassMinChance" />
+
+        <SeekBar
+            android:id="@+id/sbClassMinDifference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvClassMinDifference" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -144,7 +190,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ibClassification" />
+            app:layout_constraintTop_toBottomOf="@id/sbClassMinDifference" />
 
         <Spinner
             android:id="@+id/spLanguage"

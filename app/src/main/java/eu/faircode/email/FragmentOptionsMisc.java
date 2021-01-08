@@ -44,6 +44,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +62,7 @@ import androidx.preference.PreferenceManager;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -82,6 +84,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
     private SwitchCompat swClassification;
+    private TextView tvClassMinChance;
+    private SeekBar sbClassMinChance;
+    private TextView tvClassMinDifference;
+    private SeekBar sbClassMinDifference;
     private ImageButton ibClassification;
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
@@ -117,10 +123,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private Group grpDebug;
 
+    private NumberFormat NF = NumberFormat.getNumberInstance();
+
     private final static long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "shortcuts", "fts", "classification", "language", "watchdog", "updates",
+            "shortcuts", "fts",
+            "classification", "class_min_chance", "class_min_difference",
+            "language", "watchdog", "updates",
             "experiments", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "auth_plain", "auth_login", "auth_sasl"
     };
@@ -165,6 +175,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFts = view.findViewById(R.id.swFts);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
+        tvClassMinChance = view.findViewById(R.id.tvClassMinChance);
+        sbClassMinChance = view.findViewById(R.id.sbClassMinChance);
+        tvClassMinDifference = view.findViewById(R.id.tvClassMinDifference);
+        sbClassMinDifference = view.findViewById(R.id.sbClassMinDifference);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
@@ -279,6 +293,40 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 163);
+            }
+        });
+
+        sbClassMinChance.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("class_min_chance", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbClassMinDifference.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("class_min_difference", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -749,7 +797,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
+
         swClassification.setChecked(prefs.getBoolean("classification", false));
+
+        int class_min_chance = prefs.getInt("class_min_chance", 20);
+        tvClassMinChance.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
+        sbClassMinChance.setProgress(class_min_chance);
+
+        int class_min_difference = prefs.getInt("class_min_difference", 50);
+        tvClassMinDifference.setText(getString(R.string.title_advanced_class_min_difference, NF.format(class_min_difference)));
+        sbClassMinDifference.setProgress(class_min_difference);
 
         int selected = -1;
         String language = prefs.getString("language", null);
