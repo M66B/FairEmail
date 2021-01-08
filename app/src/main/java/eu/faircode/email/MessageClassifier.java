@@ -52,9 +52,6 @@ public class MessageClassifier {
     private static final Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static final Map<Long, Map<String, Map<String, Frequency>>> wordClassFrequency = new HashMap<>();
 
-    private static final double CHANCE_MINIMUM = 0.20;
-    private static final double CHANCE_THRESHOLD = 2.0;
-
     static void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
         try {
             if (!isEnabled(context))
