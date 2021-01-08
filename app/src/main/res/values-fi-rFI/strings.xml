@@ -168,7 +168,7 @@
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
     <string name="title_setup_doze_remark">Sähköpostien vastaanottoon luotettavasti</string>
-    <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun optimointi vähentää akun käyttöä</string>
+    <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
@@ -445,7 +445,7 @@
     <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
-    <string name="title_advanced_updates">Tarkista GitHub päivitykset</string>
+    <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
@@ -733,7 +733,7 @@
     <string name="title_event">Lisää kalenteriin</string>
     <string name="title_pin">Lisää pikakuvake</string>
     <string name="title_print">Tulosta</string>
-    <string name="title_print_header">Tulosteen otsikko</string>
+    <string name="title_print_header">Tulosta tunnistetiedot</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
@@ -1066,7 +1066,7 @@
     <string name="title_rule_condition_missing">Ehdot puuttuvat</string>
     <string name="title_rule_folder_missing">Kansio puuttuu</string>
     <string name="title_rule_identity_missing">Identiteetti puuttuu</string>
-    <string name="title_rule_answer_missing">Malli puuttuu</string>
+    <string name="title_rule_answer_missing">Viestipohja puuttuu</string>
     <string name="title_rule_keyword_missing">Avainsana puuttuu</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
     <string name="title_rule_execute">Suorita nyt</string>
