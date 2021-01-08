@@ -304,9 +304,6 @@
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
     <string name="title_advanced_circular">Megjelenített ikonok lekerekítése</string>
-    <string name="title_advanced_color_saturation">Telítettség</string>
-    <string name="title_advanced_color_value">Fényerő</string>
-    <string name="title_advanced_color_threshold">Betűszín küszöbérték</string>
     <string name="title_advanced_name_email">Nevek és email címek megjelenítése</string>
     <string name="title_advanced_replace_name">Preferálja a névjegyi neveket a küldői nevek helyett</string>
     <string name="title_advanced_distinguish_contacts">Húzza alá a küldőt, ha az egy ismert, korábban megcímzett helyi névjegy</string>

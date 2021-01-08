@@ -268,9 +268,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>
     <string name="title_advanced_circular">Mostra icones rodones</string>
-    <string name="title_advanced_color_saturation">Saturació</string>
-    <string name="title_advanced_color_value">Brillantor</string>
-    <string name="title_advanced_color_threshold">Color de lletra del llindar</string>
     <string name="title_advanced_name_email">Mostra els noms i les adreces de correu</string>
     <string name="title_advanced_replace_name">Preferiu el nom de contacte que el nom enviat</string>
     <string name="title_advanced_distinguish_contacts">Subratlla l’emissor quan el remitent es coneix com a contacte “a” local</string>

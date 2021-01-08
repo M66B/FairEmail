@@ -66,7 +66,7 @@
     <string name="title_block_sender_hint">        拉黑某发件人将创建一条规则来自动将未来消息移动至垃圾邮件文件夹
         创建和使用规则属于专业版功能</string>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
-    <string name="title_junk_filter_hint">这可能会增加电池使用量并错误地将消息标记为垃圾信息</string>
+    <string name="title_junk_filter_hint">这可能会增加耗电量并误标为垃圾邮件</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_idle">空闲</string>
@@ -208,8 +208,9 @@
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置问题</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
-    <string name="title_advanced_hint_message">        您正在导航到更高级的选项。
-        所有选项都使用了常用的标准值。如果您有不同的偏好，可以更改它们，但没有这个必要。    </string>
+    <string name="title_advanced_hint_message">        您正在前往更多的高级选项
+        所有选项默认均使用可更改的常用标准值
+    </string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
@@ -295,9 +296,6 @@
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
-    <string name="title_advanced_color_saturation">饱和度</string>
-    <string name="title_advanced_color_value">亮度</string>
-    <string name="title_advanced_color_threshold">阈值字母颜色</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
@@ -1187,7 +1185,7 @@
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
-    <string name="title_hint_sync_note">默认情况下，本应用不会下载所有的消息，以限制存储空间、电池和数据的使用。你可以通过长按文件夹列表中的文件夹并选择“同步更多”来改变这一点。</string>
+    <string name="title_hint_sync_note">默认情况下，本应用不会下载所有的消息，以减少存储空间、电量和流量的使用。当然，您可以通过长按文件夹列表中的相应文件夹，并选择弹出菜单的 \"同步更多\" 来改变这一点</string>
     <string name="title_hint_battery">由于FairEmail默认总是接受消息，安卓系统会报告FE始终处于活动状态。 因此，FE看起来好像总在耗电，但事实上情况并非如此。</string>
     <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
     <string name="title_hint_design">FE 的设计理念旨在不让用户分散注意力，重在实用性。而且设置中已经有很多自定义外观的选项，请谅解，我很难同时让所有人都满意</string>

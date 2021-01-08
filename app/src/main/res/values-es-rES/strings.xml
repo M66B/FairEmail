@@ -222,7 +222,7 @@
     <string name="title_setup_reset_questions">Restablecer preguntas</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.
-        Todas las opciones tienen por defecto valores estándar que pueden ser modificados si así lo prefiere.
+        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
@@ -309,9 +309,6 @@
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
-    <string name="title_advanced_color_saturation">Saturación</string>
-    <string name="title_advanced_color_value">Brillo</string>
-    <string name="title_advanced_color_threshold">Umbral de color de letras</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_replace_name">Preferir un nombre de contacto sobre un nombre enviado</string>
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>

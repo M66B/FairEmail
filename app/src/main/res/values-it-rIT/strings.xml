@@ -220,9 +220,6 @@
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Resetta domande</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
-    <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
-        Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
-    </string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
@@ -308,9 +305,6 @@
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
-    <string name="title_advanced_color_saturation">Saturazione</string>
-    <string name="title_advanced_color_value">Luminosità</string>
-    <string name="title_advanced_color_threshold">Soglia colore lettera</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_replace_name">Preferisci un nome di contatto a un nome inviato</string>
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando il mittente è conosciuto come contatto locale \'a\"</string>

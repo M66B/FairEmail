@@ -371,9 +371,9 @@
     <string name="title_advanced_generated_icons">Show generated icons</string>
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_circular">Show round icons</string>
-    <string name="title_advanced_color_saturation">Saturation</string>
-    <string name="title_advanced_color_value">Brightness</string>
-    <string name="title_advanced_color_threshold">Threshold letter color</string>
+    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
+    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_replace_name">Prefer a contact name over a sent name</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>

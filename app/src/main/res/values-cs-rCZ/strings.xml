@@ -324,9 +324,6 @@
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
-    <string name="title_advanced_color_saturation">Saturace</string>
-    <string name="title_advanced_color_value">Jas</string>
-    <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální „komu“ kontakt</string>

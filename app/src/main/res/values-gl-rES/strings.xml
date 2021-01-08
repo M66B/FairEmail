@@ -302,9 +302,6 @@
     <string name="title_advanced_generated_icons">Mostrar iconas xeradas</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconas redondeadas</string>
-    <string name="title_advanced_color_saturation">Saturación</string>
-    <string name="title_advanced_color_value">Brillo</string>
-    <string name="title_advanced_color_threshold">Limiar da cor das letras</string>
     <string name="title_advanced_name_email">Mostrar nomes e enderezos de email</string>
     <string name="title_advanced_replace_name">Preferir o nome de contacto ao nome do envío</string>
     <string name="title_advanced_distinguish_contacts">Suliñar o remitente cando este é recoñecido como un destinatario local</string>

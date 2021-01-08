@@ -303,9 +303,6 @@
     <string name="title_advanced_generated_icons">Vis genererte ikoner</string>
     <string name="title_advanced_identicons">Vis identicons</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
-    <string name="title_advanced_color_saturation">Metning</string>
-    <string name="title_advanced_color_value">Lysstyrke</string>
-    <string name="title_advanced_color_threshold">Terskelbokstavfarge</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_replace_name">Foretrekker et kontaktnavn fremfor et sendt navn</string>
     <string name="title_advanced_distinguish_contacts">Understreke avsenderen når avsenderen er kjent som lokal \'til\' -kontakt</string>

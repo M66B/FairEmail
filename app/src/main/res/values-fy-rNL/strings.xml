@@ -302,9 +302,6 @@
     <string name="title_advanced_generated_icons">Sjoch generearre ikoanen</string>
     <string name="title_advanced_identicons">Sjoch identykons</string>
     <string name="title_advanced_circular">Sjoch rûne ikoanen</string>
-    <string name="title_advanced_color_saturation">Sêding</string>
-    <string name="title_advanced_color_value">Dúdlikens</string>
-    <string name="title_advanced_color_threshold">Drompel letterkleur</string>
     <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
     <string name="title_advanced_replace_name">Foarkar in kontaktnamme boppe in ferstjoerde namme</string>
     <string name="title_advanced_distinguish_contacts">Understreke de stjoerder as de stjoerder bekend is as lokaal \'nei\' kontakt</string>

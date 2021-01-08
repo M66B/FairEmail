@@ -243,7 +243,7 @@
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
-        Все параметры обычно имеют стандартные значения, которые можно (но не нужно) изменить, если у вас есть другие предпочтения.
+        Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
@@ -330,9 +330,6 @@
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
     <string name="title_advanced_circular">Использовать круглые значки</string>
-    <string name="title_advanced_color_saturation">Насыщенность</string>
-    <string name="title_advanced_color_value">Яркость</string>
-    <string name="title_advanced_color_threshold">Порог яркости отображения букв</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
@@ -1154,7 +1151,7 @@
     <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_found">Найден</string>
-    <string name="title_legend_classified">Был автоматически классифицирован</string>
+    <string name="title_legend_classified">Было автоматически классифицировано</string>
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
     <string name="title_legend_answered">Был дан ответ</string>
@@ -1222,7 +1219,7 @@
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
-    <string name="title_hint_sync_note">По умолчанию, не все сообщения будут загружены для ограничения использования места в хранилище, заряда батареи и трафика. Это можно изменить, удерживая папку в списке папок и выбрав «Синхронизировать еще».</string>
+    <string name="title_hint_sync_note">По умолчанию, не все сообщения будут загружены для ограничения использования места в хранилище, заряда батареи и трафика. Это можно изменить, удерживая папку в списке папок и выбрав \"Синхронизировать ещё\".</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
     <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_design">Дизайн преднамеренно не отвлекающий, но сохраняет высокую функциональность. Существует множество вариантов для настройки внешнего вида, но пожалуйста, поймите, что невозможно сделать всех полностью счастливыми одновременно.</string>

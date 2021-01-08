@@ -289,9 +289,6 @@
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
-    <string name="title_advanced_color_saturation">Saturação</string>
-    <string name="title_advanced_color_value">Brilho</string>
-    <string name="title_advanced_color_threshold">Limite da cor da carta</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>

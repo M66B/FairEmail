@@ -221,7 +221,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
-    <string name="title_advanced_hint_message">Sie wechseln zu den erweiterten Optionen. Alle Optionen haben allgemein verwendete Standardwerte, die geändert werden können, aber nicht müssen, wenn Sie andere Einstellungen bevorzugen.    </string>
+    <string name="title_advanced_hint_message">Sie wechseln zu den erweiterten Optionen. Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.    </string>
     <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
@@ -307,9 +307,6 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
-    <string name="title_advanced_color_saturation">Sättigung</string>
-    <string name="title_advanced_color_value">Helligkeit</string>
-    <string name="title_advanced_color_threshold">Schwellenwert für Buchstabenfarbe</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_replace_name">Einen Kontaktnamen gegenüber einem gesendeten Namen bevorzugen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>

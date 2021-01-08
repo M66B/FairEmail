@@ -289,9 +289,6 @@
     <string name="title_advanced_generated_icons">顯示設定的圖示</string>
     <string name="title_advanced_identicons">顯示身份</string>
     <string name="title_advanced_circular">顯示圓形圖示</string>
-    <string name="title_advanced_color_saturation">飽和度</string>
-    <string name="title_advanced_color_value">亮度</string>
-    <string name="title_advanced_color_threshold">字母顏色閥值</string>
     <string name="title_advanced_name_email">顯示名字及郵件地址</string>
     <string name="title_advanced_replace_name">偏好顯示聯絡人名字而不是寄件人名字</string>
     <string name="title_advanced_distinguish_contacts">當寄件人為本機聯絡人時將名字加註底線</string>

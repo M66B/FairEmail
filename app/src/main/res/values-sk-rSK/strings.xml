@@ -241,9 +241,6 @@
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
-    <string name="title_advanced_hint_message">        Vstupujete do pokročilejších možností.
-        Všetky možnosti majú nastavené bežne používané štandardné hodnoty, ktoré nemusíte meniť, jedine že je to podľa vašich preferencií.
-    </string>
     <string name="title_advanced_section_main">Základné</string>
     <string name="title_advanced_section_synchronize">Prijímanie správ</string>
     <string name="title_advanced_section_send">Posielanie správ</string>
@@ -329,9 +326,6 @@
     <string name="title_advanced_generated_icons">Zobraziť generované ikonky</string>
     <string name="title_advanced_identicons">Zobraziť identikony</string>
     <string name="title_advanced_circular">Zobraziť okrúhle ikonky</string>
-    <string name="title_advanced_color_saturation">Saturácia</string>
-    <string name="title_advanced_color_value">Jas</string>
-    <string name="title_advanced_color_threshold">Prahová hodnota farby písma</string>
     <string name="title_advanced_name_email">Zobraziť mená a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Uprednostňovať mená z kontaktov pred menami zo správy</string>
     <string name="title_advanced_distinguish_contacts">Podčiarknúť odosielateľa ak je v miestnych kontaktoch</string>

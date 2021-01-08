@@ -220,8 +220,6 @@
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
-    <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
-        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_section_main">Huvudsaklig</string>
     <string name="title_advanced_section_synchronize">Ta emot</string>
     <string name="title_advanced_section_send">Skicka</string>
@@ -307,9 +305,6 @@
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
-    <string name="title_advanced_color_saturation">Mättnad</string>
-    <string name="title_advanced_color_value">Ljusstyrka</string>
-    <string name="title_advanced_color_threshold">Tröskelbokstavsfärg</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_replace_name">Föredrar ett kontaktnamn över ett skickat namn</string>
     <string name="title_advanced_distinguish_contacts">Understryk avsändaren när avsändaren är känd som lokal \"till\" kontakt</string>

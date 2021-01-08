@@ -220,9 +220,6 @@
     <string name="title_setup_defaults">Επαναφορά προεπιλογών</string>
     <string name="title_setup_reset_questions">Επαναφορά ερωτήσεων</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
-    <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.
-        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, οι οποίες μπορούν, αλλά δεν χρειάζεται να αλλάξουν, εάν έχετε μία διαφορετική προτίμηση.
-    </string>
     <string name="title_advanced_section_main">Κύριες</string>
     <string name="title_advanced_section_synchronize">Λήψη</string>
     <string name="title_advanced_section_send">Αποστολή</string>
@@ -308,9 +305,6 @@
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>
     <string name="title_advanced_circular">Στρογγυλεμένα εικονίδια</string>
-    <string name="title_advanced_color_saturation">Κορεσμός</string>
-    <string name="title_advanced_color_value">Φωτεινότητα</string>
-    <string name="title_advanced_color_threshold">Κατώφλι για τον καθορισμό του χρώματος του γράμματος</string>
     <string name="title_advanced_name_email">Να προβάλλονται τα ονόματα και οι διευθύνσεις ηλεκτρονικού ταχυδρομείου</string>
     <string name="title_advanced_replace_name">Να προτιμάται το όνομα της επαφής αντί για το όνομα του αποστολέα</string>
     <string name="title_advanced_distinguish_contacts">Να υπογραμμίζεται ο αποστολέας όταν ο αποστολέας είναι γνωστός ως τοπική επαφή</string>

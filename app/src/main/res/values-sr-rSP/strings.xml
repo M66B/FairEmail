@@ -220,9 +220,6 @@
     <string name="title_advanced_generated_icons">Прикажи генерисане иконице</string>
     <string name="title_advanced_identicons">Прикажи иденти-иконице</string>
     <string name="title_advanced_circular">Прикажи заобљене иконице</string>
-    <string name="title_advanced_color_saturation">Засићеност</string>
-    <string name="title_advanced_color_value">Осветљеност</string>
-    <string name="title_advanced_color_threshold">Ниво окидања за боју слова</string>
     <string name="title_advanced_name_email">Прикажи имена и е-мејл адресе</string>
     <string name="title_advanced_subject_top">Прикажи наслов изнад пошиљаоца</string>
     <string name="title_advanced_subject_italic">Прикажи наслов курзивом</string>

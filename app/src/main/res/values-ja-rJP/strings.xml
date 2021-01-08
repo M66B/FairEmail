@@ -208,9 +208,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
-    <string name="title_advanced_hint_message">        高度なオプションに移動しています。
-        全てのオプションには一般的に使用される標準的な値がありますが、設定が異なる場合は、変更する必要はありません。
-    </string>
     <string name="title_advanced_section_main">基本</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
@@ -296,9 +293,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>
     <string name="title_advanced_circular">丸いアイコンで表示</string>
-    <string name="title_advanced_color_saturation">彩度</string>
-    <string name="title_advanced_color_value">明度</string>
-    <string name="title_advanced_color_threshold">閾値の文字色</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>

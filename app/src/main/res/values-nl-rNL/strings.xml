@@ -220,7 +220,7 @@
     <string name="title_setup_reset_questions">Vragen resetten</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
-        Alle opties hebben veelgebruikte standaardwaarden die kunnen, maar niet hoeven te worden gewijzigd als u een andere voorkeur heeft.
+        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
@@ -307,9 +307,9 @@
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde iconen</string>
-    <string name="title_advanced_color_saturation">Verzadiging</string>
-    <string name="title_advanced_color_value">Helderheid</string>
-    <string name="title_advanced_color_threshold">Drempel letterkleur</string>
+    <string name="title_advanced_color_saturation">Verzadiging: %1$s %%</string>
+    <string name="title_advanced_color_value">Helderheid: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Drempel letterkleur: %1$s %%</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_replace_name">Geef de voorkeur aan een contactnaam boven een verzonden naam</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
@@ -442,6 +442,8 @@
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>
+    <string name="title_advanced_class_min_chance" comment="title_advanced_class_min_chance&#10;Minimum chance for classifier to consider a class&#10;Please leave the format specifiers &quot;%1$s %%&quot;">Minimale klassekans: %1$s %%</string>
+    <string name="title_advanced_class_min_difference" comment="title_advanced_class_min_difference&#10;Minimum difference with next class for classifier to consider a class&#10;Please leave the format specifiers &quot;%1$s %%&quot;">Minimale klasseverschil: %1$s %%</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>

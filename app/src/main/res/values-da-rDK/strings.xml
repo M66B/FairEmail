@@ -220,9 +220,6 @@
     <string name="title_setup_defaults">Gendan standardværdier</string>
     <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
-    <string name="title_advanced_hint_message">        Der gås nu til de mere avancerede indstillinger.
-        Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
-    </string>
     <string name="title_advanced_section_main">Primær</string>
     <string name="title_advanced_section_synchronize">Modtag</string>
     <string name="title_advanced_section_send">Send</string>
@@ -308,9 +305,6 @@
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
-    <string name="title_advanced_color_saturation">Mætning</string>
-    <string name="title_advanced_color_value">Lysstyrke</string>
-    <string name="title_advanced_color_threshold">Grænseværdi, bogstavsfarve</string>
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_replace_name">Foretræk Kontakt- fremfor Afsendernavn</string>
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>

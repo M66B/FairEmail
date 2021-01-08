@@ -266,9 +266,6 @@
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Покажи икони за идентичност</string>
     <string name="title_advanced_circular">Закръглени икони</string>
-    <string name="title_advanced_color_saturation">Наситеност</string>
-    <string name="title_advanced_color_value">Яркост</string>
-    <string name="title_advanced_color_threshold">Бяла или черна буква в генерирани икони</string>
     <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_distinguish_contacts">Подчертайте подателя, когато подателят е известен като локаленен „до“ контакт</string>

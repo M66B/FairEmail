@@ -271,9 +271,6 @@
     <string name="title_advanced_generated_icons">Prikaži ustvarjene ikone</string>
     <string name="title_advanced_identicons">Prikaži identitetne ikone</string>
     <string name="title_advanced_circular">Prikaži okrogle ikone</string>
-    <string name="title_advanced_color_saturation">Nasičenost</string>
-    <string name="title_advanced_color_value">Svetlost</string>
-    <string name="title_advanced_color_threshold">Prag barve črke</string>
     <string name="title_advanced_name_email">Prikaži imena in e-poštne naslove</string>
     <string name="title_advanced_replace_name">Prednost ima ime stika pred poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podčrtaj pošiljatelja, ko je ta poznan kot krajevni stik \'Za\'</string>

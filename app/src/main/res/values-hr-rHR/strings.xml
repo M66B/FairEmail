@@ -270,9 +270,6 @@
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
-    <string name="title_advanced_color_saturation">Saturacija</string>
-    <string name="title_advanced_color_value">Svjetlost</string>
-    <string name="title_advanced_color_threshold">Prag za boju slova</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
     <string name="title_advanced_replace_name">Preferiraj ime kontakta nad poslanim imenom</string>
     <string name="title_advanced_distinguish_contacts">Podvucite pošiljatelja kada je pošiljalac poznat kao lokalni \"za\" kontakt</string>

@@ -61,6 +61,8 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
+import java.text.NumberFormat;
+
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnTheme;
     private Spinner spStartup;
@@ -92,8 +94,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private ImageView ivRed;
     private ImageView ivGreen;
     private ImageView ivBlue;
+    private TextView tvSaturation;
     private SeekBar sbSaturation;
+    private TextView tvBrightness;
     private SeekBar sbBrightness;
+    private TextView tvThreshold;
     private SeekBar sbThreshold;
     private SwitchCompat swNameEmail;
     private SwitchCompat swPreferContact;
@@ -133,6 +138,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
+
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "beige", "date", "navbar_colorize", "portrait2", "landscape", "landscape3",
@@ -190,8 +197,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         ivRed = view.findViewById(R.id.ivRed);
         ivGreen = view.findViewById(R.id.ivGreen);
         ivBlue = view.findViewById(R.id.ivBlue);
+        tvSaturation = view.findViewById(R.id.tvSaturation);
         sbSaturation = view.findViewById(R.id.sbSaturation);
+        tvBrightness = view.findViewById(R.id.tvBrightness);
         sbBrightness = view.findViewById(R.id.sbBrightness);
+        tvThreshold = view.findViewById(R.id.tvThreshold);
         sbThreshold = view.findViewById(R.id.sbThreshold);
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swPreferContact = view.findViewById(R.id.swPreferContact);
@@ -912,11 +922,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
 
-        sbSaturation.setProgress(prefs.getInt("saturation", 100));
+        int saturation = prefs.getInt("saturation", 100);
+        tvSaturation.setText(getString(R.string.title_advanced_color_saturation, NF.format(saturation)));
+        sbSaturation.setProgress(saturation);
         sbSaturation.setEnabled(swGeneratedIcons.isChecked());
-        sbBrightness.setProgress(prefs.getInt("brightness", 100));
+
+        int brightness = prefs.getInt("brightness", 100);
+        tvBrightness.setText(getString(R.string.title_advanced_color_value, NF.format(brightness)));
+        sbBrightness.setProgress(brightness);
         sbBrightness.setEnabled(swGeneratedIcons.isChecked());
-        sbThreshold.setProgress(prefs.getInt("threshold", 50));
+
+        int threshold = prefs.getInt("threshold", 50);
+        tvThreshold.setText(getString(R.string.title_advanced_color_threshold, NF.format(threshold)));
+        sbThreshold.setProgress(threshold);
         sbThreshold.setEnabled(swGeneratedIcons.isChecked());
 
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
