@@ -213,6 +213,7 @@ public class MessageClassifier {
 
         // Calculate chance per class
         DB db = DB.getInstance(context);
+        int words = state.words.size() - 2;
         List<Chance> chances = new ArrayList<>();
         for (String clazz : state.classStats.keySet()) {
             EntityFolder folder = db.folder().getFolderByName(account, clazz);
@@ -223,7 +224,6 @@ public class MessageClassifier {
 
             Stat stat = state.classStats.get(clazz);
 
-            int words = state.words.size() - 2;
             double chance = stat.totalFrequency / maxMessages / words;
             Chance c = new Chance(clazz, chance);
             chances.add(c);
