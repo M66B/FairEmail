@@ -4153,9 +4153,18 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(data.draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(data.draft.revision < data.draft.revisions);
 
-            if (args.getBoolean("incomplete"))
-                Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
+            if (args.getBoolean("incomplete")) {
+                final Snackbar snackbar = Snackbar.make(
+                        view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
+                snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
+            }
 
             DB db = DB.getInstance(getContext());
 
