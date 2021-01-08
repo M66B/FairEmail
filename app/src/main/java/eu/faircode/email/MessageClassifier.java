@@ -257,13 +257,14 @@ public class MessageClassifier {
         String classification = null;
         double c0 = chances.get(0).chance;
         double c1 = chances.get(1).chance;
-        if (c0 > class_min_chance && c1 < c0 * class_min_difference)
+        double threshold = c0 * (1.0 - class_min_difference);
+        if (c0 > class_min_chance && c1 < threshold)
             classification = chances.get(0).clazz;
 
         Log.i("Classifier current=" + currentClass +
-                " c0=" + Math.round(c0 * 100 * 100) / 100.0 + ">" + Math.round(class_min_chance * 100 * 100) / 100.0 + "%" +
-                " c1=" + Math.round(c1 * 100 * 100) / 100.0 + "<" + Math.round(c0 * class_min_difference * 100 * 100) / 100.0 + "%" +
-                " (" + class_min_difference + "%)" +
+                " c0=" + Math.round(c0 * 100 * 100) / 100.0 + ">" + Math.round(class_min_chance * 100) + "%" +
+                " c1=" + Math.round(c1 * 100 * 100) / 100.0 + "<" + Math.round(threshold * 100 * 100) / 100.0 + "%" +
+                " (" + Math.round(class_min_difference * 100) + "%)" +
                 " classified=" + classification);
 
         return classification;
