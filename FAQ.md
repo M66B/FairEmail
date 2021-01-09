@@ -967,16 +967,15 @@ and I expect that you take responsibility for informing yourself of what you are
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
 
-Before Android 8 Oreo: there is an advanced option in the setup for this.
+Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
-Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
-You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
+Android 8 Oreo and later: please see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
+You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
+
 Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
-Apps designed and targeting older Android versions might still be able to control the contents of notifications,
-but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
 
 Sometimes it is necessary to disable the setting *Show message preview in notifications*
-or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android.
+or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android.
 This might apply to notification sounds and vibrations too.
 
 Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
