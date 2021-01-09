@@ -3444,17 +3444,17 @@ Moving a message with another email client will not result in reclassification b
 To prevent the email server from moving a message into the spam folder again and again,
 auto classification out of the spam folder will not be done.
 
-The message classifier calculates the chance a message belongs in a folder (class).
+The message classifier calculates the probability a message belongs in a folder (class).
 There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder,
 provided that auto classification is enabled for the folder:
 
-* *Minimum class chance*: the minimum chance a message belongs in a folder (default 20 %)
+* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
 * *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
 
 Considering the defaults option values:
 
 * Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
-* Apples 15 % and bananas 5 % would be disregarded because the chance for apples is below the minimum of 20 %
+* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
 * Apples 50 % and bananas 20 % would result in selecting apples
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
