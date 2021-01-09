@@ -280,8 +280,8 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(159) Qu'est ce que deconnecter les listes de protection du tracker ?](#user-content-faq159)
 * [(160) Pouvez-vous ajouter la suppression définitive des messages sans confirmation ?](#user-content-faq160)
 * [(161) Pouvez vous ajouter un paramètre pour changer les couleurs primaire et d'accentuation ?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
+* [(162) L'IMAP NOTIFY est-il pris en charge?](#user-content-faq162)
+* [(163) Qu'est-ce que la classification des messages ?](#user-content-faq163)
 
 [J’ai une autre question.](#user-content-support)
 
@@ -431,29 +431,29 @@ Dans le menu à trois points, vous pouvez activer ou désactiver ou sélectionne
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-In the display section of the settings you can enable or disable for example:
+Dans la section d'affichage des paramètres, vous pouvez par exemple activer ou désactiver :
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
-* *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Style tabulaire*: afficher une liste linéaire au lieu de cartes
+* *Grouper par date*: affiche la date en en-tête au-dessus des messages ayant la même date
+* *Afficher en mode conversation*: pour désactiver l'affichage en mode conversation et afficher à la place les messages de manière individuelle
+* *Barre d'action de conversation*: pour désactiver la barre de navigation du bas
+* *Couleur de surbrillance*: pour sélectionner une couleur pour l'expéditeur des messages non lus
+* *Afficher la photo des contacts*: pour masquer la photo des contacts
+* *Afficher les noms et les adresses e-mail*: pour afficher les noms ou afficher les noms et les adresses e-mail
+* *Afficher l’objet en italique*: pour afficher l'objet du message en texte normal
+* *Afficher les étoiles de suivi*: pour masquer les étoiles de suivi (favoris)
+* *Afficher l'aperçu du message*: pour afficher 1-4 lignes du corps du message
+* *Afficher par défaut les détails de l'adresse*: pour développer par défaut la section d'adresses
+* *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
+* *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 
-Notez que les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). You can change this in the connection settings.
+Notez que les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez changer ceci dans les paramètres de connexion.
 
-Some people ask:
+Certaines personnes demandent :
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
-* to move the star to the left, but it is much easier to operate the star on the right side
+* de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
 
 <br />
 
@@ -2832,7 +2832,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder. This will work best with similar messages.
 
@@ -2843,6 +2843,17 @@ Classification will be done for new messages in the inbox, spam folder and user 
 Moving a message on the device will reclassify the message. Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+
+* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
+* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+
+Considering the defaults option values:
+
+* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
+* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
+* Apples 50 % and bananas 20 % would result in selecting apples
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 

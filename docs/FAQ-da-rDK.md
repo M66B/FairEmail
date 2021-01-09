@@ -2832,7 +2832,7 @@ Beskedklassificering kan aktiveres under diverse indstillinger. Dette aktiverer 
 
 Hver mappe har en mulighed for at aktivere automatisk beskedklassificering. Når dette er slået til, vil nye beskeder i andre mapper, som klassifikatoren mener hører til den mappe, automatisk blive flyttet.
 
-Indstillingen *Brug lokalt spamfilter* slår beskedklassificering og autoklassificering til for Spam-mappen. Bemærk dog, at dette ikke er en erstatning for e-mailserverens spamfilter og kan give falske positivresultater. Tjek også [denne FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder. Bemærk dog, at dette ikke er en erstatning for e-mailserverens spamfilter og kan give falske positivresultater. Tjek også [denne FAQ](#user-content-faq92).
 
 Et praktisk eksempel: Antag, at mappen 'markedsføring' findes og automatisk beskedklassificering er aktiveret for denne. Hver gang en besked flyttes til denne mappe, trænes FairEmail i, at lignende beskeder hører til hér. Hver gang en besked flyttes fra denne mappe, trænes FairEmail i, at lignende beskeder ikke hører til hér. Efter at have flyttet nogle beskeder til mappen, vil FairEmail automatisk begynde at flytte beskeder hertil. Dette vil fungere bedst med similære beskeder.
 
@@ -2844,35 +2844,46 @@ Flytning af en besked på enheden vil omklassificere denne. Moving a message wit
 
 For at forhindre e-mailserveren i at flytte en besked til Spam-mappen igen og igen, vil autoklassificering ud af Spam-mappen ikke ske.
 
-Klassificeringen er optimeret til brug af så få ressourcer som muligt, men vil uundgåeligt bruge ekstra strøm.
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
-Alle klassificeringsdata kan slettes ved at slå klassificeringen fra tre gange.
+* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
+* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+
+Considering the defaults option values:
+
+* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
+* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
+* Apples 50 % and bananas 20 % would result in selecting apples
+
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+
+You can delete all classification data by turning classification three times off.
 
 <br />
 
 ## Get support
 
-FairEmail understøttes kun på smartphones, tablets og ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er identisk med seneste GitHub-udgivelses ditto. Dette betyder også, at nedgradering er uunderstøttet.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Der er ingen support til bygning og udvikling af ting fra dig selv.
+There is no support on building and developing things by yourself.
 
-Anmodede funktioner skal:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er mhp. at muliggøre langsigtet vedligeholdelse og support.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Ved spørgsmål, funktionsønsker eller fejlindrapportering, så benyt [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

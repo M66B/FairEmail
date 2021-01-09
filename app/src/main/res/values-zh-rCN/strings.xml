@@ -296,6 +296,9 @@
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
+    <string name="title_advanced_color_saturation">饱和度： %1$s %%</string>
+    <string name="title_advanced_color_value">亮度： %1$s %%</string>
+    <string name="title_advanced_color_threshold">字母颜色阈值：%1$s %%</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
@@ -428,6 +431,8 @@
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
+    <string name="title_advanced_class_min_chance">分类器考虑进行分类的最小概率：%1$s %%</string>
+    <string name="title_advanced_class_min_difference">与下一类最少相差多少，分类器考虑进行分类：%1$s %%</string>
     <string name="title_advanced_language">语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>

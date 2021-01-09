@@ -2832,7 +2832,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder. This will work best with similar messages.
 
@@ -2843,6 +2843,17 @@ Classification will be done for new messages in the inbox, spam folder and user 
 Moving a message on the device will reclassify the message. Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+
+* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
+* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+
+Considering the defaults option values:
+
+* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
+* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
+* Apples 50 % and bananas 20 % would result in selecting apples
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 

@@ -442,8 +442,8 @@
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>
-    <string name="title_advanced_class_min_chance" comment="title_advanced_class_min_chance&#10;Minimum chance for classifier to consider a class&#10;Please leave the format specifiers &quot;%1$s %%&quot;">Minimale klassekans: %1$s %%</string>
-    <string name="title_advanced_class_min_difference" comment="title_advanced_class_min_difference&#10;Minimum difference with next class for classifier to consider a class&#10;Please leave the format specifiers &quot;%1$s %%&quot;">Minimale klasseverschil: %1$s %%</string>
+    <string name="title_advanced_class_min_chance">Minimale klasse waarschijnlijkheid: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>

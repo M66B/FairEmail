@@ -2832,7 +2832,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* turns on message classification and auto classification for the spam folder. Bitte haben Sie Verständnis dafür, dass dies kein Ersatz für den Spam-Filter des E-Mail-Servers ist und zu Fehlalarmen führen kann. See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder. Bitte haben Sie Verständnis dafür, dass dies kein Ersatz für den Spam-Filter des E-Mail-Servers ist und zu Fehlalarmen führen kann. See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder. Dies funktioniert am besten bei ähnlichen Nachrichten.
 
@@ -2844,6 +2844,17 @@ Moving a message on the device will reclassify the message. Das Verschieben eine
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+
+* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
+* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+
+Considering the defaults option values:
+
+* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
+* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
+* Apples 50 % and bananas 20 % would result in selecting apples
+
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification three times off.
@@ -2852,27 +2863,27 @@ You can delete all classification data by turning classification three times off
 
 ## Support erhalten
 
-FairEmail kann nur auf Smartphones, Tablets und ChromeOS genutzt werden.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Es werden nur die neueste Play Store-Version und die neueste GitHub-Version unterstützt. Der F-Droid-Build wird nur unterstützt, wenn die Versionsnummer mit der Versionsnummer der neuesten GitHub-Version übereinstimmt. Dies bedeutet auch, dass ein Zurückstufen nicht unterstützt wird.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Für Funktionen, die nicht direkt mit FairEmail zusammenhängen, gibt es keine Unterstützung.
+There is no support on things that are not directly related to FairEmail.
 
-Es gibt keine Unterstützung für eigene Builds und selbstentwickelte Funktionen.
+There is no support on building and developing things by yourself.
 
-Gewünschte Funktionen sollten:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Dies soll auch langfristig die Wartung und Unterstützung gewährleisten.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub-Ausgaben sind aufgrund häufiger Fehlbenutzung deaktiviert.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

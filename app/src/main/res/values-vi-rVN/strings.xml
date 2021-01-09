@@ -3,6 +3,46 @@
     <string name="app_search">Kimngocdhkt@gmail.com </string>
     <string name="app_changelog">Kimngocdhkt@gmail. com</string>
     <string name="app_limitations">For example, messages will always be reformatted to remove unsafe elements and to improve readability and opening links needs to be confirmed for safety.</string>
+    <string name="channel_service">Nhận</string>
+    <string name="channel_send">Gửi</string>
+    <string name="channel_update">Cập nhật</string>
+    <string name="shortcut_refresh">Làm mới</string>
+    <string name="shortcut_compose">Soạn</string>
+    <string name="shortcut_setup">Cài đặt</string>
+    <string name="title_factor_minutes">%1$d phút</string>
+    <string name="menu_exit">Thoát</string>
+    <string name="menu_setup">Cài đặt</string>
+    <string name="menu_legend">Chú giải</string>
+    <string name="menu_test">Chương trình thử nghiệm</string>
+    <string name="menu_faq">Hỗ trợ</string>
+    <string name="menu_translate">Giúp dịch</string>
+    <string name="menu_issue">Báo cáo vấn đề</string>
+    <string name="menu_rate">Đánh giá ứng dụng này</string>
+    <string name="title_welcome">Chào mừng</string>
+    <string name="title_eula">Thoả thuận cấp phép người dùng cuối</string>
+    <string name="title_contributors">Những người đóng góp</string>
+    <string name="title_agree">Tôi đồng ý</string>
+    <string name="title_disagree">Tôi không đồng ý</string>
+    <string name="title_version">Phiên bản %1$s</string>
+    <string name="title_list_accounts">Tài khoản</string>
+    <string name="title_list_identities">Danh tính</string>
+    <string name="title_edit_account">Chỉnh sửa tài khoản</string>
+    <string name="title_edit_identity">Chỉnh sửa danh tính</string>
+    <string name="title_edit_folder">Chỉnh sửa thư mục</string>
+    <string name="title_setup">Cài đặt</string>
+    <string name="title_setup_help">Trợ giúp</string>
+    <string name="title_setup_welcome">        Việc nhận và gửi thư yêu cầu thiết lập một tài khoản và một danh tính giống như bất kỳ ứng dụng email nào.
+        Thiết lập nhanh sẽ tạo cả một tài khoản và một danh tính bằng cách chỉ hỏi tên bạn, địa chỉ email, và mật khẩu.
+        Những tài khoản và danh tính (tên khác) có thể được thiết lập thủ công nếu cần.
+        Những giao thức phi tiêu chuẩn, như Microsoft Exchange Web Services và Microsoft ActiveSync, không được hỗ trợ, đồng thời hãy xem miêu tả ứng dụng.
+    </string>
+    <string name="title_setup_quick">Thiết lập nhanh</string>
+    <string name="title_setup_quick_remark">Để thiết lập nhanh một tài khoản và danh tính cho phần lớn nhà cung cấp</string>
+    <string name="title_setup_wizard">Trình hướng dẫn</string>
+    <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
+    <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
+    <string name="title_setup_other">Nhà cung cấp khác</string>
+    <string name="title_setup_pop3">Tài khoản POP3</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

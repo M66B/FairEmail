@@ -308,6 +308,9 @@
     <string name="title_advanced_generated_icons">Afficher les icônes générées automatiquement</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
+    <string name="title_advanced_color_saturation">Saturation : %1$s %%</string>
+    <string name="title_advanced_color_value">Luminosité : %1$s %%</string>
+    <string name="title_advanced_color_threshold">Seuil de couleur de lettre : %1$s %%</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d\'envoi</string>
     <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
@@ -440,6 +443,8 @@
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_classification">Classer les messages</string>
+    <string name="title_advanced_class_min_chance">Probabilité minimale de classe : %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>

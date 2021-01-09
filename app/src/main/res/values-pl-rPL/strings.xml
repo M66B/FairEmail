@@ -241,6 +241,9 @@
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
+    <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
+         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
+    </string>
     <string name="title_advanced_section_main">Główne</string>
     <string name="title_advanced_section_synchronize">Odbieranie</string>
     <string name="title_advanced_section_send">Wysyłanie</string>
@@ -326,6 +329,9 @@
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
+    <string name="title_advanced_color_saturation">Nasycenie: %1$s %%</string>
+    <string name="title_advanced_color_value">Jasność: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Próg koloru czcionki: %1$s %%</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_replace_name">Preferuj nazwę kontaktu nad nazwą wysłaną</string>
     <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
@@ -458,6 +464,7 @@
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
+    <string name="title_advanced_class_min_difference">Minimalna różnica klasy: %1$s %%</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>

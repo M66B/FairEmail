@@ -307,6 +307,9 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
+    <string name="title_advanced_color_saturation">Sättigung: %1$s %%</string>
+    <string name="title_advanced_color_value">Helligkeit: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Schwellenwert Schriftfarbe: %1$s %%</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_replace_name">Einen Kontaktnamen gegenüber einem gesendeten Namen bevorzugen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
@@ -439,6 +442,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
+    <string name="title_advanced_class_min_chance">Minimale Wahrscheinlichkeit für einen Klassentreffer: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>

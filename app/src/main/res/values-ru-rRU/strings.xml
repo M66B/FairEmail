@@ -330,6 +330,9 @@
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
     <string name="title_advanced_circular">Использовать круглые значки</string>
+    <string name="title_advanced_color_saturation">Насыщенность: %1$s %%</string>
+    <string name="title_advanced_color_value">Яркость: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Порог яркости отображения букв: %1$s %%</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
@@ -462,6 +465,8 @@
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_classification">Классифицировать сообщения</string>
+    <string name="title_advanced_class_min_chance">Минимальная вероятность класса: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
@@ -1136,7 +1141,7 @@
     <string name="title_legend_rule">Имеет правила</string>
     <string name="title_legend_similar">Поиск похожих сообщений</string>
     <string name="title_legend_notify">Уведомлять о новых сообщениях</string>
-    <string name="title_legend_sync_keep">Количество дней для синхронизации/хранения сообщений</string>
+    <string name="title_legend_sync_keep">Количество дней для синхронизации / хранения сообщений</string>
     <string name="title_legend_download_fetch">Количество загруженных сообщений / полученных заголовков</string>
     <string name="title_legend_stop">Остановить обработку правил</string>
     <string name="title_legend_thread">Диалог</string>
