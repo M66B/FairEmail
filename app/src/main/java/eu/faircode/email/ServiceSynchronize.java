@@ -1077,7 +1077,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             } else {
                                 Log.e(ex);
                                 try {
-                                    state.setBackoff(CONNECT_BACKOFF_ALARM_MAX * 60);
+                                    state.setBackoff(2 * CONNECT_BACKOFF_ALARM_MAX * 60);
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     nm.notify("receive:" + account.id, 1,
                                             Core.getNotificationError(this, "error", account.name, ex)
