@@ -8,6 +8,8 @@ FairEmail might be for you if you value your privacy.
 
 <i>Almost all features are free to use, but to maintain and support the app in the long term, not every feature can be for free. See below for a list of pro features.</i>
 
+<i>A lot of effort has gone into this app, which was developed to help you protect your privacy. If you have a question or problem, there is always support at marcel@faircode.eu.</i>
+
 <b>Main features</b>
 
 * Fully featured
