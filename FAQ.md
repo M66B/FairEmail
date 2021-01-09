@@ -2360,10 +2360,15 @@ Moreover, email servers have access to information, like the IP address, etc of 
 Spam filtering based on message headers might have been feasible,
 but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
+Recent versions of FairEmail can filter spam to a certain extend using a message classifier.
+Please see [this FAQ](#user-content-faq163) for more information about this.
+
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
 This can be done automatically with [filter rules](#user-content-faq71) too.
 Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+
+Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
 
 Note that you should not delete spam messages, also not from the spam folder,
 because the email server uses the messages in the spam folder to "learn" what spam messages are.
@@ -3417,7 +3422,7 @@ Message classification will attempt to automatically group emails into classes, 
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable learning mode only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
 
 Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
@@ -3429,8 +3434,9 @@ See also [this FAQ](#user-content-faq92).
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
 Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder.
 Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder.
-After moving some messages into the folder, FairEmail will start to move messages automatically into this folder.
-This will work best with similar messages.
+After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder.
+Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder.
+This will work best with messages with similar content (email addresses, subject and message text).
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
 If the classifier is unsure, it will simply leave an email where it is.
@@ -3445,11 +3451,13 @@ To prevent the email server from moving a message into the spam folder again and
 auto classification out of the spam folder will not be done.
 
 The message classifier calculates the probability a message belongs in a folder (class).
-There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder,
+There are two options in miscellaneous settings that control if a message will be automatically moved into a folder,
 provided that auto classification is enabled for the folder:
 
-* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
-* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
+* *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
+
+Both conditions must be satisfied before a message will be moved.
 
 Considering the defaults option values:
 
@@ -3460,6 +3468,8 @@ Considering the defaults option values:
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification three times off.
+
+[Filter rules](#user-content-faq71) will be executed before classification.
 
 <br />
 
