@@ -74,12 +74,6 @@ public class MessageClassifier {
             // Load data if needed
             load(context);
 
-            // Initialize data if needed
-            if (!classMessages.containsKey(folder.account))
-                classMessages.put(folder.account, new HashMap<>());
-            if (!wordClassFrequency.containsKey(folder.account))
-                wordClassFrequency.put(folder.account, new HashMap<>());
-
             // Classify texts
             String classified = classify(folder.account, folder.name, texts, target == null, context);
 
@@ -92,14 +86,6 @@ public class MessageClassifier {
                     " class=" + classified +
                     " re=" + message.auto_classified +
                     " elapsed=" + elapsed);
-
-            Integer m = classMessages.get(folder.account).get(folder.name);
-            m = (m == null ? 0 : m) + (target == null ? 1 : -1);
-            if (m <= 0)
-                classMessages.get(folder.account).remove(folder.name);
-            else
-                classMessages.get(folder.account).put(folder.name, m);
-            Log.i("Classifier " + folder.name + "=" + m + " msgs");
 
             dirty = true;
 
@@ -168,6 +154,12 @@ public class MessageClassifier {
     }
 
     private static String classify(long account, @NonNull String currentClass, @NonNull List<String> texts, boolean added, @NonNull Context context) {
+        // Initialize data if needed
+        if (!classMessages.containsKey(account))
+            classMessages.put(account, new HashMap<>());
+        if (!wordClassFrequency.containsKey(account))
+            wordClassFrequency.put(account, new HashMap<>());
+
         State state = new State();
 
         Log.i("Classifier texts=" + texts.size());
@@ -201,11 +193,6 @@ public class MessageClassifier {
         // final word
         processWord(account, added, null, state);
 
-        updateFrequencies(account, currentClass, added, state);
-
-        if (!added)
-            return null;
-
         int maxMessages = 0;
         for (String clazz : classMessages.get(account).keySet()) {
             int count = classMessages.get(account).get(clazz);
@@ -213,10 +200,15 @@ public class MessageClassifier {
                 maxMessages = count;
         }
 
+        updateFrequencies(account, currentClass, added, state);
+
         if (maxMessages == 0) {
             Log.i("Classifier no messages account=" + account);
             return null;
         }
+
+        if (!added)
+            return null;
 
         // Calculate chance per class
         DB db = DB.getInstance(context);
@@ -335,7 +327,15 @@ public class MessageClassifier {
         }
     }
 
-    private static void updateFrequencies(long account, @NonNull String clazz, boolean added, @NonNull State state) {
+    private static void updateFrequencies(long account, @NonNull String currentClass, boolean added, @NonNull State state) {
+        Integer m = classMessages.get(account).get(currentClass);
+        m = (m == null ? 0 : m) + (added ? 1 : -1);
+        if (m <= 0)
+            classMessages.get(account).remove(currentClass);
+        else
+            classMessages.get(account).put(currentClass, m);
+        Log.i("Classifier " + currentClass + "=" + m + " msgs");
+
         for (int i = 1; i < state.words.size() - 1; i++) {
             String before = state.words.get(i - 1);
             String current = state.words.get(i);
@@ -350,14 +350,14 @@ public class MessageClassifier {
                     classFrequency = new HashMap<>();
                     wordClassFrequency.get(account).put(current, classFrequency);
                 }
-                Frequency c = classFrequency.get(clazz);
+                Frequency c = classFrequency.get(currentClass);
                 if (c == null) {
                     c = new Frequency();
-                    classFrequency.put(clazz, c);
+                    classFrequency.put(currentClass, c);
                 }
                 c.add(before, after, 1, state.words.indexOf(current) < i);
             } else {
-                Frequency c = (classFrequency == null ? null : classFrequency.get(clazz));
+                Frequency c = (classFrequency == null ? null : classFrequency.get(currentClass));
                 if (c != null)
                     c.add(before, after, -1, state.words.indexOf(current) < i);
             }
