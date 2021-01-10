@@ -3429,8 +3429,10 @@ You can enable message classification in the miscellaneous settings. This will e
 Each folder has an option to enable automatic message classification.
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder.
-Please understand that this is not a replacement for the spam filter of the email server and can result in false positives.
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings
+and auto classification for the spam folder.
+Please understand that this is not a replacement for the spam filter of the email server and
+can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives).
 See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
@@ -3445,9 +3447,6 @@ If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only.
 You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
-
-Moving a message on the device will reclassify the message.
-Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
 
 To prevent the email server from moving a message into the spam folder again and again,
 auto classification out of the spam folder will not be done.
@@ -3472,6 +3471,8 @@ Classification is optimized to use as little resources as possible, but will ine
 You can delete all classification data by turning classification three times off.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
+
+Message classification is a pro feature, except for the spam folder.
 
 <br />
 
