@@ -396,6 +396,31 @@ public class MessageClassifier {
         Log.i("Classifier data loaded");
     }
 
+    static synchronized void cleanup(@NonNull Context context) {
+        try {
+            load(context);
+
+            DB db = DB.getInstance(context);
+            for (Long account : accountMsgIds.keySet()) {
+                List<String> msgids = accountMsgIds.get(account);
+                Log.i("Classifier cleanup account=" + account + " count=" + msgids.size());
+                for (String msgid : new ArrayList<>(msgids)) {
+                    List<EntityMessage> messages = db.message().getMessagesByMsgId(account, msgid);
+                    if (messages != null && messages.size() == 0) {
+                        Log.i("Classifier removing msgid=" + msgid);
+                        msgids.remove(msgid);
+                        dirty = true;
+                    }
+                }
+            }
+
+            if (dirty)
+                save(context);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
     static synchronized void clear(@NonNull Context context) {
         wordClassFrequency.clear();
         dirty = true;

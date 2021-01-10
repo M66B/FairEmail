@@ -142,6 +142,8 @@ public class WorkerCleanup extends Worker {
 
                 ServiceSynchronize.reschedule(context);
 
+                MessageClassifier.cleanup(context);
+
                 // Contact info cache
                 ContactInfo.clearCache(context);
 
