@@ -116,11 +116,12 @@ public class MessageClassifier {
                     }
 
                     db.setTransactionSuccessful();
-
-                    accountMsgIds.get(folder.account).add(message.msgid);
                 } finally {
                     db.endTransaction();
                 }
+
+                if (message.ui_hide)
+                    accountMsgIds.get(folder.account).add(message.msgid);
             }
 
             dirty = true;
