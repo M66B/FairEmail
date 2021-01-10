@@ -306,7 +306,7 @@ public class MessageClassifier {
                     int c = frequency.count;
                     Integer b = (before == null ? null : frequency.before.get(before));
                     Integer a = (after == null ? null : frequency.after.get(after));
-                    double f = ((b == null ? 0 : b) + c + (a == null ? 0 : a)) / 3.0;
+                    double f = ((b == null ? 0 : 2 * b) + c + (a == null ? 0 : 2 * a)) / 5.0;
                     stat.totalFrequency += f;
 
                     stat.matchedWords++;
