@@ -800,7 +800,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swClassification.setChecked(prefs.getBoolean("classification", false));
 
-        int class_min_chance = prefs.getInt("class_min_probability", 50);
+        int class_min_chance = prefs.getInt("class_min_probability", 20);
         tvClassMinProbability.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
         sbClassMinProbability.setProgress(class_min_chance);
 
