@@ -102,12 +102,15 @@ public class MessageClassifier {
                     !TextUtils.isEmpty(message.msgid) &&
                     !accountMsgIds.get(folder.account).contains(message.msgid) &&
                     !EntityFolder.JUNK.equals(folder.type)) {
+                boolean pro = ActivityBilling.isPro(context);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
                     EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
-                    if (dest != null && dest.auto_classify) {
+                    if (dest != null && dest.auto_classify &&
+                            (pro || EntityFolder.JUNK.equals(dest.type))) {
                         EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
                     }
