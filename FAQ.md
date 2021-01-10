@@ -493,7 +493,10 @@ Some people ask:
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+If you use the Play store or GitHub version of FairEmail,
+you can use the quick setup wizard to easily setup a Gmail account and identity.
+The Gmail quick setup wizard is not available for third party builds, like the F-Droid build
+because Google approved the use of OAuth for official builds only.
 
 If you don't want to use an on-device Gmail account,
 you can either enable access for "less secure apps" and use your account password (not advised)
