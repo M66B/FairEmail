@@ -50,6 +50,7 @@ import javax.mail.internet.InternetAddress;
 public class MessageClassifier {
     private static boolean loaded = false;
     private static boolean dirty = false;
+    private static final Map<Long, List<String>> accountMsgIds = new HashMap<>();
     private static final Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static final Map<Long, Map<String, Map<String, Frequency>>> wordClassFrequency = new HashMap<>();
 
@@ -74,6 +75,14 @@ public class MessageClassifier {
             // Load data if needed
             load(context);
 
+            // Initialize account if needed
+            if (!accountMsgIds.containsKey(folder.account))
+                accountMsgIds.put(folder.account, new ArrayList<>());
+            if (!classMessages.containsKey(folder.account))
+                classMessages.put(folder.account, new HashMap<>());
+            if (!wordClassFrequency.containsKey(folder.account))
+                wordClassFrequency.put(folder.account, new HashMap<>());
+
             // Classify texts
             String classified = classify(folder.account, folder.name, texts, target == null, context);
 
@@ -87,12 +96,11 @@ public class MessageClassifier {
                     " re=" + message.auto_classified +
                     " elapsed=" + elapsed);
 
-            dirty = true;
-
             // Auto classify message
             if (classified != null &&
                     !classified.equals(folder.name) &&
-                    !message.auto_classified &&
+                    !TextUtils.isEmpty(message.msgid) &&
+                    !accountMsgIds.get(folder.account).contains(message.msgid) &&
                     !EntityFolder.JUNK.equals(folder.type)) {
                 DB db = DB.getInstance(context);
                 try {
@@ -106,10 +114,13 @@ public class MessageClassifier {
 
                     db.setTransactionSuccessful();
 
+                    accountMsgIds.get(folder.account).add(message.msgid);
                 } finally {
                     db.endTransaction();
                 }
             }
+
+            dirty = true;
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -154,12 +165,6 @@ public class MessageClassifier {
     }
 
     private static String classify(long account, @NonNull String currentClass, @NonNull List<String> texts, boolean added, @NonNull Context context) {
-        // Initialize data if needed
-        if (!classMessages.containsKey(account))
-            classMessages.put(account, new HashMap<>());
-        if (!wordClassFrequency.containsKey(account))
-            wordClassFrequency.put(account, new HashMap<>());
-
         State state = new State();
 
         Log.i("Classifier texts=" + texts.size());
@@ -442,12 +447,29 @@ public class MessageClassifier {
                 }
             }
 
+        JSONArray jclassified = new JSONArray();
+        for (Long account : accountMsgIds.keySet()) {
+            JSONObject jaccount = new JSONObject();
+            jaccount.put("account", account);
+            jaccount.put("messages", from(accountMsgIds.get(account)));
+            jclassified.put(jaccount);
+        }
+
         JSONObject jroot = new JSONObject();
         jroot.put("version", 2);
         jroot.put("messages", jmessages);
         jroot.put("words", jwords);
+        jroot.put("classified", jclassified);
 
         return jroot;
+    }
+
+    @NonNull
+    private static JSONArray from(@NonNull List<String> list) throws JSONException {
+        JSONArray jlist = new JSONArray();
+        for (String item : list)
+            jlist.put(item);
+        return jlist;
     }
 
     @NonNull
@@ -497,6 +519,20 @@ public class MessageClassifier {
                 classFrequency.put(jword.getString("class"), f);
             } else
                 Log.w("No words account=" + account);
+        }
+
+        JSONArray jclassified = jroot.getJSONArray("classified");
+        for (int a = 0; a < jclassified.length(); a++) {
+            JSONObject jaccount = jclassified.getJSONObject(a);
+            long account = jaccount.getLong("account");
+            List<String> ids = accountMsgIds.get(account);
+            if (ids == null) {
+                ids = new ArrayList<>();
+                accountMsgIds.put(account, ids);
+            }
+            JSONArray jids = jaccount.getJSONArray("messages");
+            for (int h = 0; h < jids.length(); h++)
+                ids.add(jids.getString(h));
         }
     }
 

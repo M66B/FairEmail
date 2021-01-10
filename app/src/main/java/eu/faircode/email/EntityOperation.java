@@ -189,7 +189,7 @@ public class EntityOperation {
                     autounflag = false;
                 }
 
-                boolean auto_classified = message.auto_classified;
+                boolean auto_classified = false;
                 if (jargs.opt(2) != null) {
                     auto_classified = jargs.getBoolean(2);
                     jargs.remove(2);
