@@ -1,4 +1,4 @@
-# FairEmail - Brukerstøtte
+# FairEmail brukerstøtte
 
 Hvis du har spørsmål eller problemer, vennligst se om du finner svar blant de ofte stilte spørsmålene nedenfor først. Nederst på siden finner du ut hvordan du stiller andre spørsmål, ber om nye funksjoner eller rapporterer feil.
 

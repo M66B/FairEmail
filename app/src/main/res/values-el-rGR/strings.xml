@@ -442,6 +442,8 @@
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
+    <string name="title_advanced_class_min_chance">Ελάχιστη πιθανότητα για ορισμένη ταξινόμηση: %1$s%%</string>
+    <string name="title_advanced_class_min_difference">Ελάχιστη διαφορά για την επόμενη τάξη: %1$s%%</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>

@@ -219,6 +219,9 @@
     <string name="title_setup_defaults">Palauta oletukset</string>
     <string name="title_setup_reset_questions">Nollaa kysymykset</string>
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
+    <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
+        Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
+    </string>
     <string name="title_advanced_section_main">Yleiset</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
@@ -304,6 +307,9 @@
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
+    <string name="title_advanced_color_saturation">Kylläisyys: %1$s %%</string>
+    <string name="title_advanced_color_value">Kirkkaus: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Kirjasimen värin kynnysarvo: %1$s %%</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_replace_name">Käytä ensisijaisesti yhteystiedon nimeä lähettäjän nimen sijaan</string>
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
@@ -435,6 +441,8 @@
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_classification">Luokittele viestit</string>
+    <string name="title_advanced_class_min_chance">Luokan vähimmäistodennäköisyys: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Luokkien välinen vähimmäisero: %1$s %%</string>
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>

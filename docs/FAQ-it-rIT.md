@@ -1927,130 +1927,130 @@ Y1 OK CAPABILITY completed
 <a name="faq89"></a>
 **(89) Come posso inviare messaggi di solo testo semplice?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+Di default FairEmail invia ogni messaggio sia come testo semplice che come testo formattato HTML perché quasi ogni destinatario se ne aspetta di questi giorni. Se vuoi/necessiti di inviare messaggi in solo testo semplice, puoi abilitarlo nelle opzioni di identità avanzate. Potresti volerne creare una nuova se vuoi/necessiti di selezionare l'invio di messaggi in testo semplice in base al caso.
 
 <br />
 
 <a name="faq90"></a>
-**(90) Why are some texts linked while not being a link?**
+**(90) Perché alcuni testi sono collegati senza essere collegamenti?**
 
-FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
+FairEmail collegherà in automatico i link web (http e https) e indirizzi email (mailto) non collegati per la tua comodità. Tuttavia, testi e collegamenti non sono facilmente distinti, specialmente con pochi [domini di alto livello](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) che non sono parole. Questo perché i testi con i punti sono talvolta riconosciuti erroneamente come collegamenti, il che è meglio che non riconoscerne.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+Anche i collegamenti ai protocolli tel, geo, rtsp e xmpp saranno riconosciuti, ma quelli per protocolli meno soliti o meno sicuro come telnet e ftp non saranno riconosciuti. Il regex per riconoscere i collegamenti è già *molto* complesso e aggiungere altri protocolli lo renderà solo più lento e potrebbe causare errori.
 
-Note that original messages are shown exactly as they are, which means also that links are not automatically added.
+Nota che i messaggi originali sono mostrati esattamente come sono, il che significa anche che i collegamenti non saranno aggiunti automaticamente.
 
 <br />
 
 <a name="faq91"></a>
-**~~(91) Can you add periodical synchronization to save battery power?~~**
+**~~(91) Puoi aggiungere la sincronizzazione periodica per risparmiare energia della batteria?~~**
 
-~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
+~~La sincronizzazione dei messaggi è un processo costoso perché i messaggi locali e remoti devono essere confrontati,~~ ~~quindi sincronizzarli periodicamente non risulterà in risparmiare l'energia della batteria, ma più probabilmente nel contrario.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Vedi [questa FAQ](#user-content-faq39) sull'ottimizzazione dell'uso della batteria.~~
 
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
+**(92) Puoi aggiungere il filtraggio degli spam e la verifica della firma DKIM e dell'autorizzazione SPF?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. I server hanno generalmente più memoria e potenza di calcolo, quindi sono molto più adatti a quest'attività piuttosto che ai dispositivi alimentati a batteria. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+Il filtraggio degli spam, la verifica della firma [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) e l'autorizzazione [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) è un'attività dei server email, non di un client di posta elettronica. I server hanno generalmente più memoria e potenza di calcolo, quindi sono molto più adatti a quest'attività piuttosto che ai dispositivi alimentati a batteria. Inoltre, vorrai che lo spam sia filtrato per tutti i tuoi client email, includendo possibilmente anche l'email web, non solo il client email. Inoltre, i server email hanno accesso a informazioni come l'indirizzo IP, etc del server di connessione, a cui il client email non ha alcun accesso.
 
-Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+Il filtraggio degli spam si basa sulle intestazioni dei messaggi che potrebbero essere fattibili, ma sfortunatamente questa tecnica è [brevettata da Microsoft](https://patents.google.com/patent/US7543076).
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Di certo puoi segnalare i messaggi come spam con FairEmail, il che sposterà i messaggi alla cartella degli spam e addestrerà il filtro anti-spam del provider, così come dovrebbe funzionare. Questo si può fare automaticamente anche con le [regole del filtro](#user-content-faq71). Bloccare il mittente creerà una regola del filtro per spostare automaticamente i messaggi futuri dallo stesso mittente nella cartella degli spam.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Nota che non dovresti eliminare i messaggi di spam anche dalla cartella di spam, perché il server email li usa nella cartella di spam per "imparare" cosa sono.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Se ricevi molti messaggi di spam nella posta in entrata, il meglio che puoi fare è contattare il provider dell'email per chiedere che ne sia migliorato il filtraggio.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+Inoltre, FairEmail può mostrare una piccola bandiera di avviso rossa quando l'autenticazione [DMARC](https://en.wikipedia.org/wiki/DMARC), DKIM o SPF è fallita sul server di ricezione. Puoi abilitare/disabilitare la [verifica dell'autenticazione](https://en.wikipedia.org/wiki/Email_authentication) nelle impostazioni di visualizzazione.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+FairEmail può mostrare una bandiera di avviso anche se il nome del dominio dell'indirizzo email (risposta) del mittente non definisce un registro MX diretto a un server email. Questo si può abilitare nelle impostazioni di ricezione. Sappi che questo rallenterà significativamente la sincronizzazione dei messaggi.
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+Se i messaggi legittimi stanno fallendo l'autenticazione, dovresti notificare il mittente perché risulterà in un maggiore rischio per cui tali messaggi finiscano nella cartella degli spam. Inoltre, senza un'autenticazione adatta esiste il rischio che il mittente sia impersonato. Il mittente potrebbe usare [questo strumento](https://www.mail-tester.com/) per controllare l'autenticazione e altre cose.
 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Puoi consentire l'installazione/archiviazione di dati sul media di archiviazione esterno (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail usa servizi e avvisi, fornisce widget e ascolta per avviare l'evento di avvio completato all'avvio del dispositivo, quindi è impossibile archiviare l'app su un media di archiviazione esterna, come una scheda sd. Vedi anche [qui](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+I messaggi, gli allegati, etc. archiviati su un media di archiviazione esterno, come una scheda sd, sono accessibili da altre app e quindi non sicuri. Vedi [qui](https://developer.android.com/training/data-storage) per i dettagli.
 
-When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
+Quando necessario puoi salvare i messaggi (grezzi) tramite il menu a tre puntini proprio sopra il testo del messaggio e salvare gli allegati toccando l'icona del dischetto.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+Se devi salvare sullo spazio di archiviazione, puoi limitare il numero di messaggi giornalieri sincronizzati e mantenuti. Puoi modificare queste impostazioni premendo a lungo una cartella nell'elenco delle cartelle e selezionando *Modifica proprietà*.
 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Cosa significa la striscia rossa/arancione alla fine dell'intestazione?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+La striscia rossa/arancione sul lato sinistro dell'intestazione indica il fallimento dell'autenticazione DKIM, SPF o DMARC. Vedi anche [questa FAQ](#user-content-faq92).
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) Perché non tutte le app sono mostrate selezionando un allegato o un'immagine?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+Per motivi di privacy e sicurezza FairEMail non ha i permessi per accedere direttamente ai file, invece il Framework di Accesso all'Archiviazione, disponibile e consigliato da Android 4.4 KitKat (rilasciato nel 2013), è usato per selezionare i file.
 
-If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
+Se l'app implementa un [provider di documenti](https://developer.android.com/guide/topics/providers/document-provider), è elencata. Se l'app non è elencata, potresti dover chiedere allo sviluppatore dell'app di aggiungere il supporto per il Framework di Accesso all'Archiviazione.
 
-Android Q will make it harder and maybe even impossible to directly access files, see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
+Android Q renderà più difficile e forse impossibile accedere direttamente ai file, vedi [qui](https://developer.android.com/preview/privacy/scoped-storage) e [qui](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) per ulteriori dettagli.
 
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Dove posso trovare le impostazioni di IMAP e SMTP?**
 
-The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+Le impostazioni IMAP sono parte delle impostazioni del profilo (personalizzate) e le impostazioni SMTP sono parte delle impostazioni dell'identità.
 
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) Cos'è la 'pulizia' ?**
 
-About each four hours FairEmail runs a cleanup job that:
+Circa ogni quattro ore FairEmail esegue un lavoro di pulizia che:
 
-* Removes old message texts
-* Removes old attachment files
-* Removes old image files
-* Removes old local contacts
-* Removes old log entries
+* Rimuove i testi dei messaggi vecchi
+* Rimuove gli allegati dei messaggi vecchi
+* Rimuove immagini di vecchi file
+* Rimuove contatti locali vecchi
+* Rimuove le vecchie voci del registro
 
-Note that the cleanup job will only run when the synchronize service is active.
+Nota che il lavoro di pulizia sarà eseguito solo quando il servizio di sincronizzazione è attivo.
 
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) Perché posso ancora selezionare i contatti dopo averne revocati i permessi?**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+Dopo aver revocato i permessi dei contatti, Android non consente più l'accesso a FairEmail. Tuttavia, la selezione dei contatti è delegata a e fatta da Android e non da FairEmail, quindi è ancora possibile senza i permessi dei contatti.
 
 <br />
 
 <a name="faq99"></a>
-**(99) Can you add a rich text or markdown editor?**
+**(99) Puoi aggiungere un editor di rich text o markdown?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
+FairEmail fornisce la formattazione comune del testo (grassetto, corsivo, sottolineato, dimensioni e colori del testo) tramite una barra degli strumenti che compare dopo averlo selezionato.
 
-A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor would not be used by many people on a small mobile device and, more important, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
+Un editor di [Rich text](https://en.wikipedia.org/wiki/Formatted_text) o di [Markdown](https://en.wikipedia.org/wiki/Markdown) non sarebbe usato da molte persone su un piccolo dispositivo mobile e, soprattutto, Android non supporta un editor di rich text e gran parte dei progetti open-source a riguardo sono stati abbandonati. Vedi [qui](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) per ulteriori dettagli a riguardo.
 
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Come posso sincronizzare le categorie di Gmail?**
 
-You can synchronize Gmail categories by creating filters to label categorized messages:
+Puoi sincronizzare le categorie di Gmail creando filtri per etichettare i messaggi categorizzati:
 
-* Create a new filter via Gmail > Settings (wheel) > Filters and Blocked Addresses > Create a new filter
-* Enter a category search (see below) in the *Has the words* field and click *Create filter*
-* Check *Apply the label* and select a label and click *Create filter*
+* Crea un nuovo filtro tramite Gmail > Impostazioni (rotellina) > Filtri e Indirizzi Bloccati > Crea un nuovo filtro
+* Inserisci una ricerca della categoria (vedi sotto) nel campo *Contiene le parole* e clicca *Crea filtro*
+* Spunta *Applica l'etichetta* e selezionane una e clicca *Crea filtro*
 
-Possible categories:
+Possibile categorie:
 
 ```
 categoria: social
@@ -2059,50 +2059,50 @@ categoria: forum
 categoria: promozioni
 ```
 
-Unfortunately, this is not possible for snoozed messages folder.
+Sfortunatamente, questo è impossibile per la cartella dei messaggi posticipati.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again and you can long press the folders to enable synchronization.
+Puoi usare *Forza sincronizzazione* nel menu a tre puntini della casella unificata per far sincronizzare di nuovo l'elenco delle cartelle a FairEmail e puoi premere a lungo le cartelle per abilitare la sincronizzazione.
 
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Cosa significa il punto blu/arancione in fondo alle conversazioni?**
 
-The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Il punto mostra la posizione relativa della conversazione nell'elenco dei messaggi. Il punto sarà mostrato arancione quando la conversazione è la prima o l'ultima dell'elenco dei messaggi, altrimenti sarà blu. Il punto è inteso come un aiuto scorrendo a sinistra/destra per andare alla conversazione precedente/successiva.
 
-The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
+Il punto è disabilitato di default ed è abilitabile con le impostazioni di visualizzazione *Mostra la posizione relativa con un punto*.
 
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Come posso abilitare la rotazione automatica delle immagini?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+Le immagini saranno ruotate automaticamente quando il ridimensionamento automatico delle immagini è abilitato nelle impostazioni (abilitato di default). Tuttavia, la rotazione automatica dipende dalla presenza e correttezza dell'informazione [Exif](https://en.wikipedia.org/wiki/Exif), il che non è sempre il caso. In particolare non lo è quando si scatta una foto con un'app fotocamera da FairEmail.
 
-Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+Nota che solo le immagini [JPEG](https://en.wikipedia.org/wiki/JPEG) e [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) possono contenere informazioni Exif.
 
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Cosa devo sapere sulla segnalazione degli errori?**
 
-* Error reports will help improve FairEmail
-* Error reporting is optional and opt-in
-* Error reporting can be enabled/disabled in the settings, section miscellaneous
-* Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
-* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
-* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
-* See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
-* Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
+* Le segnalazioni degli errori aiuteranno a migliorare FairEmail
+* La segnalazione degli errori è opzionale e su adesione
+* La segnalazione degli errori può essere abilitata/disabilitata nelle impostazioni, sezione varie
+* Le segnalazioni degli errori saranno inviate automaticamente e anonimamente a [Bugsnag](https://www.bugsnag.com/)
+* Bugsnag per Android è [open-source](https://github.com/bugsnag/bugsnag-android)
+* Vedi [qui](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) quali dati saranno inviati in caso di errori
+* Vedi [qui](https://docs.bugsnag.com/legal/privacy-policy/) la politica della privacy di Bugsnag
+* Le segnalazioni di errori saranno inviate a *sessions.bugsnag.com:443* e *notify.bugsnag.com:443*
 
 <br />
 
 <a name="faq105"></a>
-**(105) How does the roam-like-at-home option work?**
+**(105) Come funziona l'opzione naviga come a casa?**
 
-FairEmail will check if the country code of the SIM card and the country code of the network are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
+FairEmail controllerà se il codice del paese della scheda SIM e quello della rete sono tra i [paesi UE naviga come a casa](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) e presumerà nessuna navigazione se questi sono eguali e se l'opzione naviga come a casa è abilitata.
 
-So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+Quindi, non devi disabilitare quest'opzione se non hai una SIM UE o non sei connesso a una rete UE.
 
 <br />
 

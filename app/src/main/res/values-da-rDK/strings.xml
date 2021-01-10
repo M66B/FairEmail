@@ -442,6 +442,8 @@
     <string name="title_advanced_language_detection">Registrér beskedtekstsprog</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
+    <string name="title_advanced_classification">Klassificér beskeder</string>
+    <string name="title_advanced_class_min_chance">Minimumsklassesandsynlighed: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
@@ -1132,6 +1134,7 @@
     <string name="title_legend_encrypted">Er krypteret</string>
     <string name="title_legend_auth">Godkendelse mislykkedes</string>
     <string name="title_legend_found">Blev fundet</string>
+    <string name="title_legend_classified">Blev automatisk klassificeret</string>
     <string name="title_legend_snoozed">Er udsat</string>
     <string name="title_legend_browsed">Gennemses eller søges i</string>
     <string name="title_legend_answered">Er besvaret</string>

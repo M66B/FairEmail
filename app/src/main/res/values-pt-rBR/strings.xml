@@ -9,6 +9,7 @@
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="channel_service">﻿Receber</string>
     <string name="channel_send">Enviar</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
@@ -76,6 +77,8 @@
     <string name="title_block_sender_hint">        Bloquear um remetente irá criar uma regra para mover automaticamente mensagens futuras para a pasta de spam.
         Criar e usar regras é um recurso pro.
     </string>
+    <string name="title_junk_filter">Usar filtro de spam local</string>
+    <string name="title_junk_filter_hint">Isso pode aumentar o uso de bateria e incorretamente marcar mensagens como spam</string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
@@ -128,14 +131,19 @@
     <string name="title_setup_wizard_multiple">O assistente de instalação pode ser usado várias vezes para configurar várias contas</string>
     <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
     <string name="title_setup_wizard_remark">Selecione \"voltar\" para ir para caixa de entrada</string>
+    <string name="title_setup_oauth_permission">Este provedor de email só aprovou OAuth nos seus aplicativos oficiais</string>
     <string name="title_setup_other">Outro provedor</string>
+    <string name="title_setup_pop3">Conta POP3</string>
     <string name="title_setup_gmail_support">Autorizar contas do Google funcionará apenas em versões oficiais porque o Android verifica a assinatura do aplicativo</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta rascunho não estiver acessível pelo IMAP, ela pode ser fixa nas configurações de etiqueta do Gmail</string>
+    <string name="title_setup_gmail_password">Quero autorizar uma conta com uma senha</string>
     <string name="title_setup_office_remark">A Microsoft não fornece este tipo de autorização para o Outlook, Live, Hotmail e etc</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
+    <string name="title_setup_oauth_update">Autorizar conta existente novamente</string>
+    <string name="title_setup_oauth_updated">Autorização da conta foi atualizada</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
@@ -161,6 +169,7 @@
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_doze_remark">Para receber e-mails corretamente</string>
+    <string name="title_setup_doze_hint">Embora isso possa parecer contraditório, desativar as otimizações de bateria resultará em menos uso de bateria</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo, selecione \"Todos os apps\" no topo, selecione este app, selecione e confirme \"Não otimizar\"</string>
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
@@ -211,6 +220,9 @@
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
+    <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.
+        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
     <string name="title_advanced_section_send">Enviar</string>
