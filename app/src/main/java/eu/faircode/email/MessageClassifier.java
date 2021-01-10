@@ -331,7 +331,7 @@ public class MessageClassifier {
             stat.totalFrequency += f;
             stat.matchedWords++;
 
-            if (BuildConfig.DEBUG)
+            if (BuildConfig.DEBUG && false)
                 stat.words.add(current + "=" + f);
         }
     }
