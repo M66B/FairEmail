@@ -498,6 +498,7 @@ class Core {
                             // Fetch: NO The specified message set is invalid.
                             // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
+                            // Fetch: NO Invalid message number (took n ms)
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
@@ -505,6 +506,7 @@ class Core {
                             // Move: NO MOVE failed or partially completed.
                             // Move: NO mailbox selected READ-ONLY
                             // Move: NO read only
+                            // Add: BAD Data length exceeds limit
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
