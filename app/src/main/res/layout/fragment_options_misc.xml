@@ -134,7 +134,7 @@
             app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvClassMinChance"
+            android:id="@+id/tvClassMinProbability"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -146,7 +146,7 @@
             app:layout_constraintTop_toBottomOf="@id/ibClassification" />
 
         <SeekBar
-            android:id="@+id/sbClassMinChance"
+            android:id="@+id/sbClassMinProbability"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:max="100"
@@ -154,7 +154,7 @@
             android:progress="20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvClassMinChance" />
+            app:layout_constraintTop_toBottomOf="@id/tvClassMinProbability" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvClassMinDifference"
@@ -166,7 +166,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sbClassMinChance" />
+            app:layout_constraintTop_toBottomOf="@id/sbClassMinProbability" />
 
         <SeekBar
             android:id="@+id/sbClassMinDifference"

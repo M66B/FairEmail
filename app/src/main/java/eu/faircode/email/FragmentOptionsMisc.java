@@ -84,8 +84,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
     private SwitchCompat swClassification;
-    private TextView tvClassMinChance;
-    private SeekBar sbClassMinChance;
+    private TextView tvClassMinProbability;
+    private SeekBar sbClassMinProbability;
     private TextView tvClassMinDifference;
     private SeekBar sbClassMinDifference;
     private ImageButton ibClassification;
@@ -129,7 +129,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts",
-            "classification", "class_min_chance", "class_min_difference",
+            "classification", "class_min_probability", "class_min_difference",
             "language", "watchdog", "updates",
             "experiments", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "auth_plain", "auth_login", "auth_sasl"
@@ -175,8 +175,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swFts = view.findViewById(R.id.swFts);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
-        tvClassMinChance = view.findViewById(R.id.tvClassMinChance);
-        sbClassMinChance = view.findViewById(R.id.sbClassMinChance);
+        tvClassMinProbability = view.findViewById(R.id.tvClassMinProbability);
+        sbClassMinProbability = view.findViewById(R.id.sbClassMinProbability);
         tvClassMinDifference = view.findViewById(R.id.tvClassMinDifference);
         sbClassMinDifference = view.findViewById(R.id.sbClassMinDifference);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
@@ -296,10 +296,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        sbClassMinChance.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        sbClassMinProbability.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                prefs.edit().putInt("class_min_chance", progress).apply();
+                prefs.edit().putInt("class_min_probability", progress).apply();
             }
 
             @Override
@@ -800,9 +800,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swClassification.setChecked(prefs.getBoolean("classification", false));
 
-        int class_min_chance = prefs.getInt("class_min_chance", 20);
-        tvClassMinChance.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
-        sbClassMinChance.setProgress(class_min_chance);
+        int class_min_chance = prefs.getInt("class_min_probability", 50);
+        tvClassMinProbability.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
+        sbClassMinProbability.setProgress(class_min_chance);
 
         int class_min_difference = prefs.getInt("class_min_difference", 50);
         tvClassMinDifference.setText(getString(R.string.title_advanced_class_min_difference, NF.format(class_min_difference)));
