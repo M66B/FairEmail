@@ -422,6 +422,7 @@ public class MessageClassifier {
     }
 
     static synchronized void clear(@NonNull Context context) {
+        accountMsgIds.clear();
         wordClassFrequency.clear();
         dirty = true;
         Log.i("Classifier data cleared");
