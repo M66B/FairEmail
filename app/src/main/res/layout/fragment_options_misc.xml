@@ -123,6 +123,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvFtsPro"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvClassificationHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_sync_delay_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swClassification" />
+
         <ImageButton
             android:id="@+id/ibClassification"
             android:layout_width="wrap_content"
@@ -130,7 +143,7 @@
             android:contentDescription="@string/title_info"
             android:tooltipText="@string/title_info"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swClassification"
+            app:layout_constraintTop_toBottomOf="@id/tvClassificationHint"
             app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
