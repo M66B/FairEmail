@@ -316,7 +316,8 @@ public class FragmentFolder extends FragmentBase {
                 etPoll.setEnabled(cbSynchronize.isChecked() && always);
                 tvPoll.setEnabled(cbSynchronize.isChecked() && always);
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
-                cbAutoClassify.setVisibility(canAutoClassify && pro ? View.VISIBLE : View.GONE);
+                cbAutoClassify.setEnabled(pro);
+                cbAutoClassify.setVisibility(canAutoClassify ? View.VISIBLE : View.GONE);
                 tvAutoClassifyPro.setVisibility(canAutoClassify && !pro ? View.VISIBLE : View.GONE);
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
