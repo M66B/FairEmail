@@ -54,6 +54,8 @@ public class MessageClassifier {
     private static final Map<Long, Map<String, Integer>> classMessages = new HashMap<>();
     private static final Map<Long, Map<String, Map<String, Frequency>>> wordClassFrequency = new HashMap<>();
 
+    private static final int MAX_WORDS = 1000;
+
     static void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
         try {
             if (!isEnabled(context))
@@ -184,6 +186,8 @@ public class MessageClassifier {
                 for (int end = boundary.next(); end != java.text.BreakIterator.DONE; end = boundary.next()) {
                     String word = text.substring(start, end);
                     processWord(account, added, word, state);
+                    if (state.words.size() >= MAX_WORDS)
+                        break;
                     start = end;
                 }
             } else {
@@ -194,6 +198,8 @@ public class MessageClassifier {
                 for (int end = boundary.next(); end != android.icu.text.BreakIterator.DONE; end = boundary.next()) {
                     String word = text.substring(start, end);
                     processWord(account, added, word, state);
+                    if (state.words.size() >= MAX_WORDS)
+                        break;
                     start = end;
                 }
             }
