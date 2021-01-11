@@ -99,6 +99,7 @@
     <string name="title_block_sender_hint">        Blokování odesílatele vytvoří pravidlo pro automatický přesun budoucích zpráv do složky nevyžádané pošty.
         Vytváření a používání pravidel je Pro funkcí.
     </string>
+    <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -153,6 +154,7 @@
     <string name="title_setup_wizard_remark">Přejděte „zpět“ pro vstup do doručených</string>
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
+    <string name="title_setup_pop3">POP3 účet</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
@@ -239,6 +241,9 @@
     <string name="title_setup_defaults">Obnovit výchozí</string>
     <string name="title_setup_reset_questions">Obnovit otázky</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
+    <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
+        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
+    </string>
     <string name="title_advanced_section_main">Hlavní</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
     <string name="title_advanced_section_send">Odesílání</string>
@@ -324,6 +329,9 @@
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
+    <string name="title_advanced_color_saturation">Sytost: %1$s %%</string>
+    <string name="title_advanced_color_value">Jas: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena: %1$s %%</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Preferovat jméno z kontaktu namísto z hlavičky</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální „komu“ kontakt</string>

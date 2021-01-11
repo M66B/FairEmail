@@ -270,7 +270,7 @@
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo normale</string>
     <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
-    <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
+    <string name="title_advanced_usenet_signature">Segui convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi firme riconosciute</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi e-mail dei destinatari prima di inviare</string>

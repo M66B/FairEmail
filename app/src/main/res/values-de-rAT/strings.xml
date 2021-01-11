@@ -312,7 +312,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_color_threshold">Schwellenwert Schriftfarbe: %1$s %%</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_replace_name">Einen Kontaktnamen gegenüber einem gesendeten Namen bevorzugen</string>
-    <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler \'An\'-Kontakt ist</string>
+    <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
@@ -536,7 +536,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
-    <string name="title_advanced_sender_regex">Regex dem der Benutzername der eingehenden E-Mail-Adressen entsprechen muss</string>
+    <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_unicode">Unicode-Transport verwenden</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
@@ -1042,7 +1042,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_enabled">Aktiviert</string>
     <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
     <string name="title_rule_sender">Absender enthält</string>
-    <string name="title_rule_sender_known">Mail-Adresse des Absender ist bekannt</string>
+    <string name="title_rule_sender_known">Absender ist in den Kontakten</string>
     <string name="title_rule_recipient">Empfänger enthält</string>
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_attachments">Anhang vorhanden</string>
@@ -1063,7 +1063,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_rule_with_attachments">Mit Anhängen</string>
     <string name="title_rule_answer_remark">Für jede Unterhaltung wird per Antwortregel nur eine Antwort gesendet, um Antwortschleifen zu vermeiden</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
-    <string name="title_rule_condition_missing">Voraussetzung fehlt</string>
+    <string name="title_rule_condition_missing">Bedingung fehlt</string>
     <string name="title_rule_folder_missing">Ordner fehlt</string>
     <string name="title_rule_identity_missing">Identität fehlt</string>
     <string name="title_rule_answer_missing">Vorlage fehlt</string>
@@ -1198,7 +1198,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_important">Wichtig</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
-    <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um den Speicherplatz und die Batterie- und Datennutzung zu begrenzen. Sie können dies ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und \"Weitere Nachrichten synchronisieren\" auswählen.</string>
+    <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um den Speicherplatz und die Akku- und Datennutzung zu begrenzen. Sie können das ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und »Weitere Nachrichten synchronisieren« auswählen.</string>
     <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie auf das Symbol „Original anzeigen“ über dem Nachrichtentext.</string>
     <string name="title_hint_design">Das Design ist absichtlich nicht ablenkend, sondern sehr funktional gehalten. Es gibt viele Optionen, um das Aussehen individuell anzupassen, aber bitte verstehen Sie, dass es unmöglich ist, alle Nutzer gleichermaßen vollkommen glücklich zu machen.</string>

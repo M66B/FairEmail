@@ -2826,7 +2826,7 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 *This is an experimental feature!*
 
-Die Nachrichtenklassifizierung versucht, E-Mails automatisch in Klassen einzuteilen, basierend auf deren Inhalt, unter Verwendung der [Bayes'schen Statistik](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. Also z. B. den Posteingang, den Spam-Ordner, einen „Marketing”-Ordner, usw. usv.
+Die Nachrichtenklassifizierung versucht, E-Mails automatisch in Klassen einzuteilen, basierend auf deren Inhalt, unter Verwendung der [bayesschen Statistik](https://de.wikipedia.org/wiki/Bayessche_Statistik). In the context of FairEmail, a folder is a class. Also z. B. den Posteingang, den Spam-Ordner, einen „Marketing”-Ordner, usw. usv.
 
 You can enable message classification in the miscellaneous settings. This will enable learning mode only.
 
@@ -2840,7 +2840,7 @@ Classification should be considered as a best guess - it might be a wrong guess,
 
 Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Moving a message on the device will reclassify the message. Das Verschieben einer Nachricht mit einem anderen E-Mail-Client führt nicht zu einer Neuklassifizierung, da IMAP keine Benachrichtigungen über "verschobene" Nachrichten unterstützt.
+Moving a message on the device will reclassify the message. Das Verschieben einer Nachricht mit einem anderen E-Mail-Programm führt nicht zu einer Neuklassifizierung, da IMAP keine Benachrichtigungen über »verschobene« Nachrichten unterstützt.
 
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
