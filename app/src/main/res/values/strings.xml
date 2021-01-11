@@ -741,6 +741,7 @@
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_synchronize_subfolders">Subfolders</string>
     <string name="title_synchronize_more">Synchronize more messages</string>
+    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_synchronize_batch_enable">Enable synchronization</string>
     <string name="title_synchronize_batch_disable">Disable synchronization</string>

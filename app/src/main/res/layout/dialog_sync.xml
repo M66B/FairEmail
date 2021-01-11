@@ -19,7 +19,7 @@
         android:id="@+id/tvSync"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:labelFor="@+id/etKeyword"
         android:text="@string/title_synchronize_more"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -30,7 +30,7 @@
         android:id="@+id/etMonths"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="6dp"
         android:hint="@string/title_months_all"
         android:imeOptions="actionDone"
@@ -53,4 +53,15 @@
         app:layout_constraintBottom_toBottomOf="@id/etMonths"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/etMonths" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvSystem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/title_synchronize_more_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etMonths" />
 </androidx.constraintlayout.widget.ConstraintLayout>
