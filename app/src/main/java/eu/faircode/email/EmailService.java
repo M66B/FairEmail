@@ -203,9 +203,12 @@ public class EmailService implements AutoCloseable {
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(SEARCH_TIMEOUT));
             properties.put("mail." + protocol + ".timeout", Integer.toString(SEARCH_TIMEOUT));
         } else {
+            int factor = 2;
+            if ("smtp".equals(protocol) || "smtps".equals(protocol))
+                factor *= 2;
             properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(timeout));
-            properties.put("mail." + protocol + ".writetimeout", Integer.toString(timeout * 2));
-            properties.put("mail." + protocol + ".timeout", Integer.toString(timeout * 2));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(timeout * factor));
+            properties.put("mail." + protocol + ".timeout", Integer.toString(timeout * factor));
         }
 
         if (debug && BuildConfig.DEBUG)
