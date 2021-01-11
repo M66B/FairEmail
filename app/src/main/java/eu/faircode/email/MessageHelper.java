@@ -1200,12 +1200,7 @@ public class MessageHelper {
     }
 
     Address[] getSender() throws MessagingException {
-        Address[] sender = getAddressHeader("Sender");
-        if (BuildConfig.DEBUG) {
-            if (sender == null || sender.length == 0)
-                sender = getAddressHeader("Return-Path");
-        }
-        return sender;
+        return getAddressHeader("Sender");
     }
 
     Address[] getFrom() throws MessagingException {
