@@ -2707,6 +2707,23 @@ public class MessageHelper {
         return Objects.equals(email1, email2);
     }
 
+    static boolean equalEmail(Address[] a1, Address[] a2) {
+        if (a1 == null && a2 == null)
+            return true;
+
+        if (a1 == null || a2 == null)
+            return false;
+
+        if (a1.length != a2.length)
+            return false;
+
+        for (int i = 0; i < a1.length; i++)
+            if (!equalEmail(a1[i], a2[i]))
+                return false;
+
+        return true;
+    }
+
     static boolean equal(Address[] a1, Address[] a2) {
         if (a1 == null && a2 == null)
             return true;

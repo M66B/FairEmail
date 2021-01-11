@@ -2163,7 +2163,7 @@ class Core {
                         message.ui_ignored = false;
                         message.ui_browsed = false;
 
-                        if (MessageHelper.equal(message.submitter, message.from))
+                        if (MessageHelper.equalEmail(message.submitter, message.from))
                             message.submitter = null;
 
                         if (message.size == null && message.total != null)
@@ -2863,7 +2863,7 @@ class Core {
             if (message.flagged)
                 message.color = color;
 
-            if (MessageHelper.equal(message.submitter, message.from))
+            if (MessageHelper.equalEmail(message.submitter, message.from))
                 message.submitter = null;
 
             // Borrow reply name from sender name
