@@ -230,6 +230,9 @@
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
+    <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
+        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
@@ -315,6 +318,9 @@
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
+    <string name="title_advanced_color_saturation">Saturație: %1$s %%</string>
+    <string name="title_advanced_color_value">Luminozitate: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Limită culoare literă: %1$s %%</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_replace_name">Preferă nume contact în loc de nume trimis</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
@@ -447,6 +453,8 @@
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
+    <string name="title_advanced_class_min_chance">Probabilitate de clasă minimă: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
@@ -635,6 +643,7 @@
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_subfolders">Subdosare</string>
     <string name="title_synchronize_more">Sincronizează mai multe mesaje</string>
+    <string name="title_synchronize_more_hint">Acest lucru va duce la o descărcare unică a mesajelor mai vechi, astfel încât nu va duce la o utilizare mai intensă a bateriei pentru uzul cotidian</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_synchronize_batch_enable">Activează sincronizarea</string>
     <string name="title_synchronize_batch_disable">Dezactivează sincronizarea</string>

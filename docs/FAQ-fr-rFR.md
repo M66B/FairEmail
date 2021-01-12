@@ -505,9 +505,9 @@ Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions
 <a name="faq7"></a>
 **(7) Pourquoi les messages envoyés n'apparaissent-ils pas (directement) dans le dossier « envoyé » ? **
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Les messages envoyés sont normalement déplacés de la boîte d'envoi vers le dossier envoyé dès que votre fournisseur ajoute les messages envoyés au dossier envoyé. Cela nécessite qu'un dossier envoyé soit sélectionné dans les paramètres du compte et que le dossier envoyé soit configuré pour être synchronisé.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Certains fournisseurs ne gardent pas de trace des messages envoyés ou le serveur SMTP utilisé peut ne pas être lié au fournisseur. Dans ce cas, FairEmail ajoutera automatiquement les messages envoyés au dossier envoyé lors de la synchronisation du dossier envoyé, qui se produira après l'envoi d'un message. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -516,7 +516,7 @@ Some providers do not keep track of sent messages or the used SMTP server might 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Est-il possible d'utiliser un compte Microsoft Exchange ?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
