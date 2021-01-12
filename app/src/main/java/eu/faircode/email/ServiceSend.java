@@ -468,6 +468,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         } finally {
             db.endTransaction();
         }
+
+        ServiceSend.start(this);
     }
 
     private void onSend(EntityMessage message) throws MessagingException, IOException {
