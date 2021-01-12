@@ -4737,7 +4737,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 TupleMessageEx first = dups.get(0);
                 for (int i = 1; i < dups.size(); i++) {
                     TupleMessageEx dup = dups.get(i);
-                    if (!Objects.equals(first.folderType, dup.folderType))
+                    if (!EntityFolder.USER.equals(dup.folderType) &&
+                            !Objects.equals(first.folderType, dup.folderType))
                         dup.duplicate = true;
                 }
             }
