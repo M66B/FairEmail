@@ -366,11 +366,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             EntityFolder.OUTBOX,
             EntityFolder.DRAFTS,
             EntityFolder.SENT,
+            EntityFolder.TRASH,
+            EntityFolder.JUNK,
             EntityFolder.SYSTEM,
             EntityFolder.USER,
-            EntityFolder.ARCHIVE,
-            EntityFolder.TRASH,
-            EntityFolder.JUNK
+            EntityFolder.ARCHIVE
     ));
 
     @Override
