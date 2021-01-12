@@ -126,7 +126,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(3) Que sont les opérations et pourquoi sont-elles en attente ?](#user-content-faq3)
 * [(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en texte clair ?](#user-content-faq4)
 * [(5) Comment puis-je paramétrer la vue des messages ?](#user-content-faq5)
-* [(6) Comment puis-je me connecter à Gmail / G suite?](#user-content-faq6)
+* [(6) Comment puis-je me connecter à Gmail / G suite ?](#user-content-faq6)
 * [(7) Pourquoi les messages envoyés n'apparaissent pas (directement) dans le dossier Envoyés ?](#user-content-faq7)
 * [(8) Puis-je utiliser un compte Microsoft Exchange ?](#user-content-faq8)
 * [(9) Que sont les identités / comment ajouter un alias ?](#user-content-faq9)
@@ -135,35 +135,35 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(12) Comment fonctionne le chiffrement/déchiffrement ?](#user-content-faq12)
 * [(13) Comment fonctionne la recherche sur l'appareil/le serveur ?](#user-content-faq13)
 * [(14) Comment puis-je configurer un compte Outlook / Live / Hotmail ?](#user-content-faq14)
-* [(15) Pourquoi le texte du message continue-t-il de se charger?](#user-content-faq15)
-* [(16) Pourquoi les messages ne sont-ils pas synchronisés?](#user-content-faq16)
+* [(15) Pourquoi le texte du message continue-t-il de se charger ?](#user-content-faq15)
+* [(16) Pourquoi les messages ne sont-ils pas synchronisés ?](#user-content-faq16)
 * [~~(17) Pourquoi la synchronisation manuelle ne fonctionne pas ?~~](#user-content-faq17)
-* [(18) Pourquoi l'aperçu du message n'est-il pas toujours affiché?](#user-content-faq18)
-* [(19) Pourquoi les fonctionnalités pro sont-elles si chères?](#user-content-faq19)
+* [(18) Pourquoi l'aperçu du message n'est-il pas toujours affiché ?](#user-content-faq18)
+* [(19) Pourquoi les fonctionnalités pro sont-elles si chères ?](#user-content-faq19)
 * [(20) Puis-je obtenir un remboursement ?](#user-content-faq20)
 * [(21) Comment activer le voyant de notification ?](#user-content-faq21)
-* [(22) Qu'est-ce que l'erreur de compte/dossier ... signifie?](#user-content-faq22)
+* [(22) Qu'est-ce que l'erreur de compte/dossier ... signifie ?](#user-content-faq22)
 * [(23) Pourquoi est-ce que je reçois une alerte .. ?](#user-content-faq23)
-* [(24) Qu'est-ce que parcourir les messages sur le serveur?](#user-content-faq24)
+* [(24) Qu'est-ce que parcourir les messages sur le serveur ?](#user-content-faq24)
 * [(25) Pourquoi ne puis-je pas sélectionner/ouvrir/enregistrer une image, une pièce jointe ou un fichier ?](#user-content-faq25)
 * [(26) Puis-je aider à traduire FairEmail dans ma propre langue ?](#user-content-faq26)
-* [(27) Comment faire la distinction entre les images intégrées et les images externes?](#user-content-faq27)
+* [(27) Comment faire la distinction entre les images intégrées et les images externes ?](#user-content-faq27)
 * [(28) Comment puis-je gérer les notifications dans la barre d'état ?](#user-content-faq28)
-* [(29) Comment puis-je recevoir des notifications de nouveaux messages pour d'autres dossiers?](#user-content-faq29)
+* [(29) Comment puis-je recevoir des notifications de nouveaux messages pour d'autres dossiers ?](#user-content-faq29)
 * [(30) Comment puis-je utiliser les paramètres rapides fournis ?](#user-content-faq30)
 * [(31) Comment puis-je utiliser les raccourcis fournis ?](#user-content-faq31)
-* [(32) Comment puis-je vérifier si la lecture des courriels est vraiment sécurisé?](#user-content-faq32)
-* [(33) Pourquoi la modification des adresses de l'expéditeur ne fonctionne-t-elle pas?](#user-content-faq33)
-* [(34) Comment les identités correspondent-elles?](#user-content-faq34)
+* [(32) Comment puis-je vérifier si la lecture des courriels est vraiment sécurisé ?](#user-content-faq32)
+* [(33) Pourquoi la modification des adresses de l'expéditeur ne fonctionne-t-elle pas ?](#user-content-faq33)
+* [(34) Comment les identités correspondent-elles ?](#user-content-faq34)
 * [(35) Pourquoi devrais-je faire attention à la visualisation des images, des pièces jointes, du message original et à l'ouverture des liens ?](#user-content-faq35)
 * [(36) Comment les fichiers de configuration sont-ils chiffrés ?](#user-content-faq36)
-* [(37) Comment les mots de passe sont-ils stockés?](#user-content-faq37)
-* [(39) Comment puis-je réduire l'utilisation de la batterie de FairEmail?](#user-content-faq39)
+* [(37) Comment les mots de passe sont-ils stockés ?](#user-content-faq37)
+* [(39) Comment puis-je réduire l'utilisation de la batterie de FairEmail ?](#user-content-faq39)
 * [(40) Comment puis-je réduire l'utilisation des données par FairEmail ?](#user-content-faq40)
 * [(41) Comment puis-je corriger l'erreur 'Échec de la prise de main' ?](#user-content-faq41)
 * [(42) Pouvez-vous ajouter un nouveau fournisseur à la liste des fournisseurs ?](#user-content-faq42)
 * [(43) Pouvez-vous montrer l'original ... ?](#user-content-faq43)
-* [(44) Pouvez-vous montrer les photos / identicons de contact dans le dossier envoyé?](#user-content-faq44)
+* [(44) Pouvez-vous montrer les photos / identicons de contact dans le dossier envoyé ?](#user-content-faq44)
 * [(45) Comment puis-je corriger « Cette clé n'est pas disponible. Pour l'utiliser, vous devez l'importer comme l'un des vôtres ! » ?](#user-content-faq45)
 * [(46) Pourquoi la liste des messages continue-t-elle à se rafraîchir ?](#user-content-faq46)
 * [(47) Comment puis-je résoudre l'erreur « Aucun compte principal ou aucun dossier brouillon » ?](#user-content-faq47)
@@ -175,60 +175,60 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(53) Pouvez-vous coller la barre d'action de message en haut/bas ?](#user-content-faq53)
 * [~~(54) Comment utiliser un préfixe d'espace de noms ?~~](#user-content-faq54)
 * [(55) Comment puis-je marquer tous les messages comme lus / déplacer ou supprimer tous les messages ?](#user-content-faq55)
-* [(56) Pouvez-vous ajouter un support pour JMAP?](#user-content-faq56)
+* [(56) Pouvez-vous ajouter un support pour JMAP ?](#user-content-faq56)
 * [(57) Puis-je utiliser HTML dans les signatures ?](#user-content-faq57)
-* [(58) Que signifie une icône de courriel ouverte/fermée?](#user-content-faq58)
-* [(59) Peut-on ouvrir des messages originaux dans le navigateur?](#user-content-faq59)
+* [(58) Que signifie une icône de courriel ouverte/fermée ?](#user-content-faq58)
+* [(59) Peut-on ouvrir des messages originaux dans le navigateur ?](#user-content-faq59)
 * [(60) Saviez-vous ...?](#user-content-faq60)
-* [(61) Pourquoi certains messages sont-ils affichés grisés?](#user-content-faq61)
+* [(61) Pourquoi certains messages sont-ils affichés grisés ?](#user-content-faq61)
 * [(62) Quelles méthodes d'authentification sont supportées ?](#user-content-faq62)
 * [(63) Comment les images sont-elles redimensionnées pour l'affichage sur les écrans ?](#user-content-faq63)
-* [~~(64) Pouvez-vous ajouter des actions personnalisées pour glisser vers la gauche/vers la droite?~~](#user-content-faq64)
-* [(65) Pourquoi certaines pièces jointes sont-elles affichées grisées?](#user-content-faq65)
+* [~~(64) Pouvez-vous ajouter des actions personnalisées pour glisser vers la gauche/vers la droite ?~~](#user-content-faq64)
+* [(65) Pourquoi certaines pièces jointes sont-elles affichées grisées ?](#user-content-faq65)
 * [(66) FairEmail est-il disponible dans la bibliothèque familiale Google Play ?](#user-content-faq66)
-* [(67) Comment puis-je répéter les conversations?](#user-content-faq67)
+* [(67) Comment puis-je répéter les conversations ?](#user-content-faq67)
 * [~~(68) Pourquoi le lecteur Adobe Acrobat n'ouvre-t-il pas les pièces jointes PDF / Les applications Microsoft n'ouvrent pas les documents ?~~](#user-content-faq68)
 * [(69) Pouvez-vous ajouter le défilement automatique vers le haut sur un nouveau message ?](#user-content-faq69)
 * [(70) Quand les messages seront-ils automatiquement étendus ?](#user-content-faq70)
 * [(71) Comment utiliser les règles de filtrage ?](#user-content-faq71)
-* [(72) Quelles sont les comptes/identités principales?](#user-content-faq72)
+* [(72) Quelles sont les comptes/identités principales ?](#user-content-faq72)
 * [(73) Est-ce que le transfert de messages entre les comptes est sécurisé et efficace ?](#user-content-faq73)
-* [(74) Pourquoi est-ce que je vois des messages en double?](#user-content-faq74)
+* [(74) Pourquoi est-ce que je vois des messages en double ?](#user-content-faq74)
 * [(75) Pouvez-vous créer une version iOS, Windows, Linux, etc ?](#user-content-faq75)
 * [(76) Que fait 'Effacer les messages locaux' ?](#user-content-faq76)
-* [(77) Pourquoi les messages sont-ils parfois affichés avec un petit retard?](#user-content-faq77)
+* [(77) Pourquoi les messages sont-ils parfois affichés avec un petit retard ?](#user-content-faq77)
 * [(78) Comment utiliser les horaires ?](#user-content-faq78)
 * [(79) Comment utiliser la synchronisation à la demande (manuel) ?](#user-content-faq79)
-* [~~(80) Comment puis-je corriger l'erreur 'Impossible de charger BODYSTRUCTURE'?~~](#user-content-faq80)
+* [~~(80) Comment puis-je corriger l'erreur 'Impossible de charger BODYSTRUCTURE' ?~~](#user-content-faq80)
 * [~~(81) Pouvez-vous mettre le fond du message original sombre dans le thème sombre ?~~](#user-content-faq81)
-* [(82) Qu'est-ce qu'une image de suivi?](#user-content-faq82)
+* [(82) Qu'est-ce qu'une image de suivi ?](#user-content-faq82)
 * [(84) À quoi servent les contacts locaux ?](#user-content-faq84)
-* [(85) Pourquoi une identité n'est-elle pas disponible?](#user-content-faq85)
-* [~~(86) Que sont les 'fonctionnalités de confidentialité supplémentaires'?~~](#user-content-faq86)
+* [(85) Pourquoi une identité n'est-elle pas disponible ?](#user-content-faq85)
+* [~~(86) Que sont les 'fonctionnalités de confidentialité supplémentaires' ?~~](#user-content-faq86)
 * [(87) Que signifient les 'identifiants invalides' ?](#user-content-faq87)
 * [(88) Comment puis-je utiliser un compte Yahoo, AOL ou Sky ?](#user-content-faq88)
 * [(89) Comment puis-je envoyer des messages en texte brut uniquement ?](#user-content-faq89)
-* [(90) Pourquoi certains textes sont-ils liés sans être liés?](#user-content-faq90)
+* [(90) Pourquoi certains textes sont-ils liés sans être liés ?](#user-content-faq90)
 * [~~(91) Pouvez-vous ajouter une synchronisation périodique pour économiser la batterie ?~~](#user-content-faq91)
 * [(92) Pouvez-vous ajouter le filtrage de spam, la vérification de la signature DKIM et l'autorisation SPF ?](#user-content-faq92)
 * [(93) Pouvez-vous autoriser l'installation/stockage de données sur un support de stockage externe (sdcard) ?](#user-content-faq93)
 * [(94) Que signifie la bande rouge/orange à la fin de l'en-tête ?](#user-content-faq94)
 * [(95) Pourquoi toutes les applications ne sont-elles pas affichées lors de la sélection d'une pièce jointe ou d'une image ?](#user-content-faq95)
 * [(96) Où puis-je trouver les paramètres IMAP et SMTP ?](#user-content-faq96)
-* [(97) Qu'est-ce que le "nettoyage"?](#user-content-faq97)
+* [(97) Qu'est-ce que le "nettoyage" ?](#user-content-faq97)
 * [(98) Pourquoi puis-je toujours choisir des contacts après avoir révoqué les autorisations de contacts?](#user-content-faq98)
 * [(99) Pouvez-vous ajouter un texte riche ou un éditeur de markdown ?](#user-content-faq99)
 * [(100) Comment puis-je synchroniser les catégories Gmail ?](#user-content-faq100)
-* [(101) Que signifie le point bleu/orange au bas des conversations?](#user-content-faq101)
+* [(101) Que signifie le point bleu/orange au bas des conversations ?](#user-content-faq101)
 * [(102) Comment puis-je activer la rotation automatique des images ?](#user-content-faq102)
-* [(103) Comment puis-je enregistrer de l'audio?](#user-content-faq158)
-* [(104) Que dois-je savoir au sujet du signalement d'erreur?](#user-content-faq104)
-* [(105) Comment fonctionne l’option itinérance à domicile?](#user-content-faq105)
+* [(103) Comment puis-je enregistrer de l'audio ?](#user-content-faq158)
+* [(104) Que dois-je savoir au sujet du signalement d'erreur ?](#user-content-faq104)
+* [(105) Comment fonctionne l’option itinérance à domicile ?](#user-content-faq105)
 * [(106) Quels lanceurs peuvent afficher un nombre de badges avec le nombre de messages non lus ?](#user-content-faq106)
 * [(107) Comment utiliser les étoiles colorées ?](#user-content-faq107)
 * [~~(108) Pouvez-vous ajouter la suppression des messages de façon définitive à partir de n'importe quel dossier ?~~](#user-content-faq108)
 * [~~(109) Pourquoi 'sélectionner le compte' est-il uniquement disponible dans les versions officielles ?~~](#user-content-faq109)
-* [(110) Pourquoi (certains) les messages sont-ils vides et/ou les pièces jointes corrompues?](#user-content-faq110)
+* [(110) Pourquoi (certains) les messages sont-ils vides et/ou les pièces jointes corrompues ?](#user-content-faq110)
 * [(111) OAuth est-il pris en charge ?](#user-content-faq111)
 * [(112) Quel fournisseur de messagerie recommandez-vous ?](#user-content-faq112)
 * [(113) Comment fonctionne l'authentification biométrique ?](#user-content-faq113)
@@ -238,49 +238,49 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(117) Pouvez-vous m'aider à restaurer mon achat ?](#user-content-faq117)
 * [(118) Qu'est-ce que 'Supprimer les paramètres de suivi' exactement ?](#user-content-faq118)
 * [~~(119) Pouvez-vous ajouter des couleurs au widget de la boîte de réception unifiée ?~~](#user-content-faq119)
-* [(120) Pourquoi les notifications de nouveaux messages ne sont-elles pas supprimées à l'ouverture de l'application?](#user-content-faq120)
-* [(121) Comment les messages sont-ils regroupés en conversation?](#user-content-faq121)
+* [(120) Pourquoi les notifications de nouveaux messages ne sont-elles pas supprimées à l'ouverture de l'application ?](#user-content-faq120)
+* [(121) Comment les messages sont-ils regroupés en conversation ?](#user-content-faq121)
 * [~~(122) Pourquoi le nom du destinataire/adresse e-mail est-il affiché avec une couleur d'avertissement ?~~](#user-content-faq122)
 * [(123) Que se passe-t-il lorsque FairEmail ne peut pas se connecter à un serveur de messagerie ?](#user-content-faq123)
 * [(124) Pourquoi est-ce que je reçois "Message trop grand ou trop complexe à afficher" ?](#user-content-faq124)
-* [(125) Quelles sont les fonctionnalités expérimentales actuelles?](#user-content-faq125)
+* [(125) Quelles sont les fonctionnalités expérimentales actuelles ?](#user-content-faq125)
 * [(126) Peut-on envoyer des aperçus de messages à mon portable ?](#user-content-faq126)
-* [(127) Comment puis-je corriger 'Arguments HELO syntaxiquement invalides'?](#user-content-faq127)
+* [(127) Comment puis-je corriger 'Arguments HELO syntaxiquement invalides' ?](#user-content-faq127)
 * [(128) Comment réinitialiser les questions posées, par exemple pour afficher les images ?](#user-content-faq128)
 * [(129) ProtonMail, Tutanota est-il pris en charge ?](#user-content-faq129)
-* [(130) Qu'est-ce que l'erreur de message ... signifie?](#user-content-faq130)
+* [(130) Qu'est-ce que l'erreur de message ... signifie ?](#user-content-faq130)
 * [(131) Pouvez-vous changer la direction pour glisser vers le message précédent/suivant ?](#user-content-faq131)
 * [(132) Pourquoi les notifications de nouveaux messages sont-elles silencieuses ?](#user-content-faq132)
 * [(133) Pourquoi ActiveSync n'est-il pas pris en charge ?](#user-content-faq133)
 * [(134) Pouvez-vous ajouter la suppression des messages locaux ?](#user-content-faq134)
 * [(135) Pourquoi les messages de la corbeille et les brouillons sont-ils affichés dans les conversations ?](#user-content-faq135)
-* [(136) Comment puis-je supprimer un compte/identité/dossier?](#user-content-faq136)
+* [(136) Comment puis-je supprimer un compte/identité/dossier ?](#user-content-faq136)
 * [(137) Comment puis-je réinitialiser "Ne plus demander a nouveau" ?](#user-content-faq137)
 * [(138) Pouvez-vous ajouter le calendrier/la gestion des contacts/la synchronisation ?](#user-content-faq138)
 * [(139) Comment puis-je corriger "L'utilisateur est authentifié mais pas connecté" ?](#user-content-faq139)
-* [(140) Pourquoi le texte du message contient-il des caractères étranges?](#user-content-faq140)
-* [(141) Comment puis-je réparer le dossier 'Un brouillon est requis pour envoyer des messages'?](#user-content-faq141)
+* [(140) Pourquoi le texte du message contient-il des caractères étranges ?](#user-content-faq140)
+* [(141) Comment puis-je réparer le dossier 'Un brouillon est requis pour envoyer des messages' ?](#user-content-faq141)
 * [(142) Comment stocker les messages envoyés dans la boîte de réception ?](#user-content-faq142)
 * [~~(143) Peux-tu ajouter un dossier corbeille pour les comptes POP3 ?~~](#user-content-faq143)
-* [(144) Comment puis-je enregistrer des notes vocales?](#user-content-faq144)
-* [(145) Comment puis-je définir un son de notification pour un compte, un dossier ou un expéditeur?](#user-content-faq145)
+* [(144) Comment puis-je enregistrer des notes vocales ?](#user-content-faq144)
+* [(145) Comment puis-je définir un son de notification pour un compte, un dossier ou un expéditeur ?](#user-content-faq145)
 * [(146) Comment puis-je corriger les heures de messages incorrects ?](#user-content-faq146)
 * [(147) Que devrais-je savoir des versions tierces ?](#user-content-faq147)
 * [(148) Comment puis-je utiliser un compte Apple iCloud ?](#user-content-faq148)
 * [(149) Comment fonctionne le widget nombre de messages non lus ?](#user-content-faq149)
 * [(150) Pouvez-vous ajouter des invitations au calendrier d'annulation ?](#user-content-faq150)
 * [(151) Pouvez-vous ajouter une sauvegarde/restauration de messages ?](#user-content-faq151)
-* [(152) Comment puis-je insérer un groupe de contacts?](#user-content-faq152)
+* [(152) Comment puis-je insérer un groupe de contacts ?](#user-content-faq152)
 * [(153) Pourquoi la suppression définitive du message Gmail ne fonctionne-t-elle pas ?](#user-content-faq153)
-* [~~(154) Peut-on ajouter des favicons comme photos de contact?~~](#user-content-faq154)
+* [~~(154) Peut-on ajouter des favicons comme photos de contact ?~~](#user-content-faq154)
 * [(155) Qu'est-ce qu'un fichier winmail.dat ?](#user-content-faq155)
 * [(156) Comment puis-je configurer un compte Office365 ?](#user-content-faq156)
 * [(157) Comment puis-je créer un compte gratuit ?](#user-content-faq157)
-* [(158) Quelle caméra / enregistreur audio recommandez-vous?](#user-content-faq158)
+* [(158) Quelle caméra / enregistreur audio recommandez-vous ?](#user-content-faq158)
 * [(159) Qu'est ce que deconnecter les listes de protection du tracker ?](#user-content-faq159)
 * [(160) Pouvez-vous ajouter la suppression définitive des messages sans confirmation ?](#user-content-faq160)
 * [(161) Pouvez vous ajouter un paramètre pour changer les couleurs primaire et d'accentuation ?](#user-content-faq161)
-* [(162) L'IMAP NOTIFY est-il pris en charge?](#user-content-faq162)
+* [(162) L'IMAP NOTIFY est-il pris en charge ?](#user-content-faq162)
 * [(163) Qu'est-ce que la classification des messages ?](#user-content-faq163)
 
 [J’ai une autre question.](#user-content-support)
@@ -458,52 +458,52 @@ Certaines personnes demandent :
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-You can use the quick setup wizard to easily setup a Gmail account and identity.
+Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité. L'assistant de configuration rapide de Gmail n'est pas disponible pour les versions tierces, comme la version F-Droid, car Google n'a approuvé l'utilisation d'OAuth que pour les versions officielles.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Si vous ne souhaitez pas utiliser le compte Gmail de l'appareil, vous pouvez soit autoriser l'accès aux "applications moins sécurisées" et utiliser le mot de passe de votre compte (déconseillé) ou activer l'authentification à deux facteurs et utiliser un mot de passe spécifique à l'application. Pour utiliser un mot de passe, vous devrez configurer un compte et une identité via les étapes de configuration 1 et 2, au lieu de passer par l'assistant de configuration rapide.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Veuillez consulter [cette FAQ](#user-content-faq111) pour savoir pourquoi seuls les comptes de l'appareil peuvent être utilisés.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Notez qu'un mot de passe spécifique à l'application est nécessaire lorsque l'authentification à deux facteurs est activée.
 
 <br />
 
-*Enable "Less secure apps"*
+*Mot de passe spécifique à l'application*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de générer un mot de passe spécifique à l'application.
 
 <br />
 
-*General*
+*Autoriser les "Applications moins sécurisées"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Important **: l'utilisation de cette méthode n'est pas recommandée car elle est moins fiable.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Important **: Les comptes Gsuite autorisés avec un nom d'utilisateur/mot de passe cesseront de fonctionner [dans un avenir proche](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Voir [ici](https://support.google.com/accounts/answer/6010255) comment autoriser les "applications moins sécurisées" ou aller [directement au paramètre en question](https://www.google.com/settings/security/lesssecureapps).
+
+Si vous utilisez plusieurs comptes Gmail, assurez-vous de modifier le paramètre "Autoriser les applications moins sécurisées" du ou des comptes concernés.
+
+Sachez que vous devez quitter l'écran de paramétrage des "applications moins sécurisées" en utilisant la flèche de retour arrière pour que le paramètre soit appliqué.
+
+Si vous utilisez cette méthode, vous devriez utiliser un [mot de passe robuste](https://en.wikipedia.org/wiki/Password_strength) pour votre compte Gmail, ce qui est de toute façon une bonne idée. Notez que l'utilisation du protocole [standard](https://tools.ietf.org/html/rfc3501) IMAP n'est en soi pas moins sécurisée.
+
+Lorsque les "applications moins sécurisées" ne sont pas activées, vous obtiendrez l'erreur *L'authentification a échoué - identifiants non valides* pour les comptes (IMAP) et *nom d'utilisateur et mot de passe non acceptés* pour les identités (SMTP).
+
+<br />
+
+*Général*
+
+Il se peut que vous obteniez l'alerte "*S'il vous plaît connectez-vous via votre navigateur web*". Cela se produit lorsque Google considère que le réseau sur lequel vous vous connectez à Internet (il peut s'agir d'un VPN) n'est pas sûr. Cela peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique à l'application.
+
+Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Pourquoi les messages envoyés n'apparaissent-ils pas (directement) dans le dossier « envoyé » ? **
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
@@ -828,11 +828,13 @@ If a purchased pro feature doesn't work as intended and this isn't caused by a p
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
 
-Before Android 8 Oreo: there is an advanced option in the setup for this.
+Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
-Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Manage notifications* in the setup to directly go to the Android notification settings. Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore. Apps designed and targeting older Android versions might still be able to control the contents of notifications, but such apps cannot be updated anymore and recent Android versions will show a warning that such apps are outdated.
+Android 8 Oreo and later: please see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround a bug in Android. This might apply to notification sounds and vibrations too.
+Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
+
+Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android. This might apply to notification sounds and vibrations too.
 
 Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
 
@@ -1958,7 +1960,11 @@ Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainK
 
 Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
+Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Please see [this FAQ](#user-content-faq163) for more information about this.
+
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+
+Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
 
 Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
 
@@ -2828,26 +2834,26 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable learning mode only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
 
 Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog turns on message classification and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in false positives. See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the folder, FairEmail will start to move messages automatically into this folder. This will work best with similar messages.
+A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
 Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Moving a message on the device will reclassify the message. Moving a message with another email client will not result in reclassification because IMAP does not support 'moved' notifications.
-
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
-* *Minimum class probability*: the minimum chance a message belongs in a folder (default 20 %)
-* *Minimum class difference*: the minimum difference with the next best folder (default 50 %)
+* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
+* *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
+
+Both conditions must be satisfied before a message will be moved.
 
 Considering the defaults option values:
 
@@ -2858,6 +2864,10 @@ Considering the defaults option values:
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
 You can delete all classification data by turning classification three times off.
+
+[Filter rules](#user-content-faq71) will be executed before classification.
+
+Message classification is a pro feature, except for the spam folder.
 
 <br />
 

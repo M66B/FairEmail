@@ -633,6 +633,7 @@
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_subfolders">Undermapper</string>
     <string name="title_synchronize_more">Synkronisér flere beskeder</string>
+    <string name="title_synchronize_more_hint">Dette vil resultere i en enkelt download af ældre beskeder uden større strømforbrug end alm. hverdagsbrug</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_synchronize_batch_enable">Aktivér synkronisering</string>
     <string name="title_synchronize_batch_disable">Deaktivér synkronisering</string>

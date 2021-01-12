@@ -633,6 +633,7 @@
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_subfolders">Sottocartelle</string>
     <string name="title_synchronize_more">Sincronizza altri messaggi</string>
+    <string name="title_synchronize_more_hint">Questo risulterà in un download singolo dei messaggi più vecchi, quindi non risulterà in maggiore uso della batteria per l\'uso quotidiano</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_synchronize_batch_enable">Abilita la sincronizzazione</string>
     <string name="title_synchronize_batch_disable">Disabilita la sincronizzazione</string>

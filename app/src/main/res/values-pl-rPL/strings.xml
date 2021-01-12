@@ -464,6 +464,7 @@
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
+    <string name="title_advanced_class_min_chance">Minimalne prawdopodobieństwo klasy: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimalna różnica klasy: %1$s %%</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
@@ -653,6 +654,7 @@
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_subfolders">Podfoldery</string>
     <string name="title_synchronize_more">Synchronizuj więcej wiadomości</string>
+    <string name="title_synchronize_more_hint">Spowoduje to jednorazowe pobranie starszych wiadomości, więc nie spowoduje większego zużycia baterii w codziennym użytkowaniu</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_synchronize_batch_enable">Włącz synchronizację</string>
     <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>

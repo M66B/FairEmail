@@ -632,6 +632,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_subfolders">Unterordner</string>
     <string name="title_synchronize_more">Weitere Nachrichten synchronisieren</string>
+    <string name="title_synchronize_more_hint">Dies führt zu einem einzigen Download älterer Nachrichten, so dass es nicht zu mehr Akkuverbrauch bei der täglichen Nutzung führt</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>
     <string name="title_synchronize_batch_disable">Synchronisierung deaktivieren</string>

@@ -632,6 +632,7 @@
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_synchronize_subfolders">Undermappar</string>
     <string name="title_synchronize_more">Synkronisera fler meddelanden</string>
+    <string name="title_synchronize_more_hint">Detta kommer att resultera i en enda nedladdning av äldre meddelanden, så det kommer inte att resultera i mer batterianvändning för dagligt bruk</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_synchronize_batch_enable">Aktivera synkronisering</string>
     <string name="title_synchronize_batch_disable">Inaktivera synkronisering</string>

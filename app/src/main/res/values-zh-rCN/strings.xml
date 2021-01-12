@@ -621,6 +621,7 @@
     <string name="title_synchronize_now">立即同步</string>
     <string name="title_synchronize_subfolders">子文件夹</string>
     <string name="title_synchronize_more">同步更多消息</string>
+    <string name="title_synchronize_more_hint">这只会导致一次旧消息的下载，因此它不会造成更多的日常使用的更多电池消耗</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">启用同步</string>
     <string name="title_synchronize_batch_disable">禁用同步</string>
