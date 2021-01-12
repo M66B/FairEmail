@@ -41,6 +41,8 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.smtp.SMTPSendFailedException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -627,6 +629,18 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
         } catch (MessagingException ex) {
             Log.e(ex);
+
+            if (ex instanceof SMTPSendFailedException) {
+                SMTPSendFailedException sem = (SMTPSendFailedException) ex;
+                ex = new SMTPSendFailedException(
+                        sem.getCommand(),
+                        sem.getReturnCode(),
+                        getString(R.string.title_service_auth, sem.getMessage()),
+                        sem.getNextException(),
+                        sem.getValidSentAddresses(),
+                        sem.getValidUnsentAddresses(),
+                        sem.getInvalidAddresses());
+            }
 
             if (sid != null)
                 db.message().deleteMessage(sid);
