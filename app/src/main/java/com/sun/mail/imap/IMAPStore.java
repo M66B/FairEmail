@@ -858,6 +858,7 @@ public class IMAPStore extends Store
 	 * the mechanism and we have an authenticator for the mechanism,
 	 * and it hasn't been disabled, use it.
 	 */
+	ProtocolException pex = null;
 	StringTokenizer st = new StringTokenizer(mechs);
 	while (st.hasMoreTokens()) {
 	    String m = st.nextToken();
@@ -888,27 +889,44 @@ public class IMAPStore extends Store
 	    }
 
 	    try {
-			if (m.equals("PLAIN"))
+			if (m.equals("PLAIN")) {
 				p.authplain(authzid, user, password);
-			else if (m.equals("LOGIN"))
+				return;
+			}
+			else if (m.equals("LOGIN")) {
 				p.authlogin(user, password);
-			else if (m.equals("NTLM"))
+				return;
+			}
+			else if (m.equals("NTLM")) {
 				p.authntlm(authzid, user, password);
-			else if (m.equals("XOAUTH2"))
+				return;
+			}
+			else if (m.equals("XOAUTH2")) {
 				p.authoauth2(user, password);
+				return;
+			}
 			else {
 				logger.log(Level.FINE, "no authenticator for mechanism {0}", m);
 				continue;
 			}
 		} catch (ProtocolException ex) {
+			eu.faircode.email.Log.w(ex);
+			if (pex == null)
+				pex = ex;
 			if (m.equals("PLAIN") || m.equals("LOGIN")) {
-				eu.faircode.email.Log.i("Falling back to classic LOGIN");
-				p.authclassic(user, password);
-			} else
-				throw ex;
+				eu.faircode.email.Log.w("Falling back to classic LOGIN");
+				try {
+					p.authclassic(user, password);
+					return;
+				} catch (ProtocolException exex) {
+					eu.faircode.email.Log.w(exex);
+				}
+			}
 		}
-	    return;
 	}
+
+	if (pex != null)
+		throw pex;
 
 	if (!p.hasCapability("LOGINDISABLED")) {
 	    p.login(user, password);
