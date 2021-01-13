@@ -4712,8 +4712,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         for (String hash : duplicates.keySet()) {
             List<TupleMessageEx> dups = duplicates.get(hash);
-            for (int i = 1; i < dups.size(); i++)
-                dups.get(i).duplicate = true;
+            int base = 0;
+            for (int i = 0; i < dups.size(); i++)
+                if (dups.get(i).folder == folder) {
+                    base = i;
+                    break;
+                }
+            for (int i = 0; i < dups.size(); i++)
+                if (i != base)
+                    dups.get(i).duplicate = true;
         }
 
         if (autoExpanded) {
