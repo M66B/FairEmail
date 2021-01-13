@@ -4758,11 +4758,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int unseen = 0;
             TupleMessageEx single = null;
             TupleMessageEx see = null;
+            List<String> msgids = new ArrayList<>();
             for (TupleMessageEx message : messages) {
                 if (message == null)
                     continue;
 
-                if (!message.duplicate &&
+                if ((message.msgid == null || !msgids.contains(message.msgid)) &&
                         !EntityFolder.DRAFTS.equals(message.folderType) &&
                         !EntityFolder.TRASH.equals(message.folderType)) {
                     count++;
@@ -4776,6 +4777,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message.folder == folder &&
                         !EntityFolder.OUTBOX.equals(message.folderType))
                     autoCloseCount++;
+
+                if (message.msgid != null)
+                    msgids.add(message.msgid);
             }
 
             // Auto expand when:
