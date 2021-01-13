@@ -192,7 +192,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -359,18 +358,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
-    ));
-
-    private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
-            EntityFolder.INBOX,
-            EntityFolder.OUTBOX,
-            EntityFolder.DRAFTS,
-            EntityFolder.SENT,
-            EntityFolder.TRASH,
-            EntityFolder.JUNK,
-            EntityFolder.SYSTEM,
-            EntityFolder.USER,
-            EntityFolder.ARCHIVE
     ));
 
     @Override
@@ -4717,30 +4704,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Mark duplicates
         Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
         for (TupleMessageEx message : messages)
-            if (message != null && !TextUtils.isEmpty(message.msgid)) {
-                if (!duplicates.containsKey(message.msgid))
-                    duplicates.put(message.msgid, new ArrayList<TupleMessageEx>());
-                duplicates.get(message.msgid).add(message);
+            if (message != null &&
+                    !TextUtils.isEmpty(message.hash)) {
+                if (!duplicates.containsKey(message.hash))
+                    duplicates.put(message.hash, new ArrayList<>());
+                duplicates.get(message.hash).add(message);
             }
-        for (String msgid : duplicates.keySet()) {
-            List<TupleMessageEx> dups = duplicates.get(msgid);
-            if (dups.size() > 1) {
-                Collections.sort(dups, new Comparator<TupleMessageEx>() {
-                    @Override
-                    public int compare(TupleMessageEx d1, TupleMessageEx d2) {
-                        Integer o1 = DUPLICATE_ORDER.indexOf(d1.folderType);
-                        Integer o2 = DUPLICATE_ORDER.indexOf(d2.folderType);
-                        return o1.compareTo(o2);
-                    }
-                });
-
-                TupleMessageEx first = dups.get(0);
-                for (int i = 1; i < dups.size(); i++) {
-                    TupleMessageEx dup = dups.get(i);
-                    if (!Objects.equals(first.folderType, dup.folderType))
-                        dup.duplicate = true;
-                }
-            }
+        for (String hash : duplicates.keySet()) {
+            List<TupleMessageEx> dups = duplicates.get(hash);
+            for (int i = 1; i < dups.size(); i++)
+                dups.get(i).duplicate = true;
         }
 
         if (autoExpanded) {
