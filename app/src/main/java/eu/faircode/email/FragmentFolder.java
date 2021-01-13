@@ -426,7 +426,7 @@ public class FragmentFolder extends FragmentBase {
         args.putLong("id", id);
         args.putLong("account", account);
         args.putString("parent", parent);
-        args.putString("name", etName.getText().toString());
+        args.putString("name", etName.getText().toString().trim());
         args.putString("display", etDisplay.getText().toString());
         args.putInt("color", btnColor.getColor());
         args.putBoolean("hide", cbHide.isChecked());
