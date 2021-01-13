@@ -699,7 +699,8 @@
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
-    <string name="title_auto_classify">Автоматически перемещать классифицированные сообщения</string>
+    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Классифицировать новые сообщения в этой папке</string>
+    <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Автоматически перемещать классифицированные сообщения в эту папку</string>
     <string name="title_sync_days">Синхронизация сообщений (дни)</string>
     <string name="title_sync_days_remark">Увеличение этого значения увеличит потребление трафика и заряда батареи</string>
     <string name="title_keep_days">Хранение сообщений (дн.)</string>

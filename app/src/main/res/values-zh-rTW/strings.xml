@@ -66,6 +66,8 @@
     <string name="title_block_sender_hint">        封鎖寄件人將會建立規則，自動地把往後接收到的訊息移動至垃圾郵件夾。
         建立與執行規則是專業版功能。
     </string>
+    <string name="title_junk_filter">使用本機垃圾信過濾器</string>
+    <string name="title_junk_filter_hint">這可能增加電池使用量且不正確地將某些訊息標示為垃圾信</string>
     <string name="title_notification_sending">寄送訊息中</string>
     <string name="title_notification_waiting">正在等待合適的網路連線</string>
     <string name="title_notification_idle">閒置</string>
@@ -118,7 +120,9 @@
     <string name="title_setup_wizard_multiple">這個安裝精靈可以重複使用讓您新增多個帳號</string>
     <string name="title_setup_wizard_new">我需要一個新的 email 地址。</string>
     <string name="title_setup_wizard_remark">返回收件箱</string>
+    <string name="title_setup_oauth_permission">此電子郵件提供者僅在官方應用程式版本中同意OAuth</string>
     <string name="title_setup_other">其他服務商</string>
+    <string name="title_setup_pop3">POP3 帳號</string>
     <string name="title_setup_gmail_support">認證Google帳號只能在官方版本中工作因為Android檢查應用的簽名。</string>
     <string name="title_setup_gmail_rationale">請給予權限來選擇一個帳號並且讀取你的名字。</string>
     <string name="title_setup_gmail_permissions">Google 將會要求權限來讀取、撰寫、發送並永久刪除你的 email。FairEmail 永遠不會在你沒有明確同意的情況下刪除你的訊息。</string>
@@ -289,6 +293,9 @@
     <string name="title_advanced_generated_icons">顯示設定的圖示</string>
     <string name="title_advanced_identicons">顯示身份</string>
     <string name="title_advanced_circular">顯示圓形圖示</string>
+    <string name="title_advanced_color_saturation">飽和度: %1$s %%</string>
+    <string name="title_advanced_color_value">亮度: %1$s %%</string>
+    <string name="title_advanced_color_threshold">字母顏色閾值: %1$s %%</string>
     <string name="title_advanced_name_email">顯示名字及郵件地址</string>
     <string name="title_advanced_replace_name">偏好顯示聯絡人名字而不是寄件人名字</string>
     <string name="title_advanced_distinguish_contacts">當寄件人為本機聯絡人時將名字加註底線</string>
@@ -416,6 +423,7 @@
     <string name="title_advanced_language_detection">偵測訊息語言</string>
     <string name="title_advanced_fts">建立搜尋索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 訊息被索引 (%3$s)</string>
+    <string name="title_advanced_classification">分類訊息</string>
     <string name="title_advanced_language">語言</string>
     <string name="title_advanced_language_system">系統</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
@@ -671,11 +679,12 @@
     <string name="title_folder_user_only">僅用戶文件夾</string>
     <string name="title_folder_primary">文件夾主帳戶</string>
     <string name="title_folders_unified">全域收件匣資料夾</string>
+    <string name="title_folder_local_drafts">本機草稿</string>
     <string name="title_no_folders">沒有資料夾</string>
     <string name="title_no_messages">無訊息</string>
     <string name="title_filters_active">一個或多個過濾器處於活動狀態</string>
     <string name="title_duplicate_in">消息重複 %1$s</string>
-    <string name="title_subject_reply">回覆： %1$s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">正向： %1$s</string>
     <string name="title_buttons">按鈕</string>
     <string name="title_seen">標記為已讀</string>
@@ -1094,6 +1103,7 @@
     <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">驗證失敗</string>
     <string name="title_legend_found">被找到</string>
+    <string name="title_legend_classified">已自動分類</string>
     <string name="title_legend_snoozed">被延後</string>
     <string name="title_legend_browsed">已瀏覽或已搜尋</string>
     <string name="title_legend_answered">已被回答</string>

@@ -52,17 +52,17 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * 載入更多訊息：長按資料夾列表中的資料夾，選擇 *同步更多訊息*
-* Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
-* Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
-* Undo send: Outbox, tap message, tap undo icon button
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
+* 刪除郵件，跳過垃圾箱：在郵件文字上方的三點菜單中，*刪除*或在帳戶設置中取消選擇垃圾箱文件夾
+* 刪除帳戶/身份：設置步驟1/2，管理，點擊帳戶/身份，三點菜單，刪除
+* 刪除文件夾：長按文件夾列表中的文件夾，編輯屬性，三點菜單，刪除 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
+* 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
+* 將已發送的郵件存儲在收件箱中：請[參閱此常見問題解答](#user-content-faq142)
+* 更改系統文件夾：設置，步驟1，管理，點擊底部的帳戶
 * Export/import settings: Setup, navigation/hamburger menu
 
 ## 已知的問題
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
+* ~~ [Android 5.1和6中的錯誤](https://issuetracker.google.com/issues/37054851)會導致應用有時顯示錯誤的時間格式。 切換Android設置*使用24小時格式*可能會暫時解決此問題。 解決方法已添加。 解決方法已添加。~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
@@ -2834,9 +2834,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
@@ -2844,11 +2844,9 @@ A practical example: suppose there is a folder 'marketing' and auto message clas
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
-
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
@@ -2863,7 +2861,7 @@ Considering the defaults option values:
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
-You can delete all classification data by turning classification three times off.
+You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
 

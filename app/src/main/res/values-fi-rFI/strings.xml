@@ -631,6 +631,7 @@
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_subfolders">Alikansiot</string>
     <string name="title_synchronize_more">Synkronoi lisää viestejä</string>
+    <string name="title_synchronize_more_hint">Tämä lataa lisää vanhoja viestejä laitteeseen ja päivittäisessä käytössä aiheuttaa lisää akun käyttöä</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_synchronize_batch_enable">Ota synkronointi käyttöön</string>
     <string name="title_synchronize_batch_disable">Poista synkronointi käytöstä</string>
@@ -674,7 +675,6 @@
     <string name="title_poll_folder">Tarkista väliajoin jatkuvan synkronoinnin sijaan</string>
     <string name="title_download_folder">Lataa viestien tekstit ja liitteet automaattisesti</string>
     <string name="title_notify_folder">Ilmoita uusista viesteistä</string>
-    <string name="title_auto_classify">Siirrä luokitellut viestit automaattisesti</string>
     <string name="title_sync_days">Synkronoi viestit (päivää)</string>
     <string name="title_sync_days_remark">Tämän arvon suurentaminen lisää akun ja datan käyttöä</string>
     <string name="title_keep_days">Viestien säilyttäminen (päivää)</string>

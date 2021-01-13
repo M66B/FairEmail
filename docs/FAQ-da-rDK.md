@@ -711,58 +711,58 @@ Gennemsøgning af et stort beskedantal på enheden sker ikke særligt hurtigt gr
 
 Dette betyder, at søgning efter en beskedtekst i adskillige filer kræver, at disse filer åbnes/tjekkes én for én, hvilket er en relativt ressourcekrævende proces.
 
-Under *Diverse indstillinger* kan *Byg søgeindeks* aktiveres for markant at øge søgehastigheden på enheden (øger dog samtidigt også både strøm- og lagerpladsforbrug). Søgeindekset er baseret på ord, så deltekstsøgning er ikke muligt. Søgning vha. søgeindekset er som standard OG (AND), så søgning efter f.eks. *æble appelsin* vil søge efter både æble OG appelsin. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+Under *Diverse indstillinger* kan *Byg søgeindeks* aktiveres for markant at øge søgehastigheden på enheden (øger dog samtidigt også både strøm- og lagerpladsforbrug). Søgeindekset er baseret på ord, så deltekstsøgning er ikke muligt. Søgning vha. søgeindekset er som standard OG (AND), så søgning efter f.eks. *æble appelsin* vil søge efter både æble OG appelsin. Ord adskilt med kommaer resulterer i en ELLER (OR) søgning, så f.eks. *æble, appelsin* vil søge efter enten æble ELLER appelsin. Begge kan kombineres, så søgning efter f.eks. *æble, appelsin banan* vil søge efter æble ELLER (appelsin OG banan). Brug af søgeindekset er en Pro-funktion.
 
-From version 1.1315 it is possible to use search expressions like this:
+Fra version 1.1315 er det muligt at benytte søgeudtryk såsom dette:
 
 ```
 æble +banan-kirsebær?nødder
 ```
 
-This will result in searching like this:
+Dette vil resultere i en søgning som denne:
 
 ```
 ("æble" OG "banana" OG IKKE "kirsebær") ELLER "nødder"
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+Søgeudtryk kan benyttes til søgning på enheden via søgeindekset samt til søgning på e-mailserveren, men af ydelsesårsager ikke til søgning på enheden uden søgeindeks.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Søgning på enheden er en gratis funktion vha. søgeindekset, mens serversøgning er en Pro-funktion.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Hvordan opsættes en Outlook-/Live-/Hotmail-konto?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+En Outlook-/Live-/Hotmail-konto kan opsættes via hurtigopsætningsguiden ved at vælg *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+Brug af tofaktorgodkendelse ifm. en Outlook-, Live- eller Hotmail-konto kræver oprettelse af en app-adgangskode. Tjek informationen [hér](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Tjek Microsofts vejledning [hér](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040).
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+Tjek [denne FAQ](#user-content-faq156) for opsætnig af en Office365-konto.
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Hvorfor genindlæses beskedteksten konstant?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
+Beskedhovede og -tekst hentes separat fra serveren. Beskedteksten i større beskeder forudindlæses ikke på takserede forbindelser, men hentes efter behov, når en besked udfoldes. Konstant genindlæsning af beskedteksten vil fortsætte, hvis der ikke er forbindelse til kontoen. Tjek også næste spørgsmål, eller hvorvidt andre operationer, såsom beskedsynkronisering, afvikles.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+Man kan tjekke konto- og mappelisten for kontoen og mappetilstanden (se forklaringen om betydningen af ikonerne) og operationslisten, tilgængelig via hovednavigeringsmenuen, for afventende operationer (tjek [denne FAQ](#user-content-faq3) for betydningen af operationerne).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+Har FairEmail stoppet synk grundet forudgående konnektivitetsproblemer, så tjek [denne FAQ](#user-content-faq123). Synkronisering kan også gennemtvinges via trepriksmenuen.
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+I modtagelsesindstillingerne kan man indstille maksimalstørrelsen for automatisk besked-download på takserede forbindelser.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Mobilforbindelser er oftest takserede, hvilket også gælder visse Wi-Fi hotspots.
 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Hvorfor synkroniseres beskeder ikke?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Mulige årsager til beskedsynkroniseringsfejl (sendte eller modtagne):
 
 * Konto eller mappe(r) er ikke opsat til at synkronisere
 * Der er indstillet for få synkroniseringsdage
@@ -770,63 +770,63 @@ Possible causes of messages not being synchronized (sent or received) are:
 * E-mailserveren er midlertidigt utilgængelig
 * Android har stoppet synkroniseringstjenesten
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Tjek derfor dine konto- og mappeindstillinger, samt at konti/mapper er forbundet (tjek forklaringen i navigeringsmenuen om ikonernes betydning).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+Er der evt. fejlmeddelelser, så tjek [denne FAQ](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+På enheder med en masse hukommelsehungrende apps, vil Android muligvis stoppe synk-tjenesten grundet ressourcemangel.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Visse Android-versioner stopper apps og tjenester for aggressivt. Tjek [dette dedikerede websted](https://dontkillmyapp.com/) samt [dette Android-problem](https://issuetracker.google.com/issues/122098785) for yderligere information.
 
-Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+Deaktivering af batterioptimering (opsætningstrin 4) reducerer chancen for, at Android stopper synk-tjenesten.
 
-In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+Ved gentagne forbindelsesfejl pauser FairEmail synk i stadigt længere intervaller for ikke at dræne enhedens batteri. Dette beskrives i [denne FAQ](#user-content-faq123).
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Hvorfor fungerer manuel synk ikke?~~**
 
-~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
+~~Er menuen *Synkronisér nu* nedtonet, er der ingen forbindelse til kontoen.~~
 
-~~See the previous question for more information.~~
+~~Tjek foregående spørgsmål for yderligere info.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Hvorfor ses beskedforhåndsvisning ikke altid?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+Beskedforhåndsvisningen kan ikke vises, hvis beskedteksten endnu ikke er downloadet. Tjek også [denne FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Hvorfor er Pro-funktionerne så dyre?**
 
-The right question is "*why are there so many taxes and fees?*":
+Det rette spørgsmål er, "*hvorfor er der så mange skatter og afgifter?*":
 
 * Moms: 25 % (afhængigt af land)
 * Google-gebyr: 30 %
 * Inkomstskat: 50 %
 * <sub>Paypal-gebyr: 5-10 % afhængigt af land/beløb</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Så dét, der er tilbage til udvikleren, er blot en brøkdel af købsprisen.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Bemærk, at det kun er nødvendigt at købe visse bekvemmeligheds og avancerede funktioner, hvilket betyder, at FairEmail grundlæggende kan bruges gratis.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+Bemærk også, at de fleste gratis apps ikke ser ud til at være bæredygtige i længden, hvorimod FairEmail vedligeholdes og understøttes korrekt, samt at gratis apps kan have faldgruber, såsom læk af fortrolige oplysninger.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Der er arbejdet på FairEmail næsten dagligt i flere end to år, så prisen synes er mere end rimelig. Af samme årsag vil der heller ikke være rabatter.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Kan man få refusion?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Hvis en købt Pro-funktion ikke fungerer som tilsigtet, og dette ikke skyldes et problem i de gratis funktioner, og problemet ikke kan løses rettidigt, så kan man få refusion. I alle øvrigee tilfælde gives ikke refusion. Under ingen omstændigheder er der refusionsmulighed for noget problem relateret til de gratis funktioner, da disse intet har kostet, og da de kan evalueres uden funktionsbegrænsninger. Jeg tager som sælger ansvar for at levere dét, der er blevet lovet, og jeg forventer, at du tager ansvar for at informere dig om, hvad du reelt køber.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Hvordan aktiverer man notifikationslyset?**
 
 Før Android 8 Oreo: Der findes en avanceret indstilling i opsætningen til dette.
 
@@ -851,23 +851,23 @@ Der er generelle såvel som specifikke fejl for Gmail-konti (se nedenfor).
 
 **Generelle fejl**
 
-Fejlen *... Godkendelse mislykkedes ...* eller *... GODKENDELSE mislykkedes ...* skyldes sandsynligvis forkert brugernavn/adgangskode. Visse udbydere forventer som brugernavn blot *brugernavn* og andre den fulde e-mail *brugernavn@eksempel.dk*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+Fejlen *... Godkendelse mislykkedes ...* eller *... GODKENDELSE mislykkedes ...* skyldes sandsynligvis forkert brugernavn/adgangskode. Visse udbydere forventer som brugernavn blot *brugernavn* og andre den fulde e-mail *brugernavn@eksempel.dk*. Benyttes kopiér/indsæt til angivelse af brugernavn/adgangskode, kan der muligvis medtages ikke-synlige tegn, hvilket også kan forårsage denne fejl. Visse adgangskodehåndteringer er også kendt for at gøre dette forkert. Brugernavnet kan være minuskel/versal sensitivt, så prøv med kun minuskler. Adgangskoden er oftest minuskel/versal sensitiv. Visse udbydere kræver brug af en app-adgangskode i stedet for kontoadgangskoden, så tjek din udbyders dokumentation. Der er nogle gange nødvendigt først at aktivere ekstern adgang (IMAP/SMTP) på udbyderens websted. Andre mulige årsager kan være, at kontoen er blokeret, eller at indlogning er administrativt begrænset på en eller anden måde, f.eks. ved kun at tillade indlogning fra bestemte netværk/IP-adresser.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
+Fejlen *... For mange fejlede godkendelsesforsøg ... *betyder sandsynligvis, at du bruger en Yahoo-kontoadgangskode i stedet for en app ditto. Tjek [denne FAQ](#user-content-faq88) vedr. opsætning af en Yahoo-konto.
 
-The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+Meddelelsen *... + OK ...* betyder sandsynligvis, at en POP3-port (normalt portnr. 995) anvendes til en IMAP-konto (normalt ellers portnr. 993).
 
-The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Fejlene *... ugyldig hilsen ...*, *... kræver gyldig adresse ...* og *... Parameter til HELO overholder ikke RFC-syntaks ...* kan sandsynligvis løses ved at ændre den avancerede identitetsindstilling *Anvend lokal IP-adresse i stedet for værtsnavn*.
 
-Fejlen *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+Fejlen *... Kunne ikke oprette forbindelse til vært...* betyder, at e-mailserverer ikke svarede inden for en rimelig tid (20 sekunder som standard). Dette indikerer i reglen Internetforbindelsesproblemer, muligvis forårsaget af en VPN- eller firewall-app. Ved virkelig langsomme e-milservere kan man forsøge at øge timeout for forbindelsen i FairEmails forbindelsesindstillinger.
 
-Fejlen *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+Fejlen *... Forbindelse afvist ...* betyder, at e-mailserveren, eller noget mellem denne og appen såsom en firewall, aktivt afviste forbindelsen.
 
-Fejlen *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+Fejlen *... Netværk kan ikke nås ...* betyder, at e-mailserveren ikke kunne nås via den aktuelle Internetforbindelse, f.eks. fordi Internettrafik er begrænset til lokal trafik alene.
 
-The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+Fejlen *... Vært er uopløst ...*, "*... Kan ikke opløse vært...* eller *... Ingen adresse tilknyttet værtsnavn ...* betyder, at adressen på e-mailserveren ikke kunne opløses til en IP-adresse. Dette kan skyldes et VPN, adblocking eller en utilgængelig/ikke korrekt fungerende (lokal) [DNS-server](https://en.wikipedia.org/wiki/Domain_Name_System).
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+Fejlen *... Software forårsagede forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og denne, aktivt afsluttede en eksisterende forbindelse. Dette kan f. eks. ske, når tilslutningen mistes pludseligt. Et typisk eksempel er aktivering af Flytilstand.
 
 The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
 
@@ -2834,9 +2834,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
@@ -2844,11 +2844,9 @@ A practical example: suppose there is a folder 'marketing' and auto message clas
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
-
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
@@ -2863,7 +2861,7 @@ Considering the defaults option values:
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
-You can delete all classification data by turning classification three times off.
+You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
 

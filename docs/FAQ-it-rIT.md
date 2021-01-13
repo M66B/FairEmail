@@ -873,23 +873,23 @@ Gli errori *... Disconnettendo BYE ...*, *... Connessione ripristinata da pari .
 
 L'errore *... Connessione chiusa da pari ...* potrebbe esser causata da un server non aggiornato di Exchange, vedi [qui](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) per ulteriori informazioni.
 
-Gli errori *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Gli errori *... Errore di lettura ...*, *... Errore di scrittura ...*, *... Lettura scaduta ...*, *... Conduttura rotta ...* significa che il server dell'email non risponde più o che la connessione internet non è buona.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+L'errore *... Interruzione imprevista del flusso di input di zlib ...* significa che non tutti i dati sono stati ricevuti, possibilmente a causa di una connessione interrotta o non buona.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+L'errore *... connessione fallita ...* potrebbe indicare [Troppe connessioni simultanee](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+L'avviso *... Crittografia non supportata ...* significa che la serie di caratteri del messaggio è sconosciuta o non supportata. FairEmail presumerà ISO-8859-1 (Latin1), che in gran parte dei casi risulterà nel mostrare correttamente il messaggio.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Sei pregato di [vedere qui](#user-content-faq4) per gli errori *... Inaffidabile ... non nel certificato ...*, *... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...* o *... Ancoraggio di fiducia per il percorso di certificazione non trovato ...*
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+Sei pregato di [vedere qui](#user-content-faq127) per l'errore *... Argomenti HELO sintatticamente non validi ...*.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+Sei pregato di [vedere qui](#user-content-faq41) per l'errore *... Stretta di mano fallita ...*.
 
-See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+Vedi [qui](https://linux.die.net/man/3/connect) per cosa significano i codici di errore come EHOSTUNREACH e ETIMEDOUT.
 
-Possible causes are:
+Cause possibili sono:
 
 * Un firewall o router sta bloccando le connessioni al server
 * Il nome dell'host o numero di porta non è valido
@@ -899,13 +899,13 @@ Possible causes are:
 * Il server dell'email rifiuta di accettare un messaggio, ad esempio perché troppo grande o contenente collegamenti inaccettabili
 * Ci sono troppe connessioni al server, vedi anche la prossima domanda
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Molte reti Wi-Fi pubbliche bloccano le email in uscita per prevenire lo spam. A volte puoi risolverlo usando un'altra porta SMTP. Vedi la documentazione del provider per i numeri di porta utilizzabili.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Se stai usando una [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), il provider della VPN potrebbe bloccare la connessione perché prova troppo aggressivamente a prevenire lo spam. Nota che anche [Google Fi](https://fi.google.com/) sta usando una VPN.
 
-**Send errors**
+**Errori di invio**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+I server SMTP possono rifiutare i messaggi per [varie motivazioni](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Messaggi troppo grandi e l'innesco del filtro di spam di un server email sono i motivi più comuni.
 
 * Il limite della dimensione dell'allegato per Gmail [è 25 MB](https://support.google.com/mail/answer/6584)
 * Il limite delle dimensioni dell'allegato per Outlook e Office 365 [è 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -917,7 +917,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Messaggio di spam rifiutato perché l'IP è elencato per ...* significa che il server dell'email ha rifiutato di inviare un messaggio dall'indirizzo di rete attuale (pubblico) perché usato erroneamente per inviare spam da qualcun altro (si spera) in precedenza. Sei pregato di provare ad abilitare la modalità aereo per 10 minuti per acquisire un nuovo indirizzo di rete.
 * *571 5.7.1 Il messaggio contiene spam o virus o il mittente è bloccato ...* significa che il server dell'email ha considerato un messaggio come spam. Questo significa probabilmente che i filtri spam del server email sono troppo rigidi. Dovrai contattare il provider di posta elettronica per avere supporto a riguardo.
 
-If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+Se vuoi usare il server SMTP di Gmail per risolvere un filtro spam in uscita troppo severo o per migliorare la consegna dei messaggi:
 
 * Verifica il tuo indirizzo email [qui](https://mail.google.com/mail/u/0/#settings/accounts) (dovrai usare un browser desktop)
 * Cambia le impostazioni di identità come queste (configurazione, fase 2, tocca Gestisci, tocca identità):
@@ -926,19 +926,19 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**Errori di Gmail**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+L'autorizzazione della configurazione dei profili di Gmail con la procedura guidata rapida devono essere ricaricati periodicamente tramite il [gestore del profilo Android](https://developer.android.com/reference/android/accounts/AccountManager). Questo richiede i permessi di contatto/profilo e connettività internet.
 
-The error *... Autenticazione fallita ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+L'errore *... Autenticazione fallita ... Profilo non trovato ...* significa che un profilo di Gmail precedentemente autorizzato è stato rimosso dal dispositivo.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Gli errori *... Autenticazione fallita ... Nessun token ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail.
 
-L'errore *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+L'errore *... Autenticazione fallita ... errore di rete ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail a causa di problemi con la connessione a internet
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+L'errore *... Autenticazione fallita ... Credenziali non valide ...* potrebbe essere causato dal cambiamento della password del profilo o avendo revocati i permessi di profilo/contatti necessari. Nel caso in cui la password del profilo fosse cambiata, dovrai autenticare di nuovo le impostazioni del profilo di Android. Nel caso in cui fossero stati revocati i permessi, puoi avviare la procedura guidata di configurazione rapida di Gmail per garantire di nuovo i permessi richiesti (non devi riconfigurare il profilo).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+L'errore *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -2834,9 +2834,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Each folder has an option to enable automatic message classification. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
@@ -2844,11 +2844,9 @@ A practical example: suppose there is a folder 'marketing' and auto message clas
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
-Classification will be done for new messages in the inbox, spam folder and user folders only. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
-
 To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in miscellaneous settings that control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
@@ -2863,7 +2861,7 @@ Considering the defaults option values:
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
-You can delete all classification data by turning classification three times off.
+You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
 

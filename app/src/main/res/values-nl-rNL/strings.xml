@@ -676,7 +676,8 @@
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_download_folder">Berichtteksten en bijlagen automatisch downloaden</string>
     <string name="title_notify_folder">Melding bij nieuwe berichten</string>
-    <string name="title_auto_classify">Automatisch geclassificeerde berichten verplaatsen</string>
+    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Classificeer nieuwe berichten in deze map</string>
+    <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Verplaats automatisch geclassificeerde berichten naar deze map</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
     <string name="title_sync_days_remark">Een hogere waarde verhoogt het batterij- en datagebruik</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>

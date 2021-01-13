@@ -655,7 +655,6 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
-    <string name="title_auto_classify">分類されたメッセージを自動的に移動</string>
     <string name="title_sync_days">メッセージの同期(日毎)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増えます</string>
     <string name="title_keep_days">メッセージを保持する(日毎)</string>

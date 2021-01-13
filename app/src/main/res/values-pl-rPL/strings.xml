@@ -698,7 +698,6 @@
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_download_folder">Automatycznie pobieraj treści wiadomości i załączniki</string>
     <string name="title_notify_folder">Powiadom o nowych wiadomościach</string>
-    <string name="title_auto_classify">Automatycznie przenoś sklasyfikowane wiadomości</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>

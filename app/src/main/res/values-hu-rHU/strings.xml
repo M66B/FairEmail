@@ -658,7 +658,6 @@
     <string name="title_poll_folder">Időszakos ellenőrzés a folyamatos szinkronizálás helyett</string>
     <string name="title_download_folder">Üzenetek szövegének és mellékleteinek automatikus letöltése</string>
     <string name="title_notify_folder">Értesítés új üzenet érkezésekor</string>
-    <string name="title_auto_classify">Osztályozott üzenetek automatikus áthelyezése</string>
     <string name="title_sync_days">Szinkronizálandó napok száma</string>
     <string name="title_sync_days_remark">Az érték növelése megnövekedett adatkapcsolat- és akkumulatorhasználatot okoz</string>
     <string name="title_keep_days">Üzenetek megtartása (nap)</string>

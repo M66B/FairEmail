@@ -689,7 +689,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_poll_folder">Kontrolovať periodicky namiesto neustálej synchronizácie</string>
     <string name="title_download_folder">Automaticky prevziať texty správ a prílohy</string>
     <string name="title_notify_folder">Upozorniť na nové správy</string>
-    <string name="title_auto_classify">Automaticky premiestniť klasifikované správy</string>
     <string name="title_sync_days">Synchronizovať správy (dni)</string>
     <string name="title_sync_days_remark">Zvýšenie tejto hodnoty zvýši spotrebu batérie a dát</string>
     <string name="title_keep_days">Ponechať správy (dni)</string>

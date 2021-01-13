@@ -672,7 +672,6 @@
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_download_folder">Descargar mensajes de texto y archivos adjuntos automáticamente</string>
     <string name="title_notify_folder">Notificar nuevos mensajes</string>
-    <string name="title_auto_classify">Mover automáticamente los mensajes clasificados</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>

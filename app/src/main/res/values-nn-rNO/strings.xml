@@ -665,7 +665,6 @@
     <string name="title_poll_folder">Kontroller jevnlig i stedet for kontinuerlig synkronisering</string>
     <string name="title_download_folder">Last ned automatisk meldings tekster og vedlegg</string>
     <string name="title_notify_folder">Gi beskjed om nye meldinger</string>
-    <string name="title_auto_classify">Flytt klassifiserte meldinger automatisk</string>
     <string name="title_sync_days">Synkronisere meldinger (dager)</string>
     <string name="title_sync_days_remark">Ved å øke denne verdien øker batteriet og dataforbruket</string>
     <string name="title_keep_days">Beholde meldinger (dager)</string>
