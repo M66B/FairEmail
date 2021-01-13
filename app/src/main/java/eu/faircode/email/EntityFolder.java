@@ -90,7 +90,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean download = true;
     @NonNull
-    public Boolean auto_classify = false;
+    public Boolean auto_classify_source = false;
+    @NonNull
+    public Boolean auto_classify_target = false;
     public Boolean subscribed;
     @NonNull
     public Integer sync_days;
@@ -257,12 +259,16 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (EntityFolder.INBOX.equals(type)) {
             this.unified = true;
             this.notify = true;
+            this.auto_classify_source = true;
         }
 
         if (EntityFolder.DRAFTS.equals(type)) {
             this.initialize = EntityFolder.DEFAULT_KEEP_DRAFTS;
             this.keep_days = EntityFolder.DEFAULT_KEEP_DRAFTS;
         }
+
+        if (EntityFolder.JUNK.equals(type))
+            this.auto_classify_source = true;
     }
 
     void setSpecials(EntityAccount account) {
@@ -503,6 +509,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     this.synchronize.equals(other.synchronize) &&
                     this.poll.equals(other.poll) &&
                     this.download.equals(other.download) &&
+                    this.auto_classify_source.equals(other.auto_classify_source) &&
+                    this.auto_classify_target.equals(other.auto_classify_target) &&
                     Objects.equals(this.subscribed, other.subscribed) &&
                     this.sync_days.equals(other.sync_days) &&
                     this.keep_days.equals(other.keep_days) &&
@@ -547,7 +555,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("poll", poll);
         json.put("poll_factor", poll_factor);
         json.put("download", download);
-        json.put("auto_classify", auto_classify);
+        json.put("auto_classify_source", auto_classify_source);
+        json.put("auto_classify_target", auto_classify_target);
         json.put("sync_days", sync_days);
         json.put("keep_days", keep_days);
         json.put("auto_delete", auto_delete);
@@ -582,8 +591,14 @@ public class EntityFolder extends EntityOrder implements Serializable {
         if (json.has("download"))
             folder.download = json.getBoolean("download");
 
-        if (json.has("auto_classify"))
-            folder.auto_classify = json.getBoolean("auto_classify");
+        if (json.has("auto_classify_source"))
+            folder.auto_classify_source = json.getBoolean("auto_classify_source");
+        else
+            folder.auto_classify_source =
+                    (EntityFolder.INBOX.equals(folder.type) ||
+                            EntityFolder.JUNK.equals(folder.type));
+        if (json.has("auto_classify_target"))
+            folder.auto_classify_target = json.getBoolean("auto_classify_target");
 
         if (json.has("after"))
             folder.sync_days = json.getInt("after");

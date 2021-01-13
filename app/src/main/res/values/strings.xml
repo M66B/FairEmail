@@ -787,7 +787,8 @@
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_download_folder">Automatically download message texts and attachments</string>
     <string name="title_notify_folder">Notify on new messages</string>
-    <string name="title_auto_classify">Automatically move classified messages</string>
+    <string name="title_auto_classify_source">Classify new messages in this folder</string>
+    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">Keep messages (days)</string>

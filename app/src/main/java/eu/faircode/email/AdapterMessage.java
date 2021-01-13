@@ -6454,9 +6454,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                             DB db = DB.getInstance(context);
+                            EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
                             EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
-                            if (junk != null) {
-                                db.folder().setFolderAutoClassify(junk.id, filter);
+                            if (inbox != null && junk != null) {
+                                db.folder().setFolderAutoClassify(
+                                        inbox.id, inbox.auto_classify_source || filter, inbox.auto_classify_target);
+                                db.folder().setFolderAutoClassify(
+                                        junk.id, junk.auto_classify_source || filter, filter);
                                 prefs.edit().putBoolean("classification", true).apply();
                             }
 
@@ -6494,11 +6498,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean classification = prefs.getBoolean("classification", false);
 
                     DB db = DB.getInstance(context);
+                    EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
+                    if (inbox == null)
+                        return false;
+
                     EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
                     if (junk == null)
                         return false;
 
-                    return classification && junk.auto_classify;
+                    return (classification &&
+                            inbox.auto_classify_source &&
+                            junk.auto_classify_source && junk.auto_classify_target);
                 }
 
                 @Override

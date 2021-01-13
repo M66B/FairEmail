@@ -64,7 +64,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 183,
+        version = 184,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1794,6 +1794,20 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `auto_classified` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(183, 184) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `folder` ADD COLUMN `auto_classify_source` INTEGER NOT NULL DEFAULT 0");
+                        db.execSQL("ALTER TABLE `folder` RENAME COLUMN `auto_classify` TO 'auto_classify_target'");
+                        db.execSQL("UPDATE `folder`" +
+                                " SET auto_classify_source = 1" +
+                                " WHERE (SELECT pop FROM account WHERE id = folder.account) = " + EntityAccount.TYPE_IMAP +
+                                " AND (auto_classify_target" +
+                                " OR type = '" + EntityFolder.INBOX + "'" +
+                                " OR type = '" + EntityFolder.JUNK + "')");
                     }
                 });
     }

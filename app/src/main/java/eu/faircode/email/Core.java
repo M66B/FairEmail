@@ -2973,7 +2973,7 @@ class Core {
 
                 runRules(context, imessage, account, folder, message, rules);
                 if (download && !message.ui_hide &&
-                        MessageClassifier.isEnabled(context) && MessageClassifier.canClassify(folder.type))
+                        MessageClassifier.isEnabled(context) && folder.auto_classify_source)
                     db.message().setMessageUiHide(message.id, true);
 
                 db.setTransactionSuccessful();
@@ -3006,7 +3006,7 @@ class Core {
                 }
 
                 if ((message.size != null && message.size < maxSize) ||
-                        (MessageClassifier.isEnabled(context)) && MessageClassifier.canClassify(folder.type)) {
+                        (MessageClassifier.isEnabled(context)) && folder.auto_classify_source) {
                     String body = parts.getHtml(context);
                     File file = message.getFile(context);
                     Helper.writeText(file, body);

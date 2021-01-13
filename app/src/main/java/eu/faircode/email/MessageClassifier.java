@@ -61,10 +61,7 @@ public class MessageClassifier {
             if (!isEnabled(context))
                 return;
 
-            if (!canClassify(folder.type))
-                return;
-
-            if (target != null && !canClassify(target.type))
+            if (!folder.auto_classify_source)
                 return;
 
             long start = new Date().getTime();
@@ -111,7 +108,7 @@ public class MessageClassifier {
                     db.beginTransaction();
 
                     EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
-                    if (dest != null && dest.auto_classify &&
+                    if (dest != null && dest.auto_classify_target &&
                             (pro || EntityFolder.JUNK.equals(dest.type))) {
                         EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
@@ -441,12 +438,6 @@ public class MessageClassifier {
     static boolean isEnabled(@NonNull Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean("classification", false);
-    }
-
-    static boolean canClassify(@NonNull String folderType) {
-        return EntityFolder.INBOX.equals(folderType) ||
-                EntityFolder.JUNK.equals(folderType) ||
-                EntityFolder.USER.equals(folderType);
     }
 
     static File getFile(@NonNull Context context) {

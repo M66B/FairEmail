@@ -198,13 +198,22 @@
             app:layout_constraintTop_toBottomOf="@id/etPoll" />
 
         <CheckBox
-            android:id="@+id/cbAutoClassify"
+            android:id="@+id/cbAutoClassifySource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_auto_classify"
+            android:text="@string/title_auto_classify_source"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDownload" />
+
+        <CheckBox
+            android:id="@+id/cbAutoClassifyTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_auto_classify_target"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAutoClassifySource" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAutoClassifyPro"
@@ -214,7 +223,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAutoClassify" />
+            app:layout_constraintTop_toBottomOf="@id/cbAutoClassifyTarget" />
 
         <!-- after -->
 

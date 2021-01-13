@@ -3424,9 +3424,12 @@ Message classification will attempt to automatically group emails into classes, 
 using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning mode' only.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only.
+The classifier will 'learn' from new messages in the inbox and spam folder by default.
+The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder.
+You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Each folder has an option to enable automatic message classification.
+Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short).
 When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings
@@ -3445,14 +3448,11 @@ This will work best with messages with similar content (email addresses, subject
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess.
 If the classifier is unsure, it will simply leave an email where it is.
 
-Classification will be done for new messages in the inbox, spam folder and user folders only.
-You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
-
 To prevent the email server from moving a message into the spam folder again and again,
 auto classification out of the spam folder will not be done.
 
 The message classifier calculates the probability a message belongs in a folder (class).
-There are two options in miscellaneous settings that control if a message will be automatically moved into a folder,
+There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder,
 provided that auto classification is enabled for the folder:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
@@ -3468,7 +3468,7 @@ Considering the defaults option values:
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
-You can delete all classification data by turning classification three times off.
+You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
 [Filter rules](#user-content-faq71) will be executed before classification.
 
