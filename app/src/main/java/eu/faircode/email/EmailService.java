@@ -380,8 +380,11 @@ public class EmailService implements AutoCloseable {
         ServiceAuthenticator authenticator = new ServiceAuthenticator(context, auth, provider, user, password, intf);
 
         try {
-            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH)
+            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
+                properties.put("mail." + protocol + ".auth.xoauth2.disable", "false");
+            } else
+                properties.put("mail." + protocol + ".auth.xoauth2.disable", "true");
 
             if (auth == AUTH_TYPE_OAUTH && "imap.mail.yahoo.com".equals(host))
                 properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
