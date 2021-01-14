@@ -910,27 +910,27 @@ public class IMAPStore extends Store
 				continue;
 			}
 		} catch (ProtocolException ex) {
-			eu.faircode.email.Log.w(ex);
 			if (pex == null)
 				pex = ex;
-			if (m.equals("PLAIN") || m.equals("LOGIN")) {
-				eu.faircode.email.Log.w("Falling back to classic LOGIN");
-				try {
-					p.authclassic(user, password);
-					return;
-				} catch (ProtocolException exex) {
-					eu.faircode.email.Log.w(exex);
-				}
-			}
 		}
 	}
 
-	if (pex != null)
-		throw pex;
+	if (!p.hasCapability("LOGINDISABLED"))
+		try {
+			eu.faircode.email.Log.i("Trying LOGIN");
+			p.login(user, password);
+			return;
+		} catch (ProtocolException ex) {
+			if (pex == null)
+				pex = ex;
+		}
 
-	if (!p.hasCapability("LOGINDISABLED")) {
-	    p.login(user, password);
-	    return;
+	if (pex != null) {
+		if (eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
+			eu.faircode.email.Log.i(pex);
+		else
+			eu.faircode.email.Log.w(pex);
+		throw pex;
 	}
 
 	throw new ProtocolException("No login methods supported!");
