@@ -698,8 +698,8 @@
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_download_folder">Automatycznie pobieraj treści wiadomości i załączniki</string>
     <string name="title_notify_folder">Powiadom o nowych wiadomościach</string>
-    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Klasyfikuj nowe wiadomości w tym folderze</string>
-    <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Automatycznie przenoś wiadomości zaklasyfikowane do tego folderu</string>
+    <string name="title_auto_classify_source">Klasyfikuj nowe wiadomości w tym folderze</string>
+    <string name="title_auto_classify_target">Automatycznie przenoś wiadomości zaklasyfikowane do tego folderu</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>

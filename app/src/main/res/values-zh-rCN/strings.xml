@@ -665,8 +665,8 @@
     <string name="title_poll_folder">定期检查而非持续同步</string>
     <string name="title_download_folder">自动下载邮件文本和附件</string>
     <string name="title_notify_folder">通知新邮件</string>
-    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">对此文件夹中的新消息进行分类</string>
-    <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">自动将分类邮件移动到此文件夹</string>
+    <string name="title_auto_classify_source">对此文件夹中的新消息进行分类</string>
+    <string name="title_auto_classify_target">自动将分类邮件移动到此文件夹</string>
     <string name="title_sync_days">同步邮件(天)</string>
     <string name="title_sync_days_remark">增加该值将增加电池和数据的使用量</string>
     <string name="title_keep_days">保留邮件(天)</string>

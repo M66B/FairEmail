@@ -651,6 +651,8 @@
     <string name="title_poll_folder">定期檢查而不是連續同步</string>
     <string name="title_download_folder">自動下載消息文本和附件</string>
     <string name="title_notify_folder">通知新消息</string>
+    <string name="title_auto_classify_source">將新訊息分類到此資料夾</string>
+    <string name="title_auto_classify_target">自動移動已分類的資料夾移動到此資料夾</string>
     <string name="title_sync_days">同步消息（天）</string>
     <string name="title_sync_days_remark">增大此值將增加電池和數據使用量</string>
     <string name="title_keep_days">保留消息（天）</string>

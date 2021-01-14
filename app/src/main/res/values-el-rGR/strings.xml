@@ -675,8 +675,8 @@
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχής συγχρονισμός</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
-    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Ταξινόμηση νέων μηνυμάτων σε αυτόν το φάκελο</string>
-    <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Αυτόματη μετακίνηση ταξινομημένων μηνυμάτων σε αυτόν το φάκελο</string>
+    <string name="title_auto_classify_source">Ταξινόμηση νέων μηνυμάτων σε αυτόν το φάκελο</string>
+    <string name="title_auto_classify_target">Αυτόματη μετακίνηση ταξινομημένων μηνυμάτων σε αυτόν το φάκελο</string>
     <string name="title_sync_days">Συγχρονισμός μηνυμάτων (ημέρες)</string>
     <string name="title_sync_days_remark">Αν αυξηθεί η τιμή αυτή, θα αυξηθεί η χρήση μπαταρίας και δεδομένων</string>
     <string name="title_keep_days">Διατήρηση μηνυμάτων (ημέρες)</string>
