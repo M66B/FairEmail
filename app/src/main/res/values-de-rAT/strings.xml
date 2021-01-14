@@ -676,7 +676,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_poll_folder">Periodisch überprüfen anstatt kontinuierlicher Synchronisierung</string>
     <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
-    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Neue Nachrichten für diesen Ordner klassifizieren</string>
+    <string name="title_auto_classify_source" comment="title_auto_classify_source&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Neue Nachrichten in diesem Ordner klassifizieren</string>
     <string name="title_auto_classify_target" comment="title_auto_classify_target&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163">Für diesen Ordner klassifizierte Nachrichten automatisch in diesen Ordner verschieben</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht den Akkuverbrauch und die Datennutzung</string>

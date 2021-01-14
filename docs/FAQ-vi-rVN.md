@@ -46,7 +46,7 @@ Câu hỏi liên quan:
 * Thay đổi tên tài khoản: Thiết lập, bước 1, Quản lý, nhấn vào tài khoản
 * Thay đổi mục tiêu vuốt trái/phải: Thiết lập, Hành vi, Đặt hành động vuốt
 * Thay đổi mật khẩu: Thiết lập, bước 1, Quản lý, nhấn vào tài khoản, thay đổi mật khẩu
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
+* Thêm một chữ ký: Thiết lập, bước 2, Quản lý, nhấn vào danh tính, Chỉnh sửa chữ ký.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
@@ -60,9 +60,9 @@ Câu hỏi liên quan:
 * Change system folders: Setup, step 1, Manage, tap account, at the bottom
 * Export/import settings: Setup, navigation/hamburger menu
 
-## Known problems
+## Những vấn đề đã biết
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
+* ~~Một [lỗi ở Android 5.1 và 6](https://issuetracker.google.com/issues/37054851) làm cho các ứng dụng đôi khi hiển thị định dạng thời gian sai. Bật/tắt cài đặt Android *Sử dụng định dạng 24 giờ* có thể tạm thời giải quyết vấn đề này. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
@@ -119,7 +119,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Frequently Asked Questions
+## Những câu hỏi thường gặp
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)

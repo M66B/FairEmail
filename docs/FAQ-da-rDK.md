@@ -869,27 +869,27 @@ Fejlen *... Vært er uopløst ...*, "*... Kan ikke opløse vært...* eller *... 
 
 Fejlen *... Software forårsagede forbindelsesafbrydelse ...* betyder, at e-mailserveren, eller noget mellem FairEmail og denne, aktivt afsluttede en eksisterende forbindelse. Dette kan f. eks. ske, når tilslutningen mistes pludseligt. Et typisk eksempel er aktivering af Flytilstand.
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+Fejlene *... BYE, logger ud ...*, *... Forbindelse nulstillet af peer ... * betyder, at e-mailserveren aktivt afsluttede en eksisterende forbindelse.
 
-The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Fejlen *... Forbindelse lukket af peer ...* kan skyldes en ikke-opdateret Exchange-server. Tjek [hér](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for yderligere oplysninger.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Fejlene *... Læsefejl ...*, *... Skrivefejl ...*, *... Læsning fik timeout ...*, *... Broken pipe ...* betyder, at e-mailserveren ikke længere svarer eller en dårlig Internetforbindelse.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Fejlen *... Uventet afslutning af zlib-inputstrøm ...* betyder, at ikke alle data blev modtaget, muligvis grundet en dårlig/afbrudt forbindelse.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+Fejlen *... forbindelsesfejl ...* kan indikere [For mange samtidige forbindelser](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+Advarslen *... Uunderstøttet kodning ...* betyder, at beskedens tegnsæt er ukendt eller uunderstøttet. FairEmail gør brug af ISO-8859-1 (Latin1), hvilket i de fleste tilfælde vil resultere i korrekt beskedvisning.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+[Tjek hér](#user-content-faq4) vedr. fejlene *... Ikke-betroet ... ikke i certifikat ...*, * ... Ugyldigt sikkerhedscertifikat (kan ikke bekræfte serveridentitet) ...* eller *... Tillidsanker til certificeringssti ikke fundet ...*
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+[Tjek hér](#user-content-faq127) vedr. fejlen *... Syntaktisk ugyldig(t/e) HELO-argument(er) ... *.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+[Tjek hér](#user-content-faq41) vedr. fejlen *... Handshake mislykkedes ...*.
 
-See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+Tjek [hér](https://linux.die.net/man/3/connect) ang. betydningen af fejlkoder såsom EHOSTUNREACH og ETIMEDOUT.
 
-Possible causes are:
+Mulige årsager:
 
 * Firewall eller router blokerer forbindelser til serveren
 * Værtsnavnet eller portnummeret er ugyldigt
@@ -899,13 +899,13 @@ Possible causes are:
 * E-mai-serveren nægter at acceptere en besked, fordi den f.eks. er for stor eller indeholder uacceptable links
 * Der er for mange forbindelser til serveren, se også næste spørgsmål
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Mange offentlige Wi-Fi netværk blokerer udgående e-mail for at forhindre spam. Dette kan somme tider omgås ved brug af en anden SMTP-port. Tjek leverandørdokumentationen ang. anvendelige portnumre.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Benyttes et [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), kan VPN-udbyderen muligvis blokere forbindelsen, hvis den for aggressivt forsøger at forhindre spam. Bemærk, at [Google Fi](https://fi.google.com/) også anvender et VPN.
 
-**Send errors**
+**Afsendelsesfejl**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+SMTP-servere kan [af forskellige årsager](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes) afvise beskeder. For store beskeder og udløsning af en e-mailservers spamfilteret er de mest almindelige årsager.
 
 * Gmails størrelsesbegrænsning for vedhæftninger [udgør 25 MB](https://support.google.com/mail/answer/6584)
 * Outlooks og Office 365' størrelsesbegrænsning for vedhæftninger [udgør 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -917,127 +917,127 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Spam besked afvist, da IP er listet af ...* betyder, at e-mailserveren har afvist at afsende en besked fra den aktuelle (offentlige) netværksadresse, fordi den tidligere har være misbrugt til spamafsendelse. Prøv at aktivere flytilstand i 10 minutter for at få tildelt en ny netværksadresse.
 * *571 5.7.1 Besked indeholder spam eller virus eller afsender er blokeret ...* betyder, at e-mailserveren betragtede en udgående besked som spam. Dette betyder sandsynligvis, at e-mailserverens spamfiltre er for strikse. Kontakt e-mailudbyderen for support vedr. dette.
 
-If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+Ønskes Gmail SMTP-serveren brugt mhp. at omgå et for strikst, udgående spamfilter eller til at forbedre beskedleveringen:
 
 * Bekræft din e-mailadresse [hér](https://mail.google.com/mail/u/0/#settings/accounts) (en computerbrowser skal bruges til dette)
 * Ændr identitetsindstillingerne på denne måde (opsætning, trin 2, tryk på Håndtéer, tryk på identitet):
 
-&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+&emsp;&emsp;Username: *ens Gmail-adresse*<br /> &emsp;&emsp;Password: *[en app-adgangskode](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *ens e-mailaddresse* (avanceret identititetsindstillinger)<br />
 
 <br />
 
-**Gmail errors**
+**Gmail-fejl**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+Godkendelsen af Gmail-kontiopsætninger vha. hurtigguiden skal periodisk opfriskes via [Android-kontohåndteringen](https://developer.android.com/reference/android/accounts/AccountManager). Dette kræver kontakt-/konto-tilladelser samt Internetforbindelse.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+Fejlen *... Godkendelse mislykkedes... Konto ikke fundet ...* betyder, at en tidligere godkendt Gmail-konto er fjernet fra enheden.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Fejlene *... Godkendelse mislykkedes... Intet token ...* betyder, at Android-kontohåndteringen ikke kunne opfriske godkendelsen af en Gmail-konto.
 
-The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+Fejlen *... Godkendelse mislykkedes ... netværksfejl ...* betyder, at Android-kontohåndteringen ikke var i stand til at opfriske godkendelsen af en Gmail-konto grundet Internetforbindelsesproblemer
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+Fejlen *... Godkendelse mislykkedes... Ugyldige akkreditiver ...* kan være forårsaget af et skift af kontoadgangskoden eller ophævelse af de krævede konto-/kontakttilladelser. Er kontoadgangskoden skiftet, så godkend igen Google-kontoen i Androids kontoindstillinger. I tilfælde af ophævede tilladelser, kan hurtigopsætningsguiden til Gmail startes for at gentildele de nødvendige rettigheder (kontoen behøves ikke opsat igen).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+Fejlen *... ServiceDisabled ...* kan skyldes tilmelding til [Avanceret Beskyttelsesprogram](https://landing.google.com/advancedprotection/): "*For at læse e-mails skal Gmail benyttes. Google-kontoen kan ikke benytte med apps og tjenester, som kræver adgang til følsomme data såsom ens e-mails*". Tjek yderligere info [hér](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+Hvis i tvivl, kan der anmodes om [support](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Hvorfor ses advarslen ... ?**
 
-*General*
+*Generelt*
 
-Alerts are warning messages sent by email servers.
+Avarsler er advarselsmeddelelser afsendt af e-mailservere.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*For mange samtidige forbindelser* eller *Maksimalt antal forbindelser overskredet*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Denne advarsel afsendes, når der er for mange samtidige mappeforbindelser til den samme e-mailkonto.
 
-Possible causes are:
+Mulige årsager:
 
 * Flere e-mailklienter er forbundet til den samme konto
 * Samme e-mailklient er forbundet flere gange til den samme konto
 * Tidligere forbindelser blev brat afsluttet, f.eks. ved en pludselig mistet Internetforbindelse
 
-First try to wait some time to see if the problem resolves itself, else:
+Prøv først at vente lidt for at se, om problemet løser sig selv, ellers:
 
 * Skift enten til periodisk tjek for beskeder i modtagelsesindstillingerne, hvilket resulterer i, at mapper åbnes én ad gangen
 * Eller indstil nogle mapper til polling i stedet for at synkronisation (langt tryk på mappen i mappelisten, redigér egenskaber)
 
-An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+En nem måde at opsætte periodisk tjek for beskeder for alle mapper undtagen indbakken er at bruge *Anvend for alle . .* i trepriksmenuen på mappelisten og at markere de to nederste afkrydsningsfelter.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+Det maksimale antal samtidige mappeforbindelser til Gmail udgør 15, så der kan maks. synkronisere 15 mapper samtidigt på tværs af *alle* ens enheder. Af samme grund er *Gmail-brugermapper* som standard opsat til polling fremfor kontinuerlig synkronisering. Om nødvendigt eller ønsket kan dette ændres vha. langt tryk på en mappe i mappelisten og dernæst vælge *Redigér egenskaber*. Tjek oplysningerne [hér](https://support.google.com/mail/answer/7126229).
 
-When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
+Ved brug af en Dovecot-server, skal indstillingen [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections) muligvis ændres.
 
-Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+Bemærk, at det vil tage e-mailserver et stykke tid at opdage brudte forbindelser, f.eks. grundet ophør af netværksdækning, hvilket betyder, at kun halvdelen af mappeforbindelserne reelt er tilgængelige. For Gmail vil det kun være 7 forbindelser.
 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) Hvad vil gennemse beskeder på serveren sige?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+At gennemse beskeder på serveren henter beskederne fra e-mailserveren i realtid, når man når slutningen af listen over synkroniserede beskeder, selv hvis mappen er indstillet til ikke at synkronisere. Denne funktion kan deaktiveres under Avancerede kontoindstillinger.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Hvorfor kan der ikke vælges/åbnes/gemmes et billede, vedhæftning eller fil?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Når et menupunkt til at vælge/åbne/gemme en fil er deaktiveret (nedtonet), eller når meddelelsen *Lageradgangs-framework ikke tilgængeligt* ses, så er [lageradgangs-framework'en](https://developer.android.com/guide/topics/providers/document-provider), en standard Android-komponent, sandsynligvis ikke til stede. Dette kan skyldes, at en tilpasset ROM ikke inkluderer den, eller at den er blevet fjernet (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail anmoder ikke om lagerpladstilladelser, så denne framework kræves for at kunne vælge filer og mapper. Ingen app, undtagen måske filhåndteringer målrettet Android 4.4 KitKat eller senere, bør anmode om lagerpladstilladelser, da dette giver adgang til *alle* filer.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+Framework for lagerpladsadgang leveres af pakken *com.android.documentsui*, der er synlig som *Filer*-app i visse Android-versioner (især OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Framework'en for lagerpladsadgang kan aktiveres (igen) med denne adb-kommando:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativt vil *Filer*-appen muligvis kunne genaktivere vha. Androids app-indstillinger.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Kan jeg hjælpe med at oversætte FairEmail til mit sprog?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Ja, man kan oversætte FairEmail-teksterne til sit sprog [via Crowdin](https://crowdin.com/project/open-source-email). Tilmelding er gratis.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Ønsker man sit navn/alias inkluderet på listen over bidragsydere i appens *Om*-afsnit, så [kontakt mig](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Hvordan skelnes mellem indlejrede eller eksterne billeder?**
 
-External image:
+Eksternt billede:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Indlejret billede:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Indlejret billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Defekt billede:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Defekt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Bemærk, at download af eksterne billeder fra en fjernserver kan bruges til at registrere, om en en besked er set, hvilket ikke er ønskeligt, f.eks. hvis beskeden er spam eller ondsindet.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Hvordan håndteres statusbjælkenotifikationer?**
 
-In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+I opsætningen findes knappen *Håndtér notifikationer *til direkte navigering til Android-notifikationsindstillingerne til FairEmail.
 
-On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
+I Android 8.0 Oreo og senere kan egenskaberne for de individuelle notifikationskanaler håndteres, f.eks. indstilling af en bestemt notifikationslyd eller -visning på låseskærmen.
 
-FairEmail has the following notification channels:
+FairEmail har flg. beskedkanaler:
 
 * Tjeneste: Benytttes til notifikation om synkroniseringstjenesten, tjek også [denne FAQ](#user-content-faq2)
 * Send: Benyttes til sendetjenestenotiifikation
@@ -1045,7 +1045,7 @@ FairEmail has the following notification channels:
 * Advarsel: Benyttes til advarselsnotifikationer
 * Fejl: Benyttes til notifikationer om fejl
 
-See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
+Tjek [hér](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for informationer om notifikationskanaler. In short: tap on the notification channel name to access the channel settings.
 
 On Android before Android 8 Oreo you can set the notification sound in the settings.
 
@@ -2834,9 +2834,9 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+You can enable message classification in the miscellaneous settings. Dette aktiverer kun indlæringstilstand. Klassifikatoren vil som standard 'lære' af nye beskeder i indbakken og Spam-mappen. Mappeegenskaben *Klassificér nye beskeder i denne mappe* vil aktivere eller deaktivere 'indlæringstilstand' for en mappe. Lokale beskeder kan ryddes (langt tryk på en kontos mappe i mappelisten) og herefter gensynkroniseres for at klassificere beskederne.
 
-Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Hver mappe har indstillingen *Flyt automatisk klassificerede beskeder til denne mappe* ('auto-klassificering', kort sagt). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
 The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
@@ -2844,54 +2844,54 @@ A practical example: suppose there is a folder 'marketing' and auto message clas
 
 Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
-To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+For at forhindre e-mailserveren i at flytte en besked til Spam-mappen igen og igen, vil auto-klassificering fra Spam-mappen ikke ske.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+Beskedklassifikatoren beregner sandsynligheden for, at en besked hører til i en mappe (klasse). Der er to indstillinger i diverse indstillingerne, som styrer, om en besked auto-flyttes til en mappe, for hvilken auto-klassificering er aktiv:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
 
-Both conditions must be satisfied before a message will be moved.
+Begge betingelser skal være opfyldt, før en besked flyttes.
 
-Considering the defaults option values:
+Hensyntagen til standardindstillingsværdier:
 
 * Æbler 40% og bananer 30% vil blive tilsidesat, da forskellen på 25% ligger under et minimum på 50%
 * Æbler 15% og bananer 5% vil blive tilsidesat, da sandsynligheden for æbker er under et minimum på 20%
 * Æbler 50% og bananer 20% vil resultere i valg af æbler
 
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+Klassificeringen er optimeret til at bruge så få ressourcer som muligt, men vil uundgåeligt bruge ekstra strøm.
 
-You can delete all classification data by turning classification in the miscellaneous settings three times off.
+Alle klassificeringsdata kan slettes ved i diverse indstillingerne at slå klassificeringen fra tre gange.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+[Filtreringsregler](#user-content-faq71) eksekveres før klassificering.
 
-Message classification is a pro feature, except for the spam folder.
+Beskedklassificering er en Pro-funktion, undtagen for Spam-mappen.
 
 <br />
 
 ## Get support
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail understøttes kun på smartphones, tablets og ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er identisk med den seneste GitHub-udgivelses ditto. Dette betyder også, at nedgradering er uunderstøttet.
 
-There is no support on things that are not directly related to FairEmail.
+Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
 
-There is no support on building and developing things by yourself.
+Der er ingen support til bygning og udvikling af ting fra dig selv.
 
-Requested features should:
+Anmodede funktioner skal:
 
 * være til gavn for flest brugere
 * ikke komplicere brugen af FairEmail
 * passer ind i FairMail-filosofien (fortroligheds- og sikkerhedsorienteret)
 * overholde fællesstandarder (IMAP, SMTP mv.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er også for at muliggøre langsigtet vedligeholdelse og support.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Er der spørgsmål, funktionsønsker eller fejlindrapportering, så benyt [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.
