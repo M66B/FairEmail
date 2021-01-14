@@ -190,9 +190,11 @@ public class EmailService implements AutoCloseable {
         if (!auth_login)
             properties.put("mail." + protocol + ".auth.login.disable", "true");
 
+        // SASL is attempted before other authentication methods
         properties.put("mail." + protocol + ".sasl.enable", Boolean.toString(auth_sasl));
         properties.put("mail." + protocol + ".sasl.mechanisms", "CRAM-MD5");
         properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
+
         properties.put("mail." + protocol + ".auth.ntlm.domain", realm == null ? "" : realm);
 
         // writetimeout: one thread overhead
