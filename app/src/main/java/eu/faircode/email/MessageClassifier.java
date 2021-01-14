@@ -259,7 +259,7 @@ public class MessageClassifier {
         });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        double class_min_chance = prefs.getInt("class_min_probability", 20) / 100.0;
+        double class_min_chance = prefs.getInt("class_min_probability", 15) / 100.0;
         double class_min_difference = prefs.getInt("class_min_difference", 50) / 100.0;
 
         // Select best class
