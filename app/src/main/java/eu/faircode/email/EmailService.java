@@ -179,8 +179,13 @@ public class EmailService implements AutoCloseable {
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
         boolean auth_login = prefs.getBoolean("auth_login", true);
+        boolean auth_ntlm = prefs.getBoolean("auth_ntlm", true);
         boolean auth_sasl = prefs.getBoolean("auth_sasl", true);
-        Log.i("Authenticate plain=" + auth_plain + " login=" + auth_login + " sasl=" + auth_sasl);
+        Log.i("Authenticate" +
+                " plain=" + auth_plain +
+                " login=" + auth_login +
+                " ntlm=" + auth_ntlm +
+                " sasl=" + auth_sasl);
 
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
@@ -189,6 +194,8 @@ public class EmailService implements AutoCloseable {
             properties.put("mail." + protocol + ".auth.plain.disable", "true");
         if (!auth_login)
             properties.put("mail." + protocol + ".auth.login.disable", "true");
+        if (!auth_ntlm)
+            properties.put("mail." + protocol + ".auth.ntlm.disable", "true");
 
         // SASL is attempted before other authentication methods
         properties.put("mail." + protocol + ".sasl.enable", Boolean.toString(auth_sasl));

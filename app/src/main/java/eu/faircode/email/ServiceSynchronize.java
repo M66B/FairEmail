@@ -148,9 +148,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "prefer_ip4", "standalone_vpn", "tcp_keep_alive", "ssl_harden", // force reconnect
             "badge", "unseen_ignored", // force update badge/widget
             "experiments", "debug", "protocol", // force reconnect
-            "auth_plain",
-            "auth_login",
-            "auth_sasl"
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl" // force reconnect
     ));
 
     static final int PI_ALARM = 1;
