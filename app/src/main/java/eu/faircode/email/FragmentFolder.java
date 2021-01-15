@@ -181,6 +181,14 @@ public class FragmentFolder extends FragmentBase {
             }
         });
 
+        cbAutoClassifySource.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    cbDownload.setChecked(true);
+            }
+        });
+
         cbAutoClassifyTarget.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
