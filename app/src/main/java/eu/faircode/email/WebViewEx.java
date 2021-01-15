@@ -86,9 +86,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         WebSettings settings = getSettings();
         if (textSize != 0) {
-            int dp = Helper.pixels2dp(getContext(), textSize);
-            settings.setDefaultFontSize(Math.round(dp));
-            settings.setDefaultFixedFontSize(Math.round(dp));
+            settings.setDefaultFontSize(Math.round(textSize));
+            settings.setDefaultFixedFontSize(Math.round(textSize));
         }
         if (monospaced)
             settings.setStandardFontFamily("monospace");
