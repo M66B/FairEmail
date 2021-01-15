@@ -3006,28 +3006,30 @@ class Core {
                 }
 
                 if ((message.size != null && message.size < maxSize) ||
-                        (MessageClassifier.isEnabled(context)) && folder.auto_classify_source) {
-                    String body = parts.getHtml(context);
-                    File file = message.getFile(context);
-                    Helper.writeText(file, body);
-                    db.message().setMessageContent(message.id,
-                            true,
-                            HtmlHelper.getLanguage(context, body),
-                            parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
-                            parts.getWarnings(message.warning));
-                    MessageClassifier.classify(message, folder, null, context);
-                    if (!message.ui_hide)
-                        db.message().setMessageUiHide(message.id, false);
+                        (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
+                    try {
+                        String body = parts.getHtml(context);
+                        File file = message.getFile(context);
+                        Helper.writeText(file, body);
+                        db.message().setMessageContent(message.id,
+                                true,
+                                HtmlHelper.getLanguage(context, body),
+                                parts.isPlainOnly(),
+                                HtmlHelper.getPreview(body),
+                                parts.getWarnings(message.warning));
+                        MessageClassifier.classify(message, folder, null, context);
 
-                    if (stats != null && body != null)
-                        stats.content += body.length();
-                    Log.i(folder.name + " inline downloaded message id=" + message.id +
-                            " size=" + message.size + "/" + (body == null ? null : body.length()));
+                        if (stats != null && body != null)
+                            stats.content += body.length();
+                        Log.i(folder.name + " inline downloaded message id=" + message.id +
+                                " size=" + message.size + "/" + (body == null ? null : body.length()));
 
-                    if (TextUtils.isEmpty(body) && parts.hasBody())
-                        reportEmptyMessage(context, state, account, istore);
-                }
+                        if (TextUtils.isEmpty(body) && parts.hasBody())
+                            reportEmptyMessage(context, state, account, istore);
+                    } finally {
+                        if (!message.ui_hide)
+                            db.message().setMessageUiHide(message.id, false);
+                    }
             }
 
             reportNewMessage(context, account, folder, message);
