@@ -1645,6 +1645,15 @@ public class MessageHelper {
         boolean isPlainText() {
             return "text/plain".equalsIgnoreCase(contentType.getBaseType());
         }
+
+        boolean isHtml() {
+            return "text/html".equalsIgnoreCase(contentType.getBaseType());
+        }
+
+        boolean isDSN() {
+            return ("message/delivery-status".equalsIgnoreCase(contentType.getBaseType()) ||
+                    "message/disposition-notification".equalsIgnoreCase(contentType.getBaseType()));
+        }
     }
 
     class MessageParts {
@@ -1758,7 +1767,7 @@ public class MessageHelper {
                 if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())))
                     charset = null;
 
-                if (h.contentType.getBaseType().equalsIgnoreCase("text/plain")) {
+                if (h.isPlainText()) {
                     Charset cs = null;
                     try {
                         if (charset != null)
@@ -1788,7 +1797,7 @@ public class MessageHelper {
                     if ("flowed".equalsIgnoreCase(h.contentType.getParameter("format")))
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
-                } else if (h.contentType.getBaseType().equalsIgnoreCase("text/html")) {
+                } else if (h.isHtml()) {
                     // Fix incorrect UTF16
                     if (charset != null)
                         try {
@@ -1860,8 +1869,7 @@ public class MessageHelper {
                                 }
                         }
                     }
-                } else if (h.contentType.getBaseType().equalsIgnoreCase("message/delivery-status") ||
-                        h.contentType.getBaseType().equalsIgnoreCase("message/disposition-notification")) {
+                } else if (h.isDSN()) {
                     StringBuilder report = new StringBuilder();
                     report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
                     for (String line : result.split("\\r?\\n")) {
@@ -1883,7 +1891,8 @@ public class MessageHelper {
                     }
                     report.append("</div>");
                     result = report.toString();
-                }
+                } else
+                    Log.w("Unexpected content type=" + h.contentType);
 
                 sb.append(result);
             }
