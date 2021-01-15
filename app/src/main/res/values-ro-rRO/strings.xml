@@ -687,6 +687,8 @@
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_download_folder">Descarcă mesajele text și atașamentele în mod automat</string>
     <string name="title_notify_folder">Notifică la mesaje noi</string>
+    <string name="title_auto_classify_source">Clasifică mesajele noi în acest dosar</string>
+    <string name="title_auto_classify_target">Mută automat mesajele clasificate în acest dosar</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_sync_days_remark">Mărind această valoare va duce la o creștere a consumului bateriei și a datelor</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
