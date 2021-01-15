@@ -33,6 +33,10 @@
                 android:checkable="true"
                 android:title="@string/title_toggle_seen" />
             <item
+                android:id="@+id/menu_button_search"
+                android:checkable="true"
+                android:title="@string/title_search" />
+            <item
                 android:id="@+id/menu_button_event"
                 android:checkable="true"
                 android:title="@string/title_event" />
