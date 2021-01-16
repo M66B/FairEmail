@@ -925,13 +925,8 @@ public class IMAPStore extends Store
 				pex = ex;
 		}
 
-	if (pex != null) {
-		if (eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
-			eu.faircode.email.Log.i(pex);
-		else
-			eu.faircode.email.Log.w(pex);
+	if (pex != null)
 		throw pex;
-	}
 
 	throw new ProtocolException("No login methods supported!");
     }
