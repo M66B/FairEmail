@@ -7456,7 +7456,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             PrintJob job = printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
                             EntityLog.log(context, "Print queued job=" + job.getInfo());
                         } catch (Throwable ex) {
-                            Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof ActivityNotFoundException));
+                            try {
+                                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof ActivityNotFoundException));
+                            } catch (IllegalStateException exex) {
+                                ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                            }
                         } finally {
                             printWebView = null;
                         }
