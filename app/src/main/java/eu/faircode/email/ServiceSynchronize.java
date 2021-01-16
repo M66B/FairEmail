@@ -275,11 +275,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     break;
                             }
 
-                            if (reload && force) {
-                                Log.i("### update network state " + current);
-                                current.networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-                            }
-
                             TupleAccountNetworkState prev = accountStates.get(index);
                             Core.State state = coreStates.get(current.accountState.id);
                             if (state != null)
@@ -864,8 +859,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onReload(Intent intent) {
         boolean force = intent.getBooleanExtra("force", false);
-        if (force)
+        if (force) {
             lastLost = 0;
+            updateNetworkState(ConnectionHelper.getActiveNetwork(this), "force");
+        }
 
         Bundle command = new Bundle();
         command.putString("name", "reload");
