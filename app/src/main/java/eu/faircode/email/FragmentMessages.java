@@ -793,32 +793,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        final Runnable moveThread = new Runnable() {
-            @Override
-            public void run() {
-                Bundle args = new Bundle();
-                args.putString("title", getString(R.string.title_move_to_folder));
-                args.putLong("account", account);
-                args.putString("thread", thread);
-                args.putLong("id", -1);
-                args.putBoolean("filter_archive", filter_archive);
-                args.putLongArray("disabled", new long[]{folder});
-
-                FragmentDialogFolder fragment = new FragmentDialogFolder();
-                fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentMessages.this, REQUEST_THREAD_MOVE);
-                fragment.show(getParentFragmentManager(), "thread:move");
-            }
-        };
-
-        bottom_navigation.findViewById(R.id.action_archive).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                moveThread.run();
-                return true;
-            }
-        });
-
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -836,10 +810,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return true;
 
                     case R.id.action_archive:
-                        if (data.archivable)
-                            onActionMove(EntityFolder.ARCHIVE);
-                        else
-                            moveThread.run();
+                        onActionMove(EntityFolder.ARCHIVE);
                         return true;
 
                     case R.id.action_prev:
@@ -3410,7 +3381,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return result;
 
                     List<EntityMessage> messages = db.message().getMessagesByThread(
-                            aid, thread, threading || id < 0 ? null : id, null);
+                            aid, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                         if (sourceFolder != null && !sourceFolder.read_only &&
@@ -4934,7 +4905,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     data.trashable = trashable;
                     data.snoozable = snoozable;
                     data.archivable = (archivable && archive != null);
-                    data.moveable = (account != null && account.protocol == EntityAccount.TYPE_IMAP);
                     return data;
                 }
 
@@ -4953,11 +4923,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     bottom_navigation.setTag(data);
 
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setIcon(
-                            !data.archivable && data.moveable ? R.drawable.twotone_folder_24 : R.drawable.twotone_archive_24);
                     bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.trashable);
                     bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data.snoozable);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable || data.moveable);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable);
                     bottom_navigation.setVisibility(View.VISIBLE);
                 }
 
@@ -7623,7 +7591,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         private boolean trashable;
         private boolean snoozable;
         private boolean archivable;
-        private boolean moveable;
     }
 
     private class ReplyData {
