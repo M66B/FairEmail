@@ -306,7 +306,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private SelectionPredicateMessage selectionPredicate = null;
     private SelectionTracker<Long> selectionTracker = null;
 
-    private Integer scroll = null;
     private Long prev = null;
     private Long next = null;
     private Long closeId = null;
