@@ -793,12 +793,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
+        final Runnable moveThread = new Runnable() {
+            @Override
+            public void run() {
+                Bundle args = new Bundle();
+                args.putString("title", getString(R.string.title_move_to_folder));
+                args.putLong("account", account);
+                args.putString("thread", thread);
+                args.putLong("id", -1);
+                args.putBoolean("filter_archive", filter_archive);
+                args.putLongArray("disabled", new long[]{folder});
+
+                FragmentDialogFolder fragment = new FragmentDialogFolder();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentMessages.this, REQUEST_THREAD_MOVE);
+                fragment.show(getParentFragmentManager(), "thread:move");
+            }
+        };
+
+        bottom_navigation.findViewById(R.id.action_archive).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                moveThread.run();
+                return true;
+            }
+        });
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                ActionData data = (ActionData) bottom_navigation.getTag();
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
-                        if ((Boolean) bottom_navigation.getTag())
+                        if (data.delete)
                             onActionDelete();
                         else
                             onActionMove(EntityFolder.TRASH);
@@ -809,7 +836,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return true;
 
                     case R.id.action_archive:
-                        onActionMove(EntityFolder.ARCHIVE);
+                        if (data.archivable)
+                            onActionMove(EntityFolder.ARCHIVE);
+                        else
+                            moveThread.run();
                         return true;
 
                     case R.id.action_prev:
@@ -3380,7 +3410,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return result;
 
                     List<EntityMessage> messages = db.message().getMessagesByThread(
-                            aid, thread, threading ? null : id, null);
+                            aid, thread, threading || id < 0 ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                         if (sourceFolder != null && !sourceFolder.read_only &&
@@ -4842,9 +4872,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putString("thread", thread);
             args.putLong("id", id);
 
-            new SimpleTask<Boolean[]>() {
+            new SimpleTask<ActionData>() {
                 @Override
-                protected Boolean[] onExecute(Context context, Bundle args) {
+                protected ActionData onExecute(Context context, Bundle args) {
                     long aid = args.getLong("account");
                     String thread = args.getString("thread");
                     long id = args.getLong("id");
@@ -4898,16 +4928,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         db.endTransaction();
                     }
 
-                    return new Boolean[]{
-                            trash == null ||
-                                    (account != null && account.protocol == EntityAccount.TYPE_POP),
-                            trashable,
-                            snoozable,
-                            archivable && archive != null};
+                    ActionData data = new ActionData();
+                    data.delete = (trash == null ||
+                            (account != null && account.protocol == EntityAccount.TYPE_POP));
+                    data.trashable = trashable;
+                    data.snoozable = snoozable;
+                    data.archivable = (archivable && archive != null);
+                    data.moveable = (account != null && account.protocol == EntityAccount.TYPE_IMAP);
+                    return data;
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, Boolean[] data) {
+                protected void onExecuted(Bundle args, ActionData data) {
                     if (actionbar_color && args.containsKey("color")) {
                         int color = args.getInt("color");
                         bottom_navigation.setBackgroundColor(color);
@@ -4919,10 +4951,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             bottom_navigation.setItemIconTintList(ColorStateList.valueOf(Color.WHITE));
                     }
 
-                    bottom_navigation.setTag(data[0]);
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data[1]);
-                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data[2]);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data[3]);
+                    bottom_navigation.setTag(data);
+
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setIcon(
+                            !data.archivable && data.moveable ? R.drawable.twotone_folder_24 : R.drawable.twotone_archive_24);
+                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.trashable);
+                    bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data.snoozable);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable || data.moveable);
                     bottom_navigation.setVisibility(View.VISIBLE);
                 }
 
@@ -7581,6 +7616,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
         fragmentTransaction.commit();
+    }
+
+    private static class ActionData {
+        private boolean delete;
+        private boolean trashable;
+        private boolean snoozable;
+        private boolean archivable;
+        private boolean moveable;
     }
 
     private class ReplyData {
