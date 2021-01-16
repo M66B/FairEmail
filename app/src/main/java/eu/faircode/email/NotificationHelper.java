@@ -71,9 +71,9 @@ class NotificationHelper {
                 "notification", context.getString(R.string.channel_notification),
                 NotificationManager.IMPORTANCE_HIGH);
         notification.setDescription(context.getString(R.string.channel_notification_description));
-        notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         notification.enableLights(true);
         notification.setLightColor(Color.YELLOW);
+        notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         nm.createNotificationChannel(notification);
 
         // Update
