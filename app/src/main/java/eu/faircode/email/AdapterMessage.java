@@ -1134,7 +1134,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     error += " " + message.warning;
 
             if (debug) {
-                String text = "error=" + error +
+                String text = context.getString(R.string.menu_setup) + "/" +
+                        context.getString(R.string.title_advanced_debug) + "/" +
+                        context.getString(R.string.title_advanced_section_misc) + " !!!" +
+                        "\nerror=" + error +
                         "\nuid=" + message.uid + " id=" + message.id + " " + DTF.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
                         "seen=" + message.seen + "/" + message.ui_seen +
