@@ -6478,15 +6478,34 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                             DB db = DB.getInstance(context);
+
                             EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
+                            if (inbox == null)
+                                return null;
+
                             EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
-                            if (inbox != null && junk != null) {
+                            if (junk == null)
+                                return null;
+
+                            try {
+                                db.beginTransaction();
+
+                                db.folder().setFolderDownload(
+                                        inbox.id, inbox.download || filter);
                                 db.folder().setFolderAutoClassify(
                                         inbox.id, inbox.auto_classify_source || filter, inbox.auto_classify_target);
+
+                                db.folder().setFolderDownload(
+                                        junk.id, junk.download || filter);
                                 db.folder().setFolderAutoClassify(
                                         junk.id, junk.auto_classify_source || filter, filter);
-                                prefs.edit().putBoolean("classification", true).apply();
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
                             }
+
+                            prefs.edit().putBoolean("classification", true).apply();
 
                             return null;
                         }
@@ -6531,8 +6550,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return false;
 
                     return (classification &&
-                            inbox.auto_classify_source &&
-                            junk.auto_classify_source && junk.auto_classify_target);
+                            inbox.download && inbox.auto_classify_source &&
+                            junk.download && junk.auto_classify_source && junk.auto_classify_target);
                 }
 
                 @Override
