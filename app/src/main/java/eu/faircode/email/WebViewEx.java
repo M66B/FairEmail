@@ -69,10 +69,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             settings.setSafeBrowsingEnabled(safe_browsing);
     }
 
-    void init(
-            int height, float size, Pair<Integer, Integer> position,
-            float textSize, boolean monospaced,
-            IWebView intf) {
+    void init(int height, float size, Pair<Integer, Integer> position, IWebView intf) {
         Log.i("Init height=" + height + " size=" + size);
 
         this.height = (height == 0 ? getMinimumHeight() : height);
@@ -83,14 +80,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             setScrollX(position.first);
             setScrollY(position.second);
         }
-
-        WebSettings settings = getSettings();
-        if (textSize != 0) {
-            settings.setDefaultFontSize(Math.round(textSize));
-            settings.setDefaultFixedFontSize(Math.round(textSize));
-        }
-        if (monospaced)
-            settings.setStandardFontFamily("monospace");
 
         this.intf = intf;
 
