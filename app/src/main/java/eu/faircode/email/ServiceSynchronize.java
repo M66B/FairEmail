@@ -266,11 +266,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 start(current, current.accountState.isEnabled(current.enabled), false);
                             }
                         } else {
-                            TupleAccountNetworkState prev = accountStates.get(index);
-                            Core.State state = coreStates.get(current.accountState.id);
-                            if (state != null)
-                                state.setNetworkState(current.networkState);
-
                             boolean reload = false;
                             boolean sync = current.command.getBoolean("sync", false);
                             boolean force = current.command.getBoolean("force", false);
@@ -279,6 +274,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     reload = true;
                                     break;
                             }
+
+                            if (reload && force) {
+                                Log.i("### update network state " + current);
+                                current.networkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+                            }
+
+                            TupleAccountNetworkState prev = accountStates.get(index);
+                            Core.State state = coreStates.get(current.accountState.id);
+                            if (state != null)
+                                state.setNetworkState(current.networkState);
 
                             accountStates.remove(index);
 
