@@ -891,6 +891,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onAlarm(Intent intent) {
         schedule(this, true);
+        updateNetworkState(null, "alarm");
 
         Bundle command = new Bundle();
         command.putString("name", "eval");
