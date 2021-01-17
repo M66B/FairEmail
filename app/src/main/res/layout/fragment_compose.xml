@@ -78,7 +78,7 @@
                     app:layout_constraintTop_toTopOf="@+id/etTo"
                     app:srcCompat="@drawable/twotone_person_24" />
 
-                <MultiAutoCompleteTextView
+                <eu.faircode.email.EditTextMultiAutoComplete
                     android:id="@+id/etTo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                     app:layout_constraintTop_toTopOf="@+id/etCc"
                     app:srcCompat="@drawable/twotone_people_24" />
 
-                <MultiAutoCompleteTextView
+                <eu.faircode.email.EditTextMultiAutoComplete
                     android:id="@+id/etCc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
                     app:layout_constraintTop_toTopOf="@+id/etBcc"
                     app:srcCompat="@drawable/twotone_people_outline_24" />
 
-                <MultiAutoCompleteTextView
+                <eu.faircode.email.EditTextMultiAutoComplete
                     android:id="@+id/etBcc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
