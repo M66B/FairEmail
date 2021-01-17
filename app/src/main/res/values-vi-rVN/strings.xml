@@ -4,12 +4,58 @@
     <string name="app_changelog">Kimngocdhkt@gmail. com</string>
     <string name="app_welcome">FairEmail là một ứng dụng email mã nguồn mở tập trung vào sự riêng tư và bảo mật. Vì lý do này một số tính năng có thể hoạt động khác với những gì bạn quen.</string>
     <string name="app_limitations">For example, messages will always be reformatted to remove unsafe elements and to improve readability and opening links needs to be confirmed for safety.</string>
+    <string name="app_crash">FairEmail không được hỗ trợ trên thiết bị này vì lỗi ở Android gây ra crash</string>
+    <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
+    <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
     <string name="channel_service">Nhận</string>
     <string name="channel_send">Gửi</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_update">Cập nhật</string>
+    <string name="channel_warning">Cảnh báo</string>
+    <string name="channel_error">Lỗi</string>
+    <string name="channel_notification_description">Thông báo thư mới</string>
+    <plurals name="page_conversation">
+        <item quantity="other">Cuộc hội thoại</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="other">Thư</item>
+    </plurals>
+    <string name="page_folders">Thư mục</string>
+    <string name="page_compose">Soạn thư</string>
+    <string name="tile_synchronize">Đồng bộ hoá</string>
+    <string name="tile_unseen">Thư mới</string>
     <string name="shortcut_refresh">Làm mới</string>
     <string name="shortcut_compose">Soạn</string>
     <string name="shortcut_setup">Cài đặt</string>
+    <plurals name="title_notification_unseen">
+        <item quantity="other">%1$d thư mới</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="other">%1$d thư sẽ được gửi</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="other">%1$d mới</item>
+    </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="other">Đã chọn %1$d cuộc hội thoại</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="other">Di chuyển %1$d thư?</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="other">Xoá %1$d thư vĩnh viễn?</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="other">Coi %1$d thư là thư rác?</item>
+    </plurals>
+    <string name="title_ask_spam_who">Coi thư từ %1$s là thư rác?</string>
+    <string name="title_junk_hint">Nhà cung cấp email của bạn có trách nhiệm lọc thư rác. Một ứng dụng email không có tất cả dữ liệu cần thiết để làm việc này một cách đáng tin cậy.</string>
+    <string name="title_block">Chặn %1$s</string>
+    <string name="title_block_sender">Chặn người gửi</string>
+    <string name="title_block_domain">Chặn miền người gửi</string>
+    <string name="title_notification_sending">Đang gửi thư</string>
+    <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
+    <string name="title_notification_failed">\'%1$s\' thất bại</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>
     <string name="title_factor_minutes">%1$d phút</string>
@@ -47,8 +93,11 @@
     <string name="title_setup_quick">Thiết lập nhanh</string>
     <string name="title_setup_quick_remark">Để thiết lập nhanh một tài khoản và danh tính cho phần lớn nhà cung cấp</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
+    <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
+    <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
     <string name="title_setup_wizard">Trình hướng dẫn</string>
     <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
+    <string name="title_setup_wizard_remark">\'Quay lại\' để đi đến hộp thư đến</string>
     <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
     <string name="title_setup_other">Nhà cung cấp khác</string>
     <string name="title_setup_pop3">Tài khoản POP3</string>
@@ -62,6 +111,8 @@
     <string name="title_setup_select_account">Chọn tài khoản</string>
     <string name="title_setup_instructions">Hướng dẫn thiết lập</string>
     <string name="title_setup_no_settings">Không có cài đặt nào được tìm thấy cho miền \'%1$s\'</string>
+    <string name="title_setup_app_password_hint">Nhà cung cấp này yêu cầu mật khẩu ứng dụng thay vì mật khẩu tài khoản, hãy kiểm tra hướng dẫn của nhà cung cấp của bạn</string>
+    <string name="title_setup_no_inbox">Không tìm thấy hộp thư đến</string>
     <string name="title_setup_advanced_protection">Khi đã tham gia vào chương trình bảo vệ nâng cao, không thể dùng ứng dụng email bên thứ ba. Đây là sự hạn chế bị áp đặt bởi Google.</string>
     <string name="title_setup_quick_success">Một tài khoản và danh tính đã được thêm thành công</string>
     <string name="title_setup_quick_failed">Bạn cũng có thể cố thiết lập một tài khoản và danh tính ở dưới</string>
@@ -138,6 +189,21 @@
     <string name="title_advanced_section_encryption">Mã hóa</string>
     <string name="title_advanced_section_notifications">Thông báo</string>
     <string name="title_advanced_section_misc">Khác</string>
+    <string name="title_advanced_receive">Nhận thư cho tất cả tài khoản</string>
+    <string name="title_advanced_always">Luôn nhận thư cho những tài khoản đó</string>
+    <string name="title_advanced_schedule">Lịch trình</string>
+    <string name="title_advanced_advanced">Nâng cao</string>
+    <string name="title_advanced_subscriptions">Quản lý đăng ký thư mục</string>
+    <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
+    <string name="title_advanced_keyboard">Hiển thị bàn phím theo mặc định</string>
+    <string name="title_advanced_keyboard_no_fullscreen">Ngăn chặn bàn phím toàn màn hình</string>
+    <string name="title_advanced_compose_font">Font mặc định</string>
+    <string name="title_advanced_write_below">Viết dưới văn bản của người gửi</string>
+    <string name="title_advanced_signature_location">Vị trí chữ ký</string>
+    <string name="title_advanced_signature_reply">Dùng chữ ký khi trả lời</string>
+    <string name="title_advanced_signature_forward">Dùng chữ ký khi chuyển tiếp</string>
+    <string name="title_advanced_send_reminders">Hiển thị lời nhắc</string>
+    <string name="title_advanced_lookup_mx">Kiểm tra địa chỉ email người nhận trước khi gửi</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
@@ -194,6 +260,30 @@
     <string name="title_advanced_notifications">Quản lý thông báo</string>
     <string name="title_advanced_notifications_newest_first">Hiển thị thông báo mới nhất trước tiên</string>
     <string name="title_advanced_notifications_background">Dùng dịch vụ nền để đồng bộ thư</string>
+    <string name="title_advanced_notify_action_trash">Rác</string>
+    <string name="title_advanced_notify_action_junk">Thư rác</string>
+    <string name="title_advanced_notify_action_archive">Lưu trữ</string>
+    <string name="title_advanced_notify_action_move">Di chuyển</string>
+    <string name="title_advanced_notify_action_reply">Trả lời</string>
+    <string name="title_advanced_notify_action_reply_direct">Trả lời trực tiếp</string>
+    <string name="title_advanced_notify_action_flag">Gắn sao</string>
+    <string name="title_advanced_notify_action_seen">Đã đọc</string>
+    <string name="title_advanced_notify_action_snooze">Báo lại</string>
+    <string name="title_advanced_notify_remove">Loại bỏ thông báo thư mới khi nhấn vào thông báo</string>
+    <string name="title_advanced_tracking">Thử nhận ra và vô hiệu hoá hình ảnh theo dõi</string>
+    <string name="title_advanced_hide_timezone">Gửi thư không có dữ liệu múi giờ</string>
+    <string name="title_advanced_display_hidden">Hiển thị văn bản thư ẩn</string>
+    <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>
+    <string name="title_advanced_classification">Phân loại thư</string>
+    <string name="title_advanced_language">Ngôn ngữ</string>
+    <string name="title_advanced_language_system">Hệ thống</string>
+    <string name="title_advanced_cleanup">Dọn dẹp</string>
+    <string name="title_advanced_app">Cài đặt ứng dụng</string>
+    <string name="title_advanced_schedule_hint">Nhấn vào thời gian để đặt thời gian</string>
+    <string name="title_advanced_metered_warning">Tắt tuỳ chọn này sẽ tắt nhận và gửi thư khi dùng kết nối internet di động</string>
+    <string name="title_advanced_notify_no_grouping">Phiên bản Android này không hỗ trợ gộp nhóm thông báo</string>
+    <string name="title_advanced_notify_no_channels">Phiên bản Android này không hỗ trợ kênh thông báo</string>
+    <string name="title_advanced_queries_hint">Việc bật cái này sẽ làm giảm hiệu năng, tuy nhiên cần phải bật trên một số thiết bị</string>
     <string name="title_legend_section_folders">Thư mục</string>
     <string name="title_legend_section_messages">Thư</string>
     <string name="title_legend_section_compose">Soạn thư</string>

@@ -1643,18 +1643,18 @@ Bemærk, at e-mailadresser er formateret således:
 `
 "Nogen" <somebody@example.org>`
 
-You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
+Man kan anvende flere regler, muligvis med et *eksekveringsstop*, for en *eller* eller en *ikke* betingelse.
 
-Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+Matchning er ikke versal-/minuskelfølsom undtagen for [regulære udtryk](https://en.wikipedia.org/wiki/Regular_expression). Tjek [hér](https://developer.android.com/reference/java/util/regex/Pattern) ang. dokumentation for regulære Java-udtryk. En regex kan aftestes [hér](https://regexr.com/).
 
-Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+Bemærk, at et regulært udtryk understøtter en *eller*-operatør, for matchning af flere afsendere om ønsket:
 
 `
-.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
+.*anette@eksempel\.org.*|.*bo@eksempel\.org.*|.*karen@eksempel\.org.*`
 
-Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+Bemærk, at [dot all-tilstand](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) er aktiveret for at kunne matche [udfoldede headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
-You can select one of these actions to apply to matching messages:
+En af disse handlinger kan vælges anvendt på matchende beskeder:
 
 * Ingen handling (nyttigt for *ikke*)
 * Markér som læst
@@ -1671,91 +1671,91 @@ You can select one of these actions to apply to matching messages:
 * Tekst-til-tale (afsender og emne)
 * Automatisering (Tasker mv.)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regler effektueres umiddelbart efter besked-header'en er hentet, men inden beskedteksten er blevet downloadet, så brug af betingelser ift. beskedteksten er ikke muligt. Bemærk, at på takserede forbindelser downloades store beskedtekster på forlangende for at reducere dataforbruget.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Ønskes en besked videresendt, så overvej i stedet at bruge flythandlingen. Dette vil også være mere pålideligt end videresendelse, da videresendte beskeder måske opfattes som spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Da besked-headers som standard ikke downloades og lagres for at spare strøm- og dataforbrug samt lagerplads, er det ikke muligt at få vist, hvilke beskeder, som evt. matcher en header-regelbetingelse.
 
-Some common header conditions (regex):
+Nogle almindelige header-betingelser (regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Under *Flere* i trepriksbeskedmenuen findes et element til oprettelse af en regel for en modtaget besked med de mest almindelige betingelser udfyldt.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+POP3- protokollen understøtter ikke opsætning af nøgleord og beskedflytning/-kopiering.
 
-Using rules is a pro feature.
+Brug af regler er en Pro-funktion.
 
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Hvad er primære konti/identiteter?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Den primære konto bruges, når kontoen er tvetydig, f.eks. ved start på et nyt udkast fra den fælles indbakke.
 
-Similarly, the primary identity of an account is used when the identity is ambiguous.
+Omvendt anvendes en kontos primære identitet, når identiteten er tvetydig.
 
-There can be just one primary account and there can be just one primary identity per account.
+Der kan kun være én primær konto, og der kan kun være én primær identitet pr. konto.
 
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Er beskedflytning på tværs af konti sikkert/effektiv?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Beskedflytning på tværs af konti er sikkert, da de rå originalbeskeder downloades og flyttes, og da kildebeskeder først slettes, efter at målbeskeder er tilføjet
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+Massebeskedflytning på tværs af konti er effektivt, hvis både kilde- og målmappen er opsat til synk, da FairEmail ellers vil skulle oprette mappeforbindelse(r) for hver besked.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Hvorfor optræder der dubletbeskeder'?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Visse udbydere, især Gmail, oplister også alle beskeder i alle mapper, undtagen i papirkurven, i arkivmappen (alle beskeder). FairEmail viser alle disse beskeder på en ikke-påtrængende måde for at indikere, at de i virkeligheden er identiske.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Gmail tillader en besked at have flere etiketter, som præsenteres for FairEmail som mapper. Det betyder også, at beskeder med flere etiketter vil fremgå flere gange.
 
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Kan der blive lavet en Windows-, Linux-, iOS-version mv.?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+En masse viden og erfaring kræves for at udvikle en velfungerende app til en bestemt platform, hvilket er grunden til, at jeg kun udvikler apps til Android.
 
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Hvad gør 'Ryd lokale beskeder'?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Mappemenuen *Ryd lokale beskeder* fjerner beskeder fra enheden, som også er til stede på serveren. Den sletter ikke beskeder fra serveren. Af f.eks. pladshensyn kan dette kan være nyttigt efter ændring af mappeindstillinger for ikke at downloade beskedindhold (tekst og vedhæftninger).
 
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Hvorfor vises beskeder nogle gange med en lille forsinkelse?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Afhængigt af enhedens hastighed (CPU-hastighed og måske især hukommelses ditto) kan beskeder blive vist med en lille forsinkelse. FairEmail er designet til dynamisk at håndtere et stort beskedantal uden at løbe tør for hukommelse. Det betyder, at beskeder skal læses fra en database, og at denne skal monitoreres for ændringer, og begge kan forårsage små forsinkelser.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Visse bekvemmelighedsfunktioner, såsom beskedgruppering for at vise konversationstråde samt bestemmelse af den foregående/næste besked, tager lidt ekstra tid. Bemærk, at der ikke er nogen *næste* besked, da der i mellemtiden kan være modtaget en ny besked.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+Ved hastighedssammenligning af FairEmail med lignende apps, bør dette indgå i sammenligningen. Det er nemt at kode en lignende, hurtigere app, der blot viser en lineær beskedliste og muligvis samtidigt bruger for megen hukommelse, men det er ikke så nemt at håndtere ressourceforbrug korrekt og at tilbyde mere avancerede funktioner såsom samtaletråde.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail er baseret på de nyeste [Android-arkitekturkomponenter](https://developer.android.com/topic/libraries/architecture/), hvilket ikke giver de store muligheder for ydelsesforbedringer.
 
 <br />
 
 <a name="faq78"></a>
-**(78) How do I use schedules?**
+**(78) Hvordan anvendes tidsplaner?**
 
-In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+Man kan i modtagelsesindstillingerne aktivere tidsplanlægning og indstille en tidsperiode og ugedage for, *hvornår* beskeder skal *modtages*. Bemærk, at et sluttidspunkt lig med eller før starttidspunktet, anses for 24 timer senere.
 
-Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+Automatisering (tjek nedenfor) kan bruges til mere avancerede tidsplaner, såsom flere synk-perioder pr. dag eller forskellige synk-perioder på forskellige dage.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+Det er muligt at installere FairEmail i flerbrugerprofiler, f.eks. en personlig og en arbejdsprofil, samt at opsætte FairEmail forskelligt i hver profil, hvilket er en anden mulighed for at have forskellige synk-tidsplaner samt synke et andet sæt konti.
 
-It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+Det er også muligt at oprette [filterregler](#user-content-faq71) med en tidsbetingelse og at slumre beskeder indtil sluttidspunktet for tidsbetingelsen. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
 
 Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
