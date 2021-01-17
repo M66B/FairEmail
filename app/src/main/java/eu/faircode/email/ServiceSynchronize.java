@@ -106,12 +106,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private ConnectionHelper.NetworkState lastNetworkState = null;
 
     private boolean foreground = false;
-    private Map<Long, Core.State> coreStates = new Hashtable<>();
-    private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
-    private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
-    private MediatorState liveAccountNetworkState = new MediatorState();
+    private final Map<Long, Core.State> coreStates = new Hashtable<>();
+    private final MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
+    private final MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
+    private final MediatorState liveAccountNetworkState = new MediatorState();
 
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "sync");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "sync");
 
     private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
