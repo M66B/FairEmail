@@ -42,6 +42,7 @@ public interface DaoLog {
     long insertLog(EntityLog log);
 
     @Query("DELETE FROM log" +
-            " WHERE time < :before")
-    int deleteLogs(long before);
+            " WHERE id IN (SELECT id FROM log" +
+            " WHERE time < :before ORDER BY time LIMIT :limit)")
+    int deleteLogs(long before, int limit);
 }

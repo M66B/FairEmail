@@ -136,7 +136,13 @@ public class FragmentLogs extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
 
-                db.log().deleteLogs(new Date().getTime());
+                long before = new Date().getTime();
+                while (true) {
+                    int logs = db.log().deleteLogs(before, WorkerCleanup.LOG_DELETE_BATCH_SIZE);
+                    Log.i("Deleted logs=" + logs);
+                    if (logs < WorkerCleanup.LOG_DELETE_BATCH_SIZE)
+                        break;
+                }
 
                 return null;
             }

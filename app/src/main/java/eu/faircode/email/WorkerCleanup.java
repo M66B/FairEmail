@@ -53,6 +53,8 @@ public class WorkerCleanup extends Worker {
     private static final long KEEP_CONTACTS_DURATION = 180 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
+    static final int LOG_DELETE_BATCH_SIZE = 100;
+
     public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
         Log.i("Instance " + getName());
@@ -297,8 +299,13 @@ public class WorkerCleanup extends Worker {
             Log.i("Deleted contacts=" + contacts);
 
             Log.i("Cleanup log");
-            int logs = db.log().deleteLogs(now - KEEP_LOG_DURATION);
-            Log.i("Deleted logs=" + logs);
+            long before = now - KEEP_LOG_DURATION;
+            while (true) {
+                int logs = db.log().deleteLogs(before, LOG_DELETE_BATCH_SIZE);
+                Log.i("Deleted logs=" + logs + " before=" + new Date(before));
+                if (logs < LOG_DELETE_BATCH_SIZE)
+                    break;
+            }
 
             if (BuildConfig.DEBUG) {
                 // https://sqlite.org/lang_analyze.html
