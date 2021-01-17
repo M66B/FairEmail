@@ -181,6 +181,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             registerReceiver(idleModeChangedReceiver, new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED));
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(dataSaverChanged, new IntentFilter(ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED));
+
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         DB db = DB.getInstance(this);
@@ -744,6 +747,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            unregisterReceiver(dataSaverChanged);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             unregisterReceiver(idleModeChangedReceiver);
@@ -2142,6 +2148,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             EntityLog.log(context, "Doze mode=" + pm.isDeviceIdleMode() +
                     " ignoring=" + pm.isIgnoringBatteryOptimizations(context.getPackageName()));
+        }
+    };
+
+    private BroadcastReceiver dataSaverChanged = new BroadcastReceiver() {
+        @Override
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received intent=" + intent +
+                    " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
+
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            Integer status = (cm == null ? null : cm.getRestrictBackgroundStatus());
+            EntityLog.log(context, "Data saver=" + status);
+
+            updateNetworkState(null, "datasaver");
         }
     };
 
