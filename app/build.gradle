@@ -258,20 +258,19 @@ dependencies {
     def work_version = "2.5.0-rc01"
     def exif_version = "1.3.2"
     def biometric_version = "1.2.0-alpha01"
-    def textclassifier_version = "1.0.0-alpha03"
     def billingclient_version = "3.0.2"
     def javamail_version = "1.6.5"
     def jsoup_version = "1.13.1"
-    def css_version = "0.9.28"
+    def css_version = "0.9.29"
     def jax_version = "2.3.0-jaxb-1.0.6"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def requery_version = "3.33.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.2.1"
-    def biweekly_version = "0.6.5"
+    def bugsnag_version = "5.5.0"
+    def biweekly_version = "0.6.6"
     def relinker_version = "1.3.1"
-    def markwon_version = "4.6.0"
+    def markwon_version = "4.6.1"
     def bouncycastle_version = "1.67"
     def colorpicker_version = "0.0.15"
     def overscroll_version = "1.1.0"
@@ -357,10 +356,6 @@ dependencies {
     // https://developer.android.com/jetpack/androidx/releases/biometric
     implementation "androidx.biometric:biometric:$biometric_version"
 
-    // https://mvnrepository.com/artifact/androidx.textclassifier/textclassifier
-    // https://developer.android.com/jetpack/androidx/releases/textclassifier
-    //implementation "androidx.textclassifier:textclassifier:$textclassifier_version"
-
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     // https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html
     githubImplementation "com.android.billingclient:billing:$billingclient_version"
@@ -403,12 +398,14 @@ dependencies {
     implementation "me.leolin:ShortcutBadger:$badge_version"
 
     // https://github.com/bugsnag/bugsnag-android
+    // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android
     implementation("com.bugsnag:bugsnag-android:$bugsnag_version") {
         //exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
         exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
     }
 
     // https://github.com/mangstadt/biweekly
+    // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly
     implementation("net.sf.biweekly:biweekly:$biweekly_version") {
         exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
     }
@@ -418,6 +415,7 @@ dependencies {
     implementation "com.getkeepsafe.relinker:relinker:$relinker_version"
 
     // https://github.com/noties/Markwon
+    // https://mvnrepository.com/artifact/io.noties.markwon/core
     implementation "io.noties.markwon:core:$markwon_version"
 
     // // https://github.com/QuadFlask/colorpicker
