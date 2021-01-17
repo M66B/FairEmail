@@ -2,5 +2,7 @@
 
 Please confirm that you:
 
-* read the [contributing section](https://github.com/M66B/FairEmail#contributing)
-* agree to [the license and the copyright](https://github.com/M66B/FairEmail#license)
+* read the [contributing section](https://github.com/M66B/FairEmail#user-content-contributing)
+* agree to [the license and the copyright](https://github.com/M66B/FairEmail#user-content-license)
+
+Thanks for your intention to contribute to the project!
