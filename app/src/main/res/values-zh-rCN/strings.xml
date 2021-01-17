@@ -402,6 +402,7 @@
     <string name="title_advanced_tracking">尝试识别和禁用跟踪图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
+    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">使用隐身键盘</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
