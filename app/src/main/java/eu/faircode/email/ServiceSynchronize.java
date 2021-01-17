@@ -2050,7 +2050,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     }
 
-    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+    private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(@NonNull Network network) {
             updateNetworkState(network, "available");
@@ -2072,7 +2072,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     };
 
-    private BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i("Received intent=" + intent +
@@ -2142,7 +2142,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
     }
 
-    private BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
         @Override
         @RequiresApi(api = Build.VERSION_CODES.M)
         public void onReceive(Context context, Intent intent) {
@@ -2152,7 +2152,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     };
 
-    private BroadcastReceiver dataSaverChanged = new BroadcastReceiver() {
+    private final BroadcastReceiver dataSaverChanged = new BroadcastReceiver() {
         @Override
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void onReceive(Context context, Intent intent) {
