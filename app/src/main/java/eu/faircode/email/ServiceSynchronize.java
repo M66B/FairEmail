@@ -2089,6 +2089,31 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     };
 
+    private final BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
+        @Override
+        @RequiresApi(api = Build.VERSION_CODES.M)
+        public void onReceive(Context context, Intent intent) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            EntityLog.log(context, "Doze mode=" + pm.isDeviceIdleMode() +
+                    " ignoring=" + pm.isIgnoringBatteryOptimizations(context.getPackageName()));
+        }
+    };
+
+    private final BroadcastReceiver dataSaverChanged = new BroadcastReceiver() {
+        @Override
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received intent=" + intent +
+                    " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
+
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            Integer status = (cm == null ? null : cm.getRestrictBackgroundStatus());
+            EntityLog.log(context, "Data saver=" + status);
+
+            updateNetworkState(null, "datasaver");
+        }
+    };
+
     private void updateNetworkState(final Network network, final String reason) {
         getMainHandler().post(new Runnable() {
             @Override
@@ -2141,31 +2166,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
     }
-
-    private final BroadcastReceiver idleModeChangedReceiver = new BroadcastReceiver() {
-        @Override
-        @RequiresApi(api = Build.VERSION_CODES.M)
-        public void onReceive(Context context, Intent intent) {
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            EntityLog.log(context, "Doze mode=" + pm.isDeviceIdleMode() +
-                    " ignoring=" + pm.isIgnoringBatteryOptimizations(context.getPackageName()));
-        }
-    };
-
-    private final BroadcastReceiver dataSaverChanged = new BroadcastReceiver() {
-        @Override
-        @RequiresApi(api = Build.VERSION_CODES.N)
-        public void onReceive(Context context, Intent intent) {
-            Log.i("Received intent=" + intent +
-                    " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
-
-            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            Integer status = (cm == null ? null : cm.getRestrictBackgroundStatus());
-            EntityLog.log(context, "Data saver=" + status);
-
-            updateNetworkState(null, "datasaver");
-        }
-    };
 
     private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
         private boolean running = true;
