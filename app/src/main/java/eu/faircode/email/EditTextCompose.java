@@ -52,14 +52,17 @@ public class EditTextCompose extends FixedEditText {
 
     public EditTextCompose(Context context) {
         super(context);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     public EditTextCompose(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     public EditTextCompose(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     @Override

@@ -503,6 +503,20 @@ public class Helper {
                 PackageManager.DONT_KILL_APP);
     }
 
+    static void setKeyboardIncognitoMode(EditText view, Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean incognito_keyboard = prefs.getBoolean("incognito_keyboard", false);
+        if (incognito_keyboard)
+            try {
+                view.setImeOptions(view.getImeOptions() | EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+    }
+
     // View
 
     static Intent getChooser(Context context, Intent intent) {

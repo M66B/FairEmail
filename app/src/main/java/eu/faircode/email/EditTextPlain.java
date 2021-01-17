@@ -27,14 +27,17 @@ import android.util.AttributeSet;
 public class EditTextPlain extends FixedEditText {
     public EditTextPlain(Context context) {
         super(context);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     public EditTextPlain(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     public EditTextPlain(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        Helper.setKeyboardIncognitoMode(this, context);
     }
 
     @Override

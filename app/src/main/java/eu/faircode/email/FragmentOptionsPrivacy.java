@@ -69,6 +69,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private SwitchCompat swDisplayHidden;
+    private SwitchCompat swIncognitoKeyboard;
+    private ImageButton ibIncognitoKeyboard;
     private SwitchCompat swSecure;
     private SwitchCompat swSafeBrowsing;
     private ImageButton ibSafeBrowsing;
@@ -84,7 +86,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "confirm_links", "browse_links", "confirm_images", "confirm_html",
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
-            "display_hidden", "secure", "safe_browsing",
+            "display_hidden", "incognito_keyboard", "secure", "safe_browsing",
             "disconnect_links", "disconnect_images"
     };
 
@@ -108,6 +110,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
+        swIncognitoKeyboard = view.findViewById(R.id.swIncognitoKeyboard);
+        ibIncognitoKeyboard = view.findViewById(R.id.ibIncognitoKeyboard);
         swSecure = view.findViewById(R.id.swSecure);
         swSafeBrowsing = view.findViewById(R.id.swSafeBrowsing);
         ibSafeBrowsing = view.findViewById(R.id.ibSafeBrowsing);
@@ -224,6 +228,21 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("display_hidden", checked).apply();
+            }
+        });
+
+        swIncognitoKeyboard.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
+        swIncognitoKeyboard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("incognito_keyboard", checked).apply();
+            }
+        });
+
+        ibIncognitoKeyboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(getContext(), Uri.parse("https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING"), true);
             }
         });
 
@@ -377,6 +396,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
 
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+        swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
 
