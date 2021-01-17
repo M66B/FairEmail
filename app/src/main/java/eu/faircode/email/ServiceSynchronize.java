@@ -890,8 +890,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private void onAlarm(Intent intent) {
-        Bundle command = new Bundle();
         schedule(this, true);
+
+        Bundle command = new Bundle();
         command.putString("name", "eval");
         command.putBoolean("sync", true);
         liveAccountNetworkState.post(command);
@@ -900,7 +901,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private void onWatchdog(Intent intent) {
         EntityLog.log(this, "Watchdog");
         schedule(this, false);
-        networkCallback.onCapabilitiesChanged(null, null);
+        updateNetworkState(null, "watchdog");
     }
 
     private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
