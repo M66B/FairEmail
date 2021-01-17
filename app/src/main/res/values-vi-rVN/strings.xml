@@ -13,6 +13,9 @@
     <string name="channel_update">Cập nhật</string>
     <string name="channel_warning">Cảnh báo</string>
     <string name="channel_error">Lỗi</string>
+    <string name="channel_alert">Báo động của máy chủ</string>
+    <string name="channel_service_description">Đồng bộ hoá và giám sát các tài khoản</string>
+    <string name="channel_send_description">Gửi thư</string>
     <string name="channel_notification_description">Thông báo thư mới</string>
     <plurals name="page_conversation">
         <item quantity="other">Cuộc hội thoại</item>
@@ -27,6 +30,12 @@
     <string name="shortcut_refresh">Làm mới</string>
     <string name="shortcut_compose">Soạn</string>
     <string name="shortcut_setup">Cài đặt</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="other">Đang giám sát %1$d tài khoản</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="other">%1$d hoạt động đang chờ</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="other">%1$d thư mới</item>
     </plurals>
@@ -53,9 +62,11 @@
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_domain">Chặn miền người gửi</string>
+    <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_notification_sending">Đang gửi thư</string>
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_failed">\'%1$s\' thất bại</string>
+    <string name="title_notification_alert">\'%1$s\' báo động của máy chủ</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>
     <string name="title_factor_minutes">%1$d phút</string>
@@ -193,6 +204,13 @@
     <string name="title_advanced_always">Luôn nhận thư cho những tài khoản đó</string>
     <string name="title_advanced_schedule">Lịch trình</string>
     <string name="title_advanced_advanced">Nâng cao</string>
+    <string name="title_advanced_unseen">Tất cả thư chưa đọc</string>
+    <string name="title_advanced_flagged">Tất cả thư gắn sao</string>
+    <string name="title_advanced_delete_unseen">Xoá thư cũ chưa đọc</string>
+    <string name="title_advanced_kept_removed">Kiểm tra xem các thư cũ có bị xoá khỏi máy chủ không</string>
+    <string name="title_advanced_gmail_thread">Kiểu gộp nhóm thư của Gmail cho tài khoản Gmail</string>
+    <string name="title_advanced_sync_folders">Đồng bộ hoá danh sách thư mục</string>
+    <string name="title_advanced_sync_shared_folders">Đồng bộ hoá các danh sách thư mục được chia sẻ</string>
     <string name="title_advanced_subscriptions">Quản lý đăng ký thư mục</string>
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
     <string name="title_advanced_keyboard">Hiển thị bàn phím theo mặc định</string>
@@ -258,8 +276,16 @@
     <string name="title_advanced_reset_importance">Đặt lại sự quan trọng khi di chuyển thư</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>
+    <string name="title_advanced_notifications_default">Kênh mặc định</string>
+    <string name="title_advanced_notifications_service">Kênh nhận</string>
     <string name="title_advanced_notifications_newest_first">Hiển thị thông báo mới nhất trước tiên</string>
     <string name="title_advanced_notifications_background">Dùng dịch vụ nền để đồng bộ thư</string>
+    <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
+    <string name="title_advanced_unseen_ignored">Để cho số thư mới bằng với số thông báo</string>
+    <string name="title_advanced_notify_background">Hiển thị thông báo chỉ khi ở trong nền</string>
+    <string name="title_advanced_notify_preview_all">Xem trước tất cả văn bản</string>
+    <string name="title_advanced_notify_preview_only">Chỉ hiện thị thông báo có văn bản xem trước</string>
+    <string name="title_advanced_notify_actions">Hành động trên thông báo</string>
     <string name="title_advanced_notify_action_trash">Rác</string>
     <string name="title_advanced_notify_action_junk">Thư rác</string>
     <string name="title_advanced_notify_action_archive">Lưu trữ</string>

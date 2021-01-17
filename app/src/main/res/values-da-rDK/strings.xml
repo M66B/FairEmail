@@ -414,6 +414,7 @@
     <string name="title_advanced_tracking">Forsøg på at genkend og deaktivere sporingsbilleder</string>
     <string name="title_advanced_hide_timezone">Send beskeder uden tidszonedata</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
+    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Title for setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Brug inkognito tastatur</string>
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
