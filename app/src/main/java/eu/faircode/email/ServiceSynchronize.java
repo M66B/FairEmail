@@ -2080,6 +2080,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
                 boolean on = intent.getBooleanExtra("state", false);
+                EntityLog.log(context, "Airplane mode on=" + on);
                 if (!on)
                     lastLost = 0;
             }
