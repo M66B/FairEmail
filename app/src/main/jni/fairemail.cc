@@ -7,6 +7,7 @@
 #include <netinet/tcp.h>
 
 #include "compact_enc_det/compact_enc_det.h"
+#include "cld_3/src/nnet_language_identifier.h"
 
 void log_android(int prio, const char *fmt, ...) {
     if (prio >= ANDROID_LOG_DEBUG) {
@@ -55,6 +56,22 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
             (jint) len,
             (jint) bytes_consumed,
             (jboolean) is_reliable);
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_eu_faircode_email_TextHelper_jni_1language(JNIEnv *env, jclass clazz, jbyteArray _octets) {
+    int len = env->GetArrayLength(_octets);
+    jbyte *octets = env->GetByteArrayElements(_octets, nullptr);
+
+    std::string text(reinterpret_cast<char const *>(octets), len);
+
+    chrome_lang_id::NNetLanguageIdentifier lang_id(0, 1000);
+    const chrome_lang_id::NNetLanguageIdentifier::Result result = lang_id.FindLanguage(text);
+
+    env->ReleaseByteArrayElements(_octets, octets, JNI_ABORT);
+
+    return env->NewStringUTF(result.language.c_str());
 }
 
 extern "C"

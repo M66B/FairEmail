@@ -41,10 +41,22 @@ import java.util.Locale;
 import java.util.Set;
 
 public class TextHelper {
+    static {
+        System.loadLibrary("fairemail");
+    }
+
+    private static native String jni_language(byte[] octets);
+
     static Locale detectLanguage(Context context, String text) {
         // Why not ML kit? https://developers.google.com/ml-kit/terms
         if (TextUtils.isEmpty(text))
             return null;
+
+        if (BuildConfig.DEBUG) {
+            // https://github.com/google/cld3
+            String lang = jni_language(text.getBytes());
+            return Locale.forLanguageTag(lang);
+        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             return null;
