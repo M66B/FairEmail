@@ -356,7 +356,7 @@ public class HtmlHelper {
 
     private static Document sanitize(Context context, Document parsed, boolean view, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = prefs.getString("theme", "light");
+        String theme = prefs.getString("theme", "blue_orange_system");
         boolean text_color = (!view || (prefs.getBoolean("text_color", true) && !"black_and_white".equals(theme)));
         boolean text_size = (!view || prefs.getBoolean("text_size", true));
         boolean text_font = (!view || prefs.getBoolean("text_font", true));

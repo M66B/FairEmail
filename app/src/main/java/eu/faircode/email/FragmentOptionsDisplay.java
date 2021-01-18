@@ -744,7 +744,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        String theme = prefs.getString("theme", "light");
+        String theme = prefs.getString("theme", "blue_orange_system");
         swTextColor.setEnabled(!"black_and_white".equals(theme));
 
         swTextSize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -1085,7 +1085,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             tvSystem = dview.findViewById(R.id.tvSystem);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String theme = prefs.getString("theme", "light");
+            String theme = prefs.getString("theme", "blue_orange_system");
 
             itten.setOnClickListener(new View.OnClickListener() {
                 @Override

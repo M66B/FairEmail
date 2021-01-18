@@ -394,6 +394,9 @@ public class ApplicationEx extends Application implements SharedPreferences.OnSh
         else if (version < 1439) {
             if (!BuildConfig.DEBUG)
                 editor.remove("experiments");
+        } else if (version < 1461) {
+            if (!prefs.contains("theme"))
+                editor.putString("theme", "blue_orange_light");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

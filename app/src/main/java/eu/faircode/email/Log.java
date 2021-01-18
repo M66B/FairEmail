@@ -367,7 +367,7 @@ public class Log {
                     Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
                     event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
 
-                    String theme = prefs.getString("theme", "light");
+                    String theme = prefs.getString("theme", "blue_orange_system");
                     event.addMetadata("extra", "theme", theme);
                     event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
                 }

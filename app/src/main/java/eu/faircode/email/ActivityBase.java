@@ -93,7 +93,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
         if (!this.getClass().equals(ActivityMain.class)) {
-            String theme = prefs.getString("theme", "light");
+            String theme = prefs.getString("theme", "blue_orange_system");
 
             // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#configuration_changes
             int uiMode = getResources().getConfiguration().uiMode;
