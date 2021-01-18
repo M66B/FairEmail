@@ -340,8 +340,8 @@
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_timeout">Connection timeout (seconds)</string>
     <string name="title_advanced_prefer_ip4">Prefer IPv4 over IPv6</string>
-    <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN</string>
-    <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive</string>
+    <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN (debug only)</string>
+    <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive (debug only)</string>
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
@@ -485,11 +485,11 @@
     <string name="title_advanced_tracking">Attempt to recognize and disable tracking images</string>
     <string name="title_advanced_hide_timezone">Send messages without timezone data</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
-    <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing</string>
+    <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing (Android 8+)</string>
     <string name="title_advanced_disconnect_blacklist" translatable="false">Disconnect\'s tracker protection lists</string>
     <string name="title_advanced_disconnect_links">Use lists to warn about tracking links</string>
     <string name="title_advanced_disconnect_images">Use lists to recognize tracking images</string>
@@ -515,9 +515,9 @@
 
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
-    <string name="title_advanced_conversation_actions">Suggest actions</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language (Android 10+)</string>
     <string name="title_advanced_fts">Build search index</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexed (%3$s)</string>
     <string name="title_advanced_classification">Classify messages</string>
@@ -526,10 +526,10 @@
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
-    <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
-    <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
-    <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>
-    <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
+    <string name="title_advanced_auth_plain" translatable="false">PLAIN (debug only)</string>
+    <string name="title_advanced_auth_login" translatable="false">LOGIN (debug only)</string>
+    <string name="title_advanced_auth_ntlm" translatable="false">NTLM (debug only)</string>
+    <string name="title_advanced_auth_sasl" translatable="false">SASL (debug only)</string>
     <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_updates">Check for GitHub updates</string>
     <string name="title_advanced_experiments">Try experimental features</string>
@@ -742,7 +742,7 @@
 
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_synchronize_subfolders">Subfolders</string>
-    <string name="title_synchronize_more">Synchronize more messages</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
     <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Synchronize</string>
     <string name="title_synchronize_batch_enable">Enable synchronization</string>
