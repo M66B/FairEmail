@@ -45,7 +45,7 @@ public class TextHelper {
         System.loadLibrary("fairemail");
     }
 
-    private static native String jni_detect_language(byte[] octets);
+    private static native DetectResult jni_detect_language(byte[] octets);
 
     static Locale detectLanguage(Context context, String text) {
         // Why not ML kit? https://developers.google.com/ml-kit/terms
@@ -54,8 +54,9 @@ public class TextHelper {
 
         if (BuildConfig.DEBUG) {
             // https://github.com/google/cld3
-            String lang = jni_detect_language(text.getBytes());
-            return Locale.forLanguageTag(lang);
+            DetectResult result = jni_detect_language(text.getBytes());
+            Log.i("Language=" + result);
+            return Locale.forLanguageTag(result.language);
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
@@ -120,5 +121,24 @@ public class TextHelper {
                         .build();
 
         return tcm.getTextClassifier().suggestConversationActions(request);
+    }
+
+    private static class DetectResult {
+        String language;
+        float probability;
+        boolean is_reliable;
+        float proportion;
+
+        DetectResult(String language, float probability, boolean is_reliable, float proportion) {
+            this.language = language;
+            this.probability = probability;
+            this.is_reliable = is_reliable;
+            this.proportion = proportion;
+        }
+
+        @Override
+        public String toString() {
+            return language + " p=" + probability + " r=" + is_reliable + " pr=" + proportion;
+        }
     }
 }
