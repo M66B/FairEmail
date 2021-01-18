@@ -15,6 +15,11 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_theme"
+        android:title="@string/title_setup_theme"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_force_sync"
         android:title="@string/title_force_sync"
         app:showAsAction="never" />

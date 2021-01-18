@@ -15,6 +15,11 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_theme"
+        android:title="@string/title_setup_theme"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_compact"
         android:checkable="true"
         android:title="@string/title_compact"

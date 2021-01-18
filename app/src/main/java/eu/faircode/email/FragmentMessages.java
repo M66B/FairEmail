@@ -4172,6 +4172,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onMenuCompact();
                 return true;
 
+            case R.id.menu_theme:
+                onMenuTheme();
+                return true;
+
             case R.id.menu_select_language:
                 onMenuSelectLanguage();
                 return true;
@@ -4301,6 +4305,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         adapter.setZoom(zoom);
         clearMeasurements();
         getActivity().invalidateOptionsMenu();
+    }
+
+    private void onMenuTheme() {
+        new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
     }
 
     private void clearMeasurements() {

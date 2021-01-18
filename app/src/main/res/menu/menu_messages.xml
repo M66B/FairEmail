@@ -114,6 +114,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_theme"
+        android:title="@string/title_setup_theme"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_select_language"
         android:title="@string/title_select_language"
         app:showAsAction="never" />
