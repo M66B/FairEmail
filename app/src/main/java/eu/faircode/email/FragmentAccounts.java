@@ -299,6 +299,7 @@ public class FragmentAccounts extends FragmentBase {
         menu.findItem(R.id.menu_search).setVisible(!settings);
         menu.findItem(R.id.menu_unified).setVisible(!settings);
         menu.findItem(R.id.menu_theme).setVisible(!settings);
+        menu.findItem(R.id.menu_force_sync).setVisible(!settings);
 
         super.onPrepareOptionsMenu(menu);
     }
