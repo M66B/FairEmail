@@ -231,7 +231,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        swIncognitoKeyboard.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
+        swIncognitoKeyboard.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
         swIncognitoKeyboard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -267,7 +267,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        grpSafeBrowsing.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.GONE : View.VISIBLE);
+        grpSafeBrowsing.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
 
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override
