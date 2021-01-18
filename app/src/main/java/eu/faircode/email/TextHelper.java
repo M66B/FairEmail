@@ -45,7 +45,7 @@ public class TextHelper {
         System.loadLibrary("fairemail");
     }
 
-    private static native String jni_language(byte[] octets);
+    private static native String jni_detect_language(byte[] octets);
 
     static Locale detectLanguage(Context context, String text) {
         // Why not ML kit? https://developers.google.com/ml-kit/terms
@@ -54,7 +54,7 @@ public class TextHelper {
 
         if (BuildConfig.DEBUG) {
             // https://github.com/google/cld3
-            String lang = jni_language(text.getBytes());
+            String lang = jni_detect_language(text.getBytes());
             return Locale.forLanguageTag(lang);
         }
 

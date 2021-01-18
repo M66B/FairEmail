@@ -21,7 +21,7 @@ void log_android(int prio, const char *fmt, ...) {
 }
 
 extern "C" JNIEXPORT jobject JNICALL
-Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyteArray _octets) {
+Java_eu_faircode_email_CharsetHelper_jni_1detect_1charset(JNIEnv *env, jclass type, jbyteArray _octets) {
     int len = env->GetArrayLength(_octets);
     jbyte *octets = env->GetByteArrayElements(_octets, nullptr);
 
@@ -60,7 +60,7 @@ Java_eu_faircode_email_CharsetHelper_jni_1detect(JNIEnv *env, jclass type, jbyte
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_eu_faircode_email_TextHelper_jni_1language(JNIEnv *env, jclass clazz, jbyteArray _octets) {
+Java_eu_faircode_email_TextHelper_jni_1detect_1language(JNIEnv *env, jclass clazz, jbyteArray _octets) {
     int len = env->GetArrayLength(_octets);
     jbyte *octets = env->GetByteArrayElements(_octets, nullptr);
 

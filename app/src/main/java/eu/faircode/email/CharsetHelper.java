@@ -43,7 +43,7 @@ class CharsetHelper {
         System.loadLibrary("fairemail");
     }
 
-    private static native DetectResult jni_detect(byte[] octets);
+    private static native DetectResult jni_detect_charset(byte[] octets);
 
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
@@ -75,7 +75,7 @@ class CharsetHelper {
             }
 
             Log.i("compact_enc_det sample=" + sample.length);
-            DetectResult detected = jni_detect(sample);
+            DetectResult detected = jni_detect_charset(sample);
 
             if (TextUtils.isEmpty(detected.charset)) {
                 Log.e("compact_enc_det result=" + detected);
