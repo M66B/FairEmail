@@ -1724,7 +1724,7 @@ public class HtmlHelper {
         }
     }
 
-    static String getPreviewText(String text) {
+    static String getPreview(String text) {
         if (text == null)
             return null;
 

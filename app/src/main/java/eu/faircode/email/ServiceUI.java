@@ -290,7 +290,7 @@ public class ServiceUI extends IntentService {
 
         String text = HtmlHelper.getFullText(body);
         String language = HtmlHelper.getLanguage(this, text);
-        String preview = HtmlHelper.getPreviewText(text);
+        String preview = HtmlHelper.getPreview(text);
 
         DB db = DB.getInstance(this);
         try {

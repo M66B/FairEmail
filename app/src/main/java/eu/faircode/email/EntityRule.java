@@ -612,12 +612,13 @@ public class EntityRule {
         File file = reply.getFile(context);
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
-        String preview = HtmlHelper.getPreviewText(text);
+        reply.preview = HtmlHelper.getPreview(text);
+        reply.language = HtmlHelper.getLanguage(context, text);
         db.message().setMessageContent(reply.id,
                 true,
-                HtmlHelper.getLanguage(context, text),
+                reply.language,
                 false,
-                preview,
+                reply.preview,
                 null);
 
         if (attachments)
@@ -703,7 +704,7 @@ public class EntityRule {
 
         String body = Helper.readText(message.getFile(context));
         String text = HtmlHelper.getFullText(body);
-        String preview = HtmlHelper.getPreviewText(text);
+        String preview = HtmlHelper.getPreview(text);
 
         if (!TextUtils.isEmpty(preview))
             sb.append(res.getString(R.string.title_rule_tts_content))

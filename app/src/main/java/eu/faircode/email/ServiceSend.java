@@ -540,7 +540,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             String text = HtmlHelper.getFullText(body);
             String language = HtmlHelper.getLanguage(this, text);
-            String preview = HtmlHelper.getPreviewText(text);
+            String preview = HtmlHelper.getPreview(text);
 
             try {
                 db.beginTransaction();

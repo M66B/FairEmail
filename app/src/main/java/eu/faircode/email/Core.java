@@ -1500,12 +1500,13 @@ class Core {
         File file = message.getFile(context);
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
-        String preview = HtmlHelper.getPreviewText(text);
+        message.preview = HtmlHelper.getPreview(text);
+        message.language = HtmlHelper.getLanguage(context, text);
         db.message().setMessageContent(message.id,
                 true,
-                HtmlHelper.getLanguage(context, text),
+                message.language,
                 parts.isPlainOnly(),
-                preview,
+                message.preview,
                 parts.getWarnings(message.warning));
         MessageClassifier.classify(message, folder, null, context);
 
@@ -2211,12 +2212,13 @@ class Core {
                         File file = message.getFile(context);
                         Helper.writeText(file, body);
                         String text = HtmlHelper.getFullText(body);
-                        String preview = HtmlHelper.getPreviewText(text);
+                        message.preview = HtmlHelper.getPreview(text);
+                        message.language = HtmlHelper.getLanguage(context, text);
                         db.message().setMessageContent(message.id,
                                 true,
-                                HtmlHelper.getLanguage(context, text),
+                                message.language,
                                 parts.isPlainOnly(),
-                                preview,
+                                message.preview,
                                 parts.getWarnings(message.warning));
 
                         for (EntityAttachment attachment : parts.getAttachments())
@@ -3016,12 +3018,13 @@ class Core {
                         File file = message.getFile(context);
                         Helper.writeText(file, body);
                         String text = HtmlHelper.getFullText(body);
-                        String preview = HtmlHelper.getPreviewText(text);
+                        message.preview = HtmlHelper.getPreview(text);
+                        message.language = HtmlHelper.getLanguage(context, text);
                         db.message().setMessageContent(message.id,
                                 true,
-                                HtmlHelper.getLanguage(context, text),
+                                message.language,
                                 parts.isPlainOnly(),
-                                preview,
+                                message.preview,
                                 parts.getWarnings(message.warning));
                         MessageClassifier.classify(message, folder, null, context);
 
@@ -3454,12 +3457,13 @@ class Core {
                     File file = message.getFile(context);
                     Helper.writeText(file, body);
                     String text = HtmlHelper.getFullText(body);
-                    String preview = HtmlHelper.getPreviewText(text);
+                    message.preview = HtmlHelper.getPreview(text);
+                    message.language = HtmlHelper.getLanguage(context, text);
                     db.message().setMessageContent(message.id,
                             true,
-                            HtmlHelper.getLanguage(context, text),
+                            message.language,
                             parts.isPlainOnly(),
-                            preview,
+                            message.preview,
                             parts.getWarnings(message.warning));
                     MessageClassifier.classify(message, folder, null, context);
 
