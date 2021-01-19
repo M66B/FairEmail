@@ -1716,7 +1716,7 @@ public class HtmlHelper {
             if (!language_detection)
                 return null;
 
-            String text = getPreview(body);
+            String text = getFullText(body);
             Locale locale = TextHelper.detectLanguage(context, text);
             return (locale == null ? null : locale.getLanguage());
         } catch (Throwable ex) {

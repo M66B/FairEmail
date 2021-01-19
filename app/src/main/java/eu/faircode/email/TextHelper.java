@@ -27,7 +27,6 @@ import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextClassifier;
-import android.view.textclassifier.TextLanguage;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -41,6 +40,8 @@ import java.util.Locale;
 import java.util.Set;
 
 public class TextHelper {
+    private static final int MAX_SAMPLE_SIZE = 8192;
+
     static {
         System.loadLibrary("fairemail");
     }
@@ -48,33 +49,35 @@ public class TextHelper {
     private static native DetectResult jni_detect_language(byte[] octets);
 
     static Locale detectLanguage(Context context, String text) {
-        // Why not ML kit? https://developers.google.com/ml-kit/terms
+        // Why not ML kit?
+        // https://developers.google.com/ml-kit/terms
+
         if (TextUtils.isEmpty(text))
             return null;
 
-        if (BuildConfig.DEBUG) {
-            // https://github.com/google/cld3
-            DetectResult result = jni_detect_language(text.getBytes());
-            Log.i("Language=" + result);
-            return Locale.forLanguageTag(result.language);
+        byte[] octets = text.getBytes();
+        byte[] sample;
+        if (octets.length < MAX_SAMPLE_SIZE)
+            sample = octets;
+        else {
+            sample = new byte[MAX_SAMPLE_SIZE];
+            System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
         }
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+        // https://github.com/google/cld3
+        Log.i("cld3 sample=" + sample.length);
+        DetectResult result = jni_detect_language(sample);
+        Log.i("Language=" + result);
+
+        if (result.probability < 0.5)
             return null;
 
-        // https://issuetracker.google.com/issues/173337263
-        TextClassificationManager tcm =
-                (TextClassificationManager) context.getSystemService(Context.TEXT_CLASSIFICATION_SERVICE);
-        if (tcm == null)
+        try {
+            return Locale.forLanguageTag(result.language);
+        } catch (Throwable ex) {
+            Log.w(ex);
             return null;
-
-        TextLanguage.Request request = new TextLanguage.Request.Builder(text).build();
-        TextClassifier tc = tcm.getTextClassifier();
-        TextLanguage tlanguage = tc.detectLanguage(request);
-        if (tlanguage.getLocaleHypothesisCount() > 0)
-            return tlanguage.getLocale(0).toLocale();
-
-        return null;
+        }
     }
 
     static ConversationActions getConversationActions(

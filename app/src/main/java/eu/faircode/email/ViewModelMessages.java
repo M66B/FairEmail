@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
@@ -449,10 +448,8 @@ public class ViewModelMessages extends ViewModel {
             this.filter_snoozed = prefs.getBoolean("filter_snoozed", true);
 
             boolean language_detection = prefs.getBoolean("language_detection", false);
-            if (!language_detection || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-                this.filter_language = null;
-            else
-                this.filter_language = prefs.getString("filter_language", null);
+            String filter_language = prefs.getString("filter_language", null);
+            this.filter_language = (language_detection ? filter_language : null);
 
             this.debug = prefs.getBoolean("debug", false);
         }

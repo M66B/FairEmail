@@ -38,7 +38,7 @@ FairEmail might be for you if you value your privacy.
 * Offline storage and operations
 * Battery friendly
 * Low data usage
-* Small (~ 15 MB)
+* Small (< 20 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 

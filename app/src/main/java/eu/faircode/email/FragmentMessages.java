@@ -3983,8 +3983,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 (viewType == AdapterMessage.ViewType.UNIFIED ||
                         (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
 
-        String filter_language = prefs.getString("filter_language", null);
-        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown || !TextUtils.isEmpty(filter_language));
+        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown);
         MenuItem menuFilter = menu.findItem(R.id.menu_filter);
         menuFilter.setShowAsAction(folder && filter_active
                 ? MenuItem.SHOW_AS_ACTION_ALWAYS
@@ -4055,8 +4054,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
-        menu.findItem(R.id.menu_select_language).setVisible(
-                language_detection && folder && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
+        menu.findItem(R.id.menu_select_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_select_all).setVisible(folder);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
@@ -4421,8 +4419,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
                 boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
                 boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
-                String filter_language = prefs.getString("filter_language", null);
                 boolean language_detection = prefs.getBoolean("language_detection", false);
+                String filter_language = prefs.getString("filter_language", null);
 
                 DB db = DB.getInstance(context);
                 try {
@@ -4683,8 +4681,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+        boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
-        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown || !TextUtils.isEmpty(filter_language));
+        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
+                (language_detection && !TextUtils.isEmpty(filter_language)));
 
         boolean none = (items == 0 && !loading && tasks == 0 && initialized);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
