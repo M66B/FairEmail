@@ -1899,11 +1899,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.from != null)
                 for (Address sender : message.from) {
                     String from = ((InternetAddress) sender).getAddress();
-                    if (prefs.getBoolean(from + ".show_full", false)) {
+                    if (TextUtils.isEmpty(from))
+                        continue;
+                    int at = from.indexOf('@');
+                    String domain = (at < 0 ? from : from.substring(at));
+                    if (prefs.getBoolean(from + ".show_full", false) ||
+                            prefs.getBoolean(domain + ".show_full", false)) {
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
                     }
-                    if (prefs.getBoolean(from + ".show_images", false)) {
+                    if (prefs.getBoolean(from + ".show_images", false) ||
+                            prefs.getBoolean(domain + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
                         properties.setValue("images_asked", message.id, true);
                     }
@@ -3651,7 +3657,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences.Editor editor = prefs.edit();
                     for (Address sender : message.from) {
                         String from = ((InternetAddress) sender).getAddress();
+                        if (TextUtils.isEmpty(from))
+                            continue;
+                        int at = from.indexOf('@');
+                        String domain = (at < 0 ? from : from.substring(at));
                         editor.remove(from + (full ? ".show_full" : ".show_images"));
+                        editor.remove(domain + (full ? ".show_full" : ".show_images"));
                     }
                     editor.apply();
                 }
@@ -3667,6 +3678,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View dview = LayoutInflater.from(context).inflate(
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
             CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
 
             if (full) {
@@ -3680,25 +3692,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
             }
 
-            if (message.from == null || message.from.length == 0)
+            if (message.from == null || message.from.length == 0) {
                 cbNotAgain.setVisibility(View.GONE);
-            else {
+                cbNotAgainDomain.setVisibility(View.GONE);
+            } else {
                 List<String> froms = new ArrayList<>();
-                for (Address address : message.from)
-                    froms.add(((InternetAddress) address).getAddress());
+                List<String> domains = new ArrayList<>();
+                for (Address address : message.from) {
+                    String from = ((InternetAddress) address).getAddress();
+                    froms.add(from);
+                    int at = from.indexOf('@');
+                    String domain = (at < 0 ? from : from.substring(at));
+                    domains.add(domain);
+                }
                 cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again,
                         TextUtils.join(", ", froms)));
+                cbNotAgainDomain.setText(context.getString(R.string.title_no_ask_for_again,
+                        TextUtils.join(", ", domains)));
             }
 
+            cbNotAgainDomain.setEnabled(false);
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences.Editor editor = prefs.edit();
-                    for (Address sender : message.from) {
-                        String from = ((InternetAddress) sender).getAddress();
-                        editor.putBoolean(from + (full ? ".show_full" : ".show_images"), isChecked);
-                    }
-                    editor.apply();
+                    cbNotAgainDomain.setEnabled(isChecked);
                 }
             });
 
@@ -3729,6 +3746,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             properties.setValue(full ? "full" : "images", message.id, true);
                             properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
+
+                            SharedPreferences.Editor editor = prefs.edit();
+                            for (Address sender : message.from) {
+                                String from = ((InternetAddress) sender).getAddress();
+                                if (TextUtils.isEmpty(from))
+                                    continue;
+                                int at = from.indexOf('@');
+                                String domain = (at < 0 ? from : from.substring(at));
+                                editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
+                                        cbNotAgain.isChecked());
+                                editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
+                                        cbNotAgain.isChecked() && cbNotAgainDomain.isChecked());
+                            }
+                            editor.apply();
+
                             if (full)
                                 onShowFullConfirmed(message);
                             else
