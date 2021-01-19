@@ -130,7 +130,7 @@ public class HtmlHelper {
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
     private static final int MAX_FORMAT_TEXT_SIZE = 200 * 1024; // characters
-    private static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
+    static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
@@ -403,7 +403,7 @@ public class HtmlHelper {
         normalizeNamespaces(parsed, display_hidden);
 
         // Limit length
-        if (view && truncate(parsed, true)) {
+        if (view && truncate(parsed, MAX_FORMAT_TEXT_SIZE)) {
             parsed.body()
                     .appendElement("p")
                     .appendElement("em")
@@ -1757,7 +1757,7 @@ public class HtmlHelper {
     }
 
     private static String _getText(Document d) {
-        truncate(d, false);
+        truncate(d, MAX_FULL_TEXT_SIZE);
 
         for (Element bq : d.select("blockquote")) {
             bq.prependChild(new TextNode("["));
@@ -1782,7 +1782,7 @@ public class HtmlHelper {
     static String getText(Context context, String html) {
         Document d = sanitizeCompose(context, html, false);
 
-        truncate(d, true);
+        truncate(d, MAX_FORMAT_TEXT_SIZE);
 
         SpannableStringBuilder ssb = fromDocument(context, d, null, null);
 
@@ -1869,9 +1869,8 @@ public class HtmlHelper {
         }
     }
 
-    static boolean truncate(Document d, boolean reformat) {
+    static boolean truncate(Document d, int max) {
         final int[] length = new int[1];
-        int max = (reformat ? MAX_FORMAT_TEXT_SIZE : MAX_FULL_TEXT_SIZE);
 
         NodeTraversor.filter(new NodeFilter() {
             @Override

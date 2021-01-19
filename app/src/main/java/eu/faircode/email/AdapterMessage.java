@@ -2179,7 +2179,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Format message
                     if (show_full) {
-                        if (HtmlHelper.truncate(document, false))
+                        if (HtmlHelper.truncate(document, HtmlHelper.MAX_FULL_TEXT_SIZE))
                             document.body()
                                     .appendElement("br")
                                     .appendElement("p")
