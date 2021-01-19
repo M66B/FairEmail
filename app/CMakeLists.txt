@@ -5,11 +5,14 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_library(fairemail SHARED
         src/main/jni/fairemail.cc
+
+        #https://github.com/google/compact_enc_det
         src/main/jni/compact_enc_det/compact_enc_det/compact_enc_det.cc
         src/main/jni/compact_enc_det/compact_enc_det/compact_enc_det_hint_code.cc
         src/main/jni/compact_enc_det/util/encodings/encodings.cc
         src/main/jni/compact_enc_det/util/languages/languages.cc
 
+        #https://github.com/google/cld3
         src/main/jni/cld_3/src/base.cc
         src/main/jni/cld_3/src/embedding_feature_extractor.cc
         src/main/jni/cld_3/src/embedding_network.cc
@@ -34,10 +37,13 @@ add_library(fairemail SHARED
         src/main/jni/cld_3/src/unicodetext.cc
         src/main/jni/cld_3/src/utils.cc
         src/main/jni/cld_3/src/workspace.cc
+
+        #protobuf 3.6.1.3
         src/main/jni/cld_3/protos/feature_extractor.pb.cc
         src/main/jni/cld_3/protos/sentence.pb.cc
         src/main/jni/cld_3/protos/task_spec.pb.cc
 
+        #https://github.com/protocolbuffers/protobuf/
         src/main/jni/google/protobuf/stubs/bytestream.cc
         src/main/jni/google/protobuf/stubs/bytestream.h
         src/main/jni/google/protobuf/stubs/common.cc

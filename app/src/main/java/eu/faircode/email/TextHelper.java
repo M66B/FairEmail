@@ -64,7 +64,6 @@ public class TextHelper {
             System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
         }
 
-        // https://github.com/google/cld3
         Log.i("cld3 sample=" + sample.length);
         DetectResult result = jni_detect_language(sample);
         Log.i("Language=" + result);
