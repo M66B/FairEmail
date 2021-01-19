@@ -851,6 +851,7 @@ Esistono degli errori generali e specifici ai profili di Gmail (vedi sotto).
 
 **Errori generali**
 
+<a name="authfailed"></a>
 L'errore *... Autenticazione fallita ...* o *... AUTHENTICATE fallito ...* potrebbe significare che il tuo nome utente o la tua password siano scorretti. Alcuni provider prevedono come nome utente solo il *nome utente* e altri il tuo indirizzo email completo *username@example.com*. Quando copi/incolli per inserire un nome utente o una password, potrebbero essere copiati i caratteri invisibili, che potrebbero anche causare questo problema. Anche alcuni gestori di password sono noti per farlo in modo scorretto. Il nome utente potrebbe essere sensibile alle maiuscole, quindi prova con soli caratteri minuscoli. La password è quasi sempre sensibile alle maiuscole. Alcuni provider richiedono l'uso di una password dell'app invece di quella del profilo, quindi sei pregato di controllare la documentazione del provider. A volte è necessario abilitare l'accesso esterno (IMAP/SMTP) sul sito web del provider prima. Altre cause possibili sono che il profilo è bloccato o che l'accesso è stato limitato amministrativamente in qualche modo, per esempio consentendo di accedere solo da certe reti / indirizzi IP.
 
 L'errore *... Troppi tentativi errati di autenticazione ...* potrebbe significare che stai usando una password del profilo di Yahoo invece di una password dell'app. Sei pregato di vedere [questa FAQ](#user-content-faq88) su come configurare un profilo di Yahoo.
@@ -875,21 +876,24 @@ L'errore *... Connessione chiusa da pari ...* potrebbe esser causata da un serve
 
 Gli errori *... Errore di lettura ...*, *... Errore di scrittura ...*, *... Lettura scaduta ...*, *... Conduttura rotta ...* significa che il server dell'email non risponde più o che la connessione internet non è buona.
 
-L'errore *... Interruzione imprevista del flusso di input di zlib ...* significa che non tutti i dati sono stati ricevuti, possibilmente a causa di una connessione interrotta o non buona.
+<a name="connectiondropped"></a>
+L'errore *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
 
-L'errore *... connessione fallita ...* potrebbe indicare [Troppe connessioni simultanee](#user-content-faq23).
+The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
-L'avviso *... Crittografia non supportata ...* significa che la serie di caratteri del messaggio è sconosciuta o non supportata. FairEmail presumerà ISO-8859-1 (Latin1), che in gran parte dei casi risulterà nel mostrare correttamente il messaggio.
+The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
-Sei pregato di [vedere qui](#user-content-faq4) per gli errori *... Inaffidabile ... non nel certificato ...*, *... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...* o *... Ancoraggio di fiducia per il percorso di certificazione non trovato ...*
+The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
-Sei pregato di [vedere qui](#user-content-faq127) per l'errore *... Argomenti HELO sintatticamente non validi ...*.
+Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
-Sei pregato di [vedere qui](#user-content-faq41) per l'errore *... Stretta di mano fallita ...*.
+Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
-Vedi [qui](https://linux.die.net/man/3/connect) per cosa significano i codici di errore come EHOSTUNREACH e ETIMEDOUT.
+Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
-Cause possibili sono:
+See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
+
+Possible causes are:
 
 * Un firewall o router sta bloccando le connessioni al server
 * Il nome dell'host o numero di porta non è valido
@@ -899,13 +903,13 @@ Cause possibili sono:
 * Il server dell'email rifiuta di accettare un messaggio, ad esempio perché troppo grande o contenente collegamenti inaccettabili
 * Ci sono troppe connessioni al server, vedi anche la prossima domanda
 
-Molte reti Wi-Fi pubbliche bloccano le email in uscita per prevenire lo spam. A volte puoi risolverlo usando un'altra porta SMTP. Vedi la documentazione del provider per i numeri di porta utilizzabili.
+Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
 
-Se stai usando una [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), il provider della VPN potrebbe bloccare la connessione perché prova troppo aggressivamente a prevenire lo spam. Nota che anche [Google Fi](https://fi.google.com/) sta usando una VPN.
+If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
-**Errori di invio**
+**Send errors**
 
-I server SMTP possono rifiutare i messaggi per [varie motivazioni](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Messaggi troppo grandi e l'innesco del filtro di spam di un server email sono i motivi più comuni.
+SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
 * Il limite della dimensione dell'allegato per Gmail [è 25 MB](https://support.google.com/mail/answer/6584)
 * Il limite delle dimensioni dell'allegato per Outlook e Office 365 [è 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -917,7 +921,7 @@ I server SMTP possono rifiutare i messaggi per [varie motivazioni](https://en.wi
 * *550 Messaggio di spam rifiutato perché l'IP è elencato per ...* significa che il server dell'email ha rifiutato di inviare un messaggio dall'indirizzo di rete attuale (pubblico) perché usato erroneamente per inviare spam da qualcun altro (si spera) in precedenza. Sei pregato di provare ad abilitare la modalità aereo per 10 minuti per acquisire un nuovo indirizzo di rete.
 * *571 5.7.1 Il messaggio contiene spam o virus o il mittente è bloccato ...* significa che il server dell'email ha considerato un messaggio come spam. Questo significa probabilmente che i filtri spam del server email sono troppo rigidi. Dovrai contattare il provider di posta elettronica per avere supporto a riguardo.
 
-Se vuoi usare il server SMTP di Gmail per risolvere un filtro spam in uscita troppo severo o per migliorare la consegna dei messaggi:
+If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Verifica il tuo indirizzo email [qui](https://mail.google.com/mail/u/0/#settings/accounts) (dovrai usare un browser desktop)
 * Cambia le impostazioni di identità come queste (configurazione, fase 2, tocca Gestisci, tocca identità):
@@ -926,19 +930,19 @@ Se vuoi usare il server SMTP di Gmail per risolvere un filtro spam in uscita tro
 
 <br />
 
-**Errori di Gmail**
+**Gmail errors**
 
-L'autorizzazione della configurazione dei profili di Gmail con la procedura guidata rapida devono essere ricaricati periodicamente tramite il [gestore del profilo Android](https://developer.android.com/reference/android/accounts/AccountManager). Questo richiede i permessi di contatto/profilo e connettività internet.
+The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
-L'errore *... Autenticazione fallita ... Profilo non trovato ...* significa che un profilo di Gmail precedentemente autorizzato è stato rimosso dal dispositivo.
+The error *... Autenticazione fallita ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-Gli errori *... Autenticazione fallita ... Nessun token ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
-L'errore *... Autenticazione fallita ... errore di rete ...* significa che il manager del profilo di Android non è riuscito a ricaricare l'autorizzazione di un profilo di Gmail a causa di problemi con la connessione a internet
+L'errore *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-L'errore *... Autenticazione fallita ... Credenziali non valide ...* potrebbe essere causato dal cambiamento della password del profilo o avendo revocati i permessi di profilo/contatti necessari. Nel caso in cui la password del profilo fosse cambiata, dovrai autenticare di nuovo le impostazioni del profilo di Android. Nel caso in cui fossero stati revocati i permessi, puoi avviare la procedura guidata di configurazione rapida di Gmail per garantire di nuovo i permessi richiesti (non devi riconfigurare il profilo).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
-L'errore *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1266,7 +1270,7 @@ See also [this FAQ](#user-content-faq4).
 
 L'errore '*Stretta di mano fallita ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
-L'errore '*Stretta di mano fallita ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
+The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
 The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
