@@ -462,7 +462,7 @@
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_classification">Классифицировать сообщения</string>

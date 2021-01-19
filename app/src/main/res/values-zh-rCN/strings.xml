@@ -428,7 +428,7 @@
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_conversation_actions">对操作提出建议 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">对回复文本提出建议 (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_language_detection">检测消息文本语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>

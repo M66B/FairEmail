@@ -441,7 +441,7 @@
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_conversation_actions">Sugerir acciones (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerir textos de respuesta (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_classification">Clasificar mensajes</string>
