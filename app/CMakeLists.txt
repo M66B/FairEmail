@@ -65,14 +65,14 @@ add_library(fairemail SHARED
 )
 
 include_directories(
-        src/main/jni/compact_enc_det
         src/main/jni
+        src/main/jni/compact_enc_det
 )
 
 find_library(log-lib log)
 
 add_definitions(-DHAVE_MEMRCHR -DHAVE_PTHREAD)
 
-target_compile_options(fairemail PRIVATE -Wno-c++11-narrowing)
+target_compile_options(fairemail PRIVATE -Wno-c++11-narrowing -Wno-undefined-var-template)
 
 target_link_libraries(fairemail ${log-lib})
