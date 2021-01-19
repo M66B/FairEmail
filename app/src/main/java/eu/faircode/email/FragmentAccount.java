@@ -687,8 +687,10 @@ public class FragmentAccount extends FragmentBase {
 
                         boolean selectable = true;
                         for (String attr : attrs)
-                            if (attr.equalsIgnoreCase("\\NoSelect"))
+                            if (attr.equalsIgnoreCase("\\NoSelect")) {
                                 selectable = false;
+                                break;
+                            }
                         selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
 
                         if (type != null && selectable) {
