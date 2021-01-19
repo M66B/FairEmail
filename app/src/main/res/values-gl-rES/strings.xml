@@ -77,6 +77,8 @@
     <string name="title_block_sender_hint">        Bloquear un remitente vai crear unha regra para mover mensaxes futuras automaticamente ao cartafol de spam.
         Crear e usar regras é unha característica avanzada (pro).
     </string>
+    <string name="title_junk_filter">Use local spam filter</string>
+    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_notification_sending">Enviando mensaxes</string>
     <string name="title_notification_waiting">Agardando por unha conexión axeitada</string>
     <string name="title_notification_idle">Inactivo</string>
@@ -84,6 +86,7 @@
     <string name="title_notification_alert">Alerta do servidor \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_failed">O envío a %1$s fallou</string>
+    <string name="title_notification_redacted">Redacted: biometric or PIN authentication enabled</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_exit">Saír</string>
     <string name="menu_answers">Patróns</string>
@@ -217,6 +220,9 @@
     <string name="title_setup_defaults">Restaurar valores predefinidos</string>
     <string name="title_setup_reset_questions">Reiniciar cuestións</string>
     <string name="title_advanced_hint_title">Máis opcións avanzadas</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
+        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
     <string name="title_advanced_section_send">Enviar</string>
@@ -302,6 +308,9 @@
     <string name="title_advanced_generated_icons">Mostrar iconas xeradas</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconas redondeadas</string>
+    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
+    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Mostrar nomes e enderezos de email</string>
     <string name="title_advanced_replace_name">Preferir o nome de contacto ao nome do envío</string>
     <string name="title_advanced_distinguish_contacts">Suliñar o remitente cando este é recoñecido como un destinatario local</string>
@@ -405,6 +414,7 @@
     <string name="title_advanced_tracking">Intentar recoñecer e desactivar as imaxes de rastrexo</string>
     <string name="title_advanced_hide_timezone">Enviar mensaxes sen a información de fuso horario</string>
     <string name="title_advanced_display_hidden">Mostrar textos ocultos das mensaxes</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Excluír da pantalla de aplicacións recentes e impedir a toma de capturas de pantalla</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo límite de autenticación biométrica</string>
@@ -428,11 +438,14 @@
     </string>
     <string name="title_advanced_external_search">Permitir que outras aplicacións poidan buscar nas mensaxes</string>
     <string name="title_advanced_shortcuts">Amosar os contactos frecuentes no menú de compartir de Android</string>
-    <string name="title_advanced_conversation_actions">Suxerir accións</string>
-    <string name="title_advanced_conversation_actions_replies">Suxerir textos de reposta</string>
-    <string name="title_advanced_language_detection">Detectar o idioma da mensaxe</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Crear o índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensaxes no índice (%3$s)</string>
+    <string name="title_advanced_classification">Classify messages</string>
+    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se FairEmail aínda está activo</string>
@@ -445,6 +458,7 @@
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup_attachments">Borrar os anexos das mensaxes vellas</string>
     <string name="title_advanced_cleanup">Limpeza</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Axustes da aplicación</string>
     <string name="title_advanced_more">Máis opcións</string>
     <string name="title_advanced_manual_hint">Se a recepción de mensaxes non está activa, aínda se poden recibir mensaxes manualmente tirando cara abaixo a lista de mensaxes</string>
@@ -619,7 +633,8 @@
     <string name="title_advanced_expand_read">Marcar mensaxes como lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_subfolders">Subcartafoles</string>
-    <string name="title_synchronize_more">Sincronizar máis mensaxes</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_synchronize_batch_enable">Activar a sincronización</string>
     <string name="title_synchronize_batch_disable">Desactivar a sincronización</string>
@@ -663,6 +678,8 @@
     <string name="title_poll_folder">Comprobar periodicamente no canto de sincronización continua</string>
     <string name="title_download_folder">Baixar automaticamente os textos das mensaxes e os anexos</string>
     <string name="title_notify_folder">Notificar as mensaxes novas</string>
+    <string name="title_auto_classify_source">Classify new messages in this folder</string>
+    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Sincronizar mensaxes (días)</string>
     <string name="title_sync_days_remark">Incrementar este valor incrementará o uso da batería e dos datos</string>
     <string name="title_keep_days">Manter mensaxes (días)</string>
@@ -1120,6 +1137,7 @@
     <string name="title_legend_encrypted">Está cifrado</string>
     <string name="title_legend_auth">Fallou a autenticación</string>
     <string name="title_legend_found">Foi atopado</string>
+    <string name="title_legend_classified">Was automatically classified</string>
     <string name="title_legend_snoozed">Está adiado</string>
     <string name="title_legend_browsed">Foi navegado ou procurado</string>
     <string name="title_legend_answered">Foi respondido</string>
@@ -1187,6 +1205,7 @@
     <string name="title_hint_message_selection">Faga unha pulsación longa para comezar a seleccionar múltiples mensaxes; manteña e esvare cara arriba ou abaixo para seleccionar máis mensaxes</string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Baixar mensaxes pode levar certo tempo, dependendo da velocidade do provedor, da conexión a internet, o dispositivo e o número de mensaxes. Mentres a aplicación estea baixando mensaxes, pode responder máis lentamente.</string>
+    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
     <string name="title_hint_battery">Como FairEmail sempre está a recibir mensaxes, Android considerará que sempre está activa. Polo tanto podería parecer que FairEmail está sempre a consumir batería cando en realidade non é así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformata as mensaxes por razóns de privacidade e de seguridade. Para ver a mensaxe orixinal, prema na icona de \'pantalla completa\' sobre o texto da mensaxe.</string>
     <string name="title_hint_design">O deseño pretende non distraer e aínda manterse altamente funcional. Hai moitas opcións para personalizar a aparencia, pero comprenda que non é posible contentar a todas as persoas ao mesmo tempo.</string>

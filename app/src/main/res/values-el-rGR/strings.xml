@@ -414,6 +414,7 @@
     <string name="title_advanced_tracking">Να γίνεται απόπειρα αναγνώρισης και απενεργοποίησης εικόνων ιχνηλάτησης</string>
     <string name="title_advanced_hide_timezone">Αποστολή μηνυμάτων χωρίς πληροφορίες για τη ζώνη ώρας</string>
     <string name="title_advanced_display_hidden">Προβολή κρυμμένων κειμένων στα μηνύματα</string>
+    <string name="title_advanced_incognito_keyboard">Χρήση πληκτρολογίου ανώνυμης λειτουργίας (Android 8+)</string>
     <string name="title_advanced_secure">Απόκρυψη του FairEmail από τη λίστα των πρόσφατων εφαρμογών και παρεμπόδιση λήψης στιγμιοτύπου οθόνης</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Χρονικό περιθώριο για τη βιομετρική ταυτοποίηση</string>
@@ -436,9 +437,9 @@
         Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
     <string name="title_advanced_external_search">Να επιτρέπεται σε άλλες εφαρμογές να διενεργούν αναζητήσεις στα μηνύματα</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
-    <string name="title_advanced_conversation_actions">Να προτείνονται ενέργειες</string>
-    <string name="title_advanced_conversation_actions_replies">Να προτείνονται κείμενα απάντησης</string>
-    <string name="title_advanced_language_detection">Αναγνώριση της γλώσσας του μηνύματος</string>
+    <string name="title_advanced_conversation_actions">Να προτείνονται ενέργειες (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Να προτείνονται κείμενα απάντησης (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
@@ -456,6 +457,7 @@
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>
     <string name="title_advanced_cleanup">Καθαρισμός</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Ρυθμίσεις εφαρμογής</string>
     <string name="title_advanced_more">Περισσότερες επιλογές</string>
     <string name="title_advanced_manual_hint">Αν η λήψη μηνυμάτων είναι απενεργοποιημένη, μπορεί ακόμη να γίνει χειροκίνητη λήψη, σύροντας προς τα κάτω τη λίστα μηνυμάτων</string>
@@ -630,7 +632,7 @@
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>
     <string name="title_synchronize_subfolders">Υποφάκελοι</string>
-    <string name="title_synchronize_more">Συγχρονισμός περισσοτέρων μηνυμάτων</string>
+    <string name="title_synchronize_more">Λήψη περισσότερων μηνυμάτων</string>
     <string name="title_synchronize_more_hint">Αυτό έχει ως αποτέλεσμα ένα και μοναδικό κατέβασμα παλαιότερων μηνυμάτων, οπότε δεν θα οδηγήσει σε επιπλέον χρήση μπαταρίας κατά την καθημερινή χρήση</string>
     <string name="title_synchronize_enabled">Συγχρονισμός</string>
     <string name="title_synchronize_batch_enable">Ενεργοποίηση συγχρονισμού</string>

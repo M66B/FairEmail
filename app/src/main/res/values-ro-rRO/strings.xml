@@ -424,6 +424,7 @@
     <string name="title_advanced_tracking">Încearcă să detectezi și dezactivezi în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
@@ -447,9 +448,9 @@
     </string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
-    <string name="title_advanced_conversation_actions">Sugerează acţiuni</string>
-    <string name="title_advanced_conversation_actions_replies">Sugerează texte de răspuns</string>
-    <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
@@ -642,7 +643,7 @@
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_subfolders">Subdosare</string>
-    <string name="title_synchronize_more">Sincronizează mai multe mesaje</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
     <string name="title_synchronize_more_hint">Acest lucru va duce la o descărcare unică a mesajelor mai vechi, astfel încât nu va duce la o utilizare mai intensă a bateriei pentru uzul cotidian</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_synchronize_batch_enable">Activează sincronizarea</string>

@@ -281,7 +281,7 @@ El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la 
 * [(160) ¿Puedes añadir el borrado permanente de mensajes sin confirmación?](#user-content-faq160)
 * [(161) ¿Puedes añadir un ajuste para cambiar el color principal y de acento?](#user-content-faq161)
 * [(162) ¿Se admite el sistema IMAP NOTIFY?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
+* [(163) ¿Qué es la clasificación de mensajes?](#user-content-faq163)
 
 [Tengo otra pregunta.](#user-content-support)
 
@@ -431,10 +431,10 @@ En el menú de tres puntos puede activar o desactivar o seleccionar:
 * *tamaño de texto*: para tres tamaños de fuente diferentes
 * *vista compacta*: para elementos de mensaje más condensados y una fuente de texto más pequeña
 
-In the display section of the settings you can enable or disable for example:
+En la sección de visualización de los ajustes puede activar o desactivar:
 
 * *Bandeja de entrada unificada*: para desactivar la bandeja de entrada unificada y para listar las carpetas seleccionadas para la bandeja de entrada unificada en su lugar
-* *Tabular style*: to show a linear list instead of cards
+* *Estilo tabular*: para mostrar una lista lineal en lugar de tarjetas
 * *Group by date*: show date header above messages with the same date
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
 * *Conversation action bar*: to disable the bottom navigation bar

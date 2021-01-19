@@ -414,6 +414,7 @@
     <string name="title_advanced_tracking">Prova a riconoscere e disabilitare le immagini di tracciamento</string>
     <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
@@ -437,9 +438,9 @@
     </string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
     <string name="title_advanced_shortcuts">Mostra i contatti più usati nel menu di condivisione di Android</string>
-    <string name="title_advanced_conversation_actions">Suggerisci azioni</string>
-    <string name="title_advanced_conversation_actions_replies">Suggerisci testi di risposta</string>
-    <string name="title_advanced_language_detection">Rileva lingua testo messaggio</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classifica messaggi</string>
@@ -632,7 +633,7 @@
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_subfolders">Sottocartelle</string>
-    <string name="title_synchronize_more">Sincronizza altri messaggi</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
     <string name="title_synchronize_more_hint">Questo risulterà in un download singolo dei messaggi più vecchi, quindi non risulterà in maggiore uso della batteria per l\'uso quotidiano</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_synchronize_batch_enable">Abilita la sincronizzazione</string>

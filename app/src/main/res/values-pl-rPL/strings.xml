@@ -435,6 +435,7 @@
     <string name="title_advanced_tracking">Spróbuj rozpoznać i wyłączyć obrazki śledzące</string>
     <string name="title_advanced_hide_timezone">Wysyłanie wiadomości bez informacji o strefie czasowej</string>
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
+    <string name="title_advanced_incognito_keyboard">Użyj klawiatury incognito (Android 8+)</string>
     <string name="title_advanced_secure">Ukryj z ekranu ostatnich aplikacji i zapobiegaj wykonywaniu zrzutów ekranu</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
@@ -458,9 +459,9 @@
     </string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
-    <string name="title_advanced_conversation_actions">Sugeruj czynności</string>
-    <string name="title_advanced_conversation_actions_replies">Zaproponuj tekst odpowiedzi</string>
-    <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
+    <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugeruj teksty odpowiedzi (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
@@ -653,7 +654,7 @@
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_subfolders">Podfoldery</string>
-    <string name="title_synchronize_more">Synchronizuj więcej wiadomości</string>
+    <string name="title_synchronize_more">Pobierz więcej wiadomości</string>
     <string name="title_synchronize_more_hint">Spowoduje to jednorazowe pobranie starszych wiadomości, więc nie spowoduje większego zużycia baterii w codziennym użytkowaniu</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_synchronize_batch_enable">Włącz synchronizację</string>

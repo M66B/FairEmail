@@ -241,6 +241,9 @@
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
+        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_main">Základné</string>
     <string name="title_advanced_section_synchronize">Prijímanie správ</string>
     <string name="title_advanced_section_send">Posielanie správ</string>
@@ -326,6 +329,9 @@
     <string name="title_advanced_generated_icons">Zobraziť generované ikonky</string>
     <string name="title_advanced_identicons">Zobraziť identikony</string>
     <string name="title_advanced_circular">Zobraziť okrúhle ikonky</string>
+    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
+    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Zobraziť mená a e-mailové adresy</string>
     <string name="title_advanced_replace_name">Uprednostňovať mená z kontaktov pred menami zo správy</string>
     <string name="title_advanced_distinguish_contacts">Podčiarknúť odosielateľa ak je v miestnych kontaktoch</string>
@@ -429,6 +435,7 @@
     <string name="title_advanced_tracking">Pokúsiť sa rozpoznať a zakázať sledovacie obrázky</string>
     <string name="title_advanced_hide_timezone">Posielať správy bez informácií o časovom pásme</string>
     <string name="title_advanced_display_hidden">Zobrazovať skrytý text správy</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Skryť FairEmail z obrazovky posledných aplikácií a zabrániť získavaniu screenshotov</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Časový limit pre biometrické overenie</string>
@@ -452,12 +459,14 @@
     </string>
     <string name="title_advanced_external_search">Povoliť ďalším aplikáciám hľadať v správach</string>
     <string name="title_advanced_shortcuts">Zobraziť často používané kontakty v menu zdieľania Androidu</string>
-    <string name="title_advanced_conversation_actions">Odporúčať akcie</string>
-    <string name="title_advanced_conversation_actions_replies">Odporúčať texty odpovedí</string>
-    <string name="title_advanced_language_detection">Zisťovať jazyk textu správ</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>
     <string name="title_advanced_fts_indexed">%1$d z %2$d správ spracovaných (%3$s)</string>
     <string name="title_advanced_classification">Klasifikovať správy</string>
+    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
@@ -470,6 +479,7 @@
     <string name="title_advanced_debug">Ladiaci režim</string>
     <string name="title_advanced_cleanup_attachments">Vymazať prílohy zo starých správ</string>
     <string name="title_advanced_cleanup">Čistenie</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Nastavenia aplikácie</string>
     <string name="title_advanced_more">Ďalšie možnosti</string>
     <string name="title_advanced_manual_hint">Ak je prijímanie správ zakázané, správy je možné prijať ručne stiahnutím zoznamu správ</string>
@@ -645,7 +655,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_expand_read">Označiť správy za prečítané po rozbalení</string>
     <string name="title_synchronize_now">Synchronizovať teraz</string>
     <string name="title_synchronize_subfolders">Podpriečinky</string>
-    <string name="title_synchronize_more">Synchronizovať viac správ</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Synchronizovať</string>
     <string name="title_synchronize_batch_enable">Povoliť synchronizáciu</string>
     <string name="title_synchronize_batch_disable">Zakázať synchronizáciu</string>
@@ -689,6 +700,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_poll_folder">Kontrolovať periodicky namiesto neustálej synchronizácie</string>
     <string name="title_download_folder">Automaticky prevziať texty správ a prílohy</string>
     <string name="title_notify_folder">Upozorniť na nové správy</string>
+    <string name="title_auto_classify_source">Classify new messages in this folder</string>
+    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Synchronizovať správy (dni)</string>
     <string name="title_sync_days_remark">Zvýšenie tejto hodnoty zvýši spotrebu batérie a dát</string>
     <string name="title_keep_days">Ponechať správy (dni)</string>

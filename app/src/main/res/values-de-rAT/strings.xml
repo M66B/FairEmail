@@ -413,7 +413,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_tracking">Versuchen, Verfolgungsbilder zu erkennen und zu deaktivieren</string>
     <string name="title_advanced_hide_timezone">Nachrichten ohne Zeitzoneninformationen senden</string>
     <string name="title_advanced_display_hidden">Verborgene Nachrichtentexte anzeigen</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Inkognito-Tastatur verwenden</string>
+    <string name="title_advanced_incognito_keyboard">Inkognito-Tastatur verwenden (Android 8+)</string>
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
@@ -437,8 +437,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     </string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
-    <string name="title_advanced_conversation_actions">Aktionen vorschlagen</string>
-    <string name="title_advanced_conversation_actions_replies">Antworttext vorschlagen</string>
+    <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Antworttexte vorschlagen (Android 10+)</string>
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
@@ -632,7 +632,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_subfolders">Unterordner</string>
-    <string name="title_synchronize_more">Weitere Nachrichten synchronisieren</string>
+    <string name="title_synchronize_more">Weitere Nachrichten abrufen</string>
     <string name="title_synchronize_more_hint">Dies führt zu einem einzigen Download älterer Nachrichten, so dass es nicht zu mehr Akkuverbrauch bei der täglichen Nutzung führt</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>

@@ -574,21 +574,21 @@ Voir [cette FAQ](#user-content-faq33) pour modifier le nom d'utilisateur des adr
 
 La communication avec les serveurs de messagerie est toujours chiffrée, à moins que vous ne l'ayez explicitement désactivée. Cette question concerne le chiffrement de bout en bout optionnel avec PGP ou S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
-*General*
+*Général*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Veuillez [voir ici](https://en.wikipedia.org/wiki/Public-key_cryptography) comment fonctionne le chiffrement de clé publique/privée.
 
-Encryption in short:
+Chiffrement en bref :
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* Les messages **sortants** sont chiffrés avec la **clé publique** du destinataire
+* Les messages **entrants** sont déchiffrés avec la **clé privée** du destinataire
 
-Signing in short:
+Signature en bref :
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* Les messages **sortants** sont signés avec la **clé privée** de l'expéditeur
+* Les messages **entrants** sont vérifiés avec la **clé publique** de l'expéditeur
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Pour signer/chiffrer un message, il suffit de sélectionner la méthode appropriée dans la boîte de dialogue d'envoi. Vous pouvez toujours ouvrir la boîte de dialogue d'envoi en utilisant le menu déroulant symbolisé par trois points dans le cas où vous avez sélectionné *Ne plus afficher* avant.
 
 To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
 

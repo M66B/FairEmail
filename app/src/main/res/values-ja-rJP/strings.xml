@@ -208,6 +208,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
+    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
+        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    </string>
     <string name="title_advanced_section_main">基本</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
@@ -293,6 +296,9 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>
     <string name="title_advanced_circular">丸いアイコンで表示</string>
+    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
+    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
@@ -396,6 +402,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_tracking">トラッキング画像の認識と無効化を試みます</string>
     <string name="title_advanced_hide_timezone">タイムゾーンデータ無しでメッセージを送信</string>
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
@@ -419,12 +426,14 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     </string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
-    <string name="title_advanced_conversation_actions">アクションを提案</string>
-    <string name="title_advanced_conversation_actions_replies">返信テキストを提案</string>
-    <string name="title_advanced_language_detection">メッセージのテキスト言語を検出</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>
+    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
@@ -437,6 +446,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">アプリの設定</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます。</string>
@@ -611,7 +621,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_expand_read">エキスパンド時にメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
     <string name="title_synchronize_subfolders">サブフォルダ</string>
-    <string name="title_synchronize_more">更にメッセージを同期</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_synchronize_batch_enable">同期を有効化</string>
     <string name="title_synchronize_batch_disable">同期を無効化</string>
@@ -655,6 +666,8 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
+    <string name="title_auto_classify_source">Classify new messages in this folder</string>
+    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">メッセージの同期(日毎)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増えます</string>
     <string name="title_keep_days">メッセージを保持する(日毎)</string>

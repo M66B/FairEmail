@@ -413,7 +413,7 @@
     <string name="title_advanced_tracking">Probeer om tracking afbeeldingen te herkennen en uit te schakelen</string>
     <string name="title_advanced_hide_timezone">Berichten verzenden zonder tijdzone data</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Title for setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Gebruik incognito toetsenbord</string>
+    <string name="title_advanced_incognito_keyboard">Gebruik incognito toetsenbord (Android 8+)</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
@@ -437,9 +437,9 @@
     </string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
-    <string name="title_advanced_conversation_actions">Stel acties voor</string>
-    <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor</string>
-    <string name="title_advanced_language_detection">Taal van bericht detecteren</string>
+    <string name="title_advanced_conversation_actions">Acties voorstellen (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detecteer de taal van de berichttekst</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>
@@ -632,7 +632,7 @@
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_synchronize_subfolders">Submappen</string>
-    <string name="title_synchronize_more">Meer berichten synchroniseren</string>
+    <string name="title_synchronize_more">Haal meer berichten op</string>
     <string name="title_synchronize_more_hint">Dit zal resulteren in een enkele download van oudere berichten, dus het zal niet resulteren in meer batterijgebruik voor dagelijks gebruik</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_synchronize_batch_enable">Synchronisatie inschakelen</string>

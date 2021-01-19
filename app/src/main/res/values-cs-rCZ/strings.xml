@@ -100,6 +100,7 @@
         Vytváření a používání pravidel je Pro funkcí.
     </string>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
+    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -424,6 +425,7 @@
     <string name="title_advanced_notify_remove">Odebrat oznámení o nové zprávě při stisku oznámení</string>
     <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
+    <string name="title_advanced_notify_messaging">Use Android \'messaging style\' notification format</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při použití biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
@@ -434,6 +436,7 @@
     <string name="title_advanced_tracking">Pokusit se rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_hide_timezone">Zprávy odesílat bez časového pásma</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
+    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
@@ -442,6 +445,7 @@
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
+    <string name="title_advanced_auto_undo_decrypt">Undo decryption on closing conversation</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_autocrypt">Použít Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Vzájemný režim Autocrypt</string>
@@ -456,11 +460,14 @@
     </string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
-    <string name="title_advanced_conversation_actions">Navrhovat akce</string>
-    <string name="title_advanced_conversation_actions_replies">Navrhovat texty odpovědí</string>
-    <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
+    <string name="title_advanced_classification">Classify messages</string>
+    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -648,7 +655,8 @@
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_subfolders">Podsložky</string>
-    <string name="title_synchronize_more">Synchronizovat více zpráv</string>
+    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
     <string name="title_synchronize_batch_enable">Povolit synchronizaci</string>
     <string name="title_synchronize_batch_disable">Zakázat synchronizaci</string>
@@ -692,6 +700,8 @@
     <string name="title_poll_folder">Kontrolovat pravidelně namísto průběžné synchronizace</string>
     <string name="title_download_folder">Automaticky stahovat obsah a přílohy zpráv</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
+    <string name="title_auto_classify_source">Classify new messages in this folder</string>
+    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Synchronizovat zprávy (dny)</string>
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
@@ -1149,6 +1159,7 @@
     <string name="title_legend_encrypted">Je šifrováno</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_found">Byl nalezen</string>
+    <string name="title_legend_classified">Was automatically classified</string>
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
     <string name="title_legend_answered">Bylo odpovězeno</string>
@@ -1216,6 +1227,7 @@
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
+    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
     <string name="title_hint_design">Design záměrně není rozptylující, nýbrž je udržován vysoce funkčním. Pro přizpůsobení vzhledu je zde mnoho nastavení, avšak prosím pochopte, že není možné každého zároveň kompletně uspokojit.</string>

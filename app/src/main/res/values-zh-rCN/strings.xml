@@ -402,7 +402,7 @@
     <string name="title_advanced_tracking">尝试识别和禁用跟踪图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">使用隐身键盘</string>
+    <string name="title_advanced_incognito_keyboard">使用隐身键盘 (Android 8+)</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
@@ -426,14 +426,14 @@
     </string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
-    <string name="title_advanced_conversation_actions">建议操作</string>
-    <string name="title_advanced_conversation_actions_replies">建议回复文本</string>
-    <string name="title_advanced_language_detection">检测消息文本语言</string>
+    <string name="title_advanced_conversation_actions">对操作提出建议 (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">对回复文本提出建议 (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
-    <string name="title_advanced_class_min_chance">分类器考虑进行分类的最小概率：%1$s %%</string>
-    <string name="title_advanced_class_min_difference">与下一类最少相差多少，分类器考虑进行分类：%1$s %%</string>
+    <string name="title_advanced_class_min_chance">是否分类的最低概率：%1$s %%</string>
+    <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
     <string name="title_advanced_language">语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
@@ -621,8 +621,8 @@
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">立即同步</string>
     <string name="title_synchronize_subfolders">子文件夹</string>
-    <string name="title_synchronize_more">同步更多消息</string>
-    <string name="title_synchronize_more_hint">这只会导致一次旧消息的下载，因此它不会造成更多的日常使用的更多电池消耗</string>
+    <string name="title_synchronize_more">获取更多消息</string>
+    <string name="title_synchronize_more_hint">这只会导致一次旧消息的下载，因此它不会造成日常使用的更多电池消耗</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">启用同步</string>
     <string name="title_synchronize_batch_disable">禁用同步</string>

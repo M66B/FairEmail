@@ -436,7 +436,7 @@
     <string name="title_advanced_tracking">Пытаться распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_hide_timezone">Отправлять сообщения без данных часового пояса</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Использовать инкогнито-клавиатуру</string>
+    <string name="title_advanced_incognito_keyboard">Использовать инкогнито-клавиатуру (Android 8+)</string>
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
@@ -460,9 +460,9 @@
     </string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
-    <string name="title_advanced_conversation_actions">Предлагать действия</string>
-    <string name="title_advanced_conversation_actions_replies">Предлагать ответы</string>
-    <string name="title_advanced_language_detection">Определять язык сообщения</string>
+    <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_classification">Классифицировать сообщения</string>
@@ -655,7 +655,7 @@
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_synchronize_subfolders">Подпапки</string>
-    <string name="title_synchronize_more">Синхронизировать ещё сообщения</string>
+    <string name="title_synchronize_more">Получать больше сообщений</string>
     <string name="title_synchronize_more_hint">Это вызовет одноразовую загрузку старых сообщений, поэтому не приведёт к большему потреблению заряда батареи на постоянной основе</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_synchronize_batch_enable">Включить синхронизацию</string>

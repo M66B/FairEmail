@@ -414,7 +414,7 @@
     <string name="title_advanced_tracking">Forsøg på at genkend og deaktivere sporingsbilleder</string>
     <string name="title_advanced_hide_timezone">Send beskeder uden tidszonedata</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Title for setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Brug inkognito tastatur</string>
+    <string name="title_advanced_incognito_keyboard">Benyt inkognitotastatur (Android 8+)</string>
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
@@ -438,9 +438,9 @@
     </string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
-    <string name="title_advanced_conversation_actions">Foreslå handlinger</string>
-    <string name="title_advanced_conversation_actions_replies">Foreslå svartekster</string>
-    <string name="title_advanced_language_detection">Registrér beskedtekstsprog</string>
+    <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Foreslå svartekster (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_classification">Klassificér beskeder</string>
@@ -633,7 +633,7 @@
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_subfolders">Undermapper</string>
-    <string name="title_synchronize_more">Synkronisér flere beskeder</string>
+    <string name="title_synchronize_more">Hent flere beskeder</string>
     <string name="title_synchronize_more_hint">Dette vil resultere i en enkelt download af ældre beskeder uden større strømforbrug end alm. hverdagsbrug</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_synchronize_batch_enable">Aktivér synkronisering</string>

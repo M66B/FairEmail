@@ -414,7 +414,7 @@
     <string name="title_advanced_tracking">Tenter de reconnaître et de désactiver les images de pistage</string>
     <string name="title_advanced_hide_timezone">Envoyer les messages sans les données de fuseau horaire</string>
     <string name="title_advanced_display_hidden">Afficher les textes cachés des messages</string>
-    <string name="title_advanced_incognito_keyboard" comment="title_advanced_incognito_keyboard&#10;Setting to enable: https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING">Utiliser le clavier en mode incognito</string>
+    <string name="title_advanced_incognito_keyboard">Utiliser le clavier en mode incognito (Android 8+)</string>
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
     <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
@@ -438,9 +438,9 @@
     </string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
-    <string name="title_advanced_conversation_actions">Suggérer des actions</string>
-    <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse</string>
-    <string name="title_advanced_language_detection">Détecter la langue du texte du message</string>
+    <string name="title_advanced_conversation_actions">Suggérer des actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse (Android 10+)</string>
+    <string name="title_advanced_language_detection">Reconnaître la langue du contenu du message</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_classification">Classer les messages</string>
@@ -633,7 +633,7 @@
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_subfolders">Sous-dossiers</string>
-    <string name="title_synchronize_more">Synchroniser davantage de messages</string>
+    <string name="title_synchronize_more">Récupérer plus de messages</string>
     <string name="title_synchronize_more_hint">Ceci se traduira par un seul téléchargement des messages les plus anciens, ce qui n\'entraînera pas une plus grande utilisation de la batterie pour une utilisation quotidienne</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_synchronize_batch_enable">Activer la synchronisation</string>
