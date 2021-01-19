@@ -31,8 +31,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean grey = (checkedId == R.id.rbThemeGrey);
         boolean colored = (grey ||
                 checkedId == R.id.rbThemeBlueOrange ||
-                checkedId == R.id.rbThemeYellowPurple ||
-                checkedId == R.id.rbThemeRedGreen);
+                checkedId == R.id.rbThemeRedGreen ||
+                checkedId == R.id.rbThemeYellowPurple);
         int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
         swReverse.setEnabled(colored && !grey);
@@ -131,18 +131,6 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "orange_blue_black":
                 rgTheme.check(R.id.rbThemeBlueOrange);
                 break;
-            case "yellow_purple_system":
-            case "yellow_purple_system_black":
-            case "yellow_purple_light":
-            case "yellow_purple_dark":
-            case "yellow_purple_black":
-            case "purple_yellow_system":
-            case "purple_yellow_system_black":
-            case "purple_yellow_light":
-            case "purple_yellow_dark":
-            case "purple_yellow_black":
-                rgTheme.check(R.id.rbThemeYellowPurple);
-                break;
             case "red_green_system":
             case "red_green_system_black":
             case "red_green_light":
@@ -154,6 +142,18 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             case "green_red_dark":
             case "green_red_black":
                 rgTheme.check(R.id.rbThemeRedGreen);
+                break;
+            case "yellow_purple_system":
+            case "yellow_purple_system_black":
+            case "yellow_purple_light":
+            case "yellow_purple_dark":
+            case "yellow_purple_black":
+            case "purple_yellow_system":
+            case "purple_yellow_system_black":
+            case "purple_yellow_light":
+            case "purple_yellow_dark":
+            case "purple_yellow_black":
+                rgTheme.check(R.id.rbThemeYellowPurple);
                 break;
             case "grey_system":
             case "grey_light":
@@ -199,16 +199,6 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                             (reverse ? "orange_blue" : "blue_orange") +
                                                     (black ? "_black" : dark ? "_dark" : "_light")).apply();
                                 break;
-                            case R.id.rbThemeYellowPurple:
-                                if (system)
-                                    editor.putString("theme",
-                                            (reverse ? "purple_yellow_system" : "yellow_purple_system") +
-                                                    (black ? "_black" : "")).apply();
-                                else
-                                    editor.putString("theme",
-                                            (reverse ? "purple_yellow" : "yellow_purple") +
-                                                    (black ? "_black" : dark ? "_dark" : "_light")).apply();
-                                break;
                             case R.id.rbThemeRedGreen:
                                 if (system)
                                     editor.putString("theme",
@@ -217,6 +207,16 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                 else
                                     editor.putString("theme",
                                             (reverse ? "green_red" : "red_green") +
+                                                    (black ? "_black" : dark ? "_dark" : "_light")).apply();
+                                break;
+                            case R.id.rbThemeYellowPurple:
+                                if (system)
+                                    editor.putString("theme",
+                                            (reverse ? "purple_yellow_system" : "yellow_purple_system") +
+                                                    (black ? "_black" : "")).apply();
+                                else
+                                    editor.putString("theme",
+                                            (reverse ? "purple_yellow" : "yellow_purple") +
                                                     (black ? "_black" : dark ? "_dark" : "_light")).apply();
                                 break;
                             case R.id.rbThemeGrey:

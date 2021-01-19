@@ -50,19 +50,19 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
-                android:id="@+id/rbThemeYellowPurple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:text="@string/title_setup_theme_yellow_purple"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <RadioButton
                 android:id="@+id/rbThemeRedGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_theme_red_green"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeYellowPurple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_yellow_purple"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
