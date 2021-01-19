@@ -288,8 +288,9 @@ public class ServiceUI extends IntentService {
         if (body != null)
             body = "<p>" + body.replaceAll("\\r?\\n", "<br>") + "</p>";
 
-        String language = HtmlHelper.getLanguage(this, body);
-        String preview = HtmlHelper.getPreview(body);
+        String text = HtmlHelper.getFullText(body);
+        String language = HtmlHelper.getLanguage(this, text);
+        String preview = HtmlHelper.getPreviewText(text);
 
         DB db = DB.getInstance(this);
         try {

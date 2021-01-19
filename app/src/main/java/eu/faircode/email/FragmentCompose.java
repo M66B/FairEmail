@@ -3924,11 +3924,13 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(data.draft.getFile(context), html);
                     Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
+                    String text = HtmlHelper.getFullText(html);
+                    String preview = HtmlHelper.getPreviewText(text);
                     db.message().setMessageContent(data.draft.id,
                             true,
-                            HtmlHelper.getLanguage(context, html),
+                            HtmlHelper.getLanguage(context, text),
                             data.draft.plain_only,
-                            HtmlHelper.getPreview(html),
+                            preview,
                             null);
 
                     if ("participation".equals(action)) {
@@ -4077,11 +4079,13 @@ public class FragmentCompose extends FragmentBase {
                         Helper.writeText(file, html);
                         Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
+                        String text = HtmlHelper.getFullText(html);
+                        String preview = HtmlHelper.getPreviewText(text);
                         db.message().setMessageContent(data.draft.id,
                                 true,
-                                HtmlHelper.getLanguage(context, html),
+                                HtmlHelper.getLanguage(context, text),
                                 data.draft.plain_only,
-                                HtmlHelper.getPreview(html),
+                                preview,
                                 null);
                     } else
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
@@ -4593,11 +4597,13 @@ public class FragmentCompose extends FragmentBase {
 
                     Helper.writeText(draft.getFile(context), body);
 
+                    String full = HtmlHelper.getFullText(body);
+                    String preview = HtmlHelper.getPreviewText(full);
                     db.message().setMessageContent(draft.id,
                             true,
-                            HtmlHelper.getLanguage(context, body),
+                            HtmlHelper.getLanguage(context, full),
                             draft.plain_only, // unchanged
-                            HtmlHelper.getPreview(body),
+                            preview,
                             null);
 
                     db.message().setMessageRevision(draft.id, draft.revision);

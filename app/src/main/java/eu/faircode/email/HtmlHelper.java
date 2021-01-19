@@ -1709,14 +1709,13 @@ public class HtmlHelper {
         Log.d(document.head().html());
     }
 
-    static String getLanguage(Context context, String body) {
+    static String getLanguage(Context context, String text) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean language_detection = prefs.getBoolean("language_detection", false);
             if (!language_detection)
                 return null;
 
-            String text = getFullText(body);
             Locale locale = TextHelper.detectLanguage(context, text);
             return (locale == null ? null : locale.getLanguage());
         } catch (Throwable ex) {
@@ -1725,25 +1724,22 @@ public class HtmlHelper {
         }
     }
 
-    static String getPreview(String body) {
-        try {
-            if (body == null)
-                return null;
-            Document d = JsoupEx.parse(body);
-            return _getText(d, false);
-        } catch (OutOfMemoryError ex) {
-            Log.e(ex);
+    static String getPreviewText(String text) {
+        if (text == null)
             return null;
-        }
+
+        String preview = text
+                .replace("\u200C", "") // Zero-width non-joiner
+                .replaceAll("\\s+", " ");
+        return truncate(preview, PREVIEW_SIZE);
     }
 
-    @Deprecated
     static String getFullText(String body) {
         try {
             if (body == null)
                 return null;
             Document d = JsoupEx.parse(body);
-            return _getText(d, true);
+            return _getText(d);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
@@ -1753,29 +1749,22 @@ public class HtmlHelper {
     static String getFullText(File file) throws IOException {
         try {
             Document d = JsoupEx.parse(file);
-            return _getText(d, true);
+            return _getText(d);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    private static String _getText(Document d, boolean full) {
-        truncate(d, !full);
+    private static String _getText(Document d) {
+        truncate(d, false);
 
         for (Element bq : d.select("blockquote")) {
             bq.prependChild(new TextNode("["));
             bq.appendChild(new TextNode("]"));
         }
 
-        String text = d.text();
-        if (full)
-            return text;
-
-        String preview = text
-                .replace("\u200C", "") // Zero-width non-joiner
-                .replaceAll("\\s+", " ");
-        return truncate(preview, PREVIEW_SIZE);
+        return d.text();
     }
 
     static String truncate(String text, int at) {
