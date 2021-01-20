@@ -3070,6 +3070,8 @@ you@example.com\shared@example.com
 
 Note that it should be a backslash and not a forward slash.
 
+When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+
 <br />
 
 <a name="faq140"></a>
