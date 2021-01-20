@@ -152,14 +152,6 @@ public class ApplicationEx extends Application
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
-        if (BuildConfig.DEBUG)
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    DnsHelper.test(ApplicationEx.this);
-                }
-            }).start();
-
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
     }
