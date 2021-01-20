@@ -1748,7 +1748,7 @@ public class MessageHelper {
                         result = (String) content;
                     else if (content instanceof InputStream)
                         // Typically com.sun.mail.util.QPDecoderStream
-                        result = Helper.readStream((InputStream) content, StandardCharsets.UTF_8.name());
+                        result = Helper.readStream((InputStream) content);
                     else
                         result = content.toString();
                 } catch (IOException | FolderClosedException | MessageRemovedException ex) {

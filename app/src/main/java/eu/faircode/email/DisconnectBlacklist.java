@@ -32,7 +32,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -120,7 +119,7 @@ public class DisconnectBlacklist {
         connection.connect();
 
         try {
-            String response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+            String response = Helper.readStream(connection.getInputStream());
             Helper.writeText(file, response);
         } finally {
             connection.disconnect();

@@ -104,6 +104,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -1139,7 +1140,11 @@ public class Helper {
         }
     }
 
-    static String readStream(InputStream is, String charset) throws IOException {
+    static String readStream(InputStream is) throws IOException {
+        return readStream(is, StandardCharsets.UTF_8);
+    }
+
+    static String readStream(InputStream is, Charset charset) throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream(Math.max(BUFFER_SIZE, is.available()));
         byte[] buffer = new byte[BUFFER_SIZE];
         for (int len = is.read(buffer); len != -1; len = is.read(buffer))
@@ -1149,7 +1154,7 @@ public class Helper {
 
     static String readText(File file) throws IOException {
         try (FileInputStream in = new FileInputStream(file)) {
-            return readStream(in, StandardCharsets.UTF_8.name());
+            return readStream(in);
         }
     }
 

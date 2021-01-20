@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,7 +78,7 @@ public class IPInfo {
 
         Organization organization = new Organization();
         try {
-            String response = Helper.readStream(connection.getInputStream(), StandardCharsets.UTF_8.name());
+            String response = Helper.readStream(connection.getInputStream());
             organization.name = response.trim();
             if ("".equals(organization.name) || "undefined".equals(organization.name))
                 organization.name = null;
