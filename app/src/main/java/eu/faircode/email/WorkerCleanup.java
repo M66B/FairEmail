@@ -295,16 +295,28 @@ public class WorkerCleanup extends Worker {
             }
 
             Log.i("Cleanup contacts");
-            int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
-            Log.i("Deleted contacts=" + contacts);
+            try {
+                db.beginTransaction();
+                int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);
+                db.setTransactionSuccessful();
+                Log.i("Deleted contacts=" + contacts);
+            } finally {
+                db.endTransaction();
+            }
 
             Log.i("Cleanup log");
             long before = now - KEEP_LOG_DURATION;
             while (true) {
-                int logs = db.log().deleteLogs(before, LOG_DELETE_BATCH_SIZE);
-                Log.i("Deleted logs=" + logs + " before=" + new Date(before));
-                if (logs < LOG_DELETE_BATCH_SIZE)
-                    break;
+                try {
+                    db.beginTransaction();
+                    int logs = db.log().deleteLogs(before, LOG_DELETE_BATCH_SIZE);
+                    db.setTransactionSuccessful();
+                    Log.i("Deleted logs=" + logs + " before=" + new Date(before));
+                    if (logs < LOG_DELETE_BATCH_SIZE)
+                        break;
+                } finally {
+                    db.endTransaction();
+                }
             }
 
             if (BuildConfig.DEBUG) {
