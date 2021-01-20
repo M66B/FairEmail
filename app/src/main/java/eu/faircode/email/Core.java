@@ -286,6 +286,9 @@ class Core {
                             if (message != null)
                                 db.message().setMessageError(message.id, null);
 
+                            if (EntityOperation.FETCH.equals(op.name))
+                                db.folder().setFolderSyncState(op.folder, "syncing");
+
                             db.operation().setOperationState(op.id, "executing");
                             for (TupleOperationEx s : similar.keySet())
                                 db.operation().setOperationState(s.id, "executing");
@@ -559,6 +562,8 @@ class Core {
                         try {
                             db.beginTransaction();
 
+                            if (EntityOperation.FETCH.equals(op.name))
+                                db.folder().setFolderSyncState(op.folder, null);
                             db.operation().setOperationState(op.id, null);
                             for (TupleOperationEx s : similar.keySet())
                                 db.operation().setOperationState(s.id, null);
