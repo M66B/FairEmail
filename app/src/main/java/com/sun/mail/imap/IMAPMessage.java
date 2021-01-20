@@ -1141,6 +1141,7 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	content = null;
 	contentStream = null;
 	bodyLoaded = false;
+	cachedContent = null;
     }
 
     /**
