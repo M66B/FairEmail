@@ -47,22 +47,22 @@ Related questions:
 
 ## How to ...?
 
-* Change the account name: Setup, step 1, Manage, tap account
-* Change the swipe left/right target: Setup, Behavior, Set swipe actions
-* Change password: Setup, step 1, Manage, tap account, change password
-* Set a signature: Setup, step 2, Manage, tap identity, Edit signature.
+* Change the account name: Settings, scroll to step 1, tap Manage, tap account
+* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
+* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
+* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Synchronize more messages*
+* Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Setup step 1/2, Manage, tap account/identity, three-dots menu, Delete
+* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
 * Undo send: Outbox, tap message, tap undo icon button
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Setup, step 1, Manage, tap account, at the bottom
-* Export/import settings: Setup, navigation/hamburger menu
+* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
+* Export/import settings: Settings, navigation/hamburger menu
 
 ## Known problems
 
@@ -501,7 +501,7 @@ because Google approved the use of OAuth for official builds only.
 If you don't want to use an on-device Gmail account,
 you can either enable access for "less secure apps" and use your account password (not advised)
 or enable two factor authentication and use an app specific password.
-To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+To use a password you'll need to set up an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -2637,7 +2637,7 @@ Empty messages and/or corrupt attachments are probably being caused by a bug in 
 Older Microsoft Exchange software is known to cause this problem.
 Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Setup > Step 1 > Manage > Tap account > Tap advanced > Partial fetch > uncheck
+Settings > scroll to step 1 > tap Manage > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages.
 Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
@@ -2980,7 +2980,7 @@ that non-standard protocols, like Microsoft Exchange Web Services and Microsoft 
 
 *POP3*
 
-In the account settings (Setup, step 1, Manage, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, scroll to step 1, tap Manage, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -3016,8 +3016,8 @@ It is easy to read through the received messages before continuing to write the 
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Setup > Step 1 > Manage > Tap account
-* Identity: Setup > Step 2 > Manage > Tap identity
+* Account: Settings > scroll to step 1 > tap Manage > tap account
+* Identity: Settings > scroll to step 2 > tap Manage > tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -3093,7 +3093,7 @@ However, some email servers are not configured properly and do not send these at
 In this case FairEmail tries to identify the drafts folder by name,
 but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, scroll to step 1, tap account, at the bottom).
 If there is no drafts folder at all,
 you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
@@ -3160,8 +3160,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Setup, step 1, Manage, tap account, tap Advanced)
-* Long press the account in the account list (Setup, step 1, Manage) and select *Edit notification channel* to change the notification sound
+* Enable *Separate notifications* in the advanced account settings (Settings, scroll to step 1, tap Manage, tap account, tap Advanced)
+* Long press the account in the account list (Settings, scroll to step 1, tap Manage) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -3189,7 +3189,7 @@ Sometimes the server received date/time is incorrect,
 mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
 In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
-This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
+This can be changed in the advanced account settings: Settings, scroll to step 1, tap Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages.
 To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
