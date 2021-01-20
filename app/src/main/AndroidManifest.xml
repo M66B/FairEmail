@@ -374,6 +374,11 @@
                 android:resource="@xml/fileprovider_paths" />
         </provider>
 
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            tools:node="remove" />
+
         <receiver
             android:name=".Widget"
             android:label="@string/title_widget_title_count">
