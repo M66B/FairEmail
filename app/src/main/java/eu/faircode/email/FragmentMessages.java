@@ -4647,7 +4647,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return;
             } else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean autoscroll = prefs.getBoolean("autoscroll", true);
+                boolean autoscroll = prefs.getBoolean("autoscroll", false);
                 if (autoscroll) {
                     ActivityView activity = (ActivityView) getActivity();
                     if (activity != null &&

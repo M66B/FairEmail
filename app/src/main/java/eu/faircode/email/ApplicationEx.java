@@ -401,6 +401,9 @@ public class ApplicationEx extends Application
         } else if (version < 1461) {
             if (!prefs.contains("theme"))
                 editor.putString("theme", "blue_orange_light");
+        } else if (version < 1463) {
+            if (!prefs.contains("autoscroll"))
+                editor.putBoolean("autoscroll", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
