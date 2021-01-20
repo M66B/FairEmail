@@ -2015,10 +2015,12 @@ public class FragmentCompose extends FragmentBase {
                         onActionDiscardConfirmed();
                     break;
                 case REQUEST_SEND:
+                    Bundle args = data.getBundleExtra("args");
+                    Bundle extras = new Bundle();
+                    extras.putBoolean("archive", args.getBoolean("archive"));
                     if (resultCode == RESULT_OK)
-                        onAction(R.id.action_send, "send");
+                        onAction(R.id.action_send, extras, "send");
                     else if (resultCode == RESULT_FIRST_USER) {
-                        Bundle extras = new Bundle();
                         extras.putBoolean("now", true);
                         onAction(R.id.action_send, extras, "sendnow");
                     }
@@ -4884,6 +4886,21 @@ public class FragmentCompose extends FragmentBase {
                                 ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
                             }
                         });
+
+                        if (extras.getBoolean("archive")) {
+                            EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
+                            List<EntityMessage> messages = db.message().getMessagesByThread(
+                                    draft.account, draft.thread, null, null);
+                            for (EntityMessage threaded : messages) {
+                                EntityFolder source = db.folder().getFolder(threaded.folder);
+                                if (source != null && !source.read_only &&
+                                        archive != null && !archive.id.equals(threaded.folder) &&
+                                        !EntityFolder.isOutgoing(source.type) &&
+                                        !EntityFolder.TRASH.equals(source.type) &&
+                                        !EntityFolder.JUNK.equals(source.type))
+                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id);
+                            }
+                        }
                     }
                 }
 
@@ -5601,9 +5618,11 @@ public class FragmentCompose extends FragmentBase {
             final long max_size = args.getLong("max_size", -1);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean send_reminders = prefs.getBoolean("send_reminders", true);
-            int send_delayed = prefs.getInt("send_delayed", 0);
-            boolean send_dialog = prefs.getBoolean("send_dialog", true);
+            final boolean send_reminders = prefs.getBoolean("send_reminders", true);
+            final int send_delayed = prefs.getInt("send_delayed", 0);
+            final boolean send_dialog = prefs.getBoolean("send_dialog", true);
+            final boolean send_archive = prefs.getBoolean("send_archive", false);
+            final boolean threading = prefs.getBoolean("threading", true);
 
             final int[] encryptValues = getResources().getIntArray(R.array.encryptValues);
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
@@ -5631,6 +5650,7 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
+            final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
@@ -5660,6 +5680,8 @@ public class FragmentCompose extends FragmentBase {
             tvSendAt.setText(null);
             cbNotAgain.setChecked(!send_dialog);
             cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
+            cbArchive.setVisibility(View.GONE);
+
             tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
@@ -5872,8 +5894,17 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
+            cbArchive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("send_archive", isChecked).apply();
+                }
+            });
+
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+                private Boolean archive = null;
+
                 @Override
                 public void onChanged(TupleMessageEx draft) {
                     if (draft == null) {
@@ -5926,6 +5957,42 @@ public class FragmentCompose extends FragmentBase {
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
 
+                    if (threading && !TextUtils.isEmpty(draft.inreplyto))
+                        if (archive == null) {
+                            Bundle args = new Bundle();
+                            args.putLong("account", draft.account);
+
+                            new SimpleTask<Boolean>() {
+                                @Override
+                                protected void onPreExecute(Bundle args) {
+                                    archive = false;
+                                }
+
+                                @Override
+                                protected Boolean onExecute(Context context, Bundle args) {
+                                    long account = args.getLong("account");
+
+                                    DB db = DB.getInstance(context);
+                                    EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+
+                                    return (archive != null);
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, Boolean data) {
+                                    archive = data;
+                                    cbArchive.setChecked(send_archive);
+                                    cbArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    // Ignored
+                                }
+                            }.execute(FragmentDialogSend.this, args, "send:archive");
+                        } else
+                            cbArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+
                     Helper.setViewsEnabled(dview, true);
                 }
             });
@@ -5939,12 +6006,14 @@ public class FragmentCompose extends FragmentBase {
                     builder.setNeutralButton(R.string.title_send_now, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            getArguments().putBoolean("archive", cbArchive.isChecked());
                             sendResult(Activity.RESULT_FIRST_USER);
                         }
                     });
                 builder.setPositiveButton(R.string.title_send, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        getArguments().putBoolean("archive", cbArchive.isChecked());
                         sendResult(Activity.RESULT_OK);
                     }
                 });
