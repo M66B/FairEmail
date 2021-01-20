@@ -31,6 +31,7 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPInputStream;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.util.ASCIIUtility;
@@ -2356,11 +2357,15 @@ public class MessageHelper {
 
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart;
-                Object content = part.getContent();
+                Object content = part.getContent(); // Should always be Multipart
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
                 else if (content instanceof String) {
                     String text = (String) content;
+                    String sample = text.substring(0, Math.min(200, text.length()));
+                    throw new ParseException(content.getClass().getName() + ": " + sample);
+                } else if (content instanceof IMAPInputStream) {
+                    String text = Helper.readStream((IMAPInputStream) content);
                     String sample = text.substring(0, Math.min(200, text.length()));
                     throw new ParseException(content.getClass().getName() + ": " + sample);
                 } else
@@ -2525,7 +2530,10 @@ public class MessageHelper {
         } catch (FolderClosedException ex) {
             throw ex;
         } catch (MessagingException ex) {
-            Log.w(ex);
+            if (ex instanceof ParseException)
+                Log.e(ex);
+            else
+                Log.w(ex);
             parts.warnings.add(Log.formatThrowable(ex, false));
         }
     }
