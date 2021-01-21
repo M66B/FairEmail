@@ -41,6 +41,7 @@ import java.util.Set;
 
 public class TextHelper {
     private static final int MAX_SAMPLE_SIZE = 8192;
+    private static final float MIN_PROBABILITY = 0.80f;
 
     static {
         System.loadLibrary("fairemail");
@@ -68,7 +69,7 @@ public class TextHelper {
         DetectResult result = jni_detect_language(sample);
         Log.i("Language=" + result);
 
-        if (result.probability < 0.5)
+        if (result.probability < MIN_PROBABILITY)
             return null;
 
         try {
