@@ -414,7 +414,7 @@
     <string name="title_advanced_tracking">Prova a riconoscere e disabilitare le immagini di tracciamento</string>
     <string name="title_advanced_hide_timezone">Invia messaggi senza fuso orario</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
+    <string name="title_advanced_incognito_keyboard">Usa la tastiera in incognito (Android 8+)</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
@@ -438,9 +438,9 @@
     </string>
     <string name="title_advanced_external_search">Consenti ad altre applicazioni di cercare nei messaggi</string>
     <string name="title_advanced_shortcuts">Mostra i contatti più usati nel menu di condivisione di Android</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggerisci testi di risposta (Android 10+)</string>
+    <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classifica messaggi</string>
@@ -633,7 +633,7 @@
     <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_subfolders">Sottocartelle</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more">Recupera più messaggi</string>
     <string name="title_synchronize_more_hint">Questo risulterà in un download singolo dei messaggi più vecchi, quindi non risulterà in maggiore uso della batteria per l\'uso quotidiano</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
     <string name="title_synchronize_batch_enable">Abilita la sincronizzazione</string>
@@ -852,6 +852,7 @@
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archivia conversazione</string>
     <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>

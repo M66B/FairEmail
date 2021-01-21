@@ -852,6 +852,7 @@
     <string name="title_send_now">Küldés most</string>
     <string name="title_send_via">Küldés a következővel</string>
     <string name="title_send_at">Küldés ekkor &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Titkosítás</string>
     <string name="title_send_priority">Prioritás</string>
     <string name="title_no_server">Nem található szerver itt: \'%1$s\'</string>

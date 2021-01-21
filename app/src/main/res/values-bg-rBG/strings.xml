@@ -852,6 +852,7 @@
     <string name="title_send_now">Изпращане сега</string>
     <string name="title_send_via">Изпращане чрез</string>
     <string name="title_send_at">Изпрати като &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Криптиране</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Няма намерен сървър за \'%1$s\'</string>

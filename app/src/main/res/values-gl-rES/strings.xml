@@ -852,6 +852,7 @@
     <string name="title_send_now">Enviar agora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar ás &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridade</string>
     <string name="title_no_server">Non se atopa un servidor en \'%1$s\'</string>

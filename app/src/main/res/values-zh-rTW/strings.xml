@@ -838,6 +838,7 @@
     <string name="title_send_now">立即發送</string>
     <string name="title_send_via">通過發送</string>
     <string name="title_send_at">發送於 &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">優先</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服務器</string>

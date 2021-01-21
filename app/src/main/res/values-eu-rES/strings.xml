@@ -850,6 +850,7 @@
     <string name="title_send_now">Bidali orain</string>
     <string name="title_send_via">Bidali honen bidez</string>
     <string name="title_send_at">Bidali noiz &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Zifratzea</string>
     <string name="title_send_priority">Lehentasuna</string>
     <string name="title_no_server">Ez da zerbitzaririk aurkitu \'%1$s\' helbidean</string>

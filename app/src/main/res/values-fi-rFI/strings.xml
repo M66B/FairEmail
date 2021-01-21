@@ -413,7 +413,7 @@
     <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
+    <string name="title_advanced_incognito_keyboard">Käytä näppäimistön yksityisyystilaa (Android 8+)</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
@@ -436,9 +436,9 @@
         Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä (Android 10+)</string>
+    <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_classification">Luokittele viestit</string>
@@ -631,7 +631,7 @@
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_subfolders">Alikansiot</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more">Hae lisää viestejä</string>
     <string name="title_synchronize_more_hint">Tämä lataa lisää vanhoja viestejä laitteeseen ja päivittäisessä käytössä aiheuttaa lisää akun käyttöä</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
     <string name="title_synchronize_batch_enable">Ota synkronointi käyttöön</string>
@@ -676,8 +676,8 @@
     <string name="title_poll_folder">Tarkista väliajoin jatkuvan synkronoinnin sijaan</string>
     <string name="title_download_folder">Lataa viestien tekstit ja liitteet automaattisesti</string>
     <string name="title_notify_folder">Ilmoita uusista viesteistä</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
+    <string name="title_auto_classify_source">Luokittele uudet viestit tässä kansiossa</string>
+    <string name="title_auto_classify_target">Siirrä luokitellut viestit automaattisesti tähän kansioon</string>
     <string name="title_sync_days">Synkronoi viestit (päivää)</string>
     <string name="title_sync_days_remark">Tämän arvon suurentaminen lisää akun ja datan käyttöä</string>
     <string name="title_keep_days">Viestien säilyttäminen (päivää)</string>
@@ -850,6 +850,7 @@
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Arkistoi keskustelu</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>

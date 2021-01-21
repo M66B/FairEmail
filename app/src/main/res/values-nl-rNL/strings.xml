@@ -851,6 +851,7 @@
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Gesprek archiveren</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>

@@ -435,15 +435,15 @@ En la sección de visualización de los ajustes puede activar o desactivar:
 
 * *Bandeja de entrada unificada*: para desactivar la bandeja de entrada unificada y para listar las carpetas seleccionadas para la bandeja de entrada unificada en su lugar
 * *Estilo tabular*: para mostrar una lista lineal en lugar de tarjetas
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
+* *Agrupar por fecha*: mostrar el encabezado de fecha sobre los mensajes con la misma fecha
+* *Hilos de conversación*: para desactivar la vista de conversación y mostrar mensajes individuales en su lugar
+* *Barra de acción de conversación*: para desactivar la barra de navegación inferior
+* *Color resaltado*: para seleccionar un color para el remitente de mensajes no leídos
+* *Mostrar fotos de contactos*: para ocultar fotos de contactos
+* *Mostrar nombres y direcciones de correo electrónico*: para mostrar nombres o mostrar nombres y direcciones de correo electrónico
+* *Mostrar asunto en cursiva*: para mostrar el asunto del mensaje como texto normal
+* *Mostrar estrellas*: para ocultar estrellas (favoritos)
+* *Mostrar vista previa del mensaje*: para mostrar 1-4 líneas del texto del mensaje
 * *Show address details by default*: to expand the addresses section by default
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)

@@ -874,6 +874,7 @@
     <string name="title_send_now">Pošlji zdaj</string>
     <string name="title_send_via">Pošlji preko</string>
     <string name="title_send_at">Pošlji ob &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Šifriranje</string>
     <string name="title_send_priority">Prednost</string>
     <string name="title_no_server">Na \'%1$s\' ni bilo mogoče najti strežnika.</string>

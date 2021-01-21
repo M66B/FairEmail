@@ -852,6 +852,7 @@
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archiver la conversation</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>

@@ -896,6 +896,7 @@
     <string name="title_send_now">Send now</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">أرسِلها في &#8230;</string>
+    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
     <string name="title_send_encryption">Encryption</string>
     <string name="title_send_priority">Priority</string>
     <string name="title_no_server">No server found at \'%1$s\'</string>
