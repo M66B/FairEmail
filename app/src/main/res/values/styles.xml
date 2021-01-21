@@ -21,7 +21,7 @@
     <attr name="colorInfoBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
-    <style name="AppThemeBaseLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeBaseLight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="themeName">light</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
@@ -63,7 +63,7 @@
         <item name="android:scrollbarFadeDuration">5000</item>
     </style>
 
-    <style name="AppThemeBaseDark" parent="Base.Theme.AppCompat">
+    <style name="AppThemeBaseDark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="themeName">dark</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
