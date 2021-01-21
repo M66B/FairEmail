@@ -4894,7 +4894,7 @@ public class FragmentCompose extends FragmentBase {
                                     draft.account, draft.thread, null, null);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder source = db.folder().getFolder(threaded.folder);
-                                if ((threading ||
+                                if (threaded.ui_seen && (threading ||
                                         (!TextUtils.isEmpty(draft.inreplyto) &&
                                                 draft.inreplyto.equals(threaded.msgid))) &&
                                         source != null && !source.read_only &&
