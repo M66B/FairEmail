@@ -50,6 +50,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
@@ -259,6 +260,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean collapse_quotes;
     private boolean authentication;
     private boolean language_detection;
+    private List<String> languages;
     private static boolean debug;
 
     private boolean gotoTop = false;
@@ -1815,12 +1817,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total));
             tvSizeEx.setText(size.toString());
 
-            tvLanguageTitle.setVisibility(
-                    show_addresses && language_detection && message.language != null
-                            ? View.VISIBLE : View.GONE);
-            tvLanguage.setVisibility(
-                    show_addresses && language_detection && message.language != null
-                            ? View.VISIBLE : View.GONE);
+            boolean showLanguage = (language_detection && message.language != null &&
+                    (show_addresses ||
+                            (languages != null && !languages.contains(message.language))));
+            tvLanguageTitle.setVisibility(showLanguage ? View.VISIBLE : View.GONE);
+            tvLanguage.setVisibility(showLanguage ? View.VISIBLE : View.GONE);
             tvLanguage.setText(message.language == null ? null : new Locale(message.language).getDisplayLanguage());
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
@@ -5334,6 +5335,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            languages = new ArrayList<>();
+            LocaleList ll = context.getResources().getConfiguration().getLocales();
+            for (int i = 0; i < ll.size(); i++)
+                languages.add(ll.get(i).getLanguage());
+        } else
+            languages = null;
 
         debug = prefs.getBoolean("debug", false);
 
