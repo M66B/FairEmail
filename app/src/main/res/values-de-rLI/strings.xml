@@ -851,7 +851,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_at">Später senden &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
+    <string name="title_send_archive">Gelesene Nachrichten archivieren</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>

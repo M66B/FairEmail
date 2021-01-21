@@ -2904,10 +2904,10 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+»GitHub Issues« sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
