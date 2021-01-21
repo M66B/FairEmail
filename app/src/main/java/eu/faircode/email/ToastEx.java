@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -68,10 +67,10 @@ public class ToastEx extends Toast {
         ToastEx toast = new ToastEx(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.toast, null);
-        view.setBackground(context.getDrawable(android.R.drawable.toast_frame));
+        view.setBackgroundColor(Helper.resolveColor(context, android.R.attr.textColorPrimary));
 
         TextView tv = view.findViewById(android.R.id.message);
-        tv.setTextColor(Color.parseColor("#de000000")); // primary_text_default_material_light
+        tv.setTextColor(Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse)); // primary_text_default_material_light
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);
