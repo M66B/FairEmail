@@ -289,6 +289,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
+* [(164) Can you add customizable themes?](#user-content-faq164)
 
 [I have another question.](#user-content-support)
 
@@ -3483,6 +3484,17 @@ You can delete all classification data by turning classification in the miscella
 [Filter rules](#user-content-faq71) will be executed before classification.
 
 Message classification is a pro feature, except for the spam folder.
+
+<br />
+
+<a name="faq164"></a>
+**(164) Can you add customizable themes?**
+
+Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes,
+which means all themes need to be predefined.
+
+Moreover, a theme is more than just a few colors.
+For example themes with a yellow accent color use a darker link color for enough contrast.
 
 <br />
 
