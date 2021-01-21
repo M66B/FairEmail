@@ -718,6 +718,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_forward">Teruskan</string>
     <string name="title_new_message">Pesan baru</string>
     <string name="title_editasnew">Edit sebagai pesan baru</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Buat aturan &#8230;</string>
     <string name="title_share">Bagikan</string>
     <string name="title_event">Tambahkan ke kalender</string>
@@ -835,7 +836,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_send_now">Kirim sekarang</string>
     <string name="title_send_via">Kirim melalui</string>
     <string name="title_send_at">Kirim pada &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Enkripsi</string>
     <string name="title_send_priority">Prioritas</string>
     <string name="title_no_server">Tidak ada server yang ditemukan di \'%1$s\'</string>

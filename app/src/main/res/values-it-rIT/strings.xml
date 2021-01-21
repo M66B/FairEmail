@@ -735,6 +735,7 @@
     <string name="title_forward">Inoltra</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archivia conversazione</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>

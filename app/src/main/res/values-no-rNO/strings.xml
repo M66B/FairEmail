@@ -735,6 +735,7 @@
     <string name="title_forward">Videresend</string>
     <string name="title_new_message">Ny melding</string>
     <string name="title_editasnew">Rediger som ny</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Opprett regel &#8230;</string>
     <string name="title_share">Del</string>
     <string name="title_event">Legg til i kalender</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Send nå</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sender &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen tjener funnet på \'%1$s\'</string>

@@ -734,6 +734,7 @@
     <string name="title_forward">İlet</string>
     <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
@@ -851,7 +852,7 @@
     <string name="title_send_now">Şimdi gönder</string>
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Şifreleme</string>
     <string name="title_send_priority">Öncelik</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>

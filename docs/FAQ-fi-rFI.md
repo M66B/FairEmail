@@ -43,22 +43,22 @@ Aiheeseen liittyvät kysymykset:
 
 ## Kuinka ...?
 
-* Vaihda tilin nimi: Asetukset, vaihe 1, Muokkaa, napauta tiliä
-* Vaihda vasemmalle/oikealle pyyhkäisyn kohdetta: Asetukset, Toiminnot, Aseta pyyhkäisytoiminnot
-* Vaihda salasana: Asetukset, kohta 1, Muokkaa, napauta tiliä, vaihda salasana
-* Aseta allekirjoitus: Asetukset, kohta 2, Muokkaa, napauta identiteettiä, Muokkaa allekirjoitusta.
+* Change the account name: Settings, scroll to step 1, tap Manage, tap account
+* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
+* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
+* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
 * Lisää CC ja BCC osoitteet: napauta ihmisten kuvaketta aiheen lopussa
 * Mene seuraavaan tai edelliseen viestiin arkistossa/poistossa: käytösasetuksissa pois käytöstä *Sulje automaattisesti keskustelut* ja valitse *Siirry seuraavaan / edelliseen keskusteluun* *Keskustelun sulkemisen yhteydessä*
 * Lisää yhdistettyyn saapuneet-kansioon kansio: paina kansiota kansiolistassa pitkään ja valitse *Näytä yhdistetyssä saapuneet-kansiossa*
 * Lisää yhdistettyyn saapuneet-kansioon kansio: paina kansiota kansiolistassa pitkään ja valitse *Näytä yhdistetyssä saapuneet-kansiossa*
-* Lataa lisää viestejä: paina kansiota pitkään kansioluettelossa, valitse *Synkronoi lisää viestejä*
+* Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Poista viesti, ohita roskakori: 3-pisteen valikossa juuri viestin tekstin yläpuolella *Poista* tai vaihtoehtoisesti, poista roskapostin kansio tilin asetuksista
-* Poista tili/identiteetti: Aseta vaihe 1/2, Hallitse, napauta tiliä/identiteettiä, kolme-pistettä valikko, Poista
+* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
 * Poista kansio: paina kansiota pitkään kansioluettelossa, Muokkaa ominaisuuksia, kolme pistettä valikossa
 * Kumoa lähetetty: Lähtevä, napauta viestiä, napauta kumoa kuvaketta
 * Tallenna lähetetyt viestit saapuneet -kansioon: [katso tämä FAQ](#user-content-faq142)
-* Muuta järjestelmäkansioita: Aseta, vaihe 1, hallinta, napauta tiliä, alhaalla
-* Vienti/tuonti-asetukset: Asennus, navigointi/hamburger valikko
+* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
+* Export/import settings: Settings, navigation/hamburger menu
 
 ## Tunnetut ongelmat
 
@@ -282,6 +282,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
+* [(164) Can you add customizable themes?](#user-content-faq164)
 
 [I have another question.](#user-content-support)
 
@@ -462,7 +463,7 @@ Some people ask:
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to setup an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -2180,7 +2181,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Setup > Step 1 > Manage > Tap account > Tap advanced > Partial fetch > uncheck
+Settings > scroll to step 1 > tap Manage > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2202,7 +2203,7 @@ OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth f
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-FairEmail is an email client only, so you need to bring your own email address.
+FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
 
 There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
@@ -2455,7 +2456,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-In the account settings (Setup, step 1, Manage, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, scroll to step 1, tap Manage, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -2483,8 +2484,8 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Setup > Step 1 > Manage > Tap account
-* Identity: Setup > Step 2 > Manage > Tap identity
+* Account: Settings > scroll to step 1 > tap Manage > tap account
+* Identity: Settings > scroll to step 2 > tap Manage > tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -2534,6 +2535,8 @@ you@example.com\shared@example.com
 
 Note that it should be a backslash and not a forward slash.
 
+When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+
 <br />
 
 <a name="faq140"></a>
@@ -2548,7 +2551,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Setup, step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, scroll to step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2602,8 +2605,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Setup, step 1, Manage, tap account, tap Advanced)
-* Long press the account in the account list (Setup, step 1, Manage) and select *Edit notification channel* to change the notification sound
+* Enable *Separate notifications* in the advanced account settings (Settings, scroll to step 1, tap Manage, tap account, tap Advanced)
+* Long press the account in the account list (Settings, scroll to step 1, tap Manage) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -2629,7 +2632,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Setup, step 1, Manage, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, scroll to step 1, tap Manage, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2870,6 +2873,15 @@ You can delete all classification data by turning classification in the miscella
 [Filter rules](#user-content-faq71) will be executed before classification.
 
 Message classification is a pro feature, except for the spam folder.
+
+<br />
+
+<a name="faq164"></a>
+**(164) Can you add customizable themes?**
+
+Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need to be predefined.
+
+Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
 <br />
 

@@ -746,6 +746,7 @@
     <string name="title_forward">Проследи</string>
     <string name="title_new_message">Нова порука</string>
     <string name="title_editasnew">Измени као нову</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Направи правило&#8230;</string>
     <string name="title_share">Подели</string>
     <string name="title_event">Додај у календар</string>
@@ -863,7 +864,7 @@
     <string name="title_send_now">Send now</string>
     <string name="title_send_via">Пошаљи преко</string>
     <string name="title_send_at">Слање у &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Шифровање</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Ниједан сервер није нађен на \'%1$s\'</string>

@@ -756,6 +756,7 @@
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>
@@ -873,7 +874,7 @@
     <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Zarchiwizuj konwersację</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Szyfrowanie</string>
     <string name="title_send_priority">Priorytet</string>
     <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>

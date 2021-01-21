@@ -733,6 +733,7 @@
     <string name="title_forward">Birbidali</string>
     <string name="title_new_message">Mezu berria</string>
     <string name="title_editasnew">Editatu berri gisa</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Sortu araua &#8230;</string>
     <string name="title_share">Partekatu</string>
     <string name="title_event">Gehitu egutegira</string>
@@ -850,7 +851,7 @@
     <string name="title_send_now">Bidali orain</string>
     <string name="title_send_via">Bidali honen bidez</string>
     <string name="title_send_at">Bidali noiz &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Zifratzea</string>
     <string name="title_send_priority">Lehentasuna</string>
     <string name="title_no_server">Ez da zerbitzaririk aurkitu \'%1$s\' helbidean</string>

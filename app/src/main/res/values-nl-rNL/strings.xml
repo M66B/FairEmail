@@ -734,6 +734,7 @@
     <string name="title_forward">Doorsturen</string>
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Lokale notities bewerken</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_share">Delen</string>
     <string name="title_event">Toevoegen aan agenda</string>
@@ -851,7 +852,7 @@
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archiveer gelezen berichten</string>
+    <string name="title_send_archive">Archiveer gelezen berichten</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>

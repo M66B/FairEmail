@@ -735,6 +735,7 @@
     <string name="title_forward">Továbbítás</string>
     <string name="title_new_message">Új üzenet</string>
     <string name="title_editasnew">Szerkesztés újként</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Szabály létrehozása &#8230;</string>
     <string name="title_share">Megosztás</string>
     <string name="title_event">Hozzáadás naptárhoz</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Küldés most</string>
     <string name="title_send_via">Küldés a következővel</string>
     <string name="title_send_at">Küldés ekkor &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Titkosítás</string>
     <string name="title_send_priority">Prioritás</string>
     <string name="title_no_server">Nem található szerver itt: \'%1$s\'</string>

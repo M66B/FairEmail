@@ -733,6 +733,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_forward">Weiterleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Lokale Notizen bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>
@@ -850,7 +851,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_at">Später senden &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Unterhaltung archivieren</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>

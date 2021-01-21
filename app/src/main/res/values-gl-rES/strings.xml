@@ -735,6 +735,7 @@
     <string name="title_forward">Seguinte</string>
     <string name="title_new_message">Nova mensaxe</string>
     <string name="title_editasnew">Editar coma nova</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Crear regra &#8230;</string>
     <string name="title_share">Compartir</string>
     <string name="title_event">Engadir ao calendario</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Enviar agora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar ás &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridade</string>
     <string name="title_no_server">Non se atopa un servidor en \'%1$s\'</string>

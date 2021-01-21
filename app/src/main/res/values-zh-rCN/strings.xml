@@ -723,6 +723,7 @@
     <string name="title_forward">转发</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>
@@ -840,7 +841,7 @@
     <string name="title_send_now">立即发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_at">发送于 &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">存档会话</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>

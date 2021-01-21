@@ -745,6 +745,7 @@
     <string name="title_forward">Redirecționează</string>
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
     <string name="title_event">Adaugă în calendar</string>
@@ -862,7 +863,7 @@
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_at">Trimite la &#8230;</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Criptare</string>
     <string name="title_send_priority">Prioritate</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>

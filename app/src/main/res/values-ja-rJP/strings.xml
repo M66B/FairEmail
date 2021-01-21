@@ -723,6 +723,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_forward">転送</string>
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
@@ -840,7 +841,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
     <string name="title_send_at">&#8230; 日時指定送信</string>
-    <string name="title_send_archive" comment="title_send_archive&#10;This is the title for a checkbox in the send dialog to archive the conversation being replied to on sending the message">Archive conversation</string>
+    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">優先度</string>
     <string name="title_no_server">\'%1$s\'にサーバが見つかりません</string>
