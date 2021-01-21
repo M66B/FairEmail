@@ -2665,6 +2665,7 @@ OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth f
 **(112) Which email provider do you recommend?**
 
 FairEmail is an email client only, so you need to bring your own email address.
+Note that this is clearly mentioned in the app description.
 
 There are plenty of email providers to choose from.
 Which email provider is best for you depends on your wishes/requirements.
