@@ -29,6 +29,10 @@
                 android:checkable="true"
                 android:title="@string/title_keywords_btn" />
             <item
+                android:id="@+id/menu_button_notes"
+                android:checkable="true"
+                android:title="@string/title_edit_notes" />
+            <item
                 android:id="@+id/menu_button_seen"
                 android:checkable="true"
                 android:title="@string/title_toggle_seen" />

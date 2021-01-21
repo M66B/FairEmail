@@ -430,6 +430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSearch;
         private ImageButton ibSeen;
         private ImageButton ibAnswer;
+        private ImageButton ibNotes;
         private ImageButton ibLabels;
         private ImageButton ibKeywords;
         private ImageButton ibCopy;
@@ -655,6 +656,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch = vsBody.findViewById(R.id.ibSearch);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
+            ibNotes = vsBody.findViewById(R.id.ibNotes);
             ibLabels = vsBody.findViewById(R.id.ibLabels);
             ibKeywords = vsBody.findViewById(R.id.ibKeywords);
             ibCopy = vsBody.findViewById(R.id.ibCopy);
@@ -756,6 +758,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
+                ibNotes.setOnClickListener(this);
                 ibLabels.setOnClickListener(this);
                 ibKeywords.setOnClickListener(this);
                 ibCopy.setOnClickListener(this);
@@ -866,6 +869,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
+                ibNotes.setOnClickListener(null);
                 ibLabels.setOnClickListener(null);
                 ibKeywords.setOnClickListener(null);
                 ibCopy.setOnClickListener(null);
@@ -1334,6 +1338,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
+            ibNotes.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibKeywords.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
@@ -1521,6 +1526,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearch.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
+            ibNotes.setVisibility(View.GONE);
             ibLabels.setVisibility(View.GONE);
             ibKeywords.setVisibility(View.GONE);
             ibCopy.setVisibility(View.GONE);
@@ -1675,6 +1681,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_move = prefs.getBoolean("button_move", true);
                     boolean button_copy = prefs.getBoolean("button_copy", false);
                     boolean button_keywords = prefs.getBoolean("button_keywords", false);
+                    boolean button_notes = prefs.getBoolean("button_notes", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_search = prefs.getBoolean("button_search", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
@@ -1695,6 +1702,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
+                    ibNotes.setVisibility(tools && button_notes ? View.VISIBLE : View.GONE);
                     ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
                     ibKeywords.setVisibility(tools && button_keywords && keywords ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
@@ -2981,6 +2989,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibAnswer:
                         onActionAnswer(message, ibAnswer);
                         break;
+                    case R.id.ibNotes:
+                        onMenuNotes(message);
+                        break;
                     case R.id.ibLabels:
                         onActionLabels(message);
                         break;
@@ -4022,6 +4033,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean button_move = prefs.getBoolean("button_move", true);
             boolean button_copy = prefs.getBoolean("button_copy", false);
             boolean button_keywords = prefs.getBoolean("button_keywords", false);
+            boolean button_notes = prefs.getBoolean("button_notes", false);
             boolean button_seen = prefs.getBoolean("button_seen", false);
             boolean button_search = prefs.getBoolean("button_search", false);
             boolean button_event = prefs.getBoolean("button_event", false);
@@ -4039,6 +4051,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
             popupMenu.getMenu().findItem(R.id.menu_button_copy).setChecked(button_copy);
             popupMenu.getMenu().findItem(R.id.menu_button_keywords).setChecked(button_keywords);
+            popupMenu.getMenu().findItem(R.id.menu_button_notes).setChecked(button_notes);
             popupMenu.getMenu().findItem(R.id.menu_button_seen).setChecked(button_seen);
             popupMenu.getMenu().findItem(R.id.menu_button_search).setChecked(button_search);
             popupMenu.getMenu().findItem(R.id.menu_button_event).setChecked(button_event);
@@ -4116,6 +4129,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_button_keywords:
                             onMenuButton(message, "keywords", target.isChecked());
+                            return true;
+                        case R.id.menu_button_notes:
+                            onMenuButton(message, "notes", target.isChecked());
                             return true;
                         case R.id.menu_button_seen:
                             onMenuButton(message, "seen", target.isChecked());
