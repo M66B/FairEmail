@@ -375,8 +375,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     if (!runService && lastQuitId != lastEventId) {
+                        EntityLog.log(ServiceSynchronize.this, "### quitting" +
+                                " run=" + runService +
+                                " startId=" + lastQuitId + "/" + lastEventId);
                         lastQuitId = lastEventId;
-                        EntityLog.log(ServiceSynchronize.this, "### quitting startId=" + lastEventId);
                         quit(lastEventId);
                     }
                 }
