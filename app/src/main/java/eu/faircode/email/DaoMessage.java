@@ -699,6 +699,9 @@ public interface DaoMessage {
             "  OR NOT (warning IS :warning))")
     int setMessageContent(long id, boolean content, String language, Boolean plain_only, String preview, String warning);
 
+    @Query("UPDATE message SET notes = :notes WHERE id = :id AND NOT (notes IS :notes)")
+    int setMessageNotes(long id, String notes);
+
     @Query("UPDATE message" +
             " SET size = :size, total = :total" +
             " WHERE id = :id" +
@@ -790,7 +793,7 @@ public interface DaoMessage {
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
-            "  AND operation.name = '" + EntityOperation.ADD + "')"+
+            "  AND operation.name = '" + EntityOperation.ADD + "')" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation o" +
             "  JOIN message m ON m.id = o.message" +

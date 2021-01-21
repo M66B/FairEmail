@@ -165,6 +165,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean verified = false;
     public String preview;
+    public String notes;
     @NonNull
     public Boolean signature = true;
     public Long sent; // compose = null
@@ -510,6 +511,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.ui_encrypt, other.ui_encrypt) &&
                     this.verified == other.verified &&
                     Objects.equals(this.preview, other.preview) &&
+                    Objects.equals(this.notes, other.notes) &&
                     this.signature.equals(other.signature) &&
                     Objects.equals(this.sent, other.sent) &&
                     this.received.equals(other.received) &&

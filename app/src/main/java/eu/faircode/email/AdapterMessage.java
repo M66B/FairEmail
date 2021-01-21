@@ -356,6 +356,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivThread;
         private TextView tvExpand;
         private TextView tvPreview;
+        private TextView tvNotes;
         private TextView tvError;
         private ImageButton ibHelp;
 
@@ -516,6 +517,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvExpand = itemView.findViewById(R.id.tvExpand);
             tvPreview = itemView.findViewById(R.id.tvPreview);
+            tvNotes = itemView.findViewById(R.id.tvNotes);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvLabels = itemView.findViewById(R.id.tvLabels);
             tvCount = itemView.findViewById(R.id.tvCount);
@@ -922,6 +924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvLabels.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
+                tvNotes.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
             }
 
             // Selected / disabled
@@ -960,6 +963,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivThread.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvPreview.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                tvNotes.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvError.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
             }
 
@@ -1126,6 +1130,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     preview_italic ? Typeface.ITALIC : Typeface.NORMAL);
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
+
+            tvNotes.setText(message.notes);
+            tvNotes.setVisibility(TextUtils.isEmpty(message.notes) ? View.GONE : View.VISIBLE);
 
             // Error / warning
             String error = message.error;
@@ -4165,6 +4172,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_resync:
                             onMenuResync(message);
                             return true;
+                        case R.id.menu_edit_notes:
+                            onMenuNotes(message);
+                            return true;
                         case R.id.menu_search_in_text:
                             onMenuSearch(message);
                             return true;
@@ -4601,6 +4611,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:resync");
+        }
+
+        private void onMenuNotes(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putString("notes", message.notes);
+
+            FragmentDialogNotes fragment = new FragmentDialogNotes();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "edit:notes");
         }
 
         private void onMenuSearch(TupleMessageEx message) {
@@ -5506,6 +5526,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     log("verified changed", next.id);
                 }
                 if (!Objects.equals(prev.preview, next.preview)) {
+                    same = false;
+                    log("preview changed", next.id);
+                }
+                if (!Objects.equals(prev.notes, next.notes)) {
                     same = false;
                     log("preview changed", next.id);
                 }
@@ -6625,6 +6649,53 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
                             getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
                             sendResult(RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogNotes extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final long id = getArguments().getLong("id");
+            final String notes = getArguments().getString("notes");
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_notes, null);
+            final EditText etNote = view.findViewById(R.id.etNote);
+            etNote.setText(notes);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Bundle args = new Bundle();
+                            args.putLong("id", id);
+                            args.putString("notes", etNote.getText().toString());
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    String notes = args.getString("notes");
+
+                                    if ("".equals(notes.trim()))
+                                        notes = null;
+
+                                    DB db = DB.getInstance(context);
+                                    db.message().setMessageNotes(id, notes);
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                }
+                            }.execute(getContext(), getActivity(), args, "message:note");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

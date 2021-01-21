@@ -108,6 +108,10 @@
         android:title="@string/title_resync" />
 
     <item
+        android:id="@+id/menu_edit_notes"
+        android:title="@string/title_edit_notes" />
+
+    <item
         android:id="@+id/menu_search_in_text"
         android:title="@string/title_search_in_text" />
 

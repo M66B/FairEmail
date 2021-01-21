@@ -854,7 +854,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.e(ex);
             }
 
-
         return START_STICKY;
     }
 
