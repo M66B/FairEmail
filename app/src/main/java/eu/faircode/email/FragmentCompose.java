@@ -4888,12 +4888,16 @@ public class FragmentCompose extends FragmentBase {
                         });
 
                         if (extras.getBoolean("archive")) {
+                            boolean threading = prefs.getBoolean("threading", true);
                             EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     draft.account, draft.thread, null, null);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder source = db.folder().getFolder(threaded.folder);
-                                if (source != null && !source.read_only &&
+                                if ((threading ||
+                                        (!TextUtils.isEmpty(draft.inreplyto) &&
+                                                draft.inreplyto.equals(threaded.msgid))) &&
+                                        source != null && !source.read_only &&
                                         archive != null && !archive.id.equals(threaded.folder) &&
                                         !EntityFolder.isOutgoing(source.type) &&
                                         !EntityFolder.TRASH.equals(source.type) &&
@@ -5622,7 +5626,6 @@ public class FragmentCompose extends FragmentBase {
             final int send_delayed = prefs.getInt("send_delayed", 0);
             final boolean send_dialog = prefs.getBoolean("send_dialog", true);
             final boolean send_archive = prefs.getBoolean("send_archive", false);
-            final boolean threading = prefs.getBoolean("threading", true);
 
             final int[] encryptValues = getResources().getIntArray(R.array.encryptValues);
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
@@ -5957,7 +5960,7 @@ public class FragmentCompose extends FragmentBase {
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
 
-                    if (threading && !TextUtils.isEmpty(draft.inreplyto))
+                    if (!TextUtils.isEmpty(draft.inreplyto))
                         if (archive == null) {
                             Bundle args = new Bundle();
                             args.putLong("account", draft.account);
