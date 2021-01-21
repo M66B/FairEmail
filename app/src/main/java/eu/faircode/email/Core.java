@@ -286,9 +286,6 @@ class Core {
                             if (message != null)
                                 db.message().setMessageError(message.id, null);
 
-                            if (EntityOperation.FETCH.equals(op.name))
-                                db.folder().setFolderSyncState(op.folder, "syncing");
-
                             db.operation().setOperationState(op.id, "executing");
                             for (TupleOperationEx s : similar.keySet())
                                 db.operation().setOperationState(s.id, "executing");
@@ -562,8 +559,6 @@ class Core {
                         try {
                             db.beginTransaction();
 
-                            if (EntityOperation.FETCH.equals(op.name))
-                                db.folder().setFolderSyncState(op.folder, null);
                             db.operation().setOperationState(op.id, null);
                             for (TupleOperationEx s : similar.keySet())
                                 db.operation().setOperationState(s.id, null);
@@ -1206,6 +1201,8 @@ class Core {
             throw new IllegalArgumentException("account missing");
 
         try {
+            db.folder().setFolderSyncState(folder.id, "syncing");
+
             if (removed) {
                 db.message().deleteMessage(folder.id, uid);
                 throw new MessageRemovedException("removed uid=" + uid);
@@ -1278,6 +1275,7 @@ class Core {
 
             db.message().deleteMessage(folder.id, uid);
         } finally {
+            db.folder().setFolderSyncState(folder.id, null);
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
