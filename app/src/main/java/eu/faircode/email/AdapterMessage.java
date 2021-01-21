@@ -5372,7 +5372,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.authentication = prefs.getBoolean("authentication", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             languages = new ArrayList<>();
             LocaleList ll = context.getResources().getConfiguration().getLocales();
             for (int i = 0; i < ll.size(); i++)
