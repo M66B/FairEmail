@@ -899,7 +899,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onAlarm(Intent intent) {
         schedule(this, true);
-        updateNetworkState(null, "alarm");
 
         Bundle command = new Bundle();
         command.putString("name", "eval");
@@ -2177,6 +2176,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         private void post(Bundle command) {
             EntityLog.log(ServiceSynchronize.this, "### command " +
                     TextUtils.join(" ", Log.getExtras(command)));
+
+            if (command.getBoolean("sync"))
+                lastNetworkState = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+
             post(command, lastNetworkState, lastAccountStates);
         }
 
