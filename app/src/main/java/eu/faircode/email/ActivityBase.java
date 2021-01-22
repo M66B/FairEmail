@@ -43,6 +43,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.FileProvider;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Lifecycle;
@@ -103,48 +104,50 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             switch (theme) {
                 // Light
                 case "light":
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 case "blue_orange_light":
-                    setTheme(R.style.AppThemeBlueOrangeLight);
+                    setTheme(R.style.AppThemeBlueOrange);
                     break;
                 case "orange_blue_light":
-                    setTheme(R.style.AppThemeOrangeBlueLight);
+                    setTheme(R.style.AppThemeOrangeBlue);
                     break;
 
                 case "yellow_purple_light":
-                    setTheme(R.style.AppThemeYellowPurpleLight);
+                    setTheme(R.style.AppThemeYellowPurple);
                     break;
                 case "purple_yellow_light":
-                    setTheme(R.style.AppThemePurpleYellowLight);
+                    setTheme(R.style.AppThemePurpleYellow);
                     break;
 
                 case "red_green_light":
-                    setTheme(R.style.AppThemeRedGreenLight);
+                    setTheme(R.style.AppThemeRedGreen);
                     break;
                 case "green_red_light":
-                    setTheme(R.style.AppThemeGreenRedLight);
+                    setTheme(R.style.AppThemeGreenRed);
                     break;
 
                 // Dark
                 case "dark":
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 case "blue_orange_dark":
-                    setTheme(R.style.AppThemeBlueOrangeDark);
+                    setTheme(R.style.AppThemeBlueOrange);
                     break;
                 case "orange_blue_dark":
-                    setTheme(R.style.AppThemeOrangeBlueDark);
+                    setTheme(R.style.AppThemeOrangeBlue);
                     break;
 
                 case "yellow_purple_dark":
-                    setTheme(R.style.AppThemeYellowPurpleDark);
+                    setTheme(R.style.AppThemeYellowPurple);
                     break;
                 case "purple_yellow_dark":
-                    setTheme(R.style.AppThemePurpleYellowDark);
+                    setTheme(R.style.AppThemePurpleYellow);
                     break;
 
                 case "red_green_dark":
-                    setTheme(R.style.AppThemeRedGreenDark);
+                    setTheme(R.style.AppThemeRedGreen);
                     break;
                 case "green_red_dark":
-                    setTheme(R.style.AppThemeGreenRedDark);
+                    setTheme(R.style.AppThemeGreenRed);
                     break;
 
                 // Black
@@ -169,10 +172,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
                 // Grey
                 case "grey_light":
-                    setTheme(R.style.AppThemeGreySteelBlueLight);
+                    setTheme(R.style.AppThemeGreySteelBlue);
                     break;
                 case "grey_dark":
-                    setTheme(R.style.AppThemeGreySteelBlueDark);
+                    setTheme(R.style.AppThemeGreySteelBlue);
                     break;
 
                 // Black
@@ -186,69 +189,67 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
                 // System
                 case "system":
+                    // `Set by Battery Saver` for Q above (inclusive), `Use system default` for Q below
+                    // https://medium.com/androiddevelopers/appcompat-v23-2-daynight-d10f90c83e94
+                    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                    }
                 case "blue_orange_system":
                     setTheme(night
-                            ? R.style.AppThemeBlueOrangeDark : R.style.AppThemeBlueOrangeLight);
+                            ? R.style.AppThemeBlueOrange : R.style.AppThemeBlueOrange);
                     break;
                 case "blue_orange_system_black":
                     setTheme(night
-                            ? R.style.AppThemeBlueOrangeBlack : R.style.AppThemeBlueOrangeLight);
+                            ? R.style.AppThemeBlueOrangeBlack : R.style.AppThemeBlueOrange);
                     break;
                 case "orange_blue_system":
                     setTheme(night
-                            ? R.style.AppThemeOrangeBlueDark : R.style.AppThemeOrangeBlueLight);
+                            ? R.style.AppThemeOrangeBlue : R.style.AppThemeOrangeBlue);
                     break;
                 case "orange_blue_system_black":
                     setTheme(night
-                            ? R.style.AppThemeOrangeBlueBlack : R.style.AppThemeOrangeBlueLight);
+                            ? R.style.AppThemeOrangeBlueBlack : R.style.AppThemeOrangeBlue);
                     break;
                 case "yellow_purple_system":
                     setTheme(night
-                            ? R.style.AppThemeYellowPurpleDark : R.style.AppThemeYellowPurpleLight);
+                            ? R.style.AppThemeYellowPurple : R.style.AppThemeYellowPurple);
                     break;
                 case "yellow_purple_system_black":
                     setTheme(night
-                            ? R.style.AppThemeYellowPurpleBlack : R.style.AppThemeYellowPurpleLight);
+                            ? R.style.AppThemeYellowPurpleBlack : R.style.AppThemeYellowPurple);
                     break;
                 case "purple_yellow_system":
                     setTheme(night
-                            ? R.style.AppThemePurpleYellowDark : R.style.AppThemePurpleYellowLight);
+                            ? R.style.AppThemePurpleYellow : R.style.AppThemePurpleYellow);
                     break;
                 case "purple_yellow_system_black":
                     setTheme(night
-                            ? R.style.AppThemePurpleYellowBlack : R.style.AppThemePurpleYellowLight);
+                            ? R.style.AppThemePurpleYellowBlack : R.style.AppThemePurpleYellow);
                     break;
                 case "red_green_system":
                     setTheme(night
-                            ? R.style.AppThemeRedGreenDark : R.style.AppThemeRedGreenLight);
+                            ? R.style.AppThemeRedGreen : R.style.AppThemeRedGreen);
                     break;
                 case "red_green_system_black":
                     setTheme(night
-                            ? R.style.AppThemeRedGreenBlack : R.style.AppThemeRedGreenLight);
+                            ? R.style.AppThemeRedGreenBlack : R.style.AppThemeRedGreen);
                     break;
                 case "green_red_system":
                     setTheme(night
-                            ? R.style.AppThemeGreenRedDark : R.style.AppThemeGreenRedLight);
+                            ? R.style.AppThemeGreenRed : R.style.AppThemeGreenRed);
                     break;
                 case "green_red_system_black":
                     setTheme(night
-                            ? R.style.AppThemeGreenRedBlack : R.style.AppThemeGreenRedLight);
+                            ? R.style.AppThemeGreenRedBlack : R.style.AppThemeGreenRed);
                     break;
                 case "grey_system":
                     setTheme(night
-                            ? R.style.AppThemeGreySteelBlueDark : R.style.AppThemeGreySteelBlueLight);
+                            ? R.style.AppThemeGreySteelBlue : R.style.AppThemeGreySteelBlue);
                     break;
             }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                boolean dark = Helper.isDarkTheme(this);
-                Window window = getWindow();
-                View view = window.getDecorView();
-                int flags = view.getSystemUiVisibility();
-                if (dark)
-                    flags &= ~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-                view.setSystemUiVisibility(flags);
-            }
         }
 
         prefs.registerOnSharedPreferenceChangeListener(this);
@@ -259,7 +260,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (navbar_colorize) {
             Window window = getWindow();
             if (window != null)
-                window.setNavigationBarColor(Helper.resolveColor(this, R.attr.colorPrimaryDark));
+                window.setNavigationBarColor(Helper.resolveColor(this, R.attr.colorPrimary));
         }
 
         super.onCreate(savedInstanceState);

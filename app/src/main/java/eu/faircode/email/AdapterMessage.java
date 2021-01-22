@@ -212,7 +212,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean suitable;
     private boolean unmetered;
 
-    private int colorAccent;
+    private int colorSecondary;
     private int textColorPrimary;
     private int textColorSecondary;
     private int colorUnread;
@@ -1069,7 +1069,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSnoozed.setImageResource(snoozy);
             }
             if (message.ui_unsnoozed)
-                ibSnoozed.setColorFilter(colorAccent);
+                ibSnoozed.setColorFilter(colorSecondary);
             else
                 ibSnoozed.clearColorFilter();
 
@@ -1108,7 +1108,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvCount.setText(NF.format(message.visible));
 
                 if (selected)
-                    ivThread.setColorFilter(colorAccent);
+                    ivThread.setColorFilter(colorSecondary);
                 else
                     ivThread.clearColorFilter();
             }
@@ -1429,7 +1429,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindFlagged(TupleMessageEx message, boolean expanded) {
             boolean pro = ActivityBilling.isPro(context);
             boolean flagged = (message.count - message.unflagged) > 0;
-            int color = (message.color == null || !pro ? colorAccent : message.color);
+            int color = (message.color == null || !pro ? colorSecondary : message.color);
             int tint = (flagged ? color : textColorSecondary);
 
             if (!Objects.equals(ibFlagged.getTag(), flagged)) {
@@ -2279,7 +2279,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         @Override
                                         public Drawable getDrawable() {
                                             Drawable d = context.getDrawable(R.drawable.twotone_format_quote_24);
-                                            d.setTint(colorAccent);
+                                            d.setTint(colorSecondary);
                                             d.setBounds(0, 0, px, px);
                                             return d;
                                         }
@@ -5305,7 +5305,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = state.isSuitable();
         this.unmetered = state.isUnmetered();
 
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 

@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:alpha="0.1"
-            android:background="?attr/colorAccent"
+            android:background="?attr/colorSecondary"
             app:layout_constraintBottom_toTopOf="@id/vSeparatorAccount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

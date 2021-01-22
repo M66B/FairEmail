@@ -289,7 +289,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean addresses;
 
     private int colorPrimary;
-    private int colorAccent;
+    private int colorSecondary;
 
     private long primary;
     private boolean connected;
@@ -398,7 +398,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         addresses = prefs.getBoolean("addresses", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
-        colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
+        colorSecondary = Helper.resolveColor(getContext(), R.attr.colorSecondary);
 
         if (criteria == null)
             if (thread == null) {
@@ -1202,7 +1202,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         sbThread.setProgress(size - 1 - position);
                         sbThread.getProgressDrawable().setAlpha(0);
                         sbThread.getThumb().setColorFilter(
-                                position == 0 || position == size - 1 ? colorAccent : colorPrimary,
+                                position == 0 || position == size - 1 ? colorSecondary : colorPrimary,
                                 PorterDuff.Mode.SRC_IN);
                         sbThread.setVisibility(size > 1 ? View.VISIBLE : View.GONE);
                     }
@@ -3990,7 +3990,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 : MenuItem.SHOW_AS_ACTION_NEVER);
         MenuItemCompat.setIconTintList(menuFilter,
                 folder && filter_active ?
-                        ColorStateList.valueOf(Helper.resolveColor(getContext(), R.attr.colorAccent)) : null);
+                        ColorStateList.valueOf(Helper.resolveColor(getContext(), R.attr.colorSecondary)) : null);
         menuFilter.setIcon(folder && filter_active ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_filter_list_24);
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);

@@ -645,7 +645,7 @@ public class Helper {
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
             builder.setDefaultColorSchemeParams(new CustomTabColorSchemeParams.Builder()
                     .setToolbarColor(resolveColor(context, R.attr.colorPrimary))
-                    .setSecondaryToolbarColor(resolveColor(context, R.attr.colorPrimaryDark))
+                    .setSecondaryToolbarColor(resolveColor(context, R.attr.colorPrimaryVariant))
                     .build());
             builder.setColorScheme(Helper.isDarkTheme(context)
                     ? CustomTabsIntent.COLOR_SCHEME_DARK

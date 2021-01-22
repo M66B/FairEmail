@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="themeName" format="string" />
+    <attr name="colorRead" format="reference" />
+    <attr name="colorUnread" format="reference" />
+    <attr name="colorUnreadHighlight" format="reference" />
+    <attr name="colorHighlight" format="reference" />
+    <attr name="colorEncrypt" format="reference" />
+    <attr name="colorSeparator" format="reference" />
+    <attr name="colorThumb" format="reference" />
+    <attr name="colorWarning" format="reference" />
+    <attr name="colorDrawerScrim" format="reference" />
+    <attr name="colorDrawerText" format="reference" />
+    <attr name="colorDrawerBackground" format="reference" />
+    <attr name="colorCardBackground" format="reference" />
+    <attr name="colorActionForeground" format="reference" />
+    <attr name="colorActionForegroundDisabled" format="reference" />
+    <attr name="colorActionBackground" format="reference" />
+    <attr name="colorFabForeground" format="reference" />
+    <attr name="colorFabBackground" format="reference" />
+    <attr name="colorInfoForeground" format="reference" />
+    <attr name="colorInfoBackground" format="reference" />
+    <attr name="activatableItemBackground" format="reference" />
+
+    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight">
+        <item name="themeName">light</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
+
+        <item name="colorRead">@color/colorReadLight</item>
+        <item name="colorUnread">@color/colorUnreadLight</item>
+
+        <item name="colorHighlight">@color/colorHighlightLight</item>
+
+        <item name="colorEncrypt">@color/colorEncryptLight</item>
+
+        <item name="colorSeparator">@color/lightColorSeparator</item>
+        <item name="colorThumb">@color/lightColorThumb</item>
+        <item name="colorWarning">@color/lightColorWarning</item>
+
+        <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
+        <item name="colorDrawerText">@color/lightColorDrawerText</item>
+        <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
+
+        <item name="colorCardBackground">@color/lightColorCardBackground</item>
+
+        <item name="colorActionForeground">@color/lightActionForeground</item>
+        <item name="colorActionForegroundDisabled">@color/lightActionForegroundDisabled</item>
+        <item name="colorActionBackground">@color/lightActionBackground</item>
+
+        <item name="colorFabForeground">@color/white</item>
+
+        <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
+
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Primary</item>
+
+        <item name="android:checkboxStyle">@style/checkboxStyle</item>
+        <item name="android:buttonStyle">@style/buttonStyle</item>
+        <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
+        <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
+        <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
+
+        <item name="android:scrollbarSize">6dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
+        <item name="android:scrollbarFadeDuration">5000</item>
+    </style>
+
+
+    <!-- Light -->
+
+    <style name="AppThemeBlueOrange" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightBluePrimary</item>
+        <item name="colorPrimaryVariant">@color/lightBluePrimaryDark</item>
+        <item name="colorSecondary">@color/lightAmberSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightAmberAccentDark</item>
+
+        <item name="colorWarning">@color/lightAmberSecondary</item>
+
+        <item name="colorFabBackground">@color/lightAmberSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightBluePrimary</item>
+
+        <item name="android:textColorLink">@color/lightAmberAccentDark</item>
+    </style>
+
+    <style name="AppThemeOrangeBlue" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightAmberPrimary</item>
+        <item name="colorPrimaryVariant">@color/lightAmberPrimaryDark</item>
+        <item name="colorSecondary">@color/lightBlueSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightBlueSecondary</item>
+
+        <item name="colorFabBackground">@color/lightBlueSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightAmberPrimary</item>
+
+        <item name="android:textColorLink">@color/lightBlueSecondary</item>
+    </style>
+
+    <style name="AppThemeYellowPurple" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightYellowPrimary</item>
+        <item name="colorPrimaryVariant">@color/lightYellowPrimaryDark</item>
+        <item name="colorSecondary">@color/lightPurpleSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightPurpleSecondary</item>
+
+        <item name="colorFabBackground">@color/lightPurpleSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightYellowPrimary</item>
+
+        <item name="android:textColorLink">@color/lightPurpleSecondary</item>
+    </style>
+
+    <style name="AppThemePurpleYellow" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightPurplePrimary</item>
+        <item name="colorPrimaryVariant">@color/lightPurplePrimaryDark</item>
+        <item name="colorSecondary">@color/lightYellowSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightYellowSecondary</item>
+
+        <item name="colorFabBackground">@color/lightYellowSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightPurplePrimary</item>
+
+        <item name="android:textColorLink">@color/lightYellowSecondary</item>
+    </style>
+
+    <style name="AppThemeRedGreen" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightRedPrimary</item>
+        <item name="colorPrimaryVariant">@color/lightRedPrimaryDark</item>
+        <item name="colorSecondary">@color/lightGreenSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightGreenSecondary</item>
+
+        <item name="colorFabBackground">@color/lightGreenSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightRedPrimary</item>
+
+        <item name="android:textColorLink">@color/lightGreenSecondary</item>
+    </style>
+
+    <style name="AppThemeGreenRed" parent="AppThemeBase">
+        <item name="colorPrimary">@color/lightGreenPrimary</item>
+        <item name="colorPrimaryVariant">@color/lightGreenPrimaryDark</item>
+        <item name="colorSecondary">@color/lightRedSecondary</item>
+
+        <item name="colorUnreadHighlight">@color/lightRedSecondary</item>
+
+        <item name="colorFabBackground">@color/lightRedSecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/lightGreenPrimary</item>
+
+        <item name="android:textColorLink">@color/lightRedSecondary</item>
+    </style>
+
+    <!-- Dark -->
+
+
+    <style name="AppThemeGreySteelBlue" parent="AppThemeBase">
+        <item name="colorPrimary">@color/greyPrimary</item>
+        <item name="colorPrimaryVariant">@color/greyPrimaryDark</item>
+        <item name="colorSecondary">@color/greySecondary</item>
+
+        <item name="colorUnreadHighlight">@color/greyAccentDark</item>
+
+        <item name="colorEncrypt">@color/colorEncryptDark</item>
+
+        <item name="colorFabBackground">@color/greySecondary</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/greyPrimary</item>
+    </style>
+
+    <!-- Other -->
+    <style name="Theme.AppCompat.Translucent" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <!-- Black -->
+    <style name="AppThemeBlack" parent="AppThemeBlueOrange"/>
+
+    <style name="AppThemeBlueOrangeBlack" parent="AppThemeBlueOrange" />
+
+    <style name="AppThemeOrangeBlueBlack" parent="AppThemeOrangeBlue" />
+
+    <style name="AppThemeYellowPurpleBlack" parent="AppThemeYellowPurple" />
+
+    <style name="AppThemePurpleYellowBlack" parent="AppThemePurpleYellow" />
+
+    <style name="AppThemeRedGreenBlack" parent="AppThemeRedGreen" />
+
+    <style name="AppThemeGreenRedBlack" parent="AppThemeGreenRed" />
+
+
+    <style name="AppThemeBlackAndWhite" parent="AppThemeBlack">
+        <item name="colorPrimary">@color/blackAndWhitePrimary</item>
+        <item name="colorPrimary">@color/blackAndWhitePrimaryDark</item>
+        <item name="colorSecondary">@color/white</item>
+
+        <item name="android:textColor">@color/bw_textcolor</item>
+        <item name="android:textColorPrimary">@color/bw_textcolor</item>
+        <item name="android:textColorSecondary">@color/bw_textcolor</item>
+        <item name="android:textColorTertiary">@color/bw_textcolor</item>
+        <item name="android:textColorPrimaryInverse">@color/bw_textcolor_inverse</item>
+        <item name="android:textColorSecondaryInverse">@color/bw_textcolor_inverse</item>
+        <item name="android:textColorTertiaryInverse">@color/bw_textcolor_inverse</item>
+        <item name="android:textColorLink">@color/lightBluePrimary</item>
+
+        <item name="colorWarning">@color/lightColorWarning</item>
+
+        <item name="colorRead">@color/white</item>
+        <item name="colorUnread">@color/white</item>
+        <item name="colorUnreadHighlight">@color/white</item>
+
+        <item name="colorFabForeground">@color/white</item>
+        <item name="colorFabBackground">@color/blackAndWhitePrimaryLight</item>
+    </style>
+</resources>

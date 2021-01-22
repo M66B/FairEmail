@@ -267,7 +267,7 @@ public class StyleHelper {
                         private boolean setList(MenuItem item) {
                             Context context = etBody.getContext();
 
-                            int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                            int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
                             int dp3 = Helper.dp2pixels(context, 3);
                             int dp6 = Helper.dp2pixels(context, 6);
 
@@ -292,11 +292,11 @@ public class StyleHelper {
                                     Log.i("Insert " + i + "..." + (j + 1) + " size=" + end);
                                     if (item.getItemId() == R.id.menu_style_list_bullets)
                                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                            t.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                            t.setSpan(new BulletSpan(dp6, colorSecondary), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                         else
-                                            t.setSpan(new BulletSpan(dp6, colorAccent, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                            t.setSpan(new BulletSpan(dp6, colorSecondary, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     else
-                                        t.setSpan(new NumberSpan(dp6, colorAccent, textSize, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        t.setSpan(new NumberSpan(dp6, colorSecondary, textSize, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
 
                                     i = j + 1;
                                 }
@@ -509,14 +509,14 @@ public class StyleHelper {
         } else if (NumberSpan.class.isAssignableFrom(type)) {
             NumberSpan n = (NumberSpan) span;
             int dp6 = Helper.dp2pixels(context, 6);
-            int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-            return (T) new NumberSpan(dp6, colorAccent, n.getTextSize(), n.getIndex() + 1);
+            int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
+            return (T) new NumberSpan(dp6, colorSecondary, n.getTextSize(), n.getIndex() + 1);
         } else if (BulletSpan.class.isAssignableFrom(type)) {
             BulletSpan b = (BulletSpan) span;
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
                 int dp6 = Helper.dp2pixels(context, 6);
-                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                return (T) new BulletSpan(dp6, colorAccent);
+                int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
+                return (T) new BulletSpan(dp6, colorSecondary);
             } else
                 return (T) new BulletSpan(b.getGapWidth(), b.getColor(), b.getBulletRadius());
 
@@ -526,7 +526,7 @@ public class StyleHelper {
 
     static void renumber(Editable text, boolean clean, Context context) {
         int dp6 = Helper.dp2pixels(context, 6);
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
 
         Log.i("Renumber clean=" + clean + " text=" + text);
 
@@ -557,7 +557,7 @@ public class StyleHelper {
 
                     NumberSpan ns = (NumberSpan) span;
                     if (index != ns.getIndex()) {
-                        NumberSpan clone = new NumberSpan(dp6, colorAccent, ns.getTextSize(), index);
+                        NumberSpan clone = new NumberSpan(dp6, colorSecondary, ns.getTextSize(), index);
                         text.removeSpan(span);
                         text.setSpan(clone, start, end, flags);
                     }

@@ -74,7 +74,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private LifecycleOwner owner;
     private LayoutInflater inflater;
     private boolean contacts;
-    private int colorAccent;
+    private int colorSecondary;
     private int textColorSecondary;
 
     private String search = null;
@@ -154,7 +154,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             ivFavorite.setImageResource(contact.state == EntityContact.STATE_FAVORITE
                     ? R.drawable.twotone_star_24 : R.drawable.twotone_star_border_24);
             ivFavorite.setImageTintList(ColorStateList.valueOf(
-                    contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
+                    contact.state == EntityContact.STATE_FAVORITE ? colorSecondary : textColorSecondary));
             ivFavorite.setContentDescription(contact.state == EntityContact.STATE_FAVORITE
                     ? context.getString(R.string.title_accessibility_flagged) : null);
 
@@ -350,7 +350,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         this.inflater = LayoutInflater.from(context);
 
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);

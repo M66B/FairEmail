@@ -58,68 +58,68 @@
     <!-- Light blue 600 / Amber 600 -->
     <color name="lightBluePrimary">#039be5</color>
     <color name="lightBluePrimaryDark">#006db3</color>
-    <color name="lightAmberAccent">#ffb300</color>
+    <color name="lightAmberSecondary">#ffb300</color>
     <color name="lightAmberAccentDark">#c68400</color>
 
     <!-- Amber 600 / Light blue 600 -->
     <color name="lightAmberPrimary">#ffb300</color>
     <color name="lightAmberPrimaryDark">#c68400</color>
-    <color name="lightBlueAccent">#039be5</color>
+    <color name="lightBlueSecondary">#039be5</color>
 
     <!-- Yellow 600 / Purple 600 -->
     <color name="lightYellowPrimary">#fdd835</color>
     <color name="lightYellowPrimaryDark">#c6a700</color>
-    <color name="lightPurpleAccent">#8e24aa</color>
+    <color name="lightPurpleSecondary">#8e24aa</color>
 
     <!-- Purple 600 / Yellow 800 -->
     <color name="lightPurplePrimary">#8e24aa</color>
     <color name="lightPurplePrimaryDark">#5c007a</color>
-    <color name="lightYellowAccent">#f9a825</color>
+    <color name="lightYellowSecondary">#f9a825</color>
 
     <!-- Red 600 / Green 600 -->
     <color name="lightRedPrimary">#e53935</color>
     <color name="lightRedPrimaryDark">#ab000d</color>
-    <color name="lightGreenAccent">#43a047</color>
+    <color name="lightGreenSecondary">#43a047</color>
 
     <!-- Green 600 / Red 600 -->
     <color name="lightGreenPrimary">#43a047</color>
     <color name="lightGreenPrimaryDark">#00701a</color>
-    <color name="lightRedAccent">#e53935</color>
+    <color name="lightRedSecondary">#e53935</color>
 
     <!-- Light blue 900 / Amber 600 -->
     <color name="darkBluePrimary">#01579b</color>
     <color name="darkBluePrimaryDark">#002f6c</color>
-    <color name="darkAmberAccent">#ffb300</color>
+    <color name="darkAmberSecondary">#ffb300</color>
 
     <!-- Amber 900 / Light blue 300-->
     <color name="darkAmberPrimary">#ff6f00</color>
     <color name="darkAmberPrimaryDark">#c43e00</color>
-    <color name="darkBlueAccent">#4fc3f7</color>
+    <color name="darkBlueSecondary">#4fc3f7</color>
 
     <!-- Yellow 900 / Purple 300 -->
     <color name="darkYellowPrimary">#f57f17</color>
     <color name="darkYellowPrimaryDark">#bc5100</color>
-    <color name="darkPurpleAccent">#ba68c8</color>
+    <color name="darkPurpleSecondary">#ba68c8</color>
 
     <!-- Purple 900 / Yellow 600 -->
     <color name="darkPurplePrimary">#4a148c</color>
     <color name="darkPurplePrimaryDark">#12005e</color>
-    <color name="darkYellowAccent">#fdd835</color>
+    <color name="darkYellowSecondary">#fdd835</color>
 
     <!-- Red 900 / Green 300 -->
     <color name="darkRedPrimary">#b71c1c</color>
     <color name="darkRedPrimaryDark">#7f0000</color>
-    <color name="darkGreenAccent">#81c784</color>
+    <color name="darkGreenSecondary">#81c784</color>
 
     <!-- Green 900 / Red 300 -->
     <color name="darkGreenPrimary">#1b5e20</color>
     <color name="darkGreenPrimaryDark">#003300</color>
-    <color name="darkRedAccent">#e57373</color>
+    <color name="darkRedSecondary">#e57373</color>
 
     <!-- Grey 800 / Amber 800 -->
     <color name="blackPrimary">#424242</color>
     <color name="blackPrimaryDark">#1b1b1b</color>
-    <color name="blackAccent">#ff8f00</color>
+    <color name="blackSecondary">#ff8f00</color>
 
     <!-- Grey 900 -->
     <color name="blackAndWhitePrimary">#212121</color>
@@ -129,7 +129,7 @@
     <!-- Grey 800 / Blue grey 300 -->
     <color name="greyPrimary">#424242</color>
     <color name="greyPrimaryDark">#1b1b1b</color>
-    <color name="greyAccent">#90a4ae</color>
+    <color name="greySecondary">#90a4ae</color>
     <color name="greyAccentDark">#62757f</color>
     <color name="greyAccentLight">#c1d5e0</color>
 

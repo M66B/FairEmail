@@ -1841,14 +1841,14 @@ public class HtmlHelper {
     }
 
     static Spanned highlightHeaders(Context context, String headers) {
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
         int index = 0;
         for (String line : headers.split("\n")) {
             if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
                 int colon = line.indexOf(':');
                 if (colon > 0)
-                    ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
+                    ssb.setSpan(new ForegroundColorSpan(colorSecondary), index, index + colon, 0);
             }
             index += line.length() + 1;
         }
@@ -1939,7 +1939,7 @@ public class HtmlHelper {
         boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-        final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int colorSecondary = Helper.resolveColor(context, R.attr.colorSecondary);
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         final int dp3 = Helper.dp2pixels(context, 3);
         final int dp6 = Helper.dp2pixels(context, 6);
@@ -2315,9 +2315,9 @@ public class HtmlHelper {
                                     parent = parent.parent();
                                 if (parent == null || "ul".equals(parent.tagName()))
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        setSpan(ssb, new BulletSpan(dp6, colorAccent), start, ssb.length());
+                                        setSpan(ssb, new BulletSpan(dp6, colorSecondary), start, ssb.length());
                                     else
-                                        setSpan(ssb, new BulletSpan(dp6, colorAccent, dp3), start, ssb.length());
+                                        setSpan(ssb, new BulletSpan(dp6, colorSecondary, dp3), start, ssb.length());
                                 else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
@@ -2333,7 +2333,7 @@ public class HtmlHelper {
                                         }
                                     }
 
-                                    setSpan(ssb, new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length());
+                                    setSpan(ssb, new NumberSpan(dp6, colorSecondary, textSize, index), start, ssb.length());
                                 }
                                 break;
                             case "pre":
