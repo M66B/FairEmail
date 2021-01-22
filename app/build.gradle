@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.bugsnag.android.gradle'
 
-def getVersionCode = { -> return 1466 }
+def getVersionCode = { -> return 1467 }
 def getReleaseName = { -> return "\"Genyodectes\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
