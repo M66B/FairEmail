@@ -627,7 +627,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     }
 
                     private List<File> getFiles(File dir, long minSize) {
-                        List<File> files = new ArrayList();
+                        List<File> files = new ArrayList<>();
                         File[] listed = dir.listFiles();
                         if (listed != null)
                             for (File file : listed)
@@ -876,25 +876,45 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         try {
             Log.i("Update usage");
 
-            Runtime rt = Runtime.getRuntime();
-            long hused = rt.totalMemory() - rt.freeMemory();
-            long hmax = rt.maxMemory();
-            long nheap = Debug.getNativeHeapAllocatedSize();
-            tvMemoryUsage.setText(getString(R.string.title_advanced_memory_usage,
-                    Helper.humanReadableByteCount(hused),
-                    Helper.humanReadableByteCount(hmax),
-                    Helper.humanReadableByteCount(nheap)));
-
-            tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
-                    Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
-                    Helper.humanReadableByteCount(Helper.getTotalStorageSpace())));
-
-            getView().postDelayed(new Runnable() {
+            new SimpleTask<StorageData>() {
                 @Override
-                public void run() {
-                    updateUsage();
+                protected StorageData onExecute(Context context, Bundle args) throws Throwable {
+                    StorageData data = new StorageData();
+                    Runtime rt = Runtime.getRuntime();
+                    data.hused = rt.totalMemory() - rt.freeMemory();
+                    data.hmax = rt.maxMemory();
+                    data.nheap = Debug.getNativeHeapAllocatedSize();
+                    data.available = Helper.getAvailableStorageSpace();
+                    data.total = Helper.getTotalStorageSpace();
+                    data.used = Helper.getSize(context.getFilesDir());
+                    return data;
                 }
-            }, 2500);
+
+                @Override
+                protected void onExecuted(Bundle args, StorageData data) {
+                    tvMemoryUsage.setText(getString(R.string.title_advanced_memory_usage,
+                            Helper.humanReadableByteCount(data.hused),
+                            Helper.humanReadableByteCount(data.hmax),
+                            Helper.humanReadableByteCount(data.nheap)));
+
+                    tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
+                            Helper.humanReadableByteCount(data.available),
+                            Helper.humanReadableByteCount(data.total),
+                            Helper.humanReadableByteCount(data.used)));
+
+                    getView().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateUsage();
+                        }
+                    }, 2500);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.e(ex);
+                }
+            }.execute(this, null, "usage");
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -905,5 +925,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup.setText(
                 getString(R.string.title_advanced_last_cleanup,
                         time < 0 ? "-" : DTF.format(time)));
+    }
+
+    private static class StorageData {
+        private long hused;
+        private long hmax;
+        private long nheap;
+        private long available;
+        private long total;
+        private long used;
     }
 }

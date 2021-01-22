@@ -1218,6 +1218,18 @@ public class Helper {
         return stats.getTotalBytes();
     }
 
+    static long getSize(File dir) {
+        long size = 0;
+        File[] listed = dir.listFiles();
+        if (listed != null)
+            for (File file : listed)
+                if (file.isDirectory())
+                    size += getSize(file);
+                else
+                    size += file.length();
+        return size;
+    }
+
     static void openAdvanced(Intent intent) {
         // https://issuetracker.google.com/issues/72053350
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
