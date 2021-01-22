@@ -51,9 +51,6 @@ public class WorkerCleanup extends Worker {
     private static final long KEEP_FILES_DURATION = 3600 * 1000L; // milliseconds
     private static final long KEEP_IMAGES_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_CONTACTS_DURATION = 180 * 24 * 3600 * 1000L; // milliseconds
-    private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
-
-    static final int LOG_DELETE_BATCH_SIZE = 100;
 
     public WorkerCleanup(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -304,21 +301,6 @@ public class WorkerCleanup extends Worker {
                 Log.i("Deleted contacts=" + contacts);
             } finally {
                 db.endTransaction();
-            }
-
-            Log.i("Cleanup log");
-            long before = now - KEEP_LOG_DURATION;
-            while (true) {
-                try {
-                    db.beginTransaction();
-                    int logs = db.log().deleteLogs(before, LOG_DELETE_BATCH_SIZE);
-                    db.setTransactionSuccessful();
-                    Log.i("Deleted logs=" + logs + " before=" + new Date(before));
-                    if (logs < LOG_DELETE_BATCH_SIZE)
-                        break;
-                } finally {
-                    db.endTransaction();
-                }
             }
 
             if (BuildConfig.DEBUG) {

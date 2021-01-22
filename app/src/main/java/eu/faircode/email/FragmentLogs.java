@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -129,28 +128,6 @@ public class FragmentLogs extends FragmentBase {
     }
 
     private void onMenuClear() {
-        Bundle args = new Bundle();
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                DB db = DB.getInstance(context);
-
-                long before = new Date().getTime();
-                while (true) {
-                    int logs = db.log().deleteLogs(before, WorkerCleanup.LOG_DELETE_BATCH_SIZE);
-                    Log.i("Deleted logs=" + logs);
-                    if (logs < WorkerCleanup.LOG_DELETE_BATCH_SIZE)
-                        break;
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "log:clear");
+        EntityLog.clear(getContext());
     }
 }

@@ -39,6 +39,11 @@ import java.util.concurrent.ExecutorService;
 )
 public class EntityLog {
     static final String TABLE_NAME = "log";
+    static Long last_cleanup = null;
+
+    private static final long LOG_CLEANUP_INTERVAL = 3600 * 1000L; // milliseconds
+    private static final long LOG_KEEP_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private static final int LOG_DELETE_BATCH_SIZE = 100;
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
@@ -50,7 +55,7 @@ public class EntityLog {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "log");
 
-    static void log(Context context, String data) {
+    static void log(final Context context, String data) {
         Log.i(data);
 
         final EntityLog entry = new EntityLog();
@@ -62,9 +67,51 @@ public class EntityLog {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                db.log().insertLog(entry);
+                try {
+                    db.beginTransaction();
+                    db.log().insertLog(entry);
+                    db.setTransactionSuccessful();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                } finally {
+                    db.endTransaction();
+                }
+
+                long now = new Date().getTime();
+                if (last_cleanup == null || last_cleanup + LOG_CLEANUP_INTERVAL < now) {
+                    last_cleanup = now;
+                    cleanup(context, now - LOG_KEEP_DURATION);
+                }
             }
         });
+    }
+
+    static void clear(final Context context) {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                cleanup(context, new Date().getTime());
+            }
+        });
+    }
+
+    private static void cleanup(final Context context, final long before) {
+        Log.i("Log cleanup interval=" + LOG_CLEANUP_INTERVAL);
+        DB db = DB.getInstance(context);
+        while (true)
+            try {
+                db.beginTransaction();
+                int logs = db.log().deleteLogs(before, LOG_DELETE_BATCH_SIZE);
+                db.setTransactionSuccessful();
+                Log.i("Cleanup logs=" + logs + " before=" + new Date(before));
+                if (logs < LOG_DELETE_BATCH_SIZE)
+                    break;
+            } catch (Throwable ex) {
+                Log.e(ex);
+                break;
+            } finally {
+                db.endTransaction();
+            }
     }
 
     @Override
