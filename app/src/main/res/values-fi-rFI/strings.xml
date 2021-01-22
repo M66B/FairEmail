@@ -733,7 +733,7 @@
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_new_message">Uusi viesti</string>
     <string name="title_editasnew">Muokkaa uutena</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Muokkaa paikallisia muistiinpanoja</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
     <string name="title_share">Jaa</string>
     <string name="title_event">Lisää kalenteriin</string>
@@ -851,7 +851,7 @@
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
+    <string name="title_send_archive">Arkistoi luetut viestit</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
