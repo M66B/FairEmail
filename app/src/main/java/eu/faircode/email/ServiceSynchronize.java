@@ -1690,10 +1690,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         } else {
                                             if (folder.poll_count == 0)
                                                 EntityOperation.sync(this, folder.id, false);
-                                            else {
-                                                if (!mapFolders.get(folder).isOpen())
-                                                    throw new StoreClosedException(iservice.getStore(), "NOOP " + folder.name);
-                                            }
                                             folder.poll_count = (folder.poll_count + 1) % folder.poll_factor;
                                             db.folder().setFolderPollCount(folder.id, folder.poll_count);
                                             Log.i(folder.name + " poll count=" + folder.poll_count);
