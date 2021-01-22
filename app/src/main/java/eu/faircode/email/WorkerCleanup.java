@@ -63,7 +63,9 @@ public class WorkerCleanup extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Log.i("Running " + getName());
+        EntityLog.log(getApplicationContext(),
+                "Running " + getName() +
+                        " process=" + android.os.Process.myPid());
 
         Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
         cleanup(getApplicationContext(), false);

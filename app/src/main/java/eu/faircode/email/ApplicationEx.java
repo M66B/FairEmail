@@ -78,7 +78,10 @@ public class ApplicationEx extends Application
         super.onCreate();
 
         long start = new Date().getTime();
-        Log.logMemory(this, "App create version=" + BuildConfig.VERSION_NAME);
+        EntityLog.log(this, "App create" +
+                " version=" + BuildConfig.VERSION_NAME +
+                " process=" + android.os.Process.myPid());
+        Log.logMemory(this, "App");
 
         getMainLooper().setMessageLogging(new Printer() {
             @Override

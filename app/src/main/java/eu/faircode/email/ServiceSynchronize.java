@@ -157,7 +157,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public void onCreate() {
-        EntityLog.log(this, "Service create version=" + BuildConfig.VERSION_NAME);
+        EntityLog.log(this, "Service create" +
+                " version=" + BuildConfig.VERSION_NAME +
+                " process=" + android.os.Process.myPid());
         super.onCreate();
 
         if (isBackgroundService(this))
