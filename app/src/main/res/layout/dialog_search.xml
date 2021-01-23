@@ -89,7 +89,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvCaption"
             app:srcCompat="@drawable/twotone_info_24" />
 
-        <AutoCompleteTextView
+        <eu.faircode.email.TextViewAutoCompleteClearable
             android:id="@+id/etQuery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
