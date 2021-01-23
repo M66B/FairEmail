@@ -53,6 +53,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebViewFeature;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -267,7 +268,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        grpSafeBrowsing.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+        grpSafeBrowsing.setEnabled(WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
 
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override

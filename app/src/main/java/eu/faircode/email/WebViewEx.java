@@ -70,8 +70,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            settings.setSafeBrowsingEnabled(safe_browsing);
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
+            WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
 
         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
             WebSettingsCompat.setForceDark(settings,
