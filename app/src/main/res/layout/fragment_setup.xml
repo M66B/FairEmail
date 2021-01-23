@@ -196,6 +196,24 @@
             app:layout_constraintStart_toEndOf="@id/tvSmtp"
             app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_manual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvImap,tvPop,tvSmtp,tvAliases" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAccountIdentity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_account_identity_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_manual" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvIdentityWhat"
             android:layout_width="wrap_content"
@@ -205,7 +223,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAliases" />
+            app:layout_constraintTop_toBottomOf="@id/tvAccountIdentity" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvNoComposable"
