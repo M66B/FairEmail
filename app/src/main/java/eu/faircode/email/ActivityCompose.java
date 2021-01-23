@@ -171,9 +171,16 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
             if (intent.hasExtra(Intent.EXTRA_STREAM))
                 if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
-                    ArrayList<Uri> uris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-                    if (uris != null)
-                        args.putParcelableArrayList("attachments", uris);
+                    ArrayList<Uri> streams = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+                    if (streams != null) {
+                        // Some apps send null streams
+                        ArrayList<Uri> uris = new ArrayList<>();
+                        for (Uri stream : streams)
+                            if (stream != null)
+                                uris.add(stream);
+                        if (uris.size() > 0)
+                            args.putParcelableArrayList("attachments", uris);
+                    }
                 } else {
                     Uri stream = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                     if (stream != null) {
