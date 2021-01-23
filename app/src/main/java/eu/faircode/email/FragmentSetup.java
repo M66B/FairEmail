@@ -404,10 +404,8 @@ public class FragmentSetup extends FragmentBase {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         for (int i = 0; i < permissions.length; i++)
-            if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
-                    setContactsPermission(true);
-            }
+            if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
+                setContactsPermission(grantResults[i] == PackageManager.PERMISSION_GRANTED);
     }
 
     private void setContactsPermission(boolean granted) {
