@@ -62,6 +62,9 @@ public class FragmentSetup extends FragmentBase {
     private Button btnQuick;
     private TextView tvQuickNew;
 
+    private ImageButton ibManual;
+    private TextView tvManual;
+
     private Button btnAccount;
 
     private Button btnIdentity;
@@ -80,6 +83,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
+    private Group grpManual;
     private Group grpDataSaver;
 
     private int textColorPrimary;
@@ -103,6 +107,9 @@ public class FragmentSetup extends FragmentBase {
         btnQuick = view.findViewById(R.id.btnQuick);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
 
+        ibManual = view.findViewById(R.id.ibManual);
+        tvManual = view.findViewById(R.id.tvManual);
+
         btnAccount = view.findViewById(R.id.btnAccount);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
@@ -121,6 +128,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
+        grpManual = view.findViewById(R.id.grpManual);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         PackageManager pm = getContext().getPackageManager();
@@ -207,6 +215,31 @@ public class FragmentSetup extends FragmentBase {
                 Helper.viewFAQ(v.getContext(), 112);
             }
         });
+
+        ibManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (grpManual.getVisibility() == View.GONE) {
+                    ibManual.setImageLevel(0 /* less */);
+                    grpManual.setVisibility(View.VISIBLE);
+                } else {
+                    ibManual.setImageLevel(1 /* more */);
+                    grpManual.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        tvManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ibManual.setPressed(true);
+                ibManual.setPressed(false);
+                ibManual.performClick();
+            }
+        });
+
+        ibManual.setImageLevel(BuildConfig.DEBUG ? 0 /* less */ : 1 /* more */);
+        grpManual.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
