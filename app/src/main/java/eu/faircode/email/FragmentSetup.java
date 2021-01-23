@@ -428,7 +428,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(tvDozeDone.getTypeface(), ignoring ? Typeface.NORMAL : Typeface.BOLD);
+        tvDozeDone.setTypeface(null, ignoring ? Typeface.NORMAL : Typeface.BOLD);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
 
         // https://developer.android.com/training/basics/network-ops/data-saver.html
@@ -456,7 +456,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvPermissionsDone.setText(granted ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(granted ? textColorPrimary : colorWarning);
-        tvPermissionsDone.setTypeface(tvPermissionsDone.getTypeface(), granted ? Typeface.NORMAL : Typeface.BOLD);
+        tvPermissionsDone.setTypeface(null, granted ? Typeface.NORMAL : Typeface.BOLD);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(granted ? check : null, null, null, null);
         btnPermissions.setEnabled(!granted);
     }
