@@ -20,17 +20,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/three"
+            android:id="@+id/two"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
-            android:contentDescription="3"
+            android:contentDescription="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
-            app:srcCompat="@drawable/twotone_looks_3_24" />
+            app:srcCompat="@drawable/twotone_looks_two_24" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/title3"
+            android:id="@+id/title2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -39,22 +39,22 @@
             android:text="@string/title_setup_permissions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/three"
+            app:layout_constraintBottom_toBottomOf="@id/two"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/three" />
+            app:layout_constraintStart_toEndOf="@id/two" />
 
         <ImageView
-            android:id="@+id/four"
+            android:id="@+id/three"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
-            android:contentDescription="4"
+            android:contentDescription="3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/three"
-            app:srcCompat="@drawable/twotone_looks_4_24" />
+            app:layout_constraintTop_toBottomOf="@id/two"
+            app:srcCompat="@drawable/twotone_looks_3_24" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/title4"
+            android:id="@+id/title3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -64,9 +64,9 @@
             android:text="@string/title_setup_doze"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/four"
+            app:layout_constraintBottom_toBottomOf="@id/three"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/four" />
+            app:layout_constraintStart_toEndOf="@id/three" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"
@@ -76,18 +76,18 @@
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/four" />
+            app:layout_constraintTop_toBottomOf="@id/three" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="three,title3" />
+            app:constraint_referenced_ids="two,title2" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="four,title4" />
+            app:constraint_referenced_ids="three,title3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

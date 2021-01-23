@@ -57,18 +57,12 @@ import java.util.List;
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
-    private TextView tvWelcome;
-    private ImageButton ibWelcome;
-
     private ImageButton ibHelp;
     private Button btnQuick;
     private TextView tvQuickNew;
-    private TextView tvQuickRemark;
 
-    private TextView tvAccountDone;
     private Button btnAccount;
 
-    private TextView tvIdentityDone;
     private Button btnIdentity;
     private TextView tvIdentityWhat;
     private TextView tvNoComposable;
@@ -85,7 +79,6 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
-    private Group grpWelcome;
     private Group grpDataSaver;
 
     private int textColorPrimary;
@@ -104,18 +97,13 @@ public class FragmentSetup extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
-        tvWelcome = view.findViewById(R.id.tvWelcome);
-        ibWelcome = view.findViewById(R.id.ibWelcome);
 
         ibHelp = view.findViewById(R.id.ibHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
         tvQuickNew = view.findViewById(R.id.tvQuickNew);
-        tvQuickRemark = view.findViewById(R.id.tvQuickRemark);
 
-        tvAccountDone = view.findViewById(R.id.tvAccountDone);
         btnAccount = view.findViewById(R.id.btnAccount);
 
-        tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
         btnIdentity = view.findViewById(R.id.btnIdentity);
         tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
@@ -132,24 +120,12 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
-        grpWelcome = view.findViewById(R.id.grpWelcome);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
-
-        tvWelcome.setText(getString(R.string.title_setup_welcome)
-                .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
-
-        ibWelcome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                prefs.edit().putBoolean("welcome", false).apply();
-                grpWelcome.setVisibility(View.GONE);
-            }
-        });
 
         ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -309,13 +285,6 @@ public class FragmentSetup extends FragmentBase {
         });
 
         // Initialize
-        tvQuickRemark.setVisibility(View.GONE);
-
-        tvAccountDone.setText(null);
-        tvAccountDone.setCompoundDrawables(null, null, null, null);
-
-        tvIdentityDone.setText(null);
-        tvIdentityDone.setCompoundDrawables(null, null, null, null);
         btnIdentity.setEnabled(false);
         tvNoComposable.setVisibility(View.GONE);
 
@@ -328,8 +297,6 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox.setEnabled(false);
 
-        boolean welcome = prefs.getBoolean("welcome", true);
-        grpWelcome.setVisibility(welcome ? View.VISIBLE : View.GONE);
         grpDataSaver.setVisibility(View.GONE);
 
         setContactsPermission(hasPermission(Manifest.permission.READ_CONTACTS));
@@ -379,12 +346,6 @@ public class FragmentSetup extends FragmentBase {
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 done = (accounts != null && accounts.size() > 0);
 
-                tvQuickRemark.setVisibility(done ? View.VISIBLE : View.GONE);
-
-                tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
-                tvAccountDone.setTextColor(done ? textColorPrimary : colorWarning);
-                tvAccountDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
-
                 btnIdentity.setEnabled(done);
                 btnInbox.setEnabled(done);
 
@@ -396,9 +357,6 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 boolean done = (identities != null && identities.size() > 0);
-                tvIdentityDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
-                tvIdentityDone.setTextColor(done ? textColorPrimary : colorWarning);
-                tvIdentityDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
                 tvNoComposable.setVisibility(done ? View.GONE : View.VISIBLE);
             }
         });
