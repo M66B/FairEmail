@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail-Suche</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine Open-Source-E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
-    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
+    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch umformatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
     <string name="app_cake">Unzureichender Speicherplatz</string>
@@ -46,8 +46,8 @@
         <item quantity="other">%1$d neue Nachrichten</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d Nachricht noch zu senden</item>
-        <item quantity="other">%1$d Nachrichten noch zu senden</item>
+        <item quantity="one">%1$d noch zu sendende Nachricht</item>
+        <item quantity="other">%1$d noch zu sendende Nachrichten</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d neue</item>
@@ -210,18 +210,20 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_theme_grey">Grau</string>
     <string name="title_setup_theme_black">Schwarz</string>
     <string name="title_setup_theme_black_and_white">Schwarzweiß</string>
-    <string name="title_setup_theme_reverse">Farben umkehren</string>
+    <string name="title_setup_theme_reverse">Farben invertieren</string>
     <string name="title_setup_theme_light">Hell</string>
     <string name="title_setup_theme_dark">Dunkel</string>
-    <string name="title_setup_theme_system">System-Design</string>
+    <string name="title_setup_theme_system">wie System</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
-    <string name="title_setup_theme_system_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
+    <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
-    <string name="title_advanced_hint_message">Sie wechseln zu den erweiterten Optionen. Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.    </string>
+    <string name="title_advanced_hint_message">        Sie wechseln zu den erweiterten Optionen.
+        Alle Optionen haben allgemein verwendete Standardwerte, die nur geändert werden sollten, wenn Sie andere Einstellungen bevorzugen.
+    </string>
     <string name="title_advanced_section_main">Haupteinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
@@ -417,8 +419,8 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
-    <string name="title_advanced_disconnect_links">Listen verwenden, um vor Tracking-Links zu warnen</string>
-    <string name="title_advanced_disconnect_images">Listen zur Erkennung von Tracking-Bildern verwenden</string>
+    <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
+    <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
@@ -489,19 +491,19 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_navbar_colorize_hint">Ob das funktioniert, hängt von der Android-Version und -Variante ab</string>
     <string name="title_advanced_threading_hint">Zusammengehörige Nachrichten gruppieren</string>
-    <string name="title_advanced_highlight_hint">Die Akzentfarbe des Farbschemas wird zur Hervorhebung verwendet</string>
+    <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
-    <string name="title_advanced_placeholders_hint">Dies gilt nur für neu formatierte Nachrichten</string>
+    <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einem Thema enthalten ist</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
-    <string name="title_advanced_autoclose_hint">Themen automatisch schließen, wenn alle Nachrichten archiviert, gesendet oder gelöscht werden</string>
+    <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
@@ -793,7 +795,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
     <string name="title_no_image">Bild konnte nicht dekodiert werden</string>
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
-    <string name="title_too_large">Die Nachricht ist zu groß, um sie vollständig neu zu formatieren</string>
+    <string name="title_too_large">Nachricht zu groß, um sie vollständig umformatieren zu können</string>
     <string name="title_truncated">Nachricht zu groß, um vollständig angezeigt zu werden</string>
     <string name="title_insufficient_memory">Nachricht zu groß für den verfügbaren Arbeitsspeicher</string>
     <string name="title_show_full">Vollständige Nachricht anzeigen</string>
@@ -813,7 +815,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
-    <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
+    <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -826,7 +828,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">Das ist die reformatierte Nachrichtenansicht. Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Nachricht zu verstecken.</string>
+    <string name="title_reformatted">Das ist die umformatierte Nachrichtenansicht. Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Nachricht zu verstecken.</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
@@ -897,7 +899,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
-    <string name="title_edit_formatted_text">Als neu formatierten Text bearbeiten</string>
+    <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
     <string name="title_certificate_missing">Kein öffentlicher Schlüssel für %1$s</string>
     <string name="title_certificate_invalid">Öffentlicher Schlüssel von %1$s ist ungültig</string>
@@ -1152,7 +1154,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
-    <string name="title_legend_tracking_pixel">Tracking-Bild</string>
+    <string name="title_legend_tracking_pixel">Verfolgungsbild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
