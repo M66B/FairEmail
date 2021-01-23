@@ -165,6 +165,13 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
+    <string name="title_setup_manual">Manual setup</string>
+    <string name="title_setup_account_remark">To receive email</string>
+    <string name="title_setup_identity_remark">To send email</string>
+    <string name="title_setup_account_hint">To change color, swipe left/right target folder, etc</string>
+    <string name="title_setup_identity_hint">To change name, color, signature, etc</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_gmail" translatable="false">Gmail</string>
     <string name="title_setup_outlook" translatable="false">Outlook, Live, Hotmail</string>
     <string name="title_setup_oauth" translatable="false">%1$s (OAuth)</string>
@@ -186,7 +193,7 @@
     <string name="title_setup_select_account">Select account</string>
     <string name="title_setup_instructions">Setup instructions</string>
     <string name="title_setup_no_settings">No settings found for domain \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">You can try to manually set up an account and identity using the settings provided by your email provider at the bottom of the main setup screen</string>
+    <string name="title_setup_no_settings_hint">You can try to manually set up an account and identity using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Please double check your email address and password and make sure external access (IMAP/SMTP) is enabled for your account</string>
     <string name="title_setup_app_password_hint">This provider requires an app password instead of the account password, please check the instructions of your provider</string>
     <string name="title_setup_no_inbox">Inbox not found</string>
@@ -195,12 +202,6 @@
     <string name="title_setup_manage">Manage</string>
     <string name="title_setup_grant">Grant</string>
     <string name="title_setup_grant_again">Grant required permissions</string>
-    <string name="title_setup_account">Setup accounts manually</string>
-    <string name="title_setup_account_remark">To receive email</string>
-    <string name="title_setup_account_hint">To change color, swipe left/right target folder, etc</string>
-    <string name="title_setup_identity">Setup identities manually</string>
-    <string name="title_setup_identity_remark">To send email</string>
-    <string name="title_setup_identity_hint">To change name, color, signature, etc</string>
     <string name="title_setup_identity_what">What is an identity?</string>
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
@@ -704,7 +705,7 @@
     <string name="title_no_inbox">Inbox not found</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">This provider uses a proprietary email protocol and therefore it is not possible to use third party email clients</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
     <string name="title_no_utf8">This provider does not support UTF-8</string>
