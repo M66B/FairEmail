@@ -21,7 +21,7 @@ If the quick setup doesn't work, you'll need to setup an account and an identity
 
 ## Set up account - to receive email
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom.
+To add an account, tap the *Accounts* button and tap the 'plus' button at the bottom and select IMAP (or POP3).
 Select a provider from the list, enter the username, which is mostly your email address and enter your password.
 Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders.
 After reviewing the system folder selection you can add the account by tapping *Save*.
@@ -35,7 +35,7 @@ For more about this, please see [here](https://github.com/M66B/FairEmail/blob/ma
 
 ## Set up identity - to send email
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom.
+Similarly, to add an identity, tap the *Identities* button and tap the 'plus' button at the bottom.
 Enter the name you want to appear in the from address of the emails you send and select a linked account.
 Tap *Save* to add the identity.
 
