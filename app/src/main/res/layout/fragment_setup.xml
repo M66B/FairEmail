@@ -63,6 +63,7 @@
             android:layout_marginTop="12dp"
             android:backgroundTint="?attr/colorInfoBackground"
             android:text="@string/title_setup_wizard"
+            android:textAlignment="center"
             android:textColor="?attr/colorInfoForeground"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,8 +87,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_setup_wizard_new"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuickRemarkMultiple" />
 
@@ -103,10 +106,11 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManual"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/title_setup_manual"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
