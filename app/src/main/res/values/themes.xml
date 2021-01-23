@@ -22,7 +22,7 @@
     <attr name="colorInfoBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
-    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight">
+    <style name="Theme.App.Base" parent="Theme.MaterialComponents.DayNight">
         <item name="themeName">light</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
@@ -52,11 +52,10 @@
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Primary</item>
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
 
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
-        <item name="android:buttonStyle">@style/buttonStyle</item>
-        <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
+        <item name="android:buttonStyleSmall">@style/Widget.App.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
         <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
 
@@ -64,17 +63,25 @@
         <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
         <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
         <item name="android:scrollbarFadeDuration">5000</item>
+
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="borderlessButtonStyle">@style/Widget.App.Button.TextButton</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
     </style>
 
 
     <!-- Light -->
 
-    <style name="AppThemeBlueOrange" parent="AppThemeBase">
+    <style name="Theme.App.BlueOrange" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightBluePrimary</item>
-        <item name="colorPrimaryVariant">@color/lightBluePrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightBluePrimaryVariant</item>
         <item name="colorSecondary">@color/lightAmberSecondary</item>
+        <item name="colorSecondary">@color/lightAmberSecondaryVariant</item>
 
-        <item name="colorUnreadHighlight">@color/lightAmberAccentDark</item>
+        <item name="colorUnreadHighlight">@color/lightAmberSecondaryVariant</item>
 
         <item name="colorWarning">@color/lightAmberSecondary</item>
 
@@ -83,12 +90,12 @@
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/lightBluePrimary</item>
 
-        <item name="android:textColorLink">@color/lightAmberAccentDark</item>
+        <item name="android:textColorLink">@color/lightAmberSecondaryVariant</item>
     </style>
 
-    <style name="AppThemeOrangeBlue" parent="AppThemeBase">
+    <style name="Theme.App.OrangeBlue" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightAmberPrimary</item>
-        <item name="colorPrimaryVariant">@color/lightAmberPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightAmberPrimaryVariant</item>
         <item name="colorSecondary">@color/lightBlueSecondary</item>
 
         <item name="colorUnreadHighlight">@color/lightBlueSecondary</item>
@@ -101,9 +108,9 @@
         <item name="android:textColorLink">@color/lightBlueSecondary</item>
     </style>
 
-    <style name="AppThemeYellowPurple" parent="AppThemeBase">
+    <style name="Theme.App.YellowPurple" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightYellowPrimary</item>
-        <item name="colorPrimaryVariant">@color/lightYellowPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightYellowPrimaryVariant</item>
         <item name="colorSecondary">@color/lightPurpleSecondary</item>
 
         <item name="colorUnreadHighlight">@color/lightPurpleSecondary</item>
@@ -116,9 +123,9 @@
         <item name="android:textColorLink">@color/lightPurpleSecondary</item>
     </style>
 
-    <style name="AppThemePurpleYellow" parent="AppThemeBase">
+    <style name="Theme.App.PurpleYellow" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightPurplePrimary</item>
-        <item name="colorPrimaryVariant">@color/lightPurplePrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightPurplePrimaryVariant</item>
         <item name="colorSecondary">@color/lightYellowSecondary</item>
 
         <item name="colorUnreadHighlight">@color/lightYellowSecondary</item>
@@ -131,9 +138,9 @@
         <item name="android:textColorLink">@color/lightYellowSecondary</item>
     </style>
 
-    <style name="AppThemeRedGreen" parent="AppThemeBase">
+    <style name="Theme.App.RedGreen" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightRedPrimary</item>
-        <item name="colorPrimaryVariant">@color/lightRedPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightRedPrimaryVariant</item>
         <item name="colorSecondary">@color/lightGreenSecondary</item>
 
         <item name="colorUnreadHighlight">@color/lightGreenSecondary</item>
@@ -146,9 +153,9 @@
         <item name="android:textColorLink">@color/lightGreenSecondary</item>
     </style>
 
-    <style name="AppThemeGreenRed" parent="AppThemeBase">
+    <style name="Theme.App.GreenRed" parent="Theme.App.Base">
         <item name="colorPrimary">@color/lightGreenPrimary</item>
-        <item name="colorPrimaryVariant">@color/lightGreenPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/lightGreenPrimaryVariant</item>
         <item name="colorSecondary">@color/lightRedSecondary</item>
 
         <item name="colorUnreadHighlight">@color/lightRedSecondary</item>
@@ -164,12 +171,12 @@
     <!-- Dark -->
 
 
-    <style name="AppThemeGreySteelBlue" parent="AppThemeBase">
+    <style name="Theme.App.GreySteelBlue" parent="Theme.App.Base">
         <item name="colorPrimary">@color/greyPrimary</item>
-        <item name="colorPrimaryVariant">@color/greyPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/greyPrimaryVariant</item>
         <item name="colorSecondary">@color/greySecondary</item>
 
-        <item name="colorUnreadHighlight">@color/greyAccentDark</item>
+        <item name="colorUnreadHighlight">@color/greySecondaryVariant</item>
 
         <item name="colorEncrypt">@color/colorEncryptDark</item>
 
@@ -190,24 +197,24 @@
     </style>
 
     <!-- Black -->
-    <style name="AppThemeBlack" parent="AppThemeBlueOrange"/>
+    <style name="Theme.App.Black" parent="Theme.App.BlueOrange"/>
 
-    <style name="AppThemeBlueOrangeBlack" parent="AppThemeBlueOrange" />
+    <style name="Theme.App.BlueOrangeBlack" parent="Theme.App.BlueOrange" />
 
-    <style name="AppThemeOrangeBlueBlack" parent="AppThemeOrangeBlue" />
+    <style name="Theme.App.OrangeBlueBlack" parent="Theme.App.OrangeBlue" />
 
-    <style name="AppThemeYellowPurpleBlack" parent="AppThemeYellowPurple" />
+    <style name="Theme.App.YellowPurpleBlack" parent="Theme.App.YellowPurple" />
 
-    <style name="AppThemePurpleYellowBlack" parent="AppThemePurpleYellow" />
+    <style name="Theme.App.PurpleYellowBlack" parent="Theme.App.PurpleYellow" />
 
-    <style name="AppThemeRedGreenBlack" parent="AppThemeRedGreen" />
+    <style name="Theme.App.RedGreenBlack" parent="Theme.App.RedGreen" />
 
-    <style name="AppThemeGreenRedBlack" parent="AppThemeGreenRed" />
+    <style name="Theme.App.GreenRedBlack" parent="Theme.App.GreenRed" />
 
 
-    <style name="AppThemeBlackAndWhite" parent="AppThemeBlack">
+    <style name="Theme.App.BlackAndWhite" parent="Theme.App.Black">
         <item name="colorPrimary">@color/blackAndWhitePrimary</item>
-        <item name="colorPrimary">@color/blackAndWhitePrimaryDark</item>
+        <item name="colorPrimary">@color/blackAndWhitePrimaryVariant</item>
         <item name="colorSecondary">@color/white</item>
 
         <item name="android:textColor">@color/bw_textcolor</item>

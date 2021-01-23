@@ -106,85 +106,85 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 case "light":
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 case "blue_orange_light":
-                    setTheme(R.style.AppThemeBlueOrange);
+                    setTheme(R.style.Theme_App_BlueOrange);
                     break;
                 case "orange_blue_light":
-                    setTheme(R.style.AppThemeOrangeBlue);
+                    setTheme(R.style.Theme_App_OrangeBlue);
                     break;
 
                 case "yellow_purple_light":
-                    setTheme(R.style.AppThemeYellowPurple);
+                    setTheme(R.style.Theme_App_YellowPurple);
                     break;
                 case "purple_yellow_light":
-                    setTheme(R.style.AppThemePurpleYellow);
+                    setTheme(R.style.Theme_App_PurpleYellow);
                     break;
 
                 case "red_green_light":
-                    setTheme(R.style.AppThemeRedGreen);
+                    setTheme(R.style.Theme_App_RedGreen);
                     break;
                 case "green_red_light":
-                    setTheme(R.style.AppThemeGreenRed);
+                    setTheme(R.style.Theme_App_GreenRed);
                     break;
 
                 // Dark
                 case "dark":
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 case "blue_orange_dark":
-                    setTheme(R.style.AppThemeBlueOrange);
+                    setTheme(R.style.Theme_App_BlueOrange);
                     break;
                 case "orange_blue_dark":
-                    setTheme(R.style.AppThemeOrangeBlue);
+                    setTheme(R.style.Theme_App_OrangeBlue);
                     break;
 
                 case "yellow_purple_dark":
-                    setTheme(R.style.AppThemeYellowPurple);
+                    setTheme(R.style.Theme_App_YellowPurple);
                     break;
                 case "purple_yellow_dark":
-                    setTheme(R.style.AppThemePurpleYellow);
+                    setTheme(R.style.Theme_App_PurpleYellow);
                     break;
 
                 case "red_green_dark":
-                    setTheme(R.style.AppThemeRedGreen);
+                    setTheme(R.style.Theme_App_RedGreen);
                     break;
                 case "green_red_dark":
-                    setTheme(R.style.AppThemeGreenRed);
+                    setTheme(R.style.Theme_App_GreenRed);
                     break;
 
                 // Black
                 case "blue_orange_black":
-                    setTheme(R.style.AppThemeBlueOrangeBlack);
+                    setTheme(R.style.Theme_App_BlueOrangeBlack);
                     break;
                 case "orange_blue_black":
-                    setTheme(R.style.AppThemeOrangeBlueBlack);
+                    setTheme(R.style.Theme_App_OrangeBlueBlack);
                     break;
                 case "yellow_purple_black":
-                    setTheme(R.style.AppThemeYellowPurpleBlack);
+                    setTheme(R.style.Theme_App_YellowPurpleBlack);
                     break;
                 case "purple_yellow_black":
-                    setTheme(R.style.AppThemePurpleYellowBlack);
+                    setTheme(R.style.Theme_App_PurpleYellowBlack);
                     break;
                 case "red_green_black":
-                    setTheme(R.style.AppThemeRedGreenBlack);
+                    setTheme(R.style.Theme_App_RedGreenBlack);
                     break;
                 case "green_red_black":
-                    setTheme(R.style.AppThemeGreenRedBlack);
+                    setTheme(R.style.Theme_App_GreenRedBlack);
                     break;
 
                 // Grey
                 case "grey_light":
-                    setTheme(R.style.AppThemeGreySteelBlue);
+                    setTheme(R.style.Theme_App_GreySteelBlue);
                     break;
                 case "grey_dark":
-                    setTheme(R.style.AppThemeGreySteelBlue);
+                    setTheme(R.style.Theme_App_GreySteelBlue);
                     break;
 
                 // Black
                 case "black":
-                    setTheme(R.style.AppThemeBlack);
+                    setTheme(R.style.Theme_App_Black);
                     break;
 
                 case "black_and_white":
-                    setTheme(R.style.AppThemeBlackAndWhite);
+                    setTheme(R.style.Theme_App_BlackAndWhite);
                     break;
 
                 // System
@@ -198,55 +198,55 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     }
                 case "blue_orange_system":
                     setTheme(night
-                            ? R.style.AppThemeBlueOrange : R.style.AppThemeBlueOrange);
+                            ? R.style.Theme_App_BlueOrange : R.style.Theme_App_BlueOrange);
                     break;
                 case "blue_orange_system_black":
                     setTheme(night
-                            ? R.style.AppThemeBlueOrangeBlack : R.style.AppThemeBlueOrange);
+                            ? R.style.Theme_App_BlueOrangeBlack : R.style.Theme_App_BlueOrange);
                     break;
                 case "orange_blue_system":
                     setTheme(night
-                            ? R.style.AppThemeOrangeBlue : R.style.AppThemeOrangeBlue);
+                            ? R.style.Theme_App_OrangeBlue : R.style.Theme_App_OrangeBlue);
                     break;
                 case "orange_blue_system_black":
                     setTheme(night
-                            ? R.style.AppThemeOrangeBlueBlack : R.style.AppThemeOrangeBlue);
+                            ? R.style.Theme_App_OrangeBlueBlack : R.style.Theme_App_OrangeBlue);
                     break;
                 case "yellow_purple_system":
                     setTheme(night
-                            ? R.style.AppThemeYellowPurple : R.style.AppThemeYellowPurple);
+                            ? R.style.Theme_App_YellowPurple : R.style.Theme_App_YellowPurple);
                     break;
                 case "yellow_purple_system_black":
                     setTheme(night
-                            ? R.style.AppThemeYellowPurpleBlack : R.style.AppThemeYellowPurple);
+                            ? R.style.Theme_App_YellowPurpleBlack : R.style.Theme_App_YellowPurple);
                     break;
                 case "purple_yellow_system":
                     setTheme(night
-                            ? R.style.AppThemePurpleYellow : R.style.AppThemePurpleYellow);
+                            ? R.style.Theme_App_PurpleYellow : R.style.Theme_App_PurpleYellow);
                     break;
                 case "purple_yellow_system_black":
                     setTheme(night
-                            ? R.style.AppThemePurpleYellowBlack : R.style.AppThemePurpleYellow);
+                            ? R.style.Theme_App_PurpleYellowBlack : R.style.Theme_App_PurpleYellow);
                     break;
                 case "red_green_system":
                     setTheme(night
-                            ? R.style.AppThemeRedGreen : R.style.AppThemeRedGreen);
+                            ? R.style.Theme_App_RedGreen : R.style.Theme_App_RedGreen);
                     break;
                 case "red_green_system_black":
                     setTheme(night
-                            ? R.style.AppThemeRedGreenBlack : R.style.AppThemeRedGreen);
+                            ? R.style.Theme_App_RedGreenBlack : R.style.Theme_App_RedGreen);
                     break;
                 case "green_red_system":
                     setTheme(night
-                            ? R.style.AppThemeGreenRed : R.style.AppThemeGreenRed);
+                            ? R.style.Theme_App_GreenRed : R.style.Theme_App_GreenRed);
                     break;
                 case "green_red_system_black":
                     setTheme(night
-                            ? R.style.AppThemeGreenRedBlack : R.style.AppThemeGreenRed);
+                            ? R.style.Theme_App_GreenRedBlack : R.style.Theme_App_GreenRed);
                     break;
                 case "grey_system":
                     setTheme(night
-                            ? R.style.AppThemeGreySteelBlue : R.style.AppThemeGreySteelBlue);
+                            ? R.style.Theme_App_GreySteelBlue : R.style.Theme_App_GreySteelBlue);
                     break;
             }
 

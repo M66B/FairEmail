@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight">
+    <style name="Theme.App.Base" parent="Theme.MaterialComponents.DayNight">
         <item name="themeName">dark</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimationStyle</item>
@@ -34,8 +34,8 @@
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
-        <item name="android:buttonStyle">@style/buttonStyle</item>
-        <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
+        <item name="android:buttonStyle">@style/Widget.App.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.App.Button.Small</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
         <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
 
@@ -45,9 +45,9 @@
         <item name="android:scrollbarFadeDuration">5000</item>
     </style>
 
-    <style name="AppThemeBlueOrange" parent="AppThemeBase">
+    <style name="Theme.App.BlueOrange" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkBluePrimary</item>
-        <item name="colorPrimary">@color/darkBluePrimaryDark</item>
+        <item name="colorPrimary">@color/darkBluePrimaryVariant</item>
         <item name="colorSecondary">@color/darkAmberSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkAmberSecondary</item>
@@ -58,9 +58,9 @@
         <item name="colorInfoBackground">@color/darkBluePrimary</item>
     </style>
 
-    <style name="AppThemeOrangeBlue" parent="AppThemeBase">
+    <style name="Theme.App.OrangeBlue" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkAmberPrimary</item>
-        <item name="colorPrimary">@color/darkAmberPrimaryDark</item>
+        <item name="colorPrimary">@color/darkAmberPrimaryVariant</item>
         <item name="colorSecondary">@color/darkBlueSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkBlueSecondary</item>
@@ -71,9 +71,9 @@
         <item name="colorInfoBackground">@color/darkAmberPrimary</item>
     </style>
 
-    <style name="AppThemeYellowPurple" parent="AppThemeBase">
+    <style name="Theme.App.YellowPurple" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkYellowPrimary</item>
-        <item name="colorPrimary">@color/darkYellowPrimaryDark</item>
+        <item name="colorPrimary">@color/darkYellowPrimaryVariant</item>
         <item name="colorSecondary">@color/darkPurpleSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkPurpleSecondary</item>
@@ -86,9 +86,9 @@
         <item name="android:textColorLink">@color/darkPurpleSecondary</item>
     </style>
 
-    <style name="AppThemePurpleYellow" parent="AppThemeBase">
+    <style name="Theme.App.PurpleYellow" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkPurplePrimary</item>
-        <item name="colorPrimary">@color/darkPurplePrimaryDark</item>
+        <item name="colorPrimary">@color/darkPurplePrimaryVariant</item>
         <item name="colorSecondary">@color/darkYellowSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkYellowSecondary</item>
@@ -101,9 +101,9 @@
         <item name="android:textColorLink">@color/darkYellowSecondary</item>
     </style>
 
-    <style name="AppThemeRedGreen" parent="AppThemeBase">
+    <style name="Theme.App.RedGreen" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkRedPrimary</item>
-        <item name="colorPrimary">@color/darkRedPrimaryDark</item>
+        <item name="colorPrimary">@color/darkRedPrimaryVariant</item>
         <item name="colorSecondary">@color/darkGreenSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkGreenSecondary</item>
@@ -116,9 +116,9 @@
         <item name="android:textColorLink">@color/darkGreenSecondary</item>
     </style>
 
-    <style name="AppThemeGreenRed" parent="AppThemeBase">
+    <style name="Theme.App.GreenRed" parent="Theme.App.Base">
         <item name="colorPrimary">@color/darkGreenPrimary</item>
-        <item name="colorPrimary">@color/darkGreenPrimaryDark</item>
+        <item name="colorPrimary">@color/darkGreenPrimaryVariant</item>
         <item name="colorSecondary">@color/darkRedSecondary</item>
 
         <item name="colorUnreadHighlight">@color/darkRedSecondary</item>
@@ -133,37 +133,37 @@
 
     <!-- Black -->
 
-    <style name="AppThemeBlueOrangeBlack" parent="AppThemeBlueOrange">
+    <style name="Theme.App.BlueOrangeBlack" parent="Theme.App.BlueOrange">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeOrangeBlueBlack" parent="AppThemeOrangeBlue">
+    <style name="Theme.App.OrangeBlueBlack" parent="Theme.App.OrangeBlue">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeYellowPurpleBlack" parent="AppThemeYellowPurple">
+    <style name="Theme.App.YellowPurpleBlack" parent="Theme.App.YellowPurple">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemePurpleYellowBlack" parent="AppThemePurpleYellow">
+    <style name="Theme.App.PurpleYellowBlack" parent="Theme.App.PurpleYellow">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeRedGreenBlack" parent="AppThemeRedGreen">
+    <style name="Theme.App.RedGreenBlack" parent="Theme.App.RedGreen">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeGreenRedBlack" parent="AppThemeGreenRed">
+    <style name="Theme.App.GreenRedBlack" parent="Theme.App.GreenRed">
         <item name="themeName">black</item>
         <item name="android:windowBackground">@drawable/black_background</item>
         <item name="colorDrawerBackground">@color/black</item>
@@ -171,10 +171,10 @@
 
     <!-- Other -->
 
-    <style name="AppThemeBlack" parent="AppThemeBlueOrange">
+    <style name="Theme.App.Black" parent="Theme.App.BlueOrange">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackPrimary</item>
-        <item name="colorPrimary">@color/blackPrimaryDark</item>
+        <item name="colorPrimary">@color/blackPrimaryVariant</item>
         <item name="colorSecondary">@color/blackSecondary</item>
 
         <item name="colorInfoForeground">@color/white</item>
@@ -186,10 +186,10 @@
 
 
 
-    <style name="AppThemeGreySteelBlue" parent="AppThemeBase">
+    <style name="Theme.App.GreySteelBlue" parent="Theme.App.Base">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/greyPrimary</item>
-        <item name="colorPrimary">@color/greyPrimaryDark</item>
+        <item name="colorPrimary">@color/greyPrimaryVariant</item>
         <item name="colorSecondary">@color/greySecondary</item>
 
         <item name="colorUnreadHighlight">@color/greyAccentLight</item>
@@ -197,7 +197,7 @@
 
         <item name="colorActionBackground">@color/greyPrimary</item>
 
-        <item name="colorFabBackground">@color/greyAccentDark</item>
+        <item name="colorFabBackground">@color/greySecondaryVariant</item>
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/greyPrimary</item>

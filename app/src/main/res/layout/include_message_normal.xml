@@ -403,10 +403,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:tint="?attr/colorWarning"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
         app:layout_constraintTop_toTopOf="@id/tvError"
-        app:srcCompat="@drawable/twotone_info_24" />
+        app:srcCompat="@drawable/twotone_info_24"
+        app:tint="?attr/colorWarning" />
 
     <View
         android:id="@+id/paddingEnd"

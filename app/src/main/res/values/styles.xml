@@ -19,14 +19,51 @@
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
-    <style name="buttonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Button</item>
+    <!--Top App Bar-->
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.App.Headline6</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.App.Subtitle1</item>
     </style>
 
-    <style name="buttonStyleSmall" parent="Widget.MaterialComponents.Button">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">?colorPrimary</item>
+        <item name="colorPrimaryVariant">?colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!--Button-->
+
+    <style name="Widget.App.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.TextButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.TextButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="Widget.App.Button.Small" parent="Widget.App.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button.Small</item>
         <item name="android:minHeight">0dp</item>
         <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button.TextButton" parent="">
+        <item name="colorPrimary">?colorSecondary</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button" parent="">
+        <item name="colorPrimary">@color/grey_200</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
 
     <style name="buttonStyleToggle" parent="Widget.MaterialComponents.Button">

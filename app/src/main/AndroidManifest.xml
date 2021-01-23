@@ -108,7 +108,7 @@
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeBlueOrange">
+        android:theme="@style/Theme.App.BlueOrange">
         <!-- https://developer.samsung.com/samsung-dex/modify-optimizing.html -->
 
         <!-- https://developer.android.com/guide/webapps/managing-webview#metrics -->
