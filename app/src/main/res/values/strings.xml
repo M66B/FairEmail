@@ -166,8 +166,8 @@
     <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
     <string name="title_setup_manual">Manual setup</string>
-    <string name="title_setup_account_remark">To receive email</string>
-    <string name="title_setup_identity_remark">To send email</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
     <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identities</string>
