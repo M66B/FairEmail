@@ -2,7 +2,7 @@
 
 Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig gestellten Fragen. Im unteren Bereich finden Sie die Möglichkeit, weitere Fragen zu stellen, Funktionen anzufordern und Fehler zu melden.
 
-## Verzeichnis
+## Übersicht
 
 * [Konten autorisieren](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
 * [Wie kann ich …?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
@@ -115,7 +115,7 @@ Verwandte Fragen:
 
 Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zukunft hinzugefügt werden.
 
-## Häufig angeforderte Funktionen
+## Häufig angefragte Funktionen
 
 Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Tasten usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.) zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu bedienen. Schriften, Größen, Farben usw. sollten nach Möglichkeit dem 'Material Design' von Android entsprechen.
 
@@ -280,9 +280,9 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(159) Was sind Disconnects Tracker-Schutzlisten?](#user-content-faq159)
 * [(160) Kannst du eine dauerhafte Löschung von Nachrichten ohne Bestätigung hinzufügen?](#user-content-faq160)
 * [(161) Kannst du eine Einstellung zum Ändern der primären und akzentuierenden Farbe hinzufügen?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
+* [(162) Wird IMAP NOTIFY unterstützt?](#user-content-faq162)
+* [(163) Was ist Nachrichtenklassifizierung?](#user-content-faq163)
+* [(164) Können Sie anpassbare Designs hinzufügen?](#user-content-faq164)
 
 [Ich habe eine weitere Frage.](#user-content-support)
 
@@ -301,8 +301,8 @@ Die folgenden Android-Berechtigungen werden benötigt:
 * Optional: *SD-Karteninhalte lesen* (READ_EXTERNAL_STORAGE): um Dateien von anderen, veralteten Apps anzunehmen, siehe auch [diese FAQ](#user-content-faq49)
 * Optional: *Fingerabdruckhardware nutzen* (USE_FINGERPRINT) und *biometrische Hardware nutzen* (USE_BIOMETRIC): um biometrische Authentifizierung zu verwenden
 * Optional: *Konten auf dem Gerät suchen* (GET_ACCOUNTS): Um ein Konto auszuwählen, wenn die Gmail Schnelleinrichtung verwendet wird
-* Android 5. Lollipop und vorher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google Mail Schnelleinstellung (nicht für spätere Android-Versionen angefordert)
-* Android 5. Lollipop und vorher: *Profil lesen* (READ_PROFILE): um deinen Namen bei der Verwendung des Gmail Schnell-Setups zu lesen (nicht für spätere Android-Versionen angefordert)
+* Android 5.1 Lollipop und vorher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google-Mail-Schnelleinstellung (nicht bei späteren Android-Versionen erforderlich)
+* Android 5.1 Lollipop und vorher: *Profil lesen* (READ_PROFILE): um Ihren Namen bei der Verwendung der Gmail-Schnelleinrichtung zu lesen (nicht bei späteren Android-Versionen erforderlich)
 
 [Optionale Berechtigungen](https://developer.android.com/training/permissions/requesting) werden nur auf Android 6 Marshmallow und später unterstützt. Bei früheren Android-Versionen werden Sie aufgefordert, die optionalen Berechtigungen für die Installation von FairEmail zu erteilen.
 
@@ -2895,7 +2895,7 @@ There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Requested features should:
+Angefragte Funktionen sollten:
 
 * be useful to most people
 * not complicate the usage of FairEmail
