@@ -99,7 +99,7 @@ public class FragmentSetup extends FragmentBase {
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
-        check = getResources().getDrawable(R.drawable.twotone_check_24, getContext().getTheme());
+        check = getContext().getDrawable(R.drawable.twotone_check_24);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 

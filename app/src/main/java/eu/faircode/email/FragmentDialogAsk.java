@@ -61,7 +61,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
 
         if (warning) {
-            Drawable w = context.getResources().getDrawable(R.drawable.twotone_warning_24, context.getTheme());
+            Drawable w = context.getDrawable(R.drawable.twotone_warning_24);
             w.setBounds(0, 0, w.getIntrinsicWidth(), w.getIntrinsicHeight());
             w.setTint(colorError);
             tvMessage.setCompoundDrawablesRelative(w, null, null, null);

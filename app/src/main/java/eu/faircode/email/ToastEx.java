@@ -41,7 +41,7 @@ public class ToastEx extends Toast {
         ToastEx toast = new ToastEx(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.toast, null);
-        view.setBackground(context.getResources().getDrawable(R.drawable.toast_background, context.getTheme()));
+        view.setBackground(context.getDrawable(R.drawable.toast_background));
 
         TextView tv = view.findViewById(android.R.id.message);
         tv.setTextColor(Helper.resolveColor(context, R.attr.colorInfoForeground));
