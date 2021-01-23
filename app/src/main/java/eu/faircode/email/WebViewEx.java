@@ -33,6 +33,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
+
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
@@ -67,6 +72,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             settings.setSafeBrowsingEnabled(safe_browsing);
+
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
+            WebSettingsCompat.setForceDark(settings,
+                    Helper.isDarkTheme(context) ? FORCE_DARK_ON : FORCE_DARK_OFF);
     }
 
     void init(int height, float size, Pair<Integer, Integer> position, IWebView intf) {

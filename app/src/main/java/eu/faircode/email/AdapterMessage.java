@@ -140,6 +140,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.webkit.WebViewFeature;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -3740,7 +3741,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (full) {
                 TextView tvDark = dview.findViewById(R.id.tvDark);
-                tvDark.setVisibility(Helper.isDarkTheme(context) ? View.VISIBLE : View.GONE);
+                tvDark.setVisibility(Helper.isDarkTheme(context)
+                        && !WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)
+                        ? View.VISIBLE : View.GONE);
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 

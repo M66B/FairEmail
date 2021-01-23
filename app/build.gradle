@@ -239,6 +239,7 @@ dependencies {
     def appcompat_version = "1.3.0-beta01"
     def activity_version = "1.2.0-rc01"
     def fragment_version = "1.3.0-rc01"
+    def webkit_version = "1.4.0"
     def recyclerview_version = "1.2.0-beta01"
     def coordinatorlayout_version = "1.1.0"
     def constraintlayout_version = "2.0.2"
@@ -287,6 +288,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.fragment:fragment:$fragment_version"
+
+    // https://developer.android.com/jetpack/androidx/releases/webkit
+    // https://mvnrepository.com/artifact/androidx.webkit/webkit
+    implementation "androidx.webkit:webkit:$webkit_version"
 
     // https://mvnrepository.com/artifact/androidx.viewpager2/viewpager2
     //implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
