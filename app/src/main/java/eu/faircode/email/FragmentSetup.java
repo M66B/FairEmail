@@ -133,8 +133,6 @@ public class FragmentSetup extends FragmentBase {
         grpManual = view.findViewById(R.id.grpManual);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
-        PackageManager pm = getContext().getPackageManager();
-
         // Wire controls
 
         ibHelp.setOnClickListener(new View.OnClickListener() {
@@ -307,6 +305,8 @@ public class FragmentSetup extends FragmentBase {
                     startActivity(settings);
                 }
             });
+
+            PackageManager pm = getContext().getPackageManager();
             btnDataSaver.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
         }
 
@@ -333,6 +333,22 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver.setVisibility(View.GONE);
 
         setContactsPermission(hasPermission(Manifest.permission.READ_CONTACTS));
+
+        return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:manual", manual);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        final DB db = DB.getInstance(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Create outbox
         new SimpleTask<Void>() {
@@ -361,22 +377,6 @@ public class FragmentSetup extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "outbox:create");
-
-        return view;
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:manual", manual);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        final DB db = DB.getInstance(getContext());
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
