@@ -134,7 +134,6 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         PackageManager pm = getContext().getPackageManager();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
 
