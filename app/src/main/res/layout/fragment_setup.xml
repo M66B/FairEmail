@@ -96,13 +96,12 @@
 
         <ImageButton
             android:id="@+id/ibManual"
-            android:layout_width="24dp"
+            android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_expander"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
+            android:padding="12dp"
             app:layout_constraintEnd_toStartOf="@+id/tvManual"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +112,7 @@
             android:id="@+id/tvManual"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="6dp"
+            android:layout_marginEnd="12dp"
             android:gravity="center"
             android:text="@string/title_setup_manual"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -143,7 +142,7 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAccount"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
@@ -190,7 +189,7 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvIdentity"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
@@ -233,7 +232,7 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAccountIdentity"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_setup_account_identity_hint"
