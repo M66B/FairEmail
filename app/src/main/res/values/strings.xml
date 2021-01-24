@@ -282,6 +282,8 @@
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
+    <string name="title_advanced_default">All options have commonly used standard values</string>
+
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">When</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>
