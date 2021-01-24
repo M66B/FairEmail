@@ -390,9 +390,11 @@ Las operaciones sólo se procesan cuando hay una conexión al servidor de correo
 <br />
 *... Certificado de seguridad inválido (no se puede verificar la identidad del servidor) ...*
 
-Debería intentar arreglar esto poniéndose en contacto con su proveedor u obteniendo un certificado de seguridad válido porque los certificados de seguridad inválidos no son seguros y permiten [ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si el dinero es un obstáculo, puede obtener certificados de seguridad gratuitos de [Let’s Encrypt](https://letsencrypt.org).
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (setup step 1/2). Please see the documentation of the email provider about the right host name.
 
-Alternativamente, puede aceptar la huella dactilar de certificados de servidores inválidos como este:
+You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Asegúrese de estar usando una conexión a internet de confianza (no redes Wi-Fi publicas, etc.)
 1. Ve a la pantalla de configuración a través del menú de navegación (deslice desde el lado izquierdo hacia adentro)
@@ -400,39 +402,39 @@ Alternativamente, puede aceptar la huella dactilar de certificados de servidores
 1. Comprobar/guardar la cuenta y la identidad
 1. Marque la casilla debajo del mensaje de error y guarde de nuevo
 
-Esto "fijará" el certificado del servidor para prevenir ataques man-in-the-middle.
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-Tenga en cuenta que las versiones antiguas de Android podrían no reconocer las nuevas autoridades de certificación como Let’s Encrypt que causan que las conexiones se consideren inseguras, vea también [aquí](https://developer.android.com/training/articles/security-ssl).
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
 *Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* significa que el administrador de confianza por defecto de Android no pudo verificar la cadena de certificados del servidor.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-Debería reparar la configuración del servidor o aceptar la huella digital mostrada debajo del mensaje de error.
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Tenga en cuenta que este problema también puede ser causado por el servidor no enviando todos los certificados intermedios.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Contraseña vacía*
+*Empty password*
 
-Su nombre de usuario probablemente sea fácilmente adivinado, por lo que esto es inseguro.
+Your username is likely easily guessed, so this is insecure.
 
-*Conexión de texto plano*
+*Plain text connection*
 
-Su nombre de usuario y contraseña y todos los mensajes serán enviados y recibidos sin cifrar, lo que es **muy inseguro** porque un [ataque de intermediario](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) es muy simple en una conexión no cifrada.
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
-Si todavía desea utilizar un certificado de seguridad no válido, una contraseña vacía o una conexión de texto plano necesitará habilitar conexiones insecuras en la cuenta y/o configuración de identidad. STARTTLS debería ser seleccionado para conexiones de texto simple. Si activa conexiones insecuras, sólo debe conectarse a través de redes privadas y confiables y nunca a través de redes públicas, como las ofrecidas en hoteles, aeropuertos, etc.
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) ¿Cómo puedo personalizar la vista del mensaje?**
+**(5) How can I customize the message view?**
 
-En el menú de tres puntos puede activar o desactivar o seleccionar:
+In the three dot overflow menu you can enable or disable or select:
 
 * *tamaño de texto*: para tres tamaños de fuente diferentes
 * *vista compacta*: para elementos de mensaje más condensados y una fuente de texto más pequeña
 
-En la sección de visualización de los ajustes puede activar o desactivar:
+In the display section of the settings you can enable or disable for example:
 
 * *Bandeja de entrada unificada*: para desactivar la bandeja de entrada unificada y para listar las carpetas seleccionadas para la bandeja de entrada unificada en su lugar
 * *Estilo tabular*: para mostrar una lista lineal en lugar de tarjetas
@@ -449,7 +451,7 @@ En la sección de visualización de los ajustes puede activar o desactivar:
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Tenga en cuenta que los mensajes sólo se pueden previsualizar cuando se haya descargado el texto del mensaje. Los textos de mensajes más grandes no se descargan por defecto en redes medidas (generalmente móviles). You can change this in the connection settings.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
 Some people ask:
 
@@ -865,13 +867,13 @@ El error *... Couldn't connect to host ...* means that there was no response fro
 
 El error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
-El error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
 The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 

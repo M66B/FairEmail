@@ -115,21 +115,21 @@
     <string name="title_edit_folder">Muokkaa kansiota</string>
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
-    <string name="title_setup_welcome">        Viestien vastaanottaminen ja lähettäminen vaatii tilin ja identiteetin asettamisen, kuten missä tahansa sähköpostisovelluksessa.
-        Pika-asennus luo sekä tilin että identiteetin nimesi, sähköpostiosoitteesi, ja salasanasi perusteella.
-        Tilit ja identiteetit (aliakset) voi asettaa tarvittaessa myös erikseen.
-        Epästandardeja protokollia, kuten Microsoft Exchange Web Services ja Microsoft ActiveSync, ei tueta. Katso myös sovelluksen kuvaus.
-    </string>
     <string name="title_setup_quick">Pika-asennus</string>
-    <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_wizard">Asetusvelho</string>
-    <string name="title_setup_wizard_multiple">Asetusvelhoa voidaan käyttää moneen kertaan useamman tilin asettamiseksi</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
-    <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain virallisille sovellusversioille</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_pop3">POP3-tili</string>
@@ -147,26 +147,19 @@
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Yritä asettaa tili ja identiteetti asetusvaiheissa 1 ja 2 käyttäen sähköpostipalveluntarjoajasi antamia asetuksia</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovellussalasanan tilin salasanan sijaan, ole hyvä ja tarkista palveluntarjoajan ohjeet</string>
     <string name="title_setup_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
-    <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
-    <string name="title_setup_quick_failed">Voit yrittää määrittää tilin ja identiteetin alla</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
     <string name="title_setup_grant_again">Myönnä vaaditut oikeudet</string>
-    <string name="title_setup_account">Aseta tilit</string>
-    <string name="title_setup_account_remark">Sähköpostien vastaanottoon</string>
-    <string name="title_setup_account_hint">Tilin värin, kansioiden vasemmalle/oikealle pyyhkäisyn, jne. asettamiseen</string>
-    <string name="title_setup_identity">Aseta identiteetit</string>
-    <string name="title_setup_identity_remark">Sähköpostien lähettämiseen</string>
-    <string name="title_setup_identity_hint">Lähettäjän nimen, värin, allekirjoituksen, jne. asettamiseen</string>
     <string name="title_setup_identity_what">Mikä on identiteetti?</string>
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
-    <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Sähköpostien vastaanottoon luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
@@ -174,7 +167,7 @@
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_advanced_options">Näytä lisäasetukset</string>
-    <string name="title_setup_inbox">Siirry viesteihin</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_to_do">Tehtävänä</string>
     <string name="title_setup_done">Valmis</string>
@@ -222,7 +215,7 @@
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
         Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
     </string>
-    <string name="title_advanced_section_main">Yleiset</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
@@ -603,7 +596,7 @@
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_drafts">Ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
-    <string name="title_no_composable">Sähköpostien lähettäminen edellyttää, että identiteetti on määritetty ja luonnokset-kansio valittu (vaihe 1 asetuksissa)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
@@ -733,7 +726,7 @@
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_new_message">Uusi viesti</string>
     <string name="title_editasnew">Muokkaa uutena</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Muokkaa paikallisia muistiinpanoja</string>
+    <string name="title_edit_notes">Muokkaa paikallisia muistiinpanoja</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
     <string name="title_share">Jaa</string>
     <string name="title_event">Lisää kalenteriin</string>

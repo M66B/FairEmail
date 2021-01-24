@@ -103,19 +103,21 @@
     <string name="title_edit_folder">Ubah folder</string>
     <string name="title_setup">Pengaturan</string>
     <string name="title_setup_help">Bantuan</string>
-    <string name="title_setup_welcome">Menerima dan mengirim pesan membutuhkan penyiapan akun dan identitas seperti pada aplikasi email lainnya. Pengaturan cepat akan membuat akun dan identitas hanya dengan menanyakan nama, alamat email, dan kata sandi Anda.
-
-Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Protokol non-standar, seperti Microsoft Exchange Web Services dan Microsoft ActiveSync, tidak didukung, lihat juga deskripsi aplikasi.</string>
     <string name="title_setup_quick">Pengaturan Cepat</string>
-    <string name="title_setup_quick_remark">Untuk menyiapkan akun dan identitas untuk sebagian besar penyedia dengan cepat</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Pengaturan cepat akan mengambil informasi konfigurasi dari autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
     <string name="title_setup_quick_smtp">Server SMTP untuk mengirim pesan</string>
     <string name="title_setup_wizard">Pemandu</string>
-    <string name="title_setup_wizard_multiple">Panduan penginstalan dapat digunakan beberapa kali untuk mengatur banyak akun</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Saya perlu alamat email baru</string>
-    <string name="title_setup_wizard_remark">Ketuk \'kembali\' untuk membuka kotak masuk</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk versi aplikasi yang resmi saja</string>
     <string name="title_setup_other">Penyedia Lainnya</string>
     <string name="title_setup_pop3">Akun POP3</string>
@@ -133,26 +135,19 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_select_account">Pilih Akun</string>
     <string name="title_setup_instructions">Instruksi Penyiapan</string>
     <string name="title_setup_no_settings">Tidak ada pengaturan yang ditemukan dalam domain \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Coba atur akun dan identitas di langkah penyiapan 1 dan 2 menggunakan pengaturan yang disediakan oleh penyedia email Anda.</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Harap periksa kembali alamat email dan kata sandi Anda dan pastikan akses eksternal (IMAP/SMTP) telah diaktifkan.</string>
     <string name="title_setup_app_password_hint">Penyedia email ini memerlukan kata sandi aplikasi, bukan kata sandi akun, silahkan periksa instruksi penyedia email Anda.</string>
     <string name="title_setup_no_inbox">Kotak masuk tidak ditemukan</string>
     <string name="title_setup_advanced_protection">Ketika terdaftar dalam program perlindungan lanjutan, tidak mungkin menggunakan aplikasi email pihak ketiga. Hal ini merupakan pembatasan yang diberlakukan oleh Google.</string>
-    <string name="title_setup_quick_success">Akun dan identitas berhasil ditambahkan</string>
-    <string name="title_setup_quick_failed">Anda juga bisa mencoba mengonfigurasi akun dan identitas di bawah ini</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Mengelola</string>
     <string name="title_setup_grant">Perizinan</string>
     <string name="title_setup_grant_again">Berikan izin yang diperlukan</string>
-    <string name="title_setup_account">Siapkan akun</string>
-    <string name="title_setup_account_remark">Untuk menerima email</string>
-    <string name="title_setup_account_hint">Untuk mengubah warna, menggeser folder ke kiri/kanan, dll.</string>
-    <string name="title_setup_identity">Penyiapan Identitas</string>
-    <string name="title_setup_identity_remark">Untuk mengirim email</string>
-    <string name="title_setup_identity_hint">Untuk mengubah nama, warna, tanda tangan, dll.</string>
     <string name="title_setup_identity_what">Apa maksudnya identitas?</string>
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
-    <string name="title_setup_doze">Siapkan pengoptimalan baterai</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Untuk menerima email dengan handal</string>
     <string name="title_setup_doze_hint">Meskipun ini mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada dialog berikutnya, pilih \"Semua aplikasi\" di bagian atas, pilih aplikasi ini dan pilih konfirmasi \"Jangan optimalkan\"</string>
@@ -160,7 +155,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
     <string name="title_setup_advanced_options">Tampilkan opsi lanjutan</string>
-    <string name="title_setup_inbox">Lihat pesan</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Mulai</string>
     <string name="title_setup_to_do">Yang perlu dilakukan</string>
     <string name="title_setup_done">Selesai</string>
@@ -208,7 +203,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Utama</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Menerima</string>
     <string name="title_advanced_section_send">Kirim</string>
     <string name="title_advanced_section_connection">Koneksi</string>
@@ -588,7 +583,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_no_inbox">Kotak masuk tidak ditemukan</string>
     <string name="title_no_drafts">Tidak ada folder draf</string>
     <string name="title_no_junk_folder">Tidak ada folder spam yang dipilih untuk akun ini</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Penyedia ini menggunakan protokol surel hak milik dan maka dari itu penggunaan pihak ketiga untuk surel klien tidak memungkinkan</string>
     <string name="title_no_idle">Penyedia ini tidak mendukung pesan push. Hal ini akan menunda penerimaan pesan baru dan meningkatkan penggunaan baterai.</string>
     <string name="title_no_utf8">Penyedia ini tidak mendukung UTF-8</string>
@@ -718,7 +713,7 @@ Akun dan identitas (alias) juga dapat diatur secara manual jika diperlukan. Prot
     <string name="title_forward">Teruskan</string>
     <string name="title_new_message">Pesan baru</string>
     <string name="title_editasnew">Edit sebagai pesan baru</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Buat aturan &#8230;</string>
     <string name="title_share">Bagikan</string>
     <string name="title_event">Tambahkan ke kalender</string>

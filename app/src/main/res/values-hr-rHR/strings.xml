@@ -126,21 +126,21 @@
     <string name="title_edit_folder">Uredi mapu</string>
     <string name="title_setup">Postavke</string>
     <string name="title_setup_help">Pomoć</string>
-    <string name="title_setup_welcome">        Receiving and sending messages requires setting up an account and an identity like in any other email app.
-        The quick setup will create both an account and an identity by just asking for your name, email address, and password.
-        Accounts and identities (aliases) can be set up manually too if needed.
-        Non-standard protocols, such as Microsoft Exchange Web Services and Microsoft ActiveSync, are not supported, also see the app description.
-    </string>
     <string name="title_setup_quick">Brzo postavljanje</string>
-    <string name="title_setup_quick_remark">Za brzo postavljanje računa i identiteta za većinu pružatelja usluga</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">Brzo postavljanje preuzet će informacije o konfiguraciji od autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server za primanje poruka</string>
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_wizard">Asistent</string>
-    <string name="title_setup_wizard_multiple">Asistent za instalaciju može se koristiti više puta za postavljanje više računa</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Trebam novu email adresu</string>
-    <string name="title_setup_wizard_remark">Vrati se \'natrag\' da se otvori jedinstveni spremnik</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_other">Drugi davatelj usluga</string>
     <string name="title_setup_pop3">POP3 račun</string>
@@ -158,26 +158,19 @@
     <string name="title_setup_select_account">Odaberi račun</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Pokušajte postaviti račun i identitet u koracima 1 i 2 za postavljanje pomoću postavki danih od vašeg davatelja usluga e-pošte</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Molimo da provjerite svoju adresu e-pošte i zaporku i provjerite je li omogućen vanjski pristup (IMAP / SMTP) za vaš račun</string>
     <string name="title_setup_app_password_hint">This provider requires an app password instead of the account password, please check the instructions of your provider</string>
     <string name="title_setup_no_inbox">Ulazni spremnik nije pronađen</string>
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
-    <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
-    <string name="title_setup_quick_failed">U nastavku možete pokušati konfigurirati račun i identitet</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Upravljaj</string>
     <string name="title_setup_grant">Odobri</string>
     <string name="title_setup_grant_again">Odobri potrebne dozvola</string>
-    <string name="title_setup_account">Postavljanje računa</string>
-    <string name="title_setup_account_remark">Za primanje e-pošte</string>
-    <string name="title_setup_account_hint">Da biste promijenili boju, povucite lijevu / desnu ciljnu mapu, itd</string>
-    <string name="title_setup_identity">Postavljanje identiteta</string>
-    <string name="title_setup_identity_remark">Za slanje e-pošte</string>
-    <string name="title_setup_identity_hint">Za promjenu imena, boje, potpisa itd</string>
     <string name="title_setup_identity_what">What is an identity?</string>
     <string name="title_setup_permissions">Odobri dopuštenja</string>
     <string name="title_setup_permissions_remark">Pristup informacijama o kontaktu (izborno)</string>
-    <string name="title_setup_doze">Postavljanje optimizacije baterije</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Za pouzdano primanje e-pošte</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">U sljedećem dijalogu odaberite \"sve aplikacije\" pri vrhu, odaberite ovu aplikaciju i odaberite i potvrdite \"ne optimiraj\"</string>
@@ -185,7 +178,7 @@
     <string name="title_setup_doze_stopped">Sinkronizacija zaustavljena?</string>
     <string name="title_setup_data">Ušteda podataka je omogućena</string>
     <string name="title_setup_advanced_options">Show advanced options</string>
-    <string name="title_setup_inbox">Idi na poruke</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Idi</string>
     <string name="title_setup_to_do">Za napraviti</string>
     <string name="title_setup_done">Gotovo</string>
@@ -233,7 +226,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Glavno</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Primanje</string>
     <string name="title_advanced_section_send">Pošalji</string>
     <string name="title_advanced_section_connection">Veza</string>
@@ -615,7 +608,7 @@
     <string name="title_no_inbox">Ulazni spremnik nije pronađen</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Ovaj davatelj koristi vlasnički protokol e-pošte i stoga nije moguće koristiti klijente e-pošte trećih strana</string>
     <string name="title_no_idle">Ovaj davatelj usluga ne podržava push poruke. To će odgoditi prijem novih poruka i povećati potrošnju baterije.</string>
     <string name="title_no_utf8">Ovaj davatelj ne podržava UTF-8</string>
@@ -745,7 +738,7 @@
     <string name="title_forward">Naprijed</string>
     <string name="title_new_message">Nova poruka</string>
     <string name="title_editasnew">Priredi kao novo</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Stvori pravilo &#8230;</string>
     <string name="title_share">Podijeli</string>
     <string name="title_event">Add to calendar</string>

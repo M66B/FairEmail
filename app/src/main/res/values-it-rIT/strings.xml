@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Modifica cartella</string>
     <string name="title_setup">Impostazioni</string>
     <string name="title_setup_help">Aiuto</string>
-    <string name="title_setup_welcome">        Per ricevere e inviare messaggi è necessario impostare un account e un\'identità come in qualsiasi altra applicazione di posta elettronica.
-        La configurazione rapida creerà sia un account che un\'identità chiedendo semplicemente il tuo nome, l\'indirizzo email e la password.
-        Account e identità (alias) possono essere impostati anche  manualmente, se necessario.
-        Protocolli non standard, come Microsoft Exchange Web e Microsoft ActiveSync, non sono supportati, vedere anche la descrizione dell\'app.
-    </string>
     <string name="title_setup_quick">Configurazione rapida</string>
-    <string name="title_setup_quick_remark">Per impostare rapidamente un account e un\'identità per la maggior parte dei provider</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Alcuni fornitori rendono difficile aggiungere un account. Per favore non incolpare FairEmail per questo ma chiedi aiuto invece.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_wizard">Wizard</string>
-    <string name="title_setup_wizard_multiple">La procedura guidata di installazione può essere utilizzata più volte per impostare account multipli</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
-    <string name="title_setup_wizard_remark">Vai \'indietro\' per andare alla casella di posta in arrivo</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Il fornitore di posta elettronica ha approvato OAuth solo per le versioni ufficiali dell\'applicazione</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_pop3">Account POP3</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Seleziona account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Prova a configurare un account e un\'identità nei passaggi 1 e 2 del setup utilizzando le impostazioni fornite dal tuo provider di posta elettronica</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Controlla nuovamente l\'indirizzo email e la password e assicurati che l\'accesso esterno (IMAP/SMTP) sia abilitato per il tuo account</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece della password dell\'account, per favore controlla le istruzioni del tuo provider</string>
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando sei iscritto/a al programma di protezione avanzata non è possibile utilizzare un\'applicazione di posta elettronica di terze parti. Questa è una restrizione imposta da Google.</string>
-    <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
-    <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_grant_again">Concedi le autorizzazioni richieste</string>
-    <string name="title_setup_account">Imposta account</string>
-    <string name="title_setup_account_remark">Per ricevere e-mail</string>
-    <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc</string>
-    <string name="title_setup_identity">Imposta identità</string>
-    <string name="title_setup_identity_remark">Per inviare e-mail</string>
-    <string name="title_setup_identity_hint">Per cambiare nome, colore, firma, ecc</string>
     <string name="title_setup_identity_what">Che cos\'è un\'identità?</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
-    <string name="title_setup_doze">Imposta ottimizzazioni della batteria</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Per ricevere e-mail in modo affidabile</string>
     <string name="title_setup_doze_hint">Anche se questo può sembrare contraddittorio, spegnere le ottimizzazioni della batteria si tradurrà in un minore utilizzo della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra, seleziona \"Tutte le app\" in alto, seleziona questa app e seleziona e conferma \"Non ottimizzare\"</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_data">Risparmio dati attivato</string>
     <string name="title_setup_advanced_options">Mostra opzioni avanzate</string>
-    <string name="title_setup_inbox">Vai ai messaggi</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_to_do">Da fare</string>
     <string name="title_setup_done">Fine</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
         Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
     </string>
-    <string name="title_advanced_section_main">Principale</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
     <string name="title_advanced_section_connection">Connessione</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_no_drafts">Nessuna cartella bozze</string>
     <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
-    <string name="title_no_composable">L\'invio di messaggi di posta elettronica richiede la configurazione di un\'identità e la selezione di una cartella delle bozze nelle impostazioni dell\'account (fase di configurazione 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_no_utf8">Questo provider non supporta UTF-8</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Inoltra</string>
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>

@@ -105,21 +105,21 @@
     <string name="title_edit_folder">Edit folder</string>
     <string name="title_setup">Settings</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_welcome">        Receiving and sending messages requires setting up an account and an identity like in any other email app.
-        The quick setup will create both an account and an identity by just asking for your name, email address, and password.
-        Accounts and identities (aliases) can be set up manually too if needed.
-        Non-standard protocols, such as Microsoft Exchange Web Services and Microsoft ActiveSync, are not supported, also see the app description.
-    </string>
     <string name="title_setup_quick">Quick setup</string>
-    <string name="title_setup_quick_remark">To quickly setup an account and an identity for most providers</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server to receive messages</string>
     <string name="title_setup_quick_smtp">SMTP server to send messages</string>
     <string name="title_setup_wizard">Wizard</string>
-    <string name="title_setup_wizard_multiple">The installation wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
-    <string name="title_setup_wizard_remark">Go \'back\' to go to the inbox</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_other">Other provider</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -137,26 +137,19 @@
     <string name="title_setup_select_account">Select account</string>
     <string name="title_setup_instructions">Setup instructions</string>
     <string name="title_setup_no_settings">No settings found for domain \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Please try setting up an account and identity in setup steps 1 and 2 using the settings provided by your email provider</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Please double check your email address and password and make sure external access (IMAP/SMTP) is enabled for your account</string>
     <string name="title_setup_app_password_hint">This provider requires an app password instead of the account password, please check the instructions of your provider</string>
     <string name="title_setup_no_inbox">Inbox not found</string>
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
-    <string name="title_setup_quick_success">An account and an identity have successfully been added</string>
-    <string name="title_setup_quick_failed">You can try to configure an account and an identity below too</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Manage</string>
     <string name="title_setup_grant">권한 허용</string>
     <string name="title_setup_grant_again">필요한 권한 허용하기</string>
-    <string name="title_setup_account">Setup accounts</string>
-    <string name="title_setup_account_remark">To receive email</string>
-    <string name="title_setup_account_hint">To change color, swipe left/right target folder, etc</string>
-    <string name="title_setup_identity">Setup identities</string>
-    <string name="title_setup_identity_remark">To send email</string>
-    <string name="title_setup_identity_hint">To change name, color, signature, etc</string>
     <string name="title_setup_identity_what">What is an identity?</string>
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
-    <string name="title_setup_doze">Setup battery optimizations</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">To reliably receive email</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
@@ -164,7 +157,7 @@
     <string name="title_setup_doze_stopped">Sync stopped?</string>
     <string name="title_setup_data">Data saver is enabled</string>
     <string name="title_setup_advanced_options">Show advanced options</string>
-    <string name="title_setup_inbox">Go to messages</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Go</string>
     <string name="title_setup_to_do">To do</string>
     <string name="title_setup_done">Done</string>
@@ -212,7 +205,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Principal</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Connection</string>
@@ -594,7 +587,7 @@
     <string name="title_no_inbox">Inbox not found</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">This provider uses a proprietary email protocol and therefore it is not possible to use third party email clients</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
     <string name="title_no_utf8">This provider does not support UTF-8</string>
@@ -724,7 +717,7 @@
     <string name="title_forward">Forward</string>
     <string name="title_new_message">New message</string>
     <string name="title_editasnew">Edit as new</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
     <string name="title_event">Add to calendar</string>

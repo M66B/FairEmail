@@ -137,21 +137,21 @@
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_help">Pomoc</string>
-    <string name="title_setup_welcome">        Odbieranie i wysyłanie wiadomości wymaga skonfigurowania konta i tożsamości, tak jak w każdej innej aplikacji e-mail.
-        Szybka konfiguracja utworzy zarówno konto, jak i tożsamość, po prostu pytając o swoje imię i nazwisko, adres e-mail i hasło.
-        W razie potrzeby konta i tożsamości (aliasy) można również skonfigurować ręcznie.
-        Niestandardowe protokoły, takie jak Microsoft Exchange Web Services i Microsoft ActiveSync, nie są obsługiwane, zobacz także opis aplikacji.
-    </string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
-    <string name="title_setup_quick_remark">Aby szybko skonfigurować konto i tożsamość dla większości dostawców</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_wizard">Kreator</string>
-    <string name="title_setup_wizard_multiple">Kreator instalacji może być użyty wielokrotnie, aby skonfigurować wiele kont</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
-    <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla oficjalnych wersji aplikacji</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_pop3">Konto POP3</string>
@@ -169,26 +169,19 @@
     <string name="title_setup_select_account">Wybierz konto</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie znaleziono ustawień dla domeny \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto i tożsamość w krokach konfiguracji 1 i 2, korzystając z ustawień dostarczonych przez dostawcę poczty e-mail</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
     <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta, sprawdź instrukcje swojego dostawcy</string>
     <string name="title_setup_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
-    <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
-    <string name="title_setup_quick_failed">Możesz ustawić konto i tożsamość w krokach poniżej</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Zarządzaj</string>
     <string name="title_setup_grant">Zezwól</string>
     <string name="title_setup_grant_again">Udziel wymaganych uprawnień</string>
-    <string name="title_setup_account">Skonfiguruj konta</string>
-    <string name="title_setup_account_remark">Do odbioru wiadomości e-mail</string>
-    <string name="title_setup_account_hint">Ustaw/zmień kolor, akcja gestu lewo/prawo, folder docelowy, itp.</string>
-    <string name="title_setup_identity">Skonfiguruj tożsamości</string>
-    <string name="title_setup_identity_remark">Wysyłanie wiadomości e-mail</string>
-    <string name="title_setup_identity_hint">Zmiana nazwy, koloru, podpisu, itp.</string>
     <string name="title_setup_identity_what">Czym jest tożsamość?</string>
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
-    <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Aby niezawodnie odbierać wiadomości e-mail</string>
     <string name="title_setup_doze_hint">Może to brzmieć sprzecznie, ale wyłączenie optymalizacji baterii spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj FairEmail i zaznacz \"Nie optymalizuj\"</string>
@@ -196,7 +189,7 @@
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
     <string name="title_setup_advanced_options">Pokaż opcje zaawansowane</string>
-    <string name="title_setup_inbox">Idź do wiadomości</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Idź</string>
     <string name="title_setup_to_do">Do zrobienia</string>
     <string name="title_setup_done">Gotowe</string>
@@ -244,7 +237,7 @@
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.
          Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
-    <string name="title_advanced_section_main">Główne</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Odbieranie</string>
     <string name="title_advanced_section_send">Wysyłanie</string>
     <string name="title_advanced_section_connection">Połączenie</string>
@@ -626,7 +619,7 @@
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_drafts">Brak folderu szkiców</string>
     <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
-    <string name="title_no_composable">Wysyłanie wiadomości e-maili wymaga skonfigurowania tożsamości i folderu szkiców (do wyboru w ustawieniach konta, konfiguracja krok 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_no_utf8">Ten dostawca nie wspiera UTF-8</string>
@@ -756,7 +749,7 @@
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edytuj lokalne notatki</string>
+    <string name="title_edit_notes">Edytuj lokalne notatki</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>

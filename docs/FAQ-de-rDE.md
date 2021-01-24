@@ -390,9 +390,11 @@ Operationen werden nur bearbeitet, wenn eine Verbindung zum E-Mail-Server besteh
 <br />
 *... Ungültiges Sicherheitszertifikat (Kann die Identität des Servers nicht überprüfen) ...*
 
-Kontaktieren Sie Ihren Provider, um dieses Problem zu beheben oder besorgen Sie sich ein gültiges Sicherheitszertifikat, da ungültige und dadurch unsichere Sicherheitszertifikate [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ermöglichen. Falls Sie die Kosten hierfür scheuen, dann können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) beziehen.
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (setup step 1/2). Please see the documentation of the email provider about the right host name.
 
-Alternativ können Sie den Fingerabdruck ungültiger Server-Zertifikate wie folgt akzeptieren:
+You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke, etc)
 1. Gehen Sie zu den Einstellungen über das Navigationsmenü (wischen Sie von der linken Seite nach innen)
@@ -400,39 +402,39 @@ Alternativ können Sie den Fingerabdruck ungültiger Server-Zertifikate wie folg
 1. Prüfen/Speichern Sie Konto und Identität
 1. Markieren Sie das Kontrollkästchen unterhalb der Fehlermeldung und speichern Sie erneut
 
-Dies wird das Serverzertifikat an das Konto "binden", um Man-in-the-Middle-Angriffe zu verhindern.
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsstellen, wie Let’s Encrypt, möglicherweise nicht akzeptieren wodurch Internetverbindungen als unsicher eingestuft werden können, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-*Vertrauensanker für Zertifizierungspfad nicht gefunden*
+*Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* bedeutet, dass der standardmäßige Android Trust Manager die Server-Zertifikatskette nicht überprüfen konnte.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-Sie sollten entweder die Serverkonfiguration korrigieren oder den unten angezeigten Fingerabdruck akzeptieren.
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Beachten Sie, dass dieses Problem dadurch verursacht werden kann, dass der Server nicht alle Zwischenzertifikate sendet.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Leeres Passwort*
+*Empty password*
 
-Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist dies unsicher.
+Your username is likely easily guessed, so this is insecure.
 
-*Klartext-Verbindung*
+*Plain text connection*
 
-Benutzername und Passwort, sowie alle Nachrichten, werden unverschlüsselt gesendet und empfangen, was im **höchsten Maße unsicher** ist, weil eine [Man-in-the-Middle-Attacke](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf einer unverschlüsselten Verbindung sehr einfach ist.
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
-Wenn Sie dennoch ein ungültiges Sicherheitszertifikat, ein leeres Passwort oder eine Klartext-Verbindung verwenden möchten, dann müssen Sie unsichere Verbindungen in den Konto- und/oder Identitätseinstellungen aktivieren. STARTTLS sollte für Klartext-Verbindungen ausgewählt werden. Wenn Sie unsichere Verbindungen aktivieren, sollten Sie sich nur über private, vertrauenswürdige Netzwerke verbinden und niemals über öffentliche Netzwerke, wie sie in Hotels, Flughäfen usw. angeboten werden.
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Wie kann ich die Nachrichtenanzeige anpassen?**
+**(5) How can I customize the message view?**
 
-Im Burger-Menü können Sie die folgenden Optionen aktivieren/deaktivieren bzw. wählen:
+In the three dot overflow menu you can enable or disable or select:
 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-Im Anzeigebereich der Einstellungen können Sie beispielsweise aktivieren oder deaktivieren:
+In the display section of the settings you can enable or disable for example:
 
 * *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
 * *Tabellenstil*: zum Anzeigen einer linearen Liste anstelle von Karten
@@ -449,7 +451,7 @@ Im Anzeigebereich der Einstellungen können Sie beispielsweise aktivieren oder d
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Beachten Sie, dass die Nachrichtenvorschau nur angezeigt werden kann, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden standardmäßig nicht bei getakteten Datenverbindungen (Mobile Daten) heruntergeladen. You can change this in the connection settings.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
 Some people ask:
 
@@ -871,7 +873,7 @@ The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *...
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The errors *... BYE Logging out ...*, *... Connection reset by peer ...* mean that the email server actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
@@ -2895,7 +2897,7 @@ There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Angefragte Funktionen sollten:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
@@ -2904,10 +2906,10 @@ Angefragte Funktionen sollten:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-»GitHub Issues« sind wegen häufigen Missbrauchs deaktiviert.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

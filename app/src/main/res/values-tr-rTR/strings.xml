@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Klasörü düzenle</string>
     <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
-    <string name="title_setup_welcome">E-posta alıp göndermek için herhangi bir e-posta uygulamasında olduğu gibi bir hesap kurmanız gerekmektedir.
-        Hızlı kurulum, sadece birkaç bilgi sorarak hem bir hesap hem de bir kimlik oluşturmanıza yardımcı olur.
-        Hesapları ve kimlikleri ihtiyaç duyduğunuzda elle de kurabilirsiniz.
-        Microsoft Exchange veya ActiveSync gibi standart dışı protokoller desteklenmemektedir, daha fazlası için uygulama ayrıntılarına bakabilirsiniz.
-    </string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
-    <string name="title_setup_quick_remark">Bir hesabı çabucak kurmak için ve çoğu e posta sağlayıcı için kimlik ayarları</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_wizard">Yardımcı</string>
-    <string name="title_setup_wizard_multiple">Kurulum sihirbazı, birden fazla hesabı ayarlamak için birden çok kez kullanılabilir</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
-    <string name="title_setup_wizard_remark">Gelen kutusuna gitmek için \'geri\' gidin</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">E-posta sağlayıcısı OAuth\'u yalnızca resmi uygulama sürümleri için onayladı</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
-    <string name="title_setup_no_settings_hint">Lütfen e-posta sağlayıcınız tarafından sağlanan ayarları kullanarak 1. ve 2. kurulum adımında bir hesap ve kimlik ayarlamaya çalışın</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Lütfen e-posta adresinizi ve parolanızı tekrar kontrol edin ve hesabınız için harici erişimin (IMAP/SMTP) etkinleştirilmiş olduğundan emin olun</string>
     <string name="title_setup_app_password_hint">Bu sağlayıcı, hesabınızın parolası yerine ayrı bir uygulama parolası istemektedir. Ayrıntılar için sağlayıcınızın size sunduğu yönergelere bakınız</string>
     <string name="title_setup_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_setup_advanced_protection">Gelişmiş koruma programına dahil olduğunuzda, üçüncü parti bir e-posta istemcisi kullanamazsınız. Bu, Google\'ın bir kısıtlamasıdır.</string>
-    <string name="title_setup_quick_success">Bir hesap ve bir kimlik başarıyla eklendi</string>
-    <string name="title_setup_quick_failed">Bir hesap ve kimlik yapılandırmayı aşağıdan da deneyebilirsiniz</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Yönet</string>
     <string name="title_setup_grant">İzin</string>
     <string name="title_setup_grant_again">Gerekli izinleri ver</string>
-    <string name="title_setup_account">Kurulum hesapları</string>
-    <string name="title_setup_account_remark">E-posta almak için</string>
-    <string name="title_setup_account_hint">Rengi değiştirmek için hedef klasörü sola/sağa kaydırın, vb</string>
-    <string name="title_setup_identity">Kurulum kimlikleri</string>
-    <string name="title_setup_identity_remark">E-posta göndermek için</string>
-    <string name="title_setup_identity_hint">Ad, renk, imza vb. değiştirmek için</string>
     <string name="title_setup_identity_what">Kimlik nedir?</string>
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
-    <string name="title_setup_doze">Pil optimizasyonlarını ayarla</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
     <string name="title_setup_doze_hint">Bu çelişkili görünse de pil optimizasyonlarını kapatmak daha az pil kullanımına neden olacaktır</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
     <string name="title_setup_advanced_options">Gelişmiş seçenekleri göster</string>
-    <string name="title_setup_inbox">İletilere git</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_to_do">Yapılacak</string>
     <string name="title_setup_done">Bitti</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
         Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
-    <string name="title_advanced_section_main">Temel</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
     <string name="title_advanced_section_send">Gönder</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_no_drafts">Taslaklar klasörü yok</string>
     <string name="title_no_junk_folder">Bu hesap için seçilmiş bir spam klasörü bulunmamaktadır</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Bu sağlayıcı, açık olmayan bir e-posta protokolü kullanıyor ve bu nedenle üçüncü taraf e-posta istemcilerini kullanmak mümkün değil</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
@@ -734,7 +727,7 @@
     <string name="title_forward">İlet</string>
     <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>

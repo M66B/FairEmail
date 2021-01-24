@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Bewrukje map</string>
     <string name="title_setup">Ynstellingen</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_welcome">        Berjochten ûntfange en ferstjoeren freget it ynstellen fan in akkount en in identiteit lykas yn elke oare e-postapp.
-         De snelle opset sil sawol in akkount as in identiteit oanmeitsje troch gewoan nei jo namme, e-postadres en wachtwurd te freegjen.
-         Akkounts en identiteiten (aliassen) kinne ek as nedich manuell wurde ynsteld.
-         Net-standert protokollen, lykas Microsoft Exchange Web Services en Microsoft ActiveSync, wurde net stipe, sjoch ek de app-beskriuwing.
-    </string>
     <string name="title_setup_quick">Flugge opset</string>
-    <string name="title_setup_quick_remark">Om in akkount en in identiteit fluch yn te stellen foar de measte oanbieders</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Guon oanbieders meitsje it dreech om in akkount ta te foegjen. Doch asjebleaft FairEmail hjir gjin skuld foar, mar freegje ynstee om stipe.</string>
     <string name="title_setup_quick_hint">De rappe opset sil konfiguraasje-ynformaasje ophelje fan autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
     <string name="title_setup_quick_smtp">SMTP-tsjinner om berjochten te ferstjoeren</string>
     <string name="title_setup_wizard">Tsjoender</string>
-    <string name="title_setup_wizard_multiple">De ynstallaasjewizard kin meardere kearen brûkt wurde om meardere akkounts yn te stellen</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Ik haw in nij e-postadres nedich</string>
-    <string name="title_setup_wizard_remark">Gean \'werom\' om nei it postfak te gean</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">De e-postprovider hat OAuth allinich goedkard foar offisjele appferzjes</string>
     <string name="title_setup_other">Oare oanbieder</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Selektearje akkount</string>
     <string name="title_setup_instructions">Ynstel ynstruksjes</string>
     <string name="title_setup_no_settings">Gjin ynstellings fûn foar domein \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Besykje in akkount en identiteit yn te stellen yn opsetstappen 1 en 2 mei de ynstellingen levere troch jo e-postprovider</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Kontrolearje asjebleaft jo e-postadres en wachtwurd en soargje derfoar dat eksterne tagong (IMAP / SMTP) is ynskeakele foar jo akkount</string>
     <string name="title_setup_app_password_hint">Dizze provider fereasket in appwachtwurd ynstee fan it akkountwachtwurd, kontrolearje asjebleaft de ynstruksjes fan jo provider</string>
     <string name="title_setup_no_inbox">Postfak net fûn</string>
     <string name="title_setup_advanced_protection">As jo ynskreaun binne yn it avansearre beskermingsprogramma is it net mooglik om in e-postapp fan tredden te brûken. Dit is in beheining oplein troch Google.</string>
-    <string name="title_setup_quick_success">In akkount en in identiteit binne mei sukses tafoege</string>
-    <string name="title_setup_quick_failed">Jo kinne ek hjirûnder besykje in akkount en in identiteit te konfigurearjen</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Beheare</string>
     <string name="title_setup_grant">Subsydzje</string>
     <string name="title_setup_grant_again">Subsydzje fereaske tagongsrjochten</string>
-    <string name="title_setup_account">Opset akkounts</string>
-    <string name="title_setup_account_remark">Om e-post te ûntfangen</string>
-    <string name="title_setup_account_hint">Om kleur te feroarjen, swipe jo lofts/rjochts doel map, ensfh</string>
-    <string name="title_setup_identity">Opset identiteiten</string>
-    <string name="title_setup_identity_remark">Om e-post te stjoeren</string>
-    <string name="title_setup_identity_hint">Om namme, kleur, hantekening, ensfh. Te feroarjen</string>
     <string name="title_setup_identity_what">Wat is in identiteit?</string>
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
     <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
-    <string name="title_setup_doze">Batterij-optimisaasjes ynstelle</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Om e-post betrouber te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil it útskeakeljen fan batterijoptimaasjes resultearje yn minder batterijgebrûk</string>
     <string name="title_setup_doze_instructions">Selektearje yn it folgjende dialooch \"Alle apps\" boppe, selektearje dizze app en selektearje en befestigje \"Net optimalisearje\"</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
     <string name="title_setup_data">Data saver is ynskeakele</string>
     <string name="title_setup_advanced_options">Avansearre opsjes sjen litte</string>
-    <string name="title_setup_inbox">Gean nei berjochten</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Gean</string>
     <string name="title_setup_to_do">Dwaan</string>
     <string name="title_setup_done">Dien</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Holle</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Ûntfangen</string>
     <string name="title_advanced_section_send">Stjoere</string>
     <string name="title_advanced_section_connection">Ferbining</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Postfak net fûn</string>
     <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_no_junk_folder">D\'r is gjin spam-map selektearre foar dit akkount</string>
-    <string name="title_no_composable">E-post ferstjoere fereasket in identiteit te konfigurearjen en in dampprogramma moat wurde selektearre yn \'e akkountynstellings (ynstellingsstap 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Dizze provider brûkt in proprietêr e-postprotokol en dêrom is it net mooglik e-postkliïnten fan tredden te brûken</string>
     <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
     <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Foarút</string>
     <string name="title_new_message">Nij berjocht</string>
     <string name="title_editasnew">Bewurkje as nij</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Regel meitsje &#8230;</string>
     <string name="title_share">Diele</string>
     <string name="title_event">Tafoegje oan aginda</string>

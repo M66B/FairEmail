@@ -117,21 +117,21 @@
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
-    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität, wie bei jeder anderen E-Mail-Anwendung.
-Der Assistent erstellt sowohl ein Konto als auch eine Identität, indem Sie nur nach Ihrem Namen, Ihrer E-Mail-Adresse und Ihrem Passwort gefragt werden.
-Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet werden.
-Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Services“ und „Microsoft ActiveSync“, werden nicht unterstützt. (Siehe auch die Beschreibung der App).
-    </string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
-    <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
+    <string name="title_setup_quick_accounts">Konten hinzufügen</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_wizard">Assistent</string>
-    <string name="title_setup_wizard_multiple">Der Installationsassistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
+    <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
-    <string name="title_setup_wizard_remark">„Zurück“ führt zum Posteingang</string>
+    <string name="title_setup_manual">Manuelles Setup und weitere Optionen</string>
+    <string name="title_setup_account_remark">E-Mail empfangen</string>
+    <string name="title_setup_identity_remark">E-Mail senden</string>
+    <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen konfigurieren und eine Signatur in den Identitätseinstellungen konfigurieren</string>
+    <string name="title_setup_accounts">Konten</string>
+    <string name="title_setup_identities">Identitäten</string>
     <string name="title_setup_oauth_permission">Der E-Mail-Anbieter hat OAuth nur für offizielle App-Versionen zugelassen</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_pop3">POP3-Konto</string>
@@ -149,26 +149,19 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
     <string name="title_setup_no_settings">Keine Einstellungen für Domain \'%1$s\' gefunden</string>
-    <string name="title_setup_no_settings_hint">Bitte versuchen Sie, ein Konto und eine Identität in Schritt 1 und 2 des Setups einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters nutzen</string>
+    <string name="title_setup_no_settings_hint">Versuchen Sie, ein Konto manuell einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters verwenden</string>
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
     <string name="title_setup_app_password_hint">Dieser Anbieter verlangt ein App-Passwort anstelle des Kontenpassworts. Bitte folgen Sie den Anweisungen Ihres Anbieters.</string>
     <string name="title_setup_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Schutzprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-Anwendung von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
-    <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
-    <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
+    <string name="title_setup_quick_success">Ein Konto wurde erfolgreich hinzugefügt</string>
     <string name="title_setup_manage">Verwalten</string>
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_grant_again">Benötigte Rechte erteilen</string>
-    <string name="title_setup_account">Konten einrichten</string>
-    <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
-    <string name="title_setup_account_hint">Um die Farbe zu ändern, nach links/rechts auf Zielordner, usw. wischen</string>
-    <string name="title_setup_identity">Identitäten einrichten</string>
-    <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
-    <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur usw. zu ändern</string>
     <string name="title_setup_identity_what">Was ist eine Identität?</string>
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
-    <string name="title_setup_doze">Akkuoptimierungen einrichten</string>
+    <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Um Nachrichten zuverlässig abzurufen</string>
     <string name="title_setup_doze_hint">Auch wenn es widersprüchlich klingt, wird das Ausschalten der Akkuoptimierung zu weniger Akkuverbrauch führen</string>
     <string name="title_setup_doze_instructions">Bitte oben im folgenden Auswahldialog »Alle Apps« aufrufen und anschließend FairEmail auswählen, danach die Option »Nicht optimieren« mit »Fertig« bestätigen.</string>
@@ -176,7 +169,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
     <string name="title_setup_advanced_options">Erweiterte Optionen anzeigen</string>
-    <string name="title_setup_inbox">Zu Nachrichten wechseln</string>
+    <string name="title_setup_inbox">Zum Posteingang</string>
     <string name="title_setup_go">Los</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Fertig</string>
@@ -606,7 +599,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
-    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität (Einstellungen, Punkt 2) und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe” (Einstellungen, Punkt 1)</string>
+    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe”</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
@@ -735,7 +728,7 @@ Protokolle, die dem Standard nicht entsprechen, wie „Microsoft Exchange Web Se
     <string name="title_forward">Weiterleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Lokale Notizen bearbeiten</string>
+    <string name="title_edit_notes">Lokale Notizen bearbeiten</string>
     <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>

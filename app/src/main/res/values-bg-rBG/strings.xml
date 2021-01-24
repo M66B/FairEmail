@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
-    <string name="title_setup_welcome">        Получаването и изпращането на съобщения изисква настройка на профил и самоличност, като всяко друго имейл приложение.
-        Бързата настройка ще създаде както профил, така и самоличност, само като поиска вашето име, имейл адрес и парола.
-        Профилите и самоличносттите (псевдонимите) могат да се настройват и ръчно, ако е необходимо.
-        Нестандартни протоколи, като Microsoft Exchange Web Services и Microsoft ActiveSync, не се поддържат, вижте също описанието на приложението.
-    </string>
     <string name="title_setup_quick">Бърза настройка</string>
-    <string name="title_setup_quick_remark">За бърза настройка на профил и идентичност за повечето доставчици</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">Бързата настройка ще извлече информация за конфигурацията от autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
     <string name="title_setup_wizard">Помощник</string>
-    <string name="title_setup_wizard_multiple">Помащникът за инсталиране може да се използва многократно за настройка на няколко профила</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
-    <string name="title_setup_wizard_remark">Назад за връщане в пощенската кутия</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_other">Друг доставчик</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Изберане на профил</string>
     <string name="title_setup_instructions">Указания за настройка</string>
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
-    <string name="title_setup_no_settings_hint">Моля, опитайте да настроите профил и самоличност в стъпки за настройка 1 и 2, като използвате настройките, предоставени от вашия доставчик на електронна поща</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
     <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за акаунта, моля, проверете инструкциите на вашия доставчик</string>
     <string name="title_setup_no_inbox">Inbox not found</string>
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
-    <string name="title_setup_quick_success">Профил и идентичност бяха успешно добавени</string>
-    <string name="title_setup_quick_failed">Можете да опитате да конфигурирате профил и идентичност по долу</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Управление</string>
     <string name="title_setup_grant">Разреши</string>
     <string name="title_setup_grant_again">Даване не необходимите разрешения</string>
-    <string name="title_setup_account">Настройка профил</string>
-    <string name="title_setup_account_remark">За получаване на имейл</string>
-    <string name="title_setup_account_hint">За промяна на цвета, прекарайте пръст наляво/надясно на избраната папка и т. н.</string>
-    <string name="title_setup_identity">Настройка на идентичност</string>
-    <string name="title_setup_identity_remark">За изпращане на имейл</string>
-    <string name="title_setup_identity_hint">Промяна на име, цвят, подпис, т. н.</string>
     <string name="title_setup_identity_what">What is an identity?</string>
     <string name="title_setup_permissions">Даване на разрешение</string>
     <string name="title_setup_permissions_remark">Достъп до информацията за контакт (незадължително)</string>
-    <string name="title_setup_doze">Настройка на оптимизацията на батерията</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">To reliably receive email</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">В следващия диалогов прозорец изберете „Всички приложения“ в горната част, изберете това приложение и изберете и потвърдете „Не оптимизирайте“</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Стоп синхр?</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
     <string name="title_setup_advanced_options">Показване на разширени опции</string>
-    <string name="title_setup_inbox">Към съобщенията</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Напред</string>
     <string name="title_setup_to_do">Да се направи</string>
     <string name="title_setup_done">Готово</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Основен</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Получаване</string>
     <string name="title_advanced_section_send">Изпращане</string>
     <string name="title_advanced_section_connection">Свързване</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Този доставчик използва собствен имейл протокол и следователно не е възможно да се използват имейл клиенти на трети страни</string>
     <string name="title_no_idle">Този доставчик не поддържа push съобщения. Това ще забави получаването на нови съобщения и ще увеличи консумацията на батерията.</string>
     <string name="title_no_utf8">Този доставчик не поддържа UTF-8</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Препрати</string>
     <string name="title_new_message">Ново съобщение</string>
     <string name="title_editasnew">Редактирай като нов</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Създай правило &#8230;</string>
     <string name="title_share">Споделяне</string>
     <string name="title_event">Добавяне в календара</string>

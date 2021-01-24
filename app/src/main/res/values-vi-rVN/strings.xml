@@ -105,21 +105,21 @@
     <string name="title_edit_folder">Chỉnh sửa thư mục</string>
     <string name="title_setup">Cài đặt</string>
     <string name="title_setup_help">Trợ giúp</string>
-    <string name="title_setup_welcome">        Việc nhận và gửi thư yêu cầu thiết lập một tài khoản và một danh tính giống như bất kỳ ứng dụng email nào.
-        Thiết lập nhanh sẽ tạo cả một tài khoản và một danh tính bằng cách chỉ hỏi tên bạn, địa chỉ email, và mật khẩu.
-        Những tài khoản và danh tính (tên khác) có thể được thiết lập thủ công nếu cần.
-        Những giao thức phi tiêu chuẩn, như Microsoft Exchange Web Services và Microsoft ActiveSync, không được hỗ trợ, đồng thời hãy xem miêu tả ứng dụng.
-    </string>
     <string name="title_setup_quick">Thiết lập nhanh</string>
-    <string name="title_setup_quick_remark">Để thiết lập nhanh một tài khoản và danh tính cho phần lớn nhà cung cấp</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
     <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
     <string name="title_setup_wizard">Trình hướng dẫn</string>
-    <string name="title_setup_wizard_multiple">The installation wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
-    <string name="title_setup_wizard_remark">\'Quay lại\' để đi đến hộp thư đến</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
     <string name="title_setup_other">Nhà cung cấp khác</string>
     <string name="title_setup_pop3">Tài khoản POP3</string>
@@ -137,26 +137,19 @@
     <string name="title_setup_select_account">Chọn tài khoản</string>
     <string name="title_setup_instructions">Hướng dẫn thiết lập</string>
     <string name="title_setup_no_settings">Không có cài đặt nào được tìm thấy cho miền \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Please try setting up an account and identity in setup steps 1 and 2 using the settings provided by your email provider</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Please double check your email address and password and make sure external access (IMAP/SMTP) is enabled for your account</string>
     <string name="title_setup_app_password_hint">Nhà cung cấp này yêu cầu mật khẩu ứng dụng thay vì mật khẩu tài khoản, hãy kiểm tra hướng dẫn của nhà cung cấp của bạn</string>
     <string name="title_setup_no_inbox">Không tìm thấy hộp thư đến</string>
     <string name="title_setup_advanced_protection">Khi đã tham gia vào chương trình bảo vệ nâng cao, không thể dùng ứng dụng email bên thứ ba. Đây là sự hạn chế bị áp đặt bởi Google.</string>
-    <string name="title_setup_quick_success">Một tài khoản và danh tính đã được thêm thành công</string>
-    <string name="title_setup_quick_failed">Bạn cũng có thể cố thiết lập một tài khoản và danh tính ở dưới</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Quản lý</string>
     <string name="title_setup_grant">Cho phép</string>
     <string name="title_setup_grant_again">Cho phép các quyền được yêu cầu</string>
-    <string name="title_setup_account">Thiết lập tài khoản</string>
-    <string name="title_setup_account_remark">Để nhận email</string>
-    <string name="title_setup_account_hint">Để thay đổi màu, vuốt trái/phải thư mục,...</string>
-    <string name="title_setup_identity">Thiết lập danh tính</string>
-    <string name="title_setup_identity_remark">Để gửi email</string>
-    <string name="title_setup_identity_hint">Để thay đổi tên, màu, chữ ký,...</string>
     <string name="title_setup_identity_what">Danh tính là gì?</string>
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin danh bạ (không bắt buộc)</string>
-    <string name="title_setup_doze">Thiết lập tối ưu hoá pin</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Để nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_hint">Mặc dù điều này có thể nghe mâu thuẫn, nhưng tắt tối ưu hoá pin sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại tiếp, chọn \"Tất cả ứng dụng\" trên đầu, chọn ứng dụng này và xác nhận \"Không tối ưu hoá\"</string>
@@ -164,7 +157,7 @@
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
     <string name="title_setup_advanced_options">Hiển thị tùy chọn nâng cao</string>
-    <string name="title_setup_inbox">Đi vào hộp thư</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Bắt đầu</string>
     <string name="title_setup_to_do">Cần làm</string>
     <string name="title_setup_done">Xong</string>
@@ -212,7 +205,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Principal</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Nhận</string>
     <string name="title_advanced_section_send">Gửi</string>
     <string name="title_advanced_section_connection">Kết nối</string>
@@ -594,7 +587,7 @@
     <string name="title_no_inbox">Inbox not found</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">This provider uses a proprietary email protocol and therefore it is not possible to use third party email clients</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
     <string name="title_no_utf8">This provider does not support UTF-8</string>
@@ -724,7 +717,7 @@
     <string name="title_forward">Forward</string>
     <string name="title_new_message">New message</string>
     <string name="title_editasnew">Edit as new</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
     <string name="title_event">Add to calendar</string>

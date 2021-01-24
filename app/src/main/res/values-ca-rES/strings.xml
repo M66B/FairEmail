@@ -115,21 +115,21 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_edit_folder">Edita la carpeta</string>
     <string name="title_setup">Preferències</string>
     <string name="title_setup_help">Ajuda</string>
-    <string name="title_setup_welcome">        Per rebre i enviar missatges cal configurar un compte i una identitat com en qualsevol altra aplicació de correu electrònic.
-        La configuració ràpida crearà tant un compte com una identitat només demanant el vostre nom, adreça de correu electrònic i contrasenya.
-        Si es necessita, també es poden configurar manualment comptes i identitats (àlies).
-        Els protocols no estàndards, com Microsoft Exchange Web Services i Microsoft ActiveSync, no estan suportats, vegeu també la descripció de l\'aplicació.
-    </string>
     <string name="title_setup_quick">Configuració ràpida</string>
-    <string name="title_setup_quick_remark">Per configurar ràpidament un compte i una identitat per a la majoria de proveïdors</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_wizard">Assistent</string>
-    <string name="title_setup_wizard_multiple">L’assistent d’instal·lació es pot utilitzar diverses vegades per configurar diversos comptes</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
-    <string name="title_setup_wizard_remark">Vés \"enrere\" per anar a la safata d\'entrada</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_other">Altres proveïdors</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -147,26 +147,19 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_select_account">Selecciona un compte</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Proveu de configurar un compte i una identitat als passos 1 i 2 de configuració mitjançant la configuració del proveïdor de correu electrònic</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Comproveu la vostra adreça de correu electrònic i la contrasenya i assegureu-vos que l’accés extern (IMAP/SMTP) estigui habilitat per al vostre compte</string>
     <string name="title_setup_app_password_hint">Aquest proveïdor necessita una contrasenya de l’aplicació en lloc de la contrasenya del compte, consulteu les instruccions del proveïdor</string>
     <string name="title_setup_no_inbox">Inbox not found</string>
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
-    <string name="title_setup_quick_success">S\'han afegit correctament un compte i una identitat</string>
-    <string name="title_setup_quick_failed">A més, podeu provar de configurar un compte i una identitat</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Gestiona</string>
     <string name="title_setup_grant">Permet</string>
     <string name="title_setup_grant_again">Concedeix els permisos requerits</string>
-    <string name="title_setup_account">Configuració dels comptes</string>
-    <string name="title_setup_account_remark">Per rebre correu electrònic</string>
-    <string name="title_setup_account_hint">Per canviar el color, llisca la carpeta de destinació cap a la dreta/esquerra, etc</string>
-    <string name="title_setup_identity">Configuració d\'identitats</string>
-    <string name="title_setup_identity_remark">Per enviar correus electrònics</string>
-    <string name="title_setup_identity_hint">Per canviar el nom, color, signatura, etc</string>
     <string name="title_setup_identity_what">Què és una identitat?</string>
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
-    <string name="title_setup_doze">Configuració de l\'optimització de bateria</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">To reliably receive email</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
@@ -174,7 +167,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_doze_stopped">S\'ha aturat la sincronització?</string>
     <string name="title_setup_data">L\'estalvi de dades està activat</string>
     <string name="title_setup_advanced_options">Mostra les opcions avançades</string>
-    <string name="title_setup_inbox">Anar als missatges</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_to_do">Per fer</string>
     <string name="title_setup_done">Fet</string>
@@ -222,7 +215,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Principal</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Rebre</string>
     <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Connexió</string>
@@ -604,7 +597,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_no_inbox">No s\'ha trobat la bustia</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Aquest proveïdor utilitza un protocol de correu electrònic propietari i per tant no és possible utilitzar clients de correu electrònic de tercers</string>
     <string name="title_no_idle">Aquest proveïdor no admet missatges push. Això retardarà la recepció de nous missatges i augmentarà l’ús de la bateria.</string>
     <string name="title_no_utf8">Aquest proveïdor no és compatible amb UTF-8</string>
@@ -734,7 +727,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_forward">Següent</string>
     <string name="title_new_message">Missatge nou</string>
     <string name="title_editasnew">Editar com a nou</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Crea la regla &#8230;</string>
     <string name="title_share">Compartir</string>
     <string name="title_event">Afegeix al calendari</string>

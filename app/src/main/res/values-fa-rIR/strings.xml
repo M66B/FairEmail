@@ -116,21 +116,21 @@
     <string name="title_edit_folder">ويرايش پوشه</string>
     <string name="title_setup">تنظیمات</string>
     <string name="title_setup_help">راهنما</string>
-    <string name="title_setup_welcome">        دریافت و ارسال پیام‌ها همانند هر برنامه ایمیل دیگری نیاز به تنظیم یک حساب کاربری و هویت دارد.
-        راه‌اندازی سریع یک حساب و هم یک هویت فقط با پرسیدن نام شما ، نشانی ایمیل ، و گذرواژه خواهد ساخت.
-        حساب‌ها و هویت‌ها(نام‌های مستعار) در صورت نیاز می‌توانند دستی نیز تنظیم شوند.
-        پروتکل‌های غیر استاندارد،مانند Microsoft Exchange Web Services و Microsoft ActiveSync پشتیبانی نمی‌شوند، همچنین شرح برنامه را ببینید.
-    </string>
     <string name="title_setup_quick">راه‌اندازی سریع</string>
-    <string name="title_setup_quick_remark">برای راه‌اندازی سریع یک حساب و شناسه برای بیشتر فراهم کنندگان</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">راه‌اندازی سریع اطلاعات پیکربندی را از autoconfig.thunderbird.net واکشی خواهد کرد</string>
     <string name="title_setup_quick_imap">سرور IMAP برای دریافت پیام‌ها</string>
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
     <string name="title_setup_wizard">جادوگر</string>
-    <string name="title_setup_wizard_multiple">جادوگر نصب می‌تواند چندین بار برای راه‌اندازی چندین حساب‌ مورد استفاده قرار بگیرد</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">من به یک نشانی‌های ایمیل تازه نیاز دارم</string>
-    <string name="title_setup_wizard_remark">برای رفتن به صندوق ورودی به عقب بروید</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for official app versions</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">انتخاب حساب</string>
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
     <string name="title_setup_no_settings">برای دامنه \'%1$s\' هیچ تنظیماتی یافت نشد</string>
-    <string name="title_setup_no_settings_hint">لطفا در گام ۱ و ۲ با استفاده از تنطیمات ارائه شده توسط فراهم‌کننده ایمیلتان، یک حساب و هویت راه اندازی کنید</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">لطفا نشانی ایمیل و گذرواژه خود را دوباره بررسی کنید و اطمینان یابید که دسترسی بیرونی (IMAP/SMTP) برای حسابتان فعال می‌باشد</string>
     <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
     <string name="title_setup_no_inbox">Inbox not found</string>
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
-    <string name="title_setup_quick_success">یک حساب و یک هویت با موفقیت اضافه شد</string>
-    <string name="title_setup_quick_failed">می‌توانید برای پیکربندی حساب و هویت در زیر نیز اقدام کنید</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">مدیریت</string>
     <string name="title_setup_grant">دادن</string>
     <string name="title_setup_grant_again">مجوزهای مورد نیاز را اعطا کنید</string>
-    <string name="title_setup_account">راه اندازی حساب‌ها</string>
-    <string name="title_setup_account_remark">برای دریافت ایمیل</string>
-    <string name="title_setup_account_hint">برای تغییر رنگ، پوشه هدف را به چپ/راست بکشید، وغیره</string>
-    <string name="title_setup_identity">راه اندازی هویت‌ها</string>
-    <string name="title_setup_identity_remark">برای ارسال ایمیل</string>
-    <string name="title_setup_identity_hint">برای تغییر نام، رنگ، امضاء، وغیره</string>
     <string name="title_setup_identity_what">هویت چیست؟</string>
     <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
-    <string name="title_setup_doze">راه‌اندازی بهینه‌سازی‌ باتری</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">To reliably receive email</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">در قسمت بعد \"تمام برنامه‌ها\" را از قسمت بالا انتخاب کرده و سپس این برنامه را انتخاب کنید و گزینه \"عدم بهینه سازی\" را انتخاب و تایید نمایید.</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_data">سرور داده فعال شده است</string>
     <string name="title_setup_advanced_options">نمایش گزینه‌های پیشرفته</string>
-    <string name="title_setup_inbox">رفتن به پیام‌ها</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">برو</string>
     <string name="title_setup_to_do">برای انجام</string>
     <string name="title_setup_done">انجام شد</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">پایه</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">دریافت</string>
     <string name="title_advanced_section_send">ارسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_no_drafts">No drafts folder</string>
     <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">فراهم‌کننده از پروتکل اختصاصی استفاده می‌کند برای همین استفاده از کارخواه‌های شخص سوم ممکن نیست</string>
     <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">هدایت</string>
     <string name="title_new_message">پیام جدید</string>
     <string name="title_editasnew">ویرایش به‌عنوان جدید</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">ساخت قانون &#8230;</string>
     <string name="title_share">اشتراک گذاری</string>
     <string name="title_event">افزودن به تقویم</string>

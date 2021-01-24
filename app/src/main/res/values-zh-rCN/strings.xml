@@ -104,21 +104,21 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
-    <string name="title_setup_welcome">接收和发送消息需要像在其他邮件 app 中一样设置一个帐户和一个身份；
-        “快速设置”将仅通过询问您的姓名、邮箱地址和密码来创建一个帐户和身份；
-        如果有需要，也可以手动设置帐户和身份(别名)；
-        不支持非标准协议，例如 Microsoft Exchange Web Services 和 Microsoft ActiveSync，另请参阅应用程序说明
-    </string>
     <string name="title_setup_quick">快速设置</string>
-    <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
+    <string name="title_setup_quick_accounts">添加账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_wizard">向导</string>
-    <string name="title_setup_wizard_multiple">可多次使用安装向导来设置多个账户</string>
+    <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
-    <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
+    <string name="title_setup_manual">手动设置和更多选项</string>
+    <string name="title_setup_account_remark">接收电子邮件</string>
+    <string name="title_setup_identity_remark">发送电子邮件</string>
+    <string name="title_setup_account_identity_hint">你可以在账号设置中配置名称、颜色和滑动动作，在身份设置中配置签名</string>
+    <string name="title_setup_accounts">账户</string>
+    <string name="title_setup_identities">身份</string>
     <string name="title_setup_oauth_permission">电子邮件服务提供商仅允许官方应用程序版本使用OAuth</string>
     <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_pop3">POP3 帐户</string>
@@ -136,26 +136,19 @@
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
-    <string name="title_setup_no_settings_hint">请尝试使用您的电子邮件提供商提供的设置，在设置步骤1和2中设置一个账户和身份</string>
+    <string name="title_setup_no_settings_hint">尝试使用电子邮件供应商提供的设置手动设置一个帐户</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的电子邮件地址和密码，并确保您的账户启用外部访问 (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是账户密码，请查看该供应商的相关说明</string>
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
-    <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
-    <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
+    <string name="title_setup_quick_success">成功添加一个账户</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
-    <string name="title_setup_account">设置账户</string>
-    <string name="title_setup_account_remark">用于接收电子邮件</string>
-    <string name="title_setup_account_hint">左/右滑动目标文件夹来更改颜色</string>
-    <string name="title_setup_identity">设置身份</string>
-    <string name="title_setup_identity_remark">用于发送电子邮件</string>
-    <string name="title_setup_identity_hint">更改姓名、颜色、签名等</string>
     <string name="title_setup_identity_what">什么是身份？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
-    <string name="title_setup_doze">设置电池优化</string>
+    <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">使接收邮件更可靠</string>
     <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但关闭电池优化将减少电池用量</string>
     <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
@@ -163,7 +156,7 @@
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_advanced_options">显示高级选项</string>
-    <string name="title_setup_inbox">前往邮件</string>
+    <string name="title_setup_inbox">转到收件箱</string>
     <string name="title_setup_go">前往</string>
     <string name="title_setup_to_do">待办事项</string>
     <string name="title_setup_done">已完成</string>
@@ -593,7 +586,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_composable">发送邮件需要配置身份，并在帐户设置中选择草稿文件夹 (设置第一步)</string>
+    <string name="title_no_composable">发送邮件需要配置一个身份，并在账户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
@@ -723,7 +716,7 @@
     <string name="title_forward">转发</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">编辑本地笔记</string>
+    <string name="title_edit_notes">编辑本地笔记</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>

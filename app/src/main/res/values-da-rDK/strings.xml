@@ -116,13 +116,8 @@
     <string name="title_edit_folder">Redigér mappe</string>
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
-    <string name="title_setup_welcome">        Modtagelse og afsendelse af beskeder kræver opsætning af en konto og identitet som i enhver anden e-mail app.
-        Hurtig-opsætningen opretter både en konto og identitet ved blot at bede om dit navn, e-mail og adgangskode.
-        Konti og identiteter (aliasser) kan også opsættes manuelt om ønsket.
-        Ikke-standardprotokoller, såsom Microsoft Exchange Web Services og Microsoft ActiveSync, understøttes ikke. Se også app-beskrivelsen.
-    </string>
     <string name="title_setup_quick">Hurtig opsætning</string>
-    <string name="title_setup_quick_remark">For hurtigt at opsætte en konto og identitet for de fleste udbydere</string>
+    <string name="title_setup_quick_accounts">Tilføj konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
@@ -130,7 +125,12 @@
     <string name="title_setup_wizard">Guide</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan anvendes flere gange til opsætning af flere konti</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
-    <string name="title_setup_wizard_remark">Returnér til indbakken</string>
+    <string name="title_setup_manual">Manuel opsætning og flere muligheder</string>
+    <string name="title_setup_account_remark">Modtag e-mail</string>
+    <string name="title_setup_identity_remark">Send e-mail</string>
+    <string name="title_setup_account_identity_hint">Du kan indstille navn, farve og stryg handlinger i kontoindstillingerne, og konfigurere en signatur i identitetsindstillingerne</string>
+    <string name="title_setup_accounts">Konti</string>
+    <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_oauth_permission">E-mailudbyderen har alene godkendt OAuth for officielle app-versioner</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_pop3">POP3 konto</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Prøv at opsætte en konto og identitet i opsætningstrin 1 og 2 vha. indstillingerne leveret af din e-mailudbyder</string>
+    <string name="title_setup_no_settings_hint">Prøv at oprette en konto manuelt ved hjælp af indstillingerne fra din e-mail-udbyder</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
     <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
     <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
-    <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
-    <string name="title_setup_quick_failed">Du kan også prøve at opsætte en konto og identitet nedenfor</string>
+    <string name="title_setup_quick_success">En konto er blevet tilføjet</string>
     <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_grant">Tillad</string>
     <string name="title_setup_grant_again">Tildel nødvendige tilladelser</string>
-    <string name="title_setup_account">Opsæt konti</string>
-    <string name="title_setup_account_remark">Til at modtage e-mail</string>
-    <string name="title_setup_account_hint">For at ændre farve, så stryg venstre/højre på målmappe osv.</string>
-    <string name="title_setup_identity">Opsæt identiteter</string>
-    <string name="title_setup_identity_remark">Til at sende e-mail</string>
-    <string name="title_setup_identity_hint">Skift af navn, farve, signature mv.</string>
     <string name="title_setup_identity_what">Hvad er en identitet?</string>
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
-    <string name="title_setup_doze">Opsæt batterioptimering</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">For pålidelig modtagelse af e-mail</string>
     <string name="title_setup_doze_hint">Selv om dette kan lyde selvmodsigende, vil deaktivering af batterioptimering resultere i lavere batteriforbrug</string>
     <string name="title_setup_doze_instructions">Vælg \"Alle apps\" øverst i næste dialogboks, vælg denne app og vælg \"Optimér ikke\"</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
     <string name="title_setup_advanced_options">Vis avancerede indstillinger</string>
-    <string name="title_setup_inbox">Gå til beskeder</string>
+    <string name="title_setup_inbox">Gå til Indbakke</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_to_do">Resterer</string>
     <string name="title_setup_done">Udført</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
     </string>
-    <string name="title_advanced_section_main">Primær</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Modtag</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
-    <string name="title_no_composable">E-mailafsendelse kræver, at en identitet opsættes samt valg af en Udkast-mappe under kontoindstillingerne (opsætningstrin 1)</string>
+    <string name="title_no_composable">Afsendelse af e-mails kræver, at en identitet opsættes samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
     <string name="title_no_utf8">Denne udbyder understøtter ikke UTF-8</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Videresend</string>
     <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Redigér lokale notater</string>
+    <string name="title_edit_notes">Redigér lokale notater</string>
     <string name="title_create_rule">Opret regel &#8230;</string>
     <string name="title_share">Del</string>
     <string name="title_event">Føj til kalender</string>

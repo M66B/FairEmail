@@ -104,21 +104,21 @@
     <string name="title_edit_folder">フォルダの編集</string>
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
-    <string name="title_setup_welcome">メッセージの送受信には他のメールアプリと同様にアカウントとIDを設定する必要が有ります。
-クイックセットアップでは、名前、メールアドレス、パスワードを入力するだけでアカウントとIDの両方が作成されます。
-必要に応じてアカウントとID(エイリアス)も手動でセットアップ出来ます。
-Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プロトコルはサポートされていません。
-アプリの説明もご覧ください</string>
     <string name="title_setup_quick">クイックセットアップ</string>
-    <string name="title_setup_quick_remark">ほとんどのプロバイダーでアカウントとIDを素早く設定できます</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
-    <string name="title_setup_wizard_multiple">インストールウィザードを繰り返し使用すると、複数のアカウントを設定できます</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
-    <string name="title_setup_wizard_remark">「戻る」で受信トレイに戻ります</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
@@ -136,26 +136,19 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_select_account">アカウントの選択</string>
     <string name="title_setup_instructions">セットアップ手順</string>
     <string name="title_setup_no_settings">\'%1$s\'ドメインの設定が見つかりません</string>
-    <string name="title_setup_no_settings_hint">メールプロバイダーから提供された設定を使用しセットアップ手順1及び2でアカウントとIDをセットアップして下さい</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードで無くアプリのパスワードが必要です。プロバイダーの指示を確認して下さい</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
-    <string name="title_setup_quick_success">アカウントとユーザ情報が正常に追加されました</string>
-    <string name="title_setup_quick_failed">以下のアカウントとユーザ情報設定してみて下さい</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
-    <string name="title_setup_account">アカウントのセットアップ</string>
-    <string name="title_setup_account_remark">メールを受信</string>
-    <string name="title_setup_account_hint">色を変更するには、左/右のターゲットフォルダなどをスワイプします</string>
-    <string name="title_setup_identity">IDのセットアップ</string>
-    <string name="title_setup_identity_remark">メールを送信</string>
-    <string name="title_setup_identity_hint">名前、色、署名などを変更</string>
     <string name="title_setup_identity_what">IDとは？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
-    <string name="title_setup_doze">電池の最適化セットアップ</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">確実にメールを受け取るために必要です</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
     <string name="title_setup_doze_instructions">次のダイアログで上部の\"全てのアプリ\"を選び、FairEmailを選択し\"最適化しない\"を選んで完了します</string>
@@ -163,7 +156,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
-    <string name="title_setup_inbox">メッセージへ移動</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">移動</string>
     <string name="title_setup_to_do">タスク</string>
     <string name="title_setup_done">完了</string>
@@ -211,7 +204,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">基本</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
@@ -593,7 +586,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_drafts">下書きフォルダがありません</string>
     <string name="title_no_junk_folder">このアカウントではスパムフォルダが選択されていません</string>
-    <string name="title_no_composable">メールを送信するには、Idを設定し、アカウント設定で下書きフォルダを選択する必要があります（セットアップステップ1）</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>
@@ -723,7 +716,7 @@ Microsoft Exchange WebサービスやMicrosoft ActiveSyncなどの非標準プ�
     <string name="title_forward">転送</string>
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>

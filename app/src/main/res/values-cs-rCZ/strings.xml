@@ -138,21 +138,21 @@
     <string name="title_edit_folder">Upravit složku</string>
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
-    <string name="title_setup_welcome">        Příjem a odesílání zpráv vyžaduje nastavení účtu a identity, stejně jako jakákoli jiná e-mailová aplikace.
-        Rychlé nastavení vytvoří současně účet i identitu, pouhým dotazem na Vaše jméno, e-mailovou adresu a heslo.
-        Účty a identity (aliasy) lze v případě potřeby nastavit i ručně.
-        Nestandardní protokoly, jako jsou webové služby systému Microsoft Exchange a Microsoft ActiveSync, nejsou podporovány, viz i popis této aplikace.
-    </string>
     <string name="title_setup_quick">Rychlé nastavení</string>
-    <string name="title_setup_quick_remark">Pro rychlé nastavení účtu a identity pro většinu poskytovatelů</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
-    <string name="title_setup_wizard_multiple">Průvodce instalací lze použít vícekrát pro nastavení libovolného počtu účtů</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
-    <string name="title_setup_wizard_remark">Přejděte „zpět“ pro vstup do doručených</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_pop3">POP3 účet</string>
@@ -170,26 +170,19 @@
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu „%1$s“ nebylo nalezeno žádné nastavení</string>
-    <string name="title_setup_no_settings_hint">Zkuste prosím nastavit účet a identitu v krocích 1 a 2 nastavení, s použitím nastavení poskytnutých vaším poskytovatelem e-mailu</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
-    <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
-    <string name="title_setup_quick_failed">Účet a identitu můžete také zkusit nastavit níže</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
     <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>
-    <string name="title_setup_account">Nastavit účty</string>
-    <string name="title_setup_account_remark">Pro příjem e-mailů</string>
-    <string name="title_setup_account_hint">Pro změnu barvy, cílové složky při tažení doleva/doprava, apod.</string>
-    <string name="title_setup_identity">Nastavit identity</string>
-    <string name="title_setup_identity_remark">Pro odesílání e-mailů</string>
-    <string name="title_setup_identity_hint">Pro změnu jména, barvy, podpisu, apod.</string>
     <string name="title_setup_identity_what">Co je to identita?</string>
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
-    <string name="title_setup_doze">Nastavit optimalizace výdrže baterie</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Pro spolehlivý příjem e-mailu</string>
     <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
@@ -197,7 +190,7 @@
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
-    <string name="title_setup_inbox">Přejít ke zprávám</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_to_do">Dokončit</string>
     <string name="title_setup_done">Hotovo</string>
@@ -245,7 +238,7 @@
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
-    <string name="title_advanced_section_main">Hlavní</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
     <string name="title_advanced_section_send">Odesílání</string>
     <string name="title_advanced_section_connection">Připojení</string>
@@ -627,7 +620,7 @@
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_drafts">Žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
-    <string name="title_no_composable">Odesílání e-mailů vyžaduje nastavenou identitu a v nastavení účtu zvolit složku pro koncepty (nastavení, krok 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
@@ -757,7 +750,7 @@
     <string name="title_forward">Přeposlat</string>
     <string name="title_new_message">Nová zpráva</string>
     <string name="title_editasnew">Upravit jako novou</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
     <string name="title_event">Přidat do kalendáře</string>

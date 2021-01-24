@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Paramètres</string>
     <string name="title_setup_help">Aide</string>
-    <string name="title_setup_welcome">        La réception et l’envoi de messages nécessitent la mise en place d’un compte et d’une identité comme dans toute autre application de messagerie.
-        L’assistant de configuration rapide créera à la fois un compte et une identité en demandant simplement votre nom, votre adresse e-mail et votre mot de passe.
-        Les comptes et les identités (alias) peuvent aussi être configurés manuellement si nécessaire.
-        Les protocoles non standard comme Microsoft Exchange Web Services et Microsoft ActiveSync ne sont pas pris en charge ; voir également la description de l\'application.
-    </string>
     <string name="title_setup_quick">Configuration rapide</string>
-    <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
+    <string name="title_setup_quick_accounts">Ajouter des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_setup_wizard_multiple">L’assistant de configuration rapide peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
+    <string name="title_setup_wizard_multiple">L\'assistant peut être utilisé plusieurs fois pour configurer plusieurs comptes</string>
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse e-mail</string>
-    <string name="title_setup_wizard_remark">Faire « Retour » pour aller à la boîte de réception</string>
+    <string name="title_setup_manual">Configuration manuelle et plus d\'options</string>
+    <string name="title_setup_account_remark">Recevoir des e-mails</string>
+    <string name="title_setup_identity_remark">Envoyer des e-mails</string>
+    <string name="title_setup_account_identity_hint">Vous pouvez configurer le nom, la couleur et les actions de balayage dans les paramètres du compte et configurer une signature dans les paramètres d\'identité</string>
+    <string name="title_setup_accounts">Comptes</string>
+    <string name="title_setup_identities">Identités</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions officielles de l\'application</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_pop3">Compte POP3</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Veuillez essayer de configurer un compte et une identité dans les étapes 1 et 2 des paramètres en utilisant les informations données par votre fournisseur de messagerie</string>
+    <string name="title_setup_no_settings_hint">Essayez de configurer un compte manuellement en utilisant les paramètres fournis par votre fournisseur de messagerie</string>
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse e-mail et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
     <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d\'application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_inbox">Boîte de réception introuvable</string>
     <string name="title_setup_advanced_protection">Une fois inscrit au programme de protection avancée, il n’est plus possible d’utiliser une application de messagerie tierce. Il s’agit d’une restriction imposée par Google.</string>
-    <string name="title_setup_quick_success">Compte et identité ajoutés avec succès</string>
-    <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
+    <string name="title_setup_quick_success">Un compte a été ajouté avec succès</string>
     <string name="title_setup_manage">Gérer</string>
     <string name="title_setup_grant">Autoriser</string>
     <string name="title_setup_grant_again">Accorder les autorisations requises</string>
-    <string name="title_setup_account">Configurer les comptes</string>
-    <string name="title_setup_account_remark">Pour recevoir des e-mails</string>
-    <string name="title_setup_account_hint">Pour modifier la couleur, le dossier de destination lors du balayage gauche/droite, etc</string>
-    <string name="title_setup_identity">Configurer les identités</string>
-    <string name="title_setup_identity_remark">Pour envoyer des e-mails</string>
-    <string name="title_setup_identity_hint">Pour modifier le nom, la couleur, la signature, etc</string>
     <string name="title_setup_identity_what">Qu\'est-ce qu\'une identité ?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
-    <string name="title_setup_doze">Configurer les optimisations de la batterie</string>
+    <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour recevoir des e-mails de manière fiable</string>
     <string name="title_setup_doze_hint">Bien que cela puisse paraître contradictoire, désactiver les optimisations de la batterie réduira l\'utilisation de la batterie</string>
     <string name="title_setup_doze_instructions">Sur le prochain écran, sélectionnez « Toutes les applications » en haut, recherchez cette application puis sélectionnez et validez « Ne pas optimiser »</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
     <string name="title_setup_advanced_options">Afficher les options avancées</string>
-    <string name="title_setup_inbox">Consulter les messages</string>
+    <string name="title_setup_inbox">Aller à la boîte de réception</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_to_do">À faire</string>
     <string name="title_setup_done">Effectué</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier spam sélectionné pour ce compte</string>
-    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier Brouillons dans les paramètres du compte (paramètres, étape 1)</string>
+    <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Transférer</string>
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Modifier les notes locales</string>
+    <string name="title_edit_notes">Modifier les notes locales</string>
     <string name="title_create_rule">Créer une règle&#8230;</string>
     <string name="title_share">Partager</string>
     <string name="title_event">Ajouter au calendrier</string>

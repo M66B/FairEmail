@@ -127,20 +127,21 @@
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
-    <string name="title_setup_welcome">        Primirea și trimiterea de mesaje necesită configurarea unui cont și a unei identități ca în orice altă aplicație de e-mail.
-        Configurarea rapidă v-a crea atât un cont cât și o identitate folosindu-vă doar numele, adresa de e-mail și parola.
-        Conturile și identitățile (alias) pot fi setate și manual dacă se dorește.
-        Protocoale-le ne standard, precum Microsoft Exchange Web Services și Microsoft ActiveSync, nu sunt suportate, vedeți de asemenea și descrierea aplicației.    </string>
     <string name="title_setup_quick">Configurare rapidă</string>
-    <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_wizard">Asistent</string>
-    <string name="title_setup_wizard_multiple">Asistentul de instalare poate fi folosit de mai multe ori pentru a seta conturi multiple</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
-    <string name="title_setup_wizard_remark">Apasă \'înapoi\' pentru a merge la mesaje primite</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_pop3">Cont POP3</string>
@@ -158,26 +159,19 @@
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Încercați să configurați un cont și o identitate în etapele 1 și 2 de configurare utilizând setările furnizate de furnizorul de e-mail</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
     <string name="title_setup_no_inbox">Dosarul Primite nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
-    <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
-    <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Gestionează</string>
     <string name="title_setup_grant">Acordă</string>
     <string name="title_setup_grant_again">Acordați permisiunile necesare</string>
-    <string name="title_setup_account">Configurare conturi</string>
-    <string name="title_setup_account_remark">Pentru a primi e-mail</string>
-    <string name="title_setup_account_hint">Pentru a schimba culoare, glisați stânga/dreapta pe dosarul dorit, etc</string>
-    <string name="title_setup_identity">Configurare identităţi</string>
-    <string name="title_setup_identity_remark">Pentru a trimite e-mail</string>
-    <string name="title_setup_identity_hint">Pentru a schimba numele, culoarea, semnătura, etc</string>
     <string name="title_setup_identity_what">Ce este o identitate?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
-    <string name="title_setup_doze">Configurare optimizare baterie</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Pentru a primi e-mail la timp</string>
     <string name="title_setup_doze_hint">Deși acest lucru poate suna contradictoriu, dezactivarea optimizărilor bateriei va duce la o utilizare mai mică a bateriei</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
@@ -185,7 +179,7 @@
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
     <string name="title_setup_advanced_options">Arată opțiuni avansate</string>
-    <string name="title_setup_inbox">Mergi la mesaje</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_to_do">De făcut</string>
     <string name="title_setup_done">Gata</string>
@@ -233,7 +227,7 @@
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
-    <string name="title_advanced_section_main">Principal</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -615,7 +609,7 @@
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_drafts">Nici un dosar de ciorne</string>
     <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
-    <string name="title_no_composable">Trimiterea de e-mailuri necesită o identitate configurată și un dosar pentru ciorne pentru a putea fi selectat în setările contului (etapa de configurare 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
@@ -745,7 +739,7 @@
     <string name="title_forward">Redirecționează</string>
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
     <string name="title_event">Adaugă în calendar</string>

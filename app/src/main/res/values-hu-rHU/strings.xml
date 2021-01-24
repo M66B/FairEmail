@@ -116,21 +116,21 @@
     <string name="title_edit_folder">Könyvtár szerkesztése</string>
     <string name="title_setup">Beállítások</string>
     <string name="title_setup_help">Súgó</string>
-    <string name="title_setup_welcome">        Üzenetek küldéséhez és fogadásához be kell állítani egy fiókot és egy identitást, mint minden más email alkalmazásban.
-        A gyors beállítás fog csinálni egy fiókot és identitást, mindezt csak a neved, az email címed és a jelszavad megkérdezésével.
-        Fiókok és identitások (aliasok) manuálisan is beállíthatók szükség esetén.
-        Nem normál protokollok, például a Microsoft Exchange Web Services és a Microsoft ActiveSync, nem támogatottak, lásd az alkalmazás leírását.
-    </string>
     <string name="title_setup_quick">Gyors beállítás</string>
-    <string name="title_setup_quick_remark">Adjon hozzá egyszerűen egy fiókot és egy hozzá tartozó identitást</string>
+    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
     <string name="title_setup_quick_imap">Az üzenetek fogadásához használt IMAP szerver</string>
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
     <string name="title_setup_wizard">Varázsló</string>
-    <string name="title_setup_wizard_multiple">A telepítő varázsló többször is használható további fiókok hozzáadásához</string>
+    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
-    <string name="title_setup_wizard_remark">A \'vissza\' használatával a bejövő mappához jut</string>
+    <string name="title_setup_manual">Manual setup and more options</string>
+    <string name="title_setup_account_remark">Receive email</string>
+    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">Az email-szolgáltató az OAuth-ot csak hivatalos alkalmazásverziókhoz hagyta jóvá</string>
     <string name="title_setup_other">Egyéb szolgáltató</string>
     <string name="title_setup_pop3">POP3 fiók</string>
@@ -148,26 +148,19 @@
     <string name="title_setup_select_account">Válasszon fiókot</string>
     <string name="title_setup_instructions">Telepítési útmutató</string>
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
-    <string name="title_setup_no_settings_hint">Kérem állitson be egy fiókot és egy identitást a varázsló első két lépésével, az email szolgálatója által megadottaknak megfelelően</string>
+    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
     <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
     <string name="title_setup_no_inbox">Bejövő mappa nem található</string>
     <string name="title_setup_advanced_protection">Az \"Advanced Protection\" programban részt vevők fiókjaihoz való hozzáférést a Google letiltotta minden harmadik féltől származó app számára.</string>
-    <string name="title_setup_quick_success">Egy fiók és egy identitás sikeresen hozzáadva</string>
-    <string name="title_setup_quick_failed">Megpróbálhat beállítani egy fiókot és egy identitást lentebb is</string>
+    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Kezelés</string>
     <string name="title_setup_grant">Engedélyezés</string>
     <string name="title_setup_grant_again">A szükséges engedélyek megadása</string>
-    <string name="title_setup_account">Fiókok beállítása</string>
-    <string name="title_setup_account_remark">E-mailt fogadni</string>
-    <string name="title_setup_account_hint">A színek módosításához a célmappát csúsztassa balra/jobbra, stb</string>
-    <string name="title_setup_identity">Identitások beállítása</string>
-    <string name="title_setup_identity_remark">E-mailt küldeni</string>
-    <string name="title_setup_identity_hint">Név, szín, aláírás, stb. megváltoztatása</string>
     <string name="title_setup_identity_what">Mi az azonosító?</string>
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
-    <string name="title_setup_doze">Akkumulátorhasználat optimlizálása</string>
+    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Emailek fogadása biztonságosan</string>
     <string name="title_setup_doze_hint">Lehet hogy ez érdekesnek hangozhat, de az akkumulátor optimalizációk kikapcsolása esetén kevesebb lesz az akkumulátor-használat</string>
     <string name="title_setup_doze_instructions">A következő képernyőn válassza az \"Összes alkalmazás\"-t, keresse ki ezt az appot, majd válassza - és erősítse meg - a \"Ne optimalizáld\" opciót</string>
@@ -175,7 +168,7 @@
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
     <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
-    <string name="title_setup_inbox">Ugrás az üzenetekhez</string>
+    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Tovább</string>
     <string name="title_setup_to_do">Teendő</string>
     <string name="title_setup_done">Kész</string>
@@ -223,7 +216,7 @@
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Alapvető</string>
+    <string name="title_advanced_section_main">Main</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
     <string name="title_advanced_section_send">Küldés</string>
     <string name="title_advanced_section_connection">Kapcsolat</string>
@@ -605,7 +598,7 @@
     <string name="title_no_inbox">Bejövő mappa nem található</string>
     <string name="title_no_drafts">Nem található a piszkozatok mappája</string>
     <string name="title_no_junk_folder">Ehhez a fiókhoz nincs Spam mappa kijelölve</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings (setup step 1)</string>
+    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Ez a szolgáltató zárt email protokollt használ, ezért nem lehetséges harmadik féltől származó email kliens használata</string>
     <string name="title_no_idle">Ez a szolgáltató nem támogatja a push üzenetek kuldését. Ez a bejövő üzenetek késlekedésével és megnövekedett akkumulátorhasználattal jár.</string>
     <string name="title_no_utf8">A szolgáltató nem támogatja az UTF-8-at</string>
@@ -735,7 +728,7 @@
     <string name="title_forward">Továbbítás</string>
     <string name="title_new_message">Új üzenet</string>
     <string name="title_editasnew">Szerkesztés újként</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Edit local notes</string>
+    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Szabály létrehozása &#8230;</string>
     <string name="title_share">Megosztás</string>
     <string name="title_event">Hozzáadás naptárhoz</string>

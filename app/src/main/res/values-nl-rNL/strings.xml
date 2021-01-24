@@ -116,20 +116,21 @@
     <string name="title_edit_folder">Bewerk map</string>
     <string name="title_setup">Instellingen</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_welcome">        Ontvangen en verzenden van berichten vereist een account en een identiteit zoals in elke andere e-mail app.
-        De snelle instelling zal zowel een account als identiteit maken door alleen om uw naam, e-mailadres en wachtwoord te vragen.
-        Accounts en identiteiten (aliassen) kunnen indien nodig ook handmatig worden ingesteld.
-    Niet-standaard protocollen, zoals Microsoft Exchange Web Services en Microsoft ActiveSync, worden niet ondersteund, zie ook de beschrijving van de app.</string>
     <string name="title_setup_quick">Snel instellen</string>
-    <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste providers</string>
+    <string name="title_setup_quick_accounts">Accounts toevoegen</string>
     <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_wizard">Wizard</string>
-    <string name="title_setup_wizard_multiple">De installatie-wizard kan meerdere keren worden gebruikt om meerdere accounts in te stellen</string>
+    <string name="title_setup_wizard_multiple">De wizard kan meerdere keren gebruikt worden om meerdere accounts in te stellen</string>
     <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
-    <string name="title_setup_wizard_remark">Ga \'terug\' om naar het postvak in te gaan</string>
+    <string name="title_setup_manual">Handmatig instellen en meer opties</string>
+    <string name="title_setup_account_remark">E-mail ontvangen</string>
+    <string name="title_setup_identity_remark">E-mail verzenden</string>
+    <string name="title_setup_account_identity_hint">U kunt de naam, kleur en veegacties configureren in de accountinstellingen en een handtekening configureren in de identiteitsinstellingen</string>
+    <string name="title_setup_accounts">Accounts</string>
+    <string name="title_setup_identities">Identiteiten</string>
     <string name="title_setup_oauth_permission">De e-mailprovider heeft OAuth alleen goedgekeurd voor officiële app versies</string>
     <string name="title_setup_other">Andere provider</string>
     <string name="title_setup_pop3">POP3 account</string>
@@ -147,26 +148,19 @@
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Probeer a.u.b. een account en identiteit in stappen 1 en 2 in te stellen met behulp van de instellingen die door uw e-mailprovider werden verstrekt</string>
+    <string name="title_setup_no_settings_hint">Probeer een account handmatig in te stellen met de instellingen van uw e-mailprovider</string>
     <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
     <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het wachtwoord van uw account, controleer a.u.b. de instructies van uw provider</string>
     <string name="title_setup_no_inbox">Postvak in niet gevonden</string>
     <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
-    <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
-    <string name="title_setup_quick_failed">U kunt ook proberen om hieronder een account en een identiteit te configureren</string>
+    <string name="title_setup_quick_success">Een account is succesvol toegevoegd</string>
     <string name="title_setup_manage">Beheer</string>
     <string name="title_setup_grant">Verlenen</string>
     <string name="title_setup_grant_again">Verleen de vereiste machtigingen</string>
-    <string name="title_setup_account">Accounts instellen</string>
-    <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
-    <string name="title_setup_account_hint">Om kleur, veeg naar links/rechts doelmap, enz te wijzigen</string>
-    <string name="title_setup_identity">Identiteiten instellen</string>
-    <string name="title_setup_identity_remark">Om e-mail te verzenden</string>
-    <string name="title_setup_identity_hint">Om naam, kleur, handtekening, enz te wijzigen</string>
     <string name="title_setup_identity_what">Wat is een identiteit?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
-    <string name="title_setup_doze">Accuoptimalisaties instellen</string>
+    <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Om betrouwbaar e-mail te ontvangen</string>
     <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties resulteren in minder batterijverbruik</string>
     <string name="title_setup_doze_instructions">In het volgende dialoogvenster, selecteer \"Alle apps\" bovenin, selecteer deze app en bevestig met \"Niet optimaliseren\"</string>
@@ -174,7 +168,7 @@
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
     <string name="title_setup_advanced_options">Toon geavanceerde opties</string>
-    <string name="title_setup_inbox">Ga naar berichten</string>
+    <string name="title_setup_inbox">Ga naar postvak in</string>
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>
@@ -604,7 +598,7 @@
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
-    <string name="title_no_composable">Voor het verzenden van e-mails moet een identiteit worden geconfigureerd en moet een conceptmap worden geselecteerd in de accountinstellingen (installatiestap 1)</string>
+    <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_no_utf8">Deze provider ondersteunt geen UTF-8</string>
@@ -734,7 +728,7 @@
     <string name="title_forward">Doorsturen</string>
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
-    <string name="title_edit_notes" comment="title_edit_notes&#10;Local notes is a free text you can enter and will be shown in the message header.">Lokale notities bewerken</string>
+    <string name="title_edit_notes">Lokale notities bewerken</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_share">Delen</string>
     <string name="title_event">Toevoegen aan agenda</string>
