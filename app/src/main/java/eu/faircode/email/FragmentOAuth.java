@@ -564,7 +564,7 @@ public class FragmentOAuth extends FragmentBase {
                                 folder.id = db.folder().insertFolder(folder);
                                 EntityLog.log(context, "OAuth folder=" + folder.name + " type=" + folder.type);
                                 if (folder.synchronize)
-                                    EntityOperation.sync(context, folder.id, false);
+                                    EntityOperation.sync(context, folder.id, true);
                             }
                         }
 

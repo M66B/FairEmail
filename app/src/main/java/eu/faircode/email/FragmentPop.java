@@ -476,7 +476,7 @@ public class FragmentPop extends FragmentBase {
                         inbox.id = db.folder().insertFolder(inbox);
 
                         if (account.synchronize)
-                            EntityOperation.sync(context, inbox.id, false);
+                            EntityOperation.sync(context, inbox.id, true);
                     }
 
                     EntityFolder drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
