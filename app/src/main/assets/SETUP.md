@@ -12,7 +12,7 @@ An internet connection is required to set up accounts and identities.
 
 ## Quick setup
 
-Just enter your name, email address and password and tap *Go*.
+Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
 This will work for most major email providers.
 
