@@ -90,6 +90,8 @@ public class FragmentSetup extends FragmentBase {
     private int colorWarning;
     private Drawable check;
 
+    private boolean manual = BuildConfig.DEBUG;
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -219,13 +221,9 @@ public class FragmentSetup extends FragmentBase {
         ibManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (grpManual.getVisibility() == View.GONE) {
-                    ibManual.setImageLevel(0 /* less */);
-                    grpManual.setVisibility(View.VISIBLE);
-                } else {
-                    ibManual.setImageLevel(1 /* more */);
-                    grpManual.setVisibility(View.GONE);
-                }
+                manual = !manual;
+                ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
+                grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -238,8 +236,10 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        ibManual.setImageLevel(BuildConfig.DEBUG ? 0 /* less */ : 1 /* more */);
-        grpManual.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        if (savedInstanceState != null)
+            manual = savedInstanceState.getBoolean("fair:manual");
+        ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
+        grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -364,6 +364,12 @@ public class FragmentSetup extends FragmentBase {
         }.execute(this, new Bundle(), "outbox:create");
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:manual", manual);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
