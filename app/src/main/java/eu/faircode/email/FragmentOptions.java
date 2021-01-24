@@ -57,12 +57,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import org.jetbrains.annotations.NotNull;
+
 public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
     private PagerAdapter adapter;
     private String searching = null;
 
-    private static int[] TAB_PAGES = {
+    private static final int[] TAB_PAGES = {
             R.layout.fragment_setup,
             R.layout.fragment_options_synchronize,
             R.layout.fragment_options_send,
@@ -377,6 +379,7 @@ public class FragmentOptions extends FragmentBase {
             return 10;
         }
 
+        @NotNull
         @Override
         public Fragment getItem(int position) {
             switch (position) {
