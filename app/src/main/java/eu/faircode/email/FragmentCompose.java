@@ -4894,15 +4894,17 @@ public class FragmentCompose extends FragmentBase {
                                     draft.account, draft.thread, null, null);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder source = db.folder().getFolder(threaded.folder);
-                                if (threaded.ui_seen && (threading ||
+                                boolean repliedto =
                                         (!TextUtils.isEmpty(draft.inreplyto) &&
-                                                draft.inreplyto.equals(threaded.msgid))) &&
+                                                draft.inreplyto.equals(threaded.msgid));
+                                if ((threaded.ui_seen || repliedto) &&
+                                        (threading || repliedto) &&
                                         source != null && !source.read_only &&
                                         archive != null && !archive.id.equals(threaded.folder) &&
                                         !EntityFolder.isOutgoing(source.type) &&
                                         !EntityFolder.TRASH.equals(source.type) &&
                                         !EntityFolder.JUNK.equals(source.type))
-                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id);
+                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id, repliedto);
                             }
                         }
                     }
