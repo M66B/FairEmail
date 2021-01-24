@@ -1182,7 +1182,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 EntityLog.log(ServiceSynchronize.this, "Folder changed=" + name);
                                 EntityFolder folder = db.folder().getFolderByName(account.id, name);
-                                if (folder != null && folder.selectable && folder.synchronize)
+                                if (folder != null && folder.selectable)
                                     EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                             } finally {
                                 wlFolder.release();
