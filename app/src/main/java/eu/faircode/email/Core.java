@@ -2264,8 +2264,6 @@ class Core {
             int initialize = jargs.optInt(4, folder.initialize);
             boolean force = jargs.optBoolean(5, false);
 
-            if (force)
-                sync_days = keep_days;
             if (keep_days == sync_days && keep_days != Integer.MAX_VALUE)
                 keep_days++;
 
