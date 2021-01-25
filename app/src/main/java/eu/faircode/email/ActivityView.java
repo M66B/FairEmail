@@ -186,9 +186,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
 
-        if (Helper.isSurfaceDuo() &&
-                (viewId == R.layout.activity_view_portrait_split ||
-                        viewId == R.layout.activity_view_landscape_split)) {
+        boolean duo = Helper.isSurfaceDuo();
+        if (duo && content_pane != null) {
             View content_frame = findViewById(R.id.content_frame);
             ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
             if (lparam instanceof LinearLayout.LayoutParams) {
@@ -369,8 +368,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Initialize
 
         if (content_pane != null) {
-            content_separator.setVisibility(View.GONE);
-            content_pane.setVisibility(View.GONE);
+            content_separator.setVisibility(duo ? View.INVISIBLE : View.GONE);
+            content_pane.setVisibility(duo ? View.INVISIBLE : View.GONE);
         }
 
         if (getSupportFragmentManager().getFragments().size() == 0 &&
@@ -720,10 +719,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
             if (content_pane != null) {
+                boolean duo = Helper.isSurfaceDuo();
                 boolean thread = "thread".equals(getSupportFragmentManager().getBackStackEntryAt(count - 1).getName());
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
-                content_separator.setVisibility(!thread || fragment == null ? View.GONE : View.VISIBLE);
-                content_pane.setVisibility(!thread || fragment == null ? View.GONE : View.VISIBLE);
+                int visibility = (!thread || fragment == null ? (duo ? View.INVISIBLE : View.GONE) : View.VISIBLE);
+                content_separator.setVisibility(visibility);
+                content_pane.setVisibility(visibility);
             }
         }
     }
@@ -1313,11 +1314,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewMessages(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            //if (content_pane != null)
-            //    getSupportFragmentManager().popBackStack("unified", 0);
-        }
 
         Bundle args = new Bundle();
         args.putString("type", intent.getStringExtra("type"));
