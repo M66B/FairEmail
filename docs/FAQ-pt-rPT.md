@@ -217,13 +217,13 @@ O design está baseado em muitas discussões e, se desejar, poderá também disc
 * [(96) Onde posso encontrar as configurações IMAP e SMTP?](#user-content-faq96)
 * [(97) O que é «limpeza»?](#user-content-faq97)
 * [(98) Por que razão ainda posso escolher contactos depois de suprimir as permissões de contactos?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
+* [(99) É possível adicionar texto rico ou um editor de markdown?](#user-content-faq99)
+* [(100) Como posso sincronizar as categorias do Gmail?](#user-content-faq100)
+* [(101) O que significa o ponto azul/laranja na parte inferior das conversações?](#user-content-faq101)
+* [(102) Como posso activar a rotação automática de imagens?](#user-content-faq102)
+* [(103) Como posso gravar áudio?](#user-content-faq158)
+* [(104) O que preciso saber sobre relatórios de erros?](#user-content-faq104)
+* [(105) Como funciona a opção roam-like-at-home/ sem custos de roaming?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
 * [(107) How do I use colored stars?](#user-content-faq107)
 * [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
@@ -284,15 +284,15 @@ O design está baseado em muitas discussões e, se desejar, poderá também disc
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[I have another question.](#user-content-support)
+[Tenho outra pergunta.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quais são as permissões necessárias e por quê?**
 
-The following Android permissions are needed:
+As seguintes permissões do Android são necessárias:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
+* *ter total acesso à rede* (INTERNET): para enviar e receber um e-mail
+* *visualizar as conexões de rede* (ACCESS_NETWORK_STATE): para monitorizar as mudanças de conectividade de Internet
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages

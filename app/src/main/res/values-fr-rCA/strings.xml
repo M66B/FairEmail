@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
-    <string name="title_setup_reset_questions">Réinitialiser les questions</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Réinitialiser les questions</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
     </string>
-    <string name="title_advanced_section_main">Principal</string>
+    <string name="title_advanced_section_main">Début</string>
     <string name="title_advanced_section_synchronize">Réception</string>
     <string name="title_advanced_section_send">Envoi</string>
     <string name="title_advanced_section_connection">Connexion</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Chiffrement</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Divers</string>
+    <string name="title_advanced_default">Toutes les options ont des valeurs par défaut couramment utilisées</string>
     <string name="title_advanced_receive">Recevoir des messages pour tous les comptes</string>
     <string name="title_advanced_when">Quand</string>
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>

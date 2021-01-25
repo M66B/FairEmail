@@ -222,12 +222,12 @@
     <string name="title_setup_advanced">Напредно</string>
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>
-    <string name="title_setup_reset_questions">Ресетуј питања</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Ресетуј питања</string>
     <string name="title_advanced_hint_title">Више напредних опција</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Примање</string>
     <string name="title_advanced_section_send">Слање</string>
     <string name="title_advanced_section_connection">Конекција</string>
@@ -237,6 +237,7 @@
     <string name="title_advanced_section_encryption">Шифровање</string>
     <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_misc">Разно</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">Када</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>

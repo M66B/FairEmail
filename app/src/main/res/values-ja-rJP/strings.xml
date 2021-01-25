@@ -199,12 +199,12 @@
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
-    <string name="title_setup_reset_questions">質問をリセット</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
@@ -214,6 +214,7 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>

@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
-    <string name="title_setup_reset_questions">Vragen resetten</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Vragen resetten</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
-    <string name="title_advanced_section_main">Hoofd</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
     <string name="title_advanced_section_connection">Verbinding</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Versleuteling</string>
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversen</string>
+    <string name="title_advanced_default">Alle opties hebben vaak gebruikte standaardwaarden</string>
     <string name="title_advanced_receive">Ontvang berichten voor alle accounts</string>
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>

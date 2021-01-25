@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
-    <string name="title_setup_reset_questions">Soruları sıfırla</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Soruları sıfırla</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.
         Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
     <string name="title_advanced_section_send">Gönder</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Şifreleme</string>
     <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Tüm hesaplardan mesajları al</string>
     <string name="title_advanced_when">Ne zaman</string>
     <string name="title_advanced_always">Bu hesaplardan mesajları her zaman al</string>

@@ -128,20 +128,20 @@
     <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
     <string name="title_setup_quick">Configurare rapidă</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
+    <string name="title_setup_quick_accounts">Adaugă conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_wizard">Asistent</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
+    <string name="title_setup_manual">Configurare manuală și mai multe opțiuni</string>
+    <string name="title_setup_account_remark">Primire e-mail</string>
+    <string name="title_setup_identity_remark">Trimitere e-mail</string>
+    <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
+    <string name="title_setup_accounts">Conturi</string>
+    <string name="title_setup_identities">Identități</string>
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_pop3">Cont POP3</string>
@@ -159,19 +159,19 @@
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
+    <string name="title_setup_no_settings_hint">Încercați să configurați manual un cont folosind setările furnizate de furnizorul dumneavoastră de e-mail</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
     <string name="title_setup_no_inbox">Dosarul Primite nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
+    <string name="title_setup_quick_success">Un cont a fost adăugat cu succes</string>
     <string name="title_setup_manage">Gestionează</string>
     <string name="title_setup_grant">Acordă</string>
     <string name="title_setup_grant_again">Acordați permisiunile necesare</string>
     <string name="title_setup_identity_what">Ce este o identitate?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
+    <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a primi e-mail la timp</string>
     <string name="title_setup_doze_hint">Deși acest lucru poate suna contradictoriu, dezactivarea optimizărilor bateriei va duce la o utilizare mai mică a bateriei</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
@@ -179,7 +179,7 @@
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
     <string name="title_setup_advanced_options">Arată opțiuni avansate</string>
-    <string name="title_setup_inbox">Go to inbox</string>
+    <string name="title_setup_inbox">Mergeți la mesaje primite</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_to_do">De făcut</string>
     <string name="title_setup_done">Gata</string>
@@ -222,12 +222,12 @@
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
-    <string name="title_setup_reset_questions">Resetare întrebări</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Resetare întrebări</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -237,6 +237,7 @@
     <string name="title_advanced_section_encryption">Criptare</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_default">Toate opțiunile au valori standard utilizate în mod obișnuit</string>
     <string name="title_advanced_receive">Primește mesaje pentru toate conturile</string>
     <string name="title_advanced_when">Când</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
@@ -418,7 +419,7 @@
     <string name="title_advanced_tracking">Încearcă să detectezi și dezactivezi în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
+    <string name="title_advanced_incognito_keyboard">Utilizați tastatura incognito (Android 8+)</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
@@ -442,9 +443,9 @@
     </string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
+    <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugerare texte de răspuns (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
@@ -609,7 +610,7 @@
     <string name="title_no_inbox">Căsuța poștală nu a fost găsită</string>
     <string name="title_no_drafts">Nici un dosar de ciorne</string>
     <string name="title_no_junk_folder">Nu a fost selectat niciun folder spam pentru acest cont</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
+    <string name="title_no_composable">Trimiterea de e-mailuri necesită o identitate configurată și un dosar pentru ciorne pentru a fi selectat în setările contului</string>
     <string name="title_no_standard">Acest furnizor folosește un protocol email proprietar și de aceea nu este posibilă folosirea altor clienți de email</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_no_utf8">Acest furnizor nu suportă UTF-8</string>
@@ -637,7 +638,7 @@
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_subfolders">Subdosare</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
+    <string name="title_synchronize_more">Preia mai multe mesaje</string>
     <string name="title_synchronize_more_hint">Acest lucru va duce la o descărcare unică a mesajelor mai vechi, astfel încât nu va duce la o utilizare mai intensă a bateriei pentru uzul cotidian</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
     <string name="title_synchronize_batch_enable">Activează sincronizarea</string>
@@ -739,7 +740,7 @@
     <string name="title_forward">Redirecționează</string>
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
-    <string name="title_edit_notes">Edit local notes</string>
+    <string name="title_edit_notes">Editează notele locale</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
     <string name="title_event">Adaugă în calendar</string>
@@ -857,7 +858,7 @@
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_at">Trimite la &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
+    <string name="title_send_archive">Arhivează mesajele citite</string>
     <string name="title_send_encryption">Criptare</string>
     <string name="title_send_priority">Prioritate</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>

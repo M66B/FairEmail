@@ -43,21 +43,21 @@ Preguntas relacionadas:
 
 ## ¿Cómo ...?
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
-* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
+* Cambiar el nombre de la cuenta: Configuración, deslizar al paso 1, toque Administrar, toque la cuenta
+* Cambiar el objetivo del deslizamiento a la izquierda/derecha: Configuración, pestaña Comportamiento, Acciones de deslizamiento
+* Cambiar contraseña: Ajustes, paso 1, Administrar, tocar cuenta, cambiar contraseña
+* Establezca una firma: Configuración, paso 2, toque Administrar, toque identidad, Editar firma.
 * Añadir dirección CC y CCO: toque el icono de la persona al final del asunto
 * Ir al mensaje siguiente/anterior en archivar/eliminar: en la configuración de comportamiento desactive *Cerrar conversaciones automáticamente* y seleccione *Ir a la siguiente/anterior conversación* para *Al cerrar una conversación*
 * Añadir una carpeta a la bandeja de entrada unificada: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en la bandeja de entrada unificada*
 * Añadir una carpeta al menú de navegación: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en el menú de navegación*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Cargar más mensajes: mantenga presionado una carpeta en la lista de carpetas, seleccione *Obtener más mensajes*
 * Eliminar un mensaje, omitiendo la papelera: en el menú de 3 puntos justo encima del texto del mensaje *Eliminar* o, alternativamente, desmarque la carpeta de la papelera en la configuración de la cuenta
-* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
+* Eliminar una cuenta/identidad: Configuración, paso 1/2, pulse Administrar, toque cuenta/identidad, menú de tres puntos, Borrar
 * Eliminar una carpeta: mantenga pulsada la carpeta de la lista de carpetas, Editar propiedades, menú de tres puntos, Eliminar
 * Deshacer enviar: Bandeja de salida, toque mensaje, toque el icono deshacer
 * Guardar mensajes enviados en la bandeja de entrada: por favor [vea estas Preguntas Frecuentes](#user-content-faq142)
-* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
+* Cambiar carpetas del sistema: Configuración, pase al paso 1, toque Administrar, toque cuenta, en la parte inferior
 * Export/import settings: Settings, navigation/hamburger menu
 
 ## Problemas conocidos

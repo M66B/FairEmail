@@ -139,7 +139,7 @@
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
     <string name="title_setup_quick">Быстрая настройка</string>
-    <string name="title_setup_quick_accounts">Добавить учетные записи</string>
+    <string name="title_setup_quick_accounts">Добавить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
@@ -147,10 +147,10 @@
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
-    <string name="title_setup_manual">Ручная настройка и другие опции</string>
+    <string name="title_setup_manual">Ручная настройка и другие функции</string>
     <string name="title_setup_account_remark">Получение электронной почты</string>
     <string name="title_setup_identity_remark">Отправка электронной почты</string>
-    <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учетной записи, а также настроить подпись в настройках идентификатора</string>
+    <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
     <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
@@ -170,12 +170,12 @@
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
     <string name="title_setup_no_settings">Не найдено настроек для домена \"%1$s\"</string>
-    <string name="title_setup_no_settings_hint">Попробуйте настроить учетную запись вручную, используя настройки, предоставленные вашим почтовым провайдером</string>
+    <string name="title_setup_no_settings_hint">Попробуйте настроить учётную запись вручную, используя настройки, предоставленные почтовым провайдером</string>
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
     <string name="title_setup_app_password_hint">Данный провайдер требует пароль для приложения вместо пароля от учётной записи, пожалуйста, ознакомьтесь с его инструкциями</string>
     <string name="title_setup_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_setup_advanced_protection">При регистрации в программе расширенной защиты невозможно использовать стороннее приложение электронной почты. Это ограничение, налагаемое Google.</string>
-    <string name="title_setup_quick_success">Учетная запись успешно добавлена</string>
+    <string name="title_setup_quick_success">Учётная запись успешно добавлена</string>
     <string name="title_setup_manage">Редактировать</string>
     <string name="title_setup_grant">Предоставить</string>
     <string name="title_setup_grant_again">Предоставить необходимые разрешения</string>
@@ -190,7 +190,7 @@
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_data">Сохранение данных включено</string>
     <string name="title_setup_advanced_options">Дополнительно</string>
-    <string name="title_setup_inbox">Перейти во Входящие</string>
+    <string name="title_setup_inbox">Перейти во \"Входящие\"</string>
     <string name="title_setup_go">Далее</string>
     <string name="title_setup_to_do">Выполнить</string>
     <string name="title_setup_done">Готово</string>
@@ -233,12 +233,12 @@
     <string name="title_setup_advanced">Дополнительные настройки</string>
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
-    <string name="title_setup_reset_questions">Заново включить вопросы</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Заново включить вопросы</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
-    <string name="title_advanced_section_main">Основной</string>
+    <string name="title_advanced_section_main">Начать</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
     <string name="title_advanced_section_connection">Соединение</string>
@@ -248,6 +248,7 @@
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
+    <string name="title_advanced_default">Все настройки имеют общеиспользуемые стандартные значения</string>
     <string name="title_advanced_receive">Получать сообщения со всех учётных записей</string>
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>

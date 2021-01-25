@@ -43,22 +43,22 @@ Questions liées:
 
 ## Comment faire pour...?
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
-* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
+* Changer le nom du compte : Paramètres, défiler jusqu'à l'étape 1, appuyer sur Gérer le compte
+* Changer la cible de balayage vers la gauche/droite : Paramètres, comportement de la page d'onglet, définir les actions de balayage
+* Changer le mot de passe : Paramètres, défiler jusqu'à l'étape 1, appuyer sur Gérer, appuyer sur le compte, changer le mot de passe
+* Définir une signature : Paramètres, faire défiler jusqu'à l'étape 2, appuyer sur Gérer, appuyer sur identité, modifier la signature.
 * Ajouter des adresses CC et CCI : appuyez sur l'icône des personnes à l'extrémité de l'objet
 * Allez au message suivant/précédent dans l'archive/suppression : dans les paramètres de comportement, désactivez *Fermez automatiquement les conversations* et sélectionnez *Allez à la conversation suivante/précédente* pour *Lors de la fermeture d'une conversation*
 * Ajouter un dossier à la boîte de réception unifiée : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans la boîte de réception unifiée*
 * Ajouter un dossier au menu de navigation : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans le menu de navigation*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Charger plus de messages : appuyez longuement sur un dossier dans la liste de dossiers, sélectionnez *Récupérer plus de messages*
 * Supprimez un message, sautez la corbeille : dans le menu à 3 points juste au-dessus du texte du message *Supprimer* ou désélectionnez le dossier corbeille dans les paramètres du compte
-* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
+* Supprimer un compte/identité : Paramètres, défiler jusqu'à l'étape 1/2, appuyez sur Gérer, appuyez sur compte/identité, menu à trois points, Supprimer
 * Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
 * Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)
-* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
-* Export/import settings: Settings, navigation/hamburger menu
+* Modifier les dossiers système: Paramètres, faire défiler à l'étape 1, appuyer sur Gérer le compte, en bas
+* Exporter/importer les paramètres : Paramètres, navigation/menu hamburger
 
 ## Problèmes connus
 
@@ -1023,15 +1023,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Image intégrée](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Image cassée](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1466,11 +1466,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1853,7 +1853,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2592,7 +2592,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2889,26 +2889,26 @@ Moreover, a theme is more than just a few colors. For example themes with a yell
 
 ## Obtenir de l'aide
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si le numéro de version est le même que le numéro de version de la dernière version de GitHub. Cela signifie également que la rétrogradation n'est pas prise en charge.
 
-There is no support on things that are not directly related to FairEmail.
+Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
 
-There is no support on building and developing things by yourself.
+Il n'y a aucun soutien pour construire et développer les choses par vous-même.
 
-Requested features should:
+Les fonctionnalités demandées doivent :
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* être utile à la plupart des gens
+* ne pas compliquer l'utilisation de FairEmail
+* s'inscrire dans la philosophie de FairEmail (orienté vers la confidentialité, centré sur la sécurité)
+* se conformer aux normes communes (IMAP, SMTP, etc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Les caractéristiques qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de maintenir la maintenance et le soutien à long terme réalisable.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Les tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
 
 <br />
 

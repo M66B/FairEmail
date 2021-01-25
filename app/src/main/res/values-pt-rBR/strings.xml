@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_setup_options">Opções</string>
     <string name="title_setup_defaults">Restaurar padrão</string>
-    <string name="title_setup_reset_questions">Redefinir perguntas</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Redefinir perguntas</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.
         Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
     <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Conexão</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Criptografia</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receber mensagens para todas as contas</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_always">Sempre receber mensagens para estas contas</string>

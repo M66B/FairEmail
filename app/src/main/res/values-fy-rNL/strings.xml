@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Avansearre</string>
     <string name="title_setup_options">Opsjes</string>
     <string name="title_setup_defaults">Standert weromsette</string>
-    <string name="title_setup_reset_questions">Fragen weromsette</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Fragen weromsette</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Ûntfangen</string>
     <string name="title_advanced_section_send">Stjoere</string>
     <string name="title_advanced_section_connection">Ferbining</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Fersifering</string>
     <string name="title_advanced_section_notifications">Notifikaasjes</string>
     <string name="title_advanced_section_misc">Ferskate</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Berjochten ûntfange foar alle akkounts</string>
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_always">Untfang altyd berjochten foar dizze akkounts</string>

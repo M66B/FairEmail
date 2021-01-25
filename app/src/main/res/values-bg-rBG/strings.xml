@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Разширени</string>
     <string name="title_setup_options">Опции</string>
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
-    <string name="title_setup_reset_questions">Отказване на запитването</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Отказване на запитването</string>
     <string name="title_advanced_hint_title">Разширени настройки</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Получаване</string>
     <string name="title_advanced_section_send">Изпращане</string>
     <string name="title_advanced_section_connection">Свързване</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Криптиране</string>
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Получаване на съобщения от всички акаунти</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_always">Получаване съобщения от тези акаунти винаги</string>

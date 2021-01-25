@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Haladó</string>
     <string name="title_setup_options">Opciók</string>
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
-    <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Kérdések visszaállítása</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
     <string name="title_advanced_section_send">Küldés</string>
     <string name="title_advanced_section_connection">Kapcsolat</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Titkosítás</string>
     <string name="title_advanced_section_notifications">Értesítések</string>
     <string name="title_advanced_section_misc">Egyebek</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Üzenetek fogadása minden fiókon</string>
     <string name="title_advanced_when">Mikor</string>
     <string name="title_advanced_always">Mindig fogadjon értesítéseket e fiókokhoz</string>

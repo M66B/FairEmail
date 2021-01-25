@@ -221,12 +221,12 @@
     <string name="title_setup_advanced">Napredno</string>
     <string name="title_setup_options">Opcije</string>
     <string name="title_setup_defaults">Vrati zadano</string>
-    <string name="title_setup_reset_questions">Poništite pitanja</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Poništite pitanja</string>
     <string name="title_advanced_hint_title">Naprednije opcije</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Primanje</string>
     <string name="title_advanced_section_send">Pošalji</string>
     <string name="title_advanced_section_connection">Veza</string>
@@ -236,6 +236,7 @@
     <string name="title_advanced_section_encryption">Šifriranje</string>
     <string name="title_advanced_section_notifications">Obavijesti</string>
     <string name="title_advanced_section_misc">Razno</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">Kada</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>

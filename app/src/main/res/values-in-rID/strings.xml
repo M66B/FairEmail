@@ -198,12 +198,12 @@
     <string name="title_setup_advanced">Tingkat Lanjut</string>
     <string name="title_setup_options">Opsi</string>
     <string name="title_setup_defaults">Kembalikan pengaturan standar</string>
-    <string name="title_setup_reset_questions">Atur ulang pertanyaan</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Atur ulang pertanyaan</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Menerima</string>
     <string name="title_advanced_section_send">Kirim</string>
     <string name="title_advanced_section_connection">Koneksi</string>
@@ -213,6 +213,7 @@
     <string name="title_advanced_section_encryption">Enkripsi</string>
     <string name="title_advanced_section_notifications">Pemberitahuan</string>
     <string name="title_advanced_section_misc">Lainnya</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Terima pesan untuk semua akun</string>
     <string name="title_advanced_when">Kapan</string>
     <string name="title_advanced_always">Selalu terima pesan untuk akun ini</string>

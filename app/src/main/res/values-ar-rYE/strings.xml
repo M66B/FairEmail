@@ -255,12 +255,12 @@
     <string name="title_setup_advanced">الإعدادات المتقدمة</string>
     <string name="title_setup_options">الخيارات</string>
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
-    <string name="title_setup_reset_questions">Reset questions</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Reset questions</string>
     <string name="title_advanced_hint_title">More advanced options</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_send">إرسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
@@ -270,6 +270,7 @@
     <string name="title_advanced_section_encryption">Encryption</string>
     <string name="title_advanced_section_notifications">الاشعارات</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">متى</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>

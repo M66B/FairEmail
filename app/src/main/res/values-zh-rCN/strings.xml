@@ -199,12 +199,12 @@
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
-    <string name="title_setup_reset_questions">重置问题</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">重置问题</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值
     </string>
-    <string name="title_advanced_section_main">主要</string>
+    <string name="title_advanced_section_main">开始</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
     <string name="title_advanced_section_connection">连接</string>
@@ -214,6 +214,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
+    <string name="title_advanced_default">所有选项都有常用的标准值</string>
     <string name="title_advanced_receive">接收所有账户的消息</string>
     <string name="title_advanced_when">何时</string>
     <string name="title_advanced_always">总是接收这些账户的消息</string>

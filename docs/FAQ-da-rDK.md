@@ -43,22 +43,22 @@ Relaterede spørgsmål:
 
 ## Hvordan kan man...?
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
-* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
+* Skift af kontonavn: Opsætning, trin 1, tryk på Håndtér og dernæst på konto
+* Skift venstre/højre strygehandling: Indstillinger, tryk på Adfærd, Opsæt strygehandlinger
+* Skift adgangskode: Indstillinger, trin 1, Håndtér, tryk på Konto, Skift adgangskode
+* Opsæt signatur: Indstillinger, trin 2, tryk på identitet, Redigér signatur.
 * Tilføj CC- og BCC-adresser: Tryk på folks ikon i slutningen af emnet
 * Gå til næste/foregående besked ved arkivering/sletning: Deaktivér *Luk automatisk samtaler* i adfærdsindstillingerne og vælg *Gå til næste/foregående samtale* for *Ved lukning af en samtale*
 * Føje en mappe til den fælles indbakke: Langt tryk på mappen i mappelisten og afkryds *Vis i fælles indbakke*
 * Føje en mappe til navigeringsmenuen: Langt tryk på mappen i mappelisten og afkryds *Vis i navigeringsmenu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Indlæs flere beskeder: Langt tryk på en mappe på mappelisten, vælg *Hent flere beskeder*
 * Overspring papirkurv ved beskedsletning: I 3-priksmenuen lige over beskedteksten *Slet*, eller fravælg alternativt papirkurvsmappen i kontoindstillingerne
-* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
+* Slet konto/identitet: Indstillinger, trin 1/2, tryk på Håndtér, Konto/identitet, trepriksmenuen, Slet
 * Slet en mappe: Langt tryk på mappen på mappelisten, Redigér egenskaber, trepriksmenuen, Slet
 * Fortryd send: Udbakke, tryk på beskeden, tryk på Fortryd-ikonknappen
 * Gemme sendte beskeder i indbakken: [Se denne FAQ](#user-content-faq142)
-* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
-* Export/import settings: Settings, navigation/hamburger menu
+* Skift systemmapper: Indstillinger, trin 1, tryk på Håndtér, Konto (nederst)
+* Eksport-/importindstillinger: Indstillinger, navigering/hamburger-menu
 
 ## Kendte problemer
 
@@ -406,35 +406,35 @@ Dette vil "fastgøre" servercertifikatet for at forhindre man-in-the-middle angr
 
 Bemærk, at ældre Android-versioner muligvis ikke genkender nyere certificeringsmyndigheder såsom Let’s Encrypt, hvorfor forbindelser kan blive betragtet som usikre, se også [hér](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Trust anchor til certificeringsstien ikke fundet*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor til certificeringssti ikke fundet...* betyder, at Androids standard betroet-håndtering ikke kunne bekræfte servercertifikatkæden.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Du bør enten rette serveropsætningen eller acceptere fingeraftrykket vist neden for fejlmeddelelsen.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Bemærk, at dette problem kan skyldes af, at serveren ikke sender alle mellemliggende certifikater.
 
-*Empty password*
+*Ingen adgangskode*
 
-Your username is likely easily guessed, so this is insecure.
+Dit brugernavn er sandsynligvis let at gætte og er dermed ikke sikkert.
 
-*Plain text connection*
+*Simpel tekst-forbindelse*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Dit brugernavn og adgangskode samt alle beskeder sendes og modtages ukrypteret, hvilket er **meget usikkert**, da et [mand-i-midten angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) nemt udføres på en ikke-krypteret forbindelse.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Vil du fortsat bruge et ugyldigt sikkerhedscertifikat, en tom adgangskode eller en almindelig tekstforbindelse, så skal usikre forbindelser aktiveres i konto- og/eller identitetsindstillingerne. STARTTLS bør vælges til simpel tekst-forbindelser. Aktiverer du usikre forbindelser, bør du kun oprette forbindelse via private, betroede netværk og aldrig via offentlige netværk på f. eks. hoteller, lufthavne mv.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Hvordan tilpasses beskedvisningen?**
 
-In the three dot overflow menu you can enable or disable or select:
+I menuen med tre prikker kan du aktivere/deaktivere eller vælge:
 
 * *tekststørrelse*: Til tre forskellige skriftstørrelser
 * *kompakt visning*: Til flere kondenserede beskedelementer og en mindre beskedtekst skrifttype
 
-In the display section of the settings you can enable or disable for example:
+I visningsafsnittet i indstillingerne kan man aktivere/deaktivere f. eks:
 
 * *Fælles indbakke*: For at deaktivere den fælles indbakke og i stedet vise de valgte mapper fra den fælles indbakke
 * *Tabelform*: Til at vise en lineær liste i stedet for kort
@@ -451,9 +451,9 @@ In the display section of the settings you can enable or disable for example:
 * *Vis automatisk opridelig besked for kendte kontakter*: Tjek [denne FAQ](#user-content-faq35) ang. at få vist originale beskeder automatisk for kontakter på din enhed
 * *Vis automatisk billeder for kendte kontakter*: Tjek [denne FAQ](#user-content-faq35) for at få vist billeder automatisk for kontakter på din enhed
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Bemærk, at beskeder kun kan forhåndsvises, når beeskedteksten er blevet downloadet. Større beskedtekster downloades som standard ikke på afregnede (hovedsaligt mobile) netværk. Du kan ændre dette i forbindelsesindstillingerne.
 
-Some people ask:
+Nogle har spurgt:
 
 * at få emnet vist med fed tekst, men fed benyttes allerede til fremhævelse af ulæste beskeder
 * at få stjernen flyttet til venstre, men det er meget lettere at betjene stjernen på højre side
@@ -461,141 +461,141 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Hvordan logges ind på Gmail/G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Bruges Play Butik- eller GitHub-versionen af FairEmail, kan hurtigopsætningsguiden bruges for nem opsætning af en Gmail-konto og identitet. Gmail-hurtigopsætningsguiden er utilgængelig for tredjeparts-builds såsom F-Droid ditto, da Google kun har godkendte brugen af OAuth for officielle builds.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+Vil du ikke benytte en Gmail-konto på enheden, kan du enten aktivere adgang for "mindre sikre apps" og benytte din kontoadgangskode (ikke anbefalet) eller aktivere tofaktorgodkendelse og benytte en app-specifik adgangskode. For brug af en adgangskode skal du opsætte en konto og identitet via opsætningstrin 1 og 2 i stedet for via hurtigopsætningsguiden.
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Tjek [denne FAQ](#user-content-faq111) vedr., hvorfor kun konti på enheden kan benyttes.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Bemærk, en app-specifik adgangskode kræves, når tofaktorgodkendelse er aktiveret.
 
 <br />
 
-*Enable "Less secure apps"*
+*App-specifik adgangskode*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Tjek [hér](https://support.google.com/accounts/answer/185833), hvordan en app-specifik adgangskode genereres.
 
 <br />
 
-*General*
+*Aktivér "Mindre sikre apps"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Vigtigt**: Brug af denne metode anbefales ikke grundet mindre pålidelighed.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Vigtigt**: Brugernavn/adgangskode godkendte G Suite-konti vil [i nærmeste fremtid](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html) ophøre med at fungere.
+
+Tjek [hér](https://support.google.com/accounts/answer/6010255), hvordan "mindre sikre apps"aktiveres eller gå [direkte til indstillingerne](https://www.google.com/settings/security/lesssecureapps).
+
+Benyttes flere Gmail-konti, skal indstillingen "mindre sikre apps" ændres på alle relevante konti.
+
+Bemærk, at "mindre sikre apps"-indstillingsskærmen skal forlades vha. Tilbage-pilen, for at indstillingen effektueres.
+
+Benyttes denne metode, bør der anvendes en [stærk adgangskode](https://en.wikipedia.org/wiki/Password_strength) til Gmail-kontoen (i øvrigt altid er en god idé). Bemærk, at brug af [standard](https://tools.ietf.org/html/rfc3501) IMAP-protokollen ikke i sig selv er mindre sikker.
+
+Når "mindre sikre apps" ikke er aktiveret, ses fejlen *Godkendelse mislykkedes - ugyldige akkreditiver* for konti (IMAP) og *Brugernavn og adgangskode ikke accepteret* for identiteter (SMTP).
+
+<br />
+
+*Generelt*
+
+Advarslen "*Log ind via din webbrowser*" vises muligvis. Dette sker, når Google anser det netværk, hvormed der forbindes til Internet (hvilket kan være et VPN), som ikke-sikkert. Dette kan forhindres vha. Gmails hurtigopsætningsguide eller en app-specifik adgangskode.
+
+Tjek [hér](https://support.google.com/mail/answer/7126229) for Googles vejledning, og [hér](https://support.google.com/mail/accounts/answer/78754) for fejlfinding.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Hvorfor vises sendte beskeder ikke (direkte) i Sendt-mappen?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Sendte beskeder flyttes normalt fra udbakken til Sendt-mappen, så snart disse af udbyderen er tilføjet Sendt-mappen. Dette kræver valg af en Sendt-mappe i kontoindstillingerne, samt at mappen er opsættes til synk.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Visse udbydere holder ikke styr på sendte beskeder, eller den anvendte SMTP-server er muligvis ikke relateret til udbyderen. I så tilfælde føjer FairEmail automatisk sendte beskeder til Sendt-mappen under synk af denne, hvilket vil ske, efter at en besked er afsendt. Bemærk, at dette vil forøge Internettrafikken.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Sker dette ikke, holder udbyderen muligvis ikke styr på sendte beskeder, eller den anvendte SMTP-server er muligvis ikke udbyderrelateret.~~ ~~I så tilfælde kan den avancerede identitetsindstilling *Gem sendte beskeder* aktiveres for at lade FairEmail føje sendte beskeder til Sendt-mappen umiddelbart efter afsendelsen.~~ ~~Bemærk, at aktivering af indstillingen kan resultere i dubletbeskeder, hvis udbyderen føjer sendte beskeder til Sendt-mappen.~~ ~~Bemærk også, at aktivering af indstillingen vil resultere i forøget dataforbrug især ved afsendelse af beskeder med store vedhæftninger.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Hvis afsendte beskeder i udbakken ikke findes i Sendt-mappen ved en fuld synk, flytes disse også fra udbakken til Sendt-mappen.~~ ~~En fuld synk sker, når der genforbindes til serveren, eller ved periodisk/manuel synk.~~ ~~ Det vil sandsynligvis være ønskeligt i stedet at aktivere den avancerede indstilling *Gem sendte beskeder* for hurtigere at flytte beskeder til Sendt-mappen.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Kan en Microsoft Exchange-konto benyttes?**
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+En Microsoft Exchange-konto kan benyttes, såfremt den er tilgængelig via IMAP, hvilket plejer at være tilfældet. Tjek [hér](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for yderligere oplysninger.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Tjek [hér](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft-dokumentation vedr. opsætning af e-mailklient. Der er også et afsnit om almindelige forbindelsesfejl og løsninger.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Visse ældre Exchange-serverversioner har en fejl, der forårsager tomme beskeder og ødelagte vedhæftninger. Tjek [denne FAQ](#user-content-faq110) for en løsning.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Tjek [denne FAQ](#user-content-faq133) vedr. ActiveSync-understøttelse.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Tjek [denne FAQ](#user-content-faq111) vedr. OAuth-understøttelse.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Hvad er identiteter/hvordan tilføjes et alias?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identiteter repræsenterer e-mailadresser, der sendes *fra* via en e-mailserver (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Visse udbydere tillader brug af flere aliaser. Disse kan opsættes ved at indstille e-mailadressefeltet fra en ekstra identitet til aliasadressen og indstille brugernavnefeltet til hoved e-mailadressen.
 
-Note that you can copy an identity by long pressing it.
+Bemærk, at en identitet kan kopieres vha. et langt tryk på den.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Alternativt kan *Tillad redigering af afsenderadresse* aktiveres under Avancerede indstillinger for en eksisterende identitet mhp. at redigere brugernavnet ved beskedoprettelsen, såfremt udbyderen tillader dette.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail opdaterer automatisk adgangskoder til relaterede identiteter, når adgangskoden til den tilknyttede konto/relaterede identitet opdateres.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Tjek [denne FAQ](#user-content-faq33) om redigering af brugernavnet til e-mailadresser.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Hvad betyder 'UIDPLUS ikke understøttet'?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~Fejlmeddelelsen *UIDPLUS ikke understøttet * betyder, at e-mailudbyderen ikke tilbyder IMAP-udvidelsen [UIDPLUS](https://tools.ietf.org/html/rfc4315). Denne IMAP-udvidelse kræves for at implementere tovejs-synk, der ikke er en valgfri funktion. Medmindre udbyderen kan aktivere denne udvidelse, kan FairEmail ikke benyttes med udbyderen.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Hvorfor er POP uunderstøttet?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Udover at enhver anstændig e-mail-udbyder i dag understøtter [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol),~~ ~~vil brug af [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) resultere i unødvendig ekstra strømforbrug samt forsinkede notifikationer om nye beskeder.~~ ~~Desuden er POP uegnet til tovejssynk, og oftere end ikke, læser og skriver folk beskeder på forskellige enheder i dag.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~Grundlæggende understøtter POP kun download og sletning af beskeder fra indbakken.~~ ~~Dvs., at almindelige operationer, såsom indstilling af besekedattributter (læst, besvaret mv.), tilføjelse (sikkerhedskopiering) og flytning af beskeder ikke er mulige.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Tjek også, [hvad Google skriver om det](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~F.eks. kan [Gmail importere beskeder](https://support.google.com/mail/answer/21289) fra en anden POP-konto,~~ ~~hvilket kan anvendes som en løsning ifm. udbydere, som ikke understøtter IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; overvej at skifte til IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Hvordan fungerer kryptering/dekryptering?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Kommunikation med e-mailservere sker altid krypteret, medmindre dette eksplicit deaktiveres. Dette spørgsmål omhandler valgfri end-to-end kryptering med PGP eller S/MIME. Afsender og modtager bør først aftale dette og udveksle signerede beskeder for at overføre deres offentlige nøgler, før krypterede beskeder kan sendes.
 
-*General*
+*Generelt*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+[Tjek hér](https://en.wikipedia.org/wiki/Public-key_cryptography), hvordan kryptering vha. offentlige/private nøgler fungerer.
 
-Encryption in short:
+Kryptering kort fortalt:
 
 * **Udgående** beskeder krypteres vha. modtagerens **offentlige nøgle**
 * **Indgående** beskeder dekrypteres vha. modtagerens **private nøgle**
 
-Signing in short:
+Signering kort fortalt:
 
 * **Udgående** beskeder signeres med afsenderens **private nøgle**
 * **Indgående** beskeder bekræftes vha. afsenderens **offentlige nøgle**
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+For at signere/kryptere en besked, vælg den passende metode i Send-dialogen. Er der tidliger valgt *Vis ikke igen* ifm. Send-dialogen, kan denne altid åbnes igen vha. trepunkts-overløbsmenuen.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+For at bekræfte en signatur eller dekryptere en modtaget besked, så åbn beskeden og tryk blot på gestussen eller på hængelåsikonet umiddelbart under beskedhandlingsbjælken.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Første gang en signeret/krypteret besked afsendes, anmodes der muligvis om en signaturnøgle. Mhp. efterfølgende brug gemmer FairEmail automatisk den valgte signeringsnøgle i den anvendte identitet. Er der behov for at nulstille signeringsnøglen, så gem blot identiteten eller brug et langt tryk på identiteten på identitetslisten og vælg *Nulstil signeringsnøgle*. Den valgte signeringsnøgle er synlig på identitetslisten. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
 In the privacy settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 

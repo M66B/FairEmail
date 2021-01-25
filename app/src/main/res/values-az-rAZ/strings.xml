@@ -211,12 +211,12 @@
     <string name="title_setup_advanced">Qabaqcıl</string>
     <string name="title_setup_options">Seçimlər</string>
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
-    <string name="title_setup_reset_questions">Sualları sıfırla</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Sualları sıfırla</string>
     <string name="title_advanced_hint_title">More advanced options</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Gələn</string>
     <string name="title_advanced_section_send">Göndər</string>
     <string name="title_advanced_section_connection">Bağlantı</string>
@@ -226,6 +226,7 @@
     <string name="title_advanced_section_encryption">Encryption</string>
     <string name="title_advanced_section_notifications">Bildirişlər</string>
     <string name="title_advanced_section_misc">Qarışıq</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">Nə vaxt</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>

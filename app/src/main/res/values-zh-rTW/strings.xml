@@ -200,12 +200,12 @@
     <string name="title_setup_advanced">進階</string>
     <string name="title_setup_options">選項</string>
     <string name="title_setup_defaults">回復為預設</string>
-    <string name="title_setup_reset_questions">重置提示</string>
+    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">重置提示</string>
     <string name="title_advanced_hint_title">更多進階選項</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
-    <string name="title_advanced_section_main">Main</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">寄送</string>
     <string name="title_advanced_section_connection">連線</string>
@@ -215,6 +215,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
+    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">接收所有帳號訊息</string>
     <string name="title_advanced_when">何時</string>
     <string name="title_advanced_always">這些帳號隨時都接受訊息</string>

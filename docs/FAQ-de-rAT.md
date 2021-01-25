@@ -43,8 +43,8 @@ Verwandte Fragen:
 
 ## Wie kann ich …?
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
+* Kontonamen ändern: Einstellungen -> Schritt 1 -> Verwalten -> Konto
+* Aktion für Links-/Rechtswischen ändern: Einstellungen -> Verhalten -> Wischgesten festlegen
 * Change password: Settings, scroll to step 1, tap Manage, tap account, change password
 * Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
