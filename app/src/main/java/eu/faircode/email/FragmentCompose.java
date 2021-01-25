@@ -3928,7 +3928,7 @@ public class FragmentCompose extends FragmentBase {
 
                     String text = HtmlHelper.getFullText(html);
                     data.draft.preview = HtmlHelper.getPreview(text);
-                    data.draft.language = HtmlHelper.getLanguage(context, text);
+                    data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
                     db.message().setMessageContent(data.draft.id,
                             true,
                             data.draft.language,
@@ -4084,7 +4084,7 @@ public class FragmentCompose extends FragmentBase {
 
                         String text = HtmlHelper.getFullText(html);
                         data.draft.preview = HtmlHelper.getPreview(text);
-                        data.draft.language = HtmlHelper.getLanguage(context, text);
+                        data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
                         db.message().setMessageContent(data.draft.id,
                                 true,
                                 data.draft.language,
@@ -4603,7 +4603,7 @@ public class FragmentCompose extends FragmentBase {
 
                     String full = HtmlHelper.getFullText(body);
                     draft.preview = HtmlHelper.getPreview(full);
-                    draft.language = HtmlHelper.getLanguage(context, full);
+                    draft.language = HtmlHelper.getLanguage(context, draft.subject, full);
                     db.message().setMessageContent(draft.id,
                             true,
                             draft.language,

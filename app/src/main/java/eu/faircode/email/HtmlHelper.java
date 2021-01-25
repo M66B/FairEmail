@@ -1708,14 +1708,22 @@ public class HtmlHelper {
         Log.d(document.head().html());
     }
 
-    static String getLanguage(Context context, String text) {
+    static String getLanguage(Context context, String subject, String text) {
         try {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean language_detection = prefs.getBoolean("language_detection", false);
             if (!language_detection)
                 return null;
 
-            Locale locale = TextHelper.detectLanguage(context, text);
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(subject))
+                sb.append(subject).append('\n');
+            if (!TextUtils.isEmpty(text))
+                sb.append(text);
+            if (sb.length() == 0)
+                return null;
+
+            Locale locale = TextHelper.detectLanguage(context, sb.toString());
             return (locale == null ? null : locale.getLanguage());
         } catch (Throwable ex) {
             Log.e(ex);

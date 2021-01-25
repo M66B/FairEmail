@@ -613,7 +613,7 @@ public class EntityRule {
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
         reply.preview = HtmlHelper.getPreview(text);
-        reply.language = HtmlHelper.getLanguage(context, text);
+        reply.language = HtmlHelper.getLanguage(context, reply.subject, text);
         db.message().setMessageContent(reply.id,
                 true,
                 reply.language,

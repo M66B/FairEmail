@@ -283,36 +283,37 @@ public class ServiceUI extends IntentService {
         boolean prefix_once = prefs.getBoolean("prefix_once", true);
         boolean plain_only = prefs.getBoolean("plain_only", false);
 
+        DB db = DB.getInstance(this);
+
+        EntityMessage ref = db.message().getMessage(id);
+        if (ref == null)
+            throw new IllegalArgumentException("message not found");
+
+        EntityIdentity identity = db.identity().getIdentity(ref.identity);
+        if (identity == null)
+            throw new IllegalArgumentException("identity not found");
+
+        EntityFolder outbox = db.folder().getOutbox();
+        if (outbox == null)
+            throw new IllegalArgumentException("outbox not found");
+
+        String subject = (ref.subject == null ? "" : ref.subject);
+        if (prefix_once) {
+            String re = getString(R.string.title_subject_reply, "");
+            subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
+        }
+
         Bundle results = RemoteInput.getResultsFromIntent(intent);
         String body = results.getString("text");
         if (body != null)
             body = "<p>" + body.replaceAll("\\r?\\n", "<br>") + "</p>";
 
         String text = HtmlHelper.getFullText(body);
-        String language = HtmlHelper.getLanguage(this, text);
+        String language = HtmlHelper.getLanguage(this, ref.subject, text);
         String preview = HtmlHelper.getPreview(text);
 
-        DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
-
-            EntityMessage ref = db.message().getMessage(id);
-            if (ref == null)
-                throw new IllegalArgumentException("message not found");
-
-            EntityIdentity identity = db.identity().getIdentity(ref.identity);
-            if (identity == null)
-                throw new IllegalArgumentException("identity not found");
-
-            EntityFolder outbox = db.folder().getOutbox();
-            if (outbox == null)
-                throw new IllegalArgumentException("outbox not found");
-
-            String subject = (ref.subject == null ? "" : ref.subject);
-            if (prefix_once) {
-                String re = getString(R.string.title_subject_reply, "");
-                subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
-            }
 
             EntityMessage reply = new EntityMessage();
             reply.account = identity.account;

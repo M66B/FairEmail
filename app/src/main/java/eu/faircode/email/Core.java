@@ -1505,7 +1505,7 @@ class Core {
         Helper.writeText(file, body);
         String text = HtmlHelper.getFullText(body);
         message.preview = HtmlHelper.getPreview(text);
-        message.language = HtmlHelper.getLanguage(context, text);
+        message.language = HtmlHelper.getLanguage(context, message.subject, text);
         db.message().setMessageContent(message.id,
                 true,
                 message.language,
@@ -2217,7 +2217,7 @@ class Core {
                         Helper.writeText(file, body);
                         String text = HtmlHelper.getFullText(body);
                         message.preview = HtmlHelper.getPreview(text);
-                        message.language = HtmlHelper.getLanguage(context, text);
+                        message.language = HtmlHelper.getLanguage(context, message.subject, text);
                         db.message().setMessageContent(message.id,
                                 true,
                                 message.language,
@@ -3021,7 +3021,7 @@ class Core {
                         Helper.writeText(file, body);
                         String text = HtmlHelper.getFullText(body);
                         message.preview = HtmlHelper.getPreview(text);
-                        message.language = HtmlHelper.getLanguage(context, text);
+                        message.language = HtmlHelper.getLanguage(context, message.subject, text);
                         db.message().setMessageContent(message.id,
                                 true,
                                 message.language,
@@ -3460,7 +3460,7 @@ class Core {
                     Helper.writeText(file, body);
                     String text = HtmlHelper.getFullText(body);
                     message.preview = HtmlHelper.getPreview(text);
-                    message.language = HtmlHelper.getLanguage(context, text);
+                    message.language = HtmlHelper.getLanguage(context, message.subject, text);
                     db.message().setMessageContent(message.id,
                             true,
                             message.language,
