@@ -146,6 +146,7 @@ public class Helper {
     static final float LOW_LIGHT = 0.6f;
 
     static final int BUFFER_SIZE = 8192; // Same as in Files class
+    static final long MIN_REQUIRED_SPACE = 250 * 1024L * 1024L;
 
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";

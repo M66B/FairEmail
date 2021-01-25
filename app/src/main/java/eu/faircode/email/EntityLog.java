@@ -39,7 +39,10 @@ import java.util.concurrent.ExecutorService;
 )
 public class EntityLog {
     static final String TABLE_NAME = "log";
-    static Long last_cleanup = null;
+
+    private static boolean ok = true;
+    private static long count = 0;
+    private static Long last_cleanup = null;
 
     private static final long LOG_CLEANUP_INTERVAL = 3600 * 1000L; // milliseconds
     private static final long LOG_KEEP_DURATION = 24 * 3600 * 1000L; // milliseconds
@@ -67,6 +70,13 @@ public class EntityLog {
         executor.submit(new Runnable() {
             @Override
             public void run() {
+                if (!ok || (++count % LOG_DELETE_BATCH_SIZE) == 0) {
+                    long cake = Helper.getAvailableStorageSpace();
+                    ok = (cake < Helper.MIN_REQUIRED_SPACE);
+                    if (!ok)
+                        ok = false;
+                }
+
                 try {
                     db.beginTransaction();
                     db.log().insertLog(entry);
