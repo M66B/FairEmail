@@ -911,8 +911,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (EntityFolder.isOutgoing(message.folderType) &&
-                    (viewType != ViewType.THREAD || !threading) && !show_recipients);
+            boolean reverse = (!show_recipients && outgoing && (viewType != ViewType.THREAD || !threading));
             Address[] senders = ContactInfo.fillIn(reverse ? message.to : message.senders, prefer_contact);
             Address[] recipients = ContactInfo.fillIn(reverse ? message.from : message.recipients, prefer_contact);
             boolean authenticated =
@@ -2858,10 +2857,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private boolean isOutgoing(TupleMessageEx message) {
             if (EntityFolder.isOutgoing(message.folderType))
                 return true;
-            else
-                return (message.identityEmail != null &&
-                        message.from != null && message.from.length == 1 &&
-                        message.identityEmail.equalsIgnoreCase(((InternetAddress) message.from[0]).getAddress()));
+            else {
+                if (message.identityEmail == null)
+                    return false;
+                if (message.from == null)
+                    return false;
+                for (Address from : message.from)
+                    if (message.identityEmail.equalsIgnoreCase(((InternetAddress) from).getAddress()))
+                        return true;
+                return false;
+            }
         }
 
         private TupleMessageEx getMessage() {
