@@ -158,7 +158,20 @@ class ImageHelper {
         Paint paint = new Paint();
         paint.setColor(lum < t ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
-        paint.setTypeface(Typeface.DEFAULT_BOLD);
+        try {
+            paint.setTypeface(Typeface.DEFAULT_BOLD);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.NullPointerException: Attempt to invoke interface method 'android.graphics.Typeface miui.util.font.IFontManager.getBaseFont(int)' on a null object reference
+                  at miui.util.TypefaceUtils.updateDefaultFont(TypefaceUtils.java:190)
+                  at miui.util.TypefaceUtils.loadFontManager(TypefaceUtils.java:168)
+                  at miui.util.TypefaceUtils.loadFontSettings(TypefaceUtils.java:64)
+                  at miui.util.TypefaceUtils.useVarFont(TypefaceUtils.java:107)
+                  at android.graphics.Paint.useMiuiVarFont(Paint.java:1460)
+                  at android.graphics.Paint.setTypeface(Paint.java:1443)
+             */
+        }
 
         canvas.drawText(letter,
                 size / 2f - paint.measureText(letter) / 2,
