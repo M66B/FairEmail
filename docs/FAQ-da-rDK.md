@@ -873,7 +873,7 @@ Fejlen *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 

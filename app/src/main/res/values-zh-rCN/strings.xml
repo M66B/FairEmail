@@ -199,7 +199,7 @@
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
-    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">重置问题</string>
+    <string name="title_setup_reset_questions">重置问题</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值

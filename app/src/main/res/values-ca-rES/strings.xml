@@ -210,7 +210,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_advanced">Avançat</string>
     <string name="title_setup_options">Opcions</string>
     <string name="title_setup_defaults">Restaura els valors per defecte</string>
-    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Restableix les preguntes</string>
+    <string name="title_setup_reset_questions">Restableix les preguntes</string>
     <string name="title_advanced_hint_title">Més opcions avançades</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.

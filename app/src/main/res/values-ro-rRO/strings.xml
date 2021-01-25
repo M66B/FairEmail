@@ -222,7 +222,7 @@
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
-    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Resetare întrebări</string>
+    <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.

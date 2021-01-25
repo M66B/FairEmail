@@ -211,7 +211,7 @@
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
-    <string name="title_setup_reset_questions" comment="title_setup_reset_questions&#10;Title of button to reset all asked questions like &quot;Don't show again&quot;, etc">Nulstil spørgsmål</string>
+    <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har almindeligt brugte standardværdier, som kan ændres jf. dine præferencer.
