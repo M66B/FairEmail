@@ -739,7 +739,7 @@ public class Helper {
         return 0;
     }
 
-    static boolean isFoldable() {
+    static boolean isSurfaceDuo() {
         return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
     }
 

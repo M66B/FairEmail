@@ -186,15 +186,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         content_separator = findViewById(R.id.content_separator);
         content_pane = findViewById(R.id.content_pane);
 
-        if (Helper.isFoldable() &&
+        if (Helper.isSurfaceDuo() &&
                 (viewId == R.layout.activity_view_portrait_split ||
                         viewId == R.layout.activity_view_landscape_split)) {
             View content_frame = findViewById(R.id.content_frame);
             ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
             if (lparam instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) lparam).weight = 1;
+                ((LinearLayout.LayoutParams) lparam).weight = 1; // 50/50
                 content_frame.setLayoutParams(lparam);
             }
+            // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
+            content_separator.getLayoutParams().width = Helper.dp2pixels(this, 34);
         }
 
         drawerLayout = findViewById(R.id.drawer_layout);
