@@ -929,8 +929,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "service")
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
-                        .setContentTitle(getResources().getQuantityString(
-                                R.plurals.title_notification_synchronizing, lastAccounts, lastAccounts))
                         .setContentIntent(piWhy)
                         .setAutoCancel(false)
                         .setShowWhen(false)
@@ -939,6 +937,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                         .setLocalOnly(true);
+
+        if (lastAccounts > 0)
+            builder.setContentTitle(getResources().getQuantityString(
+                    R.plurals.title_notification_synchronizing, lastAccounts, lastAccounts));
 
         if (lastOperations > 0)
             builder.setContentText(getResources().getQuantityString(
