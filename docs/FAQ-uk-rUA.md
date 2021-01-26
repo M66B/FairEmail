@@ -10,7 +10,7 @@
 * [Заплановані можливості](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Найпопулярніші функції](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Найбільш поширенні питання](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Отримати підтримку](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Авторизація облікового акаунту
 
@@ -80,12 +80,12 @@
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 
-## Planned features
+## Заплановані можливості
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
 * ~~Copy message~~
-* ~~Colored stars~~
+* ~~Кольорові зірки~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~

@@ -16,11 +16,11 @@ Se tiver alguma dúvida, verifique primeiro as perguntas mais frequentes abaixo.
 
 Na maioria dos casos, a configuração rápida será capaz de identificar automaticamente a configuração correcta.
 
-Se a configuração rápida falhar, terá de configurar manualmente uma conta (para receber um email) e um perfil (para enviar um email). Para isso precisará dos endereços de servidor IMAP e SMTP e dos números das portas, quer sejam SSL/TLS ou STARTTLS e do seu nome de usuário (na maioria das vezes o seu endereço de email) e a sua senha.
+Se a configuração rápida falhar, terá de configurar manualmente uma conta (para receber um email) e um perfil (para enviar um email). Para isso precisará dos endereços de servidor IMAP e SMTP e dos números das portas, quer sejam SSL/TLS ou STARTTLS e do seu nome de usuário (na maioria das vezes o seu endereço de email) e a sua palavra-passe.
 
 Procurar por *IMAP* e o nome do fornecedor é geralmente suficiente para encontrar a documentação correcta.
 
-Nalguns casos, terá de permitir o acesso externo à sua conta e/ou usar uma senha especial (app) quando, por exemplo, a autenticação de dois factores está activada.
+Nalguns casos, terá de permitir o acesso externo à sua conta e/ou usar uma palavra-passe especial (app) quando, por exemplo, a autenticação de dois factores está activada.
 
 Para autorização:
 
@@ -45,7 +45,7 @@ Questões relacionadas:
 
 * Mudar o nome da conta: Configurações, deslize para o passo 1, seleccione Gerir, seleccione conta
 * Mudar o deslize esquerda/direita: Configurações, seleccione comportamento da página, defina acções de deslizar
-* Mudar senha: Configurações, deslize para o passo 1, seleccione Gerir, seleccione conta, mudar senha
+* Mudar palavra-passe: Configurações, deslize para o passo 1, seleccione Gerir, seleccione conta, mudar palavra-passe
 * Definir assinatura: Configurações, deslize para o passo 2, seleccione Gerir, seleccione perfil, Editar assinatura.
 * Adicionar endereços CC e BCC: seleccione o ícone das pessoas no final do assunto
 * Ir para mensagem seguinte/anterior no arquivar/excluir: nas configurações de comportamento desactive *Fechar conversações automaticamente* e seleccione *Ir para conversação seguinte/anterior* para *Fechar conversação*
@@ -124,7 +124,7 @@ O design está baseado em muitas discussões e, se desejar, poderá também disc
 * [(1) Que permissões são necessárias e porquê?](#user-content-faq1)
 * [(2) Porque é que existe uma notificação permanente?](#user-content-faq2)
 * [(3) O que são operações e por que razão estão pendentes?](#user-content-faq3)
-* [(4) Como posso utilizar um certificado segurança inválido/ senha em branco/ conexão de texto simples?](#user-content-faq4)
+* [(4) Como posso utilizar um certificado segurança inválido/ palavra-passe em branco/ conexão de texto simples?](#user-content-faq4)
 * [(5) Como posso personalizar a visualização de mensagens?](#user-content-faq5)
 * [(6) Como posso fazer login no Gmail/ G Suite?](#user-content-faq6)
 * [(7) Porque é que as mensagem enviadas não estão a aparecer (directamente) na pasta de enviadas?](#user-content-faq7)
@@ -157,7 +157,7 @@ O design está baseado em muitas discussões e, se desejar, poderá também disc
 * [(34) Como são correspondidas as identidades?](#user-content-faq34)
 * [(35) Por que razão devo ter cuidado ao visualizar imagens, anexos, mensagem original e abrir links?](#user-content-faq35)
 * [(36) Como são encriptados os arquivos de configuração?](#user-content-faq36)
-* [(37) Como são armazenadas as senhas?](#user-content-faq37)
+* [(37) Como são armazenadas as palavras-passe?](#user-content-faq37)
 * [(39) Como posso reduzir a utilização da bateria do FairEmail?](#user-content-faq39)
 * [(40) Como posso reduzir o uso de dados do FairEmail?](#user-content-faq40)
 * [(41) Como posso corrigir o erro 'Handshake falhou'?](#user-content-faq41)

@@ -100,7 +100,7 @@
         Vytváření a používání pravidel je Pro funkcí.
     </string>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
-    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
+    <string name="title_junk_filter_hint">Může zvýšit využití baterie a nesprávně označovat zprávy jako nevyžádané</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -139,20 +139,20 @@
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
     <string name="title_setup_quick">Rychlé nastavení</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
+    <string name="title_setup_quick_accounts">Přidat účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
+    <string name="title_setup_manual">Ruční nastavení a další možnosti</string>
+    <string name="title_setup_account_remark">Příjem e-mailů</string>
+    <string name="title_setup_identity_remark">Odesílání e-mailů</string>
+    <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
+    <string name="title_setup_accounts">Účty</string>
+    <string name="title_setup_identities">Identity</string>
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_pop3">POP3 účet</string>
@@ -170,19 +170,19 @@
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu „%1$s“ nebylo nalezeno žádné nastavení</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
+    <string name="title_setup_no_settings_hint">Pokuste se nastavit účet ručně pomocí nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
+    <string name="title_setup_quick_success">Účet byl úspěšně přidán</string>
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
     <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>
     <string name="title_setup_identity_what">Co je to identita?</string>
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
+    <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Pro spolehlivý příjem e-mailu</string>
     <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_instructions">V následujícím dialogu nahoře vyberte „Všechny aplikace“, v seznamu vyberte tuto aplikaci a označte a potvrďte volbu „Neoptimalizovat“</string>
@@ -190,7 +190,7 @@
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
-    <string name="title_setup_inbox">Go to inbox</string>
+    <string name="title_setup_inbox">Přejít na Doručené</string>
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_to_do">Dokončit</string>
     <string name="title_setup_done">Hotovo</string>
@@ -238,7 +238,7 @@
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
-    <string name="title_advanced_section_main">Start</string>
+    <string name="title_advanced_section_main">Začít</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
     <string name="title_advanced_section_send">Odesílání</string>
     <string name="title_advanced_section_connection">Připojení</string>
@@ -248,7 +248,7 @@
     <string name="title_advanced_section_encryption">Šifrování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
+    <string name="title_advanced_default">Všechny volby mají běžně používané standardní hodnoty</string>
     <string name="title_advanced_receive">Přijímat zprávy pro všechny účty</string>
     <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>
@@ -621,7 +621,7 @@
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_drafts">Žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
+    <string name="title_no_composable">Odesílání e-mailů vyžaduje nastavenou identitu a zvolit složku pro koncepty v nastavení účtu</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
@@ -751,7 +751,7 @@
     <string name="title_forward">Přeposlat</string>
     <string name="title_new_message">Nová zpráva</string>
     <string name="title_editasnew">Upravit jako novou</string>
-    <string name="title_edit_notes">Edit local notes</string>
+    <string name="title_edit_notes">Upravit místní poznámky</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
     <string name="title_event">Přidat do kalendáře</string>
@@ -1223,7 +1223,7 @@
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
-    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
+    <string name="title_hint_sync_note">Ve výchozím nastavení nebudou stahovány všechny zprávy, aby se omezilo zabrané místo v úložišti, využití baterie a dat. Můžete to změnit dlouhým podržením složky v seznamu složek a zvolením \'Synchronizovat více\'.</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
     <string name="title_hint_design">Design záměrně není rozptylující, nýbrž je udržován vysoce funkčním. Pro přizpůsobení vzhledu je zde mnoho nastavení, avšak prosím pochopte, že není možné každého zároveň kompletně uspokojit.</string>

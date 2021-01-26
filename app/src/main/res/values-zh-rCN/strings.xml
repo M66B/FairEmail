@@ -105,7 +105,7 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
     <string name="title_setup_quick">快速设置</string>
-    <string name="title_setup_quick_accounts">添加账户</string>
+    <string name="title_setup_quick_accounts">添加帐户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
@@ -113,11 +113,11 @@
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
-    <string name="title_setup_manual">手动设置和更多选项</string>
+    <string name="title_setup_manual">手动设置及更多选项</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
-    <string name="title_setup_account_identity_hint">你可以在账号设置中配置名称、颜色和滑动动作，在身份设置中配置签名</string>
-    <string name="title_setup_accounts">账户</string>
+    <string name="title_setup_account_identity_hint">你可以在帐户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
+    <string name="title_setup_accounts">帐户</string>
     <string name="title_setup_identities">身份</string>
     <string name="title_setup_oauth_permission">电子邮件服务提供商仅允许官方应用程序版本使用OAuth</string>
     <string name="title_setup_other">其他提供商</string>
@@ -141,7 +141,7 @@
     <string name="title_setup_app_password_hint">此供应商需要 app 密码而不是账户密码，请查看该供应商的相关说明</string>
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
-    <string name="title_setup_quick_success">成功添加一个账户</string>
+    <string name="title_setup_quick_success">帐户已成功添加</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
@@ -420,9 +420,9 @@
     </string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
-    <string name="title_advanced_conversation_actions">对操作提出建议 (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">对回复文本提出建议 (Android 10+)</string>
-    <string name="title_advanced_language_detection">检测消息文本语言</string>
+    <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
+    <string name="title_advanced_language_detection">检测消息文本的语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
@@ -587,7 +587,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_composable">发送邮件需要配置一个身份，并在账户设置中选择一个草稿文件夹</string>
+    <string name="title_no_composable">发送邮件需要配置一个身份，并在帐户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
