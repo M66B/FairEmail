@@ -941,6 +941,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (lastAccounts > 0)
             builder.setContentTitle(getResources().getQuantityString(
                     R.plurals.title_notification_synchronizing, lastAccounts, lastAccounts));
+        else
+            builder.setContentTitle(getString(R.string.title_legend_synchronizing));
 
         if (lastOperations > 0)
             builder.setContentText(getResources().getQuantityString(
