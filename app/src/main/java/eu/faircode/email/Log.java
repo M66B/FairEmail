@@ -267,190 +267,203 @@ public class Log {
     }
 
     private static void setupBugsnag(final Context context) {
-        // https://docs.bugsnag.com/platforms/android/sdk/
-        com.bugsnag.android.Configuration config =
-                new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
+        try {
+            // https://docs.bugsnag.com/platforms/android/sdk/
+            com.bugsnag.android.Configuration config =
+                    new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
 
-        if (BuildConfig.DEBUG)
-            config.setReleaseStage("debug");
-        else {
-            String type;
-            if (Helper.hasValidFingerprint(context)) {
-                if (BuildConfig.PLAY_STORE_RELEASE)
-                    type = "play";
-                else
-                    type = "full";
-            } else {
-                if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
-                    type = "other";
-                else
-                    type = "clone";
+            if (BuildConfig.DEBUG)
+                config.setReleaseStage("debug");
+            else {
+                String type;
+                if (Helper.hasValidFingerprint(context)) {
+                    if (BuildConfig.PLAY_STORE_RELEASE)
+                        type = "play";
+                    else
+                        type = "full";
+                } else {
+                    if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
+                        type = "other";
+                    else
+                        type = "clone";
+                }
+                config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
             }
-            config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
-        }
 
-        config.setAutoTrackSessions(false);
+            config.setAutoTrackSessions(false);
 
-        ErrorTypes etypes = new ErrorTypes();
-        etypes.setAnrs(BuildConfig.DEBUG);
-        etypes.setNdkCrashes(false);
-        config.setEnabledErrorTypes(etypes);
+            ErrorTypes etypes = new ErrorTypes();
+            etypes.setAnrs(BuildConfig.DEBUG);
+            etypes.setNdkCrashes(false);
+            config.setEnabledErrorTypes(etypes);
 
-        Set<String> ignore = new HashSet<>();
+            Set<String> ignore = new HashSet<>();
 
-        ignore.add("com.sun.mail.util.MailConnectException");
+            ignore.add("com.sun.mail.util.MailConnectException");
 
-        ignore.add("android.accounts.AuthenticatorException");
-        ignore.add("android.accounts.OperationCanceledException");
-        ignore.add("android.app.RemoteServiceException");
+            ignore.add("android.accounts.AuthenticatorException");
+            ignore.add("android.accounts.OperationCanceledException");
+            ignore.add("android.app.RemoteServiceException");
 
-        ignore.add("java.lang.NoClassDefFoundError");
-        ignore.add("java.lang.UnsatisfiedLinkError");
+            ignore.add("java.lang.NoClassDefFoundError");
+            ignore.add("java.lang.UnsatisfiedLinkError");
 
-        ignore.add("java.nio.charset.MalformedInputException");
+            ignore.add("java.nio.charset.MalformedInputException");
 
-        ignore.add("java.net.ConnectException");
-        ignore.add("java.net.SocketException");
-        ignore.add("java.net.SocketTimeoutException");
-        ignore.add("java.net.UnknownHostException");
+            ignore.add("java.net.ConnectException");
+            ignore.add("java.net.SocketException");
+            ignore.add("java.net.SocketTimeoutException");
+            ignore.add("java.net.UnknownHostException");
 
-        ignore.add("javax.mail.AuthenticationFailedException");
-        ignore.add("javax.mail.internet.AddressException");
-        ignore.add("javax.mail.internet.ParseException");
-        ignore.add("javax.mail.MessageRemovedException");
-        ignore.add("javax.mail.FolderNotFoundException");
-        ignore.add("javax.mail.ReadOnlyFolderException");
-        ignore.add("javax.mail.FolderClosedException");
-        ignore.add("com.sun.mail.util.FolderClosedIOException");
-        ignore.add("javax.mail.StoreClosedException");
+            ignore.add("javax.mail.AuthenticationFailedException");
+            ignore.add("javax.mail.internet.AddressException");
+            ignore.add("javax.mail.internet.ParseException");
+            ignore.add("javax.mail.MessageRemovedException");
+            ignore.add("javax.mail.FolderNotFoundException");
+            ignore.add("javax.mail.ReadOnlyFolderException");
+            ignore.add("javax.mail.FolderClosedException");
+            ignore.add("com.sun.mail.util.FolderClosedIOException");
+            ignore.add("javax.mail.StoreClosedException");
 
-        ignore.add("org.xmlpull.v1.XmlPullParserException");
+            ignore.add("org.xmlpull.v1.XmlPullParserException");
 
-        config.setDiscardClasses(ignore);
+            config.setDiscardClasses(ignore);
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
-        String no_internet = context.getString(R.string.title_no_internet);
+            String no_internet = context.getString(R.string.title_no_internet);
 
-        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        config.addMetadata("extra", "installer", installer == null ? "-" : installer);
-        config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
-        config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
-        config.addMetadata("extra", "memory_class", am.getMemoryClass());
-        config.addMetadata("extra", "memory_class_large", am.getLargeMemoryClass());
+            String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            config.addMetadata("extra", "installer", installer == null ? "-" : installer);
+            config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
+            config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
+            config.addMetadata("extra", "memory_class", am.getMemoryClass());
+            config.addMetadata("extra", "memory_class_large", am.getLargeMemoryClass());
 
-        config.addOnSession(new OnSessionCallback() {
-            @Override
-            public boolean onSession(@NonNull Session session) {
-                // opt-in
-                return prefs.getBoolean("crash_reports", false);
-            }
-        });
+            config.addOnSession(new OnSessionCallback() {
+                @Override
+                public boolean onSession(@NonNull Session session) {
+                    // opt-in
+                    return prefs.getBoolean("crash_reports", false);
+                }
+            });
 
-        config.addOnError(new OnErrorCallback() {
-            @Override
-            public boolean onError(@NonNull Event event) {
-                // opt-in
-                boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                if (!crash_reports)
-                    return false;
+            config.addOnError(new OnErrorCallback() {
+                @Override
+                public boolean onError(@NonNull Event event) {
+                    // opt-in
+                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
+                    if (!crash_reports)
+                        return false;
 
-                Throwable ex = event.getOriginalError();
-                boolean should = shouldNotify(ex);
+                    Throwable ex = event.getOriginalError();
+                    boolean should = shouldNotify(ex);
 
-                if (should) {
-                    event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                    event.addMetadata("extra", "memory_free", getFreeMemMb());
-                    event.addMetadata("extra", "memory_available", getAvailableMb());
+                    if (should) {
+                        event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
+                        event.addMetadata("extra", "memory_free", getFreeMemMb());
+                        event.addMetadata("extra", "memory_available", getAvailableMb());
 
-                    Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
-                    event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
+                        Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
+                        event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
 
-                    String theme = prefs.getString("theme", "blue_orange_system");
-                    event.addMetadata("extra", "theme", theme);
-                    event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
+                        String theme = prefs.getString("theme", "blue_orange_system");
+                        event.addMetadata("extra", "theme", theme);
+                        event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
+                    }
+
+                    return should;
                 }
 
-                return should;
+                private boolean shouldNotify(Throwable ex) {
+                    if (ex instanceof MessagingException &&
+                            (ex.getCause() instanceof IOException ||
+                                    ex.getCause() instanceof ProtocolException))
+                        // IOException includes SocketException, SocketTimeoutException
+                        // ProtocolException includes ConnectionException
+                        return false;
+
+                    if (ex instanceof MessagingException &&
+                            ("connection failure".equals(ex.getMessage()) ||
+                                    "failed to create new store connection".equals(ex.getMessage()) ||
+                                    "Failed to fetch headers".equals(ex.getMessage()) ||
+                                    "Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof IllegalStateException &&
+                            (no_internet.equals(ex.getMessage()) ||
+                                    "Not connected".equals(ex.getMessage()) ||
+                                    "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof FileNotFoundException &&
+                            ex.getMessage() != null &&
+                            (ex.getMessage().startsWith("Download image failed") ||
+                                    ex.getMessage().startsWith("http://") ||
+                                    ex.getMessage().startsWith("https://") ||
+                                    ex.getMessage().startsWith("content://")))
+                        return false;
+
+                    if (ex instanceof IOException &&
+                            ex.getCause() instanceof MessageRemovedException)
+                        return false;
+
+                    if (ex instanceof IOException &&
+                            ex.getMessage() != null &&
+                            (ex.getMessage().startsWith("HTTP status=") ||
+                                    "NetworkError".equals(ex.getMessage()) || // account manager
+                                    "Resetting to invalid mark".equals(ex.getMessage()) ||
+                                    "Mark has been invalidated.".equals(ex.getMessage())))
+                        return false;
+
+                    if (ex instanceof SSLPeerUnverifiedException ||
+                            ex instanceof EmailService.UntrustedException)
+                        return false;
+
+                    if (ex instanceof SSLHandshakeException &&
+                            ex.getCause() instanceof CertPathValidatorException)
+                        return false; // checkUpdate!
+
+                    if (ex instanceof RuntimeException &&
+                            "Illegal meta data value: the child service doesn't exist".equals(ex.getMessage()))
+                        return false;
+
+                    // Rate limit
+                    int count = prefs.getInt("crash_report_count", 0) + 1;
+                    prefs.edit().putInt("crash_report_count", count).apply();
+
+                    return (count <= MAX_CRASH_REPORTS);
+                }
+            });
+
+            Bugsnag.start(context, config);
+
+            Client client = Bugsnag.getClient();
+
+            String uuid = prefs.getString("uuid", null);
+            if (uuid == null) {
+                uuid = UUID.randomUUID().toString();
+                prefs.edit().putString("uuid", uuid).apply();
             }
+            Log.i("uuid=" + uuid);
+            client.setUser(uuid, null, null);
 
-            private boolean shouldNotify(Throwable ex) {
-                if (ex instanceof MessagingException &&
-                        (ex.getCause() instanceof IOException ||
-                                ex.getCause() instanceof ProtocolException))
-                    // IOException includes SocketException, SocketTimeoutException
-                    // ProtocolException includes ConnectionException
-                    return false;
-
-                if (ex instanceof MessagingException &&
-                        ("connection failure".equals(ex.getMessage()) ||
-                                "failed to create new store connection".equals(ex.getMessage()) ||
-                                "Failed to fetch headers".equals(ex.getMessage()) ||
-                                "Failed to load IMAP envelope".equals(ex.getMessage()) ||
-                                "Unable to load BODYSTRUCTURE".equals(ex.getMessage())))
-                    return false;
-
-                if (ex instanceof IllegalStateException &&
-                        (no_internet.equals(ex.getMessage()) ||
-                                "Not connected".equals(ex.getMessage()) ||
-                                "This operation is not allowed on a closed folder".equals(ex.getMessage())))
-                    return false;
-
-                if (ex instanceof FileNotFoundException &&
-                        ex.getMessage() != null &&
-                        (ex.getMessage().startsWith("Download image failed") ||
-                                ex.getMessage().startsWith("http://") ||
-                                ex.getMessage().startsWith("https://") ||
-                                ex.getMessage().startsWith("content://")))
-                    return false;
-
-                if (ex instanceof IOException &&
-                        ex.getCause() instanceof MessageRemovedException)
-                    return false;
-
-                if (ex instanceof IOException &&
-                        ex.getMessage() != null &&
-                        (ex.getMessage().startsWith("HTTP status=") ||
-                                "NetworkError".equals(ex.getMessage()) || // account manager
-                                "Resetting to invalid mark".equals(ex.getMessage()) ||
-                                "Mark has been invalidated.".equals(ex.getMessage())))
-                    return false;
-
-                if (ex instanceof SSLPeerUnverifiedException ||
-                        ex instanceof EmailService.UntrustedException)
-                    return false;
-
-                if (ex instanceof SSLHandshakeException &&
-                        ex.getCause() instanceof CertPathValidatorException)
-                    return false; // checkUpdate!
-
-                if (ex instanceof RuntimeException &&
-                        "Illegal meta data value: the child service doesn't exist".equals(ex.getMessage()))
-                    return false;
-
-                // Rate limit
-                int count = prefs.getInt("crash_report_count", 0) + 1;
-                prefs.edit().putInt("crash_report_count", count).apply();
-
-                return (count <= MAX_CRASH_REPORTS);
-            }
-        });
-
-        Bugsnag.start(context, config);
-
-        Client client = Bugsnag.getClient();
-
-        String uuid = prefs.getString("uuid", null);
-        if (uuid == null) {
-            uuid = UUID.randomUUID().toString();
-            prefs.edit().putString("uuid", uuid).apply();
+            if (prefs.getBoolean("crash_reports", false))
+                Bugsnag.startSession();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.AssertionError: No NameTypeIndex match for SHORT_DAYLIGHT
+                  at android.icu.impl.TimeZoneNamesImpl$ZNames.getNameTypeIndex(TimeZoneNamesImpl.java:724)
+                  at android.icu.impl.TimeZoneNamesImpl$ZNames.getName(TimeZoneNamesImpl.java:790)
+                  at android.icu.impl.TimeZoneNamesImpl.getTimeZoneDisplayName(TimeZoneNamesImpl.java:183)
+                  at android.icu.text.TimeZoneNames.getDisplayName(TimeZoneNames.java:261)
+                  at java.util.TimeZone.getDisplayName(TimeZone.java:405)
+                  at java.util.Date.toString(Date.java:1066)
+             */
         }
-        Log.i("uuid=" + uuid);
-        client.setUser(uuid, null, null);
-
-        if (prefs.getBoolean("crash_reports", false))
-            Bugsnag.startSession();
     }
 
     static void logExtras(Intent intent) {
