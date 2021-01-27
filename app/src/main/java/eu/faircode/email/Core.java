@@ -1202,8 +1202,6 @@ class Core {
             throw new IllegalArgumentException("account missing");
 
         try {
-            db.folder().setFolderSyncState(folder.id, "syncing");
-
             if (removed) {
                 db.message().deleteMessage(folder.id, uid);
                 throw new MessageRemovedException("removed uid=" + uid);
@@ -1276,7 +1274,6 @@ class Core {
 
             db.message().deleteMessage(folder.id, uid);
         } finally {
-            db.folder().setFolderSyncState(folder.id, null);
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
         }
