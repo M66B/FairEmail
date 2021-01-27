@@ -32,7 +32,7 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
-        //ndkVersion "21.0.6113669"
+        //ndkVersion "22.0.7026061"
         ndk {
             // Bugsnag, sqlite
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
@@ -249,7 +249,6 @@ dependencies {
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.0.1"
     def lifecycle_version = "2.3.0-rc01"
-    def lifecycle_extensions_version = "2.2.0"
     def sqlite_version = "2.1.0"
     def room_version = "2.2.6" // 2.3.0-alpha04
     def paging_version = "2.1.2" // 3.0.0-alpha11
@@ -330,10 +329,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-core:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-
-    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-extensions
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
 
     // https://mvnrepository.com/artifact/androidx.room/room-runtime
     implementation "androidx.room:room-runtime:$room_version"
