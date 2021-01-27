@@ -2964,6 +2964,7 @@ class Core {
             try {
                 db.beginTransaction();
 
+                message.notifying = EntityMessage.NOTIFYING_IGNORE;
                 message.id = db.message().insertMessage(message);
                 Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
@@ -2979,7 +2980,7 @@ class Core {
                 runRules(context, imessage, account, folder, message, rules);
                 if (download && !message.ui_hide &&
                         MessageClassifier.isEnabled(context) && folder.auto_classify_source)
-                    db.message().setMessageUiHide(message.id, true);
+                    db.message().setMessageUiHide(message.id, true); // keep local value
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
@@ -2996,48 +2997,52 @@ class Core {
                 db.endTransaction();
             }
 
-            if (message.received > account.created)
-                updateContactInfo(context, folder, message);
+            try {
+                if (message.received > account.created)
+                    updateContactInfo(context, folder, message);
 
-            // Download small messages inline
-            if (download && !message.ui_hide) {
-                long maxSize;
-                if (state == null || state.networkState.isUnmetered())
-                    maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
-                else {
-                    maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
-                    if (maxSize == 0 || maxSize > MessageHelper.SMALL_MESSAGE_SIZE)
+                // Download small messages inline
+                if (download && !message.ui_hide) {
+                    long maxSize;
+                    if (state == null || state.networkState.isUnmetered())
                         maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
-                }
-
-                if ((message.size != null && message.size < maxSize) ||
-                        (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
-                    try {
-                        String body = parts.getHtml(context);
-                        File file = message.getFile(context);
-                        Helper.writeText(file, body);
-                        String text = HtmlHelper.getFullText(body);
-                        message.preview = HtmlHelper.getPreview(text);
-                        message.language = HtmlHelper.getLanguage(context, message.subject, text);
-                        db.message().setMessageContent(message.id,
-                                true,
-                                message.language,
-                                parts.isPlainOnly(),
-                                message.preview,
-                                parts.getWarnings(message.warning));
-                        MessageClassifier.classify(message, folder, null, context);
-
-                        if (stats != null && body != null)
-                            stats.content += body.length();
-                        Log.i(folder.name + " inline downloaded message id=" + message.id +
-                                " size=" + message.size + "/" + (body == null ? null : body.length()));
-
-                        if (TextUtils.isEmpty(body) && parts.hasBody())
-                            reportEmptyMessage(context, state, account, istore);
-                    } finally {
-                        if (!message.ui_hide)
-                            db.message().setMessageUiHide(message.id, false);
+                    else {
+                        maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+                        if (maxSize == 0 || maxSize > MessageHelper.SMALL_MESSAGE_SIZE)
+                            maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                     }
+
+                    if ((message.size != null && message.size < maxSize) ||
+                            (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
+                        try {
+                            String body = parts.getHtml(context);
+                            File file = message.getFile(context);
+                            Helper.writeText(file, body);
+                            String text = HtmlHelper.getFullText(body);
+                            message.preview = HtmlHelper.getPreview(text);
+                            message.language = HtmlHelper.getLanguage(context, message.subject, text);
+                            db.message().setMessageContent(message.id,
+                                    true,
+                                    message.language,
+                                    parts.isPlainOnly(),
+                                    message.preview,
+                                    parts.getWarnings(message.warning));
+                            MessageClassifier.classify(message, folder, null, context);
+
+                            if (stats != null && body != null)
+                                stats.content += body.length();
+                            Log.i(folder.name + " inline downloaded message id=" + message.id +
+                                    " size=" + message.size + "/" + (body == null ? null : body.length()));
+
+                            if (TextUtils.isEmpty(body) && parts.hasBody())
+                                reportEmptyMessage(context, state, account, istore);
+                        } finally {
+                            if (!message.ui_hide)
+                                db.message().setMessageUiHide(message.id, false);
+                        }
+                }
+            } finally {
+                db.message().setMessageNotifying(message.id, 0);
             }
 
             reportNewMessage(context, account, folder, message);
@@ -3559,6 +3564,11 @@ class Core {
 
         // Current
         for (TupleMessageEx message : messages) {
+            if (message.notifying == EntityMessage.NOTIFYING_IGNORE) {
+                Log.e("Notify ignore");
+                continue;
+            }
+
             // Check if notification channel enabled
             if (message.notifying == 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && pro) {
                 String channelId = message.getNotificationChannelId();
