@@ -297,7 +297,7 @@
     <string name="title_advanced_rlah">В роумінгу як вдома</string>
     <string name="title_advanced_timeout">Час очікування зв\'язку (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
-    <string name="title_advanced_ssl_harden">Використовує SSL-з\'єднання</string>
+    <string name="title_advanced_ssl_harden">Посилене SSL з\'єднання</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
     <string name="title_advanced_caption_list">Список</string>
@@ -385,7 +385,7 @@
     <string name="title_advanced_undo">Час для відміни дії</string>
     <string name="title_advanced_quick_filter">Показувати ненав\'язливі піктограми швидкого фільтру</string>
     <string name="title_advanced_quick_scroll">Показати не нав\'язливі піктограми швидкого прокручування вгору/вниз</string>
-    <string name="title_advanced_autoread">Автоматично відзначати повідомлення, які було прочитано при їх переміщенні</string>
+    <string name="title_advanced_autoread">Автоматично відзначати повідомлення прочитаними при їх переміщенні</string>
     <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
@@ -497,7 +497,7 @@
     <string name="title_advanced_rlah_hint">Якщо без роумінгу в межах ЄС</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включення може викликати проблеми з підключенням на деяких пристроях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
-    <string name="title_advanced_ssl_harden_hint">Увімкнення цієї опції дозволить відключити слабкі SSL протоколи і шифри, що можуть призвести до проблем підключення</string>
+    <string name="title_advanced_ssl_harden_hint">Увімкнення цієї опції дозволить відключити слабкі SSL протоколи і шифри, що може призвести до проблем з підключенням</string>
     <string name="title_advanced_roaming_hint">Заголовки повідомлень завжди будуть отримуватися під час роумінгу. Ви можете використовувати налаштування роумінгу в Вашому пристрої для вимкнення Інтернету під час роумінгу.</string>
     <string name="title_advanced_browse_hint">Завантажувати більше повідомлень при прокручуванні вниз</string>
     <string name="title_advanced_layout_hint">Перемикання на більш компактний макет і зміну розміру тексту повідомлень можна зробити у верхньому меню панелі повідомлень</string>
@@ -571,7 +571,7 @@
     <string name="title_color">Колір</string>
     <string name="title_account_ondemand">Синхронізувати вручну</string>
     <string name="title_account_notify">Окремі сповіщення</string>
-    <string name="title_account_left">Провести вліво</string>
+    <string name="title_account_left">Свайп вліво</string>
     <string name="title_account_right">Свайп вправо</string>
     <string name="title_account_move">За замовчуванням переміщувати до</string>
     <string name="title_account_gmail">Для надійної синхронізації облікового запису Gmail, слід використовувати за можливості швидке налаштування</string>

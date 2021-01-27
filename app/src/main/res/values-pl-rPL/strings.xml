@@ -138,7 +138,7 @@
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_help">Pomoc</string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
-    <string name="title_setup_quick_accounts">Dodaj konta</string>
+    <string name="title_setup_quick_accounts">Dodaj konto</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
@@ -146,7 +146,7 @@
     <string name="title_setup_wizard">Kreator</string>
     <string name="title_setup_wizard_multiple">Kreator może być używany wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
-    <string name="title_setup_manual">Ręczna konfiguracja i więcej opcji</string>
+    <string name="title_setup_manual">Konfiguracja ręczna i więcej opcji</string>
     <string name="title_setup_account_remark">Odbieranie wiadomości e-mail</string>
     <string name="title_setup_identity_remark">Wysyłanie wiadomości e-mail</string>
     <string name="title_setup_account_identity_hint">Możesz skonfigurować nazwę, kolor i akcje przesuwania w ustawieniach konta oraz skonfigurować podpis w ustawieniach tożsamości</string>

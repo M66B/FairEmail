@@ -546,7 +546,7 @@
     <string name="title_account_name">Kontobezeichnung</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
-    <string name="title_account_partial_fetch_hint">Deaktivieren Sie dies nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen</string>
+    <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_color">Farbe</string>
     <string name="title_account_ondemand">Manuell synchronisieren</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
@@ -581,9 +581,9 @@
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
     <string name="title_keep_alive_interval">Verbindung halten / Abfrageintervall (Minuten)</string>
-    <string name="title_server_time">Uhrzeit des Empfangs verwenden (Server)</string>
-    <string name="title_received_header">\'Received\' Header verwenden</string>
-    <string name="title_date_header">\'Date\' Header verwenden (Sendezeit)</string>
+    <string name="title_server_time">Empfangzeit verwenden (Server)</string>
+    <string name="title_received_header">Received-Kopfzeile verwenden</string>
+    <string name="title_date_header">Date-Kopfzeile verwenden (Sendezeit)</string>
     <string name="title_date_remark">Änderungen werden nur auf neue Nachrichten angewendet</string>
     <string name="title_related_identity">Hierzu passende Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>

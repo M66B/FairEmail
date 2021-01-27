@@ -43,22 +43,22 @@ Domande correlate:
 
 ## Come fare per ...?
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
-* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
+* Cambiare il nome dell'account: Impostazioni, scorri fino al passo 1, clicca su Gestisci, clicca su account
+* Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Comportamento della pagina relativo ai tab, Imposta azioni di scorrimento
+* Cambia password: impostazioni, scorri allo step 1, clicca su Gestisci, clicca su Account, cambia password
+* Impostare una firma: Impostazioni, scorri fino allo step 2, Gestisci, clicca su Identità, Modifica firma.
 * Aggiungere indirizzi CC e CCN: tocca l'icona persone alla fine dell'oggetto dell'email
 * Andare al messaggio successivo/precedente all'archiviazione/eliminazione: nelle impostazioni di comportamento disattiva *Chiudi automaticamente le conversazioni* e seleziona *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
 * Aggiungere una cartella nella casella di posta unificata: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nella casella di posta unificata*
 * Aggiungere una cartella al menu di navigazione: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nel menu di navigazione*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Caricare più messaggi: premi a lungo su una cartella nell'elenco delle cartelle, seleziona *Sincronizza più messaggi*
 * Eliminare un messaggio, evitando il cestino: nel menu a 3 punti appena sopra il testo del messaggio *Elimina* o, in alternativa, deseleziona la cartella cestino nelle impostazioni dell'account
-* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
+* Eliminare un account/identità: Impostazioni, scorri fino agli step 1/2, Gestisci, clicca su account/identità, menu a tre punti, Elimina
 * Eliminare una cartella: premi a lungo la cartella nell'elenco delle cartelle, Modifica le proprietà, menu a tre punti, Elimina
 * Annullare l'invio: posta In uscita, tocca il messaggio, tocca l'icona Annulla
 * Conservare i messaggi inviati nella posta in arrivo: [vedi queste domande frequenti](#user-content-faq142)
-* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
-* Export/import settings: Settings, navigation/hamburger menu
+* Cambiare cartelle di sistema: Impostazioni, scorri fino allo step 1, Gestisci, clicca in fondo su account
+* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione/menu hamburger
 
 ## Problemi noti
 
@@ -282,7 +282,7 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(161) Puoi aggiungere un'impostazione per modificare il colore primario e di cadenza?](#user-content-faq161)
 * [(162) IMAP NOTIFY è supportato?](#user-content-faq162)
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
+* [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -390,11 +390,11 @@ Le operazioni sono elaborate solo quando esiste una connessione al server email 
 <br />
 *... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (setup step 1/2). Please see the documentation of the email provider about the right host name.
+Questo può essere causato dall'uso di un nome host errato, quindi controllare prima il nome host nelle impostazioni avanzate di identità/account (fase di configurazione 1/2). Per favore consulta la documentazione del provider di posta elettronica sul nome host corretto.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Dovresti provare a risolvere ciò contattando il tuo provider o ottenendo un certificato di sicurezza valido perché i certificati di sicurezza non validi non sono sicuri e consente gli [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere dei certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+In alternativa, puoi accettare la fingerprint dei certificati server non validi in questo modo:
 
 1. Assicurati di star usando una connessione internet affidabile (nessuna rete Wi-Fi pubblica, etc)
 1. Vai alla schermata di configurazione tramite il menu di navigazione (scorri verso l'interno dal lato sinistro)
@@ -402,27 +402,27 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 1. Seleziona/salva il profilo e l'identità
 1. Seleziona la casella sotto al messaggio di errore e salva di nuovo
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Questo "fisserà" il certificato del server per prevenire man-in-the-middle attacks.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Nota che le versioni Android vecchie potrebbero non riconoscere le autorità di certificazione più nuove come Let's Encrypt, facendo si che le connessioni vengano considerate come non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Trust anchor per il percorso di certificazione non trovato*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor per il percorso di certificazione non trovato ...* significa che il gestore di fiducia di Android predefinito non è stato capace di verificare la certificate chain del server.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Dovresti correggere o la configurazione del server o accettare l'impronta digitale mostrata sotto il messaggio d'errore.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Nota che questo problema può essere causato anche dal server che non invia certificati intermedi.
 
-*Empty password*
+*Password vuota*
 
-Your username is likely easily guessed, so this is insecure.
+Il tuo nome utente è facilmente indovinabile, pertanto non è sicuro.
 
 *Plain text connection*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Il tuo nome utente e la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che non è **molto sicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una "plain text connection" dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o d'identità. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
