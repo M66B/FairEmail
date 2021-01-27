@@ -606,9 +606,10 @@ public class EmailService implements AutoCloseable {
                     Map<String, String> sid = istore.id(id);
                     if (sid != null) {
                         Map<String, String> crumb = new HashMap<>();
-                        for (String key : sid.keySet()) {
-                            crumb.put(key, sid.get(key));
-                            EntityLog.log(context, "Server " + key + "=" + sid.get(key));
+                        for (Map.Entry<String, String> entry : sid.entrySet()) {
+                            String key = entry.getKey();
+                            crumb.put(key, entry.getValue());
+                            EntityLog.log(context, "Server " + key + "=" + entry.getValue());
                         }
                         Log.breadcrumb("server", crumb);
                     }
@@ -936,8 +937,7 @@ public class EmailService implements AutoCloseable {
                     }
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 } else {
-                    List<String> ciphers = new ArrayList<>();
-                    ciphers.addAll(Arrays.asList(sslSocket.getEnabledCipherSuites()));
+                    List<String> ciphers = new ArrayList<>(Arrays.asList(sslSocket.getEnabledCipherSuites()));
                     for (String cipher : sslSocket.getSupportedCipherSuites())
                         if (cipher.contains("3DES")) {
                             // Some servers support 3DES and RC4 only

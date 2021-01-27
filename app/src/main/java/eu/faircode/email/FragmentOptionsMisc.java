@@ -519,8 +519,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     @Override
                     protected void onExecuted(Bundle args, SortedMap<String, Charset> charsets) {
                         StringBuilder sb = new StringBuilder();
-                        for (String key : charsets.keySet())
-                            sb.append(charsets.get(key).displayName()).append("\r\n");
+                        for (Charset charset : charsets.values())
+                            sb.append(charset.displayName()).append("\r\n");
                         new AlertDialog.Builder(getContext())
                                 .setTitle(R.string.title_advanced_charsets)
                                 .setMessage(sb.toString())
@@ -548,11 +548,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 try {
                     SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault().createSocket();
 
-                    List<String> protocols = new ArrayList<>();
-                    protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
+                    List<String> protocols = new ArrayList<>(Arrays.asList(socket.getEnabledProtocols()));
 
-                    List<String> ciphers = new ArrayList<>();
-                    ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+                    List<String> ciphers = new ArrayList<>(Arrays.asList(socket.getEnabledCipherSuites()));
 
                     for (String p : socket.getSupportedProtocols()) {
                         boolean enabled = protocols.contains(p);

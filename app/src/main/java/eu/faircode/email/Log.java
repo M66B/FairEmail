@@ -251,8 +251,8 @@ public class Log {
     static void breadcrumb(String name, Map<String, String> crumb) {
         try {
             Map<String, Object> ocrumb = new HashMap<>();
-            for (String key : crumb.keySet())
-                ocrumb.put(key, crumb.get(key));
+            for (Map.Entry<String, String> entry : crumb.entrySet())
+                ocrumb.put(entry.getKey(), entry.getValue());
             Bugsnag.leaveBreadcrumb(name, ocrumb, BreadcrumbType.LOG);
         } catch (Throwable ex) {
             ex.printStackTrace();

@@ -3562,8 +3562,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         outState.putInt("fair:autoCloseCount", autoCloseCount);
 
         outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
-        for (String name : values.keySet())
-            outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
+        for (Map.Entry<String, List<Long>> entry : values.entrySet())
+            outState.putLongArray("fair:name:" + entry.getKey(), Helper.toLongArray(entry.getValue()));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
@@ -3694,8 +3694,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (ids != null) {
                             for (long id : ids) {
                                 Log.i("Hidden id=" + id);
-                                for (String key : values.keySet())
-                                    values.get(key).remove(id);
+                                for (List<Long> longs : values.values())
+                                    longs.remove(id);
                                 sizes.remove(id);
                                 heights.remove(id);
                                 positions.remove(id);
@@ -4718,8 +4718,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     duplicates.put(message.hash, new ArrayList<>());
                 duplicates.get(message.hash).add(message);
             }
-        for (String hash : duplicates.keySet()) {
-            List<TupleMessageEx> dups = duplicates.get(hash);
+        for (List<TupleMessageEx> dups : duplicates.values()) {
             int base = 0;
             for (int i = 0; i < dups.size(); i++)
                 if (dups.get(i).folder == folder) {

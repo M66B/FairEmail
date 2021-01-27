@@ -1005,10 +1005,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             for (TupleFolderEx parent : parents)
                 parent.parent_ref = root;
 
-            for (long pid : parentChilds.keySet()) {
-                TupleFolderEx parent = idFolder.get(pid);
+            for (Map.Entry<Long, List<TupleFolderEx>> entry : parentChilds.entrySet()) {
+                TupleFolderEx parent = idFolder.get(entry.getKey());
                 if (parent != null) {
-                    parent.child_refs = parentChilds.get(pid);
+                    parent.child_refs = entry.getValue();
                     for (TupleFolderEx child : parent.child_refs)
                         child.parent_ref = parent;
                 }

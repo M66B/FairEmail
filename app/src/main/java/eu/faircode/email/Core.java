@@ -1031,8 +1031,9 @@ class Core {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
             List<Message> icopies = new ArrayList<>();
-            for (Message imessage : map.keySet()) {
-                EntityMessage message = map.get(imessage);
+            for (Map.Entry<Message, EntityMessage> entry : map.entrySet()) {
+                Message imessage = entry.getKey();
+                EntityMessage message = entry.getValue();
 
                 File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
                 try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -1698,8 +1699,7 @@ class Core {
 
         // Get remote folders
         long start = new Date().getTime();
-        List<Folder> ifolders = new ArrayList<>();
-        ifolders.addAll(Arrays.asList(defaultFolder.list("*")));
+        List<Folder> ifolders = new ArrayList<>(Arrays.asList(defaultFolder.list("*")));
 
         List<String> subscription = new ArrayList<>();
         try {
@@ -1876,15 +1876,16 @@ class Core {
         }
 
         Log.i("Updating folders parents=" + parentFolders.size());
-        for (String parentName : parentFolders.keySet()) {
-            EntityFolder parent = nameFolder.get(parentName);
-            for (EntityFolder child : parentFolders.get(parentName))
+        for (Map.Entry<String, List<EntityFolder>> entry : parentFolders.entrySet()) {
+            EntityFolder parent = nameFolder.get(entry.getKey());
+            for (EntityFolder child : entry.getValue())
                 db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
         }
 
         Log.i("Delete local count=" + local.size());
-        for (String name : local.keySet()) {
-            EntityFolder folder = local.get(name);
+        for (Map.Entry<String, EntityFolder> entry : local.entrySet()) {
+            String name = entry.getKey();
+            EntityFolder folder = entry.getValue();
             List<EntityFolder> childs = parentFolders.get(name);
             if (EntityFolder.USER.equals(folder.type) ||
                     childs == null || childs.size() == 0) {
@@ -3507,8 +3508,8 @@ class Core {
                 Map<String, String> sid = istore.id(id);
                 if (sid != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (String key : sid.keySet())
-                        sb.append(" ").append(key).append("=").append(sid.get(key));
+                    for (Map.Entry<String, String> entry : sid.entrySet())
+                        sb.append(" ").append(entry.getKey()).append("=").append(entry.getValue());
                     if (!account.partial_fetch)
                         Log.w("Empty message" + sb.toString());
                 }
@@ -3620,11 +3621,12 @@ class Core {
         }
 
         // Difference
-        for (long group : groupMessages.keySet()) {
+        for (Map.Entry<Long, List<TupleMessageEx>> entry : groupMessages.entrySet()) {
+            long group = entry.getKey();
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
             List<Long> remove = new ArrayList<>(groupNotifying.get(group));
-            for (TupleMessageEx message : groupMessages.get(group)) {
+            for (TupleMessageEx message : entry.getValue()) {
                 long id = (message.content ? message.id : -message.id);
                 if (remove.contains(id)) {
                     remove.remove(id);
@@ -3655,7 +3657,7 @@ class Core {
 
             // Build notifications
             List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
-                    group, groupMessages.get(group),
+                    group, entry.getValue(),
                     notify_summary, new_messages,
                     redacted);
 
@@ -4435,8 +4437,9 @@ class Core {
         void resetBatches() {
             process = false;
             synchronized (this) {
-                for (FolderPriority key : sequence.keySet()) {
-                    batch.put(key, sequence.get(key));
+                for (Map.Entry<FolderPriority, Long> entry : sequence.entrySet()) {
+                    FolderPriority key = entry.getKey();
+                    batch.put(key, entry.getValue());
                     if (BuildConfig.DEBUG)
                         Log.i("=== Reset " + key.folder + ":" + key.priority + " batch=" + batch.get(key));
                 }

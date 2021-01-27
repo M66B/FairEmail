@@ -226,14 +226,15 @@ public class MessageClassifier {
         DB db = DB.getInstance(context);
         int words = state.words.size() - texts.size() - 1;
         List<Chance> chances = new ArrayList<>();
-        for (String clazz : state.classStats.keySet()) {
+        for (Map.Entry<String, Stat> entry : state.classStats.entrySet()) {
+            String clazz = entry.getKey();
             EntityFolder folder = db.folder().getFolderByName(account, clazz);
             if (folder == null) {
                 Log.w("Classifier no folder class=" + account + ":" + clazz);
                 continue;
             }
 
-            Stat stat = state.classStats.get(clazz);
+            Stat stat = entry.getValue();
 
             double chance = stat.totalFrequency / maxMessages / words;
             Chance c = new Chance(clazz, chance);
@@ -308,8 +309,9 @@ public class MessageClassifier {
         if (classFrequency == null)
             return;
 
-        for (String clazz : classFrequency.keySet()) {
-            Frequency frequency = classFrequency.get(clazz);
+        for (Map.Entry<String, Frequency> entry : classFrequency.entrySet()) {
+            String clazz = entry.getKey();
+            Frequency frequency = entry.getValue();
             if (frequency.count <= 0)
                 continue;
 
@@ -408,8 +410,9 @@ public class MessageClassifier {
             load(context);
 
             DB db = DB.getInstance(context);
-            for (Long account : accountMsgIds.keySet()) {
-                List<String> msgids = accountMsgIds.get(account);
+            for (Map.Entry<Long, List<String>> entry : accountMsgIds.entrySet()) {
+                Long account = entry.getKey();
+                List<String> msgids = entry.getValue();
                 Log.i("Classifier cleanup account=" + account + " count=" + msgids.size());
                 for (String msgid : new ArrayList<>(msgids)) {
                     List<EntityMessage> messages = db.message().getMessagesByMsgId(account, msgid);
@@ -447,25 +450,25 @@ public class MessageClassifier {
     @NonNull
     static JSONObject toJson() throws JSONException {
         JSONArray jmessages = new JSONArray();
-        for (Long account : classMessages.keySet())
-            for (String clazz : classMessages.get(account).keySet()) {
+        for (Map.Entry<Long, Map<String, Integer>> entry : classMessages.entrySet())
+            for (String clazz : entry.getValue().keySet()) {
                 JSONObject jmessage = new JSONObject();
-                jmessage.put("account", account);
+                jmessage.put("account", entry.getKey());
                 jmessage.put("class", clazz);
-                jmessage.put("count", classMessages.get(account).get(clazz));
+                jmessage.put("count", entry.getValue().get(clazz));
                 jmessages.put(jmessage);
             }
 
         JSONArray jwords = new JSONArray();
-        for (Long account : wordClassFrequency.keySet())
-            for (String word : wordClassFrequency.get(account).keySet()) {
-                Map<String, Frequency> classFrequency = wordClassFrequency.get(account).get(word);
-                for (String clazz : classFrequency.keySet()) {
-                    Frequency f = classFrequency.get(clazz);
+        for (Map.Entry<Long, Map<String, Map<String, Frequency>>> entry : wordClassFrequency.entrySet())
+            for (String word : entry.getValue().keySet()) {
+                Map<String, Frequency> classFrequency = entry.getValue().get(word);
+                for (Map.Entry<String, Frequency> e : classFrequency.entrySet()) {
+                    Frequency f = e.getValue();
                     JSONObject jword = new JSONObject();
-                    jword.put("account", account);
+                    jword.put("account", entry.getKey());
                     jword.put("word", word);
-                    jword.put("class", clazz);
+                    jword.put("class", e.getKey());
                     jword.put("count", f.count);
                     jword.put("dup", f.duplicates);
                     jword.put("before", from(f.before));
@@ -475,10 +478,10 @@ public class MessageClassifier {
             }
 
         JSONArray jclassified = new JSONArray();
-        for (Long account : accountMsgIds.keySet()) {
+        for (Map.Entry<Long, List<String>> entry : accountMsgIds.entrySet()) {
             JSONObject jaccount = new JSONObject();
-            jaccount.put("account", account);
-            jaccount.put("messages", from(accountMsgIds.get(account)));
+            jaccount.put("account", entry.getKey());
+            jaccount.put("messages", from(entry.getValue()));
             jclassified.put(jaccount);
         }
 
@@ -502,8 +505,8 @@ public class MessageClassifier {
     @NonNull
     private static JSONObject from(@NonNull Map<String, Integer> map) throws JSONException {
         JSONObject jmap = new JSONObject();
-        for (String key : map.keySet())
-            jmap.put(key, map.get(key));
+        for (Map.Entry<String, Integer> entry : map.entrySet())
+            jmap.put(entry.getKey(), entry.getValue());
         return jmap;
     }
 
