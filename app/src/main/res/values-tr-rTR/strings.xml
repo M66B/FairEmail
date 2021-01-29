@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail arama</string>
     <string name="app_changelog">Değişiklik günlüğü</string>
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
-    <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
     <string name="app_cake">Yeterli depolama alanı kalmadı</string>
@@ -805,6 +805,7 @@
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>

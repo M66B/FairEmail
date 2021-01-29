@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail pretraživanje</string>
     <string name="app_changelog">Promjene</string>
     <string name="app_welcome">FairEmail je aplikacija otvorenog izvora (open source) usmjerena na privatnost i sigurnost. Zbog toga neke funkcije mogu raditi drugačije od onoga na što ste navikli.</string>
-    <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
     <string name="app_exit">Ponovo pritisnite \'natrag\' za izlazak</string>
     <string name="app_cake">Nedovoljno mjesta u memoriji</string>
@@ -816,6 +816,7 @@
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
     <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>

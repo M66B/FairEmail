@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail 搜尋</string>
     <string name="app_changelog">更新紀錄</string>
     <string name="app_welcome">FairEmail 是一款重視隱私及安全的郵件軟體。因此，在您使用時可能會覺得有些不同。</string>
-    <string name="app_limitations">舉例來說，郵件的內容會因為移除不安全的元素及改進閱讀體驗而重新排版，而且打開所有超連結都會需要您的確認。</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">預設頻道</string>
     <string name="app_exit">再次「返回」離開程式</string>
     <string name="app_cake">儲存空間不足</string>
@@ -793,6 +793,7 @@
     <string name="title_ask_delete_rule">永久刪除規則？</string>
     <string name="title_ask_discard">捨棄草稿？</string>
     <string name="title_ask_show_html">顯示原始消息可能會洩露隱私敏感信息</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">無法在深色背景上顯示原始消息，因為這可能會使深色文本和圖像不可見</string>
     <string name="title_ask_show_html_images">在顯示原始消息時始終顯示圖像</string>
     <string name="title_ask_show_image">顯示圖像可能會洩露隱私敏感信息</string>

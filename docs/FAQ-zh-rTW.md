@@ -14,9 +14,9 @@
 
 ## 認證帳號中
 
-在絕大多數案例中，快速設置將能夠全自動地幫助您確認正確的配置。
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-如果快速設置失敗了，你將需要手動添加一個帳號(以接受郵件) 以及一個身份(以發送郵件) 為此，您需要使用IMAP和SMTP服務器地址和端口號，而無論使用SSL / TLS還是STARTTLS 以及您的用戶名（大多數但並非總是您的電子郵件地址）和密碼。
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). 為此，您需要使用IMAP和SMTP服務器地址和端口號，而無論使用SSL / TLS還是STARTTLS 以及您的用戶名（大多數但並非總是您的電子郵件地址）和密碼。
 
 用IMAP 以及供應商名稱進行搜尋，通常可以找到正確的文件
 
@@ -43,21 +43,21 @@ Please see [here](#user-content-faq22) for common error messages and solutions.
 
 ## 如何 ...？
 
-* Change the account name: Settings, scroll to step 1, tap Manage, tap account
+* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, scroll to step 1, tap Manage, tap account, change password
-* Set a signature: Settings, scroll to step 2, tap Manage, tap identity, Edit signature.
+* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
+* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
 * 新增副本和密件副本郵件地址：輕觸主旨後方的人像圖標
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * 刪除郵件，跳過垃圾箱：在郵件文字上方的三點菜單中，*刪除*或在帳戶設置中取消選擇垃圾箱文件夾
-* Delete an account/identity: Settings, scroll to step 1/2, tap Manage, tap account/identity, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
 * 刪除文件夾：長按文件夾列表中的文件夾，編輯屬性，三點菜單，刪除 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
 * 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
 * 將已發送的郵件存儲在收件箱中：請[參閱此常見問題解答](#user-content-faq142)
-* Change system folders: Settings, scroll to step 1, tap Manage, tap account, at the bottom
+* Change system folders: Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation/hamburger menu
 
 ## 已知的問題
@@ -390,7 +390,7 @@ Operations are processed only when there is a connection to the email server or 
 <br />
 *... Invalid security certificate (Can't verify identity of server) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (setup step 1/2). Please see the documentation of the email provider about the right host name.
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
@@ -398,7 +398,7 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 
 1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
 1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. In step 1 and 2 tap *Manage* and tap the faulty account and identity
+1. Tap Manual setup and more options, tap Accounts/Identities and tap the faulty account and identity
 1. Check/save the account and identity
 1. Tick the checkbox below the error message and save again
 
@@ -465,7 +465,7 @@ Some people ask:
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via setup step 1 and 2 instead of via the quick setup wizard.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -607,7 +607,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Setup, step 2, Manage).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
@@ -781,7 +781,7 @@ On some devices, where there are lots of applications competing for memory, Andr
 
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
-Disabling battery optimizations (setup step 4) reduces the chance Android will stop the synchronization service.
+Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
 In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
@@ -857,7 +857,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 <a name="authfailed"></a>
 The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to setup a Yahoo account.
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
@@ -927,7 +927,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
-* Change the identity settings like this (setup, step 2, tap Manage, tap identity):
+* Change the identity settings like this (Settings, tap Manual setup and more options, tap Identities, tap identity):
 
 &emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
@@ -1040,7 +1040,7 @@ Note that downloading external images from a remote server can be used to record
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
 
-In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
@@ -1082,10 +1082,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
-There are shortcuts available to:
-
-* compose a new message to a favorite contact
-* setup accounts, identities, etc
+There are shortcuts available to compose a new message to a favorite contact.
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
@@ -1204,7 +1201,7 @@ If you are comparing the battery usage of FairEmail with another email client, p
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes. In these cases you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
 
-[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 4) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
+[On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 3) to keep connections to email servers open. In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages. So, to reduce the battery usage, set the number of days to synchronize message for to a lower value, especially if there are a lot of recent messages in a folder. Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
@@ -1222,7 +1219,7 @@ FairEmail will by default synchronize the folder list on each connection. Since 
 
 FairEmail will by default check if old messages were deleted from the server on each connection. If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
 
-Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 4 to reliably keep connections alive.
+Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage. You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects (connection closed/reset, read/write error/timeout, etc). You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes. Note that battery optimizations need to be disabled in setup step 3 to reliably keep connections alive.
 
 Some providers send every two minutes something like '*Still here*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage. You can inspect the *Log* via the main navigation menu to check if your provider is doing this. If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server, you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this. If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization. You can change this in the receive settings.
 
@@ -1387,7 +1384,7 @@ You can synchronize more or even all messages by long pressing a folder (inbox) 
 
 Folders are first sorted on account order (by default on account name) and within an account with special, system folders on top, followed by folders set to synchronize. Within each category the folders are sorted on (display) name. You can set the display name by long pressing a folder in the folder list and selecting *Edit properties*.
 
-The navigation (hamburger) menu item *Order folders* in the setup can be used to manually order the folders.
+The navigation (hamburger) menu item *Order folders* in the settings can be used to manually order the folders.
 
 <br />
 
@@ -2183,7 +2180,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Settings > scroll to step 1 > tap Manage > tap account > tap advanced > Partial fetch > uncheck
+Settings > Manual setup and more options > Accounts > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2218,7 +2215,7 @@ Using your own (custom) domain name, which is supported by most email providers,
 <a name="faq113"></a>
 **(113) How does biometric authentication work?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the setup screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
 
 Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
 
@@ -2229,7 +2226,7 @@ Biometric authentication is a pro feature.
 <a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for and for the number of days to keep messages for, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup is simple, so it is not really worth the effort.
+The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for and for the number of days to keep messages for, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
 
@@ -2458,7 +2455,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-In the account settings (Settings, scroll to step 1, tap Manage, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -2486,8 +2483,8 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Settings > scroll to step 1 > tap Manage > tap account
-* Identity: Settings > scroll to step 2 > tap Manage > tap identity
+* Account: Settings > Manual setup and more options > Accounts > tap account
+* Identity: Settings > Manual setup and more options > Identities > tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -2553,7 +2550,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, scroll to step 1, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2607,8 +2604,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, scroll to step 1, tap Manage, tap account, tap Advanced)
-* Long press the account in the account list (Settings, scroll to step 1, tap Manage) and select *Edit notification channel* to change the notification sound
+* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced)
+* Long press the account in the account list (Settings, tap Manual setup and more options, tap Accounts) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -2634,7 +2631,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, scroll to step 1, tap Manage, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

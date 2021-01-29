@@ -3,7 +3,7 @@
     <string name="app_search">البحث في فيرميل</string>
     <string name="app_changelog">سجل التغييرات</string>
     <string name="app_welcome">فيرميل هو تطبيق بريد إلكتروني مفتوح المصدر يركز على الخصوصية والأمان. لهذا السبب ، قد تعمل بعض الميزات بشكل مختلف عن ما اعتدت عليه.</string>
-    <string name="app_limitations">على سبيل المثال ، ستتم إعادة تنسيق الرسائل دائمًا لإزالة العناصر غير الآمنة ولتحسين قابلية القراءة ويجب تأكيد فتح الروابط من أجل الأمان.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">فيرميل غير متوافق مع هذا الجهاز وقد تتسبب الأخطاء في حدوث أعطال</string>
     <string name="app_exit">أنقر مرة أخرى للخروج من التطبيق</string>
     <string name="app_cake">Insufficient storage space left</string>
@@ -850,6 +850,7 @@
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

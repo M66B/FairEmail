@@ -3,7 +3,7 @@
     <string name="app_search">Cerca FairMail</string>
     <string name="app_changelog">Registre de canvis</string>
     <string name="app_welcome">FairEmail és una aplicació de correu electrònic de codi obert centrada en la privadesa i la seguretat. Per aquesta raó, algunes funcions poden funcionar de manera diferent a la que estàs acostumat.</string>
-    <string name="app_limitations">Per exemple, els missatges sempre es reformataran per eliminar elements no segurs i per millorar la llegibilitat i s\'hauran de confirmar l’obertura d’enllaços per afegir seguretat.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairMail no és compatible en aquest dispositiu perquè els errors a Android causen bloqueigs</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
     <string name="app_cake">Insufficient storage space left</string>
@@ -805,6 +805,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_ask_delete_rule">Esborrar regla per sempre?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_show_html">Si es mostra el missatge original es pot filtrar informació sensible a la privadesa</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre les imatges al mostrar els missatges originals</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>

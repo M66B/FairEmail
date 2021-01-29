@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail bilaketa</string>
     <string name="app_changelog">Aldaketen erregistroa</string>
     <string name="app_welcome">FairEmail kode irekiko email aplikazio bat da, pribatutasuna eta segurtasuna aintzat dituena. Horregatik ezaugarri batzuk ohi ez bezala funtzionatu dezakete.</string>
-    <string name="app_limitations">Adibidez, mezuei beti aldatuko zaie formatua elementu ez seguruak kentzeko eta irakurterraztasuna hobetzeko, eta estekak irekitzea segurtasunagatik baieztatu egin behar da.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail-ek ez du gailu honentzako euskarririk Android akatsek kraskatzea eragiten dutelako</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
     <string name="app_cake">Insufficient storage space left</string>
@@ -805,6 +805,7 @@
     <string name="title_ask_delete_rule">Ezabatu araua behin betiko?</string>
     <string name="title_ask_discard">Baztertu zirriborroa?</string>
     <string name="title_ask_show_html">Jatorrizko mezua erakusteak informazio pribatua agerira ekar lezake</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Ezin da jatorrizko mezua atzealde ilunean erakutsi testu eta irudi batzuk ikusezinak bihurtu litezkelako</string>
     <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>

@@ -3,7 +3,7 @@
     <string name="app_search">Procura de FairEmail</string>
     <string name="app_changelog">Rexistro de cambios</string>
     <string name="app_welcome">FairEmail é unha aplicación de correo de código aberto centrada na privacidade e a seguridade. For este motivo algunhas características poderían ser algo distintas do habitual.</string>
-    <string name="app_limitations">Por exemplo, as mensaxes sempre serán reformatadas para eliminar elementos non seguros e para mellorar a lexibilidade, e as ligazóns teñen que ser confirmadas por seguridade.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail non é soportado neste dispositivo porque os erros en Android xeran quebras</string>
     <string name="app_exit">\"Dalle a \'saír\' outra vez pra saír\"</string>
     <string name="app_cake">Non hai espazo abondo</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Borrar regra definitivamente?</string>
     <string name="title_ask_discard">Desbotar borrador?</string>
     <string name="title_ask_show_html">Mostrar a mensaxe orixinal pode filtrar información privada sensible</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Non é posible mostrar a mensaxe orixinal nun fondo escuro porque faría que os textos e as imaxes escuras tamén invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre as imaxes cando se vexan as imaxes orixinais</string>
     <string name="title_ask_show_image">Mostrar imaxes pode filtrar información privada sensible</string>

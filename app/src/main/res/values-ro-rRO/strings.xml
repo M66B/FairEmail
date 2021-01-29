@@ -3,7 +3,7 @@
     <string name="app_search">Căutare FairEmail</string>
     <string name="app_changelog">Jurnal modificări</string>
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
-    <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
     <string name="app_cake">Spațiu de stocare insuficient rămas</string>
@@ -817,6 +817,7 @@
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>

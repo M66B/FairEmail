@@ -3,7 +3,7 @@
     <string name="app_search">Wyszukiwanie FairEmail</string>
     <string name="app_changelog">Historia zmian</string>
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
-    <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
+    <string name="app_limitations">Na przykład wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. W razie potrzeby można to wyłączyć w opcjach.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
     <string name="app_cake">Za mało miejsca w pamięci</string>
@@ -827,6 +827,7 @@
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
     <string name="title_ask_show_html_images">Zawsze pokazuj obrazy przy wyświetlaniu oryginalnych wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>

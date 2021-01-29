@@ -3,7 +3,7 @@
     <string name="app_search">Pencarian FairEmail</string>
     <string name="app_changelog">Daftar Log Pembaruan</string>
     <string name="app_welcome">FairEmail adalah aplikasi email sumber terbuka yang berfokus pada privasi dan keamanan. Karena alasan ini, beberapa fitur mungkin bekerja secara berbeda dari biasanya.</string>
-    <string name="app_limitations">Misalnya, pesan akan selalu diformat ulang untuk menghilangkan elemen yang tidak aman dan untuk meningkatkan keterbacaan dan membuka tautan perlu dikonfirmasi demi keamanan.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail tidak didukung pada perangkat ini karena ada beberapa kesalahan di Android menyebabkan crash/error</string>
     <string name="app_exit">Ketuk \"Kembali\" untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
@@ -791,6 +791,7 @@
     <string name="title_ask_delete_rule">Hapus aturan secara permanen?</string>
     <string name="title_ask_discard">Buang draf?</string>
     <string name="title_ask_show_html">Menampilkan pesan asli dapat membocorkan informasi sensitif privasi</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Selalu tampilkan gambar saat menampilkan pesan asli</string>
     <string name="title_ask_show_image">Menampilkan gambar dapat membocorkan informasi sensitif privasi</string>

@@ -3,7 +3,7 @@
     <string name="app_search">Ricerca in FairEmail</string>
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'applicazione con codice aperto di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
-    <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="app_exit">Premi di nuovo «indietro» per uscire</string>
     <string name="app_cake">Spazio di archiviazione insufficiente</string>
@@ -125,7 +125,7 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">L\'assistente può essere usato più volte per impostare più account</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
-    <string name="title_setup_manual">Configurazione manuale e più opzioni</string>
+    <string name="title_setup_manual">Configurazione manuale ed altre opzioni</string>
     <string name="title_setup_account_remark">Ricevi e-mail</string>
     <string name="title_setup_identity_remark">Invia e-mail</string>
     <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e lo scorrimento delle azioni nelle impostazioni dell\'account e configurare una firma nelle impostazioni dell\'identità</string>
@@ -212,7 +212,7 @@
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Resetta domande</string>
-    <string name="title_advanced_hint_title">Opzioni più avanzate</string>
+    <string name="title_advanced_hint_title">Altre opzioni avanzate</string>
     <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
         Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
     </string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Non è possibile visualizzare il messaggio originale con uno sfondo scuro perché potrebbe nascondere testi e immagini</string>
     <string name="title_ask_show_html_images">Mostra sempre le immagini nella visualizzazione dei messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>

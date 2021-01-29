@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail пошук</string>
     <string name="app_changelog">Список змін</string>
     <string name="app_welcome">FairEmail - це додаток з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, що ви використовуєте.</string>
-    <string name="app_limitations">Наприклад, повідомлення завжди будуть відформатовані для вилучення небезпечних елементів та для покращення читабельності. Заради безпеки, дію з відкриття посилань необхідно буде підтвердити.</string>
+    <string name="app_limitations">Наприклад, щоб видалити небезпечні елементи та покращити читання, і для додавання підтвердження відкриття посилань з метою безпеки - повідомлення переформатуються за замовчуванням. За бажанням, ці дії можуть бути відключені.</string>
     <string name="app_crash">На цьому пристрої не підтримується FairEMail, оскільки помилки в Android спричиняють збої самої програми</string>
     <string name="app_exit">Натисніть \"Назад\" знову, щоб вийти</string>
     <string name="app_cake">Залишилося недостатньо вільного місця для зберігання</string>
@@ -149,7 +149,7 @@
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
     <string name="title_setup_manual">Налаштування вручну та додаткові параметри</string>
     <string name="title_setup_account_remark">Отримання електронної пошти</string>
-    <string name="title_setup_identity_remark">Надсилання електронної пошти</string>
+    <string name="title_setup_identity_remark">Надсилання email</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір і свайп дії в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях ідентифікації</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Особисті дані</string>
@@ -579,7 +579,7 @@
     <string name="title_autoconfig">Отримати параметри</string>
     <string name="title_aliases">Псевдоніми</string>
     <string name="title_provider">Постачальник</string>
-    <string name="title_custom">Користувальницькі</string>
+    <string name="title_custom">Користувача</string>
     <string name="title_host">Ім\'я хосту</string>
     <string name="title_encryption">Шифрування</string>
     <string name="title_encryption_none">Жодного</string>
@@ -592,7 +592,7 @@
     <string name="title_client_certificate">Сертифікат клієнта</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Використовувати локальну IP-адресу замість імені хоста</string>
-    <string name="title_ehlo">Користувацька ідентифікація HELO/EHLO</string>
+    <string name="title_ehlo">Ідентифікація HELO/EHLO від користувача</string>
     <string name="title_primary">Основна</string>
     <string name="title_primary_account">Основний (обліковий запис за замовчуванням)</string>
     <string name="title_primary_identity">Основна (ідентифікація за замовчуванням)</string>
@@ -687,7 +687,7 @@
     <string name="title_show_flagged">Відображати кількість позначених повідомлень</string>
     <string name="title_subscribed_only">Тільки підписані</string>
     <string name="title_apply_to_all">Застосувати до всіх &#8230;</string>
-    <string name="title_hide_folder">Сховати теки</string>
+    <string name="title_hide_folder">Сховати теку</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
     <string name="title_synchronize_folder">Синхронізувати (отрим. повідомлення)</string>
@@ -702,7 +702,7 @@
     <string name="title_keep_days_remark">Старі повідомлення будуть видалені з пристрою, але залишаться на сервері</string>
     <string name="title_keep_all">Зберігати всі повідомлення</string>
     <string name="title_poll_system">Системні теки періодично перевіряти наявність нових повідомлень</string>
-    <string name="title_poll_user">Користувацькі теки періодично перевіряти на наявність нових повідомлень</string>
+    <string name="title_poll_user">Визначити теки користувача для періодичної перевірки на наявність нових повідомлень</string>
     <string name="title_auto_trash">Автоматично переміщати старі повідомлення до кошику</string>
     <string name="title_auto_delete">Автоматично видаляти старі повідомлення назавжди</string>
     <string name="title_auto_delete_hint">Старі повідомлення - це повідомлення, які більше не зберігаються на пристрої</string>
@@ -828,6 +828,7 @@
     <string name="title_ask_delete_rule">Видалити правило остаточно?</string>
     <string name="title_ask_discard">Відхилити чернетку?</string>
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
@@ -984,13 +985,13 @@
     <string name="title_search_in_senders">У відправників (від)</string>
     <string name="title_search_in_recipients">В одержувачів (кому, копія)</string>
     <string name="title_search_in_subject">У темі</string>
-    <string name="title_search_in_keywords">В ключових словах (якщо підтримується)</string>
+    <string name="title_search_in_keywords">У ключових словах (якщо підтримується)</string>
     <string name="title_search_in_message">У тексті повідомлення</string>
-    <string name="title_search_with">Обмежити пошук до</string>
+    <string name="title_search_with">Обмежити пошук, тільки</string>
     <string name="title_search_with_unseen">Непрочитані</string>
     <string name="title_search_with_flagged">Обрані</string>
-    <string name="title_search_with_hidden">Прихованих (лише на пристрої)</string>
-    <string name="title_search_with_encrypted">Шифрованих (лише на пристрої)</string>
+    <string name="title_search_with_hidden">Прихованні (лише на пристрої)</string>
+    <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
     <string name="title_search_with_before">До</string>

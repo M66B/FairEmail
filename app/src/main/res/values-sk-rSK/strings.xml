@@ -3,7 +3,7 @@
     <string name="app_search">Hľadanie FairEmail</string>
     <string name="app_changelog">Zoznam zmien</string>
     <string name="app_welcome">FairEmail je opensource aplikácia zameraná na súkromie a bezpečnosť. Z toho dôvodu môžu niektoré vlastnosti fungovať inak, ako ste zvyknutí.</string>
-    <string name="app_limitations">Napríklad, správy budú vždy preformátované na odstránenie nebezpečných prvkov, vylepšenia čitateľnosti a otvárané odkazy je potrebné potvrdzovať pre maximálnu bezpečnosť.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail nie je podporovaný na tomto zariadení, pretože chyby v systéme spôsobujú pády</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
@@ -827,6 +827,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_ask_delete_rule">Natrvalo odstrániť pravidlo?</string>
     <string name="title_ask_discard">Zahodiť koncept?</string>
     <string name="title_ask_show_html">Zobrazením pôvodnej správy môže dojsť k úniku citlivých informácií</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Pôvodnú správu nie je možné zobraziť na tmavom pozadí, pretože tmavý text a obrázky nemusia byť dostatočne viditeľné</string>
     <string name="title_ask_show_html_images">Vždy zobraziť obrázky pri zobrazení pôvodných správ</string>
     <string name="title_ask_show_image">Zobrazením obrázkov môže dojsť k úniku citlivých informácií</string>

@@ -3,7 +3,7 @@
     <string name="app_search">फेयारमेल से ढुंडे</string>
     <string name="app_changelog">परिवर्तन लॉग</string>
     <string name="app_welcome">फेयारमेल एक खुला स्रोत आप है जो एकांत(प्राइभेसी) और सुरक्षा को ध्यान रखता है।इसी कारण से इसी के कुछ लक्षण आप के पूर्व परिचित रूप से अलग ब्यबहार कर सकता है।</string>
-    <string name="app_limitations">For example, messages will always be reformatted to remove unsafe elements and to improve readability and opening links needs to be confirmed for safety.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail is not supported on this device because bugs in Android cause crashes</string>
     <string name="app_exit">बाहर निकलने के लिए फिर से \'वापस\' पर क्लिक करें।</string>
     <string name="app_cake">नाकाफी स्टोरेज 	जगह</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

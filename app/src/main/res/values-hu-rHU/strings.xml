@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail keresés</string>
     <string name="app_changelog">Újdonságok</string>
     <string name="app_welcome">A FairEmail egy nyílt forráskódú e-mail alkalmazás, melynek elsődleges szempontja az adatvédelem és biztonság. Emiatt némely funkció másképp működhet a megszokottnál.</string>
-    <string name="app_limitations">Többek között: formázással mindig eltávolítja az üzenetkből a nem biztonságos elemeket és javítja az olvashatóságot, valamint a hivatkozások megnyitása megerősítést fog igényelni.</string>
+    <string name="app_limitations">Példának,az üzenetek átformáltak alapból,hogy eltávolítsa a nem biztonságos elemeket és javítja az olvashatóságot,és linkek megnyitásánál szükséges,hogy legyen megerősítve biztonságért.Mind a kettőt le lehet tiltani,ha kívánt.</string>
     <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
@@ -78,7 +78,7 @@
         A szabályokkal kapcsolatos funkciók csak pro verzióban érhetők el.
     </string>
     <string name="title_junk_filter">Lokális spam-filter használata</string>
-    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
+    <string name="title_junk_filter_hint">Ez növelni tudja az akkumlátor használatát, és hamisan megjelöl üzeneteket spamként</string>
     <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
     <string name="title_notification_idle">Tétlen</string>
@@ -117,20 +117,20 @@
     <string name="title_setup">Beállítások</string>
     <string name="title_setup_help">Súgó</string>
     <string name="title_setup_quick">Gyors beállítás</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
+    <string name="title_setup_quick_accounts">Fiókok hozzáadása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
     <string name="title_setup_quick_imap">Az üzenetek fogadásához használt IMAP szerver</string>
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
     <string name="title_setup_wizard">Varázsló</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">A varázsló többször is használható több fiók hozzáadásához</string>
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
+    <string name="title_setup_manual">Kézi beállítás és több opció</string>
+    <string name="title_setup_account_remark">E-mailek fogadása</string>
+    <string name="title_setup_identity_remark">E-mailek küldése</string>
     <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
+    <string name="title_setup_accounts">Fiókok</string>
+    <string name="title_setup_identities">Identitások</string>
     <string name="title_setup_oauth_permission">Az email-szolgáltató az OAuth-ot csak hivatalos alkalmazásverziókhoz hagyta jóvá</string>
     <string name="title_setup_other">Egyéb szolgáltató</string>
     <string name="title_setup_pop3">POP3 fiók</string>
@@ -303,7 +303,7 @@
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
     <string name="title_advanced_circular">Megjelenített ikonok lekerekítése</string>
     <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
-    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
+    <string name="title_advanced_color_value">Fényerő: %1$s %%</string>
     <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Nevek és email címek megjelenítése</string>
     <string name="title_advanced_replace_name">Preferálja a névjegyi neveket a küldői nevek helyett</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Véglegesen törli a szabályt?</string>
     <string name="title_ask_discard">Elveti a piszkozatot?</string>
     <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Az eredeti üzenet megjelenítése sötét háttérrel nem lehetséges mert láthatatlan sötét szövegeket és képeket okozhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
     <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>

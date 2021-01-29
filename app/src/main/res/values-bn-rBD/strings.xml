@@ -3,7 +3,7 @@
     <string name="app_search">ফেয়ারইমেইল সার্চ</string>
     <string name="app_changelog">পরিবর্তনসূচী</string>
     <string name="app_welcome">ফেয়ারমেল গোপনীয়তা এবং নিরাপত্তার উপর মনোযোগী একটি মুক্ত(ওপেন) সোর্স ইমেল অ্যাপ্লিকেশন। এই কারণে কিছু বৈশিষ্ট্য আপনার অভ্যস্ততা থেকে আলাদাভাবে কাজ করতে পারে।</string>
-    <string name="app_limitations">উদাহরণস্বরূপ, অনিরাপদ অংশ অপসারণ করতে এবং পাঠযোগ্যতা উন্নত করতে এবং লিঙ্কগুলি নিশ্চিতকরণ করার বার্তাগুলি সর্বদা প্রদর্শিত হবে।</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">ফেয়ার ইমেইল এই ডিভাইসে সমর্থিত নয় কারণ এই অ্যান্ড্রয়েডের বাগগুলি ক্রাশ হওয়ার কারণ</string>
     <string name="app_exit">বের হওয়ার জন্য \'ব্যাক\' করুন</string>
     <string name="app_cake">অপর্যাপ্ত জায়গা খালি রয়েছে</string>
@@ -805,6 +805,7 @@
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

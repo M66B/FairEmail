@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail търсене</string>
     <string name="app_changelog">Преглед на измененията</string>
     <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали. Превод на български plimboster.</string>
-    <string name="app_limitations">Например, съобщенията винаги ще се преформатират, за да се премахнат опасни елементи и да се подобри четенето, както и връзките за отваряне трябва да бъдат потвърдени за безопасност.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail не се поддържа на това устройство поради срив, причинен от грешка в Android</string>
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
     <string name="app_cake">Insufficient storage space left</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Изтриване на правилото за постоянно?</string>
     <string name="title_ask_discard">Отхвърляне на черновата?</string>
     <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>

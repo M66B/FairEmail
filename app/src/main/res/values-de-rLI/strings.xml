@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail-Suche</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine Open-Source-E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
-    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch umformatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
+    <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
     <string name="app_cake">Unzureichender Speicherplatz</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann vertrauliche Daten preisgeben</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Dunkles Design verwenden</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>

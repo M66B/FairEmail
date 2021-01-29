@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail zoeken</string>
     <string name="app_changelog">Wijzigingsgeschiedenis</string>
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
-    <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van koppelingen moet voor de veiligheid worden bevestigd.</string>
+    <string name="app_limitations">Berichten worden bijvoorbeeld standaard geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="app_cake">Onvoldoende opslagruimte over</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Verwijder regel definitief?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Gebruik donker thema</string>
     <string name="title_ask_show_html_remark">Het weergeven van het oorspronkelijke bericht met een donkere achtergrond is niet mogelijk omdat het onzichtbare donkere teksten en afbeeldingen kan veroorzaken</string>
     <string name="title_ask_show_html_images">Altijd afbeeldingen tonen bij het weergeven van originele berichten</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>

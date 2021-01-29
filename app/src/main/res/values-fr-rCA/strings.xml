@@ -3,7 +3,7 @@
     <string name="app_search">Recherche FairEmail</string>
     <string name="app_changelog">Journal des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie à code source ouvert axée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué·e.</string>
-    <string name="app_limitations">Par exemple, les messages seront toujours reformatés afin d’en retirer les éléments non sûrs tout en améliorant leur lisibilité et l’ouverture des liens devra être confirmée par sécurité.</string>
+    <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer les éléments dangereux et améliorer la lisibilité, et l\'ouverture des liens doit être confirmée par sécurité. Les deux options peuvent être désactivées si vous le souhaitez.</string>
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
@@ -806,6 +806,7 @@
     <string name="title_ask_delete_rule">Supprimer définitivement la règle?</string>
     <string name="title_ask_discard">Abandonner le brouillon?</string>
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Utiliser le thème sombre</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur fond sombre n’est pas possible car le texte et les images sombres pourraient ne pas être visibles</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l’affichage des messages originaux</string>
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>

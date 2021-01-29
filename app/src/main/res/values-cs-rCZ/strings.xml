@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail vyhledávání</string>
     <string name="app_changelog">Přehled změn</string>
     <string name="app_welcome">FairEmail je e-mailový klient s otevřeným zdrojovým kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
-    <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků které nejsou bezpečné a zároveň pro zlepšení čitelnosti, a otevření odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
@@ -828,6 +828,7 @@
     <string name="title_ask_delete_rule">Trvale smazat pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy na tmavém pozadí není možné, neboť může způsobit zneviditelnění tmavých textů a obrázků</string>
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>

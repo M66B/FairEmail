@@ -3,7 +3,7 @@
     <string name="app_search">検索</string>
     <string name="app_changelog">変更履歴</string>
     <string name="app_welcome">FairEmailはプライバシーとセキュリティに焦点を当てたオープンソースのメールアプリです。その為一部の機能は以前とは異なる動作をする場合があります</string>
-    <string name="app_limitations">例えば常に安全でない要素を削除し読みやすさを向上させるために再フォーマットされ、リンクを開くには安全の為に確認する必要があります</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
     <string name="app_cake">空き容量が足りません</string>
@@ -794,6 +794,7 @@
     <string name="title_ask_delete_rule">ルールを完全に削除しますか？</string>
     <string name="title_ask_discard">下書きを破棄しますか？</string>
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">ダーク背景で元のメッセージを表示する事は出来ません。これは目で見にくい暗いテキストや画像が見えなくなる可能性がある為です</string>
     <string name="title_ask_show_html_images">元のメッセージを表示する時に常に画像を表示する</string>
     <string name="title_ask_show_image">画像表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>

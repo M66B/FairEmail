@@ -3,7 +3,7 @@
     <string name="app_search">חיפוש</string>
     <string name="app_changelog">יומן שינויים</string>
     <string name="app_welcome">תוכנת fairmail בנויה על קוד פתוח ונותנת חשיבות רבה לפרטיות ואבטחת המשתמש. מתוך כך, יתכן ומספר מאפיינים של התוכנה יעבדו באופן שונה מהמקובל.</string>
-    <string name="app_limitations">לדוגמה; חלקים המוגדרים \'לא בטוחים\' יוסרו מהודעות ובכך תשופר חווית הקריאה. כהגנה נוספת, ידרש אישור המשתמש לפתיחה של קישורים המצורפים להודעה.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
     <string name="app_cake">Insufficient storage space left</string>
@@ -828,6 +828,7 @@
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
