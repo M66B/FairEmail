@@ -4007,6 +4007,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionJunk(TupleMessageEx message) {
+            boolean canBlock = false;
+            if (message.from != null && message.from.length > 0) {
+                String email = ((InternetAddress) message.from[0]).getAddress();
+                canBlock = !TextUtils.isEmpty(email) && Helper.EMAIL_ADDRESS.matcher(email).matches();
+            }
+
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
             aargs.putLong("account", message.account);
@@ -4015,6 +4021,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
+            aargs.putBoolean("canBlock", canBlock);
 
             FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);
@@ -6486,6 +6493,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final String type = args.getString("type");
             final String from = args.getString("from");
             final boolean inJunk = args.getBoolean("inJunk");
+            final boolean canBlock = args.getBoolean("canBlock");
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
             final TextView tvMessage = view.findViewById(R.id.tvMessage);
@@ -6506,7 +6514,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            cbBlockSender.setEnabled(ActivityBilling.isPro(getContext()));
+            cbBlockSender.setEnabled(canBlock && ActivityBilling.isPro(getContext()));
             cbBlockDomain.setEnabled(false);
 
             cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

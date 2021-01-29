@@ -2261,6 +2261,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void onSwipeJunk(final @NonNull TupleMessageEx message) {
+            boolean canBlock = false;
+            if (message.from != null && message.from.length > 0) {
+                String email = ((InternetAddress) message.from[0]).getAddress();
+                canBlock = !TextUtils.isEmpty(email) && Helper.EMAIL_ADDRESS.matcher(email).matches();
+            }
+
             Bundle aargs = new Bundle();
             aargs.putLong("id", message.id);
             aargs.putLong("account", message.account);
@@ -2269,6 +2275,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putString("type", message.folderType);
             aargs.putString("from", MessageHelper.formatAddresses(message.from));
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
+            aargs.putBoolean("canBlock", canBlock);
 
             AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();
             ask.setArguments(aargs);

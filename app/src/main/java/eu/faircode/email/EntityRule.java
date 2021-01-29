@@ -808,7 +808,8 @@ public class EntityRule {
         String sender = ((InternetAddress) message.from[0]).getAddress();
         String name = MessageHelper.formatAddresses(new Address[]{message.from[0]});
 
-        if (TextUtils.isEmpty(sender))
+        if (TextUtils.isEmpty(sender) ||
+                !Helper.EMAIL_ADDRESS.matcher(sender).matches())
             return null;
 
         boolean regex = false;
