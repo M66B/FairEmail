@@ -1358,7 +1358,7 @@ and like to have a fallback email address main@example.com as well, you could do
 * Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages.
-The identity color takes precedence over the account color.
+The identity color takes precedence over the folder and account color.
 Setting identity colors is a pro feature.
 
 <br />
