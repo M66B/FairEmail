@@ -378,7 +378,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         @Override
         public void onClick(View view) {
             if (view.getId() == R.id.btnHelp)
-                Helper.viewFAQ(context, 22);
+                Helper.viewFAQ(view.getContext(), 22);
             else {
                 int pos = getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION)

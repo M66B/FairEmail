@@ -3775,7 +3775,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivInfo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Helper.viewFAQ(context, 82);
+                        Helper.viewFAQ(v.getContext(), 82);
                     }
                 });
             }
