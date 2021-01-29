@@ -3707,18 +3707,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
-            CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
-
-            if (full) {
-                cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
-
-                cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        prefs.edit().putBoolean("html_always_images", isChecked).apply();
-                    }
-                });
-            }
 
             if (message.from == null || message.from.length == 0) {
                 cbNotAgain.setVisibility(View.GONE);
@@ -3749,9 +3737,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (full) {
                 TextView tvDark = dview.findViewById(R.id.tvDark);
-                tvDark.setVisibility(Helper.isDarkTheme(context)
-                        && !WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)
-                        ? View.VISIBLE : View.GONE);
+                CheckBox cbDark = dview.findViewById(R.id.cbDark);
+                CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
+
+                cbDark.setChecked(prefs.getBoolean("html_dark", true));
+                cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
+
+                cbDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        prefs.edit().putBoolean("html_dark", isChecked).apply();
+                    }
+                });
+
+                cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        prefs.edit().putBoolean("html_always_images", isChecked).apply();
+                    }
+                });
+
+                boolean isDark = Helper.isDarkTheme(context);
+                boolean canDark = WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK);
+
+                tvDark.setVisibility(isDark && !canDark ? View.VISIBLE : View.GONE);
+                cbDark.setVisibility(isDark && canDark ? View.VISIBLE : View.GONE);
+
             } else {
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
