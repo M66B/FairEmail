@@ -1563,8 +1563,9 @@ class Core {
                         new AndTerm(
                                 new SentDateTerm(ComparisonTerm.GE, new Date()),
                                 new HeaderTerm(MessageHelper.HEADER_CORRELATION_ID, message.msgid)));
-            } catch (MessagingException ex) {
+            } catch (Throwable ex) {
                 Log.e(ex);
+                // Seznam: Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
             }
 
         if (imessages != null && imessages.length == 1) {
