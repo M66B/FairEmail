@@ -320,7 +320,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "\\Unseen".toLowerCase(Locale.ROOT), // Mail.ru
             "$sent".toLowerCase(Locale.ROOT), // Kmail
             "$attachment".toLowerCase(Locale.ROOT), // Kmail
-            "$signed".toLowerCase(Locale.ROOT) // Kmail
+            "$signed".toLowerCase(Locale.ROOT), // Kmail
+            "$encrypted".toLowerCase(Locale.ROOT) // Kmail
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
