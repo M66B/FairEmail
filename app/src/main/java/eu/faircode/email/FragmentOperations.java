@@ -132,14 +132,15 @@ public class FragmentOperations extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_delete_operations, null);
+            final Context context = getContext();
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_delete_operations, null);
             final CheckBox cbError = dview.findViewById(R.id.cbError);
             final CheckBox cbFetch = dview.findViewById(R.id.cbFetch);
             final CheckBox cbMove = dview.findViewById(R.id.cbMove);
             final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
             final CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -154,7 +155,7 @@ public class FragmentOperations extends FragmentBase {
                             new SimpleTask<Integer>() {
                                 @Override
                                 protected void onPostExecute(Bundle args) {
-                                    ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -222,7 +223,7 @@ public class FragmentOperations extends FragmentBase {
                                     if (deleted == null)
                                         deleted = -1;
                                     ToastEx.makeText(
-                                            getContext(),
+                                            context,
                                             getString(R.string.title_delete_operation_deleted, deleted),
                                             Toast.LENGTH_LONG).show();
                                 }
@@ -236,7 +237,7 @@ public class FragmentOperations extends FragmentBase {
                                     if (sublist != null)
                                         list.addAll(sublist);
                                 }
-                            }.execute(getContext(), getActivity(), args, "operations:delete");
+                            }.execute(context, getActivity(), args, "operations:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
