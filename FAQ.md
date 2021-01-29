@@ -3492,10 +3492,12 @@ Message classification is a pro feature, except for the spam folder.
 **(164) Can you add customizable themes?**
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes,
-which means all themes need to be predefined.
+which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
 Moreover, a theme is more than just a few colors.
 For example themes with a yellow accent color use a darker link color for enough contrast.
+
+The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
