@@ -3536,6 +3536,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                 }
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
 
             if (lookupUri == null) {
