@@ -74,7 +74,10 @@ public class ServiceAuthenticator extends Authenticator {
         try {
             token = refreshToken(false);
         } catch (Throwable ex) {
-            Log.e(ex);
+            if (ex.getCause() instanceof InterruptedException)
+                Log.w(ex);
+            else
+                Log.e(ex);
         }
 
         Log.i(user + " returning " + (auth == AUTH_TYPE_PASSWORD ? "password" : "token"));
