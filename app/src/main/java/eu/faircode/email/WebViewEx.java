@@ -49,7 +49,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
-        boolean html_dark = prefs.getBoolean("html_dark", true);
+        boolean confirm_html = prefs.getBoolean("confirm_html", true);
+        boolean html_dark = prefs.getBoolean("html_dark", confirm_html);
 
         setVerticalScrollBarEnabled(false);
         setHorizontalScrollBarEnabled(false);
