@@ -193,7 +193,6 @@ public class WorkerCleanup extends Worker {
             File[] references = new File(context.getFilesDir(), "references").listFiles();
             File[] photos = new File(context.getCacheDir(), "photo").listFiles();
             File[] calendars = new File(context.getCacheDir(), "calendar").listFiles();
-            File[] shared = new File(context.getCacheDir(), "shared").listFiles();
 
             if (messages != null)
                 files.addAll(Arrays.asList(messages));
@@ -205,8 +204,6 @@ public class WorkerCleanup extends Worker {
                 files.addAll(Arrays.asList(photos));
             if (calendars != null)
                 files.addAll(Arrays.asList(calendars));
-            if (shared != null)
-                files.addAll(Arrays.asList(shared));
 
             // Cleanup message files
             Log.i("Cleanup message files");
@@ -265,6 +262,16 @@ public class WorkerCleanup extends Worker {
                             if (!file.delete())
                                 Log.w("Error deleting " + file);
                         }
+                    }
+
+            // Cleanup shared files
+            File[] shared = new File(context.getCacheDir(), "shared").listFiles();
+            if (shared != null)
+                for (File file : shared)
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                        Log.i("Deleting " + file);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
                     }
 
             // Cleanup contact info
