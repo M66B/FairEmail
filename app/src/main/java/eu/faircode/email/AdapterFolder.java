@@ -49,7 +49,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -863,7 +862,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         context.startActivity(intent);
                     } catch (ActivityNotFoundException ex) {
                         Log.w(ex);
-                        ToastEx.makeText(context, context.getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+                        Helper.reportNoViewer(context, intent);
                     }
                 }
 

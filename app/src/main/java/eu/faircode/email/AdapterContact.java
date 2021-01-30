@@ -45,7 +45,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -289,7 +288,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                         context.startActivity(share);
                     } catch (ActivityNotFoundException ex) {
                         Log.w(ex);
-                        ToastEx.makeText(context, context.getString(R.string.title_no_viewer, share), Toast.LENGTH_LONG).show();
+                        Helper.reportNoViewer(context, share);
                     }
                 }
 

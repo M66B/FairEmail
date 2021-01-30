@@ -575,15 +575,12 @@ public class Helper {
             }
 
             // Check if viewer available
-            if (ris == null || ris.size() == 0) {
+            if (ris == null || ris.size() == 0)
                 if (isTnef(type, null))
                     viewFAQ(context, 155);
-                else {
-                    String message = context.getString(R.string.title_no_viewer,
-                            type != null ? type : name != null ? name : file.getName());
-                    ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
-                }
-            } else
+                else
+                    reportNoViewer(context, intent);
+            else
                 context.startActivity(intent);
         } else
             context.startActivity(intent);
@@ -611,7 +608,7 @@ public class Helper {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
+                reportNoViewer(context, intent);
             }
     }
 
@@ -636,7 +633,7 @@ public class Helper {
                 context.startActivity(view);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
+                reportNoViewer(context, uri);
             } catch (Throwable ex) {
                 Log.e(ex);
                 ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
@@ -659,7 +656,7 @@ public class Helper {
                 customTabsIntent.launchUrl(context, uri);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
+                reportNoViewer(context, uri);
             } catch (Throwable ex) {
                 Log.e(ex);
                 ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
@@ -741,6 +738,31 @@ public class Helper {
 
     static boolean isSurfaceDuo() {
         return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
+    }
+
+    static void reportNoViewer(Context context, Uri uri) {
+        reportNoViewer(context, new Intent().setData(uri));
+    }
+
+    static void reportNoViewer(Context context, Intent intent) {
+        StringBuilder sb = new StringBuilder();
+
+        String title = intent.getStringExtra(Intent.EXTRA_TITLE);
+        if (TextUtils.isEmpty(title)) {
+            Uri data = intent.getData();
+            if (data == null)
+                sb.append(intent.toString());
+            else
+                sb.append(data.toString());
+        } else
+            sb.append(title);
+
+        String type = intent.getType();
+        if (!TextUtils.isEmpty(type))
+            sb.append(' ').append(type);
+
+        String message = context.getString(R.string.title_no_viewer, sb.toString());
+        ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
     }
 
     // Graphics

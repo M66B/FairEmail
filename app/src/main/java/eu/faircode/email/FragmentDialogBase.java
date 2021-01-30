@@ -23,7 +23,6 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -208,7 +207,7 @@ public class FragmentDialogBase extends DialogFragment {
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
-            ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(getContext(), intent);
         }
     }
 
@@ -218,7 +217,7 @@ public class FragmentDialogBase extends DialogFragment {
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.w(ex);
-            ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+            Helper.reportNoViewer(getContext(), intent);
         }
     }
 }

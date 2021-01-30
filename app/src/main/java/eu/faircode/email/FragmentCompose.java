@@ -1722,8 +1722,7 @@ public class FragmentCompose extends FragmentBase {
                 startActivityForResult(intent, REQUEST_RECORD_AUDIO);
             } catch (SecurityException ex) {
                 Log.w(ex);
-                Snackbar.make(view, getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_INDEFINITE)
-                        .setGestureInsetBottomIgnored(true).show();
+                Helper.reportNoViewer(getContext(), intent);
             }
     }
 
@@ -2146,8 +2145,7 @@ public class FragmentCompose extends FragmentBase {
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
                 } catch (SecurityException ex) {
                     Log.w(ex);
-                    Snackbar.make(view, getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                    Helper.reportNoViewer(getContext(), intent);
                 } catch (Throwable ex) {
                     // / java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
                     Log.unexpectedError(getParentFragmentManager(), ex);

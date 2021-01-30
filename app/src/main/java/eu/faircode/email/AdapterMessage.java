@@ -2846,7 +2846,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.startActivity((Intent) result);
                         } catch (ActivityNotFoundException ex) {
                             Log.w(ex);
-                            ToastEx.makeText(context, context.getString(R.string.title_no_viewer, result), Toast.LENGTH_LONG).show();
+                            Helper.reportNoViewer(context, (Intent) result);
                         }
                     }
                 }
@@ -3251,9 +3251,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException ex) {
                     Log.w(ex);
-                    ToastEx.makeText(context,
-                            context.getString(R.string.title_no_viewer, intent),
-                            Toast.LENGTH_LONG).show();
+                    Helper.reportNoViewer(context, intent);
                 }
             }
         }
@@ -3494,7 +3492,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         context.startActivity(intent);
                     } catch (ActivityNotFoundException ex) {
                         Log.w(ex);
-                        ToastEx.makeText(context, context.getString(R.string.title_no_viewer, intent), Toast.LENGTH_LONG).show();
+                        Helper.reportNoViewer(context, intent);
                     }
                 }
 
@@ -3578,7 +3576,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Helper.getChooser(context, pick), FragmentMessages.REQUEST_PICK_CONTACT);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, pick), Toast.LENGTH_LONG).show();
+                Helper.reportNoViewer(context, pick);
             } catch (Throwable ex) {
                 Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
             }
@@ -4450,7 +4448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else
-                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri), Toast.LENGTH_LONG).show();
+                Helper.reportNoViewer(context, uri);
         }
 
         private void onMenuButton(final TupleMessageEx message, String button, boolean isChecked) {
@@ -4893,9 +4891,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     PackageManager pm = context.getPackageManager();
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R &&
                             intent.resolveActivity(pm) == null) // system whitelisted
-                        Snackbar.make(parentFragment.getView(),
-                                context.getString(R.string.title_no_viewer, intent), Snackbar.LENGTH_LONG)
-                                .setGestureInsetBottomIgnored(true).show();
+                        Helper.reportNoViewer(context, intent);
                     else
                         context.startActivity(intent);
                 }
