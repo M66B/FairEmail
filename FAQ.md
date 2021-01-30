@@ -3468,7 +3468,7 @@ The message classifier calculates the probability a message belongs in a folder 
 There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder,
 provided that auto classification is enabled for the folder:
 
-* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 20 %)
+* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 15 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
 
 Both conditions must be satisfied before a message will be moved.
