@@ -498,7 +498,7 @@ class Core {
                             // Fetch: NO The specified message set is invalid.
                             // Fetch: NO [SERVERBUG] SELECT Server error - Please try again later
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
-                            // Fetch: NO Invalid message number (took n ms)
+                            // Fetch: NO Invalid message number (took 123 ms)
                             // Fetch: BAD Internal Server Error
                             // Move: NO Over quota
                             // Move: NO No matching messages
@@ -507,10 +507,15 @@ class Core {
                             // Move: NO MOVE failed or partially completed.
                             // Move: NO mailbox selected READ-ONLY
                             // Move: NO read only
+                            // Move: NO COPY failed
                             // Add: BAD Data length exceeds limit
+                            // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
+                            // Add: NO APPEND failed: Unknown flag: SEEN
+                            // Add: BAD mtd: internal error: APPEND Message too long. 12345678
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
+                            // Keyword: NO STORE completed
 
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
 
