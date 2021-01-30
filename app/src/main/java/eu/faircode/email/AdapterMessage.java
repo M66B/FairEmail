@@ -915,9 +915,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (!show_recipients && outgoing && (viewType != ViewType.THREAD || !threading));
-            Address[] senders = ContactInfo.fillIn(reverse ? message.to : message.senders, prefer_contact);
-            Address[] recipients = ContactInfo.fillIn(reverse ? message.from : message.recipients, prefer_contact);
+            boolean reverse = (outgoing && (viewType != ViewType.THREAD || !threading));
+            Address[] addresses = (reverse ? message.to : message.from);
+            Address[] senders = ContactInfo.fillIn(
+                    reverse && !show_recipients ? message.to : message.senders, prefer_contact);
+            Address[] recipients = ContactInfo.fillIn(
+                    reverse && !show_recipients ? message.from : message.recipients, prefer_contact);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -1175,12 +1178,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            List<Address> all = new ArrayList<>();
-            if (senders != null)
-                all.addAll(Arrays.asList(senders));
-            if (show_recipients && recipients != null)
-                all.addAll(Arrays.asList(recipients));
-            ContactInfo[] info = ContactInfo.getCached(context, message.account, message.folderType, all.toArray(new Address[0]));
+            ContactInfo[] info = ContactInfo.getCached(context, message.account, message.folderType, addresses);
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1189,27 +1187,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 aargs.putLong("id", message.id);
                 aargs.putLong("account", message.account);
                 aargs.putString("folderType", message.folderType);
-                aargs.putSerializable("senders", senders);
-                aargs.putSerializable("recipients", show_recipients ? recipients : null);
+                aargs.putSerializable("addresses", addresses);
 
                 taskContactInfo = new SimpleTask<ContactInfo[]>() {
                     @Override
                     protected ContactInfo[] onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
                         String folderType = args.getString("folderType");
-                        Address[] senders = (Address[]) args.getSerializable("senders");
-                        Address[] recipients = (Address[]) args.getSerializable("recipients");
-
-                        if (senders == null)
-                            senders = new Address[0];
-                        if (recipients == null)
-                            recipients = new Address[0];
-
-                        Address[] all = new Address[senders.length + recipients.length];
-                        System.arraycopy(senders, 0, all, 0, senders.length);
-                        System.arraycopy(recipients, 0, all, senders.length, recipients.length);
-
-                        return ContactInfo.get(context, account, folderType, all);
+                        Address[] addresses = (Address[]) args.getSerializable("addresses");
+                        return ContactInfo.get(context, account, folderType, addresses);
                     }
 
                     @Override
@@ -1221,7 +1207,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (amessage == null || !amessage.id.equals(id))
                             return;
 
-                        bindContactInfo(amessage, info, senders, recipients);
+                        bindContactInfo(amessage, info, addresses);
                     }
 
                     @Override
@@ -1231,7 +1217,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.setLog(false);
                 taskContactInfo.execute(context, owner, aargs, "message:avatar");
             } else
-                bindContactInfo(message, info, senders, show_recipients ? recipients : null);
+                bindContactInfo(message, info, addresses);
 
             if (viewType == ViewType.THREAD)
                 if (expanded)
@@ -1457,7 +1443,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setVisibility(View.GONE);
         }
 
-        private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] senders, Address[] recipients) {
+        private void bindContactInfo(TupleMessageEx message, ContactInfo[] info, Address[] addresses) {
             if (avatars) {
                 ContactInfo main = (info.length > 0 ? info[0] : null);
                 if (main == null || !main.hasPhoto()) {
@@ -1475,8 +1461,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (distinguish_contacts) {
                 boolean known = false;
-                if (senders != null)
-                    for (int i = 0; i < senders.length; i++)
+                if (addresses != null)
+                    for (int i = 0; i < addresses.length; i++)
                         if (info[i].isKnown()) {
                             known = true;
                             break;
