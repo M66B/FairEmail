@@ -3473,10 +3473,10 @@ provided that auto classification is enabled for the folder:
 
 Both conditions must be satisfied before a message will be moved.
 
-Considering the defaults option values:
+Considering the default option values:
 
 * Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
-* Apples 15 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 20 %
+* Apples 10 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 15 %
 * Apples 50 % and bananas 20 % would result in selecting apples
 
 Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
