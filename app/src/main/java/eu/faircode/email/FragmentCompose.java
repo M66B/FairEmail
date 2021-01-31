@@ -626,6 +626,8 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        tvSignature.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

@@ -17,7 +17,6 @@
             android:layout_height="0dp"
             android:layout_margin="6dp"
             android:background="@null"
-            android:fontFamily="monospace"
             android:gravity="top"
             android:hint="@string/title_edit_signature_text"
             android:imeOptions="actionDone"

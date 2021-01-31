@@ -23,6 +23,8 @@ import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -89,6 +92,9 @@ public class FragmentAnswer extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean monospaced = prefs.getBoolean("monospaced", false);
+
         setSubtitle(R.string.title_answer_caption);
         setHasOptionsMenu(true);
 
@@ -107,6 +113,8 @@ public class FragmentAnswer extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+
+        etText.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override

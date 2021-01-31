@@ -98,7 +98,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
                     android:background="@null"
-                    android:fontFamily="monospace"
                     android:gravity="top"
                     android:hint="@string/title_answer_text"
                     android:imeOptions="actionDone"

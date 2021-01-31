@@ -24,6 +24,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -41,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -87,6 +90,9 @@ public class ActivityEML extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean monospaced = prefs.getBoolean("monospaced", false);
+
         getSupportActionBar().setSubtitle("EML");
         setContentView(R.layout.activity_eml);
 
@@ -108,6 +114,7 @@ public class ActivityEML extends ActivityBase {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvAttachment.setLayoutManager(llm);
 
+        tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         vSeparatorAttachments.setVisibility(View.GONE);
