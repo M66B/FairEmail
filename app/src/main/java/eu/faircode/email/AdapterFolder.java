@@ -548,7 +548,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
 
             int childs = 0;
             if (folder.child_refs != null)
@@ -565,11 +565,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, order++, R.string.title_create_sub_folder)
                         .setEnabled(folder.inferiors);
 
             if (!folder.selectable && debug)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 17, R.string.title_delete)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete)
                         .setEnabled(folder.inferiors);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
