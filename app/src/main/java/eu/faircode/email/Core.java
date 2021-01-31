@@ -500,6 +500,7 @@ class Core {
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
                             // Fetch: NO Invalid message number (took 123 ms)
                             // Fetch: BAD Internal Server Error
+                            // Fetch UID: NO Some messages could not be FETCHed (Failure)
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
@@ -508,6 +509,7 @@ class Core {
                             // Move: NO mailbox selected READ-ONLY
                             // Move: NO read only
                             // Move: NO COPY failed
+                            // Move: NO [SERVERBUG] Internal error occurred. Refer to server log for more information.
                             // Add: BAD Data length exceeds limit
                             // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
                             // Add: NO APPEND failed: Unknown flag: SEEN
@@ -516,6 +518,7 @@ class Core {
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
                             // Keyword: NO STORE completed
+                            // Search: BAD command syntax error
 
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
 
