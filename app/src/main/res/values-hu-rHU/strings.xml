@@ -160,7 +160,7 @@
     <string name="title_setup_identity_what">Mi az azonosító?</string>
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
+    <string name="title_setup_doze">Akkumulátor-optimalizálás kikapcsolása</string>
     <string name="title_setup_doze_remark">Emailek fogadása biztonságosan</string>
     <string name="title_setup_doze_hint">Lehet hogy ez érdekesnek hangozhat, de az akkumulátor optimalizációk kikapcsolása esetén kevesebb lesz az akkumulátor-használat</string>
     <string name="title_setup_doze_instructions">A következő képernyőn válassza az \"Összes alkalmazás\"-t, keresse ki ezt az appot, majd válassza - és erősítse meg - a \"Ne optimalizáld\" opciót</string>

@@ -794,7 +794,7 @@
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">使用深色主题</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>

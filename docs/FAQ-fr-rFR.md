@@ -14,9 +14,9 @@ Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des qu
 
 ## Autorisation des comptes
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+En temps normal, l'assistant de configuration rapide sera capable d'identifier automatiquement la bonne configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Pour ce faire, vous aurez besoin des adresses du serveur IMAP et SMTP, des numéros de port, de savoir si SSL/TLS ou STARTTLS doivent être utilisés, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
+Si l'assistant de configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin des adresses du serveur IMAP et SMTP, des numéros de port, de savoir si SSL/TLS ou STARTTLS doivent être utilisés, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
 
 Faire une recherche avec *IMAP* et le nom du fournisseur est généralement suffisant pour trouver la documentation appropriée.
 
@@ -43,7 +43,7 @@ Questions liées:
 
 ## Comment faire pour...?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
+* Modifier le nom du compte : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur compte
 * Changer la cible de balayage vers la gauche/droite : Paramètres, comportement de la page d'onglet, définir les actions de balayage
 * Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
