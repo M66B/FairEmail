@@ -1297,6 +1297,9 @@ There are shortcuts available to compose a new message to a favorite contact.
 Shortcuts require Android 7.1 Nougat or later.
 The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
+It is also possible to create shortcuts to folders
+by long pressing a folder in the folder list of an account and selecting *Add shortcut*.
+
 <br />
 
 <a name="faq32"></a>

@@ -28,8 +28,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -56,6 +59,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -568,6 +574,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, order++, R.string.title_create_sub_folder)
                         .setEnabled(folder.inferiors);
 
+            if (ShortcutManagerCompat.isRequestPinShortcutSupported(context))
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_pin, order++, R.string.title_pin);
+
             if (!folder.selectable && debug)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete)
                         .setEnabled(folder.inferiors);
@@ -652,6 +661,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         case R.string.title_create_sub_folder:
                             onActionCreateFolder();
+                            return true;
+
+                        case R.string.title_pin:
+                            onActionPinFolder();
                             return true;
 
                         case R.string.title_delete:
@@ -877,6 +890,36 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("account", folder.account)
                                     .putExtra("parent", folder.name));
+                }
+
+                private void onActionPinFolder() {
+                    Intent view = new Intent(context, ActivityView.class);
+                    view.setAction("folder:" + folder.id);
+                    view.putExtra("account", folder.account);
+                    view.putExtra("type", folder.type);
+                    view.putExtra("refresh", true);
+                    view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    int resid = EntityFolder.getIcon(folder.type);
+                    Drawable d = context.getDrawable(resid);
+                    Bitmap bm = Bitmap.createBitmap(
+                            d.getIntrinsicWidth(),
+                            d.getIntrinsicHeight(),
+                            Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(bm);
+                    d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                    d.setTint(folder.color == null ? Color.DKGRAY : folder.color);
+                    d.draw(canvas);
+
+                    IconCompat icon = IconCompat.createWithBitmap(bm);
+                    String id = "folder:" + folder.id;
+                    ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
+                            .setIcon(icon)
+                            .setShortLabel(folder.getDisplayName(context))
+                            .setLongLabel(folder.getDisplayName(context))
+                            .setIntent(view);
+
+                    ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
                 }
 
                 private void onActionDeleteFolder() {
