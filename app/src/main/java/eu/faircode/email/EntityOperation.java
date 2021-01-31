@@ -464,8 +464,21 @@ public class EntityOperation {
 
         EntityLog.log(context, "Cleanup op=" + id + "/" + name + " folder=" + folder + " message=" + message);
 
-        if (message != null)
+        if (message != null) {
             db.message().setMessageUiHide(message, false);
+
+            if (EntityOperation.SEEN.equals(name)) {
+                EntityMessage m = db.message().getMessage(message);
+                if (m != null)
+                    db.message().setMessageUiSeen(m.id, m.seen);
+            }
+
+            if (EntityOperation.FLAG.equals(name)) {
+                EntityMessage m = db.message().getMessage(message);
+                if (m != null)
+                    db.message().setMessageUiFlagged(m.id, m.flagged, m.color);
+            }
+        }
 
         if (EntityOperation.MOVE.equals(name) ||
                 EntityOperation.ADD.equals(name) ||

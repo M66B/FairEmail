@@ -517,6 +517,7 @@ class Core {
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
+                            // Flags: NO mailbox selected READ-ONLY
                             // Keyword: NO STORE completed
                             // Search: BAD command syntax error
 
