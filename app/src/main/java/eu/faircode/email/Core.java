@@ -4503,7 +4503,7 @@ class Core {
                     Thread.State state = thread.getState();
                     if (thread.isAlive()) {
                         if (interrupted)
-                            Log.e("Join " + name + " failed state=" + state + " interrupted=" + interrupted);
+                            Log.w("Join " + name + " failed state=" + state + " interrupted=" + interrupted);
                         if (interrupted)
                             joined = true; // give up
                         else {
