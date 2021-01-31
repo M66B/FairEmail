@@ -396,7 +396,12 @@ public class MessageClassifier {
         File file = getFile(context);
         if (file.exists()) {
             String json = Helper.readText(file);
-            fromJson(new JSONObject(json));
+            try {
+                fromJson(new JSONObject(json));
+            } catch (JSONException ex) {
+                Log.e(ex);
+                file.delete();
+            }
         }
 
         loaded = true;
