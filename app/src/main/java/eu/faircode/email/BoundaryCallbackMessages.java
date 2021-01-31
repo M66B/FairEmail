@@ -88,10 +88,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
 
     private State state;
+    private ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
     private static final int SEARCH_LIMIT_SERVER = 250;
-    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     interface IBoundaryCallbackMessages {
         void onLoading();
