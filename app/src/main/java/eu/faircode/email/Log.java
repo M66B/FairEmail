@@ -430,6 +430,9 @@ public class Log {
                             "Illegal meta data value: the child service doesn't exist".equals(ex.getMessage()))
                         return false;
 
+                    if (isDead(ex))
+                        return false;
+
                     // Rate limit
                     int count = prefs.getInt("crash_report_count", 0) + 1;
                     prefs.edit().putInt("crash_report_count", count).apply();
@@ -705,42 +708,9 @@ public class Log {
             // Some Android versions (Samsung) send images as clip data
             return false;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            /*
-                java.lang.RuntimeException: Failure from system
-                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1327)
-                  at android.app.ContextImpl.bindService(ContextImpl.java:1286)
-                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
-                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
-                  at hq.run(PG:15)
-                  at java.lang.Thread.run(Thread.java:818)
-                Caused by: android.os.DeadObjectException
-                  at android.os.BinderProxy.transactNative(Native Method)
-                  at android.os.BinderProxy.transact(Binder.java:503)
-                  at android.app.ActivityManagerProxy.bindService(ActivityManagerNative.java:3783)
-                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1317)
-             */
-            Throwable cause = ex;
-            while (cause != null) {
-                if (cause instanceof DeadObjectException)
-                    return false;
-                cause = cause.getCause();
-            }
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Throwable cause = ex;
-            while (cause != null) {
-                if (cause instanceof DeadSystemException)
-                    return false;
-                cause = cause.getCause();
-            }
-        }
-
         if (ex instanceof RuntimeException &&
                 ex.getMessage() != null &&
-                (ex.getMessage().contains("DeadSystemException") ||
-                        ex.getMessage().startsWith("Could not get application info") ||
+                (ex.getMessage().startsWith("Could not get application info") ||
                         ex.getMessage().startsWith("Unable to create service") ||
                         ex.getMessage().startsWith("Unable to start service") ||
                         ex.getMessage().startsWith("Unable to resume activity") ||
@@ -1106,6 +1076,9 @@ public class Log {
              */
             return false;
 
+        if (isDead(ex))
+            return false;
+
         if (BuildConfig.BETA_RELEASE)
             return true;
 
@@ -1114,6 +1087,42 @@ public class Log {
                 if (ste.getClassName().startsWith(BuildConfig.APPLICATION_ID))
                     return true;
             ex = ex.getCause();
+        }
+
+        return false;
+    }
+
+    private static boolean isDead(Throwable ex) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            /*
+                java.lang.RuntimeException: Failure from system
+                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1327)
+                  at android.app.ContextImpl.bindService(ContextImpl.java:1286)
+                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
+                  at android.content.ContextWrapper.bindService(ContextWrapper.java:604)
+                  at hq.run(PG:15)
+                  at java.lang.Thread.run(Thread.java:818)
+                Caused by: android.os.DeadObjectException
+                  at android.os.BinderProxy.transactNative(Native Method)
+                  at android.os.BinderProxy.transact(Binder.java:503)
+                  at android.app.ActivityManagerProxy.bindService(ActivityManagerNative.java:3783)
+                  at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1317)
+             */
+            Throwable cause = ex;
+            while (cause != null) {
+                if (cause instanceof DeadObjectException)
+                    return true;
+                cause = cause.getCause();
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Throwable cause = ex;
+            while (cause != null) {
+                if (cause instanceof DeadSystemException)
+                    return true;
+                cause = cause.getCause();
+            }
         }
 
         return false;
