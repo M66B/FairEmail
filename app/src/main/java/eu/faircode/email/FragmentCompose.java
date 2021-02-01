@@ -5984,6 +5984,7 @@ public class FragmentCompose extends FragmentBase {
                         if (archive == null) {
                             Bundle args = new Bundle();
                             args.putLong("account", draft.account);
+                            args.putString("inreplyto", draft.inreplyto);
 
                             new SimpleTask<Boolean>() {
                                 @Override
@@ -5994,6 +5995,30 @@ public class FragmentCompose extends FragmentBase {
                                 @Override
                                 protected Boolean onExecute(Context context, Bundle args) {
                                     long account = args.getLong("account");
+                                    String inreplyto = args.getString("inreplyto");
+
+                                    if (TextUtils.isEmpty(inreplyto))
+                                        return null;
+
+                                    List<EntityMessage> messages = db.message().getMessagesByMsgId(account, inreplyto);
+                                    if (messages == null)
+                                        return null;
+
+                                    boolean canArchive = false;
+                                    for (EntityMessage message : messages) {
+                                        EntityFolder folder = db.folder().getFolder(message.folder);
+                                        if (folder == null)
+                                            continue;
+                                        if (EntityFolder.INBOX.equals(folder.type) ||
+                                                EntityFolder.SYSTEM.equals(folder.type) ||
+                                                EntityFolder.USER.equals(folder.type)) {
+                                            canArchive = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!canArchive)
+                                        return null;
 
                                     DB db = DB.getInstance(context);
                                     EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
@@ -6004,7 +6029,7 @@ public class FragmentCompose extends FragmentBase {
                                 @Override
                                 protected void onExecuted(Bundle args, Boolean data) {
                                     archive = data;
-                                    cbArchive.setChecked(send_archive);
+                                    cbArchive.setChecked(send_archive && archive);
                                     cbArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                                 }
 
