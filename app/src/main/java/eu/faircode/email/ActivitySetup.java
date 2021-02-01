@@ -63,6 +63,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.bouncycastle.util.encoders.DecoderException;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
@@ -1147,8 +1148,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
+                    // DecoderException: unable to decode base64 string: invalid characters encountered in base64 data
                     boolean expected =
                             (ex instanceof IllegalArgumentException ||
+                                    ex instanceof DecoderException ||
                                     ex instanceof SecurityException);
                     Log.unexpectedError(getSupportFragmentManager(), ex, !expected);
                 }
