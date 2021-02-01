@@ -555,7 +555,10 @@ public class MessageHelper {
                 from = ((InternetAddress) message.from[0]).getAddress();
 
             StringBuilder sb = new StringBuilder();
-            sb.append("Reporting-UA: ").append(BuildConfig.APPLICATION_ID).append("; ").append(BuildConfig.VERSION_NAME).append("\r\n");
+            sb.append("Reporting-UA: ")
+                    .append(BuildConfig.APPLICATION_ID).append("; ")
+                    .append(context.getString(R.string.app_name)).append(' ')
+                    .append(BuildConfig.VERSION_NAME).append("\r\n");
             if (from != null)
                 sb.append("Original-Recipient: rfc822;").append(from).append("\r\n");
             sb.append("Disposition: manual-action/MDN-sent-manually; displayed").append("\r\n");
