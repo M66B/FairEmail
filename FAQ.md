@@ -2863,6 +2863,10 @@ Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
+*Send user unknown (version 1.1477+)*
+
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *User unknown* via the answer menu.
+
 <br />
 
 <a name="faq126"></a>

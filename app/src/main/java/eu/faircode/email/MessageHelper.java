@@ -575,6 +575,43 @@ public class MessageHelper {
 
             imessage.setContent(report);
             return;
+        } else if (EntityMessage.DSN_USER_UNKNOWN.equals(message.dsn)) {
+            // https://tools.ietf.org/html/rfc3464
+            Multipart report = new MimeMultipart("report; report-type=delivery-status");
+
+            String html = Helper.readText(message.getFile(context));
+            String plainContent = HtmlHelper.getText(context, html);
+
+            BodyPart plainPart = new MimeBodyPart();
+            plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+            report.addBodyPart(plainPart);
+
+            String from = null;
+            if (message.from != null && message.from.length > 0)
+                from = ((InternetAddress) message.from[0]).getAddress();
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Reporting-MTA: dns;").append("dummy.faircode.eu").append("\r\n");
+            sb.append("\r\n");
+
+            if (from != null)
+                sb.append("Final-Recipient: rfc822;").append(from).append("\r\n");
+
+            sb.append("Action: failed").append("\r\n");
+            sb.append("Status: 5.1.1").append("\r\n"); // https://tools.ietf.org/html/rfc3463
+            sb.append("Diagnostic-Code: smtp; 550 user unknown").append("\r\n");
+
+            MailDateFormat mdf = new MailDateFormat();
+            mdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            sb.append("Last-Attempt-Date: ").append(mdf.format(message.received)).append("\r\n");
+
+            BodyPart dnsPart = new MimeBodyPart();
+            dnsPart.setContent(sb.toString(), "message/delivery-status");
+            dnsPart.setDisposition(Part.INLINE);
+            report.addBodyPart(dnsPart);
+
+            imessage.setContent(report);
+            return;
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

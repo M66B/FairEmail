@@ -104,6 +104,7 @@ public class EntityMessage implements Serializable {
 
     static final Integer DSN_NONE = 0;
     static final Integer DSN_RECEIPT = 1;
+    static final Integer DSN_USER_UNKNOWN = 2;
 
     static final Long SWIPE_ACTION_ASK = -1L;
     static final Long SWIPE_ACTION_SEEN = -2L;

@@ -407,6 +407,9 @@ public class ApplicationEx extends Application
         } else if (version < 1463) {
             if (!prefs.contains("autoscroll"))
                 editor.putBoolean("autoscroll", true);
+        } else if (version < 1477) {
+            if (!BuildConfig.DEBUG)
+                editor.remove("experiments");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

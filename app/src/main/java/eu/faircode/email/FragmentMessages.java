@@ -2410,6 +2410,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (data.identities == null)
                     data.identities = new ArrayList<>();
 
+                final Context context = getContext();
+                if (context == null)
+                    return;
+
                 final Address[] to =
                         message.replySelf(data.identities, message.account)
                                 ? message.to
@@ -2419,13 +2423,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 int answers = args.getInt("answers");
 
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean experiments = prefs.getBoolean("experiments", false);
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
                 popupMenu.inflate(R.menu.popup_reply);
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                 popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                 popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
+                popupMenu.getMenu().findItem(R.id.menu_reply_user_unknown).setVisible(experiments);
                 popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
-                popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(getContext()));
+                popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_sender).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setEnabled(message.content);
@@ -2446,7 +2454,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
                         if (target.getGroupId() == 1) {
-                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                            startActivity(new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
                                     .putExtra("answer", target.getIntent().getLongExtra("id", -1)));
@@ -2465,7 +2473,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onMenuReply(message, "list", selected);
                                 return true;
                             case R.id.menu_reply_receipt:
-                                onMenuReply(message, "receipt");
+                                onMenuDsn(message, EntityMessage.DSN_RECEIPT);
+                                return true;
+                            case R.id.menu_reply_user_unknown:
+                                onMenuDsn(message, EntityMessage.DSN_USER_UNKNOWN);
                                 return true;
                             case R.id.menu_forward:
                                 onMenuReply(message, "forward");
@@ -2503,6 +2514,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
+        startActivity(reply);
+    }
+
+    private void onMenuDsn(TupleMessageEx message, int type) {
+        Intent reply = new Intent(getContext(), ActivityCompose.class)
+                .putExtra("action", "dsn")
+                .putExtra("reference", message.id)
+                .putExtra("dsn", type);
         startActivity(reply);
     }
 

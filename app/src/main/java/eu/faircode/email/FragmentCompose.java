@@ -1184,6 +1184,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putLong("account", a.getLong("account", -1));
                 args.putLong("identity", a.getLong("identity", -1));
                 args.putLong("reference", a.getLong("reference", -1));
+                args.putInt("dsn", a.getInt("dsn", -1));
                 args.putSerializable("ics", a.getSerializable("ics"));
                 args.putString("status", a.getString("status"));
                 args.putBoolean("raw", a.getBoolean("raw", false));
@@ -3388,6 +3389,7 @@ public class FragmentCompose extends FragmentBase {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
+            int dsn = args.getInt("dsn", EntityMessage.DSN_RECEIPT);
             File ics = (File) args.getSerializable("ics");
             String status = args.getString("status");
             long answer = args.getLong("answer", -1);
@@ -3609,7 +3611,7 @@ public class FragmentCompose extends FragmentBase {
                         // References
                         if ("reply".equals(action) || "reply_all".equals(action) ||
                                 "list".equals(action) ||
-                                "receipt".equals(action) ||
+                                "dsn".equals(action) ||
                                 "participation".equals(action)) {
                             data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             data.draft.inreplyto = ref.msgid;
@@ -3617,7 +3619,7 @@ public class FragmentCompose extends FragmentBase {
 
                             if ("list".equals(action) && ref.list_post != null)
                                 data.draft.to = ref.list_post;
-                            else if ("receipt".equals(action) && ref.receipt_to != null)
+                            else if ("dsn".equals(action) && ref.receipt_to != null)
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
@@ -3667,8 +3669,8 @@ public class FragmentCompose extends FragmentBase {
 
                             if ("reply_all".equals(action))
                                 data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
-                            else if ("receipt".equals(action)) {
-                                data.draft.dsn = EntityMessage.DSN_RECEIPT;
+                            else if ("dsn".equals(action)) {
+                                data.draft.dsn = dsn;
                                 data.draft.receipt_request = false;
                             }
 
@@ -3727,10 +3729,17 @@ public class FragmentCompose extends FragmentBase {
                             }
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
-                        } else if ("receipt".equals(action)) {
-                            data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
+                        } else if ("dsn".equals(action)) {
+                            if (EntityMessage.DSN_USER_UNKNOWN.equals(dsn))
+                                data.draft.subject = context.getString(R.string.title_user_unknown_subject);
+                            else
+                                data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
-                            String[] texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
+                            String[] texts;
+                            if (EntityMessage.DSN_USER_UNKNOWN.equals(dsn))
+                                texts = new String[]{context.getString(R.string.title_user_unknown_text)};
+                            else
+                                texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
                             for (int i = 0; i < texts.length; i++) {
                                 if (i > 0)
                                     document.body()
@@ -3782,7 +3791,7 @@ public class FragmentCompose extends FragmentBase {
                         if (ref.content &&
                                 !"editasnew".equals(action) &&
                                 !("list".equals(action) && TextUtils.isEmpty(s)) &&
-                                !"receipt".equals(action)) {
+                                !"dsn".equals(action)) {
                             // Reply/forward
                             Element reply = document.createElement("div");
                             reply.attr("fairemail", "reference");

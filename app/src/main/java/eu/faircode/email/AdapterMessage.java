@@ -3349,7 +3349,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onReceipt(TupleMessageEx message) {
             Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "receipt")
+                    .putExtra("action", "dsn")
+                    .putExtra("dsn", EntityMessage.DSN_RECEIPT)
                     .putExtra("reference", message.id);
             context.startActivity(reply);
         }
