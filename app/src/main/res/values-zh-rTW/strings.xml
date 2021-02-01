@@ -758,6 +758,7 @@
     <string name="title_reply_to_all">回復全部</string>
     <string name="title_reply_list">回覆清單</string>
     <string name="title_reply_receipt">發送已讀回執</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">回复模板</string>
     <string name="title_move_undo">移動到 %1$s (%2$d)</string>
     <string name="title_open_with">打開用</string>
@@ -793,7 +794,7 @@
     <string name="title_ask_delete_rule">永久刪除規則？</string>
     <string name="title_ask_discard">捨棄草稿？</string>
     <string name="title_ask_show_html">顯示原始消息可能會洩露隱私敏感信息</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">無法在深色背景上顯示原始消息，因為這可能會使深色文本和圖像不可見</string>
     <string name="title_ask_show_html_images">在顯示原始消息時始終顯示圖像</string>
     <string name="title_ask_show_image">顯示圖像可能會洩露隱私敏感信息</string>
@@ -890,6 +891,7 @@
     <string name="title_key_missing">沒有鑰匙給 %1$s</string>
     <string name="title_send_reminder_remark">可以在發送設置中再次啟用提醒</string>
     <string name="title_send_plain_text">僅純文本</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">索取收據</string>
     <string name="title_send_receipt_remark">大多數提供商和電子郵件客戶端都會忽略收據請求</string>
     <string name="title_from_missing">遺失寄件人</string>

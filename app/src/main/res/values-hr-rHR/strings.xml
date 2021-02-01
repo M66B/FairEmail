@@ -781,6 +781,7 @@
     <string name="title_reply_to_all">Odgovoriti pošiljatelju</string>
     <string name="title_reply_list">Odgovoriti popisu</string>
     <string name="title_reply_receipt">Pošalji potvrdu za čitanje</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Odgovori pomoću predloška</string>
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Otvori sa</string>
@@ -816,7 +817,7 @@
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
     <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
@@ -914,6 +915,7 @@
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Samo običan tekst</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Zatražite potvrdu</string>
     <string name="title_send_receipt_remark">Većina pružatelja usluga i klijenti e-pošte zanemaruju zahtjeve za primanjem</string>
     <string name="title_from_missing">Nedostaje pošiljatelj</string>

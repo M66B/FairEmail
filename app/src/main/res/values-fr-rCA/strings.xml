@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Répondre à tous</string>
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Supprimer définitivement la règle?</string>
     <string name="title_ask_discard">Abandonner le brouillon?</string>
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Utiliser le thème sombre</string>
+    <string name="title_ask_show_html_dark">Utiliser le thème sombre</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur fond sombre n’est pas possible car le texte et les images sombres pourraient ne pas être visibles</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l’affichage des messages originaux</string>
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Aucune clé pour %1$s</string>
     <string name="title_send_reminder_remark">Les rappels peuvent être activés à nouveau dans les paramètres d\'envoi</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et clients de messagerie ignorent les demandes d’accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>

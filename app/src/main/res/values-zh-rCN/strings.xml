@@ -759,6 +759,7 @@
     <string name="title_reply_to_all">回复全部</string>
     <string name="title_reply_list">回复列表</string>
     <string name="title_reply_receipt">发送已读回执</string>
+    <string name="title_reply_address_unknown">报告 \'地址未知\'</string>
     <string name="title_reply_template">使用模板回复</string>
     <string name="title_move_undo">正移动到 %1$s(%2$d)</string>
     <string name="title_open_with">打开方式</string>
@@ -794,7 +795,7 @@
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">使用深色主题</string>
+    <string name="title_ask_show_html_dark">使用深色主题</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
@@ -892,6 +893,7 @@
     <string name="title_key_missing">没有 %1$s 的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>

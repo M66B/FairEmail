@@ -759,6 +759,7 @@
     <string name="title_reply_to_all">全員に返信</string>
     <string name="title_reply_list">リストに返信</string>
     <string name="title_reply_receipt">開封確認メッセージを送信</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_move_undo">%1$s に移動中 (%2$d)</string>
     <string name="title_open_with">開く</string>
@@ -794,7 +795,7 @@
     <string name="title_ask_delete_rule">ルールを完全に削除しますか？</string>
     <string name="title_ask_discard">下書きを破棄しますか？</string>
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">ダーク背景で元のメッセージを表示する事は出来ません。これは目で見にくい暗いテキストや画像が見えなくなる可能性がある為です</string>
     <string name="title_ask_show_html_images">元のメッセージを表示する時に常に画像を表示する</string>
     <string name="title_ask_show_image">画像表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
@@ -892,6 +893,7 @@
     <string name="title_key_missing">%1$s のキーがありません</string>
     <string name="title_send_reminder_remark">リマインダーは送信設定で再び有効にできます</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>

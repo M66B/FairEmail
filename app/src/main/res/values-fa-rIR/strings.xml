@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">پاسخ به همه</string>
     <string name="title_reply_list">پاسخ به لیست</string>
     <string name="title_reply_receipt">فرستادن رسید خواندن</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">پاسخ با قالب</string>
     <string name="title_move_undo">در حال انتقال به %1$s (%2$d)</string>
     <string name="title_open_with">باز کردن با</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">دستور به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">هیچ کلیدی برای %1$s نیست</string>
     <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">فقط متن ساده</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">درخواست رسید دریافت</string>
     <string name="title_send_receipt_remark">بیشتر فراهم‌کنندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>

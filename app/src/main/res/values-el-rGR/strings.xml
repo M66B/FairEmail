@@ -770,6 +770,7 @@
     <string name="title_reply_to_all">Απάντηση σε όλους</string>
     <string name="title_reply_list">Απάντηση σε λίστα</string>
     <string name="title_reply_receipt">Αποστολή αποδεικτικού ανάγνωσης</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Απάντηση με ένα πρότυπο</string>
     <string name="title_move_undo">Μετακίνηση προς %1$s (%2$d)</string>
     <string name="title_open_with">Άνοιγμα με</string>
@@ -805,7 +806,7 @@
     <string name="title_ask_delete_rule">Οριστική διαγραφή του κανόνα;</string>
     <string name="title_ask_discard">Απόρριψη προχείρου;</string>
     <string name="title_ask_show_html">Η προβολή του αρχικού μηνύματος μπορεί να προδώσει ευαίσθητα προσωπικά δεδομένα</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Χρήση σκοτεινού θέματος</string>
+    <string name="title_ask_show_html_dark">Χρήση σκοτεινού θέματος</string>
     <string name="title_ask_show_html_remark">Η προβολή του αρχικού μηνύματος σε σκούρο φόντο δεν είναι εφικτή, καθώς ενδέχεται να κάνει αόρατα κείμενα και εικόνες με σκούρα χρώματα</string>
     <string name="title_ask_show_html_images">Να προβάλλονται πάντοτε οι εικόνες κατά την προβολή των αρχικών μηνυμάτων</string>
     <string name="title_ask_show_image">Η προβολή των εικόνων ίσως προκαλέσει διαρροή ευαίσθητων προσωπικών δεδομένων</string>
@@ -903,6 +904,7 @@
     <string name="title_key_missing">Κανένα κλειδί για %1$s</string>
     <string name="title_send_reminder_remark">Οι ειδοποιήσεις μπορούν πάλι να ενεργοποιηθούν από τις ρυθμίσεις αποστολής</string>
     <string name="title_send_plain_text">Απλό κείμενο μόνο</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Αίτημα για αποδεικτικό</string>
     <string name="title_send_receipt_remark">Οι περισσότεροι πάροχοι και πελάτες ταχυδρομείου αγνοούν τα αιτήματα αποδεικτικού</string>
     <string name="title_from_missing">Λείπει αποστολέας</string>

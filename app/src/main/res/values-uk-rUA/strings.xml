@@ -793,6 +793,7 @@
     <string name="title_reply_to_all">Відповісти всім</string>
     <string name="title_reply_list">Відповісти до списку</string>
     <string name="title_reply_receipt">Надіслати повідомлення про перегляд</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Відповісти з шаблоном</string>
     <string name="title_move_undo">Переміщення до %1$s (%2$d)</string>
     <string name="title_open_with">Відкрити за допомогою</string>
@@ -828,7 +829,7 @@
     <string name="title_ask_delete_rule">Видалити правило остаточно?</string>
     <string name="title_ask_discard">Відхилити чернетку?</string>
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Використовувати темну тему</string>
+    <string name="title_ask_show_html_dark">Використовувати темну тему</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
@@ -926,6 +927,7 @@
     <string name="title_key_missing">Немає ключа для %1$s</string>
     <string name="title_send_reminder_remark">Нагадування можуть знову бути увімкнені в налаштуваннях для надсилання</string>
     <string name="title_send_plain_text">Тільки звичайний текст</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Запит підтвердження отримання</string>
     <string name="title_send_receipt_remark">Більшість постачальників та email клієнтів ігнорують запити на отримання</string>
     <string name="title_from_missing">Відсутній відправник</string>

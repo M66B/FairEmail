@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Válasz mindenkinek</string>
     <string name="title_reply_list">Válasz listára</string>
     <string name="title_reply_receipt">Olvasási visszaigazolás küldése</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Válasz sablon használatával</string>
     <string name="title_move_undo">Mozgatás ide: %1$s (%2$d)</string>
     <string name="title_open_with">Megnyitás a következővel</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Véglegesen törli a szabályt?</string>
     <string name="title_ask_discard">Elveti a piszkozatot?</string>
     <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Az eredeti üzenet megjelenítése sötét háttérrel nem lehetséges mert láthatatlan sötét szövegeket és képeket okozhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
     <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Nincs kulcs a %1$s címhez</string>
     <string name="title_send_reminder_remark">Az emlékeztetők újra ngedéjezhetőek a küldési beállításoknál</string>
     <string name="title_send_plain_text">Csak egyszerű szöveg</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Visszaigazolás kérése</string>
     <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
     <string name="title_from_missing">A feladó hiányzik</string>

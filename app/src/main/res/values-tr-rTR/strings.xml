@@ -770,6 +770,7 @@
     <string name="title_reply_to_all">Tümünü yanıtla</string>
     <string name="title_reply_list">Listeyi yanıtla</string>
     <string name="title_reply_receipt">Okundu bilgisi gönder</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Şablonla yanıtla</string>
     <string name="title_move_undo">%1$s\'a taşınıyor (%2$d)</string>
     <string name="title_open_with">Birlikte aç</string>
@@ -805,7 +806,7 @@
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
@@ -903,6 +904,7 @@
     <string name="title_key_missing">%1$s için anahtar yok</string>
     <string name="title_send_reminder_remark">Hatırlatıcılar gönderme ayarları üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
     <string name="title_from_missing">Gönderici Eksik</string>

@@ -792,6 +792,7 @@
     <string name="title_reply_to_all">Odpowiedz wszystkim</string>
     <string name="title_reply_list">Odpowiedz do listy</string>
     <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>
+    <string name="title_reply_address_unknown">Zgłoś „adres nieznany”</string>
     <string name="title_reply_template">Odpowiedz z szablonem</string>
     <string name="title_move_undo">Przenoszę do %1$s (%2$d)</string>
     <string name="title_open_with">Otwórz za pomocą</string>
@@ -827,7 +828,7 @@
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Użyj ciemnego motywu</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
     <string name="title_ask_show_html_images">Zawsze pokazuj obrazy przy wyświetlaniu oryginalnych wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
@@ -925,6 +926,7 @@
     <string name="title_key_missing">Brak klucza dla %1$s</string>
     <string name="title_send_reminder_remark">Przypomnienia można włączyć ponownie w ustawieniach wysyłania</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>

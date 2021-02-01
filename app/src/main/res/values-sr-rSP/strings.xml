@@ -782,6 +782,7 @@
     <string name="title_reply_to_all">Одговори свима</string>
     <string name="title_reply_list">Reply to list</string>
     <string name="title_reply_receipt">Send read receipt</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Reply with template</string>
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Отворите помоћу</string>
@@ -817,7 +818,7 @@
     <string name="title_ask_delete_rule">Обрисати правило трајно?</string>
     <string name="title_ask_discard">Одбаци нацрт?</string>
     <string name="title_ask_show_html">Приватне осетљиве информације могу да исцуре приказивањем оригиналне поруке</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Приказивање оригиналне поруке са тамном позадином није могуће јер може да изазове да се не види тамни текст и слике</string>
     <string name="title_ask_show_html_images">Увек прикажи слике при приказивању оригиналне поруке</string>
     <string name="title_ask_show_image">Приватне осетљиве информације могу да исцуре приказивањем слика</string>
@@ -915,6 +916,7 @@
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Само обични текст</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Већина провајдера и е-мејл клијената игноришу потврде о пријему</string>
     <string name="title_from_missing">Недостаје пошиљалац</string>

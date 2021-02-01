@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder á lista</string>
     <string name="title_reply_receipt">Enviar confirmación de lectura</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Responder cun patrón</string>
     <string name="title_move_undo">Movendo a %1$s (%2$d)</string>
     <string name="title_open_with">Abrir con</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Borrar regra definitivamente?</string>
     <string name="title_ask_discard">Desbotar borrador?</string>
     <string name="title_ask_show_html">Mostrar a mensaxe orixinal pode filtrar información privada sensible</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Non é posible mostrar a mensaxe orixinal nun fondo escuro porque faría que os textos e as imaxes escuras tamén invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre as imaxes cando se vexan as imaxes orixinais</string>
     <string name="title_ask_show_image">Mostrar imaxes pode filtrar información privada sensible</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Non hai chave para %1$s</string>
     <string name="title_send_reminder_remark">Pódese habilitar de novo os recordatorios na configuración de envío</string>
     <string name="title_send_plain_text">Só en formato texto</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Confirmación de lectura</string>
     <string name="title_send_receipt_remark">A maioría de provedores e de clientes de correo ignoran as confirmacións de envío</string>
     <string name="title_from_missing">Non hai remitente</string>

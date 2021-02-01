@@ -792,6 +792,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_reply_to_all">Odpovedať všetkým</string>
     <string name="title_reply_list">Odpovedať zoznamu</string>
     <string name="title_reply_receipt">Poslať potvrdenie o prečítaní</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Odpovedať šablónou</string>
     <string name="title_move_undo">Presunúť do %1$s (%2$d)</string>
     <string name="title_open_with">Otvoriť použitím</string>
@@ -827,7 +828,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_ask_delete_rule">Natrvalo odstrániť pravidlo?</string>
     <string name="title_ask_discard">Zahodiť koncept?</string>
     <string name="title_ask_show_html">Zobrazením pôvodnej správy môže dojsť k úniku citlivých informácií</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Pôvodnú správu nie je možné zobraziť na tmavom pozadí, pretože tmavý text a obrázky nemusia byť dostatočne viditeľné</string>
     <string name="title_ask_show_html_images">Vždy zobraziť obrázky pri zobrazení pôvodných správ</string>
     <string name="title_ask_show_image">Zobrazením obrázkov môže dojsť k úniku citlivých informácií</string>
@@ -925,6 +926,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_key_missing">Žiadny kľúč pre %1$s</string>
     <string name="title_send_reminder_remark">Pripomienky môžu byť znova zapnuté v nastavení posielania správ</string>
     <string name="title_send_plain_text">Len obyčajný text</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Vyžiadať potvrdenie</string>
     <string name="title_send_receipt_remark">Väčšina poskytovateľov a emailových klientov ignoruje požiadavky o potvrdenie</string>
     <string name="title_from_missing">Chýbajúci odosielateľ</string>

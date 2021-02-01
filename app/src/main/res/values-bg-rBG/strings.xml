@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Отговори на всички</string>
     <string name="title_reply_list">Отговори на списък</string>
     <string name="title_reply_receipt">Изпрати разписка за прочетено</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Отговор с шаблон</string>
     <string name="title_move_undo">Премести в %1$s (%2$d)</string>
     <string name="title_open_with">Отвори с</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Изтриване на правилото за постоянно?</string>
     <string name="title_ask_discard">Отхвърляне на черновата?</string>
     <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Напомнянията могат да бъдат активирани отново в настройките за изпращане</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Заявка за разписка</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
     <string name="title_from_missing">Липсва изпращач</string>

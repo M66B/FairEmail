@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Antwurdzje allegear</string>
     <string name="title_reply_list">Antwurdzje op list</string>
     <string name="title_reply_receipt">Stjoer lêsbewiis</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Antwurdzje mei sjabloan</string>
     <string name="title_move_undo">Bewege nei %1$s (%2$d)</string>
     <string name="title_open_with">Iepenje mei</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Regel permanint wiskje?</string>
     <string name="title_ask_discard">Untwerp fuortjaan?</string>
     <string name="title_ask_show_html">It orizjinele berjocht sjen litte kin privacy gefoelige ynformaasje lekke</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">It orizjinele berjocht werjaan op in donkere eftergrûn is net mooglik, om\'t tsjustere teksten en ôfbyldings ûnsichtber kinne wurde</string>
     <string name="title_ask_show_html_images">Toan altyd ôfbyldings by it werjaan fan orizjinele berjochten</string>
     <string name="title_ask_show_image">Ofbyldings sjen kinne privacy-sensitive ynformaasje lekke</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Gjin kaai foar %1$s</string>
     <string name="title_send_reminder_remark">Herinneringen kinne wer ynskeakele wurde yn \'e stjoereynstellings</string>
     <string name="title_send_plain_text">Platte tekst allinich</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Untfange oanfreegje</string>
     <string name="title_send_receipt_remark">De measte oanbieders en e-postkliïnten negearje ûntfangstoanfragen</string>
     <string name="title_from_missing">Ofstjoerder mist</string>

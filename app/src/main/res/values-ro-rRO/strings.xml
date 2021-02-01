@@ -782,6 +782,7 @@
     <string name="title_reply_to_all">Răspunde tuturor</string>
     <string name="title_reply_list">Răspunde listei</string>
     <string name="title_reply_receipt">Trimite confirmare de citire</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Răspunde cu șablon</string>
     <string name="title_move_undo">Se mută la %1$s (%2$d)</string>
     <string name="title_open_with">Deschide cu</string>
@@ -817,7 +818,7 @@
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
@@ -915,6 +916,7 @@
     <string name="title_key_missing">Nici o cheie pentru %1$s</string>
     <string name="title_send_reminder_remark">Memento-urile pot fi activate din nou în setările de trimitere</string>
     <string name="title_send_plain_text">Doar text simplu</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Solicitare confirmare</string>
     <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
     <string name="title_from_missing">Expeditor lipsă</string>

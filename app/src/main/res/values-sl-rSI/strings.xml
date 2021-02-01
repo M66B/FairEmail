@@ -793,6 +793,7 @@
     <string name="title_reply_to_all">Odgovori vsem</string>
     <string name="title_reply_list">Odgovori seznamu</string>
     <string name="title_reply_receipt">Pošlji potrdilo o branju</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Odgovori s predlogo</string>
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Odpri s/z</string>
@@ -828,7 +829,7 @@
     <string name="title_ask_delete_rule">Trajno izbriši pravilo?</string>
     <string name="title_ask_discard">Zavrzi osnutek?</string>
     <string name="title_ask_show_html">Prikaz izvirnega sporočila lahko razkrije občutljive zasebne podatke.</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Izvirnega sporočila ni mogoče prikazati s temnim ozadjem, ker lahko povzroči nevidna temna besedila in slike.</string>
     <string name="title_ask_show_html_images">Vedno prikaži slike ob prikazu izvirnih sporočil</string>
     <string name="title_ask_show_image">Prikaz slik lahko razkrije občutljive zasebne podatke.</string>
@@ -926,6 +927,7 @@
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Samo golo besedilo</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Zahtevaj potrdilo</string>
     <string name="title_send_receipt_remark">Večina ponudnikov in e-poštnih odjemalcev prezre zahteve za potrdilo.</string>
     <string name="title_from_missing">Manjka pošiljatelj.</string>

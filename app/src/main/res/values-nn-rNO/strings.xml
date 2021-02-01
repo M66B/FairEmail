@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Svar alle</string>
     <string name="title_reply_list">Svar på listen</string>
     <string name="title_reply_receipt">Send lesekvittering</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Svar med mal</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
     <string name="title_open_with">Åpne med</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Slett regel permanent?</string>
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Det er ikke mulig å vise den opprinnelige meldingen med mørk bakgrunn fordi den kan forårsake usynlige mørke tekster og bilder</string>
     <string name="title_ask_show_html_images">Vis alltid bilder når du viser originale meldinger</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Ingen nøkkel for %1$s</string>
     <string name="title_send_reminder_remark">Påminnelser kan aktiveres igjen i Send-innstillingene</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Be om kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
     <string name="title_from_missing">Avsender mangler</string>

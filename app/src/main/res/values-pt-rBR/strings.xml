@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder à lista</string>
     <string name="title_reply_receipt">Enviar confirmação de leitura</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Modelo de resposta</string>
     <string name="title_move_undo">Movendo para %1$s (%2$d)</string>
     <string name="title_open_with">Abrir com</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">Excluir regra permanentemente?</string>
     <string name="title_ask_discard">Descartar rascunho?</string>
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Não é possível exibir a mensagem original com um fundo escuro porque textos e imagens escuros podem ficar invisíveis</string>
     <string name="title_ask_show_html_images">Sempre mostrar imagens nas mensagens originais</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">Nenhuma chave para %1$s</string>
     <string name="title_send_reminder_remark">Os lembretes podem ser ativados novamente nas configurações de envio</string>
     <string name="title_send_plain_text">Somente texto simples</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>

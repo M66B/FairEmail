@@ -770,6 +770,7 @@
     <string name="title_reply_to_all">Svara till alla</string>
     <string name="title_reply_list">Svara på listan</string>
     <string name="title_reply_receipt">Skicka läskvitto</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Svara med mall</string>
     <string name="title_move_undo">Flyttar till %1$s (%2$d)</string>
     <string name="title_open_with">Öppna med</string>
@@ -805,7 +806,7 @@
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Att visa originalmeddelandet med en mörk bakgrund är inte möjligt eftersom det kan orsaka osynliga mörka texter och bilder</string>
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
@@ -903,6 +904,7 @@
     <string name="title_key_missing">Ingen nyckel för %1$s</string>
     <string name="title_send_reminder_remark">Påminnelser kan aktiveras igen i sändningsinställningarna</string>
     <string name="title_send_plain_text">Endast oformaterad text</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
     <string name="title_from_missing">Avsändaren saknas</string>

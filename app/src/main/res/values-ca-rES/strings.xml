@@ -770,6 +770,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_reply_to_all">Respon a tots</string>
     <string name="title_reply_list">Respon a la llista</string>
     <string name="title_reply_receipt">Enviar confirmació de lectura</string>
+    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Respondre amb una plantilla</string>
     <string name="title_move_undo">Movent a %1$s (%2$d)</string>
     <string name="title_open_with">Obre amb</string>
@@ -805,7 +806,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_ask_delete_rule">Esborrar regla per sempre?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_show_html">Si es mostra el missatge original es pot filtrar informació sensible a la privadesa</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Use dark theme</string>
+    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre les imatges al mostrar els missatges originals</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
@@ -903,6 +904,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Els recordatoris es poden tornar a activar a la configuració d\'enviament</string>
     <string name="title_send_plain_text">Només text pla</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Sol·licita confirmació de lectura</string>
     <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>
     <string name="title_from_missing">Falta l\'emissor</string>

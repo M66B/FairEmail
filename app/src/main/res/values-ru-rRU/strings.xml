@@ -793,6 +793,7 @@
     <string name="title_reply_to_all">Ответить всем</string>
     <string name="title_reply_list">Ответить в рассылку</string>
     <string name="title_reply_receipt">Отправить квитанцию о прочтении</string>
+    <string name="title_reply_address_unknown">Отправить сообщение \'адресе неизвестен\'</string>
     <string name="title_reply_template">Ответить с шаблоном</string>
     <string name="title_move_undo">Перемещение в %1$s (%2$d)</string>
     <string name="title_open_with">Открыть с помощью</string>
@@ -828,7 +829,7 @@
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Использовать тёмную тему</string>
+    <string name="title_ask_show_html_dark">Использовать тёмную тему</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
@@ -926,6 +927,7 @@
     <string name="title_key_missing">Нет ключа для %1$s</string>
     <string name="title_send_reminder_remark">Напоминания можно повторно включить в настройках отправки</string>
     <string name="title_send_plain_text">Только простой текст</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>

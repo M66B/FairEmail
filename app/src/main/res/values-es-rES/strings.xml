@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder a la lista</string>
     <string name="title_reply_receipt">Enviar acuse de lectura</string>
+    <string name="title_reply_address_unknown">Reportar \'dirección desconocida\'</string>
     <string name="title_reply_template">Responder con plantilla</string>
     <string name="title_move_undo">Moviendo a %1$s (%2$d)</string>
     <string name="title_open_with">Abrir con</string>
@@ -806,7 +807,7 @@
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
-    <string name="title_ask_show_html_dark" comment="title_ask_show_html_dark&#10;Title for checkbox to display original messages with a dark theme">Usar tema oscuro</string>
+    <string name="title_ask_show_html_dark">Usar tema oscuro</string>
     <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
     <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
@@ -904,6 +905,7 @@
     <string name="title_key_missing">No hay clave para %1$s</string>
     <string name="title_send_reminder_remark">Los recordatorios pueden ser activados de nuevo en la configuración de envío</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
     <string name="title_from_missing">Falta remitente</string>
