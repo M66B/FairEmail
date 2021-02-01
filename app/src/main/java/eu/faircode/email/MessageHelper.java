@@ -1125,8 +1125,6 @@ public class MessageHelper {
     }
 
     Address[] getReceiptTo() throws MessagingException {
-        ensureHeaders();
-
         return getAddressHeader("Disposition-Notification-To");
     }
 
