@@ -2929,6 +2929,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Bundle args = new Bundle();
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putBoolean("seen", seen);
+        args.putBoolean("threading", threading && id == null);
 
         //if (selectionTracker != null)
         //    selectionTracker.clearSelection();
@@ -2938,6 +2939,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
                 boolean seen = args.getBoolean("seen");
+                boolean threading = args.getBoolean("threading");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -3065,6 +3067,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putBoolean("flagged", flagged);
         if (color != null)
             args.putInt("color", color);
+        args.putBoolean("threading", threading && id == null);
 
         //selectionTracker.clearSelection();
 
@@ -3074,6 +3077,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long[] ids = args.getLongArray("ids");
                 boolean flagged = args.getBoolean("flagged");
                 Integer color = (args.containsKey("color") ? args.getInt("color") : null);
+                boolean threading = args.getBoolean("threading");
 
                 DB db = DB.getInstance(context);
                 try {
