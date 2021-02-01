@@ -228,6 +228,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
+    private TextView tvDsn;
     private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
@@ -332,6 +333,7 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
+        tvDsn = view.findViewById(R.id.tvDsn);
         tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
@@ -770,6 +772,7 @@ public class FragmentCompose extends FragmentBase {
 
         etExtra.setHint("");
         tvDomain.setText(null);
+        tvDsn.setVisibility(View.GONE);
         tvPlainTextOnly.setVisibility(View.GONE);
         etBody.setText(null);
 
@@ -4265,8 +4268,13 @@ public class FragmentCompose extends FragmentBase {
                         if (draft.content && state == State.NONE)
                             showDraft(draft);
 
+                        tvDsn.setVisibility(
+                                draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
+                                        ? View.VISIBLE : View.GONE);
+
                         tvPlainTextOnly.setVisibility(
-                                draft.plain_only != null && draft.plain_only && !plain_only ? View.VISIBLE : View.GONE);
+                                draft.plain_only != null && draft.plain_only && !plain_only
+                                        ? View.VISIBLE : View.GONE);
 
                         tvNoInternet.setTag(draft.content);
                         checkInternet();

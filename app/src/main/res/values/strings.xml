@@ -1036,6 +1036,7 @@
     <string name="title_key_missing">No key for %1$s</string>
     <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
     <string name="title_send_plain_text">Plain text only</string>
+    <string name="title_send_dsn">Status report</string>
     <string name="title_send_receipt">Request receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
 
