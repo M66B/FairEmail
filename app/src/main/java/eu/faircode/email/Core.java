@@ -2148,6 +2148,7 @@ class Core {
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        message.return_path = helper.getReturnPath();
                         message.submitter = helper.getSender();
                         message.from = helper.getFrom();
                         message.to = helper.getTo();
@@ -2846,6 +2847,7 @@ class Core {
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+            message.return_path = helper.getReturnPath();
             message.submitter = helper.getSender();
             message.from = helper.getFrom();
             message.to = helper.getTo();

@@ -1239,6 +1239,10 @@ public class MessageHelper {
         return addresses;
     }
 
+    Address[] getReturnPath() throws MessagingException {
+        return getAddressHeader("Return-Path");
+    }
+
     Address[] getSender() throws MessagingException {
         return getAddressHeader("Sender");
     }

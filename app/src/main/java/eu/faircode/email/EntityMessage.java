@@ -148,6 +148,7 @@ public class EntityMessage implements Serializable {
     public Boolean reply_domain; // differs from 'from'
     public String avatar; // lookup URI from sender
     public String sender; // sort key: from email address
+    public Address[] return_path;
     public Address[] submitter; // sent on behalf of
     public Address[] from;
     public Address[] to;
