@@ -539,7 +539,7 @@ public class MessageHelper {
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, boolean send, MimeMessage imessage) throws IOException, MessagingException {
-        if (message.receipt != null && message.receipt) {
+        if (EntityMessage.DSN_RECEIPT.equals(message.dsn)) {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
 

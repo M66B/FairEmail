@@ -29,6 +29,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -101,6 +102,9 @@ public class EntityMessage implements Serializable {
     static final Integer PRIORITIY_NORMAL = 1;
     static final Integer PRIORITIY_HIGH = 2;
 
+    static final Integer DSN_NONE = 0;
+    static final Integer DSN_RECEIPT = 1;
+
     static final Long SWIPE_ACTION_ASK = -1L;
     static final Long SWIPE_ACTION_SEEN = -2L;
     static final Long SWIPE_ACTION_SNOOZE = -3L;
@@ -132,7 +136,8 @@ public class EntityMessage implements Serializable {
     public Integer priority;
     public Integer importance;
     public Boolean auto_submitted;
-    public Boolean receipt; // is receipt
+    @ColumnInfo(name = "receipt")
+    public Integer dsn;
     public Boolean receipt_request;
     public Address[] receipt_to;
     public Boolean dkim;
@@ -481,7 +486,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.wasforwardedfrom, other.wasforwardedfrom) &&
                     Objects.equals(this.thread, other.thread) &&
                     Objects.equals(this.priority, other.priority) &&
-                    Objects.equals(this.receipt, other.receipt) &&
+                    Objects.equals(this.dsn, other.dsn) &&
                     Objects.equals(this.receipt_request, other.receipt_request) &&
                     MessageHelper.equal(this.receipt_to, other.receipt_to) &&
                     Objects.equals(this.dkim, other.dkim) &&

@@ -3668,7 +3668,7 @@ public class FragmentCompose extends FragmentBase {
                             if ("reply_all".equals(action))
                                 data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
                             else if ("receipt".equals(action)) {
-                                data.draft.receipt = true;
+                                data.draft.dsn = EntityMessage.DSN_RECEIPT;
                                 data.draft.receipt_request = false;
                             }
 
@@ -5931,8 +5931,12 @@ public class FragmentCompose extends FragmentBase {
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
                     cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request);
 
-                    cbPlainOnly.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
-                    cbReceipt.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
+                    cbPlainOnly.setVisibility(
+                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
+                                    ? View.GONE : View.VISIBLE);
+                    cbReceipt.setVisibility(
+                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
+                                    ? View.GONE : View.VISIBLE);
 
                     int encrypt = (draft.ui_encrypt == null ? EntityMessage.ENCRYPT_NONE : draft.ui_encrypt);
                     for (int i = 0; i < encryptValues.length; i++)
@@ -5941,7 +5945,9 @@ public class FragmentCompose extends FragmentBase {
                             spEncrypt.setSelection(i);
                             break;
                         }
-                    spEncrypt.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
+                    spEncrypt.setVisibility(
+                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
+                                    ? View.GONE : View.VISIBLE);
 
                     int priority = (draft.priority == null ? 1 : draft.priority);
                     spPriority.setTag(priority);
