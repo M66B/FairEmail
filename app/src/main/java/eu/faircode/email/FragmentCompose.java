@@ -6018,7 +6018,6 @@ public class FragmentCompose extends FragmentBase {
                                         if (folder == null)
                                             continue;
                                         if (EntityFolder.INBOX.equals(folder.type) ||
-                                                EntityFolder.SYSTEM.equals(folder.type) ||
                                                 EntityFolder.USER.equals(folder.type)) {
                                             canArchive = true;
                                             break;
