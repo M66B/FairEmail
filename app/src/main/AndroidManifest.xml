@@ -186,6 +186,7 @@
 
         <activity
             android:name=".ActivityView"
+            android:alwaysRetainTaskState="true"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain" />
