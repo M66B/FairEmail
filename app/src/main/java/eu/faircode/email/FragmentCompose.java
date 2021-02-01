@@ -3622,7 +3622,7 @@ public class FragmentCompose extends FragmentBase {
                             else if ("dsn".equals(action)) {
                                 if (EntityMessage.DSN_RECEIPT.equals(dsn) && ref.receipt_to != null)
                                     data.draft.to = ref.receipt_to;
-                                else if (EntityMessage.DSN_USER_UNKNOWN.equals(dsn) && ref.return_path != null)
+                                else if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn) && ref.return_path != null)
                                     data.draft.to = ref.return_path;
                             } else {
                                 // Prevent replying to self
@@ -3733,14 +3733,14 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
                         } else if ("dsn".equals(action)) {
-                            if (EntityMessage.DSN_USER_UNKNOWN.equals(dsn))
-                                data.draft.subject = context.getString(R.string.title_user_unknown_subject);
+                            if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn))
+                                data.draft.subject = context.getString(R.string.title_address_unknown_subject);
                             else
                                 data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
                             String[] texts;
-                            if (EntityMessage.DSN_USER_UNKNOWN.equals(dsn))
-                                texts = new String[]{context.getString(R.string.title_user_unknown_text)};
+                            if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn))
+                                texts = new String[]{context.getString(R.string.title_address_unknown_text)};
                             else
                                 texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
                             for (int i = 0; i < texts.length; i++) {

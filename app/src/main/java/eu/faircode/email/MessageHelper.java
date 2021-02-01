@@ -575,7 +575,7 @@ public class MessageHelper {
 
             imessage.setContent(report);
             return;
-        } else if (EntityMessage.DSN_USER_UNKNOWN.equals(message.dsn)) {
+        } else if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(message.dsn)) {
             // https://tools.ietf.org/html/rfc3464
             Multipart report = new MimeMultipart("report; report-type=delivery-status");
 

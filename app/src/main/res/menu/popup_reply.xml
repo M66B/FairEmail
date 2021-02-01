@@ -17,8 +17,8 @@
         android:title="@string/title_reply_receipt" />
 
     <item
-        android:id="@+id/menu_reply_user_unknown"
-        android:title="@string/title_reply_user_unknown" />
+        android:id="@+id/menu_reply_address_unknown"
+        android:title="@string/title_reply_address_unknown" />
 
     <item
         android:id="@+id/menu_forward"
