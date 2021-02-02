@@ -3623,10 +3623,15 @@ public class FragmentCompose extends FragmentBase {
                             if ("list".equals(action) && ref.list_post != null)
                                 data.draft.to = ref.list_post;
                             else if ("dsn".equals(action)) {
-                                if (EntityMessage.DSN_RECEIPT.equals(dsn) && ref.receipt_to != null)
-                                    data.draft.to = ref.receipt_to;
-                                else if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn) && ref.return_path != null)
-                                    data.draft.to = ref.return_path;
+                                if (EntityMessage.DSN_RECEIPT.equals(dsn)) {
+                                    if (ref.receipt_to != null)
+                                        data.draft.to = ref.receipt_to;
+                                } else if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn)) {
+                                    if (ref.return_path != null)
+                                        data.draft.to = ref.return_path;
+                                    else if (BuildConfig.DEBUG)
+                                        data.draft.to = ref.from;
+                                }
                             } else {
                                 // Prevent replying to self
                                 if (ref.replySelf(data.identities, ref.account)) {
