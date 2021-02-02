@@ -5667,9 +5667,9 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
-            final TextView tvRemindPlain = dview.findViewById(R.id.tvRemindPlain);
+            final TextView tvPlainHint = dview.findViewById(R.id.tvPlainHint);
             final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
-            final TextView tvReceipt = dview.findViewById(R.id.tvReceiptType);
+            final TextView tvReceiptHint = dview.findViewById(R.id.tvReceiptHint);
             final Spinner spEncrypt = dview.findViewById(R.id.spEncrypt);
             final ImageButton ibEncryption = dview.findViewById(R.id.ibEncryption);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
@@ -5678,6 +5678,7 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
+            final Group grpDsn = dview.findViewById(R.id.grpDsn);
 
             tvAddressError.setText(address_error == null ? mx_error : address_error);
             tvAddressError.setVisibility(address_error == null && mx_error == null ? View.GONE : View.VISIBLE);
@@ -5696,8 +5697,8 @@ public class FragmentCompose extends FragmentBase {
 
             tvTo.setText(null);
             tvVia.setText(null);
-            tvRemindPlain.setVisibility(View.GONE);
-            tvReceipt.setVisibility(View.GONE);
+            tvPlainHint.setVisibility(View.GONE);
+            tvReceiptHint.setVisibility(View.GONE);
             spEncrypt.setTag(0);
             spEncrypt.setSelection(0);
             spPriority.setTag(1);
@@ -5740,7 +5741,7 @@ public class FragmentCompose extends FragmentBase {
             cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    tvRemindPlain.setVisibility(checked && formatted ? View.VISIBLE : View.GONE);
+                    tvPlainHint.setVisibility(checked && formatted ? View.VISIBLE : View.GONE);
 
                     Bundle args = new Bundle();
                     args.putLong("id", id);
@@ -5769,7 +5770,7 @@ public class FragmentCompose extends FragmentBase {
             cbReceipt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    tvReceipt.setVisibility(checked ? View.VISIBLE : View.GONE);
+                    tvReceiptHint.setVisibility(checked ? View.VISIBLE : View.GONE);
 
                     Bundle args = new Bundle();
                     args.putLong("id", id);
@@ -5937,6 +5938,7 @@ public class FragmentCompose extends FragmentBase {
                         return;
                     }
 
+                    boolean dsn = (draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn));
                     int to = (draft.to == null ? 0 : draft.to.length);
                     int cc = (draft.cc == null ? 0 : draft.cc.length) + (draft.bcc == null ? 0 : draft.bcc.length);
                     if (cc == 0)
@@ -5948,26 +5950,16 @@ public class FragmentCompose extends FragmentBase {
                             to + cc > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
 
-                    cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
-                    cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request);
+                    cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only && !dsn);
+                    cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request && !dsn);
 
-                    cbPlainOnly.setVisibility(
-                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
-                                    ? View.GONE : View.VISIBLE);
-                    cbReceipt.setVisibility(
-                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
-                                    ? View.GONE : View.VISIBLE);
-
-                    int encrypt = (draft.ui_encrypt == null ? EntityMessage.ENCRYPT_NONE : draft.ui_encrypt);
+                    int encrypt = (draft.ui_encrypt == null || dsn ? EntityMessage.ENCRYPT_NONE : draft.ui_encrypt);
                     for (int i = 0; i < encryptValues.length; i++)
                         if (encryptValues[i] == encrypt) {
                             spEncrypt.setTag(i);
                             spEncrypt.setSelection(i);
                             break;
                         }
-                    spEncrypt.setVisibility(
-                            draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn)
-                                    ? View.GONE : View.VISIBLE);
 
                     int priority = (draft.priority == null ? 1 : draft.priority);
                     spPriority.setTag(priority);
@@ -5987,6 +5979,8 @@ public class FragmentCompose extends FragmentBase {
                         DateFormat D = new SimpleDateFormat("E");
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
+
+                    grpDsn.setVisibility(dsn ? View.GONE : View.VISIBLE);
 
                     if (!TextUtils.isEmpty(draft.inreplyto))
                         if (archive == null) {

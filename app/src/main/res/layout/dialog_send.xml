@@ -186,7 +186,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvVia" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvRemindPlain"
+            android:id="@+id/tvPlainHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -204,10 +204,10 @@
             android:text="@string/title_send_receipt"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindPlain" />
+            app:layout_constraintTop_toBottomOf="@id/tvPlainHint" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvReceiptType"
+            android:id="@+id/tvReceiptHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_send_receipt_remark"
@@ -227,7 +227,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReceiptType" />
+            app:layout_constraintTop_toBottomOf="@id/tvReceiptHint" />
 
         <Spinner
             android:id="@+id/spEncrypt"
@@ -342,5 +342,13 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpDsn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+            cbPlainOnly,cbReceipt,
+            tvEncrypt,spEncrypt,ibEncryption" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
