@@ -103,6 +103,7 @@
             android:contentDescription="@string/title_legend_expander"
             android:paddingVertical="12dp"
             android:paddingEnd="0dp"
+            android:tint="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/tvManual"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +118,7 @@
             android:gravity="center"
             android:text="@string/title_setup_manual"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintBottom_toBottomOf="@id/ibManual"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -266,6 +268,7 @@
 
         <Button
             android:id="@+id/btnInbox"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
