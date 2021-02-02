@@ -887,7 +887,7 @@
     <string name="title_reply_to_all">Reply to all</string>
     <string name="title_reply_list">Reply to list</string>
     <string name="title_reply_receipt">Send read receipt</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
+    <string name="title_reply_hard_bounce">Send hard bounce</string>
     <string name="title_reply_template">Reply with template</string>
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Open with</string>
@@ -896,8 +896,8 @@
     <string name="title_receipt_subject">Read receipt: %1$s</string>
     <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>
 
-    <string name="title_address_unknown_subject" translatable="false">Delivery Status Notification (Failure)</string>
-    <string name="title_address_unknown_text" translatable="false">Your message wasn\'t delivered because the address couldn\'t be found.</string>
+    <string name="title_hard_bounce_subject" translatable="false">Delivery Status Notification (Failure)</string>
+    <string name="title_hard_bounce_text" translatable="false">Your message wasn\'t delivered because the address couldn\'t be found.</string>
 
     <string name="title_no_answers">No reply templates defined</string>
     <string name="title_no_viewer">No viewer app available for %1$s</string>

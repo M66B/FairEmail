@@ -3626,7 +3626,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (EntityMessage.DSN_RECEIPT.equals(dsn)) {
                                     if (ref.receipt_to != null)
                                         data.draft.to = ref.receipt_to;
-                                } else if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn)) {
+                                } else if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn)) {
                                     if (ref.return_path != null)
                                         data.draft.to = ref.return_path;
                                     else if (BuildConfig.DEBUG)
@@ -3741,14 +3741,14 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
                         } else if ("dsn".equals(action)) {
-                            if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn))
-                                data.draft.subject = context.getString(R.string.title_address_unknown_subject);
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn))
+                                data.draft.subject = context.getString(R.string.title_hard_bounce_subject);
                             else
                                 data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
                             String[] texts;
-                            if (EntityMessage.DSN_ADDRESS_UNKNOWN.equals(dsn))
-                                texts = new String[]{context.getString(R.string.title_address_unknown_text)};
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn))
+                                texts = new String[]{context.getString(R.string.title_hard_bounce_text)};
                             else
                                 texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
                             for (int i = 0; i < texts.length; i++) {

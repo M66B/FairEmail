@@ -2431,7 +2431,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                 popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                 popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
-                popupMenu.getMenu().findItem(R.id.menu_reply_address_unknown)
+                popupMenu.getMenu().findItem(R.id.menu_reply_hard_bounce)
                         .setVisible(experiments && (BuildConfig.DEBUG ||
                                 (message.return_path != null && message.return_path.length > 0)));
                 popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
@@ -2477,8 +2477,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             case R.id.menu_reply_receipt:
                                 onMenuDsn(message, EntityMessage.DSN_RECEIPT);
                                 return true;
-                            case R.id.menu_reply_address_unknown:
-                                onMenuDsn(message, EntityMessage.DSN_ADDRESS_UNKNOWN);
+                            case R.id.menu_reply_hard_bounce:
+                                onMenuDsn(message, EntityMessage.DSN_HARD_BOUNCE);
                                 return true;
                             case R.id.menu_forward:
                                 onMenuReply(message, "forward");
